@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ThreatIntelSetArgs', 'ThreatIntelSet']
@@ -29,45 +29,14 @@ class ThreatIntelSetArgs:
         :param pulumi.Input[str] name: The friendly name to identify the ThreatIntelSet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ThreatIntelSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activate=activate,
-            detector_id=detector_id,
-            format=format,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activate: Optional[pulumi.Input[bool]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             format: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if activate is None:
-            raise TypeError("Missing 'activate' argument")
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if detector_id is None:
-            raise TypeError("Missing 'detector_id' argument")
-        if format is None:
-            raise TypeError("Missing 'format' argument")
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-
-        _setter("activate", activate)
-        _setter("detector_id", detector_id)
-        _setter("format", format)
-        _setter("location", location)
+        pulumi.set(__self__, "activate", activate)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -164,54 +133,25 @@ class _ThreatIntelSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ThreatIntelSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activate=activate,
-            arn=arn,
-            detector_id=detector_id,
-            format=format,
-            location=location,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activate: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             format: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if activate is not None:
-            _setter("activate", activate)
+            pulumi.set(__self__, "activate", activate)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if detector_id is not None:
-            _setter("detector_id", detector_id)
+            pulumi.set(__self__, "detector_id", detector_id)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -424,10 +364,6 @@ class ThreatIntelSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThreatIntelSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

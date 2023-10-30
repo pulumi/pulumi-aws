@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,8 +22,7 @@ class ProvisioningTemplateArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
@@ -33,57 +32,19 @@ class ProvisioningTemplateArgs:
         :param pulumi.Input[str] name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The type you define in a provisioning template.
         """
-        ProvisioningTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provisioning_role_arn=provisioning_role_arn,
-            template_body=template_body,
-            description=description,
-            enabled=enabled,
-            name=name,
-            pre_provisioning_hook=pre_provisioning_hook,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-             template_body: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if provisioning_role_arn is None and 'provisioningRoleArn' in kwargs:
-            provisioning_role_arn = kwargs['provisioningRoleArn']
-        if provisioning_role_arn is None:
-            raise TypeError("Missing 'provisioning_role_arn' argument")
-        if template_body is None and 'templateBody' in kwargs:
-            template_body = kwargs['templateBody']
-        if template_body is None:
-            raise TypeError("Missing 'template_body' argument")
-        if pre_provisioning_hook is None and 'preProvisioningHook' in kwargs:
-            pre_provisioning_hook = kwargs['preProvisioningHook']
-
-        _setter("provisioning_role_arn", provisioning_role_arn)
-        _setter("template_body", template_body)
+        pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
+        pulumi.set(__self__, "template_body", template_body)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pre_provisioning_hook is not None:
-            _setter("pre_provisioning_hook", pre_provisioning_hook)
+            pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
         if tags is not None:
-            _setter("tags", tags)
-        if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
@@ -169,18 +130,6 @@ class ProvisioningTemplateArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type you define in a provisioning template.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 @pulumi.input_type
 class _ProvisioningTemplateState:
@@ -194,8 +143,7 @@ class _ProvisioningTemplateState:
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template_body: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 template_body: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProvisioningTemplate resources.
         :param pulumi.Input[str] arn: The ARN that identifies the provisioning template.
@@ -208,74 +156,30 @@ class _ProvisioningTemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
-        :param pulumi.Input[str] type: The type you define in a provisioning template.
         """
-        _ProvisioningTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            default_version_id=default_version_id,
-            description=description,
-            enabled=enabled,
-            name=name,
-            pre_provisioning_hook=pre_provisioning_hook,
-            provisioning_role_arn=provisioning_role_arn,
-            tags=tags,
-            tags_all=tags_all,
-            template_body=template_body,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             default_version_id: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']] = None,
-             provisioning_role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             template_body: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_version_id is None and 'defaultVersionId' in kwargs:
-            default_version_id = kwargs['defaultVersionId']
-        if pre_provisioning_hook is None and 'preProvisioningHook' in kwargs:
-            pre_provisioning_hook = kwargs['preProvisioningHook']
-        if provisioning_role_arn is None and 'provisioningRoleArn' in kwargs:
-            provisioning_role_arn = kwargs['provisioningRoleArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if template_body is None and 'templateBody' in kwargs:
-            template_body = kwargs['templateBody']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if default_version_id is not None:
-            _setter("default_version_id", default_version_id)
+            pulumi.set(__self__, "default_version_id", default_version_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pre_provisioning_hook is not None:
-            _setter("pre_provisioning_hook", pre_provisioning_hook)
+            pulumi.set(__self__, "pre_provisioning_hook", pre_provisioning_hook)
         if provisioning_role_arn is not None:
-            _setter("provisioning_role_arn", provisioning_role_arn)
+            pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if template_body is not None:
-            _setter("template_body", template_body)
-        if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "template_body", template_body)
 
     @property
     @pulumi.getter
@@ -400,18 +304,6 @@ class _ProvisioningTemplateState:
     def template_body(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_body", value)
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type you define in a provisioning template.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
 
 class ProvisioningTemplate(pulumi.CustomResource):
     @overload
@@ -425,7 +317,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
@@ -502,7 +393,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
-        :param pulumi.Input[str] type: The type you define in a provisioning template.
         """
         ...
     @overload
@@ -586,10 +476,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProvisioningTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -602,7 +488,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  provisioning_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -615,7 +500,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
-            pre_provisioning_hook = _utilities.configure(pre_provisioning_hook, ProvisioningTemplatePreProvisioningHookArgs, True)
             __props__.__dict__["pre_provisioning_hook"] = pre_provisioning_hook
             if provisioning_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_role_arn'")
@@ -624,7 +508,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
             if template_body is None and not opts.urn:
                 raise TypeError("Missing required property 'template_body'")
             __props__.__dict__["template_body"] = template_body
-            __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_version_id"] = None
             __props__.__dict__["tags_all"] = None
@@ -649,8 +532,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
             provisioning_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            template_body: Optional[pulumi.Input[str]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'ProvisioningTemplate':
+            template_body: Optional[pulumi.Input[str]] = None) -> 'ProvisioningTemplate':
         """
         Get an existing ProvisioningTemplate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -668,7 +550,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
-        :param pulumi.Input[str] type: The type you define in a provisioning template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -684,7 +565,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["template_body"] = template_body
-        __props__.__dict__["type"] = type
         return ProvisioningTemplate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -769,12 +649,4 @@ class ProvisioningTemplate(pulumi.CustomResource):
         The JSON formatted contents of the fleet provisioning template.
         """
         return pulumi.get(self, "template_body")
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
-        """
-        The type you define in a provisioning template.
-        """
-        return pulumi.get(self, "type")
 

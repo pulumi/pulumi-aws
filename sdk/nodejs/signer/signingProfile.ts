@@ -78,7 +78,7 @@ export class SigningProfile extends pulumi.CustomResource {
     /**
      * A signing profile name prefix. The provider will generate a unique suffix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A human-readable name for the signing platform associated with the signing profile.
      */

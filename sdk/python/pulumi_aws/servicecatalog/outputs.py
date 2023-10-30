@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -60,45 +60,18 @@ class ProductProvisioningArtifactParameters(dict):
         :param str template_url: Template source as URL of the CloudFormation template in Amazon S3.
         :param str type: Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         """
-        ProductProvisioningArtifactParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            disable_template_validation=disable_template_validation,
-            name=name,
-            template_physical_id=template_physical_id,
-            template_url=template_url,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             disable_template_validation: Optional[bool] = None,
-             name: Optional[str] = None,
-             template_physical_id: Optional[str] = None,
-             template_url: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if disable_template_validation is None and 'disableTemplateValidation' in kwargs:
-            disable_template_validation = kwargs['disableTemplateValidation']
-        if template_physical_id is None and 'templatePhysicalId' in kwargs:
-            template_physical_id = kwargs['templatePhysicalId']
-        if template_url is None and 'templateUrl' in kwargs:
-            template_url = kwargs['templateUrl']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_template_validation is not None:
-            _setter("disable_template_validation", disable_template_validation)
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if template_physical_id is not None:
-            _setter("template_physical_id", template_physical_id)
+            pulumi.set(__self__, "template_physical_id", template_physical_id)
         if template_url is not None:
-            _setter("template_url", template_url)
+            pulumi.set(__self__, "template_url", template_url)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -160,27 +133,12 @@ class ProvisionedProductOutput(dict):
         :param str key: Parameter key.
         :param str value: Parameter value.
         """
-        ProvisionedProductOutput._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -235,30 +193,11 @@ class ProvisionedProductProvisioningParameter(dict):
         :param bool use_previous_value: Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
         :param str value: Parameter value.
         """
-        ProvisionedProductProvisioningParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            use_previous_value=use_previous_value,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             use_previous_value: Optional[bool] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if use_previous_value is None and 'usePreviousValue' in kwargs:
-            use_previous_value = kwargs['usePreviousValue']
-
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if use_previous_value is not None:
-            _setter("use_previous_value", use_previous_value)
+            pulumi.set(__self__, "use_previous_value", use_previous_value)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -325,47 +264,18 @@ class ProvisionedProductStackSetProvisioningPreferences(dict):
         :param int max_concurrency_percentage: Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
         :param Sequence[str] regions: One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
         """
-        ProvisionedProductStackSetProvisioningPreferences._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accounts=accounts,
-            failure_tolerance_count=failure_tolerance_count,
-            failure_tolerance_percentage=failure_tolerance_percentage,
-            max_concurrency_count=max_concurrency_count,
-            max_concurrency_percentage=max_concurrency_percentage,
-            regions=regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accounts: Optional[Sequence[str]] = None,
-             failure_tolerance_count: Optional[int] = None,
-             failure_tolerance_percentage: Optional[int] = None,
-             max_concurrency_count: Optional[int] = None,
-             max_concurrency_percentage: Optional[int] = None,
-             regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if failure_tolerance_count is None and 'failureToleranceCount' in kwargs:
-            failure_tolerance_count = kwargs['failureToleranceCount']
-        if failure_tolerance_percentage is None and 'failureTolerancePercentage' in kwargs:
-            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
-        if max_concurrency_count is None and 'maxConcurrencyCount' in kwargs:
-            max_concurrency_count = kwargs['maxConcurrencyCount']
-        if max_concurrency_percentage is None and 'maxConcurrencyPercentage' in kwargs:
-            max_concurrency_percentage = kwargs['maxConcurrencyPercentage']
-
         if accounts is not None:
-            _setter("accounts", accounts)
+            pulumi.set(__self__, "accounts", accounts)
         if failure_tolerance_count is not None:
-            _setter("failure_tolerance_count", failure_tolerance_count)
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
-            _setter("failure_tolerance_percentage", failure_tolerance_percentage)
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
         if max_concurrency_count is not None:
-            _setter("max_concurrency_count", max_concurrency_count)
+            pulumi.set(__self__, "max_concurrency_count", max_concurrency_count)
         if max_concurrency_percentage is not None:
-            _setter("max_concurrency_percentage", max_concurrency_percentage)
+            pulumi.set(__self__, "max_concurrency_percentage", max_concurrency_percentage)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter
@@ -448,39 +358,14 @@ class ServiceActionDefinition(dict):
         :param str parameters: List of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}]` or `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]`.
         :param str type: Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
         """
-        ServiceActionDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-            assume_role=assume_role,
-            parameters=parameters,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             assume_role: Optional[str] = None,
-             parameters: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if assume_role is None and 'assumeRole' in kwargs:
-            assume_role = kwargs['assumeRole']
-
-        _setter("name", name)
-        _setter("version", version)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
         if assume_role is not None:
-            _setter("assume_role", assume_role)
+            pulumi.set(__self__, "assume_role", assume_role)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -536,39 +421,10 @@ class GetLaunchPathsSummaryResult(dict):
         :param str path_id: Identifier of the product path.
         :param Mapping[str, str] tags: Tags associated with this product path.
         """
-        GetLaunchPathsSummaryResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            constraint_summaries=constraint_summaries,
-            name=name,
-            path_id=path_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             constraint_summaries: Optional[Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult']] = None,
-             name: Optional[str] = None,
-             path_id: Optional[str] = None,
-             tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if constraint_summaries is None and 'constraintSummaries' in kwargs:
-            constraint_summaries = kwargs['constraintSummaries']
-        if constraint_summaries is None:
-            raise TypeError("Missing 'constraint_summaries' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if path_id is None and 'pathId' in kwargs:
-            path_id = kwargs['pathId']
-        if path_id is None:
-            raise TypeError("Missing 'path_id' argument")
-        if tags is None:
-            raise TypeError("Missing 'tags' argument")
-
-        _setter("constraint_summaries", constraint_summaries)
-        _setter("name", name)
-        _setter("path_id", path_id)
-        _setter("tags", tags)
+        pulumi.set(__self__, "constraint_summaries", constraint_summaries)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "path_id", path_id)
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="constraintSummaries")
@@ -612,25 +468,8 @@ class GetLaunchPathsSummaryConstraintSummaryResult(dict):
         :param str description: Description of the constraint.
         :param str type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
-        GetLaunchPathsSummaryConstraintSummaryResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("description", description)
-        _setter("type", type)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -667,51 +506,12 @@ class GetPortfolioConstraintsDetailResult(dict):
         :param str product_id: Product identifier.
         :param str type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         """
-        GetPortfolioConstraintsDetailResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            constraint_id=constraint_id,
-            description=description,
-            owner=owner,
-            portfolio_id=portfolio_id,
-            product_id=product_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             constraint_id: Optional[str] = None,
-             description: Optional[str] = None,
-             owner: Optional[str] = None,
-             portfolio_id: Optional[str] = None,
-             product_id: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if constraint_id is None and 'constraintId' in kwargs:
-            constraint_id = kwargs['constraintId']
-        if constraint_id is None:
-            raise TypeError("Missing 'constraint_id' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if owner is None:
-            raise TypeError("Missing 'owner' argument")
-        if portfolio_id is None and 'portfolioId' in kwargs:
-            portfolio_id = kwargs['portfolioId']
-        if portfolio_id is None:
-            raise TypeError("Missing 'portfolio_id' argument")
-        if product_id is None and 'productId' in kwargs:
-            product_id = kwargs['productId']
-        if product_id is None:
-            raise TypeError("Missing 'product_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("constraint_id", constraint_id)
-        _setter("description", description)
-        _setter("owner", owner)
-        _setter("portfolio_id", portfolio_id)
-        _setter("product_id", product_id)
-        _setter("type", type)
+        pulumi.set(__self__, "constraint_id", constraint_id)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "portfolio_id", portfolio_id)
+        pulumi.set(__self__, "product_id", product_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="constraintId")
@@ -780,52 +580,13 @@ class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
         :param str name: The name of the provisioning artifact.
         :param str type: The type of provisioning artifact.
         """
-        GetProvisioningArtifactsProvisioningArtifactDetailResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            created_time=created_time,
-            description=description,
-            guidance=guidance,
-            id=id,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[bool] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             guidance: Optional[str] = None,
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active is None:
-            raise TypeError("Missing 'active' argument")
-        if created_time is None and 'createdTime' in kwargs:
-            created_time = kwargs['createdTime']
-        if created_time is None:
-            raise TypeError("Missing 'created_time' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if guidance is None:
-            raise TypeError("Missing 'guidance' argument")
-        if id is None:
-            raise TypeError("Missing 'id' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("active", active)
-        _setter("created_time", created_time)
-        _setter("description", description)
-        _setter("guidance", guidance)
-        _setter("id", id)
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "created_time", created_time)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "guidance", guidance)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

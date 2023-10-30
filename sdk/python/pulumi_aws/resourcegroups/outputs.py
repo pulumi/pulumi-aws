@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -25,24 +25,9 @@ class GroupConfiguration(dict):
         :param str type: Specifies the type of group configuration item.
         :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
         """
-        GroupConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             parameters: Optional[Sequence['outputs.GroupConfigurationParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -70,25 +55,8 @@ class GroupConfigurationParameter(dict):
         :param str name: The name of the group configuration parameter.
         :param Sequence[str] values: The value or values to be used for the specified parameter.
         """
-        GroupConfigurationParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-
-        _setter("name", name)
-        _setter("values", values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -116,24 +84,9 @@ class GroupResourceQuery(dict):
         :param str query: The resource query as a JSON string.
         :param str type: The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
         """
-        GroupResourceQuery._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query=query,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query: Optional[str] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query is None:
-            raise TypeError("Missing 'query' argument")
-
-        _setter("query", query)
+        pulumi.set(__self__, "query", query)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

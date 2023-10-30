@@ -188,12 +188,6 @@ namespace Pulumi.Aws.LB
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-        /// </summary>
-        [Output("dnsRecordClientRoutingPolicy")]
-        public Output<string?> DnsRecordClientRoutingPolicy { get; private set; } = null!;
-
-        /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Output("dropInvalidHeaderFields")]
@@ -271,7 +265,7 @@ namespace Pulumi.Aws.LB
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
@@ -397,12 +391,6 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("desyncMitigationMode")]
         public Input<string>? DesyncMitigationMode { get; set; }
-
-        /// <summary>
-        /// Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-        /// </summary>
-        [Input("dnsRecordClientRoutingPolicy")]
-        public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
 
         /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -589,12 +577,6 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
-
-        /// <summary>
-        /// Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-        /// </summary>
-        [Input("dnsRecordClientRoutingPolicy")]
-        public Input<string>? DnsRecordClientRoutingPolicy { get; set; }
 
         /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VideoStreamArgs', 'VideoStream']
@@ -30,47 +30,18 @@ class VideoStreamArgs:
                AWS account and region the Stream is created in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VideoStreamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_retention_in_hours=data_retention_in_hours,
-            device_name=device_name,
-            kms_key_id=kms_key_id,
-            media_type=media_type,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_retention_in_hours: Optional[pulumi.Input[int]] = None,
-             device_name: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             media_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if data_retention_in_hours is None and 'dataRetentionInHours' in kwargs:
-            data_retention_in_hours = kwargs['dataRetentionInHours']
-        if device_name is None and 'deviceName' in kwargs:
-            device_name = kwargs['deviceName']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if media_type is None and 'mediaType' in kwargs:
-            media_type = kwargs['mediaType']
-
         if data_retention_in_hours is not None:
-            _setter("data_retention_in_hours", data_retention_in_hours)
+            pulumi.set(__self__, "data_retention_in_hours", data_retention_in_hours)
         if device_name is not None:
-            _setter("device_name", device_name)
+            pulumi.set(__self__, "device_name", device_name)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if media_type is not None:
-            _setter("media_type", media_type)
+            pulumi.set(__self__, "media_type", media_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataRetentionInHours")
@@ -173,70 +144,29 @@ class _VideoStreamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The version of the stream.
         """
-        _VideoStreamState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            creation_time=creation_time,
-            data_retention_in_hours=data_retention_in_hours,
-            device_name=device_name,
-            kms_key_id=kms_key_id,
-            media_type=media_type,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             creation_time: Optional[pulumi.Input[str]] = None,
-             data_retention_in_hours: Optional[pulumi.Input[int]] = None,
-             device_name: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             media_type: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_time is None and 'creationTime' in kwargs:
-            creation_time = kwargs['creationTime']
-        if data_retention_in_hours is None and 'dataRetentionInHours' in kwargs:
-            data_retention_in_hours = kwargs['dataRetentionInHours']
-        if device_name is None and 'deviceName' in kwargs:
-            device_name = kwargs['deviceName']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if media_type is None and 'mediaType' in kwargs:
-            media_type = kwargs['mediaType']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if creation_time is not None:
-            _setter("creation_time", creation_time)
+            pulumi.set(__self__, "creation_time", creation_time)
         if data_retention_in_hours is not None:
-            _setter("data_retention_in_hours", data_retention_in_hours)
+            pulumi.set(__self__, "data_retention_in_hours", data_retention_in_hours)
         if device_name is not None:
-            _setter("device_name", device_name)
+            pulumi.set(__self__, "device_name", device_name)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if media_type is not None:
-            _setter("media_type", media_type)
+            pulumi.set(__self__, "media_type", media_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -457,10 +387,6 @@ class VideoStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VideoStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

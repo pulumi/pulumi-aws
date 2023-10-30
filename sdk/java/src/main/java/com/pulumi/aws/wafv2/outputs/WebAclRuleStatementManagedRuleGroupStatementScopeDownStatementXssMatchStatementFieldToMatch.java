@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatement
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader;
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString;
@@ -42,11 +41,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader> headers;
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
@@ -108,13 +102,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
-    }
-    /**
      * @return Inspect the request body as JSON. See `json_body` for details.
      * 
      */
@@ -170,7 +157,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody body;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies cookies;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader> headers;
-        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod method;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString queryString;
@@ -184,7 +170,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
-    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -215,11 +200,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         public Builder headers(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
-        }
-        @CustomType.Setter
-        public Builder ja3Fingerprint(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
-            this.ja3Fingerprint = ja3Fingerprint;
-            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -257,7 +237,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

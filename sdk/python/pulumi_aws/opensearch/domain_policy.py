@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainPolicyArgs', 'DomainPolicy']
@@ -21,29 +21,8 @@ class DomainPolicyArgs:
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[str] domain_name: Name of the domain.
         """
-        DomainPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_policies=access_policies,
-            domain_name=domain_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_policies: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_policies is None and 'accessPolicies' in kwargs:
-            access_policies = kwargs['accessPolicies']
-        if access_policies is None:
-            raise TypeError("Missing 'access_policies' argument")
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if domain_name is None:
-            raise TypeError("Missing 'domain_name' argument")
-
-        _setter("access_policies", access_policies)
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "access_policies", access_policies)
+        pulumi.set(__self__, "domain_name", domain_name)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -80,27 +59,10 @@ class _DomainPolicyState:
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
         :param pulumi.Input[str] domain_name: Name of the domain.
         """
-        _DomainPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_policies=access_policies,
-            domain_name=domain_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_policies: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_policies is None and 'accessPolicies' in kwargs:
-            access_policies = kwargs['accessPolicies']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-
         if access_policies is not None:
-            _setter("access_policies", access_policies)
+            pulumi.set(__self__, "access_policies", access_policies)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
 
     @property
     @pulumi.getter(name="accessPolicies")
@@ -138,32 +100,6 @@ class DomainPolicy(pulumi.CustomResource):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
-            domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain
@@ -178,32 +114,6 @@ class DomainPolicy(pulumi.CustomResource):
         """
         Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
-        main_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
-        main_domain_policy = aws.opensearch.DomainPolicy("mainDomainPolicy",
-            domain_name=example.domain_name,
-            access_policies=main_policy_document.json)
-        ```
-
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,10 +124,6 @@ class DomainPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

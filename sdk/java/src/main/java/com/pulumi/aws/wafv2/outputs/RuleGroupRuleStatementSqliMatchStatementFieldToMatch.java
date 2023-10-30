@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFiel
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader;
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod;
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString;
@@ -42,7 +41,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
      * 
      */
     private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
-    private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -103,9 +101,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
     public List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    public Optional<RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
-    }
     /**
      * @return Inspect the request body as JSON. See JSON Body for details.
      * 
@@ -162,7 +157,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody body;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies cookies;
         private @Nullable List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader> headers;
-        private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod method;
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString queryString;
@@ -176,7 +170,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
     	      this.body = defaults.body;
     	      this.cookies = defaults.cookies;
     	      this.headers = defaults.headers;
-    	      this.ja3Fingerprint = defaults.ja3Fingerprint;
     	      this.jsonBody = defaults.jsonBody;
     	      this.method = defaults.method;
     	      this.queryString = defaults.queryString;
@@ -207,11 +200,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
         }
         public Builder headers(RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader... headers) {
             return headers(List.of(headers));
-        }
-        @CustomType.Setter
-        public Builder ja3Fingerprint(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint) {
-            this.ja3Fingerprint = ja3Fingerprint;
-            return this;
         }
         @CustomType.Setter
         public Builder jsonBody(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody jsonBody) {
@@ -249,7 +237,6 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
             o.body = body;
             o.cookies = cookies;
             o.headers = headers;
-            o.ja3Fingerprint = ja3Fingerprint;
             o.jsonBody = jsonBody;
             o.method = method;
             o.queryString = queryString;

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,29 +23,8 @@ class BackupPolicyArgs:
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
-        BackupPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy=backup_policy,
-            file_system_id=file_system_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']] = None,
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy is None and 'backupPolicy' in kwargs:
-            backup_policy = kwargs['backupPolicy']
-        if backup_policy is None:
-            raise TypeError("Missing 'backup_policy' argument")
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-        if file_system_id is None:
-            raise TypeError("Missing 'file_system_id' argument")
-
-        _setter("backup_policy", backup_policy)
-        _setter("file_system_id", file_system_id)
+        pulumi.set(__self__, "backup_policy", backup_policy)
+        pulumi.set(__self__, "file_system_id", file_system_id)
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -82,27 +61,10 @@ class _BackupPolicyState:
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
-        _BackupPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backup_policy=backup_policy,
-            file_system_id=file_system_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']] = None,
-             file_system_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backup_policy is None and 'backupPolicy' in kwargs:
-            backup_policy = kwargs['backupPolicy']
-        if file_system_id is None and 'fileSystemId' in kwargs:
-            file_system_id = kwargs['fileSystemId']
-
         if backup_policy is not None:
-            _setter("backup_policy", backup_policy)
+            pulumi.set(__self__, "backup_policy", backup_policy)
         if file_system_id is not None:
-            _setter("file_system_id", file_system_id)
+            pulumi.set(__self__, "file_system_id", file_system_id)
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -210,10 +172,6 @@ class BackupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BackupPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,7 +188,6 @@ class BackupPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
-            backup_policy = _utilities.configure(backup_policy, BackupPolicyBackupPolicyArgs, True)
             if backup_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy'")
             __props__.__dict__["backup_policy"] = backup_policy

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,27 +23,8 @@ class TagArgs:
         :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
         :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
         """
-        TagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autoscaling_group_name=autoscaling_group_name,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-             tag: Optional[pulumi.Input['TagTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
-            autoscaling_group_name = kwargs['autoscalingGroupName']
-        if autoscaling_group_name is None:
-            raise TypeError("Missing 'autoscaling_group_name' argument")
-        if tag is None:
-            raise TypeError("Missing 'tag' argument")
-
-        _setter("autoscaling_group_name", autoscaling_group_name)
-        _setter("tag", tag)
+        pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
+        pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -80,25 +61,10 @@ class _TagState:
         :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
         :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
         """
-        _TagState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autoscaling_group_name=autoscaling_group_name,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-             tag: Optional[pulumi.Input['TagTagArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autoscaling_group_name is None and 'autoscalingGroupName' in kwargs:
-            autoscaling_group_name = kwargs['autoscalingGroupName']
-
         if autoscaling_group_name is not None:
-            _setter("autoscaling_group_name", autoscaling_group_name)
+            pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -184,10 +150,6 @@ class Tag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,7 +169,6 @@ class Tag(pulumi.CustomResource):
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
-            tag = _utilities.configure(tag, TagTagArgs, True)
             if tag is None and not opts.urn:
                 raise TypeError("Missing required property 'tag'")
             __props__.__dict__["tag"] = tag

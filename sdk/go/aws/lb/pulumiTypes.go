@@ -5767,127 +5767,6 @@ func (o TargetGroupTargetFailoverArrayOutput) Index(i pulumi.IntInput) TargetGro
 	}).(TargetGroupTargetFailoverOutput)
 }
 
-type TargetGroupTargetHealthState struct {
-	// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-	EnableUnhealthyConnectionTermination bool `pulumi:"enableUnhealthyConnectionTermination"`
-}
-
-// TargetGroupTargetHealthStateInput is an input type that accepts TargetGroupTargetHealthStateArgs and TargetGroupTargetHealthStateOutput values.
-// You can construct a concrete instance of `TargetGroupTargetHealthStateInput` via:
-//
-//	TargetGroupTargetHealthStateArgs{...}
-type TargetGroupTargetHealthStateInput interface {
-	pulumi.Input
-
-	ToTargetGroupTargetHealthStateOutput() TargetGroupTargetHealthStateOutput
-	ToTargetGroupTargetHealthStateOutputWithContext(context.Context) TargetGroupTargetHealthStateOutput
-}
-
-type TargetGroupTargetHealthStateArgs struct {
-	// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-	EnableUnhealthyConnectionTermination pulumi.BoolInput `pulumi:"enableUnhealthyConnectionTermination"`
-}
-
-func (TargetGroupTargetHealthStateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTargetHealthState)(nil)).Elem()
-}
-
-func (i TargetGroupTargetHealthStateArgs) ToTargetGroupTargetHealthStateOutput() TargetGroupTargetHealthStateOutput {
-	return i.ToTargetGroupTargetHealthStateOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTargetHealthStateArgs) ToTargetGroupTargetHealthStateOutputWithContext(ctx context.Context) TargetGroupTargetHealthStateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetHealthStateOutput)
-}
-
-func (i TargetGroupTargetHealthStateArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTargetHealthState] {
-	return pulumix.Output[TargetGroupTargetHealthState]{
-		OutputState: i.ToTargetGroupTargetHealthStateOutputWithContext(ctx).OutputState,
-	}
-}
-
-// TargetGroupTargetHealthStateArrayInput is an input type that accepts TargetGroupTargetHealthStateArray and TargetGroupTargetHealthStateArrayOutput values.
-// You can construct a concrete instance of `TargetGroupTargetHealthStateArrayInput` via:
-//
-//	TargetGroupTargetHealthStateArray{ TargetGroupTargetHealthStateArgs{...} }
-type TargetGroupTargetHealthStateArrayInput interface {
-	pulumi.Input
-
-	ToTargetGroupTargetHealthStateArrayOutput() TargetGroupTargetHealthStateArrayOutput
-	ToTargetGroupTargetHealthStateArrayOutputWithContext(context.Context) TargetGroupTargetHealthStateArrayOutput
-}
-
-type TargetGroupTargetHealthStateArray []TargetGroupTargetHealthStateInput
-
-func (TargetGroupTargetHealthStateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTargetHealthState)(nil)).Elem()
-}
-
-func (i TargetGroupTargetHealthStateArray) ToTargetGroupTargetHealthStateArrayOutput() TargetGroupTargetHealthStateArrayOutput {
-	return i.ToTargetGroupTargetHealthStateArrayOutputWithContext(context.Background())
-}
-
-func (i TargetGroupTargetHealthStateArray) ToTargetGroupTargetHealthStateArrayOutputWithContext(ctx context.Context) TargetGroupTargetHealthStateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetHealthStateArrayOutput)
-}
-
-func (i TargetGroupTargetHealthStateArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTargetHealthState] {
-	return pulumix.Output[[]TargetGroupTargetHealthState]{
-		OutputState: i.ToTargetGroupTargetHealthStateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
-type TargetGroupTargetHealthStateOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTargetHealthStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetGroupTargetHealthState)(nil)).Elem()
-}
-
-func (o TargetGroupTargetHealthStateOutput) ToTargetGroupTargetHealthStateOutput() TargetGroupTargetHealthStateOutput {
-	return o
-}
-
-func (o TargetGroupTargetHealthStateOutput) ToTargetGroupTargetHealthStateOutputWithContext(ctx context.Context) TargetGroupTargetHealthStateOutput {
-	return o
-}
-
-func (o TargetGroupTargetHealthStateOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTargetHealthState] {
-	return pulumix.Output[TargetGroupTargetHealthState]{
-		OutputState: o.OutputState,
-	}
-}
-
-// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-func (o TargetGroupTargetHealthStateOutput) EnableUnhealthyConnectionTermination() pulumi.BoolOutput {
-	return o.ApplyT(func(v TargetGroupTargetHealthState) bool { return v.EnableUnhealthyConnectionTermination }).(pulumi.BoolOutput)
-}
-
-type TargetGroupTargetHealthStateArrayOutput struct{ *pulumi.OutputState }
-
-func (TargetGroupTargetHealthStateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetGroupTargetHealthState)(nil)).Elem()
-}
-
-func (o TargetGroupTargetHealthStateArrayOutput) ToTargetGroupTargetHealthStateArrayOutput() TargetGroupTargetHealthStateArrayOutput {
-	return o
-}
-
-func (o TargetGroupTargetHealthStateArrayOutput) ToTargetGroupTargetHealthStateArrayOutputWithContext(ctx context.Context) TargetGroupTargetHealthStateArrayOutput {
-	return o
-}
-
-func (o TargetGroupTargetHealthStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTargetHealthState] {
-	return pulumix.Output[[]TargetGroupTargetHealthState]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o TargetGroupTargetHealthStateArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetHealthStateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetGroupTargetHealthState {
-		return vs[0].([]TargetGroupTargetHealthState)[vs[1].(int)]
-	}).(TargetGroupTargetHealthStateOutput)
-}
-
 type GetListenerDefaultAction struct {
 	AuthenticateCognitos []GetListenerDefaultActionAuthenticateCognito `pulumi:"authenticateCognitos"`
 	AuthenticateOidcs    []GetListenerDefaultActionAuthenticateOidc    `pulumi:"authenticateOidcs"`
@@ -7514,8 +7393,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessPtrInput)(nil)).Elem(), TargetGroupStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverInput)(nil)).Elem(), TargetGroupTargetFailoverArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetFailoverArrayInput)(nil)).Elem(), TargetGroupTargetFailoverArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetHealthStateInput)(nil)).Elem(), TargetGroupTargetHealthStateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetHealthStateArrayInput)(nil)).Elem(), TargetGroupTargetHealthStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionInput)(nil)).Elem(), GetListenerDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionArrayInput)(nil)).Elem(), GetListenerDefaultActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateCognitoInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateCognitoArgs{})
@@ -7593,8 +7470,6 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupStickinessPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetFailoverOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetFailoverArrayOutput{})
-	pulumi.RegisterOutputType(TargetGroupTargetHealthStateOutput{})
-	pulumi.RegisterOutputType(TargetGroupTargetHealthStateArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionAuthenticateCognitoOutput{})

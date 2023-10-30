@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -48,21 +48,8 @@ class ConfigurationSetDeliveryOptions(dict):
         """
         :param str tls_policy: Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
         """
-        ConfigurationSetDeliveryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls_policy=tls_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls_policy is None and 'tlsPolicy' in kwargs:
-            tls_policy = kwargs['tlsPolicy']
-
         if tls_policy is not None:
-            _setter("tls_policy", tls_policy)
+            pulumi.set(__self__, "tls_policy", tls_policy)
 
     @property
     @pulumi.getter(name="tlsPolicy")
@@ -97,21 +84,8 @@ class ConfigurationSetTrackingOptions(dict):
         """
         :param str custom_redirect_domain: Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
         """
-        ConfigurationSetTrackingOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_redirect_domain=custom_redirect_domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_redirect_domain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_redirect_domain is None and 'customRedirectDomain' in kwargs:
-            custom_redirect_domain = kwargs['customRedirectDomain']
-
         if custom_redirect_domain is not None:
-            _setter("custom_redirect_domain", custom_redirect_domain)
+            pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -154,36 +128,9 @@ class EventDestinationCloudwatchDestination(dict):
         :param str dimension_name: The name for the dimension
         :param str value_source: The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
         """
-        EventDestinationCloudwatchDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value=default_value,
-            dimension_name=dimension_name,
-            value_source=value_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value: Optional[str] = None,
-             dimension_name: Optional[str] = None,
-             value_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_value is None and 'defaultValue' in kwargs:
-            default_value = kwargs['defaultValue']
-        if default_value is None:
-            raise TypeError("Missing 'default_value' argument")
-        if dimension_name is None and 'dimensionName' in kwargs:
-            dimension_name = kwargs['dimensionName']
-        if dimension_name is None:
-            raise TypeError("Missing 'dimension_name' argument")
-        if value_source is None and 'valueSource' in kwargs:
-            value_source = kwargs['valueSource']
-        if value_source is None:
-            raise TypeError("Missing 'value_source' argument")
-
-        _setter("default_value", default_value)
-        _setter("dimension_name", dimension_name)
-        _setter("value_source", value_source)
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "dimension_name", dimension_name)
+        pulumi.set(__self__, "value_source", value_source)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -238,29 +185,8 @@ class EventDestinationKinesisDestination(dict):
         :param str role_arn: The ARN of the role that has permissions to access the Kinesis Stream
         :param str stream_arn: The ARN of the Kinesis Stream
         """
-        EventDestinationKinesisDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            stream_arn=stream_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[str] = None,
-             stream_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if stream_arn is None and 'streamArn' in kwargs:
-            stream_arn = kwargs['streamArn']
-        if stream_arn is None:
-            raise TypeError("Missing 'stream_arn' argument")
-
-        _setter("role_arn", role_arn)
-        _setter("stream_arn", stream_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -303,22 +229,7 @@ class EventDestinationSnsDestination(dict):
         """
         :param str topic_arn: The ARN of the SNS topic
         """
-        EventDestinationSnsDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-        if topic_arn is None:
-            raise TypeError("Missing 'topic_arn' argument")
-
-        _setter("topic_arn", topic_arn)
+        pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -359,34 +270,9 @@ class ReceiptRuleAddHeaderAction(dict):
         :param str header_value: The value of the header to add
         :param int position: The position of the action in the receipt rule
         """
-        ReceiptRuleAddHeaderAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_name=header_name,
-            header_value=header_value,
-            position=position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_name: Optional[str] = None,
-             header_value: Optional[str] = None,
-             position: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if header_name is None and 'headerName' in kwargs:
-            header_name = kwargs['headerName']
-        if header_name is None:
-            raise TypeError("Missing 'header_name' argument")
-        if header_value is None and 'headerValue' in kwargs:
-            header_value = kwargs['headerValue']
-        if header_value is None:
-            raise TypeError("Missing 'header_value' argument")
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-
-        _setter("header_name", header_name)
-        _setter("header_value", header_value)
-        _setter("position", position)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "header_value", header_value)
+        pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="headerName")
@@ -451,49 +337,14 @@ class ReceiptRuleBounceAction(dict):
         :param str status_code: The RFC 3463 SMTP enhanced status code
         :param str topic_arn: The ARN of an SNS topic to notify
         """
-        ReceiptRuleBounceAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            position=position,
-            sender=sender,
-            smtp_reply_code=smtp_reply_code,
-            status_code=status_code,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: Optional[str] = None,
-             position: Optional[int] = None,
-             sender: Optional[str] = None,
-             smtp_reply_code: Optional[str] = None,
-             status_code: Optional[str] = None,
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if sender is None:
-            raise TypeError("Missing 'sender' argument")
-        if smtp_reply_code is None and 'smtpReplyCode' in kwargs:
-            smtp_reply_code = kwargs['smtpReplyCode']
-        if smtp_reply_code is None:
-            raise TypeError("Missing 'smtp_reply_code' argument")
-        if status_code is None and 'statusCode' in kwargs:
-            status_code = kwargs['statusCode']
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("message", message)
-        _setter("position", position)
-        _setter("sender", sender)
-        _setter("smtp_reply_code", smtp_reply_code)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "position", position)
+        pulumi.set(__self__, "sender", sender)
+        pulumi.set(__self__, "smtp_reply_code", smtp_reply_code)
         if status_code is not None:
-            _setter("status_code", status_code)
+            pulumi.set(__self__, "status_code", status_code)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -578,39 +429,12 @@ class ReceiptRuleLambdaAction(dict):
         :param str invocation_type: `Event` or `RequestResponse`
         :param str topic_arn: The ARN of an SNS topic to notify
         """
-        ReceiptRuleLambdaAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_arn=function_arn,
-            position=position,
-            invocation_type=invocation_type,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_arn: Optional[str] = None,
-             position: Optional[int] = None,
-             invocation_type: Optional[str] = None,
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if function_arn is None and 'functionArn' in kwargs:
-            function_arn = kwargs['functionArn']
-        if function_arn is None:
-            raise TypeError("Missing 'function_arn' argument")
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if invocation_type is None and 'invocationType' in kwargs:
-            invocation_type = kwargs['invocationType']
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("function_arn", function_arn)
-        _setter("position", position)
+        pulumi.set(__self__, "function_arn", function_arn)
+        pulumi.set(__self__, "position", position)
         if invocation_type is not None:
-            _setter("invocation_type", invocation_type)
+            pulumi.set(__self__, "invocation_type", invocation_type)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -683,45 +507,14 @@ class ReceiptRuleS3Action(dict):
         :param str object_key_prefix: The key prefix of the S3 bucket
         :param str topic_arn: The ARN of an SNS topic to notify
         """
-        ReceiptRuleS3Action._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            position=position,
-            kms_key_arn=kms_key_arn,
-            object_key_prefix=object_key_prefix,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: Optional[str] = None,
-             position: Optional[int] = None,
-             kms_key_arn: Optional[str] = None,
-             object_key_prefix: Optional[str] = None,
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket_name is None and 'bucketName' in kwargs:
-            bucket_name = kwargs['bucketName']
-        if bucket_name is None:
-            raise TypeError("Missing 'bucket_name' argument")
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
-            object_key_prefix = kwargs['objectKeyPrefix']
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("bucket_name", bucket_name)
-        _setter("position", position)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "position", position)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if object_key_prefix is not None:
-            _setter("object_key_prefix", object_key_prefix)
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -792,31 +585,10 @@ class ReceiptRuleSnsAction(dict):
         :param str topic_arn: The ARN of an SNS topic to notify
         :param str encoding: The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
         """
-        ReceiptRuleSnsAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            position=position,
-            topic_arn=topic_arn,
-            encoding=encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             position: Optional[int] = None,
-             topic_arn: Optional[str] = None,
-             encoding: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-        if topic_arn is None:
-            raise TypeError("Missing 'topic_arn' argument")
-
-        _setter("position", position)
-        _setter("topic_arn", topic_arn)
+        pulumi.set(__self__, "position", position)
+        pulumi.set(__self__, "topic_arn", topic_arn)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
 
     @property
     @pulumi.getter
@@ -871,31 +643,10 @@ class ReceiptRuleStopAction(dict):
         :param str scope: The scope to apply. The only acceptable value is `RuleSet`.
         :param str topic_arn: The ARN of an SNS topic to notify
         """
-        ReceiptRuleStopAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            position=position,
-            scope=scope,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             position: Optional[int] = None,
-             scope: Optional[str] = None,
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if scope is None:
-            raise TypeError("Missing 'scope' argument")
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("position", position)
-        _setter("scope", scope)
+        pulumi.set(__self__, "position", position)
+        pulumi.set(__self__, "scope", scope)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter
@@ -952,33 +703,10 @@ class ReceiptRuleWorkmailAction(dict):
         :param int position: The position of the action in the receipt rule
         :param str topic_arn: The ARN of an SNS topic to notify
         """
-        ReceiptRuleWorkmailAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            organization_arn=organization_arn,
-            position=position,
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             organization_arn: Optional[str] = None,
-             position: Optional[int] = None,
-             topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if organization_arn is None and 'organizationArn' in kwargs:
-            organization_arn = kwargs['organizationArn']
-        if organization_arn is None:
-            raise TypeError("Missing 'organization_arn' argument")
-        if position is None:
-            raise TypeError("Missing 'position' argument")
-        if topic_arn is None and 'topicArn' in kwargs:
-            topic_arn = kwargs['topicArn']
-
-        _setter("organization_arn", organization_arn)
-        _setter("position", position)
+        pulumi.set(__self__, "organization_arn", organization_arn)
+        pulumi.set(__self__, "position", position)
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="organizationArn")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,55 +35,22 @@ class DatabaseArgs:
         :param pulumi.Input[str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
-        DatabaseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acl_configuration=acl_configuration,
-            bucket=bucket,
-            comment=comment,
-            encryption_configuration=encryption_configuration,
-            expected_bucket_owner=expected_bucket_owner,
-            force_destroy=force_destroy,
-            name=name,
-            properties=properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
-             bucket: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acl_configuration is None and 'aclConfiguration' in kwargs:
-            acl_configuration = kwargs['aclConfiguration']
-        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
-            encryption_configuration = kwargs['encryptionConfiguration']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-
         if acl_configuration is not None:
-            _setter("acl_configuration", acl_configuration)
+            pulumi.set(__self__, "acl_configuration", acl_configuration)
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -204,55 +171,22 @@ class _DatabaseState:
         :param pulumi.Input[str] name: Name of the database to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-value map of custom metadata properties for the database definition.
         """
-        _DatabaseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acl_configuration=acl_configuration,
-            bucket=bucket,
-            comment=comment,
-            encryption_configuration=encryption_configuration,
-            expected_bucket_owner=expected_bucket_owner,
-            force_destroy=force_destroy,
-            name=name,
-            properties=properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
-             bucket: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acl_configuration is None and 'aclConfiguration' in kwargs:
-            acl_configuration = kwargs['aclConfiguration']
-        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
-            encryption_configuration = kwargs['encryptionConfiguration']
-        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
-            expected_bucket_owner = kwargs['expectedBucketOwner']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-
         if acl_configuration is not None:
-            _setter("acl_configuration", acl_configuration)
+            pulumi.set(__self__, "acl_configuration", acl_configuration)
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if properties is not None:
-            _setter("properties", properties)
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -440,10 +374,6 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -466,11 +396,9 @@ class Database(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
-            acl_configuration = _utilities.configure(acl_configuration, DatabaseAclConfigurationArgs, True)
             __props__.__dict__["acl_configuration"] = acl_configuration
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["comment"] = comment
-            encryption_configuration = _utilities.configure(encryption_configuration, DatabaseEncryptionConfigurationArgs, True)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["force_destroy"] = force_destroy

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountArgs', 'Account']
@@ -35,58 +35,21 @@ class AccountArgs:
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        AccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            close_on_deletion=close_on_deletion,
-            create_govcloud=create_govcloud,
-            iam_user_access_to_billing=iam_user_access_to_billing,
-            name=name,
-            parent_id=parent_id,
-            role_name=role_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             close_on_deletion: Optional[pulumi.Input[bool]] = None,
-             create_govcloud: Optional[pulumi.Input[bool]] = None,
-             iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_id: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if close_on_deletion is None and 'closeOnDeletion' in kwargs:
-            close_on_deletion = kwargs['closeOnDeletion']
-        if create_govcloud is None and 'createGovcloud' in kwargs:
-            create_govcloud = kwargs['createGovcloud']
-        if iam_user_access_to_billing is None and 'iamUserAccessToBilling' in kwargs:
-            iam_user_access_to_billing = kwargs['iamUserAccessToBilling']
-        if parent_id is None and 'parentId' in kwargs:
-            parent_id = kwargs['parentId']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-
-        _setter("email", email)
+        pulumi.set(__self__, "email", email)
         if close_on_deletion is not None:
-            _setter("close_on_deletion", close_on_deletion)
+            pulumi.set(__self__, "close_on_deletion", close_on_deletion)
         if create_govcloud is not None:
-            _setter("create_govcloud", create_govcloud)
+            pulumi.set(__self__, "create_govcloud", create_govcloud)
         if iam_user_access_to_billing is not None:
-            _setter("iam_user_access_to_billing", iam_user_access_to_billing)
+            pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_id is not None:
-            _setter("parent_id", parent_id)
+            pulumi.set(__self__, "parent_id", parent_id)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -220,92 +183,37 @@ class _AccountState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _AccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            close_on_deletion=close_on_deletion,
-            create_govcloud=create_govcloud,
-            email=email,
-            govcloud_id=govcloud_id,
-            iam_user_access_to_billing=iam_user_access_to_billing,
-            joined_method=joined_method,
-            joined_timestamp=joined_timestamp,
-            name=name,
-            parent_id=parent_id,
-            role_name=role_name,
-            status=status,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             close_on_deletion: Optional[pulumi.Input[bool]] = None,
-             create_govcloud: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             govcloud_id: Optional[pulumi.Input[str]] = None,
-             iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
-             joined_method: Optional[pulumi.Input[str]] = None,
-             joined_timestamp: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_id: Optional[pulumi.Input[str]] = None,
-             role_name: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if close_on_deletion is None and 'closeOnDeletion' in kwargs:
-            close_on_deletion = kwargs['closeOnDeletion']
-        if create_govcloud is None and 'createGovcloud' in kwargs:
-            create_govcloud = kwargs['createGovcloud']
-        if govcloud_id is None and 'govcloudId' in kwargs:
-            govcloud_id = kwargs['govcloudId']
-        if iam_user_access_to_billing is None and 'iamUserAccessToBilling' in kwargs:
-            iam_user_access_to_billing = kwargs['iamUserAccessToBilling']
-        if joined_method is None and 'joinedMethod' in kwargs:
-            joined_method = kwargs['joinedMethod']
-        if joined_timestamp is None and 'joinedTimestamp' in kwargs:
-            joined_timestamp = kwargs['joinedTimestamp']
-        if parent_id is None and 'parentId' in kwargs:
-            parent_id = kwargs['parentId']
-        if role_name is None and 'roleName' in kwargs:
-            role_name = kwargs['roleName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if close_on_deletion is not None:
-            _setter("close_on_deletion", close_on_deletion)
+            pulumi.set(__self__, "close_on_deletion", close_on_deletion)
         if create_govcloud is not None:
-            _setter("create_govcloud", create_govcloud)
+            pulumi.set(__self__, "create_govcloud", create_govcloud)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if govcloud_id is not None:
-            _setter("govcloud_id", govcloud_id)
+            pulumi.set(__self__, "govcloud_id", govcloud_id)
         if iam_user_access_to_billing is not None:
-            _setter("iam_user_access_to_billing", iam_user_access_to_billing)
+            pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
         if joined_method is not None:
-            _setter("joined_method", joined_method)
+            pulumi.set(__self__, "joined_method", joined_method)
         if joined_timestamp is not None:
-            _setter("joined_timestamp", joined_timestamp)
+            pulumi.set(__self__, "joined_timestamp", joined_timestamp)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_id is not None:
-            _setter("parent_id", parent_id)
+            pulumi.set(__self__, "parent_id", parent_id)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -565,10 +473,6 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

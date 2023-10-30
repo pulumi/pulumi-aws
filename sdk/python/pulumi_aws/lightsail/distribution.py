@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,72 +44,23 @@ class DistributionArgs:
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        DistributionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bundle_id=bundle_id,
-            default_cache_behavior=default_cache_behavior,
-            origin=origin,
-            cache_behavior_settings=cache_behavior_settings,
-            cache_behaviors=cache_behaviors,
-            certificate_name=certificate_name,
-            ip_address_type=ip_address_type,
-            is_enabled=is_enabled,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bundle_id: Optional[pulumi.Input[str]] = None,
-             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-             origin: Optional[pulumi.Input['DistributionOriginArgs']] = None,
-             cache_behavior_settings: Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']] = None,
-             cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bundle_id is None and 'bundleId' in kwargs:
-            bundle_id = kwargs['bundleId']
-        if bundle_id is None:
-            raise TypeError("Missing 'bundle_id' argument")
-        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
-            default_cache_behavior = kwargs['defaultCacheBehavior']
-        if default_cache_behavior is None:
-            raise TypeError("Missing 'default_cache_behavior' argument")
-        if origin is None:
-            raise TypeError("Missing 'origin' argument")
-        if cache_behavior_settings is None and 'cacheBehaviorSettings' in kwargs:
-            cache_behavior_settings = kwargs['cacheBehaviorSettings']
-        if cache_behaviors is None and 'cacheBehaviors' in kwargs:
-            cache_behaviors = kwargs['cacheBehaviors']
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-
-        _setter("bundle_id", bundle_id)
-        _setter("default_cache_behavior", default_cache_behavior)
-        _setter("origin", origin)
+        pulumi.set(__self__, "bundle_id", bundle_id)
+        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
+        pulumi.set(__self__, "origin", origin)
         if cache_behavior_settings is not None:
-            _setter("cache_behavior_settings", cache_behavior_settings)
+            pulumi.set(__self__, "cache_behavior_settings", cache_behavior_settings)
         if cache_behaviors is not None:
-            _setter("cache_behaviors", cache_behaviors)
+            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -288,126 +239,49 @@ class _DistributionState:
                present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _DistributionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alternative_domain_names=alternative_domain_names,
-            arn=arn,
-            bundle_id=bundle_id,
-            cache_behavior_settings=cache_behavior_settings,
-            cache_behaviors=cache_behaviors,
-            certificate_name=certificate_name,
-            created_at=created_at,
-            default_cache_behavior=default_cache_behavior,
-            domain_name=domain_name,
-            ip_address_type=ip_address_type,
-            is_enabled=is_enabled,
-            locations=locations,
-            name=name,
-            origin=origin,
-            origin_public_dns=origin_public_dns,
-            resource_type=resource_type,
-            status=status,
-            support_code=support_code,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alternative_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             bundle_id: Optional[pulumi.Input[str]] = None,
-             cache_behavior_settings: Optional[pulumi.Input['DistributionCacheBehaviorSettingsArgs']] = None,
-             cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             locations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLocationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             origin: Optional[pulumi.Input['DistributionOriginArgs']] = None,
-             origin_public_dns: Optional[pulumi.Input[str]] = None,
-             resource_type: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             support_code: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if alternative_domain_names is None and 'alternativeDomainNames' in kwargs:
-            alternative_domain_names = kwargs['alternativeDomainNames']
-        if bundle_id is None and 'bundleId' in kwargs:
-            bundle_id = kwargs['bundleId']
-        if cache_behavior_settings is None and 'cacheBehaviorSettings' in kwargs:
-            cache_behavior_settings = kwargs['cacheBehaviorSettings']
-        if cache_behaviors is None and 'cacheBehaviors' in kwargs:
-            cache_behaviors = kwargs['cacheBehaviors']
-        if certificate_name is None and 'certificateName' in kwargs:
-            certificate_name = kwargs['certificateName']
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
-            default_cache_behavior = kwargs['defaultCacheBehavior']
-        if domain_name is None and 'domainName' in kwargs:
-            domain_name = kwargs['domainName']
-        if ip_address_type is None and 'ipAddressType' in kwargs:
-            ip_address_type = kwargs['ipAddressType']
-        if is_enabled is None and 'isEnabled' in kwargs:
-            is_enabled = kwargs['isEnabled']
-        if origin_public_dns is None and 'originPublicDns' in kwargs:
-            origin_public_dns = kwargs['originPublicDns']
-        if resource_type is None and 'resourceType' in kwargs:
-            resource_type = kwargs['resourceType']
-        if support_code is None and 'supportCode' in kwargs:
-            support_code = kwargs['supportCode']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if alternative_domain_names is not None:
-            _setter("alternative_domain_names", alternative_domain_names)
+            pulumi.set(__self__, "alternative_domain_names", alternative_domain_names)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if bundle_id is not None:
-            _setter("bundle_id", bundle_id)
+            pulumi.set(__self__, "bundle_id", bundle_id)
         if cache_behavior_settings is not None:
-            _setter("cache_behavior_settings", cache_behavior_settings)
+            pulumi.set(__self__, "cache_behavior_settings", cache_behavior_settings)
         if cache_behaviors is not None:
-            _setter("cache_behaviors", cache_behaviors)
+            pulumi.set(__self__, "cache_behaviors", cache_behaviors)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if default_cache_behavior is not None:
-            _setter("default_cache_behavior", default_cache_behavior)
+            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if locations is not None:
-            _setter("locations", locations)
+            pulumi.set(__self__, "locations", locations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if origin is not None:
-            _setter("origin", origin)
+            pulumi.set(__self__, "origin", origin)
         if origin_public_dns is not None:
-            _setter("origin_public_dns", origin_public_dns)
+            pulumi.set(__self__, "origin_public_dns", origin_public_dns)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if support_code is not None:
-            _setter("support_code", support_code)
+            pulumi.set(__self__, "support_code", support_code)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="alternativeDomainNames")
@@ -942,10 +816,6 @@ class Distribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -973,18 +843,15 @@ class Distribution(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
-            cache_behavior_settings = _utilities.configure(cache_behavior_settings, DistributionCacheBehaviorSettingsArgs, True)
             __props__.__dict__["cache_behavior_settings"] = cache_behavior_settings
             __props__.__dict__["cache_behaviors"] = cache_behaviors
             __props__.__dict__["certificate_name"] = certificate_name
-            default_cache_behavior = _utilities.configure(default_cache_behavior, DistributionDefaultCacheBehaviorArgs, True)
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["name"] = name
-            origin = _utilities.configure(origin, DistributionOriginArgs, True)
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin

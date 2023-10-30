@@ -222,8 +222,6 @@ type Rule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the rule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-	EvaluationModes RuleEvaluationModeArrayOutput `pulumi:"evaluationModes"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -285,8 +283,6 @@ type ruleState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the rule
 	Description *string `pulumi:"description"`
-	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-	EvaluationModes []RuleEvaluationMode `pulumi:"evaluationModes"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters *string `pulumi:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -312,8 +308,6 @@ type RuleState struct {
 	Arn pulumi.StringPtrInput
 	// Description of the rule
 	Description pulumi.StringPtrInput
-	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-	EvaluationModes RuleEvaluationModeArrayInput
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrInput
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -341,8 +335,6 @@ func (RuleState) ElementType() reflect.Type {
 type ruleArgs struct {
 	// Description of the rule
 	Description *string `pulumi:"description"`
-	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-	EvaluationModes []RuleEvaluationMode `pulumi:"evaluationModes"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters *string `pulumi:"inputParameters"`
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -361,8 +353,6 @@ type ruleArgs struct {
 type RuleArgs struct {
 	// Description of the rule
 	Description pulumi.StringPtrInput
-	// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-	EvaluationModes RuleEvaluationModeArrayInput
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrInput
 	// The maximum frequency with which AWS Config runs evaluations for a rule.
@@ -496,11 +486,6 @@ func (o RuleOutput) Arn() pulumi.StringOutput {
 // Description of the rule
 func (o RuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-func (o RuleOutput) EvaluationModes() RuleEvaluationModeArrayOutput {
-	return o.ApplyT(func(v *Rule) RuleEvaluationModeArrayOutput { return v.EvaluationModes }).(RuleEvaluationModeArrayOutput)
 }
 
 // A string in JSON format that is passed to the AWS Config rule Lambda function.

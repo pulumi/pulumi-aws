@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventArchiveArgs', 'EventArchive']
@@ -27,42 +27,15 @@ class EventArchiveArgs:
         :param pulumi.Input[str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
-        EventArchiveArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_source_arn=event_source_arn,
-            description=description,
-            event_pattern=event_pattern,
-            name=name,
-            retention_days=retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_source_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             event_pattern: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if event_source_arn is None and 'eventSourceArn' in kwargs:
-            event_source_arn = kwargs['eventSourceArn']
-        if event_source_arn is None:
-            raise TypeError("Missing 'event_source_arn' argument")
-        if event_pattern is None and 'eventPattern' in kwargs:
-            event_pattern = kwargs['eventPattern']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-
-        _setter("event_source_arn", event_source_arn)
+        pulumi.set(__self__, "event_source_arn", event_source_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if event_pattern is not None:
-            _setter("event_pattern", event_pattern)
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
 
     @property
     @pulumi.getter(name="eventSourceArn")
@@ -143,45 +116,18 @@ class _EventArchiveState:
         :param pulumi.Input[str] name: The name of the new event archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
         """
-        _EventArchiveState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            event_pattern=event_pattern,
-            event_source_arn=event_source_arn,
-            name=name,
-            retention_days=retention_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             event_pattern: Optional[pulumi.Input[str]] = None,
-             event_source_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if event_pattern is None and 'eventPattern' in kwargs:
-            event_pattern = kwargs['eventPattern']
-        if event_source_arn is None and 'eventSourceArn' in kwargs:
-            event_source_arn = kwargs['eventSourceArn']
-        if retention_days is None and 'retentionDays' in kwargs:
-            retention_days = kwargs['retentionDays']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if event_pattern is not None:
-            _setter("event_pattern", event_pattern)
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if event_source_arn is not None:
-            _setter("event_source_arn", event_source_arn)
+            pulumi.set(__self__, "event_source_arn", event_source_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_days is not None:
-            _setter("retention_days", retention_days)
+            pulumi.set(__self__, "retention_days", retention_days)
 
     @property
     @pulumi.getter
@@ -369,10 +315,6 @@ class EventArchive(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventArchiveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

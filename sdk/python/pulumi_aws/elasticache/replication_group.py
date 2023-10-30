@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,10 @@ class ReplicationGroupArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -72,12 +70,10 @@ class ReplicationGroupArgs:
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
-        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
@@ -92,8 +88,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -103,223 +99,74 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
-        ReplicationGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_immediately=apply_immediately,
-            at_rest_encryption_enabled=at_rest_encryption_enabled,
-            auth_token=auth_token,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            automatic_failover_enabled=automatic_failover_enabled,
-            data_tiering_enabled=data_tiering_enabled,
-            description=description,
-            engine=engine,
-            engine_version=engine_version,
-            final_snapshot_identifier=final_snapshot_identifier,
-            global_replication_group_id=global_replication_group_id,
-            ip_discovery=ip_discovery,
-            kms_key_id=kms_key_id,
-            log_delivery_configurations=log_delivery_configurations,
-            maintenance_window=maintenance_window,
-            multi_az_enabled=multi_az_enabled,
-            network_type=network_type,
-            node_type=node_type,
-            notification_topic_arn=notification_topic_arn,
-            num_cache_clusters=num_cache_clusters,
-            num_node_groups=num_node_groups,
-            parameter_group_name=parameter_group_name,
-            port=port,
-            preferred_cache_cluster_azs=preferred_cache_cluster_azs,
-            replicas_per_node_group=replicas_per_node_group,
-            replication_group_id=replication_group_id,
-            security_group_ids=security_group_ids,
-            security_group_names=security_group_names,
-            snapshot_arns=snapshot_arns,
-            snapshot_name=snapshot_name,
-            snapshot_retention_limit=snapshot_retention_limit,
-            snapshot_window=snapshot_window,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-            transit_encryption_enabled=transit_encryption_enabled,
-            user_group_ids=user_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             auth_token: Optional[pulumi.Input[str]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
-             data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             global_replication_group_id: Optional[pulumi.Input[str]] = None,
-             ip_discovery: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             num_cache_clusters: Optional[pulumi.Input[int]] = None,
-             num_node_groups: Optional[pulumi.Input[int]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             replicas_per_node_group: Optional[pulumi.Input[int]] = None,
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
-             snapshot_window: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if at_rest_encryption_enabled is None and 'atRestEncryptionEnabled' in kwargs:
-            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
-        if auth_token is None and 'authToken' in kwargs:
-            auth_token = kwargs['authToken']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
-            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
-        if data_tiering_enabled is None and 'dataTieringEnabled' in kwargs:
-            data_tiering_enabled = kwargs['dataTieringEnabled']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if global_replication_group_id is None and 'globalReplicationGroupId' in kwargs:
-            global_replication_group_id = kwargs['globalReplicationGroupId']
-        if ip_discovery is None and 'ipDiscovery' in kwargs:
-            ip_discovery = kwargs['ipDiscovery']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
-            log_delivery_configurations = kwargs['logDeliveryConfigurations']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if multi_az_enabled is None and 'multiAzEnabled' in kwargs:
-            multi_az_enabled = kwargs['multiAzEnabled']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if num_cache_clusters is None and 'numCacheClusters' in kwargs:
-            num_cache_clusters = kwargs['numCacheClusters']
-        if num_node_groups is None and 'numNodeGroups' in kwargs:
-            num_node_groups = kwargs['numNodeGroups']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if preferred_cache_cluster_azs is None and 'preferredCacheClusterAzs' in kwargs:
-            preferred_cache_cluster_azs = kwargs['preferredCacheClusterAzs']
-        if replicas_per_node_group is None and 'replicasPerNodeGroup' in kwargs:
-            replicas_per_node_group = kwargs['replicasPerNodeGroup']
-        if replication_group_id is None and 'replicationGroupId' in kwargs:
-            replication_group_id = kwargs['replicationGroupId']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_names is None and 'securityGroupNames' in kwargs:
-            security_group_names = kwargs['securityGroupNames']
-        if snapshot_arns is None and 'snapshotArns' in kwargs:
-            snapshot_arns = kwargs['snapshotArns']
-        if snapshot_name is None and 'snapshotName' in kwargs:
-            snapshot_name = kwargs['snapshotName']
-        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
-            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
-        if snapshot_window is None and 'snapshotWindow' in kwargs:
-            snapshot_window = kwargs['snapshotWindow']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
-            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
-        if user_group_ids is None and 'userGroupIds' in kwargs:
-            user_group_ids = kwargs['userGroupIds']
-
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if at_rest_encryption_enabled is not None:
-            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
+            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
-            _setter("auth_token", auth_token)
+            pulumi.set(__self__, "auth_token", auth_token)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
-            _setter("automatic_failover_enabled", automatic_failover_enabled)
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if data_tiering_enabled is not None:
-            _setter("data_tiering_enabled", data_tiering_enabled)
+            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if global_replication_group_id is not None:
-            _setter("global_replication_group_id", global_replication_group_id)
-        if ip_discovery is not None:
-            _setter("ip_discovery", ip_discovery)
+            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
-            _setter("log_delivery_configurations", log_delivery_configurations)
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if multi_az_enabled is not None:
-            _setter("multi_az_enabled", multi_az_enabled)
-        if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_clusters is not None:
-            _setter("num_cache_clusters", num_cache_clusters)
+            pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
         if num_node_groups is not None:
-            _setter("num_node_groups", num_node_groups)
+            pulumi.set(__self__, "num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_cache_cluster_azs is not None:
-            _setter("preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+            pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
         if replicas_per_node_group is not None:
-            _setter("replicas_per_node_group", replicas_per_node_group)
+            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if security_group_names is not None:
-            _setter("security_group_names", security_group_names)
+            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
-            _setter("snapshot_arns", snapshot_arns)
+            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            _setter("snapshot_retention_limit", snapshot_retention_limit)
+            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            _setter("snapshot_window", snapshot_window)
+            pulumi.set(__self__, "snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transit_encryption_enabled is not None:
-            _setter("transit_encryption_enabled", transit_encryption_enabled)
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if user_group_ids is not None:
-            _setter("user_group_ids", user_group_ids)
+            pulumi.set(__self__, "user_group_ids", user_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -461,18 +308,6 @@ class ReplicationGroupArgs:
         pulumi.set(self, "global_replication_group_id", value)
 
     @property
-    @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        """
-        return pulumi.get(self, "ip_discovery")
-
-    @ip_discovery.setter
-    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_discovery", value)
-
-    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -519,18 +354,6 @@ class ReplicationGroupArgs:
     @multi_az_enabled.setter
     def multi_az_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az_enabled", value)
-
-    @property
-    @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        """
-        return pulumi.get(self, "network_type")
-
-    @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="nodeType")
@@ -649,7 +472,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -661,7 +484,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        List of cache security group names to associate with this replication group.
         """
         return pulumi.get(self, "security_group_names")
 
@@ -784,13 +607,11 @@ class _ReplicationGroupState:
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -837,13 +658,11 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
-        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: Identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
@@ -860,8 +679,8 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -872,272 +691,93 @@ class _ReplicationGroupState:
         :param pulumi.Input[bool] transit_encryption_enabled: Whether to enable encryption in transit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_group_ids: User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         """
-        _ReplicationGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_immediately=apply_immediately,
-            arn=arn,
-            at_rest_encryption_enabled=at_rest_encryption_enabled,
-            auth_token=auth_token,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            automatic_failover_enabled=automatic_failover_enabled,
-            cluster_enabled=cluster_enabled,
-            configuration_endpoint_address=configuration_endpoint_address,
-            data_tiering_enabled=data_tiering_enabled,
-            description=description,
-            engine=engine,
-            engine_version=engine_version,
-            engine_version_actual=engine_version_actual,
-            final_snapshot_identifier=final_snapshot_identifier,
-            global_replication_group_id=global_replication_group_id,
-            ip_discovery=ip_discovery,
-            kms_key_id=kms_key_id,
-            log_delivery_configurations=log_delivery_configurations,
-            maintenance_window=maintenance_window,
-            member_clusters=member_clusters,
-            multi_az_enabled=multi_az_enabled,
-            network_type=network_type,
-            node_type=node_type,
-            notification_topic_arn=notification_topic_arn,
-            num_cache_clusters=num_cache_clusters,
-            num_node_groups=num_node_groups,
-            parameter_group_name=parameter_group_name,
-            port=port,
-            preferred_cache_cluster_azs=preferred_cache_cluster_azs,
-            primary_endpoint_address=primary_endpoint_address,
-            reader_endpoint_address=reader_endpoint_address,
-            replicas_per_node_group=replicas_per_node_group,
-            replication_group_id=replication_group_id,
-            security_group_ids=security_group_ids,
-            security_group_names=security_group_names,
-            snapshot_arns=snapshot_arns,
-            snapshot_name=snapshot_name,
-            snapshot_retention_limit=snapshot_retention_limit,
-            snapshot_window=snapshot_window,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-            tags_all=tags_all,
-            transit_encryption_enabled=transit_encryption_enabled,
-            user_group_ids=user_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             auth_token: Optional[pulumi.Input[str]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
-             cluster_enabled: Optional[pulumi.Input[bool]] = None,
-             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
-             data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             engine_version_actual: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             global_replication_group_id: Optional[pulumi.Input[str]] = None,
-             ip_discovery: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationArgs']]]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             num_cache_clusters: Optional[pulumi.Input[int]] = None,
-             num_node_groups: Optional[pulumi.Input[int]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_cache_cluster_azs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             primary_endpoint_address: Optional[pulumi.Input[str]] = None,
-             reader_endpoint_address: Optional[pulumi.Input[str]] = None,
-             replicas_per_node_group: Optional[pulumi.Input[int]] = None,
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
-             snapshot_window: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if at_rest_encryption_enabled is None and 'atRestEncryptionEnabled' in kwargs:
-            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
-        if auth_token is None and 'authToken' in kwargs:
-            auth_token = kwargs['authToken']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
-            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
-        if cluster_enabled is None and 'clusterEnabled' in kwargs:
-            cluster_enabled = kwargs['clusterEnabled']
-        if configuration_endpoint_address is None and 'configurationEndpointAddress' in kwargs:
-            configuration_endpoint_address = kwargs['configurationEndpointAddress']
-        if data_tiering_enabled is None and 'dataTieringEnabled' in kwargs:
-            data_tiering_enabled = kwargs['dataTieringEnabled']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if engine_version_actual is None and 'engineVersionActual' in kwargs:
-            engine_version_actual = kwargs['engineVersionActual']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if global_replication_group_id is None and 'globalReplicationGroupId' in kwargs:
-            global_replication_group_id = kwargs['globalReplicationGroupId']
-        if ip_discovery is None and 'ipDiscovery' in kwargs:
-            ip_discovery = kwargs['ipDiscovery']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
-            log_delivery_configurations = kwargs['logDeliveryConfigurations']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if member_clusters is None and 'memberClusters' in kwargs:
-            member_clusters = kwargs['memberClusters']
-        if multi_az_enabled is None and 'multiAzEnabled' in kwargs:
-            multi_az_enabled = kwargs['multiAzEnabled']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if num_cache_clusters is None and 'numCacheClusters' in kwargs:
-            num_cache_clusters = kwargs['numCacheClusters']
-        if num_node_groups is None and 'numNodeGroups' in kwargs:
-            num_node_groups = kwargs['numNodeGroups']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if preferred_cache_cluster_azs is None and 'preferredCacheClusterAzs' in kwargs:
-            preferred_cache_cluster_azs = kwargs['preferredCacheClusterAzs']
-        if primary_endpoint_address is None and 'primaryEndpointAddress' in kwargs:
-            primary_endpoint_address = kwargs['primaryEndpointAddress']
-        if reader_endpoint_address is None and 'readerEndpointAddress' in kwargs:
-            reader_endpoint_address = kwargs['readerEndpointAddress']
-        if replicas_per_node_group is None and 'replicasPerNodeGroup' in kwargs:
-            replicas_per_node_group = kwargs['replicasPerNodeGroup']
-        if replication_group_id is None and 'replicationGroupId' in kwargs:
-            replication_group_id = kwargs['replicationGroupId']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_names is None and 'securityGroupNames' in kwargs:
-            security_group_names = kwargs['securityGroupNames']
-        if snapshot_arns is None and 'snapshotArns' in kwargs:
-            snapshot_arns = kwargs['snapshotArns']
-        if snapshot_name is None and 'snapshotName' in kwargs:
-            snapshot_name = kwargs['snapshotName']
-        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
-            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
-        if snapshot_window is None and 'snapshotWindow' in kwargs:
-            snapshot_window = kwargs['snapshotWindow']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
-            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
-        if user_group_ids is None and 'userGroupIds' in kwargs:
-            user_group_ids = kwargs['userGroupIds']
-
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if at_rest_encryption_enabled is not None:
-            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
+            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if auth_token is not None:
-            _setter("auth_token", auth_token)
+            pulumi.set(__self__, "auth_token", auth_token)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_failover_enabled is not None:
-            _setter("automatic_failover_enabled", automatic_failover_enabled)
+            pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
         if cluster_enabled is not None:
-            _setter("cluster_enabled", cluster_enabled)
+            pulumi.set(__self__, "cluster_enabled", cluster_enabled)
         if configuration_endpoint_address is not None:
-            _setter("configuration_endpoint_address", configuration_endpoint_address)
+            pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
         if data_tiering_enabled is not None:
-            _setter("data_tiering_enabled", data_tiering_enabled)
+            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
-            _setter("engine_version_actual", engine_version_actual)
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if global_replication_group_id is not None:
-            _setter("global_replication_group_id", global_replication_group_id)
-        if ip_discovery is not None:
-            _setter("ip_discovery", ip_discovery)
+            pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
-            _setter("log_delivery_configurations", log_delivery_configurations)
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if member_clusters is not None:
-            _setter("member_clusters", member_clusters)
+            pulumi.set(__self__, "member_clusters", member_clusters)
         if multi_az_enabled is not None:
-            _setter("multi_az_enabled", multi_az_enabled)
-        if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_clusters is not None:
-            _setter("num_cache_clusters", num_cache_clusters)
+            pulumi.set(__self__, "num_cache_clusters", num_cache_clusters)
         if num_node_groups is not None:
-            _setter("num_node_groups", num_node_groups)
+            pulumi.set(__self__, "num_node_groups", num_node_groups)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_cache_cluster_azs is not None:
-            _setter("preferred_cache_cluster_azs", preferred_cache_cluster_azs)
+            pulumi.set(__self__, "preferred_cache_cluster_azs", preferred_cache_cluster_azs)
         if primary_endpoint_address is not None:
-            _setter("primary_endpoint_address", primary_endpoint_address)
+            pulumi.set(__self__, "primary_endpoint_address", primary_endpoint_address)
         if reader_endpoint_address is not None:
-            _setter("reader_endpoint_address", reader_endpoint_address)
+            pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
         if replicas_per_node_group is not None:
-            _setter("replicas_per_node_group", replicas_per_node_group)
+            pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if security_group_names is not None:
-            _setter("security_group_names", security_group_names)
+            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
-            _setter("snapshot_arns", snapshot_arns)
+            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            _setter("snapshot_retention_limit", snapshot_retention_limit)
+            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            _setter("snapshot_window", snapshot_window)
+            pulumi.set(__self__, "snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
-            _setter("transit_encryption_enabled", transit_encryption_enabled)
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if user_group_ids is not None:
-            _setter("user_group_ids", user_group_ids)
+            pulumi.set(__self__, "user_group_ids", user_group_ids)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1327,18 +967,6 @@ class _ReplicationGroupState:
         pulumi.set(self, "global_replication_group_id", value)
 
     @property
-    @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        """
-        return pulumi.get(self, "ip_discovery")
-
-    @ip_discovery.setter
-    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_discovery", value)
-
-    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1397,18 +1025,6 @@ class _ReplicationGroupState:
     @multi_az_enabled.setter
     def multi_az_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az_enabled", value)
-
-    @property
-    @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        """
-        return pulumi.get(self, "network_type")
-
-    @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="nodeType")
@@ -1551,7 +1167,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1563,7 +1179,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        List of cache security group names to associate with this replication group.
         """
         return pulumi.get(self, "security_group_names")
 
@@ -1699,12 +1315,10 @@ class ReplicationGroup(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -1898,12 +1512,10 @@ class ReplicationGroup(pulumi.CustomResource):
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
-        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
@@ -1918,8 +1530,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -2098,10 +1710,6 @@ class ReplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2118,12 +1726,10 @@ class ReplicationGroup(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
-                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-                 network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -2163,12 +1769,10 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["global_replication_group_id"] = global_replication_group_id
-            __props__.__dict__["ip_discovery"] = ip_discovery
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["multi_az_enabled"] = multi_az_enabled
-            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             __props__.__dict__["num_cache_clusters"] = num_cache_clusters
@@ -2223,13 +1827,11 @@ class ReplicationGroup(pulumi.CustomResource):
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
-            ip_discovery: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
-            network_type: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
             num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -2281,13 +1883,11 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
-        :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: Identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-        :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         :param pulumi.Input[str] node_type: Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
         :param pulumi.Input[str] notification_topic_arn: ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[int] num_cache_clusters: Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`. Defaults to `1`.
@@ -2304,8 +1904,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] replication_group_id: Replication group identifier. This parameter is stored as a lowercase string.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of cache security group names to associate with this replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -2335,13 +1935,11 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__.__dict__["global_replication_group_id"] = global_replication_group_id
-        __props__.__dict__["ip_discovery"] = ip_discovery
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["member_clusters"] = member_clusters
         __props__.__dict__["multi_az_enabled"] = multi_az_enabled
-        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["notification_topic_arn"] = notification_topic_arn
         __props__.__dict__["num_cache_clusters"] = num_cache_clusters
@@ -2494,14 +2092,6 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "global_replication_group_id")
 
     @property
-    @pulumi.getter(name="ipDiscovery")
-    def ip_discovery(self) -> pulumi.Output[str]:
-        """
-        The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        """
-        return pulumi.get(self, "ip_discovery")
-
-    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2540,14 +2130,6 @@ class ReplicationGroup(pulumi.CustomResource):
         Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         """
         return pulumi.get(self, "multi_az_enabled")
-
-    @property
-    @pulumi.getter(name="networkType")
-    def network_type(self) -> pulumi.Output[str]:
-        """
-        The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        """
-        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="nodeType")
@@ -2646,7 +2228,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -2654,7 +2236,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Output[Sequence[str]]:
         """
-        Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        List of cache security group names to associate with this replication group.
         """
         return pulumi.get(self, "security_group_names")
 

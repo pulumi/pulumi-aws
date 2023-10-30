@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,21 +21,8 @@ class ChannelHlsIngestArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
         """
-        ChannelHlsIngestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ingest_endpoints=ingest_endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ingest_endpoints is None and 'ingestEndpoints' in kwargs:
-            ingest_endpoints = kwargs['ingestEndpoints']
-
         if ingest_endpoints is not None:
-            _setter("ingest_endpoints", ingest_endpoints)
+            pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
@@ -61,27 +48,12 @@ class ChannelHlsIngestIngestEndpointArgs:
         :param pulumi.Input[str] url: The URL
         :param pulumi.Input[str] username: The username
         """
-        ChannelHlsIngestIngestEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password=password,
-            url=url,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter

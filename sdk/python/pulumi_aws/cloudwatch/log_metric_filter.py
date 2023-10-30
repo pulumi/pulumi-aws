@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,38 +28,11 @@ class LogMetricFilterArgs:
                for extracting metric data out of ingested log events.
         :param pulumi.Input[str] name: A name for the metric filter.
         """
-        LogMetricFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-            metric_transformation=metric_transformation,
-            pattern=pattern,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             metric_transformation: Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']] = None,
-             pattern: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-        if log_group_name is None:
-            raise TypeError("Missing 'log_group_name' argument")
-        if metric_transformation is None and 'metricTransformation' in kwargs:
-            metric_transformation = kwargs['metricTransformation']
-        if metric_transformation is None:
-            raise TypeError("Missing 'metric_transformation' argument")
-        if pattern is None:
-            raise TypeError("Missing 'pattern' argument")
-
-        _setter("log_group_name", log_group_name)
-        _setter("metric_transformation", metric_transformation)
-        _setter("pattern", pattern)
+        pulumi.set(__self__, "log_group_name", log_group_name)
+        pulumi.set(__self__, "metric_transformation", metric_transformation)
+        pulumi.set(__self__, "pattern", pattern)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -126,35 +99,14 @@ class _LogMetricFilterState:
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
         """
-        _LogMetricFilterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-            metric_transformation=metric_transformation,
-            name=name,
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             metric_transformation: Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-        if metric_transformation is None and 'metricTransformation' in kwargs:
-            metric_transformation = kwargs['metricTransformation']
-
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if metric_transformation is not None:
-            _setter("metric_transformation", metric_transformation)
+            pulumi.set(__self__, "metric_transformation", metric_transformation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -296,10 +248,6 @@ class LogMetricFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogMetricFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -321,7 +269,6 @@ class LogMetricFilter(pulumi.CustomResource):
             if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")
             __props__.__dict__["log_group_name"] = log_group_name
-            metric_transformation = _utilities.configure(metric_transformation, LogMetricFilterMetricTransformationArgs, True)
             if metric_transformation is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_transformation'")
             __props__.__dict__["metric_transformation"] = metric_transformation

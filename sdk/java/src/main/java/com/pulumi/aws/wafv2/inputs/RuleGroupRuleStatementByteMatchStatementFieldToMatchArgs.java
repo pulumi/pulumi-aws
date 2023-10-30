@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementField
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs;
@@ -84,13 +83,6 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs exte
      */
     public Optional<Output<List<RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
-    }
-
-    @Import(name="ja3Fingerprint")
-    private @Nullable Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
-    public Optional<Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -190,7 +182,6 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs exte
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
-        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -309,15 +300,6 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs exte
          */
         public Builder headers(RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
-        }
-
-        public Builder ja3Fingerprint(@Nullable Output<RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
-            $.ja3Fingerprint = ja3Fingerprint;
-            return this;
-        }
-
-        public Builder ja3Fingerprint(RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
-            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

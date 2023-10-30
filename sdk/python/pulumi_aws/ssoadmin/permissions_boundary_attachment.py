@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,36 +25,9 @@ class PermissionsBoundaryAttachmentArgs:
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
         """
-        PermissionsBoundaryAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_arn=instance_arn,
-            permission_set_arn=permission_set_arn,
-            permissions_boundary=permissions_boundary,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_arn: Optional[pulumi.Input[str]] = None,
-             permission_set_arn: Optional[pulumi.Input[str]] = None,
-             permissions_boundary: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_arn is None and 'instanceArn' in kwargs:
-            instance_arn = kwargs['instanceArn']
-        if instance_arn is None:
-            raise TypeError("Missing 'instance_arn' argument")
-        if permission_set_arn is None and 'permissionSetArn' in kwargs:
-            permission_set_arn = kwargs['permissionSetArn']
-        if permission_set_arn is None:
-            raise TypeError("Missing 'permission_set_arn' argument")
-        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
-            permissions_boundary = kwargs['permissionsBoundary']
-        if permissions_boundary is None:
-            raise TypeError("Missing 'permissions_boundary' argument")
-
-        _setter("instance_arn", instance_arn)
-        _setter("permission_set_arn", permission_set_arn)
-        _setter("permissions_boundary", permissions_boundary)
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "permission_set_arn", permission_set_arn)
+        pulumi.set(__self__, "permissions_boundary", permissions_boundary)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -105,33 +78,12 @@ class _PermissionsBoundaryAttachmentState:
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
         """
-        _PermissionsBoundaryAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_arn=instance_arn,
-            permission_set_arn=permission_set_arn,
-            permissions_boundary=permissions_boundary,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_arn: Optional[pulumi.Input[str]] = None,
-             permission_set_arn: Optional[pulumi.Input[str]] = None,
-             permissions_boundary: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_arn is None and 'instanceArn' in kwargs:
-            instance_arn = kwargs['instanceArn']
-        if permission_set_arn is None and 'permissionSetArn' in kwargs:
-            permission_set_arn = kwargs['permissionSetArn']
-        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
-            permissions_boundary = kwargs['permissionsBoundary']
-
         if instance_arn is not None:
-            _setter("instance_arn", instance_arn)
+            pulumi.set(__self__, "instance_arn", instance_arn)
         if permission_set_arn is not None:
-            _setter("permission_set_arn", permission_set_arn)
+            pulumi.set(__self__, "permission_set_arn", permission_set_arn)
         if permissions_boundary is not None:
-            _setter("permissions_boundary", permissions_boundary)
+            pulumi.set(__self__, "permissions_boundary", permissions_boundary)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -257,10 +209,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PermissionsBoundaryAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,7 +232,6 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             if permission_set_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'permission_set_arn'")
             __props__.__dict__["permission_set_arn"] = permission_set_arn
-            permissions_boundary = _utilities.configure(permissions_boundary, PermissionsBoundaryAttachmentPermissionsBoundaryArgs, True)
             if permissions_boundary is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions_boundary'")
             __props__.__dict__["permissions_boundary"] = permissions_boundary

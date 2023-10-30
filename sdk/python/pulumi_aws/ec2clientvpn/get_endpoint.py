@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,7 +23,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, security_group_ids=None, self_service_portal=None, self_service_portal_url=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
+    def __init__(__self__, arn=None, authentication_options=None, client_cidr_block=None, client_connect_options=None, client_login_banner_options=None, client_vpn_endpoint_id=None, connection_log_options=None, description=None, dns_name=None, dns_servers=None, filters=None, id=None, security_group_ids=None, self_service_portal=None, server_certificate_arn=None, session_timeout_hours=None, split_tunnel=None, tags=None, transport_protocol=None, vpc_id=None, vpn_port=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,9 +66,6 @@ class GetEndpointResult:
         if self_service_portal and not isinstance(self_service_portal, str):
             raise TypeError("Expected argument 'self_service_portal' to be a str")
         pulumi.set(__self__, "self_service_portal", self_service_portal)
-        if self_service_portal_url and not isinstance(self_service_portal_url, str):
-            raise TypeError("Expected argument 'self_service_portal_url' to be a str")
-        pulumi.set(__self__, "self_service_portal_url", self_service_portal_url)
         if server_certificate_arn and not isinstance(server_certificate_arn, str):
             raise TypeError("Expected argument 'server_certificate_arn' to be a str")
         pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
@@ -198,14 +195,6 @@ class GetEndpointResult:
         return pulumi.get(self, "self_service_portal")
 
     @property
-    @pulumi.getter(name="selfServicePortalUrl")
-    def self_service_portal_url(self) -> str:
-        """
-        The URL of the self-service portal.
-        """
-        return pulumi.get(self, "self_service_portal_url")
-
-    @property
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> str:
         """
@@ -279,7 +268,6 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             id=self.id,
             security_group_ids=self.security_group_ids,
             self_service_portal=self.self_service_portal,
-            self_service_portal_url=self.self_service_portal_url,
             server_certificate_arn=self.server_certificate_arn,
             session_timeout_hours=self.session_timeout_hours,
             split_tunnel=self.split_tunnel,
@@ -344,7 +332,6 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         self_service_portal=pulumi.get(__ret__, 'self_service_portal'),
-        self_service_portal_url=pulumi.get(__ret__, 'self_service_portal_url'),
         server_certificate_arn=pulumi.get(__ret__, 'server_certificate_arn'),
         session_timeout_hours=pulumi.get(__ret__, 'session_timeout_hours'),
         split_tunnel=pulumi.get(__ret__, 'split_tunnel'),

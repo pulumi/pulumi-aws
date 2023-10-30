@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The neptune engine version. Currently configuring this argumnet has no effect.
+        /// The neptune engine version.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The neptune engine version. Currently configuring this argumnet has no effect.
+        /// The neptune engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The neptune engine version. Currently configuring this argumnet has no effect.
+        /// The neptune engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

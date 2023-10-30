@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementS
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs;
@@ -84,21 +83,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
-    }
-
-    /**
-     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    @Import(name="ja3Fingerprint")
-    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -198,7 +182,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
-        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -317,27 +300,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          */
         public Builder headers(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
-            $.ja3Fingerprint = ja3Fingerprint;
-            return this;
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
-            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

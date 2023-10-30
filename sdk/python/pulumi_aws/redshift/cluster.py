@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -107,244 +107,85 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_identifier=cluster_identifier,
-            node_type=node_type,
-            allow_version_upgrade=allow_version_upgrade,
-            apply_immediately=apply_immediately,
-            aqua_configuration_status=aqua_configuration_status,
-            automated_snapshot_retention_period=automated_snapshot_retention_period,
-            availability_zone=availability_zone,
-            availability_zone_relocation_enabled=availability_zone_relocation_enabled,
-            cluster_parameter_group_name=cluster_parameter_group_name,
-            cluster_public_key=cluster_public_key,
-            cluster_revision_number=cluster_revision_number,
-            cluster_subnet_group_name=cluster_subnet_group_name,
-            cluster_type=cluster_type,
-            cluster_version=cluster_version,
-            database_name=database_name,
-            default_iam_role_arn=default_iam_role_arn,
-            elastic_ip=elastic_ip,
-            encrypted=encrypted,
-            endpoint=endpoint,
-            enhanced_vpc_routing=enhanced_vpc_routing,
-            final_snapshot_identifier=final_snapshot_identifier,
-            iam_roles=iam_roles,
-            kms_key_id=kms_key_id,
-            logging=logging,
-            maintenance_track_name=maintenance_track_name,
-            manual_snapshot_retention_period=manual_snapshot_retention_period,
-            master_password=master_password,
-            master_username=master_username,
-            number_of_nodes=number_of_nodes,
-            owner_account=owner_account,
-            port=port,
-            preferred_maintenance_window=preferred_maintenance_window,
-            publicly_accessible=publicly_accessible,
-            skip_final_snapshot=skip_final_snapshot,
-            snapshot_cluster_identifier=snapshot_cluster_identifier,
-            snapshot_copy=snapshot_copy,
-            snapshot_identifier=snapshot_identifier,
-            tags=tags,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             aqua_configuration_status: Optional[pulumi.Input[str]] = None,
-             automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
-             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             cluster_public_key: Optional[pulumi.Input[str]] = None,
-             cluster_revision_number: Optional[pulumi.Input[str]] = None,
-             cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             cluster_type: Optional[pulumi.Input[str]] = None,
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
-             elastic_ip: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
-             maintenance_track_name: Optional[pulumi.Input[str]] = None,
-             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
-             master_password: Optional[pulumi.Input[str]] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             number_of_nodes: Optional[pulumi.Input[int]] = None,
-             owner_account: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
-             snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
-             snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_identifier is None:
-            raise TypeError("Missing 'cluster_identifier' argument")
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if node_type is None:
-            raise TypeError("Missing 'node_type' argument")
-        if allow_version_upgrade is None and 'allowVersionUpgrade' in kwargs:
-            allow_version_upgrade = kwargs['allowVersionUpgrade']
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if aqua_configuration_status is None and 'aquaConfigurationStatus' in kwargs:
-            aqua_configuration_status = kwargs['aquaConfigurationStatus']
-        if automated_snapshot_retention_period is None and 'automatedSnapshotRetentionPeriod' in kwargs:
-            automated_snapshot_retention_period = kwargs['automatedSnapshotRetentionPeriod']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if availability_zone_relocation_enabled is None and 'availabilityZoneRelocationEnabled' in kwargs:
-            availability_zone_relocation_enabled = kwargs['availabilityZoneRelocationEnabled']
-        if cluster_parameter_group_name is None and 'clusterParameterGroupName' in kwargs:
-            cluster_parameter_group_name = kwargs['clusterParameterGroupName']
-        if cluster_public_key is None and 'clusterPublicKey' in kwargs:
-            cluster_public_key = kwargs['clusterPublicKey']
-        if cluster_revision_number is None and 'clusterRevisionNumber' in kwargs:
-            cluster_revision_number = kwargs['clusterRevisionNumber']
-        if cluster_subnet_group_name is None and 'clusterSubnetGroupName' in kwargs:
-            cluster_subnet_group_name = kwargs['clusterSubnetGroupName']
-        if cluster_type is None and 'clusterType' in kwargs:
-            cluster_type = kwargs['clusterType']
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
-            default_iam_role_arn = kwargs['defaultIamRoleArn']
-        if elastic_ip is None and 'elasticIp' in kwargs:
-            elastic_ip = kwargs['elasticIp']
-        if enhanced_vpc_routing is None and 'enhancedVpcRouting' in kwargs:
-            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if iam_roles is None and 'iamRoles' in kwargs:
-            iam_roles = kwargs['iamRoles']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if maintenance_track_name is None and 'maintenanceTrackName' in kwargs:
-            maintenance_track_name = kwargs['maintenanceTrackName']
-        if manual_snapshot_retention_period is None and 'manualSnapshotRetentionPeriod' in kwargs:
-            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
-        if master_password is None and 'masterPassword' in kwargs:
-            master_password = kwargs['masterPassword']
-        if master_username is None and 'masterUsername' in kwargs:
-            master_username = kwargs['masterUsername']
-        if number_of_nodes is None and 'numberOfNodes' in kwargs:
-            number_of_nodes = kwargs['numberOfNodes']
-        if owner_account is None and 'ownerAccount' in kwargs:
-            owner_account = kwargs['ownerAccount']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
-            publicly_accessible = kwargs['publiclyAccessible']
-        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
-            skip_final_snapshot = kwargs['skipFinalSnapshot']
-        if snapshot_cluster_identifier is None and 'snapshotClusterIdentifier' in kwargs:
-            snapshot_cluster_identifier = kwargs['snapshotClusterIdentifier']
-        if snapshot_copy is None and 'snapshotCopy' in kwargs:
-            snapshot_copy = kwargs['snapshotCopy']
-        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
-            snapshot_identifier = kwargs['snapshotIdentifier']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
-        _setter("cluster_identifier", cluster_identifier)
-        _setter("node_type", node_type)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "node_type", node_type)
         if allow_version_upgrade is not None:
-            _setter("allow_version_upgrade", allow_version_upgrade)
+            pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if aqua_configuration_status is not None:
             warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
         if aqua_configuration_status is not None:
-            _setter("aqua_configuration_status", aqua_configuration_status)
+            pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if automated_snapshot_retention_period is not None:
-            _setter("automated_snapshot_retention_period", automated_snapshot_retention_period)
+            pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if availability_zone_relocation_enabled is not None:
-            _setter("availability_zone_relocation_enabled", availability_zone_relocation_enabled)
+            pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_parameter_group_name is not None:
-            _setter("cluster_parameter_group_name", cluster_parameter_group_name)
+            pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
         if cluster_public_key is not None:
-            _setter("cluster_public_key", cluster_public_key)
+            pulumi.set(__self__, "cluster_public_key", cluster_public_key)
         if cluster_revision_number is not None:
-            _setter("cluster_revision_number", cluster_revision_number)
+            pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_subnet_group_name is not None:
-            _setter("cluster_subnet_group_name", cluster_subnet_group_name)
+            pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_type is not None:
-            _setter("cluster_type", cluster_type)
+            pulumi.set(__self__, "cluster_type", cluster_type)
         if cluster_version is not None:
-            _setter("cluster_version", cluster_version)
+            pulumi.set(__self__, "cluster_version", cluster_version)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if default_iam_role_arn is not None:
-            _setter("default_iam_role_arn", default_iam_role_arn)
+            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
         if elastic_ip is not None:
-            _setter("elastic_ip", elastic_ip)
+            pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if enhanced_vpc_routing is not None:
-            _setter("enhanced_vpc_routing", enhanced_vpc_routing)
+            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if iam_roles is not None:
-            _setter("iam_roles", iam_roles)
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
-            _setter("maintenance_track_name", maintenance_track_name)
+            pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
         if manual_snapshot_retention_period is not None:
-            _setter("manual_snapshot_retention_period", manual_snapshot_retention_period)
+            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
-            _setter("master_password", master_password)
+            pulumi.set(__self__, "master_password", master_password)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if number_of_nodes is not None:
-            _setter("number_of_nodes", number_of_nodes)
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
-            _setter("owner_account", owner_account)
+            pulumi.set(__self__, "owner_account", owner_account)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if skip_final_snapshot is not None:
-            _setter("skip_final_snapshot", skip_final_snapshot)
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_cluster_identifier is not None:
-            _setter("snapshot_cluster_identifier", snapshot_cluster_identifier)
+            pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
         if snapshot_copy is not None:
-            _setter("snapshot_copy", snapshot_copy)
+            pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
-            _setter("snapshot_identifier", snapshot_identifier)
+            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -932,273 +773,100 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_version_upgrade=allow_version_upgrade,
-            apply_immediately=apply_immediately,
-            aqua_configuration_status=aqua_configuration_status,
-            arn=arn,
-            automated_snapshot_retention_period=automated_snapshot_retention_period,
-            availability_zone=availability_zone,
-            availability_zone_relocation_enabled=availability_zone_relocation_enabled,
-            cluster_identifier=cluster_identifier,
-            cluster_namespace_arn=cluster_namespace_arn,
-            cluster_nodes=cluster_nodes,
-            cluster_parameter_group_name=cluster_parameter_group_name,
-            cluster_public_key=cluster_public_key,
-            cluster_revision_number=cluster_revision_number,
-            cluster_subnet_group_name=cluster_subnet_group_name,
-            cluster_type=cluster_type,
-            cluster_version=cluster_version,
-            database_name=database_name,
-            default_iam_role_arn=default_iam_role_arn,
-            dns_name=dns_name,
-            elastic_ip=elastic_ip,
-            encrypted=encrypted,
-            endpoint=endpoint,
-            enhanced_vpc_routing=enhanced_vpc_routing,
-            final_snapshot_identifier=final_snapshot_identifier,
-            iam_roles=iam_roles,
-            kms_key_id=kms_key_id,
-            logging=logging,
-            maintenance_track_name=maintenance_track_name,
-            manual_snapshot_retention_period=manual_snapshot_retention_period,
-            master_password=master_password,
-            master_username=master_username,
-            node_type=node_type,
-            number_of_nodes=number_of_nodes,
-            owner_account=owner_account,
-            port=port,
-            preferred_maintenance_window=preferred_maintenance_window,
-            publicly_accessible=publicly_accessible,
-            skip_final_snapshot=skip_final_snapshot,
-            snapshot_cluster_identifier=snapshot_cluster_identifier,
-            snapshot_copy=snapshot_copy,
-            snapshot_identifier=snapshot_identifier,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             aqua_configuration_status: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
-             cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]] = None,
-             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             cluster_public_key: Optional[pulumi.Input[str]] = None,
-             cluster_revision_number: Optional[pulumi.Input[str]] = None,
-             cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             cluster_type: Optional[pulumi.Input[str]] = None,
-             cluster_version: Optional[pulumi.Input[str]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             default_iam_role_arn: Optional[pulumi.Input[str]] = None,
-             dns_name: Optional[pulumi.Input[str]] = None,
-             elastic_ip: Optional[pulumi.Input[str]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
-             maintenance_track_name: Optional[pulumi.Input[str]] = None,
-             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
-             master_password: Optional[pulumi.Input[str]] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             number_of_nodes: Optional[pulumi.Input[int]] = None,
-             owner_account: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
-             snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
-             snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_version_upgrade is None and 'allowVersionUpgrade' in kwargs:
-            allow_version_upgrade = kwargs['allowVersionUpgrade']
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if aqua_configuration_status is None and 'aquaConfigurationStatus' in kwargs:
-            aqua_configuration_status = kwargs['aquaConfigurationStatus']
-        if automated_snapshot_retention_period is None and 'automatedSnapshotRetentionPeriod' in kwargs:
-            automated_snapshot_retention_period = kwargs['automatedSnapshotRetentionPeriod']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if availability_zone_relocation_enabled is None and 'availabilityZoneRelocationEnabled' in kwargs:
-            availability_zone_relocation_enabled = kwargs['availabilityZoneRelocationEnabled']
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_namespace_arn is None and 'clusterNamespaceArn' in kwargs:
-            cluster_namespace_arn = kwargs['clusterNamespaceArn']
-        if cluster_nodes is None and 'clusterNodes' in kwargs:
-            cluster_nodes = kwargs['clusterNodes']
-        if cluster_parameter_group_name is None and 'clusterParameterGroupName' in kwargs:
-            cluster_parameter_group_name = kwargs['clusterParameterGroupName']
-        if cluster_public_key is None and 'clusterPublicKey' in kwargs:
-            cluster_public_key = kwargs['clusterPublicKey']
-        if cluster_revision_number is None and 'clusterRevisionNumber' in kwargs:
-            cluster_revision_number = kwargs['clusterRevisionNumber']
-        if cluster_subnet_group_name is None and 'clusterSubnetGroupName' in kwargs:
-            cluster_subnet_group_name = kwargs['clusterSubnetGroupName']
-        if cluster_type is None and 'clusterType' in kwargs:
-            cluster_type = kwargs['clusterType']
-        if cluster_version is None and 'clusterVersion' in kwargs:
-            cluster_version = kwargs['clusterVersion']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if default_iam_role_arn is None and 'defaultIamRoleArn' in kwargs:
-            default_iam_role_arn = kwargs['defaultIamRoleArn']
-        if dns_name is None and 'dnsName' in kwargs:
-            dns_name = kwargs['dnsName']
-        if elastic_ip is None and 'elasticIp' in kwargs:
-            elastic_ip = kwargs['elasticIp']
-        if enhanced_vpc_routing is None and 'enhancedVpcRouting' in kwargs:
-            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if iam_roles is None and 'iamRoles' in kwargs:
-            iam_roles = kwargs['iamRoles']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if maintenance_track_name is None and 'maintenanceTrackName' in kwargs:
-            maintenance_track_name = kwargs['maintenanceTrackName']
-        if manual_snapshot_retention_period is None and 'manualSnapshotRetentionPeriod' in kwargs:
-            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
-        if master_password is None and 'masterPassword' in kwargs:
-            master_password = kwargs['masterPassword']
-        if master_username is None and 'masterUsername' in kwargs:
-            master_username = kwargs['masterUsername']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if number_of_nodes is None and 'numberOfNodes' in kwargs:
-            number_of_nodes = kwargs['numberOfNodes']
-        if owner_account is None and 'ownerAccount' in kwargs:
-            owner_account = kwargs['ownerAccount']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
-            publicly_accessible = kwargs['publiclyAccessible']
-        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
-            skip_final_snapshot = kwargs['skipFinalSnapshot']
-        if snapshot_cluster_identifier is None and 'snapshotClusterIdentifier' in kwargs:
-            snapshot_cluster_identifier = kwargs['snapshotClusterIdentifier']
-        if snapshot_copy is None and 'snapshotCopy' in kwargs:
-            snapshot_copy = kwargs['snapshotCopy']
-        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
-            snapshot_identifier = kwargs['snapshotIdentifier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
         if allow_version_upgrade is not None:
-            _setter("allow_version_upgrade", allow_version_upgrade)
+            pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if aqua_configuration_status is not None:
             warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
         if aqua_configuration_status is not None:
-            _setter("aqua_configuration_status", aqua_configuration_status)
+            pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if automated_snapshot_retention_period is not None:
-            _setter("automated_snapshot_retention_period", automated_snapshot_retention_period)
+            pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if availability_zone_relocation_enabled is not None:
-            _setter("availability_zone_relocation_enabled", availability_zone_relocation_enabled)
+            pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_identifier is not None:
-            _setter("cluster_identifier", cluster_identifier)
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_namespace_arn is not None:
-            _setter("cluster_namespace_arn", cluster_namespace_arn)
+            pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_nodes is not None:
-            _setter("cluster_nodes", cluster_nodes)
+            pulumi.set(__self__, "cluster_nodes", cluster_nodes)
         if cluster_parameter_group_name is not None:
-            _setter("cluster_parameter_group_name", cluster_parameter_group_name)
+            pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
         if cluster_public_key is not None:
-            _setter("cluster_public_key", cluster_public_key)
+            pulumi.set(__self__, "cluster_public_key", cluster_public_key)
         if cluster_revision_number is not None:
-            _setter("cluster_revision_number", cluster_revision_number)
+            pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_subnet_group_name is not None:
-            _setter("cluster_subnet_group_name", cluster_subnet_group_name)
+            pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_type is not None:
-            _setter("cluster_type", cluster_type)
+            pulumi.set(__self__, "cluster_type", cluster_type)
         if cluster_version is not None:
-            _setter("cluster_version", cluster_version)
+            pulumi.set(__self__, "cluster_version", cluster_version)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if default_iam_role_arn is not None:
-            _setter("default_iam_role_arn", default_iam_role_arn)
+            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
         if dns_name is not None:
-            _setter("dns_name", dns_name)
+            pulumi.set(__self__, "dns_name", dns_name)
         if elastic_ip is not None:
-            _setter("elastic_ip", elastic_ip)
+            pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if enhanced_vpc_routing is not None:
-            _setter("enhanced_vpc_routing", enhanced_vpc_routing)
+            pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if iam_roles is not None:
-            _setter("iam_roles", iam_roles)
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
-            _setter("maintenance_track_name", maintenance_track_name)
+            pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
         if manual_snapshot_retention_period is not None:
-            _setter("manual_snapshot_retention_period", manual_snapshot_retention_period)
+            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
-            _setter("master_password", master_password)
+            pulumi.set(__self__, "master_password", master_password)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if number_of_nodes is not None:
-            _setter("number_of_nodes", number_of_nodes)
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
-            _setter("owner_account", owner_account)
+            pulumi.set(__self__, "owner_account", owner_account)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if skip_final_snapshot is not None:
-            _setter("skip_final_snapshot", skip_final_snapshot)
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_cluster_identifier is not None:
-            _setter("snapshot_cluster_identifier", snapshot_cluster_identifier)
+            pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
         if snapshot_copy is not None:
-            _setter("snapshot_copy", snapshot_copy)
+            pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
-            _setter("snapshot_identifier", snapshot_identifier)
+            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="allowVersionUpgrade")
@@ -1914,10 +1582,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1995,7 +1659,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
-            logging = _utilities.configure(logging, ClusterLoggingArgs, True)
             __props__.__dict__["logging"] = logging
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
@@ -2011,7 +1674,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-            snapshot_copy = _utilities.configure(snapshot_copy, ClusterSnapshotCopyArgs, True)
             __props__.__dict__["snapshot_copy"] = snapshot_copy
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags

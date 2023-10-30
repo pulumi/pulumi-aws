@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,48 +31,17 @@ class CachePolicyArgs:
         :param pulumi.Input[int] min_ttl: Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         :param pulumi.Input[str] name: Unique name used to identify the cache policy.
         """
-        CachePolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameters_in_cache_key_and_forwarded_to_origin=parameters_in_cache_key_and_forwarded_to_origin,
-            comment=comment,
-            default_ttl=default_ttl,
-            max_ttl=max_ttl,
-            min_ttl=min_ttl,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             default_ttl: Optional[pulumi.Input[int]] = None,
-             max_ttl: Optional[pulumi.Input[int]] = None,
-             min_ttl: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parameters_in_cache_key_and_forwarded_to_origin is None and 'parametersInCacheKeyAndForwardedToOrigin' in kwargs:
-            parameters_in_cache_key_and_forwarded_to_origin = kwargs['parametersInCacheKeyAndForwardedToOrigin']
-        if parameters_in_cache_key_and_forwarded_to_origin is None:
-            raise TypeError("Missing 'parameters_in_cache_key_and_forwarded_to_origin' argument")
-        if default_ttl is None and 'defaultTtl' in kwargs:
-            default_ttl = kwargs['defaultTtl']
-        if max_ttl is None and 'maxTtl' in kwargs:
-            max_ttl = kwargs['maxTtl']
-        if min_ttl is None and 'minTtl' in kwargs:
-            min_ttl = kwargs['minTtl']
-
-        _setter("parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
+        pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if default_ttl is not None:
-            _setter("default_ttl", default_ttl)
+            pulumi.set(__self__, "default_ttl", default_ttl)
         if max_ttl is not None:
-            _setter("max_ttl", max_ttl)
+            pulumi.set(__self__, "max_ttl", max_ttl)
         if min_ttl is not None:
-            _setter("min_ttl", min_ttl)
+            pulumi.set(__self__, "min_ttl", min_ttl)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
@@ -167,51 +136,20 @@ class _CachePolicyState:
         :param pulumi.Input[str] name: Unique name used to identify the cache policy.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         """
-        _CachePolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comment=comment,
-            default_ttl=default_ttl,
-            etag=etag,
-            max_ttl=max_ttl,
-            min_ttl=min_ttl,
-            name=name,
-            parameters_in_cache_key_and_forwarded_to_origin=parameters_in_cache_key_and_forwarded_to_origin,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comment: Optional[pulumi.Input[str]] = None,
-             default_ttl: Optional[pulumi.Input[int]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             max_ttl: Optional[pulumi.Input[int]] = None,
-             min_ttl: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_ttl is None and 'defaultTtl' in kwargs:
-            default_ttl = kwargs['defaultTtl']
-        if max_ttl is None and 'maxTtl' in kwargs:
-            max_ttl = kwargs['maxTtl']
-        if min_ttl is None and 'minTtl' in kwargs:
-            min_ttl = kwargs['minTtl']
-        if parameters_in_cache_key_and_forwarded_to_origin is None and 'parametersInCacheKeyAndForwardedToOrigin' in kwargs:
-            parameters_in_cache_key_and_forwarded_to_origin = kwargs['parametersInCacheKeyAndForwardedToOrigin']
-
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if default_ttl is not None:
-            _setter("default_ttl", default_ttl)
+            pulumi.set(__self__, "default_ttl", default_ttl)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if max_ttl is not None:
-            _setter("max_ttl", max_ttl)
+            pulumi.set(__self__, "max_ttl", max_ttl)
         if min_ttl is not None:
-            _setter("min_ttl", min_ttl)
+            pulumi.set(__self__, "min_ttl", min_ttl)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters_in_cache_key_and_forwarded_to_origin is not None:
-            _setter("parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
+            pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
 
     @property
     @pulumi.getter
@@ -423,10 +361,6 @@ class CachePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CachePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -452,7 +386,6 @@ class CachePolicy(pulumi.CustomResource):
             __props__.__dict__["max_ttl"] = max_ttl
             __props__.__dict__["min_ttl"] = min_ttl
             __props__.__dict__["name"] = name
-            parameters_in_cache_key_and_forwarded_to_origin = _utilities.configure(parameters_in_cache_key_and_forwarded_to_origin, CachePolicyParametersInCacheKeyAndForwardedToOriginArgs, True)
             if parameters_in_cache_key_and_forwarded_to_origin is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters_in_cache_key_and_forwarded_to_origin'")
             __props__.__dict__["parameters_in_cache_key_and_forwarded_to_origin"] = parameters_in_cache_key_and_forwarded_to_origin

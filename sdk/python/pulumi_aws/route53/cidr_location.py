@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CidrLocationArgs', 'CidrLocation']
@@ -23,33 +23,10 @@ class CidrLocationArgs:
         :param pulumi.Input[str] cidr_collection_id: The ID of the CIDR collection to update.
         :param pulumi.Input[str] name: Name for the CIDR location.
         """
-        CidrLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr_blocks=cidr_blocks,
-            cidr_collection_id=cidr_collection_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cidr_collection_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr_blocks is None and 'cidrBlocks' in kwargs:
-            cidr_blocks = kwargs['cidrBlocks']
-        if cidr_blocks is None:
-            raise TypeError("Missing 'cidr_blocks' argument")
-        if cidr_collection_id is None and 'cidrCollectionId' in kwargs:
-            cidr_collection_id = kwargs['cidrCollectionId']
-        if cidr_collection_id is None:
-            raise TypeError("Missing 'cidr_collection_id' argument")
-
-        _setter("cidr_blocks", cidr_blocks)
-        _setter("cidr_collection_id", cidr_collection_id)
+        pulumi.set(__self__, "cidr_blocks", cidr_blocks)
+        pulumi.set(__self__, "cidr_collection_id", cidr_collection_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cidrBlocks")
@@ -100,31 +77,12 @@ class _CidrLocationState:
         :param pulumi.Input[str] cidr_collection_id: The ID of the CIDR collection to update.
         :param pulumi.Input[str] name: Name for the CIDR location.
         """
-        _CidrLocationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr_blocks=cidr_blocks,
-            cidr_collection_id=cidr_collection_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cidr_collection_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr_blocks is None and 'cidrBlocks' in kwargs:
-            cidr_blocks = kwargs['cidrBlocks']
-        if cidr_collection_id is None and 'cidrCollectionId' in kwargs:
-            cidr_collection_id = kwargs['cidrCollectionId']
-
         if cidr_blocks is not None:
-            _setter("cidr_blocks", cidr_blocks)
+            pulumi.set(__self__, "cidr_blocks", cidr_blocks)
         if cidr_collection_id is not None:
-            _setter("cidr_collection_id", cidr_collection_id)
+            pulumi.set(__self__, "cidr_collection_id", cidr_collection_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cidrBlocks")
@@ -246,10 +204,6 @@ class CidrLocation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CidrLocationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

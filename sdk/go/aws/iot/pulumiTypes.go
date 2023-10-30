@@ -14,347 +14,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type DomainConfigurationAuthorizerConfig struct {
-	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-	AllowAuthorizerOverride *bool `pulumi:"allowAuthorizerOverride"`
-	// The name of the authorization service for a domain configuration.
-	DefaultAuthorizerName *string `pulumi:"defaultAuthorizerName"`
-}
-
-// DomainConfigurationAuthorizerConfigInput is an input type that accepts DomainConfigurationAuthorizerConfigArgs and DomainConfigurationAuthorizerConfigOutput values.
-// You can construct a concrete instance of `DomainConfigurationAuthorizerConfigInput` via:
-//
-//	DomainConfigurationAuthorizerConfigArgs{...}
-type DomainConfigurationAuthorizerConfigInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationAuthorizerConfigOutput() DomainConfigurationAuthorizerConfigOutput
-	ToDomainConfigurationAuthorizerConfigOutputWithContext(context.Context) DomainConfigurationAuthorizerConfigOutput
-}
-
-type DomainConfigurationAuthorizerConfigArgs struct {
-	// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-	AllowAuthorizerOverride pulumi.BoolPtrInput `pulumi:"allowAuthorizerOverride"`
-	// The name of the authorization service for a domain configuration.
-	DefaultAuthorizerName pulumi.StringPtrInput `pulumi:"defaultAuthorizerName"`
-}
-
-func (DomainConfigurationAuthorizerConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationAuthorizerConfig)(nil)).Elem()
-}
-
-func (i DomainConfigurationAuthorizerConfigArgs) ToDomainConfigurationAuthorizerConfigOutput() DomainConfigurationAuthorizerConfigOutput {
-	return i.ToDomainConfigurationAuthorizerConfigOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationAuthorizerConfigArgs) ToDomainConfigurationAuthorizerConfigOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationAuthorizerConfigOutput)
-}
-
-func (i DomainConfigurationAuthorizerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainConfigurationAuthorizerConfig] {
-	return pulumix.Output[DomainConfigurationAuthorizerConfig]{
-		OutputState: i.ToDomainConfigurationAuthorizerConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i DomainConfigurationAuthorizerConfigArgs) ToDomainConfigurationAuthorizerConfigPtrOutput() DomainConfigurationAuthorizerConfigPtrOutput {
-	return i.ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationAuthorizerConfigArgs) ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationAuthorizerConfigOutput).ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx)
-}
-
-// DomainConfigurationAuthorizerConfigPtrInput is an input type that accepts DomainConfigurationAuthorizerConfigArgs, DomainConfigurationAuthorizerConfigPtr and DomainConfigurationAuthorizerConfigPtrOutput values.
-// You can construct a concrete instance of `DomainConfigurationAuthorizerConfigPtrInput` via:
-//
-//	        DomainConfigurationAuthorizerConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type DomainConfigurationAuthorizerConfigPtrInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationAuthorizerConfigPtrOutput() DomainConfigurationAuthorizerConfigPtrOutput
-	ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(context.Context) DomainConfigurationAuthorizerConfigPtrOutput
-}
-
-type domainConfigurationAuthorizerConfigPtrType DomainConfigurationAuthorizerConfigArgs
-
-func DomainConfigurationAuthorizerConfigPtr(v *DomainConfigurationAuthorizerConfigArgs) DomainConfigurationAuthorizerConfigPtrInput {
-	return (*domainConfigurationAuthorizerConfigPtrType)(v)
-}
-
-func (*domainConfigurationAuthorizerConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainConfigurationAuthorizerConfig)(nil)).Elem()
-}
-
-func (i *domainConfigurationAuthorizerConfigPtrType) ToDomainConfigurationAuthorizerConfigPtrOutput() DomainConfigurationAuthorizerConfigPtrOutput {
-	return i.ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *domainConfigurationAuthorizerConfigPtrType) ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationAuthorizerConfigPtrOutput)
-}
-
-func (i *domainConfigurationAuthorizerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainConfigurationAuthorizerConfig] {
-	return pulumix.Output[*DomainConfigurationAuthorizerConfig]{
-		OutputState: i.ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type DomainConfigurationAuthorizerConfigOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationAuthorizerConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationAuthorizerConfig)(nil)).Elem()
-}
-
-func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthorizerConfigOutput() DomainConfigurationAuthorizerConfigOutput {
-	return o
-}
-
-func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthorizerConfigOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigOutput {
-	return o
-}
-
-func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthorizerConfigPtrOutput() DomainConfigurationAuthorizerConfigPtrOutput {
-	return o.ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationAuthorizerConfig) *DomainConfigurationAuthorizerConfig {
-		return &v
-	}).(DomainConfigurationAuthorizerConfigPtrOutput)
-}
-
-func (o DomainConfigurationAuthorizerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConfigurationAuthorizerConfig] {
-	return pulumix.Output[DomainConfigurationAuthorizerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
-// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-func (o DomainConfigurationAuthorizerConfigOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *bool { return v.AllowAuthorizerOverride }).(pulumi.BoolPtrOutput)
-}
-
-// The name of the authorization service for a domain configuration.
-func (o DomainConfigurationAuthorizerConfigOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *string { return v.DefaultAuthorizerName }).(pulumi.StringPtrOutput)
-}
-
-type DomainConfigurationAuthorizerConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationAuthorizerConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainConfigurationAuthorizerConfig)(nil)).Elem()
-}
-
-func (o DomainConfigurationAuthorizerConfigPtrOutput) ToDomainConfigurationAuthorizerConfigPtrOutput() DomainConfigurationAuthorizerConfigPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationAuthorizerConfigPtrOutput) ToDomainConfigurationAuthorizerConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationAuthorizerConfigPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationAuthorizerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConfigurationAuthorizerConfig] {
-	return pulumix.Output[*DomainConfigurationAuthorizerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DomainConfigurationAuthorizerConfigPtrOutput) Elem() DomainConfigurationAuthorizerConfigOutput {
-	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) DomainConfigurationAuthorizerConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DomainConfigurationAuthorizerConfig
-		return ret
-	}).(DomainConfigurationAuthorizerConfigOutput)
-}
-
-// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-func (o DomainConfigurationAuthorizerConfigPtrOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowAuthorizerOverride
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The name of the authorization service for a domain configuration.
-func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultAuthorizerName
-	}).(pulumi.StringPtrOutput)
-}
-
-type DomainConfigurationTlsConfig struct {
-	// The security policy for a domain configuration.
-	SecurityPolicy *string `pulumi:"securityPolicy"`
-}
-
-// DomainConfigurationTlsConfigInput is an input type that accepts DomainConfigurationTlsConfigArgs and DomainConfigurationTlsConfigOutput values.
-// You can construct a concrete instance of `DomainConfigurationTlsConfigInput` via:
-//
-//	DomainConfigurationTlsConfigArgs{...}
-type DomainConfigurationTlsConfigInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput
-	ToDomainConfigurationTlsConfigOutputWithContext(context.Context) DomainConfigurationTlsConfigOutput
-}
-
-type DomainConfigurationTlsConfigArgs struct {
-	// The security policy for a domain configuration.
-	SecurityPolicy pulumi.StringPtrInput `pulumi:"securityPolicy"`
-}
-
-func (DomainConfigurationTlsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationTlsConfig)(nil)).Elem()
-}
-
-func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput {
-	return i.ToDomainConfigurationTlsConfigOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigOutput)
-}
-
-func (i DomainConfigurationTlsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DomainConfigurationTlsConfig] {
-	return pulumix.Output[DomainConfigurationTlsConfig]{
-		OutputState: i.ToDomainConfigurationTlsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
-	return i.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DomainConfigurationTlsConfigArgs) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigOutput).ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx)
-}
-
-// DomainConfigurationTlsConfigPtrInput is an input type that accepts DomainConfigurationTlsConfigArgs, DomainConfigurationTlsConfigPtr and DomainConfigurationTlsConfigPtrOutput values.
-// You can construct a concrete instance of `DomainConfigurationTlsConfigPtrInput` via:
-//
-//	        DomainConfigurationTlsConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type DomainConfigurationTlsConfigPtrInput interface {
-	pulumi.Input
-
-	ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput
-	ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Context) DomainConfigurationTlsConfigPtrOutput
-}
-
-type domainConfigurationTlsConfigPtrType DomainConfigurationTlsConfigArgs
-
-func DomainConfigurationTlsConfigPtr(v *DomainConfigurationTlsConfigArgs) DomainConfigurationTlsConfigPtrInput {
-	return (*domainConfigurationTlsConfigPtrType)(v)
-}
-
-func (*domainConfigurationTlsConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainConfigurationTlsConfig)(nil)).Elem()
-}
-
-func (i *domainConfigurationTlsConfigPtrType) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
-	return i.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *domainConfigurationTlsConfigPtrType) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTlsConfigPtrOutput)
-}
-
-func (i *domainConfigurationTlsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainConfigurationTlsConfig] {
-	return pulumix.Output[*DomainConfigurationTlsConfig]{
-		OutputState: i.ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type DomainConfigurationTlsConfigOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationTlsConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainConfigurationTlsConfig)(nil)).Elem()
-}
-
-func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigOutput() DomainConfigurationTlsConfigOutput {
-	return o
-}
-
-func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigOutput {
-	return o
-}
-
-func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
-	return o.ToDomainConfigurationTlsConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DomainConfigurationTlsConfigOutput) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainConfigurationTlsConfig) *DomainConfigurationTlsConfig {
-		return &v
-	}).(DomainConfigurationTlsConfigPtrOutput)
-}
-
-func (o DomainConfigurationTlsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConfigurationTlsConfig] {
-	return pulumix.Output[DomainConfigurationTlsConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The security policy for a domain configuration.
-func (o DomainConfigurationTlsConfigOutput) SecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainConfigurationTlsConfig) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
-}
-
-type DomainConfigurationTlsConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainConfigurationTlsConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainConfigurationTlsConfig)(nil)).Elem()
-}
-
-func (o DomainConfigurationTlsConfigPtrOutput) ToDomainConfigurationTlsConfigPtrOutput() DomainConfigurationTlsConfigPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationTlsConfigPtrOutput) ToDomainConfigurationTlsConfigPtrOutputWithContext(ctx context.Context) DomainConfigurationTlsConfigPtrOutput {
-	return o
-}
-
-func (o DomainConfigurationTlsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConfigurationTlsConfig] {
-	return pulumix.Output[*DomainConfigurationTlsConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o DomainConfigurationTlsConfigPtrOutput) Elem() DomainConfigurationTlsConfigOutput {
-	return o.ApplyT(func(v *DomainConfigurationTlsConfig) DomainConfigurationTlsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DomainConfigurationTlsConfig
-		return ret
-	}).(DomainConfigurationTlsConfigOutput)
-}
-
-// The security policy for a domain configuration.
-func (o DomainConfigurationTlsConfigPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainConfigurationTlsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
 type IndexingConfigurationThingGroupIndexingConfiguration struct {
 	// A list of thing group fields to index. This list cannot contain any managed fields. See below.
 	CustomFields []IndexingConfigurationThingGroupIndexingConfigurationCustomField `pulumi:"customFields"`
@@ -823,8 +482,6 @@ type IndexingConfigurationThingIndexingConfiguration struct {
 	CustomFields []IndexingConfigurationThingIndexingConfigurationCustomField `pulumi:"customFields"`
 	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
 	DeviceDefenderIndexingMode *string `pulumi:"deviceDefenderIndexingMode"`
-	// Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-	Filter *IndexingConfigurationThingIndexingConfigurationFilter `pulumi:"filter"`
 	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 	ManagedFields []IndexingConfigurationThingIndexingConfigurationManagedField `pulumi:"managedFields"`
 	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
@@ -851,8 +508,6 @@ type IndexingConfigurationThingIndexingConfigurationArgs struct {
 	CustomFields IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput `pulumi:"customFields"`
 	// Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
 	DeviceDefenderIndexingMode pulumi.StringPtrInput `pulumi:"deviceDefenderIndexingMode"`
-	// Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-	Filter IndexingConfigurationThingIndexingConfigurationFilterPtrInput `pulumi:"filter"`
 	// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 	ManagedFields IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput `pulumi:"managedFields"`
 	// [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
@@ -970,13 +625,6 @@ func (o IndexingConfigurationThingIndexingConfigurationOutput) DeviceDefenderInd
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *string { return v.DeviceDefenderIndexingMode }).(pulumi.StringPtrOutput)
 }
 
-// Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-func (o IndexingConfigurationThingIndexingConfigurationOutput) Filter() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) *IndexingConfigurationThingIndexingConfigurationFilter {
-		return v.Filter
-	}).(IndexingConfigurationThingIndexingConfigurationFilterPtrOutput)
-}
-
 // Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
 func (o IndexingConfigurationThingIndexingConfigurationOutput) ManagedFields() IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput {
 	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfiguration) []IndexingConfigurationThingIndexingConfigurationManagedField {
@@ -1049,16 +697,6 @@ func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) DeviceDefender
 		}
 		return v.DeviceDefenderIndexingMode
 	}).(pulumi.StringPtrOutput)
-}
-
-// Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-func (o IndexingConfigurationThingIndexingConfigurationPtrOutput) Filter() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfiguration) *IndexingConfigurationThingIndexingConfigurationFilter {
-		if v == nil {
-			return nil
-		}
-		return v.Filter
-	}).(IndexingConfigurationThingIndexingConfigurationFilterPtrOutput)
 }
 
 // Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
@@ -1229,167 +867,6 @@ func (o IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput) I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexingConfigurationThingIndexingConfigurationCustomField {
 		return vs[0].([]IndexingConfigurationThingIndexingConfigurationCustomField)[vs[1].(int)]
 	}).(IndexingConfigurationThingIndexingConfigurationCustomFieldOutput)
-}
-
-type IndexingConfigurationThingIndexingConfigurationFilter struct {
-	// List of shadow names that you select to index.
-	NamedShadowNames []string `pulumi:"namedShadowNames"`
-}
-
-// IndexingConfigurationThingIndexingConfigurationFilterInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationFilterArgs and IndexingConfigurationThingIndexingConfigurationFilterOutput values.
-// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationFilterInput` via:
-//
-//	IndexingConfigurationThingIndexingConfigurationFilterArgs{...}
-type IndexingConfigurationThingIndexingConfigurationFilterInput interface {
-	pulumi.Input
-
-	ToIndexingConfigurationThingIndexingConfigurationFilterOutput() IndexingConfigurationThingIndexingConfigurationFilterOutput
-	ToIndexingConfigurationThingIndexingConfigurationFilterOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationFilterOutput
-}
-
-type IndexingConfigurationThingIndexingConfigurationFilterArgs struct {
-	// List of shadow names that you select to index.
-	NamedShadowNames pulumi.StringArrayInput `pulumi:"namedShadowNames"`
-}
-
-func (IndexingConfigurationThingIndexingConfigurationFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationFilter)(nil)).Elem()
-}
-
-func (i IndexingConfigurationThingIndexingConfigurationFilterArgs) ToIndexingConfigurationThingIndexingConfigurationFilterOutput() IndexingConfigurationThingIndexingConfigurationFilterOutput {
-	return i.ToIndexingConfigurationThingIndexingConfigurationFilterOutputWithContext(context.Background())
-}
-
-func (i IndexingConfigurationThingIndexingConfigurationFilterArgs) ToIndexingConfigurationThingIndexingConfigurationFilterOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationFilterOutput)
-}
-
-func (i IndexingConfigurationThingIndexingConfigurationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[IndexingConfigurationThingIndexingConfigurationFilter] {
-	return pulumix.Output[IndexingConfigurationThingIndexingConfigurationFilter]{
-		OutputState: i.ToIndexingConfigurationThingIndexingConfigurationFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i IndexingConfigurationThingIndexingConfigurationFilterArgs) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutput() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return i.ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(context.Background())
-}
-
-func (i IndexingConfigurationThingIndexingConfigurationFilterArgs) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationFilterOutput).ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx)
-}
-
-// IndexingConfigurationThingIndexingConfigurationFilterPtrInput is an input type that accepts IndexingConfigurationThingIndexingConfigurationFilterArgs, IndexingConfigurationThingIndexingConfigurationFilterPtr and IndexingConfigurationThingIndexingConfigurationFilterPtrOutput values.
-// You can construct a concrete instance of `IndexingConfigurationThingIndexingConfigurationFilterPtrInput` via:
-//
-//	        IndexingConfigurationThingIndexingConfigurationFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type IndexingConfigurationThingIndexingConfigurationFilterPtrInput interface {
-	pulumi.Input
-
-	ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutput() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput
-	ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(context.Context) IndexingConfigurationThingIndexingConfigurationFilterPtrOutput
-}
-
-type indexingConfigurationThingIndexingConfigurationFilterPtrType IndexingConfigurationThingIndexingConfigurationFilterArgs
-
-func IndexingConfigurationThingIndexingConfigurationFilterPtr(v *IndexingConfigurationThingIndexingConfigurationFilterArgs) IndexingConfigurationThingIndexingConfigurationFilterPtrInput {
-	return (*indexingConfigurationThingIndexingConfigurationFilterPtrType)(v)
-}
-
-func (*indexingConfigurationThingIndexingConfigurationFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexingConfigurationThingIndexingConfigurationFilter)(nil)).Elem()
-}
-
-func (i *indexingConfigurationThingIndexingConfigurationFilterPtrType) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutput() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return i.ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *indexingConfigurationThingIndexingConfigurationFilterPtrType) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationThingIndexingConfigurationFilterPtrOutput)
-}
-
-func (i *indexingConfigurationThingIndexingConfigurationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexingConfigurationThingIndexingConfigurationFilter] {
-	return pulumix.Output[*IndexingConfigurationThingIndexingConfigurationFilter]{
-		OutputState: i.ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type IndexingConfigurationThingIndexingConfigurationFilterOutput struct{ *pulumi.OutputState }
-
-func (IndexingConfigurationThingIndexingConfigurationFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationFilter)(nil)).Elem()
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) ToIndexingConfigurationThingIndexingConfigurationFilterOutput() IndexingConfigurationThingIndexingConfigurationFilterOutput {
-	return o
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) ToIndexingConfigurationThingIndexingConfigurationFilterOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterOutput {
-	return o
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutput() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o.ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(context.Background())
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingConfigurationThingIndexingConfigurationFilter) *IndexingConfigurationThingIndexingConfigurationFilter {
-		return &v
-	}).(IndexingConfigurationThingIndexingConfigurationFilterPtrOutput)
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[IndexingConfigurationThingIndexingConfigurationFilter] {
-	return pulumix.Output[IndexingConfigurationThingIndexingConfigurationFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
-// List of shadow names that you select to index.
-func (o IndexingConfigurationThingIndexingConfigurationFilterOutput) NamedShadowNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v IndexingConfigurationThingIndexingConfigurationFilter) []string { return v.NamedShadowNames }).(pulumi.StringArrayOutput)
-}
-
-type IndexingConfigurationThingIndexingConfigurationFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IndexingConfigurationThingIndexingConfigurationFilter)(nil)).Elem()
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutput() IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) ToIndexingConfigurationThingIndexingConfigurationFilterPtrOutputWithContext(ctx context.Context) IndexingConfigurationThingIndexingConfigurationFilterPtrOutput {
-	return o
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexingConfigurationThingIndexingConfigurationFilter] {
-	return pulumix.Output[*IndexingConfigurationThingIndexingConfigurationFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) Elem() IndexingConfigurationThingIndexingConfigurationFilterOutput {
-	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfigurationFilter) IndexingConfigurationThingIndexingConfigurationFilter {
-		if v != nil {
-			return *v
-		}
-		var ret IndexingConfigurationThingIndexingConfigurationFilter
-		return ret
-	}).(IndexingConfigurationThingIndexingConfigurationFilterOutput)
-}
-
-// List of shadow names that you select to index.
-func (o IndexingConfigurationThingIndexingConfigurationFilterPtrOutput) NamedShadowNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *IndexingConfigurationThingIndexingConfigurationFilter) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NamedShadowNames
-	}).(pulumi.StringArrayOutput)
 }
 
 type IndexingConfigurationThingIndexingConfigurationManagedField struct {
@@ -11212,10 +10689,6 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationTlsConfigPtrInput)(nil)).Elem(), DomainConfigurationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationPtrInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationCustomFieldInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs{})
@@ -11226,8 +10699,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationPtrInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomFieldInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationCustomFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationCustomFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationCustomFieldArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationFilterInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationFilterPtrInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedFieldInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationManagedFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingIndexingConfigurationManagedFieldArrayInput)(nil)).Elem(), IndexingConfigurationThingIndexingConfigurationManagedFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningTemplatePreProvisioningHookInput)(nil)).Elem(), ProvisioningTemplatePreProvisioningHookArgs{})
@@ -11338,10 +10809,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionArrayInput)(nil)).Elem(), TopicRuleTimestreamDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
-	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
-	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
-	pulumi.RegisterOutputType(DomainConfigurationTlsConfigOutput{})
-	pulumi.RegisterOutputType(DomainConfigurationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput{})
@@ -11352,8 +10819,6 @@ func init() {
 	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationCustomFieldOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationCustomFieldArrayOutput{})
-	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationFilterOutput{})
-	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationFilterPtrOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationManagedFieldOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingIndexingConfigurationManagedFieldArrayOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplatePreProvisioningHookOutput{})

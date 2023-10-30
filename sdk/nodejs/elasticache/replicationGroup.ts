@@ -266,10 +266,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
-     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-     */
-    public readonly ipDiscovery!: pulumi.Output<string>;
-    /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -289,10 +285,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
      */
     public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
-     */
-    public readonly networkType!: pulumi.Output<string>;
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
@@ -343,11 +335,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly replicationGroupId!: pulumi.Output<string>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * List of cache security group names to associate with this replication group.
      */
     public readonly securityGroupNames!: pulumi.Output<string[]>;
     /**
@@ -417,13 +409,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
-            resourceInputs["ipDiscovery"] = state ? state.ipDiscovery : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logDeliveryConfigurations"] = state ? state.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["memberClusters"] = state ? state.memberClusters : undefined;
             resourceInputs["multiAzEnabled"] = state ? state.multiAzEnabled : undefined;
-            resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = state ? state.notificationTopicArn : undefined;
             resourceInputs["numCacheClusters"] = state ? state.numCacheClusters : undefined;
@@ -459,12 +449,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             resourceInputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
-            resourceInputs["ipDiscovery"] = args ? args.ipDiscovery : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
-            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["numCacheClusters"] = args ? args.numCacheClusters : undefined;
@@ -572,10 +560,6 @@ export interface ReplicationGroupState {
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
-     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-     */
-    ipDiscovery?: pulumi.Input<string>;
-    /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -595,10 +579,6 @@ export interface ReplicationGroupState {
      * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
      */
     multiAzEnabled?: pulumi.Input<boolean>;
-    /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
-     */
-    networkType?: pulumi.Input<string>;
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
@@ -649,11 +629,11 @@ export interface ReplicationGroupState {
      */
     replicationGroupId?: pulumi.Input<string>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * List of cache security group names to associate with this replication group.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -752,10 +732,6 @@ export interface ReplicationGroupArgs {
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
-     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-     */
-    ipDiscovery?: pulumi.Input<string>;
-    /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     kmsKeyId?: pulumi.Input<string>;
@@ -771,10 +747,6 @@ export interface ReplicationGroupArgs {
      * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
      */
     multiAzEnabled?: pulumi.Input<boolean>;
-    /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
-     */
-    networkType?: pulumi.Input<string>;
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
      */
@@ -817,11 +789,11 @@ export interface ReplicationGroupArgs {
      */
     replicationGroupId?: pulumi.Input<string>;
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * List of cache security group names to associate with this replication group.
      */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**

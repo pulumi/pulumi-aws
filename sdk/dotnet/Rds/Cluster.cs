@@ -313,7 +313,7 @@ namespace Pulumi.Aws.Rds
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -337,10 +337,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -394,7 +391,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Output("dbClusterInstanceClass")]
         public Output<string?> DbClusterInstanceClass { get; private set; } = null!;
@@ -412,8 +409,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
@@ -425,9 +421,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `true`.
-        /// The default is `false`.
+        /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
@@ -635,7 +629,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        /// (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -710,7 +704,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -731,10 +725,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -791,7 +782,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
@@ -809,8 +800,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -822,9 +812,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `true`.
-        /// The default is `false`.
+        /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -1023,7 +1011,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        /// (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -1061,7 +1049,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -1088,10 +1076,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1154,7 +1139,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
@@ -1172,8 +1157,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -1185,9 +1169,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `true`.
-        /// The default is `false`.
+        /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
@@ -1423,7 +1405,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        /// (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

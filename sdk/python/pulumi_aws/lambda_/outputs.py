@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -72,21 +72,8 @@ class AliasRoutingConfig(dict):
         """
         :param Mapping[str, float] additional_version_weights: A map that defines the proportion of events that should be sent to different versions of a lambda function.
         """
-        AliasRoutingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_version_weights=additional_version_weights,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_version_weights: Optional[Mapping[str, float]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if additional_version_weights is None and 'additionalVersionWeights' in kwargs:
-            additional_version_weights = kwargs['additionalVersionWeights']
-
         if additional_version_weights is not None:
-            _setter("additional_version_weights", additional_version_weights)
+            pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
@@ -121,22 +108,7 @@ class CodeSigningConfigAllowedPublishers(dict):
         """
         :param Sequence[str] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
-        CodeSigningConfigAllowedPublishers._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            signing_profile_version_arns=signing_profile_version_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             signing_profile_version_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if signing_profile_version_arns is None and 'signingProfileVersionArns' in kwargs:
-            signing_profile_version_arns = kwargs['signingProfileVersionArns']
-        if signing_profile_version_arns is None:
-            raise TypeError("Missing 'signing_profile_version_arns' argument")
-
-        _setter("signing_profile_version_arns", signing_profile_version_arns)
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
     @pulumi.getter(name="signingProfileVersionArns")
@@ -171,22 +143,7 @@ class CodeSigningConfigPolicies(dict):
         """
         :param str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
         """
-        CodeSigningConfigPolicies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            untrusted_artifact_on_deployment=untrusted_artifact_on_deployment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             untrusted_artifact_on_deployment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if untrusted_artifact_on_deployment is None and 'untrustedArtifactOnDeployment' in kwargs:
-            untrusted_artifact_on_deployment = kwargs['untrustedArtifactOnDeployment']
-        if untrusted_artifact_on_deployment is None:
-            raise TypeError("Missing 'untrusted_artifact_on_deployment' argument")
-
-        _setter("untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
@@ -221,21 +178,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         """
         :param str consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
         """
-        EventSourceMappingAmazonManagedKafkaEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_id=consumer_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consumer_group_id is None and 'consumerGroupId' in kwargs:
-            consumer_group_id = kwargs['consumerGroupId']
-
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
@@ -270,21 +214,8 @@ class EventSourceMappingDestinationConfig(dict):
         """
         :param 'EventSourceMappingDestinationConfigOnFailureArgs' on_failure: The destination configuration for failed invocations. Detailed below.
         """
-        EventSourceMappingDestinationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_failure=on_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_failure: Optional['outputs.EventSourceMappingDestinationConfigOnFailure'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_failure is None and 'onFailure' in kwargs:
-            on_failure = kwargs['onFailure']
-
         if on_failure is not None:
-            _setter("on_failure", on_failure)
+            pulumi.set(__self__, "on_failure", on_failure)
 
     @property
     @pulumi.getter(name="onFailure")
@@ -319,22 +250,7 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
         """
         :param str destination_arn: The Amazon Resource Name (ARN) of the destination resource.
         """
-        EventSourceMappingDestinationConfigOnFailure._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_arn=destination_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination_arn is None and 'destinationArn' in kwargs:
-            destination_arn = kwargs['destinationArn']
-        if destination_arn is None:
-            raise TypeError("Missing 'destination_arn' argument")
-
-        _setter("destination_arn", destination_arn)
+        pulumi.set(__self__, "destination_arn", destination_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -377,34 +293,11 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
         :param str collection_name: The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         :param str full_document: Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
         """
-        EventSourceMappingDocumentDbEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            collection_name=collection_name,
-            full_document=full_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: Optional[str] = None,
-             collection_name: Optional[str] = None,
-             full_document: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if database_name is None:
-            raise TypeError("Missing 'database_name' argument")
-        if collection_name is None and 'collectionName' in kwargs:
-            collection_name = kwargs['collectionName']
-        if full_document is None and 'fullDocument' in kwargs:
-            full_document = kwargs['fullDocument']
-
-        _setter("database_name", database_name)
+        pulumi.set(__self__, "database_name", database_name)
         if collection_name is not None:
-            _setter("collection_name", collection_name)
+            pulumi.set(__self__, "collection_name", collection_name)
         if full_document is not None:
-            _setter("full_document", full_document)
+            pulumi.set(__self__, "full_document", full_document)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -438,19 +331,8 @@ class EventSourceMappingFilterCriteria(dict):
         """
         :param Sequence['EventSourceMappingFilterCriteriaFilterArgs'] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
         """
-        EventSourceMappingFilterCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filters=filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filters: Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
@@ -468,19 +350,8 @@ class EventSourceMappingFilterCriteriaFilter(dict):
         """
         :param str pattern: A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         """
-        EventSourceMappingFilterCriteriaFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
@@ -515,21 +386,8 @@ class EventSourceMappingScalingConfig(dict):
         """
         :param int maximum_concurrency: Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
         """
-        EventSourceMappingScalingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_concurrency=maximum_concurrency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_concurrency: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maximum_concurrency is None and 'maximumConcurrency' in kwargs:
-            maximum_concurrency = kwargs['maximumConcurrency']
-
         if maximum_concurrency is not None:
-            _setter("maximum_concurrency", maximum_concurrency)
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
 
     @property
     @pulumi.getter(name="maximumConcurrency")
@@ -547,20 +405,7 @@ class EventSourceMappingSelfManagedEventSource(dict):
         """
         :param Mapping[str, str] endpoints: A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
         """
-        EventSourceMappingSelfManagedEventSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoints=endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoints: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoints is None:
-            raise TypeError("Missing 'endpoints' argument")
-
-        _setter("endpoints", endpoints)
+        pulumi.set(__self__, "endpoints", endpoints)
 
     @property
     @pulumi.getter
@@ -595,21 +440,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         """
         :param str consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
         """
-        EventSourceMappingSelfManagedKafkaEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_id=consumer_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if consumer_group_id is None and 'consumerGroupId' in kwargs:
-            consumer_group_id = kwargs['consumerGroupId']
-
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
@@ -629,25 +461,8 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         :param str type: The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
         :param str uri: The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
         """
-        EventSourceMappingSourceAccessConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if uri is None:
-            raise TypeError("Missing 'uri' argument")
-
-        _setter("type", type)
-        _setter("uri", uri)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -690,22 +505,7 @@ class FunctionDeadLetterConfig(dict):
         """
         :param str target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
         """
-        FunctionDeadLetterConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_arn=target_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_arn is None and 'targetArn' in kwargs:
-            target_arn = kwargs['targetArn']
-        if target_arn is None:
-            raise TypeError("Missing 'target_arn' argument")
-
-        _setter("target_arn", target_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -723,19 +523,8 @@ class FunctionEnvironment(dict):
         """
         :param Mapping[str, str] variables: Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
         """
-        FunctionEnvironment._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            variables=variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             variables: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if variables is not None:
-            _setter("variables", variables)
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -753,19 +542,8 @@ class FunctionEphemeralStorage(dict):
         """
         :param int size: The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
         """
-        FunctionEphemeralStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -804,27 +582,10 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
         :param 'FunctionEventInvokeConfigDestinationConfigOnFailureArgs' on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
         :param 'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs' on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
         """
-        FunctionEventInvokeConfigDestinationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_failure=on_failure,
-            on_success=on_success,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_failure: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnFailure'] = None,
-             on_success: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if on_failure is None and 'onFailure' in kwargs:
-            on_failure = kwargs['onFailure']
-        if on_success is None and 'onSuccess' in kwargs:
-            on_success = kwargs['onSuccess']
-
         if on_failure is not None:
-            _setter("on_failure", on_failure)
+            pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
-            _setter("on_success", on_success)
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter(name="onFailure")
@@ -850,20 +611,7 @@ class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
         """
         :param str destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
         """
-        FunctionEventInvokeConfigDestinationConfigOnFailure._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-
-        _setter("destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
@@ -881,20 +629,7 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
         """
         :param str destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
         """
-        FunctionEventInvokeConfigDestinationConfigOnSuccess._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if destination is None:
-            raise TypeError("Missing 'destination' argument")
-
-        _setter("destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
@@ -931,27 +666,8 @@ class FunctionFileSystemConfig(dict):
         :param str arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param str local_mount_path: Path where the function can access the file system, starting with /mnt/.
         """
-        FunctionFileSystemConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            local_mount_path=local_mount_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             local_mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if local_mount_path is None and 'localMountPath' in kwargs:
-            local_mount_path = kwargs['localMountPath']
-        if local_mount_path is None:
-            raise TypeError("Missing 'local_mount_path' argument")
-
-        _setter("arn", arn)
-        _setter("local_mount_path", local_mount_path)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @property
     @pulumi.getter
@@ -1000,31 +716,12 @@ class FunctionImageConfig(dict):
         :param Sequence[str] entry_points: Entry point to your application, which is typically the location of the runtime executable.
         :param str working_directory: Working directory.
         """
-        FunctionImageConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            commands=commands,
-            entry_points=entry_points,
-            working_directory=working_directory,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             commands: Optional[Sequence[str]] = None,
-             entry_points: Optional[Sequence[str]] = None,
-             working_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entry_points is None and 'entryPoints' in kwargs:
-            entry_points = kwargs['entryPoints']
-        if working_directory is None and 'workingDirectory' in kwargs:
-            working_directory = kwargs['workingDirectory']
-
         if commands is not None:
-            _setter("commands", commands)
+            pulumi.set(__self__, "commands", commands)
         if entry_points is not None:
-            _setter("entry_points", entry_points)
+            pulumi.set(__self__, "entry_points", entry_points)
         if working_directory is not None:
-            _setter("working_directory", working_directory)
+            pulumi.set(__self__, "working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -1078,28 +775,9 @@ class FunctionSnapStart(dict):
         """
         :param str apply_on: Conditions where snap start is enabled. Valid values are `PublishedVersions`.
         """
-        FunctionSnapStart._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_on=apply_on,
-            optimization_status=optimization_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_on: Optional[str] = None,
-             optimization_status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_on is None and 'applyOn' in kwargs:
-            apply_on = kwargs['applyOn']
-        if apply_on is None:
-            raise TypeError("Missing 'apply_on' argument")
-        if optimization_status is None and 'optimizationStatus' in kwargs:
-            optimization_status = kwargs['optimizationStatus']
-
-        _setter("apply_on", apply_on)
+        pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
-            _setter("optimization_status", optimization_status)
+            pulumi.set(__self__, "optimization_status", optimization_status)
 
     @property
     @pulumi.getter(name="applyOn")
@@ -1122,20 +800,7 @@ class FunctionTracingConfig(dict):
         """
         :param str mode: Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
         """
-        FunctionTracingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -1190,51 +855,18 @@ class FunctionUrlCors(dict):
         :param Sequence[str] expose_headers: The HTTP headers in your function response that you want to expose to origins that call the function URL.
         :param int max_age: The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
         """
-        FunctionUrlCors._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allow_headers=allow_headers,
-            allow_methods=allow_methods,
-            allow_origins=allow_origins,
-            expose_headers=expose_headers,
-            max_age=max_age,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allow_headers: Optional[Sequence[str]] = None,
-             allow_methods: Optional[Sequence[str]] = None,
-             allow_origins: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_credentials is None and 'allowCredentials' in kwargs:
-            allow_credentials = kwargs['allowCredentials']
-        if allow_headers is None and 'allowHeaders' in kwargs:
-            allow_headers = kwargs['allowHeaders']
-        if allow_methods is None and 'allowMethods' in kwargs:
-            allow_methods = kwargs['allowMethods']
-        if allow_origins is None and 'allowOrigins' in kwargs:
-            allow_origins = kwargs['allowOrigins']
-        if expose_headers is None and 'exposeHeaders' in kwargs:
-            expose_headers = kwargs['exposeHeaders']
-        if max_age is None and 'maxAge' in kwargs:
-            max_age = kwargs['maxAge']
-
         if allow_credentials is not None:
-            _setter("allow_credentials", allow_credentials)
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
-            _setter("allow_headers", allow_headers)
+            pulumi.set(__self__, "allow_headers", allow_headers)
         if allow_methods is not None:
-            _setter("allow_methods", allow_methods)
+            pulumi.set(__self__, "allow_methods", allow_methods)
         if allow_origins is not None:
-            _setter("allow_origins", allow_origins)
+            pulumi.set(__self__, "allow_origins", allow_origins)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age is not None:
-            _setter("max_age", max_age)
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -1294,8 +926,6 @@ class FunctionVpcConfig(dict):
             suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
-        elif key == "ipv6AllowedForDualStack":
-            suggest = "ipv6_allowed_for_dual_stack"
         elif key == "vpcId":
             suggest = "vpc_id"
 
@@ -1313,48 +943,15 @@ class FunctionVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
-                 ipv6_allowed_for_dual_stack: Optional[bool] = None,
                  vpc_id: Optional[str] = None):
         """
         :param Sequence[str] security_group_ids: List of security group IDs associated with the Lambda function.
         :param Sequence[str] subnet_ids: List of subnet IDs associated with the Lambda function.
-        :param bool ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
         """
-        FunctionVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            ipv6_allowed_for_dual_stack=ipv6_allowed_for_dual_stack,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             ipv6_allowed_for_dual_stack: Optional[bool] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if ipv6_allowed_for_dual_stack is None and 'ipv6AllowedForDualStack' in kwargs:
-            ipv6_allowed_for_dual_stack = kwargs['ipv6AllowedForDualStack']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
-        if ipv6_allowed_for_dual_stack is not None:
-            _setter("ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -1373,14 +970,6 @@ class FunctionVpcConfig(dict):
         return pulumi.get(self, "subnet_ids")
 
     @property
-    @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[bool]:
-        """
-        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-        """
-        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
-
-    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
         return pulumi.get(self, "vpc_id")
@@ -1393,22 +982,7 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
         """
         :param Sequence[str] signing_profile_version_arns: The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
         """
-        GetCodeSigningConfigAllowedPublisherResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            signing_profile_version_arns=signing_profile_version_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             signing_profile_version_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if signing_profile_version_arns is None and 'signingProfileVersionArns' in kwargs:
-            signing_profile_version_arns = kwargs['signingProfileVersionArns']
-        if signing_profile_version_arns is None:
-            raise TypeError("Missing 'signing_profile_version_arns' argument")
-
-        _setter("signing_profile_version_arns", signing_profile_version_arns)
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
     @pulumi.getter(name="signingProfileVersionArns")
@@ -1426,22 +1000,7 @@ class GetCodeSigningConfigPolicyResult(dict):
         """
         :param str untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure.
         """
-        GetCodeSigningConfigPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            untrusted_artifact_on_deployment=untrusted_artifact_on_deployment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             untrusted_artifact_on_deployment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if untrusted_artifact_on_deployment is None and 'untrustedArtifactOnDeployment' in kwargs:
-            untrusted_artifact_on_deployment = kwargs['untrustedArtifactOnDeployment']
-        if untrusted_artifact_on_deployment is None:
-            raise TypeError("Missing 'untrusted_artifact_on_deployment' argument")
-
-        _setter("untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
@@ -1456,22 +1015,7 @@ class GetCodeSigningConfigPolicyResult(dict):
 class GetFunctionDeadLetterConfigResult(dict):
     def __init__(__self__, *,
                  target_arn: str):
-        GetFunctionDeadLetterConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_arn=target_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_arn is None and 'targetArn' in kwargs:
-            target_arn = kwargs['targetArn']
-        if target_arn is None:
-            raise TypeError("Missing 'target_arn' argument")
-
-        _setter("target_arn", target_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -1483,20 +1027,7 @@ class GetFunctionDeadLetterConfigResult(dict):
 class GetFunctionEnvironmentResult(dict):
     def __init__(__self__, *,
                  variables: Mapping[str, str]):
-        GetFunctionEnvironmentResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            variables=variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             variables: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if variables is None:
-            raise TypeError("Missing 'variables' argument")
-
-        _setter("variables", variables)
+        pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -1508,20 +1039,7 @@ class GetFunctionEnvironmentResult(dict):
 class GetFunctionEphemeralStorageResult(dict):
     def __init__(__self__, *,
                  size: int):
-        GetFunctionEphemeralStorageResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if size is None:
-            raise TypeError("Missing 'size' argument")
-
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -1537,27 +1055,8 @@ class GetFunctionFileSystemConfigResult(dict):
         """
         :param str arn: Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         """
-        GetFunctionFileSystemConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            local_mount_path=local_mount_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             local_mount_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if arn is None:
-            raise TypeError("Missing 'arn' argument")
-        if local_mount_path is None and 'localMountPath' in kwargs:
-            local_mount_path = kwargs['localMountPath']
-        if local_mount_path is None:
-            raise TypeError("Missing 'local_mount_path' argument")
-
-        _setter("arn", arn)
-        _setter("local_mount_path", local_mount_path)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @property
     @pulumi.getter
@@ -1577,20 +1076,7 @@ class GetFunctionFileSystemConfigResult(dict):
 class GetFunctionTracingConfigResult(dict):
     def __init__(__self__, *,
                  mode: str):
-        GetFunctionTracingConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -1607,57 +1093,12 @@ class GetFunctionUrlCorResult(dict):
                  allow_origins: Sequence[str],
                  expose_headers: Sequence[str],
                  max_age: int):
-        GetFunctionUrlCorResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allow_headers=allow_headers,
-            allow_methods=allow_methods,
-            allow_origins=allow_origins,
-            expose_headers=expose_headers,
-            max_age=max_age,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allow_headers: Optional[Sequence[str]] = None,
-             allow_methods: Optional[Sequence[str]] = None,
-             allow_origins: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_credentials is None and 'allowCredentials' in kwargs:
-            allow_credentials = kwargs['allowCredentials']
-        if allow_credentials is None:
-            raise TypeError("Missing 'allow_credentials' argument")
-        if allow_headers is None and 'allowHeaders' in kwargs:
-            allow_headers = kwargs['allowHeaders']
-        if allow_headers is None:
-            raise TypeError("Missing 'allow_headers' argument")
-        if allow_methods is None and 'allowMethods' in kwargs:
-            allow_methods = kwargs['allowMethods']
-        if allow_methods is None:
-            raise TypeError("Missing 'allow_methods' argument")
-        if allow_origins is None and 'allowOrigins' in kwargs:
-            allow_origins = kwargs['allowOrigins']
-        if allow_origins is None:
-            raise TypeError("Missing 'allow_origins' argument")
-        if expose_headers is None and 'exposeHeaders' in kwargs:
-            expose_headers = kwargs['exposeHeaders']
-        if expose_headers is None:
-            raise TypeError("Missing 'expose_headers' argument")
-        if max_age is None and 'maxAge' in kwargs:
-            max_age = kwargs['maxAge']
-        if max_age is None:
-            raise TypeError("Missing 'max_age' argument")
-
-        _setter("allow_credentials", allow_credentials)
-        _setter("allow_headers", allow_headers)
-        _setter("allow_methods", allow_methods)
-        _setter("allow_origins", allow_origins)
-        _setter("expose_headers", expose_headers)
-        _setter("max_age", max_age)
+        pulumi.set(__self__, "allow_credentials", allow_credentials)
+        pulumi.set(__self__, "allow_headers", allow_headers)
+        pulumi.set(__self__, "allow_methods", allow_methods)
+        pulumi.set(__self__, "allow_origins", allow_origins)
+        pulumi.set(__self__, "expose_headers", expose_headers)
+        pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -1696,36 +1137,9 @@ class GetFunctionVpcConfigResult(dict):
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
                  vpc_id: str):
-        GetFunctionVpcConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_id is None:
-            raise TypeError("Missing 'vpc_id' argument")
-
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")

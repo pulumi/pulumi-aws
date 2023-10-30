@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,6 @@ class RuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['RuleSourceArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,61 +27,25 @@ class RuleArgs:
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        RuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-            description=description,
-            evaluation_modes=evaluation_modes,
-            input_parameters=input_parameters,
-            maximum_execution_frequency=maximum_execution_frequency,
-            name=name,
-            scope=scope,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: Optional[pulumi.Input['RuleSourceArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
-             input_parameters: Optional[pulumi.Input[str]] = None,
-             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-        if evaluation_modes is None and 'evaluationModes' in kwargs:
-            evaluation_modes = kwargs['evaluationModes']
-        if input_parameters is None and 'inputParameters' in kwargs:
-            input_parameters = kwargs['inputParameters']
-        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
-            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
-
-        _setter("source", source)
+        pulumi.set(__self__, "source", source)
         if description is not None:
-            _setter("description", description)
-        if evaluation_modes is not None:
-            _setter("evaluation_modes", evaluation_modes)
+            pulumi.set(__self__, "description", description)
         if input_parameters is not None:
-            _setter("input_parameters", input_parameters)
+            pulumi.set(__self__, "input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            _setter("maximum_execution_frequency", maximum_execution_frequency)
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -107,18 +70,6 @@ class RuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
-        """
-        The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        """
-        return pulumi.get(self, "evaluation_modes")
-
-    @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
-        pulumi.set(self, "evaluation_modes", value)
 
     @property
     @pulumi.getter(name="inputParameters")
@@ -186,7 +137,6 @@ class _RuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -199,7 +149,6 @@ class _RuleState:
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
@@ -209,72 +158,29 @@ class _RuleState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _RuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            description=description,
-            evaluation_modes=evaluation_modes,
-            input_parameters=input_parameters,
-            maximum_execution_frequency=maximum_execution_frequency,
-            name=name,
-            rule_id=rule_id,
-            scope=scope,
-            source=source,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
-             input_parameters: Optional[pulumi.Input[str]] = None,
-             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rule_id: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-             source: Optional[pulumi.Input['RuleSourceArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if evaluation_modes is None and 'evaluationModes' in kwargs:
-            evaluation_modes = kwargs['evaluationModes']
-        if input_parameters is None and 'inputParameters' in kwargs:
-            input_parameters = kwargs['inputParameters']
-        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
-            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
-        if rule_id is None and 'ruleId' in kwargs:
-            rule_id = kwargs['ruleId']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
-        if evaluation_modes is not None:
-            _setter("evaluation_modes", evaluation_modes)
+            pulumi.set(__self__, "description", description)
         if input_parameters is not None:
-            _setter("input_parameters", input_parameters)
+            pulumi.set(__self__, "input_parameters", input_parameters)
         if maximum_execution_frequency is not None:
-            _setter("maximum_execution_frequency", maximum_execution_frequency)
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rule_id is not None:
-            _setter("rule_id", rule_id)
+            pulumi.set(__self__, "rule_id", rule_id)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -299,18 +205,6 @@ class _RuleState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
-        """
-        The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        """
-        return pulumi.get(self, "evaluation_modes")
-
-    @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
-        pulumi.set(self, "evaluation_modes", value)
 
     @property
     @pulumi.getter(name="inputParameters")
@@ -418,7 +312,6 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -529,7 +422,6 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
@@ -653,17 +545,12 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -680,13 +567,10 @@ class Rule(pulumi.CustomResource):
             __props__ = RuleArgs.__new__(RuleArgs)
 
             __props__.__dict__["description"] = description
-            __props__.__dict__["evaluation_modes"] = evaluation_modes
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
             __props__.__dict__["name"] = name
-            scope = _utilities.configure(scope, RuleScopeArgs, True)
             __props__.__dict__["scope"] = scope
-            source = _utilities.configure(source, RuleSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -708,7 +592,6 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
             input_parameters: Optional[pulumi.Input[str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -726,7 +609,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
@@ -742,7 +624,6 @@ class Rule(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
-        __props__.__dict__["evaluation_modes"] = evaluation_modes
         __props__.__dict__["input_parameters"] = input_parameters
         __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
         __props__.__dict__["name"] = name
@@ -768,14 +649,6 @@ class Rule(pulumi.CustomResource):
         Description of the rule
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> pulumi.Output[Sequence['outputs.RuleEvaluationMode']]:
-        """
-        The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        """
-        return pulumi.get(self, "evaluation_modes")
 
     @property
     @pulumi.getter(name="inputParameters")

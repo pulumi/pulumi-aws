@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDow
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs;
@@ -84,21 +83,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
      */
     public Optional<Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
-    }
-
-    /**
-     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    @Import(name="ja3Fingerprint")
-    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -198,7 +182,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
-        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -317,27 +300,6 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMa
          */
         public Builder headers(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
-            $.ja3Fingerprint = ja3Fingerprint;
-            return this;
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
-            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

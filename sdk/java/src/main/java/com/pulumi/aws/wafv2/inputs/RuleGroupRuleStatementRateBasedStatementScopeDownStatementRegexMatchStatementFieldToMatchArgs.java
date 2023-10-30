@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScope
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs;
@@ -84,13 +83,6 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      */
     public Optional<Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
-    }
-
-    @Import(name="ja3Fingerprint")
-    private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
-    public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -190,7 +182,6 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
-        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -309,15 +300,6 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
          */
         public Builder headers(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
-        }
-
-        public Builder ja3Fingerprint(@Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
-            $.ja3Fingerprint = ja3Fingerprint;
-            return this;
-        }
-
-        public Builder ja3Fingerprint(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
-            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

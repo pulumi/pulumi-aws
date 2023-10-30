@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReceiptRuleSetArgs', 'ReceiptRuleSet']
@@ -19,22 +19,7 @@ class ReceiptRuleSetArgs:
         The set of arguments for constructing a ReceiptRuleSet resource.
         :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
-        ReceiptRuleSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_set_name=rule_set_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_set_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule_set_name is None and 'ruleSetName' in kwargs:
-            rule_set_name = kwargs['ruleSetName']
-        if rule_set_name is None:
-            raise TypeError("Missing 'rule_set_name' argument")
-
-        _setter("rule_set_name", rule_set_name)
+        pulumi.set(__self__, "rule_set_name", rule_set_name)
 
     @property
     @pulumi.getter(name="ruleSetName")
@@ -59,25 +44,10 @@ class _ReceiptRuleSetState:
         :param pulumi.Input[str] arn: SES receipt rule set ARN.
         :param pulumi.Input[str] rule_set_name: Name of the rule set.
         """
-        _ReceiptRuleSetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            rule_set_name=rule_set_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             rule_set_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rule_set_name is None and 'ruleSetName' in kwargs:
-            rule_set_name = kwargs['ruleSetName']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if rule_set_name is not None:
-            _setter("rule_set_name", rule_set_name)
+            pulumi.set(__self__, "rule_set_name", rule_set_name)
 
     @property
     @pulumi.getter
@@ -171,10 +141,6 @@ class ReceiptRuleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReceiptRuleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FunctionArgs', 'Function']
@@ -29,37 +29,14 @@ class FunctionArgs:
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         """
-        FunctionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code=code,
-            runtime=runtime,
-            comment=comment,
-            name=name,
-            publish=publish,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code: Optional[pulumi.Input[str]] = None,
-             runtime: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             publish: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-        if runtime is None:
-            raise TypeError("Missing 'runtime' argument")
-
-        _setter("code", code)
-        _setter("runtime", runtime)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "runtime", runtime)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if publish is not None:
-            _setter("publish", publish)
+            pulumi.set(__self__, "publish", publish)
 
     @property
     @pulumi.getter
@@ -150,53 +127,24 @@ class _FunctionState:
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
-        _FunctionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            code=code,
-            comment=comment,
-            etag=etag,
-            live_stage_etag=live_stage_etag,
-            name=name,
-            publish=publish,
-            runtime=runtime,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             live_stage_etag: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             publish: Optional[pulumi.Input[bool]] = None,
-             runtime: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if live_stage_etag is None and 'liveStageEtag' in kwargs:
-            live_stage_etag = kwargs['liveStageEtag']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if live_stage_etag is not None:
-            _setter("live_stage_etag", live_stage_etag)
+            pulumi.set(__self__, "live_stage_etag", live_stage_etag)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if publish is not None:
-            _setter("publish", publish)
+            pulumi.set(__self__, "publish", publish)
         if runtime is not None:
-            _setter("runtime", runtime)
+            pulumi.set(__self__, "runtime", runtime)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -404,10 +352,6 @@ class Function(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FunctionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

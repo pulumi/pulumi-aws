@@ -79,10 +79,6 @@ export interface GetImageResult {
      */
     readonly imageRecipeArn: string;
     /**
-     * List of an object with image scanning configuration fields.
-     */
-    readonly imageScanningConfigurations: outputs.imagebuilder.GetImageImageScanningConfiguration[];
-    /**
      * List of an object with image tests configuration.
      */
     readonly imageTestsConfigurations: outputs.imagebuilder.GetImageImageTestsConfiguration[];

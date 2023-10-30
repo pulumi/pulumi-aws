@@ -48,12 +48,7 @@ import (
 //							Type: pulumi.String("Number"),
 //						},
 //					},
-//					DeviceDefenderIndexingMode: pulumi.String("VIOLATIONS"),
-//					Filter: &iot.IndexingConfigurationThingIndexingConfigurationFilterArgs{
-//						NamedShadowNames: pulumi.StringArray{
-//							pulumi.String("thing1shadow"),
-//						},
-//					},
+//					DeviceDefenderIndexingMode:    pulumi.String("VIOLATIONS"),
 //					NamedShadowIndexingMode:       pulumi.String("ON"),
 //					ThingConnectivityIndexingMode: pulumi.String("STATUS"),
 //					ThingIndexingMode:             pulumi.String("REGISTRY_AND_SHADOW"),

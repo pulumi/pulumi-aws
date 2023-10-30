@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RedriveAllowPolicyArgs', 'RedriveAllowPolicy']
@@ -21,29 +21,8 @@ class RedriveAllowPolicyArgs:
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
-        RedriveAllowPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_url=queue_url,
-            redrive_allow_policy=redrive_allow_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_url: Optional[pulumi.Input[str]] = None,
-             redrive_allow_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if queue_url is None and 'queueUrl' in kwargs:
-            queue_url = kwargs['queueUrl']
-        if queue_url is None:
-            raise TypeError("Missing 'queue_url' argument")
-        if redrive_allow_policy is None and 'redriveAllowPolicy' in kwargs:
-            redrive_allow_policy = kwargs['redriveAllowPolicy']
-        if redrive_allow_policy is None:
-            raise TypeError("Missing 'redrive_allow_policy' argument")
-
-        _setter("queue_url", queue_url)
-        _setter("redrive_allow_policy", redrive_allow_policy)
+        pulumi.set(__self__, "queue_url", queue_url)
+        pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -80,27 +59,10 @@ class _RedriveAllowPolicyState:
         :param pulumi.Input[str] queue_url: The URL of the SQS Queue to which to attach the policy
         :param pulumi.Input[str] redrive_allow_policy: The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         """
-        _RedriveAllowPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_url=queue_url,
-            redrive_allow_policy=redrive_allow_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_url: Optional[pulumi.Input[str]] = None,
-             redrive_allow_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if queue_url is None and 'queueUrl' in kwargs:
-            queue_url = kwargs['queueUrl']
-        if redrive_allow_policy is None and 'redriveAllowPolicy' in kwargs:
-            redrive_allow_policy = kwargs['redriveAllowPolicy']
-
         if queue_url is not None:
-            _setter("queue_url", queue_url)
+            pulumi.set(__self__, "queue_url", queue_url)
         if redrive_allow_policy is not None:
-            _setter("redrive_allow_policy", redrive_allow_policy)
+            pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -218,10 +180,6 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RedriveAllowPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

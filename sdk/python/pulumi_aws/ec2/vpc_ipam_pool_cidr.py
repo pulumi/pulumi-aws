@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,38 +27,13 @@ class VpcIpamPoolCidrArgs:
         :param pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs'] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
-        VpcIpamPoolCidrArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ipam_pool_id=ipam_pool_id,
-            cidr=cidr,
-            cidr_authorization_context=cidr_authorization_context,
-            netmask_length=netmask_length,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ipam_pool_id: Optional[pulumi.Input[str]] = None,
-             cidr: Optional[pulumi.Input[str]] = None,
-             cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
-             netmask_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
-            ipam_pool_id = kwargs['ipamPoolId']
-        if ipam_pool_id is None:
-            raise TypeError("Missing 'ipam_pool_id' argument")
-        if cidr_authorization_context is None and 'cidrAuthorizationContext' in kwargs:
-            cidr_authorization_context = kwargs['cidrAuthorizationContext']
-        if netmask_length is None and 'netmaskLength' in kwargs:
-            netmask_length = kwargs['netmaskLength']
-
-        _setter("ipam_pool_id", ipam_pool_id)
+        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if cidr is not None:
-            _setter("cidr", cidr)
+            pulumi.set(__self__, "cidr", cidr)
         if cidr_authorization_context is not None:
-            _setter("cidr_authorization_context", cidr_authorization_context)
+            pulumi.set(__self__, "cidr_authorization_context", cidr_authorization_context)
         if netmask_length is not None:
-            _setter("netmask_length", netmask_length)
+            pulumi.set(__self__, "netmask_length", netmask_length)
 
     @property
     @pulumi.getter(name="ipamPoolId")
@@ -125,43 +100,16 @@ class _VpcIpamPoolCidrState:
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
-        _VpcIpamPoolCidrState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-            cidr_authorization_context=cidr_authorization_context,
-            ipam_pool_cidr_id=ipam_pool_cidr_id,
-            ipam_pool_id=ipam_pool_id,
-            netmask_length=netmask_length,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
-             ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
-             ipam_pool_id: Optional[pulumi.Input[str]] = None,
-             netmask_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr_authorization_context is None and 'cidrAuthorizationContext' in kwargs:
-            cidr_authorization_context = kwargs['cidrAuthorizationContext']
-        if ipam_pool_cidr_id is None and 'ipamPoolCidrId' in kwargs:
-            ipam_pool_cidr_id = kwargs['ipamPoolCidrId']
-        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
-            ipam_pool_id = kwargs['ipamPoolId']
-        if netmask_length is None and 'netmaskLength' in kwargs:
-            netmask_length = kwargs['netmaskLength']
-
         if cidr is not None:
-            _setter("cidr", cidr)
+            pulumi.set(__self__, "cidr", cidr)
         if cidr_authorization_context is not None:
-            _setter("cidr_authorization_context", cidr_authorization_context)
+            pulumi.set(__self__, "cidr_authorization_context", cidr_authorization_context)
         if ipam_pool_cidr_id is not None:
-            _setter("ipam_pool_cidr_id", ipam_pool_cidr_id)
+            pulumi.set(__self__, "ipam_pool_cidr_id", ipam_pool_cidr_id)
         if ipam_pool_id is not None:
-            _setter("ipam_pool_id", ipam_pool_id)
+            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if netmask_length is not None:
-            _setter("netmask_length", netmask_length)
+            pulumi.set(__self__, "netmask_length", netmask_length)
 
     @property
     @pulumi.getter
@@ -242,50 +190,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
-            address_family="ipv6",
-            ipam_scope_id=example.public_default_scope_id,
-            locale="us-east-1",
-            description="public ipv6",
-            publicly_advertisable=False,
-            public_ip_source="amazon",
-            aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
-            netmask_length=52)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
@@ -317,50 +221,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
         either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
 
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=example_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        example_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr",
-            ipam_pool_id=example_vpc_ipam_pool.id,
-            cidr="172.20.0.0/16")
-        ```
-
-        Provision Public IPv6 Pool CIDRs:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        ipv6_test_public_vpc_ipam_pool = aws.ec2.VpcIpamPool("ipv6TestPublicVpcIpamPool",
-            address_family="ipv6",
-            ipam_scope_id=example.public_default_scope_id,
-            locale="us-east-1",
-            description="public ipv6",
-            publicly_advertisable=False,
-            public_ip_source="amazon",
-            aws_service="ec2")
-        ipv6_test_public_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("ipv6TestPublicVpcIpamPoolCidr",
-            ipam_pool_id=ipv6_test_public_vpc_ipam_pool.id,
-            netmask_length=52)
-        ```
-
         ## Import
 
         Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For example:
@@ -381,10 +241,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcIpamPoolCidrArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -404,7 +260,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             __props__ = VpcIpamPoolCidrArgs.__new__(VpcIpamPoolCidrArgs)
 
             __props__.__dict__["cidr"] = cidr
-            cidr_authorization_context = _utilities.configure(cidr_authorization_context, VpcIpamPoolCidrCidrAuthorizationContextArgs, True)
             __props__.__dict__["cidr_authorization_context"] = cidr_authorization_context
             if ipam_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_pool_id'")

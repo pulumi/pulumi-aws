@@ -6,7 +6,6 @@ package com.pulumi.aws.cfg;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cfg.RuleArgs;
 import com.pulumi.aws.cfg.inputs.RuleState;
-import com.pulumi.aws.cfg.outputs.RuleEvaluationMode;
 import com.pulumi.aws.cfg.outputs.RuleScope;
 import com.pulumi.aws.cfg.outputs.RuleSource;
 import com.pulumi.core.Output;
@@ -247,20 +246,6 @@ public class Rule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
-    }
-    /**
-     * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-     * 
-     */
-    @Export(name="evaluationModes", refs={List.class,RuleEvaluationMode.class}, tree="[0,1]")
-    private Output<List<RuleEvaluationMode>> evaluationModes;
-
-    /**
-     * @return The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-     * 
-     */
-    public Output<List<RuleEvaluationMode>> evaluationModes() {
-        return this.evaluationModes;
     }
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.

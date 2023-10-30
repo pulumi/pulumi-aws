@@ -78,7 +78,7 @@ export class GroupPolicy extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * The policy document. This is a JSON formatted string.
      */

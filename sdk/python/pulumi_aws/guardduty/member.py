@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberArgs', 'Member']
@@ -29,50 +29,15 @@ class MemberArgs:
         :param pulumi.Input[str] invitation_message: Message for invitation.
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         """
-        MemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            detector_id=detector_id,
-            email=email,
-            disable_email_notification=disable_email_notification,
-            invitation_message=invitation_message,
-            invite=invite,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             disable_email_notification: Optional[pulumi.Input[bool]] = None,
-             invitation_message: Optional[pulumi.Input[str]] = None,
-             invite: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_id is None:
-            raise TypeError("Missing 'account_id' argument")
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if detector_id is None:
-            raise TypeError("Missing 'detector_id' argument")
-        if email is None:
-            raise TypeError("Missing 'email' argument")
-        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
-            disable_email_notification = kwargs['disableEmailNotification']
-        if invitation_message is None and 'invitationMessage' in kwargs:
-            invitation_message = kwargs['invitationMessage']
-
-        _setter("account_id", account_id)
-        _setter("detector_id", detector_id)
-        _setter("email", email)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "email", email)
         if disable_email_notification is not None:
-            _setter("disable_email_notification", disable_email_notification)
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if invitation_message is not None:
-            _setter("invitation_message", invitation_message)
+            pulumi.set(__self__, "invitation_message", invitation_message)
         if invite is not None:
-            _setter("invite", invite)
+            pulumi.set(__self__, "invite", invite)
 
     @property
     @pulumi.getter(name="accountId")
@@ -167,53 +132,20 @@ class _MemberState:
         :param pulumi.Input[bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         :param pulumi.Input[str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
-        _MemberState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            detector_id=detector_id,
-            disable_email_notification=disable_email_notification,
-            email=email,
-            invitation_message=invitation_message,
-            invite=invite,
-            relationship_status=relationship_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             detector_id: Optional[pulumi.Input[str]] = None,
-             disable_email_notification: Optional[pulumi.Input[bool]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             invitation_message: Optional[pulumi.Input[str]] = None,
-             invite: Optional[pulumi.Input[bool]] = None,
-             relationship_status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if detector_id is None and 'detectorId' in kwargs:
-            detector_id = kwargs['detectorId']
-        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
-            disable_email_notification = kwargs['disableEmailNotification']
-        if invitation_message is None and 'invitationMessage' in kwargs:
-            invitation_message = kwargs['invitationMessage']
-        if relationship_status is None and 'relationshipStatus' in kwargs:
-            relationship_status = kwargs['relationshipStatus']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if detector_id is not None:
-            _setter("detector_id", detector_id)
+            pulumi.set(__self__, "detector_id", detector_id)
         if disable_email_notification is not None:
-            _setter("disable_email_notification", disable_email_notification)
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if invitation_message is not None:
-            _setter("invitation_message", invitation_message)
+            pulumi.set(__self__, "invitation_message", invitation_message)
         if invite is not None:
-            _setter("invite", invite)
+            pulumi.set(__self__, "invite", invite)
         if relationship_status is not None:
-            _setter("relationship_status", relationship_status)
+            pulumi.set(__self__, "relationship_status", relationship_status)
 
     @property
     @pulumi.getter(name="accountId")
@@ -393,10 +325,6 @@ class Member(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

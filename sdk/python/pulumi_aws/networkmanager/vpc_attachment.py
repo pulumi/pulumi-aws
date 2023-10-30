@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,44 +31,13 @@ class VpcAttachmentArgs:
         :param pulumi.Input['VpcAttachmentOptionsArgs'] options: Options for the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        VpcAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            core_network_id=core_network_id,
-            subnet_arns=subnet_arns,
-            vpc_arn=vpc_arn,
-            options=options,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             core_network_id: Optional[pulumi.Input[str]] = None,
-             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_arn: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['VpcAttachmentOptionsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if core_network_id is None and 'coreNetworkId' in kwargs:
-            core_network_id = kwargs['coreNetworkId']
-        if core_network_id is None:
-            raise TypeError("Missing 'core_network_id' argument")
-        if subnet_arns is None and 'subnetArns' in kwargs:
-            subnet_arns = kwargs['subnetArns']
-        if subnet_arns is None:
-            raise TypeError("Missing 'subnet_arns' argument")
-        if vpc_arn is None and 'vpcArn' in kwargs:
-            vpc_arn = kwargs['vpcArn']
-        if vpc_arn is None:
-            raise TypeError("Missing 'vpc_arn' argument")
-
-        _setter("core_network_id", core_network_id)
-        _setter("subnet_arns", subnet_arns)
-        _setter("vpc_arn", vpc_arn)
+        pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "subnet_arns", subnet_arns)
+        pulumi.set(__self__, "vpc_arn", vpc_arn)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -171,100 +140,39 @@ class _VpcAttachmentState:
                
                The following arguments are optional:
         """
-        _VpcAttachmentState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            attachment_policy_rule_number=attachment_policy_rule_number,
-            attachment_type=attachment_type,
-            core_network_arn=core_network_arn,
-            core_network_id=core_network_id,
-            edge_location=edge_location,
-            options=options,
-            owner_account_id=owner_account_id,
-            resource_arn=resource_arn,
-            segment_name=segment_name,
-            state=state,
-            subnet_arns=subnet_arns,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_arn=vpc_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
-             attachment_type: Optional[pulumi.Input[str]] = None,
-             core_network_arn: Optional[pulumi.Input[str]] = None,
-             core_network_id: Optional[pulumi.Input[str]] = None,
-             edge_location: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['VpcAttachmentOptionsArgs']] = None,
-             owner_account_id: Optional[pulumi.Input[str]] = None,
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attachment_policy_rule_number is None and 'attachmentPolicyRuleNumber' in kwargs:
-            attachment_policy_rule_number = kwargs['attachmentPolicyRuleNumber']
-        if attachment_type is None and 'attachmentType' in kwargs:
-            attachment_type = kwargs['attachmentType']
-        if core_network_arn is None and 'coreNetworkArn' in kwargs:
-            core_network_arn = kwargs['coreNetworkArn']
-        if core_network_id is None and 'coreNetworkId' in kwargs:
-            core_network_id = kwargs['coreNetworkId']
-        if edge_location is None and 'edgeLocation' in kwargs:
-            edge_location = kwargs['edgeLocation']
-        if owner_account_id is None and 'ownerAccountId' in kwargs:
-            owner_account_id = kwargs['ownerAccountId']
-        if resource_arn is None and 'resourceArn' in kwargs:
-            resource_arn = kwargs['resourceArn']
-        if segment_name is None and 'segmentName' in kwargs:
-            segment_name = kwargs['segmentName']
-        if subnet_arns is None and 'subnetArns' in kwargs:
-            subnet_arns = kwargs['subnetArns']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_arn is None and 'vpcArn' in kwargs:
-            vpc_arn = kwargs['vpcArn']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if attachment_policy_rule_number is not None:
-            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
         if attachment_type is not None:
-            _setter("attachment_type", attachment_type)
+            pulumi.set(__self__, "attachment_type", attachment_type)
         if core_network_arn is not None:
-            _setter("core_network_arn", core_network_arn)
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if core_network_id is not None:
-            _setter("core_network_id", core_network_id)
+            pulumi.set(__self__, "core_network_id", core_network_id)
         if edge_location is not None:
-            _setter("edge_location", edge_location)
+            pulumi.set(__self__, "edge_location", edge_location)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if owner_account_id is not None:
-            _setter("owner_account_id", owner_account_id)
+            pulumi.set(__self__, "owner_account_id", owner_account_id)
         if resource_arn is not None:
-            _setter("resource_arn", resource_arn)
+            pulumi.set(__self__, "resource_arn", resource_arn)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if subnet_arns is not None:
-            _setter("subnet_arns", subnet_arns)
+            pulumi.set(__self__, "subnet_arns", subnet_arns)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_arn is not None:
-            _setter("vpc_arn", vpc_arn)
+            pulumi.set(__self__, "vpc_arn", vpc_arn)
 
     @property
     @pulumi.getter
@@ -537,10 +445,6 @@ class VpcAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -563,7 +467,6 @@ class VpcAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
-            options = _utilities.configure(options, VpcAttachmentOptionsArgs, True)
             __props__.__dict__["options"] = options
             if subnet_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_arns'")

@@ -119,10 +119,6 @@ export interface GetEndpointResult {
      */
     readonly selfServicePortal: string;
     /**
-     * The URL of the self-service portal.
-     */
-    readonly selfServicePortalUrl: string;
-    /**
      * The ARN of the server certificate.
      */
     readonly serverCertificateArn: string;

@@ -13,7 +13,6 @@ import * as utilities from "../utilities";
  * > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
  *
  * ## Example Usage
- * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -31,25 +30,6 @@ import * as utilities from "../utilities";
  * });
  * const role = new aws.iam.Role("role", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
  * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * ```
- * ### Exclude Resources Types Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.cfg.Recorder("foo", {
- *     roleArn: aws_iam_role.r.arn,
- *     recordingGroup: {
- *         allSupported: false,
- *         exclusionByResourceTypes: [{
- *             resourceTypes: ["AWS::EC2::Instance"],
- *         }],
- *         recordingStrategies: [{
- *             useOnly: "EXCLUSION_BY_RESOURCE_TYPES",
- *         }],
- *     },
- * });
  * ```
  *
  * ## Import

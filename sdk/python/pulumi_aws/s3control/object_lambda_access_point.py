@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,30 +25,11 @@ class ObjectLambdaAccessPointArgs:
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
-        ObjectLambdaAccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            account_id=account_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: Optional[pulumi.Input['ObjectLambdaAccessPointConfigurationArgs']] = None,
-             account_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if configuration is None:
-            raise TypeError("Missing 'configuration' argument")
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
-        _setter("configuration", configuration)
+        pulumi.set(__self__, "configuration", configuration)
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -103,37 +84,16 @@ class _ObjectLambdaAccessPointState:
         :param pulumi.Input['ObjectLambdaAccessPointConfigurationArgs'] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
-        _ObjectLambdaAccessPointState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            alias=alias,
-            arn=arn,
-            configuration=configuration,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             alias: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             configuration: Optional[pulumi.Input['ObjectLambdaAccessPointConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -293,10 +253,6 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ObjectLambdaAccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -315,7 +271,6 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
             __props__ = ObjectLambdaAccessPointArgs.__new__(ObjectLambdaAccessPointArgs)
 
             __props__.__dict__["account_id"] = account_id
-            configuration = _utilities.configure(configuration, ObjectLambdaAccessPointConfigurationArgs, True)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

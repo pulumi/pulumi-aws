@@ -80,12 +80,6 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
-        [Output("imageScanningConfiguration")]
-        public Output<Outputs.ImageImageScanningConfiguration> ImageScanningConfiguration { get; private set; } = null!;
-
-        /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Output("imageTestsConfiguration")]
@@ -216,12 +210,6 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
-        [Input("imageScanningConfiguration")]
-        public Input<Inputs.ImageImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
-
-        /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
         [Input("imageTestsConfiguration")]
@@ -290,12 +278,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
-
-        /// <summary>
-        /// Configuration block with image scanning configuration. Detailed below.
-        /// </summary>
-        [Input("imageScanningConfiguration")]
-        public Input<Inputs.ImageImageScanningConfigurationGetArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.

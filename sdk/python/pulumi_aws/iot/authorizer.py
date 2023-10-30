@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
@@ -31,54 +31,19 @@ class AuthorizerArgs:
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
-        AuthorizerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorizer_function_arn=authorizer_function_arn,
-            enable_caching_for_http=enable_caching_for_http,
-            name=name,
-            signing_disabled=signing_disabled,
-            status=status,
-            token_key_name=token_key_name,
-            token_signing_public_keys=token_signing_public_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorizer_function_arn: Optional[pulumi.Input[str]] = None,
-             enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             signing_disabled: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             token_key_name: Optional[pulumi.Input[str]] = None,
-             token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authorizer_function_arn is None and 'authorizerFunctionArn' in kwargs:
-            authorizer_function_arn = kwargs['authorizerFunctionArn']
-        if authorizer_function_arn is None:
-            raise TypeError("Missing 'authorizer_function_arn' argument")
-        if enable_caching_for_http is None and 'enableCachingForHttp' in kwargs:
-            enable_caching_for_http = kwargs['enableCachingForHttp']
-        if signing_disabled is None and 'signingDisabled' in kwargs:
-            signing_disabled = kwargs['signingDisabled']
-        if token_key_name is None and 'tokenKeyName' in kwargs:
-            token_key_name = kwargs['tokenKeyName']
-        if token_signing_public_keys is None and 'tokenSigningPublicKeys' in kwargs:
-            token_signing_public_keys = kwargs['tokenSigningPublicKeys']
-
-        _setter("authorizer_function_arn", authorizer_function_arn)
+        pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if enable_caching_for_http is not None:
-            _setter("enable_caching_for_http", enable_caching_for_http)
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if signing_disabled is not None:
-            _setter("signing_disabled", signing_disabled)
+            pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if token_key_name is not None:
-            _setter("token_key_name", token_key_name)
+            pulumi.set(__self__, "token_key_name", token_key_name)
         if token_signing_public_keys is not None:
-            _setter("token_signing_public_keys", token_signing_public_keys)
+            pulumi.set(__self__, "token_signing_public_keys", token_signing_public_keys)
 
     @property
     @pulumi.getter(name="authorizerFunctionArn")
@@ -187,57 +152,22 @@ class _AuthorizerState:
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
-        _AuthorizerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            authorizer_function_arn=authorizer_function_arn,
-            enable_caching_for_http=enable_caching_for_http,
-            name=name,
-            signing_disabled=signing_disabled,
-            status=status,
-            token_key_name=token_key_name,
-            token_signing_public_keys=token_signing_public_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             authorizer_function_arn: Optional[pulumi.Input[str]] = None,
-             enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             signing_disabled: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             token_key_name: Optional[pulumi.Input[str]] = None,
-             token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if authorizer_function_arn is None and 'authorizerFunctionArn' in kwargs:
-            authorizer_function_arn = kwargs['authorizerFunctionArn']
-        if enable_caching_for_http is None and 'enableCachingForHttp' in kwargs:
-            enable_caching_for_http = kwargs['enableCachingForHttp']
-        if signing_disabled is None and 'signingDisabled' in kwargs:
-            signing_disabled = kwargs['signingDisabled']
-        if token_key_name is None and 'tokenKeyName' in kwargs:
-            token_key_name = kwargs['tokenKeyName']
-        if token_signing_public_keys is None and 'tokenSigningPublicKeys' in kwargs:
-            token_signing_public_keys = kwargs['tokenSigningPublicKeys']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if authorizer_function_arn is not None:
-            _setter("authorizer_function_arn", authorizer_function_arn)
+            pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if enable_caching_for_http is not None:
-            _setter("enable_caching_for_http", enable_caching_for_http)
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if signing_disabled is not None:
-            _setter("signing_disabled", signing_disabled)
+            pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if token_key_name is not None:
-            _setter("token_key_name", token_key_name)
+            pulumi.set(__self__, "token_key_name", token_key_name)
         if token_signing_public_keys is not None:
-            _setter("token_signing_public_keys", token_signing_public_keys)
+            pulumi.set(__self__, "token_signing_public_keys", token_signing_public_keys)
 
     @property
     @pulumi.getter
@@ -429,10 +359,6 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

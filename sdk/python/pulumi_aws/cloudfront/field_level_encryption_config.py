@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,33 +25,10 @@ class FieldLevelEncryptionConfigArgs:
         :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Config.
         """
-        FieldLevelEncryptionConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_type_profile_config=content_type_profile_config,
-            query_arg_profile_config=query_arg_profile_config,
-            comment=comment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_type_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] = None,
-             query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content_type_profile_config is None and 'contentTypeProfileConfig' in kwargs:
-            content_type_profile_config = kwargs['contentTypeProfileConfig']
-        if content_type_profile_config is None:
-            raise TypeError("Missing 'content_type_profile_config' argument")
-        if query_arg_profile_config is None and 'queryArgProfileConfig' in kwargs:
-            query_arg_profile_config = kwargs['queryArgProfileConfig']
-        if query_arg_profile_config is None:
-            raise TypeError("Missing 'query_arg_profile_config' argument")
-
-        _setter("content_type_profile_config", content_type_profile_config)
-        _setter("query_arg_profile_config", query_arg_profile_config)
+        pulumi.set(__self__, "content_type_profile_config", content_type_profile_config)
+        pulumi.set(__self__, "query_arg_profile_config", query_arg_profile_config)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
 
     @property
     @pulumi.getter(name="contentTypeProfileConfig")
@@ -106,41 +83,16 @@ class _FieldLevelEncryptionConfigState:
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
-        _FieldLevelEncryptionConfigState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            caller_reference=caller_reference,
-            comment=comment,
-            content_type_profile_config=content_type_profile_config,
-            etag=etag,
-            query_arg_profile_config=query_arg_profile_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             caller_reference: Optional[pulumi.Input[str]] = None,
-             comment: Optional[pulumi.Input[str]] = None,
-             content_type_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] = None,
-             etag: Optional[pulumi.Input[str]] = None,
-             query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if caller_reference is None and 'callerReference' in kwargs:
-            caller_reference = kwargs['callerReference']
-        if content_type_profile_config is None and 'contentTypeProfileConfig' in kwargs:
-            content_type_profile_config = kwargs['contentTypeProfileConfig']
-        if query_arg_profile_config is None and 'queryArgProfileConfig' in kwargs:
-            query_arg_profile_config = kwargs['queryArgProfileConfig']
-
         if caller_reference is not None:
-            _setter("caller_reference", caller_reference)
+            pulumi.set(__self__, "caller_reference", caller_reference)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if content_type_profile_config is not None:
-            _setter("content_type_profile_config", content_type_profile_config)
+            pulumi.set(__self__, "content_type_profile_config", content_type_profile_config)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if query_arg_profile_config is not None:
-            _setter("query_arg_profile_config", query_arg_profile_config)
+            pulumi.set(__self__, "query_arg_profile_config", query_arg_profile_config)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -312,10 +264,6 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FieldLevelEncryptionConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -334,11 +282,9 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
             __props__ = FieldLevelEncryptionConfigArgs.__new__(FieldLevelEncryptionConfigArgs)
 
             __props__.__dict__["comment"] = comment
-            content_type_profile_config = _utilities.configure(content_type_profile_config, FieldLevelEncryptionConfigContentTypeProfileConfigArgs, True)
             if content_type_profile_config is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type_profile_config'")
             __props__.__dict__["content_type_profile_config"] = content_type_profile_config
-            query_arg_profile_config = _utilities.configure(query_arg_profile_config, FieldLevelEncryptionConfigQueryArgProfileConfigArgs, True)
             if query_arg_profile_config is None and not opts.urn:
                 raise TypeError("Missing required property 'query_arg_profile_config'")
             __props__.__dict__["query_arg_profile_config"] = query_arg_profile_config

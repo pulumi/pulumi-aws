@@ -256,13 +256,13 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CrawlerDynamodbTarget>> DynamodbTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested Hudi target arguments. See Iceberg Target below.
+        /// List nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
         [Output("hudiTargets")]
         public Output<ImmutableArray<Outputs.CrawlerHudiTarget>> HudiTargets { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested Iceberg target arguments. See Iceberg Target below.
+        /// List nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
         [Output("icebergTargets")]
         public Output<ImmutableArray<Outputs.CrawlerIcebergTarget>> IcebergTargets { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.CrawlerLineageConfiguration?> LineageConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested MongoDB target arguments. See MongoDB Target below.
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         [Output("mongodbTargets")]
         public Output<ImmutableArray<Outputs.CrawlerMongodbTarget>> MongodbTargets { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Glue
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// List of nested Amazon S3 target arguments. See S3 Target below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         [Output("s3Targets")]
         public Output<ImmutableArray<Outputs.CrawlerS3Target>> S3Targets { get; private set; } = null!;
@@ -467,7 +467,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerHudiTargetArgs>? _hudiTargets;
 
         /// <summary>
-        /// List of nested Hudi target arguments. See Iceberg Target below.
+        /// List nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
         public InputList<Inputs.CrawlerHudiTargetArgs> HudiTargets
         {
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerIcebergTargetArgs>? _icebergTargets;
 
         /// <summary>
-        /// List of nested Iceberg target arguments. See Iceberg Target below.
+        /// List nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
         public InputList<Inputs.CrawlerIcebergTargetArgs> IcebergTargets
         {
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerMongodbTargetArgs>? _mongodbTargets;
 
         /// <summary>
-        /// List of nested MongoDB target arguments. See MongoDB Target below.
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         public InputList<Inputs.CrawlerMongodbTargetArgs> MongodbTargets
         {
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerS3TargetArgs>? _s3Targets;
 
         /// <summary>
-        /// List of nested Amazon S3 target arguments. See S3 Target below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         public InputList<Inputs.CrawlerS3TargetArgs> S3Targets
         {
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerHudiTargetGetArgs>? _hudiTargets;
 
         /// <summary>
-        /// List of nested Hudi target arguments. See Iceberg Target below.
+        /// List nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
         public InputList<Inputs.CrawlerHudiTargetGetArgs> HudiTargets
         {
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerIcebergTargetGetArgs>? _icebergTargets;
 
         /// <summary>
-        /// List of nested Iceberg target arguments. See Iceberg Target below.
+        /// List nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
         public InputList<Inputs.CrawlerIcebergTargetGetArgs> IcebergTargets
         {
@@ -717,7 +717,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerMongodbTargetGetArgs>? _mongodbTargets;
 
         /// <summary>
-        /// List of nested MongoDB target arguments. See MongoDB Target below.
+        /// List nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
         public InputList<Inputs.CrawlerMongodbTargetGetArgs> MongodbTargets
         {
@@ -747,7 +747,7 @@ namespace Pulumi.Aws.Glue
         private InputList<Inputs.CrawlerS3TargetGetArgs>? _s3Targets;
 
         /// <summary>
-        /// List of nested Amazon S3 target arguments. See S3 Target below.
+        /// List nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
         public InputList<Inputs.CrawlerS3TargetGetArgs> S3Targets
         {

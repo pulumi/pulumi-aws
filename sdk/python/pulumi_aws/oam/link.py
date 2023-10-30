@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkArgs', 'Link']
@@ -27,40 +27,11 @@ class LinkArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        LinkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label_template=label_template,
-            resource_types=resource_types,
-            sink_identifier=sink_identifier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label_template: Optional[pulumi.Input[str]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sink_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if label_template is None and 'labelTemplate' in kwargs:
-            label_template = kwargs['labelTemplate']
-        if label_template is None:
-            raise TypeError("Missing 'label_template' argument")
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-        if resource_types is None:
-            raise TypeError("Missing 'resource_types' argument")
-        if sink_identifier is None and 'sinkIdentifier' in kwargs:
-            sink_identifier = kwargs['sinkIdentifier']
-        if sink_identifier is None:
-            raise TypeError("Missing 'sink_identifier' argument")
-
-        _setter("label_template", label_template)
-        _setter("resource_types", resource_types)
-        _setter("sink_identifier", sink_identifier)
+        pulumi.set(__self__, "label_template", label_template)
+        pulumi.set(__self__, "resource_types", resource_types)
+        pulumi.set(__self__, "sink_identifier", sink_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="labelTemplate")
@@ -138,66 +109,27 @@ class _LinkState:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        _LinkState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            label=label,
-            label_template=label_template,
-            link_id=link_id,
-            resource_types=resource_types,
-            sink_arn=sink_arn,
-            sink_identifier=sink_identifier,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             label: Optional[pulumi.Input[str]] = None,
-             label_template: Optional[pulumi.Input[str]] = None,
-             link_id: Optional[pulumi.Input[str]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sink_arn: Optional[pulumi.Input[str]] = None,
-             sink_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if label_template is None and 'labelTemplate' in kwargs:
-            label_template = kwargs['labelTemplate']
-        if link_id is None and 'linkId' in kwargs:
-            link_id = kwargs['linkId']
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-        if sink_arn is None and 'sinkArn' in kwargs:
-            sink_arn = kwargs['sinkArn']
-        if sink_identifier is None and 'sinkIdentifier' in kwargs:
-            sink_identifier = kwargs['sinkIdentifier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if label is not None:
-            _setter("label", label)
+            pulumi.set(__self__, "label", label)
         if label_template is not None:
-            _setter("label_template", label_template)
+            pulumi.set(__self__, "label_template", label_template)
         if link_id is not None:
-            _setter("link_id", link_id)
+            pulumi.set(__self__, "link_id", link_id)
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
         if sink_arn is not None:
-            _setter("sink_arn", sink_arn)
+            pulumi.set(__self__, "sink_arn", sink_arn)
         if sink_identifier is not None:
-            _setter("sink_identifier", sink_identifier)
+            pulumi.set(__self__, "sink_identifier", sink_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -399,10 +331,6 @@ class Link(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

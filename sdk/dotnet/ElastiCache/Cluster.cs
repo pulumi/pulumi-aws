@@ -213,7 +213,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> SnapshotWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Output("subnetGroupName")]
         public Output<string> SubnetGroupName { get; private set; } = null!;
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -571,7 +571,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -604,7 +604,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }
@@ -711,7 +711,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -826,7 +826,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        /// One or more VPC security groups associated with the cache cluster
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -859,7 +859,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? SnapshotWindow { get; set; }
 
         /// <summary>
-        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        /// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         /// </summary>
         [Input("subnetGroupName")]
         public Input<string>? SubnetGroupName { get; set; }

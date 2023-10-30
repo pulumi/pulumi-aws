@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,24 +23,9 @@ class GlobalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         """
-        GlobalTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replicas=replicas,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if replicas is None:
-            raise TypeError("Missing 'replicas' argument")
-
-        _setter("replicas", replicas)
+        pulumi.set(__self__, "replicas", replicas)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -79,27 +64,12 @@ class _GlobalTableState:
         :param pulumi.Input[str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
-        _GlobalTableState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            name=name,
-            replicas=replicas,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if replicas is not None:
-            _setter("replicas", replicas)
+            pulumi.set(__self__, "replicas", replicas)
 
     @property
     @pulumi.getter
@@ -287,10 +257,6 @@ class GlobalTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GlobalTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -274,20 +274,6 @@ public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
     public Output<String> templateBody() {
         return this.templateBody;
     }
-    /**
-     * The type you define in a provisioning template.
-     * 
-     */
-    @Export(name="type", refs={String.class}, tree="[0]")
-    private Output<String> type;
-
-    /**
-     * @return The type you define in a provisioning template.
-     * 
-     */
-    public Output<String> type() {
-        return this.type;
-    }
 
     /**
      *

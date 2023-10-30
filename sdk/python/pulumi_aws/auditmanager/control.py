@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,20 @@ class ControlArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] testing_information: Steps to follow to determine if the control is satisfied.
         """
-        ControlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_plan_instructions=action_plan_instructions,
-            action_plan_title=action_plan_title,
-            control_mapping_sources=control_mapping_sources,
-            description=description,
-            name=name,
-            tags=tags,
-            testing_information=testing_information,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_plan_instructions: Optional[pulumi.Input[str]] = None,
-             action_plan_title: Optional[pulumi.Input[str]] = None,
-             control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             testing_information: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_plan_instructions is None and 'actionPlanInstructions' in kwargs:
-            action_plan_instructions = kwargs['actionPlanInstructions']
-        if action_plan_title is None and 'actionPlanTitle' in kwargs:
-            action_plan_title = kwargs['actionPlanTitle']
-        if control_mapping_sources is None and 'controlMappingSources' in kwargs:
-            control_mapping_sources = kwargs['controlMappingSources']
-        if testing_information is None and 'testingInformation' in kwargs:
-            testing_information = kwargs['testingInformation']
-
         if action_plan_instructions is not None:
-            _setter("action_plan_instructions", action_plan_instructions)
+            pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
         if action_plan_title is not None:
-            _setter("action_plan_title", action_plan_title)
+            pulumi.set(__self__, "action_plan_title", action_plan_title)
         if control_mapping_sources is not None:
-            _setter("control_mapping_sources", control_mapping_sources)
+            pulumi.set(__self__, "control_mapping_sources", control_mapping_sources)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if testing_information is not None:
-            _setter("testing_information", testing_information)
+            pulumi.set(__self__, "testing_information", testing_information)
 
     @property
     @pulumi.getter(name="actionPlanInstructions")
@@ -196,68 +165,29 @@ class _ControlState:
         :param pulumi.Input[str] testing_information: Steps to follow to determine if the control is satisfied.
         :param pulumi.Input[str] type: Type of control, such as a custom control or a standard control.
         """
-        _ControlState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_plan_instructions=action_plan_instructions,
-            action_plan_title=action_plan_title,
-            arn=arn,
-            control_mapping_sources=control_mapping_sources,
-            description=description,
-            name=name,
-            tags=tags,
-            tags_all=tags_all,
-            testing_information=testing_information,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_plan_instructions: Optional[pulumi.Input[str]] = None,
-             action_plan_title: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             testing_information: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action_plan_instructions is None and 'actionPlanInstructions' in kwargs:
-            action_plan_instructions = kwargs['actionPlanInstructions']
-        if action_plan_title is None and 'actionPlanTitle' in kwargs:
-            action_plan_title = kwargs['actionPlanTitle']
-        if control_mapping_sources is None and 'controlMappingSources' in kwargs:
-            control_mapping_sources = kwargs['controlMappingSources']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if testing_information is None and 'testingInformation' in kwargs:
-            testing_information = kwargs['testingInformation']
-
         if action_plan_instructions is not None:
-            _setter("action_plan_instructions", action_plan_instructions)
+            pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
         if action_plan_title is not None:
-            _setter("action_plan_title", action_plan_title)
+            pulumi.set(__self__, "action_plan_title", action_plan_title)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if control_mapping_sources is not None:
-            _setter("control_mapping_sources", control_mapping_sources)
+            pulumi.set(__self__, "control_mapping_sources", control_mapping_sources)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if testing_information is not None:
-            _setter("testing_information", testing_information)
+            pulumi.set(__self__, "testing_information", testing_information)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="actionPlanInstructions")
@@ -474,10 +404,6 @@ class Control(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

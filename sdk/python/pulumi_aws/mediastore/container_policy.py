@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContainerPolicyArgs', 'ContainerPolicy']
@@ -21,27 +21,8 @@ class ContainerPolicyArgs:
         :param pulumi.Input[str] container_name: The name of the container.
         :param pulumi.Input[str] policy: The contents of the policy.
         """
-        ContainerPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-        if container_name is None:
-            raise TypeError("Missing 'container_name' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-
-        _setter("container_name", container_name)
-        _setter("policy", policy)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter(name="containerName")
@@ -78,25 +59,10 @@ class _ContainerPolicyState:
         :param pulumi.Input[str] container_name: The name of the container.
         :param pulumi.Input[str] policy: The contents of the policy.
         """
-        _ContainerPolicyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if container_name is None and 'containerName' in kwargs:
-            container_name = kwargs['containerName']
-
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter(name="containerName")
@@ -232,10 +198,6 @@ class ContainerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ContainerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

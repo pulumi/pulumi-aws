@@ -72,7 +72,7 @@ export class Enabler extends pulumi.CustomResource {
     public readonly accountIds!: pulumi.Output<string[]>;
     /**
      * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
      * At least one item is required.
      */
     public readonly resourceTypes!: pulumi.Output<string[]>;
@@ -119,7 +119,7 @@ export interface EnablerState {
     accountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
      * At least one item is required.
      */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -136,7 +136,7 @@ export interface EnablerArgs {
     accountIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of resources to scan.
-     * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
+     * Valid values are `EC2`, `ECR`, and `LAMBDA`.
      * At least one item is required.
      */
     resourceTypes: pulumi.Input<pulumi.Input<string>[]>;

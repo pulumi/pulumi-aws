@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,7 +62,7 @@ class ClusterArgs:
                When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
@@ -81,192 +81,73 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_immediately=apply_immediately,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            az_mode=az_mode,
-            cluster_id=cluster_id,
-            engine=engine,
-            engine_version=engine_version,
-            final_snapshot_identifier=final_snapshot_identifier,
-            ip_discovery=ip_discovery,
-            log_delivery_configurations=log_delivery_configurations,
-            maintenance_window=maintenance_window,
-            network_type=network_type,
-            node_type=node_type,
-            notification_topic_arn=notification_topic_arn,
-            num_cache_nodes=num_cache_nodes,
-            outpost_mode=outpost_mode,
-            parameter_group_name=parameter_group_name,
-            port=port,
-            preferred_availability_zones=preferred_availability_zones,
-            preferred_outpost_arn=preferred_outpost_arn,
-            replication_group_id=replication_group_id,
-            security_group_ids=security_group_ids,
-            snapshot_arns=snapshot_arns,
-            snapshot_name=snapshot_name,
-            snapshot_retention_limit=snapshot_retention_limit,
-            snapshot_window=snapshot_window,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-            transit_encryption_enabled=transit_encryption_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             az_mode: Optional[pulumi.Input[str]] = None,
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             ip_discovery: Optional[pulumi.Input[str]] = None,
-             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             num_cache_nodes: Optional[pulumi.Input[int]] = None,
-             outpost_mode: Optional[pulumi.Input[str]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_arns: Optional[pulumi.Input[str]] = None,
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
-             snapshot_window: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if az_mode is None and 'azMode' in kwargs:
-            az_mode = kwargs['azMode']
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if ip_discovery is None and 'ipDiscovery' in kwargs:
-            ip_discovery = kwargs['ipDiscovery']
-        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
-            log_delivery_configurations = kwargs['logDeliveryConfigurations']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if num_cache_nodes is None and 'numCacheNodes' in kwargs:
-            num_cache_nodes = kwargs['numCacheNodes']
-        if outpost_mode is None and 'outpostMode' in kwargs:
-            outpost_mode = kwargs['outpostMode']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
-            preferred_availability_zones = kwargs['preferredAvailabilityZones']
-        if preferred_outpost_arn is None and 'preferredOutpostArn' in kwargs:
-            preferred_outpost_arn = kwargs['preferredOutpostArn']
-        if replication_group_id is None and 'replicationGroupId' in kwargs:
-            replication_group_id = kwargs['replicationGroupId']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if snapshot_arns is None and 'snapshotArns' in kwargs:
-            snapshot_arns = kwargs['snapshotArns']
-        if snapshot_name is None and 'snapshotName' in kwargs:
-            snapshot_name = kwargs['snapshotName']
-        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
-            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
-        if snapshot_window is None and 'snapshotWindow' in kwargs:
-            snapshot_window = kwargs['snapshotWindow']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
-            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
-
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if az_mode is not None:
-            _setter("az_mode", az_mode)
+            pulumi.set(__self__, "az_mode", az_mode)
         if cluster_id is not None:
-            _setter("cluster_id", cluster_id)
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if ip_discovery is not None:
-            _setter("ip_discovery", ip_discovery)
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
-            _setter("log_delivery_configurations", log_delivery_configurations)
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
-            _setter("num_cache_nodes", num_cache_nodes)
+            pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
         if outpost_mode is not None:
-            _setter("outpost_mode", outpost_mode)
+            pulumi.set(__self__, "outpost_mode", outpost_mode)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_availability_zones is not None:
-            _setter("preferred_availability_zones", preferred_availability_zones)
+            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
-            _setter("preferred_outpost_arn", preferred_outpost_arn)
+            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            _setter("snapshot_arns", snapshot_arns)
+            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            _setter("snapshot_retention_limit", snapshot_retention_limit)
+            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            _setter("snapshot_window", snapshot_window)
+            pulumi.set(__self__, "snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transit_encryption_enabled is not None:
-            _setter("transit_encryption_enabled", transit_encryption_enabled)
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -353,7 +234,7 @@ class ClusterArgs:
         When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -537,7 +418,7 @@ class ClusterArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -597,7 +478,7 @@ class ClusterArgs:
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "subnet_group_name")
 
@@ -689,7 +570,7 @@ class _ClusterState:
                When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
@@ -709,230 +590,89 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_immediately=apply_immediately,
-            arn=arn,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            az_mode=az_mode,
-            cache_nodes=cache_nodes,
-            cluster_address=cluster_address,
-            cluster_id=cluster_id,
-            configuration_endpoint=configuration_endpoint,
-            engine=engine,
-            engine_version=engine_version,
-            engine_version_actual=engine_version_actual,
-            final_snapshot_identifier=final_snapshot_identifier,
-            ip_discovery=ip_discovery,
-            log_delivery_configurations=log_delivery_configurations,
-            maintenance_window=maintenance_window,
-            network_type=network_type,
-            node_type=node_type,
-            notification_topic_arn=notification_topic_arn,
-            num_cache_nodes=num_cache_nodes,
-            outpost_mode=outpost_mode,
-            parameter_group_name=parameter_group_name,
-            port=port,
-            preferred_availability_zones=preferred_availability_zones,
-            preferred_outpost_arn=preferred_outpost_arn,
-            replication_group_id=replication_group_id,
-            security_group_ids=security_group_ids,
-            snapshot_arns=snapshot_arns,
-            snapshot_name=snapshot_name,
-            snapshot_retention_limit=snapshot_retention_limit,
-            snapshot_window=snapshot_window,
-            subnet_group_name=subnet_group_name,
-            tags=tags,
-            tags_all=tags_all,
-            transit_encryption_enabled=transit_encryption_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             az_mode: Optional[pulumi.Input[str]] = None,
-             cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]] = None,
-             cluster_address: Optional[pulumi.Input[str]] = None,
-             cluster_id: Optional[pulumi.Input[str]] = None,
-             configuration_endpoint: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             engine_version_actual: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             ip_discovery: Optional[pulumi.Input[str]] = None,
-             log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
-             maintenance_window: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             node_type: Optional[pulumi.Input[str]] = None,
-             notification_topic_arn: Optional[pulumi.Input[str]] = None,
-             num_cache_nodes: Optional[pulumi.Input[int]] = None,
-             outpost_mode: Optional[pulumi.Input[str]] = None,
-             parameter_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snapshot_arns: Optional[pulumi.Input[str]] = None,
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
-             snapshot_window: Optional[pulumi.Input[str]] = None,
-             subnet_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if az_mode is None and 'azMode' in kwargs:
-            az_mode = kwargs['azMode']
-        if cache_nodes is None and 'cacheNodes' in kwargs:
-            cache_nodes = kwargs['cacheNodes']
-        if cluster_address is None and 'clusterAddress' in kwargs:
-            cluster_address = kwargs['clusterAddress']
-        if cluster_id is None and 'clusterId' in kwargs:
-            cluster_id = kwargs['clusterId']
-        if configuration_endpoint is None and 'configurationEndpoint' in kwargs:
-            configuration_endpoint = kwargs['configurationEndpoint']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if engine_version_actual is None and 'engineVersionActual' in kwargs:
-            engine_version_actual = kwargs['engineVersionActual']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if ip_discovery is None and 'ipDiscovery' in kwargs:
-            ip_discovery = kwargs['ipDiscovery']
-        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
-            log_delivery_configurations = kwargs['logDeliveryConfigurations']
-        if maintenance_window is None and 'maintenanceWindow' in kwargs:
-            maintenance_window = kwargs['maintenanceWindow']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if node_type is None and 'nodeType' in kwargs:
-            node_type = kwargs['nodeType']
-        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
-            notification_topic_arn = kwargs['notificationTopicArn']
-        if num_cache_nodes is None and 'numCacheNodes' in kwargs:
-            num_cache_nodes = kwargs['numCacheNodes']
-        if outpost_mode is None and 'outpostMode' in kwargs:
-            outpost_mode = kwargs['outpostMode']
-        if parameter_group_name is None and 'parameterGroupName' in kwargs:
-            parameter_group_name = kwargs['parameterGroupName']
-        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
-            preferred_availability_zones = kwargs['preferredAvailabilityZones']
-        if preferred_outpost_arn is None and 'preferredOutpostArn' in kwargs:
-            preferred_outpost_arn = kwargs['preferredOutpostArn']
-        if replication_group_id is None and 'replicationGroupId' in kwargs:
-            replication_group_id = kwargs['replicationGroupId']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if snapshot_arns is None and 'snapshotArns' in kwargs:
-            snapshot_arns = kwargs['snapshotArns']
-        if snapshot_name is None and 'snapshotName' in kwargs:
-            snapshot_name = kwargs['snapshotName']
-        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
-            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
-        if snapshot_window is None and 'snapshotWindow' in kwargs:
-            snapshot_window = kwargs['snapshotWindow']
-        if subnet_group_name is None and 'subnetGroupName' in kwargs:
-            subnet_group_name = kwargs['subnetGroupName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
-            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
-
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if az_mode is not None:
-            _setter("az_mode", az_mode)
+            pulumi.set(__self__, "az_mode", az_mode)
         if cache_nodes is not None:
-            _setter("cache_nodes", cache_nodes)
+            pulumi.set(__self__, "cache_nodes", cache_nodes)
         if cluster_address is not None:
-            _setter("cluster_address", cluster_address)
+            pulumi.set(__self__, "cluster_address", cluster_address)
         if cluster_id is not None:
-            _setter("cluster_id", cluster_id)
+            pulumi.set(__self__, "cluster_id", cluster_id)
         if configuration_endpoint is not None:
-            _setter("configuration_endpoint", configuration_endpoint)
+            pulumi.set(__self__, "configuration_endpoint", configuration_endpoint)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
-            _setter("engine_version_actual", engine_version_actual)
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if ip_discovery is not None:
-            _setter("ip_discovery", ip_discovery)
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
-            _setter("log_delivery_configurations", log_delivery_configurations)
+            pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if maintenance_window is not None:
-            _setter("maintenance_window", maintenance_window)
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if node_type is not None:
-            _setter("node_type", node_type)
+            pulumi.set(__self__, "node_type", node_type)
         if notification_topic_arn is not None:
-            _setter("notification_topic_arn", notification_topic_arn)
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if num_cache_nodes is not None:
-            _setter("num_cache_nodes", num_cache_nodes)
+            pulumi.set(__self__, "num_cache_nodes", num_cache_nodes)
         if outpost_mode is not None:
-            _setter("outpost_mode", outpost_mode)
+            pulumi.set(__self__, "outpost_mode", outpost_mode)
         if parameter_group_name is not None:
-            _setter("parameter_group_name", parameter_group_name)
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_availability_zones is not None:
-            _setter("preferred_availability_zones", preferred_availability_zones)
+            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
-            _setter("preferred_outpost_arn", preferred_outpost_arn)
+            pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if snapshot_arns is not None:
-            _setter("snapshot_arns", snapshot_arns)
+            pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if snapshot_retention_limit is not None:
-            _setter("snapshot_retention_limit", snapshot_retention_limit)
+            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
         if snapshot_window is not None:
-            _setter("snapshot_window", snapshot_window)
+            pulumi.set(__self__, "snapshot_window", snapshot_window)
         if subnet_group_name is not None:
-            _setter("subnet_group_name", subnet_group_name)
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
-            _setter("transit_encryption_enabled", transit_encryption_enabled)
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1067,7 +807,7 @@ class _ClusterState:
         When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1263,7 +1003,7 @@ class _ClusterState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1323,7 +1063,7 @@ class _ClusterState:
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "subnet_group_name")
 
@@ -1518,7 +1258,7 @@ class Cluster(pulumi.CustomResource):
                When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
@@ -1537,12 +1277,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
@@ -1657,10 +1397,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1812,7 +1548,7 @@ class Cluster(pulumi.CustomResource):
                When the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
-               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
@@ -1832,12 +1568,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
-        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
@@ -1976,7 +1712,7 @@ class Cluster(pulumi.CustomResource):
         When the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
-        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -2108,7 +1844,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
+        One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -2148,7 +1884,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="subnetGroupName")
     def subnet_group_name(self) -> pulumi.Output[str]:
         """
-        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
+        Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "subnet_group_name")
 

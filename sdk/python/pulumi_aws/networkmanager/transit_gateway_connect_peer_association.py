@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayConnectPeerAssociationArgs', 'TransitGatewayConnectPeerAssociation']
@@ -25,42 +25,11 @@ class TransitGatewayConnectPeerAssociationArgs:
         :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
         :param pulumi.Input[str] link_id: The ID of the link.
         """
-        TransitGatewayConnectPeerAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_id=device_id,
-            global_network_id=global_network_id,
-            transit_gateway_connect_peer_arn=transit_gateway_connect_peer_arn,
-            link_id=link_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_id: Optional[pulumi.Input[str]] = None,
-             global_network_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_connect_peer_arn: Optional[pulumi.Input[str]] = None,
-             link_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if device_id is None and 'deviceId' in kwargs:
-            device_id = kwargs['deviceId']
-        if device_id is None:
-            raise TypeError("Missing 'device_id' argument")
-        if global_network_id is None and 'globalNetworkId' in kwargs:
-            global_network_id = kwargs['globalNetworkId']
-        if global_network_id is None:
-            raise TypeError("Missing 'global_network_id' argument")
-        if transit_gateway_connect_peer_arn is None and 'transitGatewayConnectPeerArn' in kwargs:
-            transit_gateway_connect_peer_arn = kwargs['transitGatewayConnectPeerArn']
-        if transit_gateway_connect_peer_arn is None:
-            raise TypeError("Missing 'transit_gateway_connect_peer_arn' argument")
-        if link_id is None and 'linkId' in kwargs:
-            link_id = kwargs['linkId']
-
-        _setter("device_id", device_id)
-        _setter("global_network_id", global_network_id)
-        _setter("transit_gateway_connect_peer_arn", transit_gateway_connect_peer_arn)
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "global_network_id", global_network_id)
+        pulumi.set(__self__, "transit_gateway_connect_peer_arn", transit_gateway_connect_peer_arn)
         if link_id is not None:
-            _setter("link_id", link_id)
+            pulumi.set(__self__, "link_id", link_id)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -125,39 +94,14 @@ class _TransitGatewayConnectPeerAssociationState:
         :param pulumi.Input[str] link_id: The ID of the link.
         :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
         """
-        _TransitGatewayConnectPeerAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_id=device_id,
-            global_network_id=global_network_id,
-            link_id=link_id,
-            transit_gateway_connect_peer_arn=transit_gateway_connect_peer_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_id: Optional[pulumi.Input[str]] = None,
-             global_network_id: Optional[pulumi.Input[str]] = None,
-             link_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_connect_peer_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if device_id is None and 'deviceId' in kwargs:
-            device_id = kwargs['deviceId']
-        if global_network_id is None and 'globalNetworkId' in kwargs:
-            global_network_id = kwargs['globalNetworkId']
-        if link_id is None and 'linkId' in kwargs:
-            link_id = kwargs['linkId']
-        if transit_gateway_connect_peer_arn is None and 'transitGatewayConnectPeerArn' in kwargs:
-            transit_gateway_connect_peer_arn = kwargs['transitGatewayConnectPeerArn']
-
         if device_id is not None:
-            _setter("device_id", device_id)
+            pulumi.set(__self__, "device_id", device_id)
         if global_network_id is not None:
-            _setter("global_network_id", global_network_id)
+            pulumi.set(__self__, "global_network_id", global_network_id)
         if link_id is not None:
-            _setter("link_id", link_id)
+            pulumi.set(__self__, "link_id", link_id)
         if transit_gateway_connect_peer_arn is not None:
-            _setter("transit_gateway_connect_peer_arn", transit_gateway_connect_peer_arn)
+            pulumi.set(__self__, "transit_gateway_connect_peer_arn", transit_gateway_connect_peer_arn)
 
     @property
     @pulumi.getter(name="deviceId")
@@ -289,10 +233,6 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayConnectPeerAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

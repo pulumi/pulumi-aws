@@ -189,21 +189,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL of the self-service portal.
-     * 
-     */
-    @Import(name="selfServicePortalUrl")
-    private @Nullable Output<String> selfServicePortalUrl;
-
-    /**
-     * @return The URL of the self-service portal.
-     * 
-     */
-    public Optional<Output<String>> selfServicePortalUrl() {
-        return Optional.ofNullable(this.selfServicePortalUrl);
-    }
-
-    /**
      * The ARN of the ACM server certificate.
      * 
      */
@@ -345,7 +330,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         this.dnsServers = $.dnsServers;
         this.securityGroupIds = $.securityGroupIds;
         this.selfServicePortal = $.selfServicePortal;
-        this.selfServicePortalUrl = $.selfServicePortalUrl;
         this.serverCertificateArn = $.serverCertificateArn;
         this.sessionTimeoutHours = $.sessionTimeoutHours;
         this.splitTunnel = $.splitTunnel;
@@ -633,27 +617,6 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder selfServicePortal(String selfServicePortal) {
             return selfServicePortal(Output.of(selfServicePortal));
-        }
-
-        /**
-         * @param selfServicePortalUrl The URL of the self-service portal.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder selfServicePortalUrl(@Nullable Output<String> selfServicePortalUrl) {
-            $.selfServicePortalUrl = selfServicePortalUrl;
-            return this;
-        }
-
-        /**
-         * @param selfServicePortalUrl The URL of the self-service portal.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder selfServicePortalUrl(String selfServicePortalUrl) {
-            return selfServicePortalUrl(Output.of(selfServicePortalUrl));
         }
 
         /**

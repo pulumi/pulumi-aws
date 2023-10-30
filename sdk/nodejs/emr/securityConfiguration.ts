@@ -84,7 +84,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SecurityConfiguration resource with the given unique name, arguments, and options.

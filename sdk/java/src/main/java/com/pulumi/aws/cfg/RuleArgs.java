@@ -3,13 +3,11 @@
 
 package com.pulumi.aws.cfg;
 
-import com.pulumi.aws.cfg.inputs.RuleEvaluationModeArgs;
 import com.pulumi.aws.cfg.inputs.RuleScopeArgs;
 import com.pulumi.aws.cfg.inputs.RuleSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,21 +31,6 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
-    }
-
-    /**
-     * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-     * 
-     */
-    @Import(name="evaluationModes")
-    private @Nullable Output<List<RuleEvaluationModeArgs>> evaluationModes;
-
-    /**
-     * @return The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-     * 
-     */
-    public Optional<Output<List<RuleEvaluationModeArgs>>> evaluationModes() {
-        return Optional.ofNullable(this.evaluationModes);
     }
 
     /**
@@ -144,7 +127,6 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
 
     private RuleArgs(RuleArgs $) {
         this.description = $.description;
-        this.evaluationModes = $.evaluationModes;
         this.inputParameters = $.inputParameters;
         this.maximumExecutionFrequency = $.maximumExecutionFrequency;
         this.name = $.name;
@@ -190,37 +172,6 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
-        }
-
-        /**
-         * @param evaluationModes The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder evaluationModes(@Nullable Output<List<RuleEvaluationModeArgs>> evaluationModes) {
-            $.evaluationModes = evaluationModes;
-            return this;
-        }
-
-        /**
-         * @param evaluationModes The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder evaluationModes(List<RuleEvaluationModeArgs> evaluationModes) {
-            return evaluationModes(Output.of(evaluationModes));
-        }
-
-        /**
-         * @param evaluationModes The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder evaluationModes(RuleEvaluationModeArgs... evaluationModes) {
-            return evaluationModes(List.of(evaluationModes));
         }
 
         /**

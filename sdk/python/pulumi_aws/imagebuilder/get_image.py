@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -22,7 +22,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, arn=None, build_version_arn=None, container_recipe_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, tags=None, version=None):
+    def __init__(__self__, arn=None, build_version_arn=None, container_recipe_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,9 +47,6 @@ class GetImageResult:
         if image_recipe_arn and not isinstance(image_recipe_arn, str):
             raise TypeError("Expected argument 'image_recipe_arn' to be a str")
         pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
-        if image_scanning_configurations and not isinstance(image_scanning_configurations, list):
-            raise TypeError("Expected argument 'image_scanning_configurations' to be a list")
-        pulumi.set(__self__, "image_scanning_configurations", image_scanning_configurations)
         if image_tests_configurations and not isinstance(image_tests_configurations, list):
             raise TypeError("Expected argument 'image_tests_configurations' to be a list")
         pulumi.set(__self__, "image_tests_configurations", image_tests_configurations)
@@ -137,14 +134,6 @@ class GetImageResult:
         return pulumi.get(self, "image_recipe_arn")
 
     @property
-    @pulumi.getter(name="imageScanningConfigurations")
-    def image_scanning_configurations(self) -> Sequence['outputs.GetImageImageScanningConfigurationResult']:
-        """
-        List of an object with image scanning configuration fields.
-        """
-        return pulumi.get(self, "image_scanning_configurations")
-
-    @property
     @pulumi.getter(name="imageTestsConfigurations")
     def image_tests_configurations(self) -> Sequence['outputs.GetImageImageTestsConfigurationResult']:
         """
@@ -223,7 +212,6 @@ class AwaitableGetImageResult(GetImageResult):
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
             id=self.id,
             image_recipe_arn=self.image_recipe_arn,
-            image_scanning_configurations=self.image_scanning_configurations,
             image_tests_configurations=self.image_tests_configurations,
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             name=self.name,
@@ -269,7 +257,6 @@ def get_image(arn: Optional[str] = None,
         enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
         id=pulumi.get(__ret__, 'id'),
         image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
-        image_scanning_configurations=pulumi.get(__ret__, 'image_scanning_configurations'),
         image_tests_configurations=pulumi.get(__ret__, 'image_tests_configurations'),
         infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
         name=pulumi.get(__ret__, 'name'),

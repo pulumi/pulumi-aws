@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,36 +25,9 @@ class SecretRotationArgs:
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
-        SecretRotationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rotation_lambda_arn=rotation_lambda_arn,
-            rotation_rules=rotation_rules,
-            secret_id=secret_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-             rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
-             secret_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rotation_lambda_arn is None and 'rotationLambdaArn' in kwargs:
-            rotation_lambda_arn = kwargs['rotationLambdaArn']
-        if rotation_lambda_arn is None:
-            raise TypeError("Missing 'rotation_lambda_arn' argument")
-        if rotation_rules is None and 'rotationRules' in kwargs:
-            rotation_rules = kwargs['rotationRules']
-        if rotation_rules is None:
-            raise TypeError("Missing 'rotation_rules' argument")
-        if secret_id is None and 'secretId' in kwargs:
-            secret_id = kwargs['secretId']
-        if secret_id is None:
-            raise TypeError("Missing 'secret_id' argument")
-
-        _setter("rotation_lambda_arn", rotation_lambda_arn)
-        _setter("rotation_rules", rotation_rules)
-        _setter("secret_id", secret_id)
+        pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
+        pulumi.set(__self__, "rotation_rules", rotation_rules)
+        pulumi.set(__self__, "secret_id", secret_id)
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
@@ -107,39 +80,14 @@ class _SecretRotationState:
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
-        _SecretRotationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rotation_enabled=rotation_enabled,
-            rotation_lambda_arn=rotation_lambda_arn,
-            rotation_rules=rotation_rules,
-            secret_id=secret_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rotation_enabled: Optional[pulumi.Input[bool]] = None,
-             rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
-             rotation_rules: Optional[pulumi.Input['SecretRotationRotationRulesArgs']] = None,
-             secret_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rotation_enabled is None and 'rotationEnabled' in kwargs:
-            rotation_enabled = kwargs['rotationEnabled']
-        if rotation_lambda_arn is None and 'rotationLambdaArn' in kwargs:
-            rotation_lambda_arn = kwargs['rotationLambdaArn']
-        if rotation_rules is None and 'rotationRules' in kwargs:
-            rotation_rules = kwargs['rotationRules']
-        if secret_id is None and 'secretId' in kwargs:
-            secret_id = kwargs['secretId']
-
         if rotation_enabled is not None:
-            _setter("rotation_enabled", rotation_enabled)
+            pulumi.set(__self__, "rotation_enabled", rotation_enabled)
         if rotation_lambda_arn is not None:
-            _setter("rotation_lambda_arn", rotation_lambda_arn)
+            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
         if rotation_rules is not None:
-            _setter("rotation_rules", rotation_rules)
+            pulumi.set(__self__, "rotation_rules", rotation_rules)
         if secret_id is not None:
-            _setter("secret_id", secret_id)
+            pulumi.set(__self__, "secret_id", secret_id)
 
     @property
     @pulumi.getter(name="rotationEnabled")
@@ -287,10 +235,6 @@ class SecretRotation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecretRotationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -311,7 +255,6 @@ class SecretRotation(pulumi.CustomResource):
             if rotation_lambda_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_lambda_arn'")
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
-            rotation_rules = _utilities.configure(rotation_rules, SecretRotationRotationRulesArgs, True)
             if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
             __props__.__dict__["rotation_rules"] = rotation_rules

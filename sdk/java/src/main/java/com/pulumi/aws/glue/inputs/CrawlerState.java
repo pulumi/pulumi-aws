@@ -142,14 +142,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Hudi target arguments. See Iceberg Target below.
+     * List nested Hudi target arguments. See Iceberg Target below.
      * 
      */
     @Import(name="hudiTargets")
     private @Nullable Output<List<CrawlerHudiTargetArgs>> hudiTargets;
 
     /**
-     * @return List of nested Hudi target arguments. See Iceberg Target below.
+     * @return List nested Hudi target arguments. See Iceberg Target below.
      * 
      */
     public Optional<Output<List<CrawlerHudiTargetArgs>>> hudiTargets() {
@@ -157,14 +157,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Iceberg target arguments. See Iceberg Target below.
+     * List nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
     @Import(name="icebergTargets")
     private @Nullable Output<List<CrawlerIcebergTargetArgs>> icebergTargets;
 
     /**
-     * @return List of nested Iceberg target arguments. See Iceberg Target below.
+     * @return List nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
     public Optional<Output<List<CrawlerIcebergTargetArgs>>> icebergTargets() {
@@ -217,14 +217,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested MongoDB target arguments. See MongoDB Target below.
+     * List nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
     @Import(name="mongodbTargets")
     private @Nullable Output<List<CrawlerMongodbTargetArgs>> mongodbTargets;
 
     /**
-     * @return List of nested MongoDB target arguments. See MongoDB Target below.
+     * @return List nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
     public Optional<Output<List<CrawlerMongodbTargetArgs>>> mongodbTargets() {
@@ -277,14 +277,14 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested Amazon S3 target arguments. See S3 Target below.
+     * List nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
     @Import(name="s3Targets")
     private @Nullable Output<List<CrawlerS3TargetArgs>> s3Targets;
 
     /**
-     * @return List of nested Amazon S3 target arguments. See S3 Target below.
+     * @return List nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
     public Optional<Output<List<CrawlerS3TargetArgs>>> s3Targets() {
@@ -627,7 +627,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hudiTargets List of nested Hudi target arguments. See Iceberg Target below.
+         * @param hudiTargets List nested Hudi target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -658,7 +658,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -669,7 +669,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -679,7 +679,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param icebergTargets List of nested Iceberg target arguments. See Iceberg Target below.
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
          * 
          * @return builder
          * 
@@ -762,7 +762,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List nested MongoDB target arguments. See MongoDB Target below.
          * 
          * @return builder
          * 
@@ -773,7 +773,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List nested MongoDB target arguments. See MongoDB Target below.
          * 
          * @return builder
          * 
@@ -783,7 +783,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mongodbTargets List of nested MongoDB target arguments. See MongoDB Target below.
+         * @param mongodbTargets List nested MongoDB target arguments. See MongoDB Target below.
          * 
          * @return builder
          * 
@@ -856,7 +856,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List nested Amazon S3 target arguments. See S3 Target below.
          * 
          * @return builder
          * 
@@ -867,7 +867,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List nested Amazon S3 target arguments. See S3 Target below.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Targets List of nested Amazon S3 target arguments. See S3 Target below.
+         * @param s3Targets List nested Amazon S3 target arguments. See S3 Target below.
          * 
          * @return builder
          * 

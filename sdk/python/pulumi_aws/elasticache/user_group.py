@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserGroupArgs', 'UserGroup']
@@ -27,37 +27,12 @@ class UserGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
-        UserGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            engine=engine,
-            user_group_id=user_group_id,
-            tags=tags,
-            user_ids=user_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             engine: Optional[pulumi.Input[str]] = None,
-             user_group_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if engine is None:
-            raise TypeError("Missing 'engine' argument")
-        if user_group_id is None and 'userGroupId' in kwargs:
-            user_group_id = kwargs['userGroupId']
-        if user_group_id is None:
-            raise TypeError("Missing 'user_group_id' argument")
-        if user_ids is None and 'userIds' in kwargs:
-            user_ids = kwargs['userIds']
-
-        _setter("engine", engine)
-        _setter("user_group_id", user_group_id)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "user_group_id", user_group_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_ids is not None:
-            _setter("user_ids", user_ids)
+            pulumi.set(__self__, "user_ids", user_ids)
 
     @property
     @pulumi.getter
@@ -130,48 +105,21 @@ class _UserGroupState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
-        _UserGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            engine=engine,
-            tags=tags,
-            tags_all=tags_all,
-            user_group_id=user_group_id,
-            user_ids=user_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             user_group_id: Optional[pulumi.Input[str]] = None,
-             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if user_group_id is None and 'userGroupId' in kwargs:
-            user_group_id = kwargs['userGroupId']
-        if user_ids is None and 'userIds' in kwargs:
-            user_ids = kwargs['userIds']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_group_id is not None:
-            _setter("user_group_id", user_group_id)
+            pulumi.set(__self__, "user_group_id", user_group_id)
         if user_ids is not None:
-            _setter("user_ids", user_ids)
+            pulumi.set(__self__, "user_ids", user_ids)
 
     @property
     @pulumi.getter
@@ -344,10 +292,6 @@ class UserGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,50 +31,17 @@ class DeliveryChannelArgs:
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
-        DeliveryChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket_name=s3_bucket_name,
-            name=name,
-            s3_key_prefix=s3_key_prefix,
-            s3_kms_key_arn=s3_kms_key_arn,
-            snapshot_delivery_properties=snapshot_delivery_properties,
-            sns_topic_arn=sns_topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-             snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
-             sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket_name is None and 's3BucketName' in kwargs:
-            s3_bucket_name = kwargs['s3BucketName']
-        if s3_bucket_name is None:
-            raise TypeError("Missing 's3_bucket_name' argument")
-        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
-            s3_key_prefix = kwargs['s3KeyPrefix']
-        if s3_kms_key_arn is None and 's3KmsKeyArn' in kwargs:
-            s3_kms_key_arn = kwargs['s3KmsKeyArn']
-        if snapshot_delivery_properties is None and 'snapshotDeliveryProperties' in kwargs:
-            snapshot_delivery_properties = kwargs['snapshotDeliveryProperties']
-        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
-            sns_topic_arn = kwargs['snsTopicArn']
-
-        _setter("s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if s3_key_prefix is not None:
-            _setter("s3_key_prefix", s3_key_prefix)
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if s3_kms_key_arn is not None:
-            _setter("s3_kms_key_arn", s3_kms_key_arn)
+            pulumi.set(__self__, "s3_kms_key_arn", s3_kms_key_arn)
         if snapshot_delivery_properties is not None:
-            _setter("snapshot_delivery_properties", snapshot_delivery_properties)
+            pulumi.set(__self__, "snapshot_delivery_properties", snapshot_delivery_properties)
         if sns_topic_arn is not None:
-            _setter("sns_topic_arn", sns_topic_arn)
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -167,49 +134,18 @@ class _DeliveryChannelState:
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
-        _DeliveryChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            s3_bucket_name=s3_bucket_name,
-            s3_key_prefix=s3_key_prefix,
-            s3_kms_key_arn=s3_kms_key_arn,
-            snapshot_delivery_properties=snapshot_delivery_properties,
-            sns_topic_arn=sns_topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             s3_bucket_name: Optional[pulumi.Input[str]] = None,
-             s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-             snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
-             sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if s3_bucket_name is None and 's3BucketName' in kwargs:
-            s3_bucket_name = kwargs['s3BucketName']
-        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
-            s3_key_prefix = kwargs['s3KeyPrefix']
-        if s3_kms_key_arn is None and 's3KmsKeyArn' in kwargs:
-            s3_kms_key_arn = kwargs['s3KmsKeyArn']
-        if snapshot_delivery_properties is None and 'snapshotDeliveryProperties' in kwargs:
-            snapshot_delivery_properties = kwargs['snapshotDeliveryProperties']
-        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
-            sns_topic_arn = kwargs['snsTopicArn']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if s3_bucket_name is not None:
-            _setter("s3_bucket_name", s3_bucket_name)
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
-            _setter("s3_key_prefix", s3_key_prefix)
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if s3_kms_key_arn is not None:
-            _setter("s3_kms_key_arn", s3_kms_key_arn)
+            pulumi.set(__self__, "s3_kms_key_arn", s3_kms_key_arn)
         if snapshot_delivery_properties is not None:
-            _setter("snapshot_delivery_properties", snapshot_delivery_properties)
+            pulumi.set(__self__, "snapshot_delivery_properties", snapshot_delivery_properties)
         if sns_topic_arn is not None:
-            _setter("sns_topic_arn", sns_topic_arn)
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter
@@ -411,10 +347,6 @@ class DeliveryChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeliveryChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -441,7 +373,6 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
             __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
-            snapshot_delivery_properties = _utilities.configure(snapshot_delivery_properties, DeliveryChannelSnapshotDeliveryPropertiesArgs, True)
             __props__.__dict__["snapshot_delivery_properties"] = snapshot_delivery_properties
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         super(DeliveryChannel, __self__).__init__(

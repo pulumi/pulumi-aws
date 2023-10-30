@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointSubnetAssociationArgs', 'VpcEndpointSubnetAssociation']
@@ -21,29 +21,8 @@ class VpcEndpointSubnetAssociationArgs:
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
-        VpcEndpointSubnetAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            vpc_endpoint_id=vpc_endpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if subnet_id is None:
-            raise TypeError("Missing 'subnet_id' argument")
-        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
-            vpc_endpoint_id = kwargs['vpcEndpointId']
-        if vpc_endpoint_id is None:
-            raise TypeError("Missing 'vpc_endpoint_id' argument")
-
-        _setter("subnet_id", subnet_id)
-        _setter("vpc_endpoint_id", vpc_endpoint_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -80,27 +59,10 @@ class _VpcEndpointSubnetAssociationState:
         :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
-        _VpcEndpointSubnetAssociationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            vpc_endpoint_id=vpc_endpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_id is None and 'subnetId' in kwargs:
-            subnet_id = kwargs['subnetId']
-        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
-            vpc_endpoint_id = kwargs['vpcEndpointId']
-
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if vpc_endpoint_id is not None:
-            _setter("vpc_endpoint_id", vpc_endpoint_id)
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -216,10 +178,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcEndpointSubnetAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

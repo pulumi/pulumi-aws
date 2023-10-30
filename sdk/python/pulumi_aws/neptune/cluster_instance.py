@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterInstanceArgs', 'ClusterInstance']
@@ -40,7 +40,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[str] engine_version: The neptune engine version.
         :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
@@ -53,111 +53,38 @@ class ClusterInstanceArgs:
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly accessible. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ClusterInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_identifier=cluster_identifier,
-            instance_class=instance_class,
-            apply_immediately=apply_immediately,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            engine=engine,
-            engine_version=engine_version,
-            identifier=identifier,
-            identifier_prefix=identifier_prefix,
-            neptune_parameter_group_name=neptune_parameter_group_name,
-            neptune_subnet_group_name=neptune_subnet_group_name,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            promotion_tier=promotion_tier,
-            publicly_accessible=publicly_accessible,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             instance_class: Optional[pulumi.Input[str]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             identifier: Optional[pulumi.Input[str]] = None,
-             identifier_prefix: Optional[pulumi.Input[str]] = None,
-             neptune_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             promotion_tier: Optional[pulumi.Input[int]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_identifier is None:
-            raise TypeError("Missing 'cluster_identifier' argument")
-        if instance_class is None and 'instanceClass' in kwargs:
-            instance_class = kwargs['instanceClass']
-        if instance_class is None:
-            raise TypeError("Missing 'instance_class' argument")
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if identifier_prefix is None and 'identifierPrefix' in kwargs:
-            identifier_prefix = kwargs['identifierPrefix']
-        if neptune_parameter_group_name is None and 'neptuneParameterGroupName' in kwargs:
-            neptune_parameter_group_name = kwargs['neptuneParameterGroupName']
-        if neptune_subnet_group_name is None and 'neptuneSubnetGroupName' in kwargs:
-            neptune_subnet_group_name = kwargs['neptuneSubnetGroupName']
-        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
-            preferred_backup_window = kwargs['preferredBackupWindow']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if promotion_tier is None and 'promotionTier' in kwargs:
-            promotion_tier = kwargs['promotionTier']
-        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
-            publicly_accessible = kwargs['publiclyAccessible']
-
-        _setter("cluster_identifier", cluster_identifier)
-        _setter("instance_class", instance_class)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "instance_class", instance_class)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if identifier is not None:
-            _setter("identifier", identifier)
+            pulumi.set(__self__, "identifier", identifier)
         if identifier_prefix is not None:
-            _setter("identifier_prefix", identifier_prefix)
+            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
         if neptune_parameter_group_name is not None:
-            _setter("neptune_parameter_group_name", neptune_parameter_group_name)
+            pulumi.set(__self__, "neptune_parameter_group_name", neptune_parameter_group_name)
         if neptune_subnet_group_name is not None:
-            _setter("neptune_subnet_group_name", neptune_subnet_group_name)
+            pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if promotion_tier is not None:
-            _setter("promotion_tier", promotion_tier)
+            pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -236,7 +163,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -406,7 +333,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[str] engine_version: The neptune engine version.
         :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
@@ -424,152 +351,59 @@ class _ClusterInstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
-        _ClusterInstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            apply_immediately=apply_immediately,
-            arn=arn,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            cluster_identifier=cluster_identifier,
-            dbi_resource_id=dbi_resource_id,
-            endpoint=endpoint,
-            engine=engine,
-            engine_version=engine_version,
-            identifier=identifier,
-            identifier_prefix=identifier_prefix,
-            instance_class=instance_class,
-            kms_key_arn=kms_key_arn,
-            neptune_parameter_group_name=neptune_parameter_group_name,
-            neptune_subnet_group_name=neptune_subnet_group_name,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            promotion_tier=promotion_tier,
-            publicly_accessible=publicly_accessible,
-            storage_encrypted=storage_encrypted,
-            tags=tags,
-            tags_all=tags_all,
-            writer=writer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             dbi_resource_id: Optional[pulumi.Input[str]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             identifier: Optional[pulumi.Input[str]] = None,
-             identifier_prefix: Optional[pulumi.Input[str]] = None,
-             instance_class: Optional[pulumi.Input[str]] = None,
-             kms_key_arn: Optional[pulumi.Input[str]] = None,
-             neptune_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             neptune_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             promotion_tier: Optional[pulumi.Input[int]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             writer: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
-            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
-        if availability_zone is None and 'availabilityZone' in kwargs:
-            availability_zone = kwargs['availabilityZone']
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if dbi_resource_id is None and 'dbiResourceId' in kwargs:
-            dbi_resource_id = kwargs['dbiResourceId']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if identifier_prefix is None and 'identifierPrefix' in kwargs:
-            identifier_prefix = kwargs['identifierPrefix']
-        if instance_class is None and 'instanceClass' in kwargs:
-            instance_class = kwargs['instanceClass']
-        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
-            kms_key_arn = kwargs['kmsKeyArn']
-        if neptune_parameter_group_name is None and 'neptuneParameterGroupName' in kwargs:
-            neptune_parameter_group_name = kwargs['neptuneParameterGroupName']
-        if neptune_subnet_group_name is None and 'neptuneSubnetGroupName' in kwargs:
-            neptune_subnet_group_name = kwargs['neptuneSubnetGroupName']
-        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
-            preferred_backup_window = kwargs['preferredBackupWindow']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if promotion_tier is None and 'promotionTier' in kwargs:
-            promotion_tier = kwargs['promotionTier']
-        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
-            publicly_accessible = kwargs['publiclyAccessible']
-        if storage_encrypted is None and 'storageEncrypted' in kwargs:
-            storage_encrypted = kwargs['storageEncrypted']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if cluster_identifier is not None:
-            _setter("cluster_identifier", cluster_identifier)
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if dbi_resource_id is not None:
-            _setter("dbi_resource_id", dbi_resource_id)
+            pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if identifier is not None:
-            _setter("identifier", identifier)
+            pulumi.set(__self__, "identifier", identifier)
         if identifier_prefix is not None:
-            _setter("identifier_prefix", identifier_prefix)
+            pulumi.set(__self__, "identifier_prefix", identifier_prefix)
         if instance_class is not None:
-            _setter("instance_class", instance_class)
+            pulumi.set(__self__, "instance_class", instance_class)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if neptune_parameter_group_name is not None:
-            _setter("neptune_parameter_group_name", neptune_parameter_group_name)
+            pulumi.set(__self__, "neptune_parameter_group_name", neptune_parameter_group_name)
         if neptune_subnet_group_name is not None:
-            _setter("neptune_subnet_group_name", neptune_subnet_group_name)
+            pulumi.set(__self__, "neptune_subnet_group_name", neptune_subnet_group_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if promotion_tier is not None:
-            _setter("promotion_tier", promotion_tier)
+            pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if writer is not None:
-            _setter("writer", writer)
+            pulumi.set(__self__, "writer", writer)
 
     @property
     @pulumi.getter
@@ -684,7 +518,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -947,7 +781,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[str] engine_version: The neptune engine version.
         :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
@@ -1016,10 +850,6 @@ class ClusterInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1134,7 +964,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[str] engine_version: The neptune engine version.
         :param pulumi.Input[str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[str] instance_class: The instance class to use.
@@ -1260,7 +1090,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version.
         """
         return pulumi.get(self, "engine_version")
 

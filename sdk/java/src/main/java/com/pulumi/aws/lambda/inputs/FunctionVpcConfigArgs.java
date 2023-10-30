@@ -5,7 +5,6 @@ package com.pulumi.aws.lambda.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -16,21 +15,6 @@ import javax.annotation.Nullable;
 public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionVpcConfigArgs Empty = new FunctionVpcConfigArgs();
-
-    /**
-     * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-     * 
-     */
-    @Import(name="ipv6AllowedForDualStack")
-    private @Nullable Output<Boolean> ipv6AllowedForDualStack;
-
-    /**
-     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> ipv6AllowedForDualStack() {
-        return Optional.ofNullable(this.ipv6AllowedForDualStack);
-    }
 
     /**
      * List of security group IDs associated with the Lambda function.
@@ -72,7 +56,6 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
     private FunctionVpcConfigArgs() {}
 
     private FunctionVpcConfigArgs(FunctionVpcConfigArgs $) {
-        this.ipv6AllowedForDualStack = $.ipv6AllowedForDualStack;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
         this.vpcId = $.vpcId;
@@ -94,27 +77,6 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(FunctionVpcConfigArgs defaults) {
             $ = new FunctionVpcConfigArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param ipv6AllowedForDualStack Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipv6AllowedForDualStack(@Nullable Output<Boolean> ipv6AllowedForDualStack) {
-            $.ipv6AllowedForDualStack = ipv6AllowedForDualStack;
-            return this;
-        }
-
-        /**
-         * @param ipv6AllowedForDualStack Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ipv6AllowedForDualStack(Boolean ipv6AllowedForDualStack) {
-            return ipv6AllowedForDualStack(Output.of(ipv6AllowedForDualStack));
         }
 
         /**

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,42 +33,13 @@ class LocationFsxOntapFileSystemArgs:
         :param pulumi.Input[str] subdirectory: Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        LocationFsxOntapFileSystemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            protocol=protocol,
-            security_group_arns=security_group_arns,
-            storage_virtual_machine_arn=storage_virtual_machine_arn,
-            subdirectory=subdirectory,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             protocol: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolArgs']] = None,
-             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if security_group_arns is None and 'securityGroupArns' in kwargs:
-            security_group_arns = kwargs['securityGroupArns']
-        if security_group_arns is None:
-            raise TypeError("Missing 'security_group_arns' argument")
-        if storage_virtual_machine_arn is None and 'storageVirtualMachineArn' in kwargs:
-            storage_virtual_machine_arn = kwargs['storageVirtualMachineArn']
-        if storage_virtual_machine_arn is None:
-            raise TypeError("Missing 'storage_virtual_machine_arn' argument")
-
-        _setter("protocol", protocol)
-        _setter("security_group_arns", security_group_arns)
-        _setter("storage_virtual_machine_arn", storage_virtual_machine_arn)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "security_group_arns", security_group_arns)
+        pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -163,68 +134,29 @@ class _LocationFsxOntapFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] uri: URI of the FSx ONTAP file system location
         """
-        _LocationFsxOntapFileSystemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            creation_time=creation_time,
-            fsx_filesystem_arn=fsx_filesystem_arn,
-            protocol=protocol,
-            security_group_arns=security_group_arns,
-            storage_virtual_machine_arn=storage_virtual_machine_arn,
-            subdirectory=subdirectory,
-            tags=tags,
-            tags_all=tags_all,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             creation_time: Optional[pulumi.Input[str]] = None,
-             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolArgs']] = None,
-             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if creation_time is None and 'creationTime' in kwargs:
-            creation_time = kwargs['creationTime']
-        if fsx_filesystem_arn is None and 'fsxFilesystemArn' in kwargs:
-            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
-        if security_group_arns is None and 'securityGroupArns' in kwargs:
-            security_group_arns = kwargs['securityGroupArns']
-        if storage_virtual_machine_arn is None and 'storageVirtualMachineArn' in kwargs:
-            storage_virtual_machine_arn = kwargs['storageVirtualMachineArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if creation_time is not None:
-            _setter("creation_time", creation_time)
+            pulumi.set(__self__, "creation_time", creation_time)
         if fsx_filesystem_arn is not None:
-            _setter("fsx_filesystem_arn", fsx_filesystem_arn)
+            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if security_group_arns is not None:
-            _setter("security_group_arns", security_group_arns)
+            pulumi.set(__self__, "security_group_arns", security_group_arns)
         if storage_virtual_machine_arn is not None:
-            _setter("storage_virtual_machine_arn", storage_virtual_machine_arn)
+            pulumi.set(__self__, "storage_virtual_machine_arn", storage_virtual_machine_arn)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -413,10 +345,6 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocationFsxOntapFileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -436,7 +364,6 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationFsxOntapFileSystemArgs.__new__(LocationFsxOntapFileSystemArgs)
 
-            protocol = _utilities.configure(protocol, LocationFsxOntapFileSystemProtocolArgs, True)
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol

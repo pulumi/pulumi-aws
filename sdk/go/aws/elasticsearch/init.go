@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DomainPolicy{}
 	case "aws:elasticsearch/domainSamlOptions:DomainSamlOptions":
 		r = &DomainSamlOptions{}
-	case "aws:elasticsearch/vpcEndpoint:VpcEndpoint":
-		r = &VpcEndpoint{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -55,11 +53,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"elasticsearch/domainSamlOptions",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"elasticsearch/vpcEndpoint",
 		&module{version},
 	)
 }

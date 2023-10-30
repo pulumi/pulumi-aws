@@ -25,11 +25,6 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
-export { VpcEndpointArgs, VpcEndpointState } from "./vpcEndpoint";
-export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
-export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
-utilities.lazyLoad(exports, ["VpcEndpoint"], () => require("./vpcEndpoint"));
-
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,8 +36,6 @@ const _module = {
                 return new DomainPolicy(name, <any>undefined, { urn })
             case "aws:elasticsearch/domainSamlOptions:DomainSamlOptions":
                 return new DomainSamlOptions(name, <any>undefined, { urn })
-            case "aws:elasticsearch/vpcEndpoint:VpcEndpoint":
-                return new VpcEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -51,4 +44,3 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "elasticsearch/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticsearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticsearch/domainSamlOptions", _module)
-pulumi.runtime.registerResourceModule("aws", "elasticsearch/vpcEndpoint", _module)

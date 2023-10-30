@@ -953,13 +953,6 @@ export namespace alb {
         onUnhealthy: string;
     }
 
-    export interface TargetGroupTargetHealthState {
-        /**
-         * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-         */
-        enableUnhealthyConnectionTermination: boolean;
-    }
-
 }
 
 export namespace amp {
@@ -8515,7 +8508,7 @@ export namespace autoscaling {
         /**
          * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
          */
-        overrides: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
+        overrides?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverride[];
     }
 
     export interface GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
@@ -10483,7 +10476,7 @@ export namespace cfg {
          */
         includeGlobalResourceTypes?: boolean;
         /**
-         * Recording Strategy. Detailed below.
+         * Recording Strategy - see below..
          */
         recordingStrategies: outputs.cfg.RecorderRecordingGroupRecordingStrategy[];
         /**
@@ -10494,7 +10487,7 @@ export namespace cfg {
 
     export interface RecorderRecordingGroupExclusionByResourceType {
         /**
-         * A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
          */
         resourceTypes?: string[];
     }
@@ -10538,13 +10531,6 @@ export namespace cfg {
          * List of static values.
          */
         staticValues: string[];
-    }
-
-    export interface RuleEvaluationMode {
-        /**
-         * The mode of an evaluation.
-         */
-        mode: string;
     }
 
     export interface RuleScope {
@@ -22962,7 +22948,7 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
@@ -25338,7 +25324,7 @@ export namespace ec2 {
          */
         volumeSize: number;
         /**
-         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
@@ -27997,19 +27983,6 @@ export namespace elasticsearch {
         /**
          * The VPC used by the domain.
          */
-        vpcId: string;
-    }
-
-    export interface VpcEndpointVpcOptions {
-        availabilityZones: string[];
-        /**
-         * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
-         */
-        securityGroupIds: string[];
-        /**
-         * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-         */
-        subnetIds: string[];
         vpcId: string;
     }
 
@@ -33438,28 +33411,6 @@ export namespace imagebuilder {
         values: string[];
     }
 
-    export interface GetImageImageScanningConfiguration {
-        /**
-         * Configuration block with ECR configuration.
-         */
-        ecrConfigurations: outputs.imagebuilder.GetImageImageScanningConfigurationEcrConfiguration[];
-        /**
-         * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
-         */
-        imageScanningEnabled: boolean;
-    }
-
-    export interface GetImageImageScanningConfigurationEcrConfiguration {
-        /**
-         * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-         */
-        containerTags: string[];
-        /**
-         * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-         */
-        repositoryName: string;
-    }
-
     export interface GetImageImageTestsConfiguration {
         /**
          * Whether image tests are enabled.
@@ -33696,28 +33647,6 @@ export namespace imagebuilder {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
-    }
-
-    export interface ImageImageScanningConfiguration {
-        /**
-         * Configuration block with ECR configuration. Detailed below.
-         */
-        ecrConfiguration: outputs.imagebuilder.ImageImageScanningConfigurationEcrConfiguration;
-        /**
-         * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-         */
-        imageScanningEnabled?: boolean;
-    }
-
-    export interface ImageImageScanningConfigurationEcrConfiguration {
-        /**
-         * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-         */
-        containerTags?: string[];
-        /**
-         * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-         */
-        repositoryName?: string;
     }
 
     export interface ImageImageTestsConfiguration {
@@ -33972,24 +33901,6 @@ export namespace inspector2 {
 }
 
 export namespace iot {
-    export interface DomainConfigurationAuthorizerConfig {
-        /**
-         * A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-         */
-        allowAuthorizerOverride?: boolean;
-        /**
-         * The name of the authorization service for a domain configuration.
-         */
-        defaultAuthorizerName?: string;
-    }
-
-    export interface DomainConfigurationTlsConfig {
-        /**
-         * The security policy for a domain configuration.
-         */
-        securityPolicy: string;
-    }
-
     export interface IndexingConfigurationThingGroupIndexingConfiguration {
         /**
          * A list of thing group fields to index. This list cannot contain any managed fields. See below.
@@ -34037,10 +33948,6 @@ export namespace iot {
          */
         deviceDefenderIndexingMode?: string;
         /**
-         * Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-         */
-        filter: outputs.iot.IndexingConfigurationThingIndexingConfigurationFilter;
-        /**
          * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
          */
         managedFields: outputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField[];
@@ -34067,13 +33974,6 @@ export namespace iot {
          * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
          */
         type?: string;
-    }
-
-    export interface IndexingConfigurationThingIndexingConfigurationFilter {
-        /**
-         * List of shadow names that you select to index.
-         */
-        namedShadowNames?: string[];
     }
 
     export interface IndexingConfigurationThingIndexingConfigurationManagedField {
@@ -39072,10 +38972,6 @@ export namespace lambda {
 
     export interface FunctionVpcConfig {
         /**
-         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-         */
-        ipv6AllowedForDualStack?: boolean;
-        /**
          * List of security group IDs associated with the Lambda function.
          */
         securityGroupIds: string[];
@@ -39825,13 +39721,6 @@ export namespace lb {
          * Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
          */
         onUnhealthy: string;
-    }
-
-    export interface TargetGroupTargetHealthState {
-        /**
-         * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
-         */
-        enableUnhealthyConnectionTermination: boolean;
     }
 
 }
@@ -44545,102 +44434,6 @@ export namespace msk {
          * ARN of the node
          */
         nodeArn: string;
-    }
-
-    export interface ReplicatorKafkaCluster {
-        /**
-         * Details of an Amazon MSK cluster.
-         */
-        amazonMskCluster: outputs.msk.ReplicatorKafkaClusterAmazonMskCluster;
-        /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-         */
-        vpcConfig: outputs.msk.ReplicatorKafkaClusterVpcConfig;
-    }
-
-    export interface ReplicatorKafkaClusterAmazonMskCluster {
-        /**
-         * The ARN of an Amazon MSK cluster.
-         */
-        mskClusterArn: string;
-    }
-
-    export interface ReplicatorKafkaClusterVpcConfig {
-        /**
-         * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-         */
-        securityGroupsIds?: string[];
-        /**
-         * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-         */
-        subnetIds: string[];
-    }
-
-    export interface ReplicatorReplicationInfoList {
-        /**
-         * Confguration relating to consumer group replication.
-         */
-        consumerGroupReplications: outputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication[];
-        sourceKafkaClusterAlias: string;
-        /**
-         * The ARN of the source Kafka cluster.
-         */
-        sourceKafkaClusterArn: string;
-        /**
-         * The type of compression to use writing records to target Kafka cluster.
-         */
-        targetCompressionType: string;
-        targetKafkaClusterAlias: string;
-        /**
-         * The ARN of the target Kafka cluster.
-         */
-        targetKafkaClusterArn: string;
-        /**
-         * Configuration relating to topic replication.
-         */
-        topicReplications: outputs.msk.ReplicatorReplicationInfoListTopicReplication[];
-    }
-
-    export interface ReplicatorReplicationInfoListConsumerGroupReplication {
-        /**
-         * List of regular expression patterns indicating the consumer groups that should not be replicated.
-         */
-        consumerGroupsToExcludes?: string[];
-        /**
-         * List of regular expression patterns indicating the consumer groups to copy.
-         */
-        consumerGroupsToReplicates: string[];
-        /**
-         * Whether to periodically check for new consumer groups.
-         */
-        detectAndCopyNewConsumerGroups?: boolean;
-        /**
-         * Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-         */
-        synchroniseConsumerGroupOffsets?: boolean;
-    }
-
-    export interface ReplicatorReplicationInfoListTopicReplication {
-        /**
-         * Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-         */
-        copyAccessControlListsForTopics?: boolean;
-        /**
-         * Whether to periodically configure remote topics to match their corresponding upstream topics.
-         */
-        copyTopicConfigurations?: boolean;
-        /**
-         * Whether to periodically check for new topics and partitions.
-         */
-        detectAndCopyNewTopics?: boolean;
-        /**
-         * List of regular expression patterns indicating the topics that should not be replica.
-         */
-        topicsToExcludes?: string[];
-        /**
-         * List of regular expression patterns indicating the topics to copy.
-         */
-        topicsToReplicates: string[];
     }
 
     export interface ServerlessClusterClientAuthentication {
@@ -62428,7 +62221,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -62523,13 +62315,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody {
@@ -62966,7 +62751,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -63061,13 +62845,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -63241,7 +63018,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -63336,13 +63112,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -63443,7 +63212,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -63538,13 +63306,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -63649,7 +63410,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -63746,13 +63506,6 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -63847,7 +63600,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -63944,13 +63696,6 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -64045,7 +63790,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -64140,13 +63884,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -64247,7 +63984,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -64342,13 +64078,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -64449,7 +64178,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -64544,13 +64272,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -64655,7 +64376,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -64752,13 +64472,6 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -64853,7 +64566,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -64950,13 +64662,6 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -65051,7 +64756,6 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader[];
-        ja3Fingerprint?: outputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -65146,13 +64850,6 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody {
@@ -65790,10 +65487,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody;
@@ -65887,13 +65580,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
@@ -66610,10 +66296,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody;
@@ -66707,13 +66389,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -66886,10 +66561,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody;
@@ -66983,13 +66654,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -67089,10 +66753,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
@@ -67186,13 +66846,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -67296,10 +66949,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody;
@@ -67395,13 +67044,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -67494,10 +67136,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -67594,13 +67232,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -67693,10 +67324,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -67791,13 +67418,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -68164,10 +67784,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody;
@@ -68261,13 +67877,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -68440,10 +68049,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody;
@@ -68537,13 +68142,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -68643,10 +68241,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
@@ -68740,13 +68334,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -68850,10 +68437,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody;
@@ -68949,13 +68532,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -69048,10 +68624,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -69148,13 +68720,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -69247,10 +68812,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -69345,13 +68906,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -69451,10 +69005,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody;
@@ -69548,13 +69098,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -69654,10 +69197,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody;
@@ -69751,13 +69290,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -70039,10 +69571,6 @@ export namespace wafv2 {
          */
         headers?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader[];
         /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint;
-        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: outputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody;
@@ -70138,13 +69666,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -70237,10 +69758,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -70337,13 +69854,6 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
-    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
-    }
-
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -70436,10 +69946,6 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeader[];
-        /**
-         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
-         */
-        ja3Fingerprint?: outputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -70534,13 +70040,6 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
-    }
-
-    export interface WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
-        /**
-         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         */
-        fallbackBehavior: string;
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -53,40 +53,13 @@ class ApplicationAppversionLifecycle(dict):
         :param int max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         :param int max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
         """
-        ApplicationAppversionLifecycle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_role=service_role,
-            delete_source_from_s3=delete_source_from_s3,
-            max_age_in_days=max_age_in_days,
-            max_count=max_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_role: Optional[str] = None,
-             delete_source_from_s3: Optional[bool] = None,
-             max_age_in_days: Optional[int] = None,
-             max_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_role is None and 'serviceRole' in kwargs:
-            service_role = kwargs['serviceRole']
-        if service_role is None:
-            raise TypeError("Missing 'service_role' argument")
-        if delete_source_from_s3 is None and 'deleteSourceFromS3' in kwargs:
-            delete_source_from_s3 = kwargs['deleteSourceFromS3']
-        if max_age_in_days is None and 'maxAgeInDays' in kwargs:
-            max_age_in_days = kwargs['maxAgeInDays']
-        if max_count is None and 'maxCount' in kwargs:
-            max_count = kwargs['maxCount']
-
-        _setter("service_role", service_role)
+        pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
-            _setter("delete_source_from_s3", delete_source_from_s3)
+            pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
         if max_age_in_days is not None:
-            _setter("max_age_in_days", max_age_in_days)
+            pulumi.set(__self__, "max_age_in_days", max_age_in_days)
         if max_count is not None:
-            _setter("max_count", max_count)
+            pulumi.set(__self__, "max_count", max_count)
 
     @property
     @pulumi.getter(name="serviceRole")
@@ -131,34 +104,11 @@ class ConfigurationTemplateSetting(dict):
         """
         :param str name: A unique name for this Template.
         """
-        ConfigurationTemplateSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            namespace=namespace,
-            value=value,
-            resource=resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             namespace: Optional[str] = None,
-             value: Optional[str] = None,
-             resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if namespace is None:
-            raise TypeError("Missing 'namespace' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("namespace", namespace)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "value", value)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -195,34 +145,11 @@ class EnvironmentAllSetting(dict):
         :param str name: A unique name for this Environment. This name is used
                in the application URL
         """
-        EnvironmentAllSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            namespace=namespace,
-            value=value,
-            resource=resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             namespace: Optional[str] = None,
-             value: Optional[str] = None,
-             resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if namespace is None:
-            raise TypeError("Missing 'namespace' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("namespace", namespace)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "value", value)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -260,34 +187,11 @@ class EnvironmentSetting(dict):
         :param str name: A unique name for this Environment. This name is used
                in the application URL
         """
-        EnvironmentSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            namespace=namespace,
-            value=value,
-            resource=resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             namespace: Optional[str] = None,
-             value: Optional[str] = None,
-             resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if namespace is None:
-            raise TypeError("Missing 'namespace' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("name", name)
-        _setter("namespace", namespace)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "value", value)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -327,43 +231,10 @@ class GetApplicationAppversionLifecycleResult(dict):
         :param int max_count: Maximum number of application versions to retain.
         :param str service_role: ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         """
-        GetApplicationAppversionLifecycleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delete_source_from_s3=delete_source_from_s3,
-            max_age_in_days=max_age_in_days,
-            max_count=max_count,
-            service_role=service_role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delete_source_from_s3: Optional[bool] = None,
-             max_age_in_days: Optional[int] = None,
-             max_count: Optional[int] = None,
-             service_role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delete_source_from_s3 is None and 'deleteSourceFromS3' in kwargs:
-            delete_source_from_s3 = kwargs['deleteSourceFromS3']
-        if delete_source_from_s3 is None:
-            raise TypeError("Missing 'delete_source_from_s3' argument")
-        if max_age_in_days is None and 'maxAgeInDays' in kwargs:
-            max_age_in_days = kwargs['maxAgeInDays']
-        if max_age_in_days is None:
-            raise TypeError("Missing 'max_age_in_days' argument")
-        if max_count is None and 'maxCount' in kwargs:
-            max_count = kwargs['maxCount']
-        if max_count is None:
-            raise TypeError("Missing 'max_count' argument")
-        if service_role is None and 'serviceRole' in kwargs:
-            service_role = kwargs['serviceRole']
-        if service_role is None:
-            raise TypeError("Missing 'service_role' argument")
-
-        _setter("delete_source_from_s3", delete_source_from_s3)
-        _setter("max_age_in_days", max_age_in_days)
-        _setter("max_count", max_count)
-        _setter("service_role", service_role)
+        pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
+        pulumi.set(__self__, "max_age_in_days", max_age_in_days)
+        pulumi.set(__self__, "max_count", max_count)
+        pulumi.set(__self__, "service_role", service_role)
 
     @property
     @pulumi.getter(name="deleteSourceFromS3")

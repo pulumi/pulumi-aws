@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -69,13 +69,10 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[Union[str, 'EngineType']] engine: Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
-        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        :param pulumi.Input[int] allocated_storage: (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-               RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-               A maximum of 3 AZs can be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -83,15 +80,12 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_instance_class: (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
-        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
-               **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
-        :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
-               The database can't be deleted when this value is set to `true`.
-               The default is `false`.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -119,306 +113,107 @@ class ClusterArgs:
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
-        ClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            engine=engine,
-            allocated_storage=allocated_storage,
-            allow_major_version_upgrade=allow_major_version_upgrade,
-            apply_immediately=apply_immediately,
-            availability_zones=availability_zones,
-            backtrack_window=backtrack_window,
-            backup_retention_period=backup_retention_period,
-            cluster_identifier=cluster_identifier,
-            cluster_identifier_prefix=cluster_identifier_prefix,
-            cluster_members=cluster_members,
-            copy_tags_to_snapshot=copy_tags_to_snapshot,
-            database_name=database_name,
-            db_cluster_instance_class=db_cluster_instance_class,
-            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
-            db_instance_parameter_group_name=db_instance_parameter_group_name,
-            db_subnet_group_name=db_subnet_group_name,
-            db_system_id=db_system_id,
-            deletion_protection=deletion_protection,
-            enable_global_write_forwarding=enable_global_write_forwarding,
-            enable_http_endpoint=enable_http_endpoint,
-            enabled_cloudwatch_logs_exports=enabled_cloudwatch_logs_exports,
-            engine_mode=engine_mode,
-            engine_version=engine_version,
-            final_snapshot_identifier=final_snapshot_identifier,
-            global_cluster_identifier=global_cluster_identifier,
-            iam_database_authentication_enabled=iam_database_authentication_enabled,
-            iam_roles=iam_roles,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            manage_master_user_password=manage_master_user_password,
-            master_password=master_password,
-            master_user_secret_kms_key_id=master_user_secret_kms_key_id,
-            master_username=master_username,
-            network_type=network_type,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            replication_source_identifier=replication_source_identifier,
-            restore_to_point_in_time=restore_to_point_in_time,
-            s3_import=s3_import,
-            scaling_configuration=scaling_configuration,
-            serverlessv2_scaling_configuration=serverlessv2_scaling_configuration,
-            skip_final_snapshot=skip_final_snapshot,
-            snapshot_identifier=snapshot_identifier,
-            source_region=source_region,
-            storage_encrypted=storage_encrypted,
-            storage_type=storage_type,
-            tags=tags,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
-             allocated_storage: Optional[pulumi.Input[int]] = None,
-             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             backtrack_window: Optional[pulumi.Input[int]] = None,
-             backup_retention_period: Optional[pulumi.Input[int]] = None,
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
-             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             db_system_id: Optional[pulumi.Input[str]] = None,
-             deletion_protection: Optional[pulumi.Input[bool]] = None,
-             enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
-             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
-             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
-             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             manage_master_user_password: Optional[pulumi.Input[bool]] = None,
-             master_password: Optional[pulumi.Input[str]] = None,
-             master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             replication_source_identifier: Optional[pulumi.Input[str]] = None,
-             restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
-             s3_import: Optional[pulumi.Input['ClusterS3ImportArgs']] = None,
-             scaling_configuration: Optional[pulumi.Input['ClusterScalingConfigurationArgs']] = None,
-             serverlessv2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs']] = None,
-             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
-             snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             source_region: Optional[pulumi.Input[str]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if engine is None:
-            raise TypeError("Missing 'engine' argument")
-        if allocated_storage is None and 'allocatedStorage' in kwargs:
-            allocated_storage = kwargs['allocatedStorage']
-        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
-            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if backtrack_window is None and 'backtrackWindow' in kwargs:
-            backtrack_window = kwargs['backtrackWindow']
-        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
-            backup_retention_period = kwargs['backupRetentionPeriod']
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_identifier_prefix is None and 'clusterIdentifierPrefix' in kwargs:
-            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
-        if cluster_members is None and 'clusterMembers' in kwargs:
-            cluster_members = kwargs['clusterMembers']
-        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
-            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if db_cluster_instance_class is None and 'dbClusterInstanceClass' in kwargs:
-            db_cluster_instance_class = kwargs['dbClusterInstanceClass']
-        if db_cluster_parameter_group_name is None and 'dbClusterParameterGroupName' in kwargs:
-            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
-        if db_instance_parameter_group_name is None and 'dbInstanceParameterGroupName' in kwargs:
-            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
-        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
-            db_subnet_group_name = kwargs['dbSubnetGroupName']
-        if db_system_id is None and 'dbSystemId' in kwargs:
-            db_system_id = kwargs['dbSystemId']
-        if deletion_protection is None and 'deletionProtection' in kwargs:
-            deletion_protection = kwargs['deletionProtection']
-        if enable_global_write_forwarding is None and 'enableGlobalWriteForwarding' in kwargs:
-            enable_global_write_forwarding = kwargs['enableGlobalWriteForwarding']
-        if enable_http_endpoint is None and 'enableHttpEndpoint' in kwargs:
-            enable_http_endpoint = kwargs['enableHttpEndpoint']
-        if enabled_cloudwatch_logs_exports is None and 'enabledCloudwatchLogsExports' in kwargs:
-            enabled_cloudwatch_logs_exports = kwargs['enabledCloudwatchLogsExports']
-        if engine_mode is None and 'engineMode' in kwargs:
-            engine_mode = kwargs['engineMode']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
-            global_cluster_identifier = kwargs['globalClusterIdentifier']
-        if iam_database_authentication_enabled is None and 'iamDatabaseAuthenticationEnabled' in kwargs:
-            iam_database_authentication_enabled = kwargs['iamDatabaseAuthenticationEnabled']
-        if iam_roles is None and 'iamRoles' in kwargs:
-            iam_roles = kwargs['iamRoles']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if manage_master_user_password is None and 'manageMasterUserPassword' in kwargs:
-            manage_master_user_password = kwargs['manageMasterUserPassword']
-        if master_password is None and 'masterPassword' in kwargs:
-            master_password = kwargs['masterPassword']
-        if master_user_secret_kms_key_id is None and 'masterUserSecretKmsKeyId' in kwargs:
-            master_user_secret_kms_key_id = kwargs['masterUserSecretKmsKeyId']
-        if master_username is None and 'masterUsername' in kwargs:
-            master_username = kwargs['masterUsername']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
-            preferred_backup_window = kwargs['preferredBackupWindow']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if replication_source_identifier is None and 'replicationSourceIdentifier' in kwargs:
-            replication_source_identifier = kwargs['replicationSourceIdentifier']
-        if restore_to_point_in_time is None and 'restoreToPointInTime' in kwargs:
-            restore_to_point_in_time = kwargs['restoreToPointInTime']
-        if s3_import is None and 's3Import' in kwargs:
-            s3_import = kwargs['s3Import']
-        if scaling_configuration is None and 'scalingConfiguration' in kwargs:
-            scaling_configuration = kwargs['scalingConfiguration']
-        if serverlessv2_scaling_configuration is None and 'serverlessv2ScalingConfiguration' in kwargs:
-            serverlessv2_scaling_configuration = kwargs['serverlessv2ScalingConfiguration']
-        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
-            skip_final_snapshot = kwargs['skipFinalSnapshot']
-        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
-            snapshot_identifier = kwargs['snapshotIdentifier']
-        if source_region is None and 'sourceRegion' in kwargs:
-            source_region = kwargs['sourceRegion']
-        if storage_encrypted is None and 'storageEncrypted' in kwargs:
-            storage_encrypted = kwargs['storageEncrypted']
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
-        _setter("engine", engine)
+        pulumi.set(__self__, "engine", engine)
         if allocated_storage is not None:
-            _setter("allocated_storage", allocated_storage)
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
-            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
+            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window is not None:
-            _setter("backtrack_window", backtrack_window)
+            pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
-            _setter("backup_retention_period", backup_retention_period)
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            _setter("cluster_identifier", cluster_identifier)
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
+            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
         if cluster_members is not None:
-            _setter("cluster_members", cluster_members)
+            pulumi.set(__self__, "cluster_members", cluster_members)
         if copy_tags_to_snapshot is not None:
-            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if db_cluster_instance_class is not None:
-            _setter("db_cluster_instance_class", db_cluster_instance_class)
+            pulumi.set(__self__, "db_cluster_instance_class", db_cluster_instance_class)
         if db_cluster_parameter_group_name is not None:
-            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_instance_parameter_group_name is not None:
-            _setter("db_instance_parameter_group_name", db_instance_parameter_group_name)
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
         if db_subnet_group_name is not None:
-            _setter("db_subnet_group_name", db_subnet_group_name)
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
-            _setter("db_system_id", db_system_id)
+            pulumi.set(__self__, "db_system_id", db_system_id)
         if deletion_protection is not None:
-            _setter("deletion_protection", deletion_protection)
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_global_write_forwarding is not None:
-            _setter("enable_global_write_forwarding", enable_global_write_forwarding)
+            pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
-            _setter("enable_http_endpoint", enable_http_endpoint)
+            pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enabled_cloudwatch_logs_exports is not None:
-            _setter("enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
+            pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if engine_mode is not None:
-            _setter("engine_mode", engine_mode)
+            pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            _setter("global_cluster_identifier", global_cluster_identifier)
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if iam_database_authentication_enabled is not None:
-            _setter("iam_database_authentication_enabled", iam_database_authentication_enabled)
+            pulumi.set(__self__, "iam_database_authentication_enabled", iam_database_authentication_enabled)
         if iam_roles is not None:
-            _setter("iam_roles", iam_roles)
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manage_master_user_password is not None:
-            _setter("manage_master_user_password", manage_master_user_password)
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
-            _setter("master_password", master_password)
+            pulumi.set(__self__, "master_password", master_password)
         if master_user_secret_kms_key_id is not None:
-            _setter("master_user_secret_kms_key_id", master_user_secret_kms_key_id)
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if replication_source_identifier is not None:
-            _setter("replication_source_identifier", replication_source_identifier)
+            pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_point_in_time is not None:
-            _setter("restore_to_point_in_time", restore_to_point_in_time)
+            pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
-            _setter("s3_import", s3_import)
+            pulumi.set(__self__, "s3_import", s3_import)
         if scaling_configuration is not None:
-            _setter("scaling_configuration", scaling_configuration)
+            pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if serverlessv2_scaling_configuration is not None:
-            _setter("serverlessv2_scaling_configuration", serverlessv2_scaling_configuration)
+            pulumi.set(__self__, "serverlessv2_scaling_configuration", serverlessv2_scaling_configuration)
         if skip_final_snapshot is not None:
-            _setter("skip_final_snapshot", skip_final_snapshot)
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            _setter("snapshot_identifier", snapshot_identifier)
+            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if source_region is not None:
-            _setter("source_region", source_region)
+            pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter
@@ -436,7 +231,7 @@ class ClusterArgs:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -472,10 +267,7 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        A maximum of 3 AZs can be configured.
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -571,7 +363,7 @@ class ClusterArgs:
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         """
         return pulumi.get(self, "db_cluster_instance_class")
 
@@ -607,8 +399,7 @@ class ClusterArgs:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        DB subnet group to associate with this DB cluster.
-        **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -632,9 +423,7 @@ class ClusterArgs:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the DB cluster should have deletion protection enabled.
-        The database can't be deleted when this value is set to `true`.
-        The default is `false`.
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -979,7 +768,7 @@ class ClusterArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 
@@ -1074,14 +863,11 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        :param pulumi.Input[int] allocated_storage: (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-               RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-               A maximum of 3 AZs can be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -1090,15 +876,12 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_resource_id: RDS Cluster Resource ID
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_instance_class: (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
-        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
-               **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
-        :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
-               The database can't be deleted when this value is set to `true`.
-               The default is `false`.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -1133,359 +916,134 @@ class _ClusterState:
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
-        _ClusterState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocated_storage=allocated_storage,
-            allow_major_version_upgrade=allow_major_version_upgrade,
-            apply_immediately=apply_immediately,
-            arn=arn,
-            availability_zones=availability_zones,
-            backtrack_window=backtrack_window,
-            backup_retention_period=backup_retention_period,
-            cluster_identifier=cluster_identifier,
-            cluster_identifier_prefix=cluster_identifier_prefix,
-            cluster_members=cluster_members,
-            cluster_resource_id=cluster_resource_id,
-            copy_tags_to_snapshot=copy_tags_to_snapshot,
-            database_name=database_name,
-            db_cluster_instance_class=db_cluster_instance_class,
-            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
-            db_instance_parameter_group_name=db_instance_parameter_group_name,
-            db_subnet_group_name=db_subnet_group_name,
-            db_system_id=db_system_id,
-            deletion_protection=deletion_protection,
-            enable_global_write_forwarding=enable_global_write_forwarding,
-            enable_http_endpoint=enable_http_endpoint,
-            enabled_cloudwatch_logs_exports=enabled_cloudwatch_logs_exports,
-            endpoint=endpoint,
-            engine=engine,
-            engine_mode=engine_mode,
-            engine_version=engine_version,
-            engine_version_actual=engine_version_actual,
-            final_snapshot_identifier=final_snapshot_identifier,
-            global_cluster_identifier=global_cluster_identifier,
-            hosted_zone_id=hosted_zone_id,
-            iam_database_authentication_enabled=iam_database_authentication_enabled,
-            iam_roles=iam_roles,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            manage_master_user_password=manage_master_user_password,
-            master_password=master_password,
-            master_user_secret_kms_key_id=master_user_secret_kms_key_id,
-            master_user_secrets=master_user_secrets,
-            master_username=master_username,
-            network_type=network_type,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            reader_endpoint=reader_endpoint,
-            replication_source_identifier=replication_source_identifier,
-            restore_to_point_in_time=restore_to_point_in_time,
-            s3_import=s3_import,
-            scaling_configuration=scaling_configuration,
-            serverlessv2_scaling_configuration=serverlessv2_scaling_configuration,
-            skip_final_snapshot=skip_final_snapshot,
-            snapshot_identifier=snapshot_identifier,
-            source_region=source_region,
-            storage_encrypted=storage_encrypted,
-            storage_type=storage_type,
-            tags=tags,
-            tags_all=tags_all,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocated_storage: Optional[pulumi.Input[int]] = None,
-             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             apply_immediately: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             backtrack_window: Optional[pulumi.Input[int]] = None,
-             backup_retention_period: Optional[pulumi.Input[int]] = None,
-             cluster_identifier: Optional[pulumi.Input[str]] = None,
-             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
-             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cluster_resource_id: Optional[pulumi.Input[str]] = None,
-             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             db_system_id: Optional[pulumi.Input[str]] = None,
-             deletion_protection: Optional[pulumi.Input[bool]] = None,
-             enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
-             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
-             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             endpoint: Optional[pulumi.Input[str]] = None,
-             engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
-             engine_mode: Optional[pulumi.Input[Union[str, 'EngineMode']]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             engine_version_actual: Optional[pulumi.Input[str]] = None,
-             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
-             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             manage_master_user_password: Optional[pulumi.Input[bool]] = None,
-             master_password: Optional[pulumi.Input[str]] = None,
-             master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
-             master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterUserSecretArgs']]]] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             reader_endpoint: Optional[pulumi.Input[str]] = None,
-             replication_source_identifier: Optional[pulumi.Input[str]] = None,
-             restore_to_point_in_time: Optional[pulumi.Input['ClusterRestoreToPointInTimeArgs']] = None,
-             s3_import: Optional[pulumi.Input['ClusterS3ImportArgs']] = None,
-             scaling_configuration: Optional[pulumi.Input['ClusterScalingConfigurationArgs']] = None,
-             serverlessv2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessv2ScalingConfigurationArgs']] = None,
-             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
-             snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             source_region: Optional[pulumi.Input[str]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allocated_storage is None and 'allocatedStorage' in kwargs:
-            allocated_storage = kwargs['allocatedStorage']
-        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
-            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
-        if apply_immediately is None and 'applyImmediately' in kwargs:
-            apply_immediately = kwargs['applyImmediately']
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if backtrack_window is None and 'backtrackWindow' in kwargs:
-            backtrack_window = kwargs['backtrackWindow']
-        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
-            backup_retention_period = kwargs['backupRetentionPeriod']
-        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
-            cluster_identifier = kwargs['clusterIdentifier']
-        if cluster_identifier_prefix is None and 'clusterIdentifierPrefix' in kwargs:
-            cluster_identifier_prefix = kwargs['clusterIdentifierPrefix']
-        if cluster_members is None and 'clusterMembers' in kwargs:
-            cluster_members = kwargs['clusterMembers']
-        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
-            cluster_resource_id = kwargs['clusterResourceId']
-        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
-            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
-        if database_name is None and 'databaseName' in kwargs:
-            database_name = kwargs['databaseName']
-        if db_cluster_instance_class is None and 'dbClusterInstanceClass' in kwargs:
-            db_cluster_instance_class = kwargs['dbClusterInstanceClass']
-        if db_cluster_parameter_group_name is None and 'dbClusterParameterGroupName' in kwargs:
-            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
-        if db_instance_parameter_group_name is None and 'dbInstanceParameterGroupName' in kwargs:
-            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
-        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
-            db_subnet_group_name = kwargs['dbSubnetGroupName']
-        if db_system_id is None and 'dbSystemId' in kwargs:
-            db_system_id = kwargs['dbSystemId']
-        if deletion_protection is None and 'deletionProtection' in kwargs:
-            deletion_protection = kwargs['deletionProtection']
-        if enable_global_write_forwarding is None and 'enableGlobalWriteForwarding' in kwargs:
-            enable_global_write_forwarding = kwargs['enableGlobalWriteForwarding']
-        if enable_http_endpoint is None and 'enableHttpEndpoint' in kwargs:
-            enable_http_endpoint = kwargs['enableHttpEndpoint']
-        if enabled_cloudwatch_logs_exports is None and 'enabledCloudwatchLogsExports' in kwargs:
-            enabled_cloudwatch_logs_exports = kwargs['enabledCloudwatchLogsExports']
-        if engine_mode is None and 'engineMode' in kwargs:
-            engine_mode = kwargs['engineMode']
-        if engine_version is None and 'engineVersion' in kwargs:
-            engine_version = kwargs['engineVersion']
-        if engine_version_actual is None and 'engineVersionActual' in kwargs:
-            engine_version_actual = kwargs['engineVersionActual']
-        if final_snapshot_identifier is None and 'finalSnapshotIdentifier' in kwargs:
-            final_snapshot_identifier = kwargs['finalSnapshotIdentifier']
-        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
-            global_cluster_identifier = kwargs['globalClusterIdentifier']
-        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
-            hosted_zone_id = kwargs['hostedZoneId']
-        if iam_database_authentication_enabled is None and 'iamDatabaseAuthenticationEnabled' in kwargs:
-            iam_database_authentication_enabled = kwargs['iamDatabaseAuthenticationEnabled']
-        if iam_roles is None and 'iamRoles' in kwargs:
-            iam_roles = kwargs['iamRoles']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if manage_master_user_password is None and 'manageMasterUserPassword' in kwargs:
-            manage_master_user_password = kwargs['manageMasterUserPassword']
-        if master_password is None and 'masterPassword' in kwargs:
-            master_password = kwargs['masterPassword']
-        if master_user_secret_kms_key_id is None and 'masterUserSecretKmsKeyId' in kwargs:
-            master_user_secret_kms_key_id = kwargs['masterUserSecretKmsKeyId']
-        if master_user_secrets is None and 'masterUserSecrets' in kwargs:
-            master_user_secrets = kwargs['masterUserSecrets']
-        if master_username is None and 'masterUsername' in kwargs:
-            master_username = kwargs['masterUsername']
-        if network_type is None and 'networkType' in kwargs:
-            network_type = kwargs['networkType']
-        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
-            preferred_backup_window = kwargs['preferredBackupWindow']
-        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
-            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
-        if reader_endpoint is None and 'readerEndpoint' in kwargs:
-            reader_endpoint = kwargs['readerEndpoint']
-        if replication_source_identifier is None and 'replicationSourceIdentifier' in kwargs:
-            replication_source_identifier = kwargs['replicationSourceIdentifier']
-        if restore_to_point_in_time is None and 'restoreToPointInTime' in kwargs:
-            restore_to_point_in_time = kwargs['restoreToPointInTime']
-        if s3_import is None and 's3Import' in kwargs:
-            s3_import = kwargs['s3Import']
-        if scaling_configuration is None and 'scalingConfiguration' in kwargs:
-            scaling_configuration = kwargs['scalingConfiguration']
-        if serverlessv2_scaling_configuration is None and 'serverlessv2ScalingConfiguration' in kwargs:
-            serverlessv2_scaling_configuration = kwargs['serverlessv2ScalingConfiguration']
-        if skip_final_snapshot is None and 'skipFinalSnapshot' in kwargs:
-            skip_final_snapshot = kwargs['skipFinalSnapshot']
-        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
-            snapshot_identifier = kwargs['snapshotIdentifier']
-        if source_region is None and 'sourceRegion' in kwargs:
-            source_region = kwargs['sourceRegion']
-        if storage_encrypted is None and 'storageEncrypted' in kwargs:
-            storage_encrypted = kwargs['storageEncrypted']
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
-            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
-
         if allocated_storage is not None:
-            _setter("allocated_storage", allocated_storage)
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
-            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
+            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if apply_immediately is not None:
-            _setter("apply_immediately", apply_immediately)
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window is not None:
-            _setter("backtrack_window", backtrack_window)
+            pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
-            _setter("backup_retention_period", backup_retention_period)
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if cluster_identifier is not None:
-            _setter("cluster_identifier", cluster_identifier)
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
-            _setter("cluster_identifier_prefix", cluster_identifier_prefix)
+            pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
         if cluster_members is not None:
-            _setter("cluster_members", cluster_members)
+            pulumi.set(__self__, "cluster_members", cluster_members)
         if cluster_resource_id is not None:
-            _setter("cluster_resource_id", cluster_resource_id)
+            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         if copy_tags_to_snapshot is not None:
-            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if db_cluster_instance_class is not None:
-            _setter("db_cluster_instance_class", db_cluster_instance_class)
+            pulumi.set(__self__, "db_cluster_instance_class", db_cluster_instance_class)
         if db_cluster_parameter_group_name is not None:
-            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_instance_parameter_group_name is not None:
-            _setter("db_instance_parameter_group_name", db_instance_parameter_group_name)
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
         if db_subnet_group_name is not None:
-            _setter("db_subnet_group_name", db_subnet_group_name)
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
-            _setter("db_system_id", db_system_id)
+            pulumi.set(__self__, "db_system_id", db_system_id)
         if deletion_protection is not None:
-            _setter("deletion_protection", deletion_protection)
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_global_write_forwarding is not None:
-            _setter("enable_global_write_forwarding", enable_global_write_forwarding)
+            pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
-            _setter("enable_http_endpoint", enable_http_endpoint)
+            pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enabled_cloudwatch_logs_exports is not None:
-            _setter("enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
+            pulumi.set(__self__, "enabled_cloudwatch_logs_exports", enabled_cloudwatch_logs_exports)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_mode is not None:
-            _setter("engine_mode", engine_mode)
+            pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
-            _setter("engine_version_actual", engine_version_actual)
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
-            _setter("final_snapshot_identifier", final_snapshot_identifier)
+            pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if global_cluster_identifier is not None:
-            _setter("global_cluster_identifier", global_cluster_identifier)
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if iam_database_authentication_enabled is not None:
-            _setter("iam_database_authentication_enabled", iam_database_authentication_enabled)
+            pulumi.set(__self__, "iam_database_authentication_enabled", iam_database_authentication_enabled)
         if iam_roles is not None:
-            _setter("iam_roles", iam_roles)
+            pulumi.set(__self__, "iam_roles", iam_roles)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manage_master_user_password is not None:
-            _setter("manage_master_user_password", manage_master_user_password)
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_password is not None:
-            _setter("master_password", master_password)
+            pulumi.set(__self__, "master_password", master_password)
         if master_user_secret_kms_key_id is not None:
-            _setter("master_user_secret_kms_key_id", master_user_secret_kms_key_id)
+            pulumi.set(__self__, "master_user_secret_kms_key_id", master_user_secret_kms_key_id)
         if master_user_secrets is not None:
-            _setter("master_user_secrets", master_user_secrets)
+            pulumi.set(__self__, "master_user_secrets", master_user_secrets)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
-            _setter("reader_endpoint", reader_endpoint)
+            pulumi.set(__self__, "reader_endpoint", reader_endpoint)
         if replication_source_identifier is not None:
-            _setter("replication_source_identifier", replication_source_identifier)
+            pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_point_in_time is not None:
-            _setter("restore_to_point_in_time", restore_to_point_in_time)
+            pulumi.set(__self__, "restore_to_point_in_time", restore_to_point_in_time)
         if s3_import is not None:
-            _setter("s3_import", s3_import)
+            pulumi.set(__self__, "s3_import", s3_import)
         if scaling_configuration is not None:
-            _setter("scaling_configuration", scaling_configuration)
+            pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if serverlessv2_scaling_configuration is not None:
-            _setter("serverlessv2_scaling_configuration", serverlessv2_scaling_configuration)
+            pulumi.set(__self__, "serverlessv2_scaling_configuration", serverlessv2_scaling_configuration)
         if skip_final_snapshot is not None:
-            _setter("skip_final_snapshot", skip_final_snapshot)
+            pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_identifier is not None:
-            _setter("snapshot_identifier", snapshot_identifier)
+            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if source_region is not None:
-            _setter("source_region", source_region)
+            pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
-        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -1533,10 +1091,7 @@ class _ClusterState:
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        A maximum of 3 AZs can be configured.
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -1644,7 +1199,7 @@ class _ClusterState:
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         """
         return pulumi.get(self, "db_cluster_instance_class")
 
@@ -1680,8 +1235,7 @@ class _ClusterState:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        DB subnet group to associate with this DB cluster.
-        **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -1705,9 +1259,7 @@ class _ClusterState:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the DB cluster should have deletion protection enabled.
-        The database can't be deleted when this value is set to `true`.
-        The default is `false`.
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -2125,7 +1677,7 @@ class _ClusterState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 
@@ -2439,13 +1991,10 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        :param pulumi.Input[int] allocated_storage: (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-               RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-               A maximum of 3 AZs can be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -2453,15 +2002,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_instance_class: (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
-        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
-               **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
-        :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
-               The database can't be deleted when this value is set to `true`.
-               The default is `false`.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -2490,7 +2036,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -2719,10 +2265,6 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2826,13 +2368,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
-            restore_to_point_in_time = _utilities.configure(restore_to_point_in_time, ClusterRestoreToPointInTimeArgs, True)
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
-            s3_import = _utilities.configure(s3_import, ClusterS3ImportArgs, True)
             __props__.__dict__["s3_import"] = s3_import
-            scaling_configuration = _utilities.configure(scaling_configuration, ClusterScalingConfigurationArgs, True)
             __props__.__dict__["scaling_configuration"] = scaling_configuration
-            serverlessv2_scaling_configuration = _utilities.configure(serverlessv2_scaling_configuration, ClusterServerlessv2ScalingConfigurationArgs, True)
             __props__.__dict__["serverlessv2_scaling_configuration"] = serverlessv2_scaling_configuration
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
@@ -2925,14 +2463,11 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        :param pulumi.Input[int] allocated_storage: (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-               RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-               We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-               A maximum of 3 AZs can be configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -2941,15 +2476,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_resource_id: RDS Cluster Resource ID
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
-        :param pulumi.Input[str] db_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        :param pulumi.Input[str] db_cluster_instance_class: (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
         :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
-        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB cluster.
-               **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        :param pulumi.Input[str] db_subnet_group_name: DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[str] db_system_id: For use with RDS Custom.
-        :param pulumi.Input[bool] deletion_protection: If the DB cluster should have deletion protection enabled.
-               The database can't be deleted when this value is set to `true`.
-               The default is `false`.
+        :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -2984,7 +2516,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[str] storage_type: (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        :param pulumi.Input[str] storage_type: (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
@@ -3056,7 +2588,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[int]:
         """
-        The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -3088,10 +2620,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
-        A maximum of 3 AZs can be configured.
+        List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary. A maximum of 3 AZs can be configured.
         """
         return pulumi.get(self, "availability_zones")
 
@@ -3163,7 +2692,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterInstanceClass")
     def db_cluster_instance_class(self) -> pulumi.Output[Optional[str]]:
         """
-        The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         """
         return pulumi.get(self, "db_cluster_instance_class")
 
@@ -3187,8 +2716,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[str]:
         """
-        DB subnet group to associate with this DB cluster.
-        **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
+        DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -3204,9 +2732,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the DB cluster should have deletion protection enabled.
-        The database can't be deleted when this value is set to `true`.
-        The default is `false`.
+        If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -3484,7 +3010,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[str]:
         """
-        (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
+        (Required for Multi-AZ DB clusters) (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
         """
         return pulumi.get(self, "storage_type")
 

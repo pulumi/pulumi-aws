@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,43 +29,16 @@ class DomainArgs:
         :param pulumi.Input[str] name: The name of the CloudSearch domain.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint_options=endpoint_options,
-            index_fields=index_fields,
-            multi_az=multi_az,
-            name=name,
-            scaling_parameters=scaling_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
-             index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
-             multi_az: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoint_options is None and 'endpointOptions' in kwargs:
-            endpoint_options = kwargs['endpointOptions']
-        if index_fields is None and 'indexFields' in kwargs:
-            index_fields = kwargs['indexFields']
-        if multi_az is None and 'multiAz' in kwargs:
-            multi_az = kwargs['multiAz']
-        if scaling_parameters is None and 'scalingParameters' in kwargs:
-            scaling_parameters = kwargs['scalingParameters']
-
         if endpoint_options is not None:
-            _setter("endpoint_options", endpoint_options)
+            pulumi.set(__self__, "endpoint_options", endpoint_options)
         if index_fields is not None:
-            _setter("index_fields", index_fields)
+            pulumi.set(__self__, "index_fields", index_fields)
         if multi_az is not None:
-            _setter("multi_az", multi_az)
+            pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scaling_parameters is not None:
-            _setter("scaling_parameters", scaling_parameters)
+            pulumi.set(__self__, "scaling_parameters", scaling_parameters)
 
     @property
     @pulumi.getter(name="endpointOptions")
@@ -152,65 +125,24 @@ class _DomainState:
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
-        _DomainState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            document_service_endpoint=document_service_endpoint,
-            domain_id=domain_id,
-            endpoint_options=endpoint_options,
-            index_fields=index_fields,
-            multi_az=multi_az,
-            name=name,
-            scaling_parameters=scaling_parameters,
-            search_service_endpoint=search_service_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             document_service_endpoint: Optional[pulumi.Input[str]] = None,
-             domain_id: Optional[pulumi.Input[str]] = None,
-             endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
-             index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
-             multi_az: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None,
-             search_service_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if document_service_endpoint is None and 'documentServiceEndpoint' in kwargs:
-            document_service_endpoint = kwargs['documentServiceEndpoint']
-        if domain_id is None and 'domainId' in kwargs:
-            domain_id = kwargs['domainId']
-        if endpoint_options is None and 'endpointOptions' in kwargs:
-            endpoint_options = kwargs['endpointOptions']
-        if index_fields is None and 'indexFields' in kwargs:
-            index_fields = kwargs['indexFields']
-        if multi_az is None and 'multiAz' in kwargs:
-            multi_az = kwargs['multiAz']
-        if scaling_parameters is None and 'scalingParameters' in kwargs:
-            scaling_parameters = kwargs['scalingParameters']
-        if search_service_endpoint is None and 'searchServiceEndpoint' in kwargs:
-            search_service_endpoint = kwargs['searchServiceEndpoint']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if document_service_endpoint is not None:
-            _setter("document_service_endpoint", document_service_endpoint)
+            pulumi.set(__self__, "document_service_endpoint", document_service_endpoint)
         if domain_id is not None:
-            _setter("domain_id", domain_id)
+            pulumi.set(__self__, "domain_id", domain_id)
         if endpoint_options is not None:
-            _setter("endpoint_options", endpoint_options)
+            pulumi.set(__self__, "endpoint_options", endpoint_options)
         if index_fields is not None:
-            _setter("index_fields", index_fields)
+            pulumi.set(__self__, "index_fields", index_fields)
         if multi_az is not None:
-            _setter("multi_az", multi_az)
+            pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scaling_parameters is not None:
-            _setter("scaling_parameters", scaling_parameters)
+            pulumi.set(__self__, "scaling_parameters", scaling_parameters)
         if search_service_endpoint is not None:
-            _setter("search_service_endpoint", search_service_endpoint)
+            pulumi.set(__self__, "search_service_endpoint", search_service_endpoint)
 
     @property
     @pulumi.getter
@@ -446,10 +378,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -469,12 +397,10 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
-            endpoint_options = _utilities.configure(endpoint_options, DomainEndpointOptionsArgs, True)
             __props__.__dict__["endpoint_options"] = endpoint_options
             __props__.__dict__["index_fields"] = index_fields
             __props__.__dict__["multi_az"] = multi_az
             __props__.__dict__["name"] = name
-            scaling_parameters = _utilities.configure(scaling_parameters, DomainScalingParametersArgs, True)
             __props__.__dict__["scaling_parameters"] = scaling_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["document_service_endpoint"] = None

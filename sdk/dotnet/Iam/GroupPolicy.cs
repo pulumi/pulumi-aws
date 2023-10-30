@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Iam
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string> NamePrefix { get; private set; } = null!;
+        public Output<string?> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The policy document. This is a JSON formatted string.

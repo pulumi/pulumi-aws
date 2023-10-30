@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,53 +32,14 @@ class CertificateArgs:
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arn=certificate_authority_arn,
-            certificate_signing_request=certificate_signing_request,
-            signing_algorithm=signing_algorithm,
-            validity=validity,
-            api_passthrough=api_passthrough,
-            template_arn=template_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
-             certificate_signing_request: Optional[pulumi.Input[str]] = None,
-             signing_algorithm: Optional[pulumi.Input[str]] = None,
-             validity: Optional[pulumi.Input['CertificateValidityArgs']] = None,
-             api_passthrough: Optional[pulumi.Input[str]] = None,
-             template_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
-            certificate_authority_arn = kwargs['certificateAuthorityArn']
-        if certificate_authority_arn is None:
-            raise TypeError("Missing 'certificate_authority_arn' argument")
-        if certificate_signing_request is None and 'certificateSigningRequest' in kwargs:
-            certificate_signing_request = kwargs['certificateSigningRequest']
-        if certificate_signing_request is None:
-            raise TypeError("Missing 'certificate_signing_request' argument")
-        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
-            signing_algorithm = kwargs['signingAlgorithm']
-        if signing_algorithm is None:
-            raise TypeError("Missing 'signing_algorithm' argument")
-        if validity is None:
-            raise TypeError("Missing 'validity' argument")
-        if api_passthrough is None and 'apiPassthrough' in kwargs:
-            api_passthrough = kwargs['apiPassthrough']
-        if template_arn is None and 'templateArn' in kwargs:
-            template_arn = kwargs['templateArn']
-
-        _setter("certificate_authority_arn", certificate_authority_arn)
-        _setter("certificate_signing_request", certificate_signing_request)
-        _setter("signing_algorithm", signing_algorithm)
-        _setter("validity", validity)
+        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        pulumi.set(__self__, "validity", validity)
         if api_passthrough is not None:
-            _setter("api_passthrough", api_passthrough)
+            pulumi.set(__self__, "api_passthrough", api_passthrough)
         if template_arn is not None:
-            _setter("template_arn", template_arn)
+            pulumi.set(__self__, "template_arn", template_arn)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -179,63 +140,24 @@ class _CertificateState:
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_passthrough=api_passthrough,
-            arn=arn,
-            certificate=certificate,
-            certificate_authority_arn=certificate_authority_arn,
-            certificate_chain=certificate_chain,
-            certificate_signing_request=certificate_signing_request,
-            signing_algorithm=signing_algorithm,
-            template_arn=template_arn,
-            validity=validity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_passthrough: Optional[pulumi.Input[str]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             certificate: Optional[pulumi.Input[str]] = None,
-             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
-             certificate_chain: Optional[pulumi.Input[str]] = None,
-             certificate_signing_request: Optional[pulumi.Input[str]] = None,
-             signing_algorithm: Optional[pulumi.Input[str]] = None,
-             template_arn: Optional[pulumi.Input[str]] = None,
-             validity: Optional[pulumi.Input['CertificateValidityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_passthrough is None and 'apiPassthrough' in kwargs:
-            api_passthrough = kwargs['apiPassthrough']
-        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
-            certificate_authority_arn = kwargs['certificateAuthorityArn']
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_signing_request is None and 'certificateSigningRequest' in kwargs:
-            certificate_signing_request = kwargs['certificateSigningRequest']
-        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
-            signing_algorithm = kwargs['signingAlgorithm']
-        if template_arn is None and 'templateArn' in kwargs:
-            template_arn = kwargs['templateArn']
-
         if api_passthrough is not None:
-            _setter("api_passthrough", api_passthrough)
+            pulumi.set(__self__, "api_passthrough", api_passthrough)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if certificate_authority_arn is not None:
-            _setter("certificate_authority_arn", certificate_authority_arn)
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:
-            _setter("certificate_chain", certificate_chain)
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
         if certificate_signing_request is not None:
-            _setter("certificate_signing_request", certificate_signing_request)
+            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
         if signing_algorithm is not None:
-            _setter("signing_algorithm", signing_algorithm)
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
         if template_arn is not None:
-            _setter("template_arn", template_arn)
+            pulumi.set(__self__, "template_arn", template_arn)
         if validity is not None:
-            _setter("validity", validity)
+            pulumi.set(__self__, "validity", validity)
 
     @property
     @pulumi.getter(name="apiPassthrough")
@@ -421,10 +343,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -456,7 +374,6 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'signing_algorithm'")
             __props__.__dict__["signing_algorithm"] = signing_algorithm
             __props__.__dict__["template_arn"] = template_arn
-            validity = _utilities.configure(validity, CertificateValidityArgs, True)
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity

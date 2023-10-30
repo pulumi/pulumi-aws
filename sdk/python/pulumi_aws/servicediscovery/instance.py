@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -23,34 +23,9 @@ class InstanceArgs:
         :param pulumi.Input[str] instance_id: The ID of the service instance.
         :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
-        InstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            instance_id=instance_id,
-            service_id=service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attributes is None:
-            raise TypeError("Missing 'attributes' argument")
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if instance_id is None:
-            raise TypeError("Missing 'instance_id' argument")
-        if service_id is None and 'serviceId' in kwargs:
-            service_id = kwargs['serviceId']
-        if service_id is None:
-            raise TypeError("Missing 'service_id' argument")
-
-        _setter("attributes", attributes)
-        _setter("instance_id", instance_id)
-        _setter("service_id", service_id)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter
@@ -101,31 +76,12 @@ class _InstanceState:
         :param pulumi.Input[str] instance_id: The ID of the service instance.
         :param pulumi.Input[str] service_id: The ID of the service that you want to use to create the instance.
         """
-        _InstanceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            instance_id=instance_id,
-            service_id=service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_id is None and 'instanceId' in kwargs:
-            instance_id = kwargs['instanceId']
-        if service_id is None and 'serviceId' in kwargs:
-            service_id = kwargs['serviceId']
-
         if attributes is not None:
-            _setter("attributes", attributes)
+            pulumi.set(__self__, "attributes", attributes)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if service_id is not None:
-            _setter("service_id", service_id)
+            pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter
@@ -313,10 +269,6 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

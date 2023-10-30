@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcIpamOrganizationAdminAccountArgs', 'VpcIpamOrganizationAdminAccount']
@@ -18,22 +18,7 @@ class VpcIpamOrganizationAdminAccountArgs:
         """
         The set of arguments for constructing a VpcIpamOrganizationAdminAccount resource.
         """
-        VpcIpamOrganizationAdminAccountArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delegated_admin_account_id=delegated_admin_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delegated_admin_account_id is None and 'delegatedAdminAccountId' in kwargs:
-            delegated_admin_account_id = kwargs['delegatedAdminAccountId']
-        if delegated_admin_account_id is None:
-            raise TypeError("Missing 'delegated_admin_account_id' argument")
-
-        _setter("delegated_admin_account_id", delegated_admin_account_id)
+        pulumi.set(__self__, "delegated_admin_account_id", delegated_admin_account_id)
 
     @property
     @pulumi.getter(name="delegatedAdminAccountId")
@@ -60,39 +45,16 @@ class _VpcIpamOrganizationAdminAccountState:
         :param pulumi.Input[str] name: The Organizations name for the delegate account.
         :param pulumi.Input[str] service_principal: The AWS service principal.
         """
-        _VpcIpamOrganizationAdminAccountState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            delegated_admin_account_id=delegated_admin_account_id,
-            email=email,
-            name=name,
-            service_principal=service_principal,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
-             email: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             service_principal: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if delegated_admin_account_id is None and 'delegatedAdminAccountId' in kwargs:
-            delegated_admin_account_id = kwargs['delegatedAdminAccountId']
-        if service_principal is None and 'servicePrincipal' in kwargs:
-            service_principal = kwargs['servicePrincipal']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if delegated_admin_account_id is not None:
-            _setter("delegated_admin_account_id", delegated_admin_account_id)
+            pulumi.set(__self__, "delegated_admin_account_id", delegated_admin_account_id)
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if service_principal is not None:
-            _setter("service_principal", service_principal)
+            pulumi.set(__self__, "service_principal", service_principal)
 
     @property
     @pulumi.getter
@@ -228,10 +190,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcIpamOrganizationAdminAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

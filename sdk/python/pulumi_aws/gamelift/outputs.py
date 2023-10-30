@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -55,30 +55,11 @@ class AliasRoutingStrategy(dict):
         :param str fleet_id: ID of the GameLift Fleet to point the alias to.
         :param str message: Message text to be used with the `TERMINAL` routing strategy.
         """
-        AliasRoutingStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            fleet_id=fleet_id,
-            message=message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             fleet_id: Optional[str] = None,
-             message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if fleet_id is None and 'fleetId' in kwargs:
-            fleet_id = kwargs['fleetId']
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if fleet_id is not None:
-            _setter("fleet_id", fleet_id)
+            pulumi.set(__self__, "fleet_id", fleet_id)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter
@@ -137,38 +118,11 @@ class BuildStorageLocation(dict):
         :param str role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         :param str object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
         """
-        BuildStorageLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            role_arn=role_arn,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             key: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if object_version is None and 'objectVersion' in kwargs:
-            object_version = kwargs['objectVersion']
-
-        _setter("bucket", bucket)
-        _setter("key", key)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "role_arn", role_arn)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter
@@ -227,21 +181,8 @@ class FleetCertificateConfiguration(dict):
         """
         :param str certificate_type: Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
         """
-        FleetCertificateConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_type=certificate_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_type is None and 'certificateType' in kwargs:
-            certificate_type = kwargs['certificateType']
-
         if certificate_type is not None:
-            _setter("certificate_type", certificate_type)
+            pulumi.set(__self__, "certificate_type", certificate_type)
 
     @property
     @pulumi.getter(name="certificateType")
@@ -286,41 +227,10 @@ class FleetEc2InboundPermission(dict):
         :param str protocol: Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         :param int to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
-        FleetEc2InboundPermission._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_port=from_port,
-            ip_range=ip_range,
-            protocol=protocol,
-            to_port=to_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_port: Optional[int] = None,
-             ip_range: Optional[str] = None,
-             protocol: Optional[str] = None,
-             to_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if from_port is None and 'fromPort' in kwargs:
-            from_port = kwargs['fromPort']
-        if from_port is None:
-            raise TypeError("Missing 'from_port' argument")
-        if ip_range is None and 'ipRange' in kwargs:
-            ip_range = kwargs['ipRange']
-        if ip_range is None:
-            raise TypeError("Missing 'ip_range' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if to_port is None and 'toPort' in kwargs:
-            to_port = kwargs['toPort']
-        if to_port is None:
-            raise TypeError("Missing 'to_port' argument")
-
-        _setter("from_port", from_port)
-        _setter("ip_range", ip_range)
-        _setter("protocol", protocol)
-        _setter("to_port", to_port)
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -383,27 +293,10 @@ class FleetResourceCreationLimitPolicy(dict):
         :param int new_game_sessions_per_creator: Maximum number of game sessions that an individual can create during the policy period.
         :param int policy_period_in_minutes: Time span used in evaluating the resource creation limit policy.
         """
-        FleetResourceCreationLimitPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            new_game_sessions_per_creator=new_game_sessions_per_creator,
-            policy_period_in_minutes=policy_period_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             new_game_sessions_per_creator: Optional[int] = None,
-             policy_period_in_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if new_game_sessions_per_creator is None and 'newGameSessionsPerCreator' in kwargs:
-            new_game_sessions_per_creator = kwargs['newGameSessionsPerCreator']
-        if policy_period_in_minutes is None and 'policyPeriodInMinutes' in kwargs:
-            policy_period_in_minutes = kwargs['policyPeriodInMinutes']
-
         if new_game_sessions_per_creator is not None:
-            _setter("new_game_sessions_per_creator", new_game_sessions_per_creator)
+            pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
         if policy_period_in_minutes is not None:
-            _setter("policy_period_in_minutes", policy_period_in_minutes)
+            pulumi.set(__self__, "policy_period_in_minutes", policy_period_in_minutes)
 
     @property
     @pulumi.getter(name="newGameSessionsPerCreator")
@@ -454,33 +347,12 @@ class FleetRuntimeConfiguration(dict):
         :param int max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         :param Sequence['FleetRuntimeConfigurationServerProcessArgs'] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
-        FleetRuntimeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            game_session_activation_timeout_seconds=game_session_activation_timeout_seconds,
-            max_concurrent_game_session_activations=max_concurrent_game_session_activations,
-            server_processes=server_processes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             game_session_activation_timeout_seconds: Optional[int] = None,
-             max_concurrent_game_session_activations: Optional[int] = None,
-             server_processes: Optional[Sequence['outputs.FleetRuntimeConfigurationServerProcess']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if game_session_activation_timeout_seconds is None and 'gameSessionActivationTimeoutSeconds' in kwargs:
-            game_session_activation_timeout_seconds = kwargs['gameSessionActivationTimeoutSeconds']
-        if max_concurrent_game_session_activations is None and 'maxConcurrentGameSessionActivations' in kwargs:
-            max_concurrent_game_session_activations = kwargs['maxConcurrentGameSessionActivations']
-        if server_processes is None and 'serverProcesses' in kwargs:
-            server_processes = kwargs['serverProcesses']
-
         if game_session_activation_timeout_seconds is not None:
-            _setter("game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
+            pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
         if max_concurrent_game_session_activations is not None:
-            _setter("max_concurrent_game_session_activations", max_concurrent_game_session_activations)
+            pulumi.set(__self__, "max_concurrent_game_session_activations", max_concurrent_game_session_activations)
         if server_processes is not None:
-            _setter("server_processes", server_processes)
+            pulumi.set(__self__, "server_processes", server_processes)
 
     @property
     @pulumi.getter(name="gameSessionActivationTimeoutSeconds")
@@ -537,33 +409,10 @@ class FleetRuntimeConfigurationServerProcess(dict):
         :param str launch_path: Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\\game`, and for Linux instances `/local/game`.
         :param str parameters: Optional list of parameters to pass to the server executable on launch.
         """
-        FleetRuntimeConfigurationServerProcess._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            concurrent_executions=concurrent_executions,
-            launch_path=launch_path,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             concurrent_executions: Optional[int] = None,
-             launch_path: Optional[str] = None,
-             parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if concurrent_executions is None and 'concurrentExecutions' in kwargs:
-            concurrent_executions = kwargs['concurrentExecutions']
-        if concurrent_executions is None:
-            raise TypeError("Missing 'concurrent_executions' argument")
-        if launch_path is None and 'launchPath' in kwargs:
-            launch_path = kwargs['launchPath']
-        if launch_path is None:
-            raise TypeError("Missing 'launch_path' argument")
-
-        _setter("concurrent_executions", concurrent_executions)
-        _setter("launch_path", launch_path)
+        pulumi.set(__self__, "concurrent_executions", concurrent_executions)
+        pulumi.set(__self__, "launch_path", launch_path)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="concurrentExecutions")
@@ -620,28 +469,9 @@ class GameServerGroupAutoScalingPolicy(dict):
                Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
                because it avoids prematurely starting new instances. Defaults to `60`.
         """
-        GameServerGroupAutoScalingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_tracking_configuration=target_tracking_configuration,
-            estimated_instance_warmup=estimated_instance_warmup,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_tracking_configuration: Optional['outputs.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration'] = None,
-             estimated_instance_warmup: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_tracking_configuration is None and 'targetTrackingConfiguration' in kwargs:
-            target_tracking_configuration = kwargs['targetTrackingConfiguration']
-        if target_tracking_configuration is None:
-            raise TypeError("Missing 'target_tracking_configuration' argument")
-        if estimated_instance_warmup is None and 'estimatedInstanceWarmup' in kwargs:
-            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
-
-        _setter("target_tracking_configuration", target_tracking_configuration)
+        pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
-            _setter("estimated_instance_warmup", estimated_instance_warmup)
+            pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
 
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
@@ -684,22 +514,7 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(dict):
         """
         :param float target_value: Desired value to use with a game server group target-based scaling policy.
         """
-        GameServerGroupAutoScalingPolicyTargetTrackingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_value=target_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target_value is None and 'targetValue' in kwargs:
-            target_value = kwargs['targetValue']
-        if target_value is None:
-            raise TypeError("Missing 'target_value' argument")
-
-        _setter("target_value", target_value)
+        pulumi.set(__self__, "target_value", target_value)
 
     @property
     @pulumi.getter(name="targetValue")
@@ -741,28 +556,9 @@ class GameServerGroupInstanceDefinition(dict):
                Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
                the most cost-effective options.
         """
-        GameServerGroupInstanceDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_type=instance_type,
-            weighted_capacity=weighted_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_type: Optional[str] = None,
-             weighted_capacity: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if instance_type is None:
-            raise TypeError("Missing 'instance_type' argument")
-        if weighted_capacity is None and 'weightedCapacity' in kwargs:
-            weighted_capacity = kwargs['weightedCapacity']
-
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", instance_type)
         if weighted_capacity is not None:
-            _setter("weighted_capacity", weighted_capacity)
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -795,27 +591,12 @@ class GameServerGroupLaunchTemplate(dict):
         :param str name: A readable identifier for an existing EC2 launch template.
         :param str version: The version of the EC2 launch template to use. If none is set, the default is the first version created.
         """
-        GameServerGroupLaunchTemplate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[str] = None,
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -870,28 +651,9 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
         :param int maximum_individual_player_latency_milliseconds: Maximum latency value that is allowed for any player.
         :param int policy_duration_seconds: Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         """
-        GameSessionQueuePlayerLatencyPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_individual_player_latency_milliseconds=maximum_individual_player_latency_milliseconds,
-            policy_duration_seconds=policy_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_individual_player_latency_milliseconds: Optional[int] = None,
-             policy_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if maximum_individual_player_latency_milliseconds is None and 'maximumIndividualPlayerLatencyMilliseconds' in kwargs:
-            maximum_individual_player_latency_milliseconds = kwargs['maximumIndividualPlayerLatencyMilliseconds']
-        if maximum_individual_player_latency_milliseconds is None:
-            raise TypeError("Missing 'maximum_individual_player_latency_milliseconds' argument")
-        if policy_duration_seconds is None and 'policyDurationSeconds' in kwargs:
-            policy_duration_seconds = kwargs['policyDurationSeconds']
-
-        _setter("maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
+        pulumi.set(__self__, "maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
-            _setter("policy_duration_seconds", policy_duration_seconds)
+            pulumi.set(__self__, "policy_duration_seconds", policy_duration_seconds)
 
     @property
     @pulumi.getter(name="maximumIndividualPlayerLatencyMilliseconds")
@@ -919,25 +681,8 @@ class MatchmakingConfigurationGameProperty(dict):
         :param str key: A game property key
         :param str value: A game property value.
         """
-        MatchmakingConfigurationGameProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -988,38 +733,11 @@ class ScriptStorageLocation(dict):
         :param str role_arn: ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         :param str object_version: A specific version of the file. If not set, the latest version of the file is retrieved.
         """
-        ScriptStorageLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            role_arn=role_arn,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             key: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bucket is None:
-            raise TypeError("Missing 'bucket' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if object_version is None and 'objectVersion' in kwargs:
-            object_version = kwargs['objectVersion']
-
-        _setter("bucket", bucket)
-        _setter("key", key)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "role_arn", role_arn)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter

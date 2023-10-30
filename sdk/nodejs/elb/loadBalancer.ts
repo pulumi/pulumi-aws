@@ -173,7 +173,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC

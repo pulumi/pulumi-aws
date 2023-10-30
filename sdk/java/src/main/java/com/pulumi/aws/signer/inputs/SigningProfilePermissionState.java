@@ -16,14 +16,14 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
     public static final SigningProfilePermissionState Empty = new SigningProfilePermissionState();
 
     /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+     * @return An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -135,7 +135,7 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+         * @param action An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SigningProfilePermissionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+         * @param action An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
          * 
          * @return builder
          * 

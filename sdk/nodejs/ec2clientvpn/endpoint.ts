@@ -114,10 +114,6 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly selfServicePortal!: pulumi.Output<string | undefined>;
     /**
-     * The URL of the self-service portal.
-     */
-    public /*out*/ readonly selfServicePortalUrl!: pulumi.Output<string>;
-    /**
      * The ARN of the ACM server certificate.
      */
     public readonly serverCertificateArn!: pulumi.Output<string>;
@@ -176,7 +172,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
-            resourceInputs["selfServicePortalUrl"] = state ? state.selfServicePortalUrl : undefined;
             resourceInputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
             resourceInputs["sessionTimeoutHours"] = state ? state.sessionTimeoutHours : undefined;
             resourceInputs["splitTunnel"] = state ? state.splitTunnel : undefined;
@@ -217,7 +212,6 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["vpnPort"] = args ? args.vpnPort : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
-            resourceInputs["selfServicePortalUrl"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -275,10 +269,6 @@ export interface EndpointState {
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      */
     selfServicePortal?: pulumi.Input<string>;
-    /**
-     * The URL of the self-service portal.
-     */
-    selfServicePortalUrl?: pulumi.Input<string>;
     /**
      * The ARN of the ACM server certificate.
      */

@@ -4038,8 +4038,6 @@ func (o FunctionUrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 }
 
 type FunctionVpcConfig struct {
-	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// List of subnet IDs associated with the Lambda function.
@@ -4059,8 +4057,6 @@ type FunctionVpcConfigInput interface {
 }
 
 type FunctionVpcConfigArgs struct {
-	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// List of subnet IDs associated with the Lambda function.
@@ -4163,11 +4159,6 @@ func (o FunctionVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[Fu
 	}
 }
 
-// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-func (o FunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
-}
-
 // List of security group IDs associated with the Lambda function.
 func (o FunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -4210,16 +4201,6 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 		var ret FunctionVpcConfig
 		return ret
 	}).(FunctionVpcConfigOutput)
-}
-
-// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
-func (o FunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FunctionVpcConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Ipv6AllowedForDualStack
-	}).(pulumi.BoolPtrOutput)
 }
 
 // List of security group IDs associated with the Lambda function.

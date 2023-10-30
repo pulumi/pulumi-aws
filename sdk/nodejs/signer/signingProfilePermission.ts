@@ -82,7 +82,7 @@ export class SigningProfilePermission extends pulumi.CustomResource {
     }
 
     /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
      */
     public readonly action!: pulumi.Output<string>;
     /**
@@ -104,7 +104,7 @@ export class SigningProfilePermission extends pulumi.CustomResource {
     /**
      * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statementId`.
      */
-    public readonly statementIdPrefix!: pulumi.Output<string>;
+    public readonly statementIdPrefix!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SigningProfilePermission resource with the given unique name, arguments, and options.
@@ -153,7 +153,7 @@ export class SigningProfilePermission extends pulumi.CustomResource {
  */
 export interface SigningProfilePermissionState {
     /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
      */
     action?: pulumi.Input<string>;
     /**
@@ -183,7 +183,7 @@ export interface SigningProfilePermissionState {
  */
 export interface SigningProfilePermissionArgs {
     /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
+     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
      */
     action: pulumi.Input<string>;
     /**

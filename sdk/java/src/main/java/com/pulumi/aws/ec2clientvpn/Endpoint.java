@@ -235,20 +235,6 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.selfServicePortal);
     }
     /**
-     * The URL of the self-service portal.
-     * 
-     */
-    @Export(name="selfServicePortalUrl", refs={String.class}, tree="[0]")
-    private Output<String> selfServicePortalUrl;
-
-    /**
-     * @return The URL of the self-service portal.
-     * 
-     */
-    public Output<String> selfServicePortalUrl() {
-        return this.selfServicePortalUrl;
-    }
-    /**
      * The ARN of the ACM server certificate.
      * 
      */

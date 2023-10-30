@@ -78,7 +78,7 @@ type SecurityConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
 }
 
 // NewSecurityConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -290,8 +290,8 @@ func (o SecurityConfigurationOutput) Name() pulumi.StringOutput {
 
 // Creates a unique name beginning with the specified
 // prefix. Conflicts with `name`.
-func (o SecurityConfigurationOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
+func (o SecurityConfigurationOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationArrayOutput struct{ *pulumi.OutputState }

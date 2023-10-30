@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkAggregationGroupArgs', 'LinkAggregationGroup']
@@ -31,53 +31,18 @@ class LinkAggregationGroupArgs:
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the LAG.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        LinkAggregationGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connections_bandwidth=connections_bandwidth,
-            location=location,
-            connection_id=connection_id,
-            force_destroy=force_destroy,
-            name=name,
-            provider_name=provider_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connections_bandwidth: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             connection_id: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             provider_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connections_bandwidth is None and 'connectionsBandwidth' in kwargs:
-            connections_bandwidth = kwargs['connectionsBandwidth']
-        if connections_bandwidth is None:
-            raise TypeError("Missing 'connections_bandwidth' argument")
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-        if provider_name is None and 'providerName' in kwargs:
-            provider_name = kwargs['providerName']
-
-        _setter("connections_bandwidth", connections_bandwidth)
-        _setter("location", location)
+        pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
+        pulumi.set(__self__, "location", location)
         if connection_id is not None:
-            _setter("connection_id", connection_id)
+            pulumi.set(__self__, "connection_id", connection_id)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if provider_name is not None:
-            _setter("provider_name", provider_name)
+            pulumi.set(__self__, "provider_name", provider_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectionsBandwidth")
@@ -194,82 +159,33 @@ class _LinkAggregationGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _LinkAggregationGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            connection_id=connection_id,
-            connections_bandwidth=connections_bandwidth,
-            force_destroy=force_destroy,
-            has_logical_redundancy=has_logical_redundancy,
-            jumbo_frame_capable=jumbo_frame_capable,
-            location=location,
-            name=name,
-            owner_account_id=owner_account_id,
-            provider_name=provider_name,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             connection_id: Optional[pulumi.Input[str]] = None,
-             connections_bandwidth: Optional[pulumi.Input[str]] = None,
-             force_destroy: Optional[pulumi.Input[bool]] = None,
-             has_logical_redundancy: Optional[pulumi.Input[str]] = None,
-             jumbo_frame_capable: Optional[pulumi.Input[bool]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner_account_id: Optional[pulumi.Input[str]] = None,
-             provider_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_id is None and 'connectionId' in kwargs:
-            connection_id = kwargs['connectionId']
-        if connections_bandwidth is None and 'connectionsBandwidth' in kwargs:
-            connections_bandwidth = kwargs['connectionsBandwidth']
-        if force_destroy is None and 'forceDestroy' in kwargs:
-            force_destroy = kwargs['forceDestroy']
-        if has_logical_redundancy is None and 'hasLogicalRedundancy' in kwargs:
-            has_logical_redundancy = kwargs['hasLogicalRedundancy']
-        if jumbo_frame_capable is None and 'jumboFrameCapable' in kwargs:
-            jumbo_frame_capable = kwargs['jumboFrameCapable']
-        if owner_account_id is None and 'ownerAccountId' in kwargs:
-            owner_account_id = kwargs['ownerAccountId']
-        if provider_name is None and 'providerName' in kwargs:
-            provider_name = kwargs['providerName']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if connection_id is not None:
-            _setter("connection_id", connection_id)
+            pulumi.set(__self__, "connection_id", connection_id)
         if connections_bandwidth is not None:
-            _setter("connections_bandwidth", connections_bandwidth)
+            pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
         if force_destroy is not None:
-            _setter("force_destroy", force_destroy)
+            pulumi.set(__self__, "force_destroy", force_destroy)
         if has_logical_redundancy is not None:
-            _setter("has_logical_redundancy", has_logical_redundancy)
+            pulumi.set(__self__, "has_logical_redundancy", has_logical_redundancy)
         if jumbo_frame_capable is not None:
-            _setter("jumbo_frame_capable", jumbo_frame_capable)
+            pulumi.set(__self__, "jumbo_frame_capable", jumbo_frame_capable)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
-            _setter("owner_account_id", owner_account_id)
+            pulumi.set(__self__, "owner_account_id", owner_account_id)
         if provider_name is not None:
-            _setter("provider_name", provider_name)
+            pulumi.set(__self__, "provider_name", provider_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -508,10 +424,6 @@ class LinkAggregationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LinkAggregationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

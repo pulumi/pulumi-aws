@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -293,529 +293,182 @@ class InsightFiltersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]] verification_states: The veracity of a finding. See String Filter below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]] workflow_statuses: The status of the investigation into a finding. See Workflow Status Filter below for more details.
         """
-        InsightFiltersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_account_ids=aws_account_ids,
-            company_names=company_names,
-            compliance_statuses=compliance_statuses,
-            confidences=confidences,
-            created_ats=created_ats,
-            criticalities=criticalities,
-            descriptions=descriptions,
-            finding_provider_fields_confidences=finding_provider_fields_confidences,
-            finding_provider_fields_criticalities=finding_provider_fields_criticalities,
-            finding_provider_fields_related_findings_ids=finding_provider_fields_related_findings_ids,
-            finding_provider_fields_related_findings_product_arns=finding_provider_fields_related_findings_product_arns,
-            finding_provider_fields_severity_labels=finding_provider_fields_severity_labels,
-            finding_provider_fields_severity_originals=finding_provider_fields_severity_originals,
-            finding_provider_fields_types=finding_provider_fields_types,
-            first_observed_ats=first_observed_ats,
-            generator_ids=generator_ids,
-            ids=ids,
-            keywords=keywords,
-            last_observed_ats=last_observed_ats,
-            malware_names=malware_names,
-            malware_paths=malware_paths,
-            malware_states=malware_states,
-            malware_types=malware_types,
-            network_destination_domains=network_destination_domains,
-            network_destination_ipv4s=network_destination_ipv4s,
-            network_destination_ipv6s=network_destination_ipv6s,
-            network_destination_ports=network_destination_ports,
-            network_directions=network_directions,
-            network_protocols=network_protocols,
-            network_source_domains=network_source_domains,
-            network_source_ipv4s=network_source_ipv4s,
-            network_source_ipv6s=network_source_ipv6s,
-            network_source_macs=network_source_macs,
-            network_source_ports=network_source_ports,
-            note_texts=note_texts,
-            note_updated_ats=note_updated_ats,
-            note_updated_bies=note_updated_bies,
-            process_launched_ats=process_launched_ats,
-            process_names=process_names,
-            process_parent_pids=process_parent_pids,
-            process_paths=process_paths,
-            process_pids=process_pids,
-            process_terminated_ats=process_terminated_ats,
-            product_arns=product_arns,
-            product_fields=product_fields,
-            product_names=product_names,
-            recommendation_texts=recommendation_texts,
-            record_states=record_states,
-            related_findings_ids=related_findings_ids,
-            related_findings_product_arns=related_findings_product_arns,
-            resource_aws_ec2_instance_iam_instance_profile_arns=resource_aws_ec2_instance_iam_instance_profile_arns,
-            resource_aws_ec2_instance_image_ids=resource_aws_ec2_instance_image_ids,
-            resource_aws_ec2_instance_ipv4_addresses=resource_aws_ec2_instance_ipv4_addresses,
-            resource_aws_ec2_instance_ipv6_addresses=resource_aws_ec2_instance_ipv6_addresses,
-            resource_aws_ec2_instance_key_names=resource_aws_ec2_instance_key_names,
-            resource_aws_ec2_instance_launched_ats=resource_aws_ec2_instance_launched_ats,
-            resource_aws_ec2_instance_subnet_ids=resource_aws_ec2_instance_subnet_ids,
-            resource_aws_ec2_instance_types=resource_aws_ec2_instance_types,
-            resource_aws_ec2_instance_vpc_ids=resource_aws_ec2_instance_vpc_ids,
-            resource_aws_iam_access_key_created_ats=resource_aws_iam_access_key_created_ats,
-            resource_aws_iam_access_key_statuses=resource_aws_iam_access_key_statuses,
-            resource_aws_iam_access_key_user_names=resource_aws_iam_access_key_user_names,
-            resource_aws_s3_bucket_owner_ids=resource_aws_s3_bucket_owner_ids,
-            resource_aws_s3_bucket_owner_names=resource_aws_s3_bucket_owner_names,
-            resource_container_image_ids=resource_container_image_ids,
-            resource_container_image_names=resource_container_image_names,
-            resource_container_launched_ats=resource_container_launched_ats,
-            resource_container_names=resource_container_names,
-            resource_details_others=resource_details_others,
-            resource_ids=resource_ids,
-            resource_partitions=resource_partitions,
-            resource_regions=resource_regions,
-            resource_tags=resource_tags,
-            resource_types=resource_types,
-            severity_labels=severity_labels,
-            source_urls=source_urls,
-            threat_intel_indicator_categories=threat_intel_indicator_categories,
-            threat_intel_indicator_last_observed_ats=threat_intel_indicator_last_observed_ats,
-            threat_intel_indicator_source_urls=threat_intel_indicator_source_urls,
-            threat_intel_indicator_sources=threat_intel_indicator_sources,
-            threat_intel_indicator_types=threat_intel_indicator_types,
-            threat_intel_indicator_values=threat_intel_indicator_values,
-            titles=titles,
-            types=types,
-            updated_ats=updated_ats,
-            user_defined_values=user_defined_values,
-            verification_states=verification_states,
-            workflow_statuses=workflow_statuses,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]] = None,
-             company_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]] = None,
-             compliance_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]] = None,
-             confidences: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]] = None,
-             created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]] = None,
-             criticalities: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]] = None,
-             descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]] = None,
-             finding_provider_fields_confidences: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]] = None,
-             finding_provider_fields_criticalities: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]] = None,
-             finding_provider_fields_related_findings_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]] = None,
-             finding_provider_fields_related_findings_product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]] = None,
-             finding_provider_fields_severity_labels: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]] = None,
-             finding_provider_fields_severity_originals: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]] = None,
-             finding_provider_fields_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]] = None,
-             first_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]] = None,
-             generator_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]] = None,
-             ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgs']]]] = None,
-             keywords: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]] = None,
-             last_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]] = None,
-             malware_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]] = None,
-             malware_paths: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]] = None,
-             malware_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]] = None,
-             malware_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]] = None,
-             network_destination_domains: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]] = None,
-             network_destination_ipv4s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]] = None,
-             network_destination_ipv6s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]] = None,
-             network_destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]] = None,
-             network_directions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]] = None,
-             network_protocols: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]] = None,
-             network_source_domains: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]] = None,
-             network_source_ipv4s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]] = None,
-             network_source_ipv6s: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]] = None,
-             network_source_macs: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]] = None,
-             network_source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]] = None,
-             note_texts: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]] = None,
-             note_updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]] = None,
-             note_updated_bies: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]] = None,
-             process_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]] = None,
-             process_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]] = None,
-             process_parent_pids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]] = None,
-             process_paths: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]] = None,
-             process_pids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]] = None,
-             process_terminated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]] = None,
-             product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]] = None,
-             product_fields: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]] = None,
-             product_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]] = None,
-             recommendation_texts: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]] = None,
-             record_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]] = None,
-             related_findings_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]] = None,
-             related_findings_product_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]] = None,
-             resource_aws_ec2_instance_iam_instance_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]] = None,
-             resource_aws_ec2_instance_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]] = None,
-             resource_aws_ec2_instance_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]] = None,
-             resource_aws_ec2_instance_ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]] = None,
-             resource_aws_ec2_instance_key_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]] = None,
-             resource_aws_ec2_instance_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]] = None,
-             resource_aws_ec2_instance_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]] = None,
-             resource_aws_ec2_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]] = None,
-             resource_aws_ec2_instance_vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]] = None,
-             resource_aws_iam_access_key_created_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]] = None,
-             resource_aws_iam_access_key_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]] = None,
-             resource_aws_iam_access_key_user_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]] = None,
-             resource_aws_s3_bucket_owner_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]] = None,
-             resource_aws_s3_bucket_owner_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]] = None,
-             resource_container_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]] = None,
-             resource_container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]] = None,
-             resource_container_launched_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]] = None,
-             resource_container_names: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]] = None,
-             resource_details_others: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]] = None,
-             resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]] = None,
-             resource_partitions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]] = None,
-             resource_regions: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]] = None,
-             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]] = None,
-             severity_labels: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]] = None,
-             source_urls: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]] = None,
-             threat_intel_indicator_categories: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]] = None,
-             threat_intel_indicator_last_observed_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]] = None,
-             threat_intel_indicator_source_urls: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]] = None,
-             threat_intel_indicator_sources: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]] = None,
-             threat_intel_indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]] = None,
-             threat_intel_indicator_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]] = None,
-             titles: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]] = None,
-             types: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]] = None,
-             updated_ats: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]] = None,
-             user_defined_values: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]] = None,
-             verification_states: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]] = None,
-             workflow_statuses: Optional[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_account_ids is None and 'awsAccountIds' in kwargs:
-            aws_account_ids = kwargs['awsAccountIds']
-        if company_names is None and 'companyNames' in kwargs:
-            company_names = kwargs['companyNames']
-        if compliance_statuses is None and 'complianceStatuses' in kwargs:
-            compliance_statuses = kwargs['complianceStatuses']
-        if created_ats is None and 'createdAts' in kwargs:
-            created_ats = kwargs['createdAts']
-        if finding_provider_fields_confidences is None and 'findingProviderFieldsConfidences' in kwargs:
-            finding_provider_fields_confidences = kwargs['findingProviderFieldsConfidences']
-        if finding_provider_fields_criticalities is None and 'findingProviderFieldsCriticalities' in kwargs:
-            finding_provider_fields_criticalities = kwargs['findingProviderFieldsCriticalities']
-        if finding_provider_fields_related_findings_ids is None and 'findingProviderFieldsRelatedFindingsIds' in kwargs:
-            finding_provider_fields_related_findings_ids = kwargs['findingProviderFieldsRelatedFindingsIds']
-        if finding_provider_fields_related_findings_product_arns is None and 'findingProviderFieldsRelatedFindingsProductArns' in kwargs:
-            finding_provider_fields_related_findings_product_arns = kwargs['findingProviderFieldsRelatedFindingsProductArns']
-        if finding_provider_fields_severity_labels is None and 'findingProviderFieldsSeverityLabels' in kwargs:
-            finding_provider_fields_severity_labels = kwargs['findingProviderFieldsSeverityLabels']
-        if finding_provider_fields_severity_originals is None and 'findingProviderFieldsSeverityOriginals' in kwargs:
-            finding_provider_fields_severity_originals = kwargs['findingProviderFieldsSeverityOriginals']
-        if finding_provider_fields_types is None and 'findingProviderFieldsTypes' in kwargs:
-            finding_provider_fields_types = kwargs['findingProviderFieldsTypes']
-        if first_observed_ats is None and 'firstObservedAts' in kwargs:
-            first_observed_ats = kwargs['firstObservedAts']
-        if generator_ids is None and 'generatorIds' in kwargs:
-            generator_ids = kwargs['generatorIds']
-        if last_observed_ats is None and 'lastObservedAts' in kwargs:
-            last_observed_ats = kwargs['lastObservedAts']
-        if malware_names is None and 'malwareNames' in kwargs:
-            malware_names = kwargs['malwareNames']
-        if malware_paths is None and 'malwarePaths' in kwargs:
-            malware_paths = kwargs['malwarePaths']
-        if malware_states is None and 'malwareStates' in kwargs:
-            malware_states = kwargs['malwareStates']
-        if malware_types is None and 'malwareTypes' in kwargs:
-            malware_types = kwargs['malwareTypes']
-        if network_destination_domains is None and 'networkDestinationDomains' in kwargs:
-            network_destination_domains = kwargs['networkDestinationDomains']
-        if network_destination_ipv4s is None and 'networkDestinationIpv4s' in kwargs:
-            network_destination_ipv4s = kwargs['networkDestinationIpv4s']
-        if network_destination_ipv6s is None and 'networkDestinationIpv6s' in kwargs:
-            network_destination_ipv6s = kwargs['networkDestinationIpv6s']
-        if network_destination_ports is None and 'networkDestinationPorts' in kwargs:
-            network_destination_ports = kwargs['networkDestinationPorts']
-        if network_directions is None and 'networkDirections' in kwargs:
-            network_directions = kwargs['networkDirections']
-        if network_protocols is None and 'networkProtocols' in kwargs:
-            network_protocols = kwargs['networkProtocols']
-        if network_source_domains is None and 'networkSourceDomains' in kwargs:
-            network_source_domains = kwargs['networkSourceDomains']
-        if network_source_ipv4s is None and 'networkSourceIpv4s' in kwargs:
-            network_source_ipv4s = kwargs['networkSourceIpv4s']
-        if network_source_ipv6s is None and 'networkSourceIpv6s' in kwargs:
-            network_source_ipv6s = kwargs['networkSourceIpv6s']
-        if network_source_macs is None and 'networkSourceMacs' in kwargs:
-            network_source_macs = kwargs['networkSourceMacs']
-        if network_source_ports is None and 'networkSourcePorts' in kwargs:
-            network_source_ports = kwargs['networkSourcePorts']
-        if note_texts is None and 'noteTexts' in kwargs:
-            note_texts = kwargs['noteTexts']
-        if note_updated_ats is None and 'noteUpdatedAts' in kwargs:
-            note_updated_ats = kwargs['noteUpdatedAts']
-        if note_updated_bies is None and 'noteUpdatedBies' in kwargs:
-            note_updated_bies = kwargs['noteUpdatedBies']
-        if process_launched_ats is None and 'processLaunchedAts' in kwargs:
-            process_launched_ats = kwargs['processLaunchedAts']
-        if process_names is None and 'processNames' in kwargs:
-            process_names = kwargs['processNames']
-        if process_parent_pids is None and 'processParentPids' in kwargs:
-            process_parent_pids = kwargs['processParentPids']
-        if process_paths is None and 'processPaths' in kwargs:
-            process_paths = kwargs['processPaths']
-        if process_pids is None and 'processPids' in kwargs:
-            process_pids = kwargs['processPids']
-        if process_terminated_ats is None and 'processTerminatedAts' in kwargs:
-            process_terminated_ats = kwargs['processTerminatedAts']
-        if product_arns is None and 'productArns' in kwargs:
-            product_arns = kwargs['productArns']
-        if product_fields is None and 'productFields' in kwargs:
-            product_fields = kwargs['productFields']
-        if product_names is None and 'productNames' in kwargs:
-            product_names = kwargs['productNames']
-        if recommendation_texts is None and 'recommendationTexts' in kwargs:
-            recommendation_texts = kwargs['recommendationTexts']
-        if record_states is None and 'recordStates' in kwargs:
-            record_states = kwargs['recordStates']
-        if related_findings_ids is None and 'relatedFindingsIds' in kwargs:
-            related_findings_ids = kwargs['relatedFindingsIds']
-        if related_findings_product_arns is None and 'relatedFindingsProductArns' in kwargs:
-            related_findings_product_arns = kwargs['relatedFindingsProductArns']
-        if resource_aws_ec2_instance_iam_instance_profile_arns is None and 'resourceAwsEc2InstanceIamInstanceProfileArns' in kwargs:
-            resource_aws_ec2_instance_iam_instance_profile_arns = kwargs['resourceAwsEc2InstanceIamInstanceProfileArns']
-        if resource_aws_ec2_instance_image_ids is None and 'resourceAwsEc2InstanceImageIds' in kwargs:
-            resource_aws_ec2_instance_image_ids = kwargs['resourceAwsEc2InstanceImageIds']
-        if resource_aws_ec2_instance_ipv4_addresses is None and 'resourceAwsEc2InstanceIpv4Addresses' in kwargs:
-            resource_aws_ec2_instance_ipv4_addresses = kwargs['resourceAwsEc2InstanceIpv4Addresses']
-        if resource_aws_ec2_instance_ipv6_addresses is None and 'resourceAwsEc2InstanceIpv6Addresses' in kwargs:
-            resource_aws_ec2_instance_ipv6_addresses = kwargs['resourceAwsEc2InstanceIpv6Addresses']
-        if resource_aws_ec2_instance_key_names is None and 'resourceAwsEc2InstanceKeyNames' in kwargs:
-            resource_aws_ec2_instance_key_names = kwargs['resourceAwsEc2InstanceKeyNames']
-        if resource_aws_ec2_instance_launched_ats is None and 'resourceAwsEc2InstanceLaunchedAts' in kwargs:
-            resource_aws_ec2_instance_launched_ats = kwargs['resourceAwsEc2InstanceLaunchedAts']
-        if resource_aws_ec2_instance_subnet_ids is None and 'resourceAwsEc2InstanceSubnetIds' in kwargs:
-            resource_aws_ec2_instance_subnet_ids = kwargs['resourceAwsEc2InstanceSubnetIds']
-        if resource_aws_ec2_instance_types is None and 'resourceAwsEc2InstanceTypes' in kwargs:
-            resource_aws_ec2_instance_types = kwargs['resourceAwsEc2InstanceTypes']
-        if resource_aws_ec2_instance_vpc_ids is None and 'resourceAwsEc2InstanceVpcIds' in kwargs:
-            resource_aws_ec2_instance_vpc_ids = kwargs['resourceAwsEc2InstanceVpcIds']
-        if resource_aws_iam_access_key_created_ats is None and 'resourceAwsIamAccessKeyCreatedAts' in kwargs:
-            resource_aws_iam_access_key_created_ats = kwargs['resourceAwsIamAccessKeyCreatedAts']
-        if resource_aws_iam_access_key_statuses is None and 'resourceAwsIamAccessKeyStatuses' in kwargs:
-            resource_aws_iam_access_key_statuses = kwargs['resourceAwsIamAccessKeyStatuses']
-        if resource_aws_iam_access_key_user_names is None and 'resourceAwsIamAccessKeyUserNames' in kwargs:
-            resource_aws_iam_access_key_user_names = kwargs['resourceAwsIamAccessKeyUserNames']
-        if resource_aws_s3_bucket_owner_ids is None and 'resourceAwsS3BucketOwnerIds' in kwargs:
-            resource_aws_s3_bucket_owner_ids = kwargs['resourceAwsS3BucketOwnerIds']
-        if resource_aws_s3_bucket_owner_names is None and 'resourceAwsS3BucketOwnerNames' in kwargs:
-            resource_aws_s3_bucket_owner_names = kwargs['resourceAwsS3BucketOwnerNames']
-        if resource_container_image_ids is None and 'resourceContainerImageIds' in kwargs:
-            resource_container_image_ids = kwargs['resourceContainerImageIds']
-        if resource_container_image_names is None and 'resourceContainerImageNames' in kwargs:
-            resource_container_image_names = kwargs['resourceContainerImageNames']
-        if resource_container_launched_ats is None and 'resourceContainerLaunchedAts' in kwargs:
-            resource_container_launched_ats = kwargs['resourceContainerLaunchedAts']
-        if resource_container_names is None and 'resourceContainerNames' in kwargs:
-            resource_container_names = kwargs['resourceContainerNames']
-        if resource_details_others is None and 'resourceDetailsOthers' in kwargs:
-            resource_details_others = kwargs['resourceDetailsOthers']
-        if resource_ids is None and 'resourceIds' in kwargs:
-            resource_ids = kwargs['resourceIds']
-        if resource_partitions is None and 'resourcePartitions' in kwargs:
-            resource_partitions = kwargs['resourcePartitions']
-        if resource_regions is None and 'resourceRegions' in kwargs:
-            resource_regions = kwargs['resourceRegions']
-        if resource_tags is None and 'resourceTags' in kwargs:
-            resource_tags = kwargs['resourceTags']
-        if resource_types is None and 'resourceTypes' in kwargs:
-            resource_types = kwargs['resourceTypes']
-        if severity_labels is None and 'severityLabels' in kwargs:
-            severity_labels = kwargs['severityLabels']
-        if source_urls is None and 'sourceUrls' in kwargs:
-            source_urls = kwargs['sourceUrls']
-        if threat_intel_indicator_categories is None and 'threatIntelIndicatorCategories' in kwargs:
-            threat_intel_indicator_categories = kwargs['threatIntelIndicatorCategories']
-        if threat_intel_indicator_last_observed_ats is None and 'threatIntelIndicatorLastObservedAts' in kwargs:
-            threat_intel_indicator_last_observed_ats = kwargs['threatIntelIndicatorLastObservedAts']
-        if threat_intel_indicator_source_urls is None and 'threatIntelIndicatorSourceUrls' in kwargs:
-            threat_intel_indicator_source_urls = kwargs['threatIntelIndicatorSourceUrls']
-        if threat_intel_indicator_sources is None and 'threatIntelIndicatorSources' in kwargs:
-            threat_intel_indicator_sources = kwargs['threatIntelIndicatorSources']
-        if threat_intel_indicator_types is None and 'threatIntelIndicatorTypes' in kwargs:
-            threat_intel_indicator_types = kwargs['threatIntelIndicatorTypes']
-        if threat_intel_indicator_values is None and 'threatIntelIndicatorValues' in kwargs:
-            threat_intel_indicator_values = kwargs['threatIntelIndicatorValues']
-        if updated_ats is None and 'updatedAts' in kwargs:
-            updated_ats = kwargs['updatedAts']
-        if user_defined_values is None and 'userDefinedValues' in kwargs:
-            user_defined_values = kwargs['userDefinedValues']
-        if verification_states is None and 'verificationStates' in kwargs:
-            verification_states = kwargs['verificationStates']
-        if workflow_statuses is None and 'workflowStatuses' in kwargs:
-            workflow_statuses = kwargs['workflowStatuses']
-
         if aws_account_ids is not None:
-            _setter("aws_account_ids", aws_account_ids)
+            pulumi.set(__self__, "aws_account_ids", aws_account_ids)
         if company_names is not None:
-            _setter("company_names", company_names)
+            pulumi.set(__self__, "company_names", company_names)
         if compliance_statuses is not None:
-            _setter("compliance_statuses", compliance_statuses)
+            pulumi.set(__self__, "compliance_statuses", compliance_statuses)
         if confidences is not None:
-            _setter("confidences", confidences)
+            pulumi.set(__self__, "confidences", confidences)
         if created_ats is not None:
-            _setter("created_ats", created_ats)
+            pulumi.set(__self__, "created_ats", created_ats)
         if criticalities is not None:
-            _setter("criticalities", criticalities)
+            pulumi.set(__self__, "criticalities", criticalities)
         if descriptions is not None:
-            _setter("descriptions", descriptions)
+            pulumi.set(__self__, "descriptions", descriptions)
         if finding_provider_fields_confidences is not None:
-            _setter("finding_provider_fields_confidences", finding_provider_fields_confidences)
+            pulumi.set(__self__, "finding_provider_fields_confidences", finding_provider_fields_confidences)
         if finding_provider_fields_criticalities is not None:
-            _setter("finding_provider_fields_criticalities", finding_provider_fields_criticalities)
+            pulumi.set(__self__, "finding_provider_fields_criticalities", finding_provider_fields_criticalities)
         if finding_provider_fields_related_findings_ids is not None:
-            _setter("finding_provider_fields_related_findings_ids", finding_provider_fields_related_findings_ids)
+            pulumi.set(__self__, "finding_provider_fields_related_findings_ids", finding_provider_fields_related_findings_ids)
         if finding_provider_fields_related_findings_product_arns is not None:
-            _setter("finding_provider_fields_related_findings_product_arns", finding_provider_fields_related_findings_product_arns)
+            pulumi.set(__self__, "finding_provider_fields_related_findings_product_arns", finding_provider_fields_related_findings_product_arns)
         if finding_provider_fields_severity_labels is not None:
-            _setter("finding_provider_fields_severity_labels", finding_provider_fields_severity_labels)
+            pulumi.set(__self__, "finding_provider_fields_severity_labels", finding_provider_fields_severity_labels)
         if finding_provider_fields_severity_originals is not None:
-            _setter("finding_provider_fields_severity_originals", finding_provider_fields_severity_originals)
+            pulumi.set(__self__, "finding_provider_fields_severity_originals", finding_provider_fields_severity_originals)
         if finding_provider_fields_types is not None:
-            _setter("finding_provider_fields_types", finding_provider_fields_types)
+            pulumi.set(__self__, "finding_provider_fields_types", finding_provider_fields_types)
         if first_observed_ats is not None:
-            _setter("first_observed_ats", first_observed_ats)
+            pulumi.set(__self__, "first_observed_ats", first_observed_ats)
         if generator_ids is not None:
-            _setter("generator_ids", generator_ids)
+            pulumi.set(__self__, "generator_ids", generator_ids)
         if ids is not None:
-            _setter("ids", ids)
+            pulumi.set(__self__, "ids", ids)
         if keywords is not None:
-            _setter("keywords", keywords)
+            pulumi.set(__self__, "keywords", keywords)
         if last_observed_ats is not None:
-            _setter("last_observed_ats", last_observed_ats)
+            pulumi.set(__self__, "last_observed_ats", last_observed_ats)
         if malware_names is not None:
-            _setter("malware_names", malware_names)
+            pulumi.set(__self__, "malware_names", malware_names)
         if malware_paths is not None:
-            _setter("malware_paths", malware_paths)
+            pulumi.set(__self__, "malware_paths", malware_paths)
         if malware_states is not None:
-            _setter("malware_states", malware_states)
+            pulumi.set(__self__, "malware_states", malware_states)
         if malware_types is not None:
-            _setter("malware_types", malware_types)
+            pulumi.set(__self__, "malware_types", malware_types)
         if network_destination_domains is not None:
-            _setter("network_destination_domains", network_destination_domains)
+            pulumi.set(__self__, "network_destination_domains", network_destination_domains)
         if network_destination_ipv4s is not None:
-            _setter("network_destination_ipv4s", network_destination_ipv4s)
+            pulumi.set(__self__, "network_destination_ipv4s", network_destination_ipv4s)
         if network_destination_ipv6s is not None:
-            _setter("network_destination_ipv6s", network_destination_ipv6s)
+            pulumi.set(__self__, "network_destination_ipv6s", network_destination_ipv6s)
         if network_destination_ports is not None:
-            _setter("network_destination_ports", network_destination_ports)
+            pulumi.set(__self__, "network_destination_ports", network_destination_ports)
         if network_directions is not None:
-            _setter("network_directions", network_directions)
+            pulumi.set(__self__, "network_directions", network_directions)
         if network_protocols is not None:
-            _setter("network_protocols", network_protocols)
+            pulumi.set(__self__, "network_protocols", network_protocols)
         if network_source_domains is not None:
-            _setter("network_source_domains", network_source_domains)
+            pulumi.set(__self__, "network_source_domains", network_source_domains)
         if network_source_ipv4s is not None:
-            _setter("network_source_ipv4s", network_source_ipv4s)
+            pulumi.set(__self__, "network_source_ipv4s", network_source_ipv4s)
         if network_source_ipv6s is not None:
-            _setter("network_source_ipv6s", network_source_ipv6s)
+            pulumi.set(__self__, "network_source_ipv6s", network_source_ipv6s)
         if network_source_macs is not None:
-            _setter("network_source_macs", network_source_macs)
+            pulumi.set(__self__, "network_source_macs", network_source_macs)
         if network_source_ports is not None:
-            _setter("network_source_ports", network_source_ports)
+            pulumi.set(__self__, "network_source_ports", network_source_ports)
         if note_texts is not None:
-            _setter("note_texts", note_texts)
+            pulumi.set(__self__, "note_texts", note_texts)
         if note_updated_ats is not None:
-            _setter("note_updated_ats", note_updated_ats)
+            pulumi.set(__self__, "note_updated_ats", note_updated_ats)
         if note_updated_bies is not None:
-            _setter("note_updated_bies", note_updated_bies)
+            pulumi.set(__self__, "note_updated_bies", note_updated_bies)
         if process_launched_ats is not None:
-            _setter("process_launched_ats", process_launched_ats)
+            pulumi.set(__self__, "process_launched_ats", process_launched_ats)
         if process_names is not None:
-            _setter("process_names", process_names)
+            pulumi.set(__self__, "process_names", process_names)
         if process_parent_pids is not None:
-            _setter("process_parent_pids", process_parent_pids)
+            pulumi.set(__self__, "process_parent_pids", process_parent_pids)
         if process_paths is not None:
-            _setter("process_paths", process_paths)
+            pulumi.set(__self__, "process_paths", process_paths)
         if process_pids is not None:
-            _setter("process_pids", process_pids)
+            pulumi.set(__self__, "process_pids", process_pids)
         if process_terminated_ats is not None:
-            _setter("process_terminated_ats", process_terminated_ats)
+            pulumi.set(__self__, "process_terminated_ats", process_terminated_ats)
         if product_arns is not None:
-            _setter("product_arns", product_arns)
+            pulumi.set(__self__, "product_arns", product_arns)
         if product_fields is not None:
-            _setter("product_fields", product_fields)
+            pulumi.set(__self__, "product_fields", product_fields)
         if product_names is not None:
-            _setter("product_names", product_names)
+            pulumi.set(__self__, "product_names", product_names)
         if recommendation_texts is not None:
-            _setter("recommendation_texts", recommendation_texts)
+            pulumi.set(__self__, "recommendation_texts", recommendation_texts)
         if record_states is not None:
-            _setter("record_states", record_states)
+            pulumi.set(__self__, "record_states", record_states)
         if related_findings_ids is not None:
-            _setter("related_findings_ids", related_findings_ids)
+            pulumi.set(__self__, "related_findings_ids", related_findings_ids)
         if related_findings_product_arns is not None:
-            _setter("related_findings_product_arns", related_findings_product_arns)
+            pulumi.set(__self__, "related_findings_product_arns", related_findings_product_arns)
         if resource_aws_ec2_instance_iam_instance_profile_arns is not None:
-            _setter("resource_aws_ec2_instance_iam_instance_profile_arns", resource_aws_ec2_instance_iam_instance_profile_arns)
+            pulumi.set(__self__, "resource_aws_ec2_instance_iam_instance_profile_arns", resource_aws_ec2_instance_iam_instance_profile_arns)
         if resource_aws_ec2_instance_image_ids is not None:
-            _setter("resource_aws_ec2_instance_image_ids", resource_aws_ec2_instance_image_ids)
+            pulumi.set(__self__, "resource_aws_ec2_instance_image_ids", resource_aws_ec2_instance_image_ids)
         if resource_aws_ec2_instance_ipv4_addresses is not None:
-            _setter("resource_aws_ec2_instance_ipv4_addresses", resource_aws_ec2_instance_ipv4_addresses)
+            pulumi.set(__self__, "resource_aws_ec2_instance_ipv4_addresses", resource_aws_ec2_instance_ipv4_addresses)
         if resource_aws_ec2_instance_ipv6_addresses is not None:
-            _setter("resource_aws_ec2_instance_ipv6_addresses", resource_aws_ec2_instance_ipv6_addresses)
+            pulumi.set(__self__, "resource_aws_ec2_instance_ipv6_addresses", resource_aws_ec2_instance_ipv6_addresses)
         if resource_aws_ec2_instance_key_names is not None:
-            _setter("resource_aws_ec2_instance_key_names", resource_aws_ec2_instance_key_names)
+            pulumi.set(__self__, "resource_aws_ec2_instance_key_names", resource_aws_ec2_instance_key_names)
         if resource_aws_ec2_instance_launched_ats is not None:
-            _setter("resource_aws_ec2_instance_launched_ats", resource_aws_ec2_instance_launched_ats)
+            pulumi.set(__self__, "resource_aws_ec2_instance_launched_ats", resource_aws_ec2_instance_launched_ats)
         if resource_aws_ec2_instance_subnet_ids is not None:
-            _setter("resource_aws_ec2_instance_subnet_ids", resource_aws_ec2_instance_subnet_ids)
+            pulumi.set(__self__, "resource_aws_ec2_instance_subnet_ids", resource_aws_ec2_instance_subnet_ids)
         if resource_aws_ec2_instance_types is not None:
-            _setter("resource_aws_ec2_instance_types", resource_aws_ec2_instance_types)
+            pulumi.set(__self__, "resource_aws_ec2_instance_types", resource_aws_ec2_instance_types)
         if resource_aws_ec2_instance_vpc_ids is not None:
-            _setter("resource_aws_ec2_instance_vpc_ids", resource_aws_ec2_instance_vpc_ids)
+            pulumi.set(__self__, "resource_aws_ec2_instance_vpc_ids", resource_aws_ec2_instance_vpc_ids)
         if resource_aws_iam_access_key_created_ats is not None:
-            _setter("resource_aws_iam_access_key_created_ats", resource_aws_iam_access_key_created_ats)
+            pulumi.set(__self__, "resource_aws_iam_access_key_created_ats", resource_aws_iam_access_key_created_ats)
         if resource_aws_iam_access_key_statuses is not None:
-            _setter("resource_aws_iam_access_key_statuses", resource_aws_iam_access_key_statuses)
+            pulumi.set(__self__, "resource_aws_iam_access_key_statuses", resource_aws_iam_access_key_statuses)
         if resource_aws_iam_access_key_user_names is not None:
-            _setter("resource_aws_iam_access_key_user_names", resource_aws_iam_access_key_user_names)
+            pulumi.set(__self__, "resource_aws_iam_access_key_user_names", resource_aws_iam_access_key_user_names)
         if resource_aws_s3_bucket_owner_ids is not None:
-            _setter("resource_aws_s3_bucket_owner_ids", resource_aws_s3_bucket_owner_ids)
+            pulumi.set(__self__, "resource_aws_s3_bucket_owner_ids", resource_aws_s3_bucket_owner_ids)
         if resource_aws_s3_bucket_owner_names is not None:
-            _setter("resource_aws_s3_bucket_owner_names", resource_aws_s3_bucket_owner_names)
+            pulumi.set(__self__, "resource_aws_s3_bucket_owner_names", resource_aws_s3_bucket_owner_names)
         if resource_container_image_ids is not None:
-            _setter("resource_container_image_ids", resource_container_image_ids)
+            pulumi.set(__self__, "resource_container_image_ids", resource_container_image_ids)
         if resource_container_image_names is not None:
-            _setter("resource_container_image_names", resource_container_image_names)
+            pulumi.set(__self__, "resource_container_image_names", resource_container_image_names)
         if resource_container_launched_ats is not None:
-            _setter("resource_container_launched_ats", resource_container_launched_ats)
+            pulumi.set(__self__, "resource_container_launched_ats", resource_container_launched_ats)
         if resource_container_names is not None:
-            _setter("resource_container_names", resource_container_names)
+            pulumi.set(__self__, "resource_container_names", resource_container_names)
         if resource_details_others is not None:
-            _setter("resource_details_others", resource_details_others)
+            pulumi.set(__self__, "resource_details_others", resource_details_others)
         if resource_ids is not None:
-            _setter("resource_ids", resource_ids)
+            pulumi.set(__self__, "resource_ids", resource_ids)
         if resource_partitions is not None:
-            _setter("resource_partitions", resource_partitions)
+            pulumi.set(__self__, "resource_partitions", resource_partitions)
         if resource_regions is not None:
-            _setter("resource_regions", resource_regions)
+            pulumi.set(__self__, "resource_regions", resource_regions)
         if resource_tags is not None:
-            _setter("resource_tags", resource_tags)
+            pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
         if severity_labels is not None:
-            _setter("severity_labels", severity_labels)
+            pulumi.set(__self__, "severity_labels", severity_labels)
         if source_urls is not None:
-            _setter("source_urls", source_urls)
+            pulumi.set(__self__, "source_urls", source_urls)
         if threat_intel_indicator_categories is not None:
-            _setter("threat_intel_indicator_categories", threat_intel_indicator_categories)
+            pulumi.set(__self__, "threat_intel_indicator_categories", threat_intel_indicator_categories)
         if threat_intel_indicator_last_observed_ats is not None:
-            _setter("threat_intel_indicator_last_observed_ats", threat_intel_indicator_last_observed_ats)
+            pulumi.set(__self__, "threat_intel_indicator_last_observed_ats", threat_intel_indicator_last_observed_ats)
         if threat_intel_indicator_source_urls is not None:
-            _setter("threat_intel_indicator_source_urls", threat_intel_indicator_source_urls)
+            pulumi.set(__self__, "threat_intel_indicator_source_urls", threat_intel_indicator_source_urls)
         if threat_intel_indicator_sources is not None:
-            _setter("threat_intel_indicator_sources", threat_intel_indicator_sources)
+            pulumi.set(__self__, "threat_intel_indicator_sources", threat_intel_indicator_sources)
         if threat_intel_indicator_types is not None:
-            _setter("threat_intel_indicator_types", threat_intel_indicator_types)
+            pulumi.set(__self__, "threat_intel_indicator_types", threat_intel_indicator_types)
         if threat_intel_indicator_values is not None:
-            _setter("threat_intel_indicator_values", threat_intel_indicator_values)
+            pulumi.set(__self__, "threat_intel_indicator_values", threat_intel_indicator_values)
         if titles is not None:
-            _setter("titles", titles)
+            pulumi.set(__self__, "titles", titles)
         if types is not None:
-            _setter("types", types)
+            pulumi.set(__self__, "types", types)
         if updated_ats is not None:
-            _setter("updated_ats", updated_ats)
+            pulumi.set(__self__, "updated_ats", updated_ats)
         if user_defined_values is not None:
-            _setter("user_defined_values", user_defined_values)
+            pulumi.set(__self__, "user_defined_values", user_defined_values)
         if verification_states is not None:
-            _setter("verification_states", verification_states)
+            pulumi.set(__self__, "verification_states", verification_states)
         if workflow_statuses is not None:
-            _setter("workflow_statuses", workflow_statuses)
+            pulumi.set(__self__, "workflow_statuses", workflow_statuses)
 
     @property
     @pulumi.getter(name="awsAccountIds")
@@ -1883,25 +1536,8 @@ class InsightFiltersAwsAccountIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersAwsAccountIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1937,25 +1573,8 @@ class InsightFiltersCompanyNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersCompanyNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1991,25 +1610,8 @@ class InsightFiltersComplianceStatusArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersComplianceStatusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2047,27 +1649,12 @@ class InsightFiltersConfidenceArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersConfidenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -2117,29 +1704,12 @@ class InsightFiltersCreatedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersCreatedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersCreatedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -2187,25 +1757,8 @@ class InsightFiltersCreatedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersCreatedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2243,27 +1796,12 @@ class InsightFiltersCriticalityArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersCriticalityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -2311,25 +1849,8 @@ class InsightFiltersDescriptionArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersDescriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2367,27 +1888,12 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersFindingProviderFieldsConfidenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -2437,27 +1943,12 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersFindingProviderFieldsCriticalityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -2505,25 +1996,8 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2559,25 +2033,8 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2613,25 +2070,8 @@ class InsightFiltersFindingProviderFieldsSeverityLabelArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFindingProviderFieldsSeverityLabelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2667,25 +2107,8 @@ class InsightFiltersFindingProviderFieldsSeverityOriginalArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFindingProviderFieldsSeverityOriginalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2721,25 +2144,8 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFindingProviderFieldsTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2777,29 +2183,12 @@ class InsightFiltersFirstObservedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersFirstObservedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -2847,25 +2236,8 @@ class InsightFiltersFirstObservedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersFirstObservedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2901,25 +2273,8 @@ class InsightFiltersGeneratorIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersGeneratorIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2955,25 +2310,8 @@ class InsightFiltersIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3007,20 +2345,7 @@ class InsightFiltersKeywordArgs:
         """
         :param pulumi.Input[str] value: A value for the keyword.
         """
-        InsightFiltersKeywordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3046,29 +2371,12 @@ class InsightFiltersLastObservedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersLastObservedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -3116,25 +2424,8 @@ class InsightFiltersLastObservedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersLastObservedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3170,25 +2461,8 @@ class InsightFiltersMalwareNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersMalwareNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3224,25 +2498,8 @@ class InsightFiltersMalwarePathArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersMalwarePathArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3278,25 +2535,8 @@ class InsightFiltersMalwareStateArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersMalwareStateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3332,25 +2572,8 @@ class InsightFiltersMalwareTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersMalwareTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3386,25 +2609,8 @@ class InsightFiltersNetworkDestinationDomainArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNetworkDestinationDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3438,20 +2644,7 @@ class InsightFiltersNetworkDestinationIpv4Args:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersNetworkDestinationIpv4Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -3473,20 +2666,7 @@ class InsightFiltersNetworkDestinationIpv6Args:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersNetworkDestinationIpv6Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -3512,27 +2692,12 @@ class InsightFiltersNetworkDestinationPortArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersNetworkDestinationPortArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -3580,25 +2745,8 @@ class InsightFiltersNetworkDirectionArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNetworkDirectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3634,25 +2782,8 @@ class InsightFiltersNetworkProtocolArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNetworkProtocolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3688,25 +2819,8 @@ class InsightFiltersNetworkSourceDomainArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNetworkSourceDomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3740,20 +2854,7 @@ class InsightFiltersNetworkSourceIpv4Args:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersNetworkSourceIpv4Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -3775,20 +2876,7 @@ class InsightFiltersNetworkSourceIpv6Args:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersNetworkSourceIpv6Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -3812,25 +2900,8 @@ class InsightFiltersNetworkSourceMacArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNetworkSourceMacArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3868,27 +2939,12 @@ class InsightFiltersNetworkSourcePortArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersNetworkSourcePortArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -3936,25 +2992,8 @@ class InsightFiltersNoteTextArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNoteTextArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3992,29 +3031,12 @@ class InsightFiltersNoteUpdatedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersNoteUpdatedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -4062,25 +3084,8 @@ class InsightFiltersNoteUpdatedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNoteUpdatedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4116,25 +3121,8 @@ class InsightFiltersNoteUpdatedByArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersNoteUpdatedByArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4172,29 +3160,12 @@ class InsightFiltersProcessLaunchedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersProcessLaunchedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -4242,25 +3213,8 @@ class InsightFiltersProcessLaunchedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProcessLaunchedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4296,25 +3250,8 @@ class InsightFiltersProcessNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProcessNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4352,27 +3289,12 @@ class InsightFiltersProcessParentPidArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersProcessParentPidArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -4420,25 +3342,8 @@ class InsightFiltersProcessPathArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProcessPathArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4476,27 +3381,12 @@ class InsightFiltersProcessPidArgs:
         :param pulumi.Input[str] gte: The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         :param pulumi.Input[str] lte: The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         """
-        InsightFiltersProcessPidArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eq=eq,
-            gte=gte,
-            lte=lte,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eq: Optional[pulumi.Input[str]] = None,
-             gte: Optional[pulumi.Input[str]] = None,
-             lte: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if gte is not None:
-            _setter("gte", gte)
+            pulumi.set(__self__, "gte", gte)
         if lte is not None:
-            _setter("lte", lte)
+            pulumi.set(__self__, "lte", lte)
 
     @property
     @pulumi.getter
@@ -4546,29 +3436,12 @@ class InsightFiltersProcessTerminatedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersProcessTerminatedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -4616,25 +3489,8 @@ class InsightFiltersProcessTerminatedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProcessTerminatedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4670,25 +3526,8 @@ class InsightFiltersProductArnArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProductArnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4726,30 +3565,9 @@ class InsightFiltersProductFieldArgs:
         :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProductFieldArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4797,25 +3615,8 @@ class InsightFiltersProductNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersProductNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4851,25 +3652,8 @@ class InsightFiltersRecommendationTextArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersRecommendationTextArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4905,25 +3689,8 @@ class InsightFiltersRecordStateArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersRecordStateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4959,25 +3726,8 @@ class InsightFiltersRelatedFindingsIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersRelatedFindingsIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5013,25 +3763,8 @@ class InsightFiltersRelatedFindingsProductArnArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersRelatedFindingsProductArnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5067,25 +3800,8 @@ class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5121,25 +3837,8 @@ class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceImageIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5173,20 +3872,7 @@ class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -5208,20 +3894,7 @@ class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs:
         """
         :param pulumi.Input[str] cidr: A finding's CIDR value.
         """
-        InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr=cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cidr is None:
-            raise TypeError("Missing 'cidr' argument")
-
-        _setter("cidr", cidr)
+        pulumi.set(__self__, "cidr", cidr)
 
     @property
     @pulumi.getter
@@ -5245,25 +3918,8 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceKeyNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5301,29 +3957,12 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -5371,25 +4010,8 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5425,25 +4047,8 @@ class InsightFiltersResourceAwsEc2InstanceSubnetIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceSubnetIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5479,25 +4084,8 @@ class InsightFiltersResourceAwsEc2InstanceTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5533,25 +4121,8 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsEc2InstanceVpcIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5589,29 +4160,12 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -5659,25 +4213,8 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5713,25 +4250,8 @@ class InsightFiltersResourceAwsIamAccessKeyStatusArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsIamAccessKeyStatusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5767,25 +4287,8 @@ class InsightFiltersResourceAwsIamAccessKeyUserNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsIamAccessKeyUserNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5821,25 +4324,8 @@ class InsightFiltersResourceAwsS3BucketOwnerIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsS3BucketOwnerIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5875,25 +4361,8 @@ class InsightFiltersResourceAwsS3BucketOwnerNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceAwsS3BucketOwnerNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5929,25 +4398,8 @@ class InsightFiltersResourceContainerImageIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceContainerImageIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5983,25 +4435,8 @@ class InsightFiltersResourceContainerImageNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceContainerImageNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6039,29 +4474,12 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersResourceContainerLaunchedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -6109,25 +4527,8 @@ class InsightFiltersResourceContainerLaunchedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceContainerLaunchedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6163,25 +4564,8 @@ class InsightFiltersResourceContainerNameArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceContainerNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6219,30 +4603,9 @@ class InsightFiltersResourceDetailsOtherArgs:
         :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceDetailsOtherArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6290,25 +4653,8 @@ class InsightFiltersResourceIdArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6344,25 +4690,8 @@ class InsightFiltersResourcePartitionArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourcePartitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6398,25 +4727,8 @@ class InsightFiltersResourceRegionArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceRegionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6454,30 +4766,9 @@ class InsightFiltersResourceTagArgs:
         :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6525,25 +4816,8 @@ class InsightFiltersResourceTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersResourceTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6579,25 +4853,8 @@ class InsightFiltersSeverityLabelArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersSeverityLabelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6633,25 +4890,8 @@ class InsightFiltersSourceUrlArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersSourceUrlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6687,25 +4927,8 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorCategoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6743,29 +4966,12 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersThreatIntelIndicatorLastObservedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -6813,25 +5019,8 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6867,25 +5056,8 @@ class InsightFiltersThreatIntelIndicatorSourceArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6921,25 +5093,8 @@ class InsightFiltersThreatIntelIndicatorSourceUrlArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorSourceUrlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -6975,25 +5130,8 @@ class InsightFiltersThreatIntelIndicatorTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7029,25 +5167,8 @@ class InsightFiltersThreatIntelIndicatorValueArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersThreatIntelIndicatorValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7083,25 +5204,8 @@ class InsightFiltersTitleArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersTitleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7137,25 +5241,8 @@ class InsightFiltersTypeArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7193,29 +5280,12 @@ class InsightFiltersUpdatedAtArgs:
         :param pulumi.Input[str] end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param pulumi.Input[str] start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
-        InsightFiltersUpdatedAtArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_range=date_range,
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_range: Optional[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgs']] = None,
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if date_range is None and 'dateRange' in kwargs:
-            date_range = kwargs['dateRange']
-
         if date_range is not None:
-            _setter("date_range", date_range)
+            pulumi.set(__self__, "date_range", date_range)
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter(name="dateRange")
@@ -7263,25 +5333,8 @@ class InsightFiltersUpdatedAtDateRangeArgs:
         :param pulumi.Input[str] unit: A date range unit for the date filter. Valid values: `DAYS`.
         :param pulumi.Input[int] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersUpdatedAtDateRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7319,30 +5372,9 @@ class InsightFiltersUserDefinedValueArgs:
         :param pulumi.Input[str] key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersUserDefinedValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7390,25 +5422,8 @@ class InsightFiltersVerificationStateArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersVerificationStateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7444,25 +5459,8 @@ class InsightFiltersWorkflowStatusArgs:
         :param pulumi.Input[str] comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
         :param pulumi.Input[str] value: A date range value for the date filter, provided as an Integer.
         """
-        InsightFiltersWorkflowStatusArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison=comparison,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if comparison is None:
-            raise TypeError("Missing 'comparison' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("comparison", comparison)
-        _setter("value", value)
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,32 +25,11 @@ class RecorderArgs:
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         """
-        RecorderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            name=name,
-            recording_group=recording_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if recording_group is None and 'recordingGroup' in kwargs:
-            recording_group = kwargs['recordingGroup']
-
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recording_group is not None:
-            _setter("recording_group", recording_group)
+            pulumi.set(__self__, "recording_group", recording_group)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -101,31 +80,12 @@ class _RecorderState:
         :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
-        _RecorderState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            recording_group=recording_group,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if recording_group is None and 'recordingGroup' in kwargs:
-            recording_group = kwargs['recordingGroup']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recording_group is not None:
-            _setter("recording_group", recording_group)
+            pulumi.set(__self__, "recording_group", recording_group)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
@@ -179,7 +139,6 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
-        ### Basic Usage
 
         ```python
         import pulumi
@@ -195,24 +154,6 @@ class Recorder(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        ```
-        ### Exclude Resources Types Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
-                    resource_types=["AWS::EC2::Instance"],
-                )],
-                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
-                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
-                )],
-            ))
         ```
 
         ## Import
@@ -241,7 +182,6 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
-        ### Basic Usage
 
         ```python
         import pulumi
@@ -257,24 +197,6 @@ class Recorder(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        ```
-        ### Exclude Resources Types Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.cfg.Recorder("foo",
-            role_arn=aws_iam_role["r"]["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
-                    resource_types=["AWS::EC2::Instance"],
-                )],
-                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
-                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
-                )],
-            ))
         ```
 
         ## Import
@@ -295,10 +217,6 @@ class Recorder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RecorderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -317,7 +235,6 @@ class Recorder(pulumi.CustomResource):
             __props__ = RecorderArgs.__new__(RecorderArgs)
 
             __props__.__dict__["name"] = name
-            recording_group = _utilities.configure(recording_group, RecorderRecordingGroupArgs, True)
             __props__.__dict__["recording_group"] = recording_group
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

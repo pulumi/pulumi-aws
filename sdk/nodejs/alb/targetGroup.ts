@@ -61,21 +61,6 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc.main.id,
  * });
  * ```
- * ### Target group with unhealthy connection termination disabled
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
- *     port: 25,
- *     protocol: "TCP",
- *     vpcId: aws_vpc.main.id,
- *     targetHealthStates: [{
- *         enableUnhealthyConnectionTermination: false,
- *     }],
- * });
- * ```
  *
  * ## Import
  *
@@ -124,7 +109,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      */
-    public readonly connectionTermination!: pulumi.Output<boolean>;
+    public readonly connectionTermination!: pulumi.Output<boolean | undefined>;
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
@@ -156,7 +141,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
      */
@@ -199,10 +184,6 @@ export class TargetGroup extends pulumi.CustomResource {
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
     public readonly targetFailovers!: pulumi.Output<outputs.alb.TargetGroupTargetFailover[]>;
-    /**
-     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
-     */
-    public readonly targetHealthStates!: pulumi.Output<outputs.alb.TargetGroupTargetHealthState[]>;
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      *
@@ -254,7 +235,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetFailovers"] = state ? state.targetFailovers : undefined;
-            resourceInputs["targetHealthStates"] = state ? state.targetHealthStates : undefined;
             resourceInputs["targetType"] = state ? state.targetType : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -277,7 +257,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["stickiness"] = args ? args.stickiness : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetFailovers"] = args ? args.targetFailovers : undefined;
-            resourceInputs["targetHealthStates"] = args ? args.targetHealthStates : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -384,10 +363,6 @@ export interface TargetGroupState {
      */
     targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
     /**
-     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
-     */
-    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
-    /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -481,10 +456,6 @@ export interface TargetGroupArgs {
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
      */
     targetFailovers?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetFailover>[]>;
-    /**
-     * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
-     */
-    targetHealthStates?: pulumi.Input<pulumi.Input<inputs.alb.TargetGroupTargetHealthState>[]>;
     /**
      * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
      *

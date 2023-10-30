@@ -155,10 +155,6 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-     */
-    public readonly dnsRecordClientRoutingPolicy!: pulumi.Output<string | undefined>;
-    /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
     public readonly dropInvalidHeaderFields!: pulumi.Output<boolean | undefined>;
@@ -211,7 +207,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string>;
+    public readonly namePrefix!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
@@ -269,7 +265,6 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["dnsRecordClientRoutingPolicy"] = state ? state.dnsRecordClientRoutingPolicy : undefined;
             resourceInputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
             resourceInputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
             resourceInputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
@@ -297,7 +292,6 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
-            resourceInputs["dnsRecordClientRoutingPolicy"] = args ? args.dnsRecordClientRoutingPolicy : undefined;
             resourceInputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
             resourceInputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
             resourceInputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
@@ -361,10 +355,6 @@ export interface LoadBalancerState {
      * The DNS name of the load balancer.
      */
     dnsName?: pulumi.Input<string>;
-    /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-     */
-    dnsRecordClientRoutingPolicy?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
@@ -474,10 +464,6 @@ export interface LoadBalancerArgs {
      * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      */
     desyncMitigationMode?: pulumi.Input<string>;
-    /**
-     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
-     */
-    dnsRecordClientRoutingPolicy?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */

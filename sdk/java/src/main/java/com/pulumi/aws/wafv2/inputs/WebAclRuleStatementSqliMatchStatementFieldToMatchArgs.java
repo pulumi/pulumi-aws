@@ -7,7 +7,6 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToM
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs;
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs;
@@ -84,21 +83,6 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs extends
      */
     public Optional<Output<List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
-    }
-
-    /**
-     * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    @Import(name="ja3Fingerprint")
-    private @Nullable Output<WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
-    /**
-     * @return Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-     * 
-     */
-    public Optional<Output<WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs>> ja3Fingerprint() {
-        return Optional.ofNullable(this.ja3Fingerprint);
     }
 
     /**
@@ -198,7 +182,6 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs extends
         this.body = $.body;
         this.cookies = $.cookies;
         this.headers = $.headers;
-        this.ja3Fingerprint = $.ja3Fingerprint;
         this.jsonBody = $.jsonBody;
         this.method = $.method;
         this.queryString = $.queryString;
@@ -317,27 +300,6 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs extends
          */
         public Builder headers(WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(@Nullable Output<WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint) {
-            $.ja3Fingerprint = ja3Fingerprint;
-            return this;
-        }
-
-        /**
-         * @param ja3Fingerprint Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ja3Fingerprint(WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint) {
-            return ja3Fingerprint(Output.of(ja3Fingerprint));
         }
 
         /**

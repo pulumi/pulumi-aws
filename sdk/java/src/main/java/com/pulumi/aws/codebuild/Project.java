@@ -150,7 +150,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
  *             .description(&#34;test_codebuild_project&#34;)
- *             .buildTimeout(5)
+ *             .buildTimeout(&#34;5&#34;)
  *             .serviceRole(exampleRole.arn())
  *             .artifacts(ProjectArtifactsArgs.builder()
  *                 .type(&#34;NO_ARTIFACTS&#34;)
@@ -208,8 +208,8 @@ import javax.annotation.Nullable;
  * 
  *         var project_with_cache = new Project(&#34;project-with-cache&#34;, ProjectArgs.builder()        
  *             .description(&#34;test_codebuild_project_cache&#34;)
- *             .buildTimeout(5)
- *             .queuedTimeout(5)
+ *             .buildTimeout(&#34;5&#34;)
+ *             .queuedTimeout(&#34;5&#34;)
  *             .serviceRole(exampleRole.arn())
  *             .artifacts(ProjectArtifactsArgs.builder()
  *                 .type(&#34;NO_ARTIFACTS&#34;)

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,51 +33,20 @@ class UsagePlanArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
         """
-        UsagePlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_stages=api_stages,
-            description=description,
-            name=name,
-            product_code=product_code,
-            quota_settings=quota_settings,
-            tags=tags,
-            throttle_settings=throttle_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_stages: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             product_code: Optional[pulumi.Input[str]] = None,
-             quota_settings: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throttle_settings: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_stages is None and 'apiStages' in kwargs:
-            api_stages = kwargs['apiStages']
-        if product_code is None and 'productCode' in kwargs:
-            product_code = kwargs['productCode']
-        if quota_settings is None and 'quotaSettings' in kwargs:
-            quota_settings = kwargs['quotaSettings']
-        if throttle_settings is None and 'throttleSettings' in kwargs:
-            throttle_settings = kwargs['throttleSettings']
-
         if api_stages is not None:
-            _setter("api_stages", api_stages)
+            pulumi.set(__self__, "api_stages", api_stages)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if product_code is not None:
-            _setter("product_code", product_code)
+            pulumi.set(__self__, "product_code", product_code)
         if quota_settings is not None:
-            _setter("quota_settings", quota_settings)
+            pulumi.set(__self__, "quota_settings", quota_settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if throttle_settings is not None:
-            _setter("throttle_settings", throttle_settings)
+            pulumi.set(__self__, "throttle_settings", throttle_settings)
 
     @property
     @pulumi.getter(name="apiStages")
@@ -188,64 +157,27 @@ class _UsagePlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle_settings: The throttling limits of the usage plan.
         """
-        _UsagePlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_stages=api_stages,
-            arn=arn,
-            description=description,
-            name=name,
-            product_code=product_code,
-            quota_settings=quota_settings,
-            tags=tags,
-            tags_all=tags_all,
-            throttle_settings=throttle_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_stages: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             product_code: Optional[pulumi.Input[str]] = None,
-             quota_settings: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throttle_settings: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_stages is None and 'apiStages' in kwargs:
-            api_stages = kwargs['apiStages']
-        if product_code is None and 'productCode' in kwargs:
-            product_code = kwargs['productCode']
-        if quota_settings is None and 'quotaSettings' in kwargs:
-            quota_settings = kwargs['quotaSettings']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if throttle_settings is None and 'throttleSettings' in kwargs:
-            throttle_settings = kwargs['throttleSettings']
-
         if api_stages is not None:
-            _setter("api_stages", api_stages)
+            pulumi.set(__self__, "api_stages", api_stages)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if product_code is not None:
-            _setter("product_code", product_code)
+            pulumi.set(__self__, "product_code", product_code)
         if quota_settings is not None:
-            _setter("quota_settings", quota_settings)
+            pulumi.set(__self__, "quota_settings", quota_settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if throttle_settings is not None:
-            _setter("throttle_settings", throttle_settings)
+            pulumi.set(__self__, "throttle_settings", throttle_settings)
 
     @property
     @pulumi.getter(name="apiStages")
@@ -548,10 +480,6 @@ class UsagePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UsagePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -577,10 +505,8 @@ class UsagePlan(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["product_code"] = product_code
-            quota_settings = _utilities.configure(quota_settings, UsagePlanQuotaSettingsArgs, True)
             __props__.__dict__["quota_settings"] = quota_settings
             __props__.__dict__["tags"] = tags
-            throttle_settings = _utilities.configure(throttle_settings, UsagePlanThrottleSettingsArgs, True)
             __props__.__dict__["throttle_settings"] = throttle_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None

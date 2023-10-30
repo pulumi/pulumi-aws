@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberArgs', 'Member']
@@ -27,46 +27,13 @@ class MemberArgs:
         :param pulumi.Input[bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         :param pulumi.Input[str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
-        MemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            email_address=email_address,
-            graph_arn=graph_arn,
-            disable_email_notification=disable_email_notification,
-            message=message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             email_address: Optional[pulumi.Input[str]] = None,
-             graph_arn: Optional[pulumi.Input[str]] = None,
-             disable_email_notification: Optional[pulumi.Input[bool]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if account_id is None:
-            raise TypeError("Missing 'account_id' argument")
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-        if email_address is None:
-            raise TypeError("Missing 'email_address' argument")
-        if graph_arn is None and 'graphArn' in kwargs:
-            graph_arn = kwargs['graphArn']
-        if graph_arn is None:
-            raise TypeError("Missing 'graph_arn' argument")
-        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
-            disable_email_notification = kwargs['disableEmailNotification']
-
-        _setter("account_id", account_id)
-        _setter("email_address", email_address)
-        _setter("graph_arn", graph_arn)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "graph_arn", graph_arn)
         if disable_email_notification is not None:
-            _setter("disable_email_notification", disable_email_notification)
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter(name="accountId")
@@ -156,77 +123,28 @@ class _MemberState:
         :param pulumi.Input[str] updated_time: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         :param pulumi.Input[str] volume_usage_in_bytes: Data volume in bytes per day for the member account.
         """
-        _MemberState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            administrator_id=administrator_id,
-            disable_email_notification=disable_email_notification,
-            disabled_reason=disabled_reason,
-            email_address=email_address,
-            graph_arn=graph_arn,
-            invited_time=invited_time,
-            message=message,
-            status=status,
-            updated_time=updated_time,
-            volume_usage_in_bytes=volume_usage_in_bytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: Optional[pulumi.Input[str]] = None,
-             administrator_id: Optional[pulumi.Input[str]] = None,
-             disable_email_notification: Optional[pulumi.Input[bool]] = None,
-             disabled_reason: Optional[pulumi.Input[str]] = None,
-             email_address: Optional[pulumi.Input[str]] = None,
-             graph_arn: Optional[pulumi.Input[str]] = None,
-             invited_time: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             updated_time: Optional[pulumi.Input[str]] = None,
-             volume_usage_in_bytes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if account_id is None and 'accountId' in kwargs:
-            account_id = kwargs['accountId']
-        if administrator_id is None and 'administratorId' in kwargs:
-            administrator_id = kwargs['administratorId']
-        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
-            disable_email_notification = kwargs['disableEmailNotification']
-        if disabled_reason is None and 'disabledReason' in kwargs:
-            disabled_reason = kwargs['disabledReason']
-        if email_address is None and 'emailAddress' in kwargs:
-            email_address = kwargs['emailAddress']
-        if graph_arn is None and 'graphArn' in kwargs:
-            graph_arn = kwargs['graphArn']
-        if invited_time is None and 'invitedTime' in kwargs:
-            invited_time = kwargs['invitedTime']
-        if updated_time is None and 'updatedTime' in kwargs:
-            updated_time = kwargs['updatedTime']
-        if volume_usage_in_bytes is None and 'volumeUsageInBytes' in kwargs:
-            volume_usage_in_bytes = kwargs['volumeUsageInBytes']
-
         if account_id is not None:
-            _setter("account_id", account_id)
+            pulumi.set(__self__, "account_id", account_id)
         if administrator_id is not None:
-            _setter("administrator_id", administrator_id)
+            pulumi.set(__self__, "administrator_id", administrator_id)
         if disable_email_notification is not None:
-            _setter("disable_email_notification", disable_email_notification)
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if disabled_reason is not None:
-            _setter("disabled_reason", disabled_reason)
+            pulumi.set(__self__, "disabled_reason", disabled_reason)
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if graph_arn is not None:
-            _setter("graph_arn", graph_arn)
+            pulumi.set(__self__, "graph_arn", graph_arn)
         if invited_time is not None:
-            _setter("invited_time", invited_time)
+            pulumi.set(__self__, "invited_time", invited_time)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if updated_time is not None:
-            _setter("updated_time", updated_time)
+            pulumi.set(__self__, "updated_time", updated_time)
         if volume_usage_in_bytes is not None:
-            _setter("volume_usage_in_bytes", volume_usage_in_bytes)
+            pulumi.set(__self__, "volume_usage_in_bytes", volume_usage_in_bytes)
 
     @property
     @pulumi.getter(name="accountId")
@@ -445,10 +363,6 @@ class Member(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

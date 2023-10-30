@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Cfg.Inputs
         private InputList<Inputs.RecorderRecordingGroupRecordingStrategyArgs>? _recordingStrategies;
 
         /// <summary>
-        /// Recording Strategy. Detailed below.
+        /// Recording Strategy - see below..
         /// </summary>
         public InputList<Inputs.RecorderRecordingGroupRecordingStrategyArgs> RecordingStrategies
         {

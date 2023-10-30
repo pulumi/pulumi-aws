@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelArgs', 'Channel']
@@ -29,43 +29,18 @@ class ChannelArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
-        ChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorized=authorized,
-            latency_mode=latency_mode,
-            name=name,
-            recording_configuration_arn=recording_configuration_arn,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorized: Optional[pulumi.Input[bool]] = None,
-             latency_mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if latency_mode is None and 'latencyMode' in kwargs:
-            latency_mode = kwargs['latencyMode']
-        if recording_configuration_arn is None and 'recordingConfigurationArn' in kwargs:
-            recording_configuration_arn = kwargs['recordingConfigurationArn']
-
         if authorized is not None:
-            _setter("authorized", authorized)
+            pulumi.set(__self__, "authorized", authorized)
         if latency_mode is not None:
-            _setter("latency_mode", latency_mode)
+            pulumi.set(__self__, "latency_mode", latency_mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if recording_configuration_arn is not None:
-            _setter("recording_configuration_arn", recording_configuration_arn)
+            pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -166,68 +141,29 @@ class _ChannelState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
         """
-        _ChannelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            authorized=authorized,
-            ingest_endpoint=ingest_endpoint,
-            latency_mode=latency_mode,
-            name=name,
-            playback_url=playback_url,
-            recording_configuration_arn=recording_configuration_arn,
-            tags=tags,
-            tags_all=tags_all,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             authorized: Optional[pulumi.Input[bool]] = None,
-             ingest_endpoint: Optional[pulumi.Input[str]] = None,
-             latency_mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             playback_url: Optional[pulumi.Input[str]] = None,
-             recording_configuration_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ingest_endpoint is None and 'ingestEndpoint' in kwargs:
-            ingest_endpoint = kwargs['ingestEndpoint']
-        if latency_mode is None and 'latencyMode' in kwargs:
-            latency_mode = kwargs['latencyMode']
-        if playback_url is None and 'playbackUrl' in kwargs:
-            playback_url = kwargs['playbackUrl']
-        if recording_configuration_arn is None and 'recordingConfigurationArn' in kwargs:
-            recording_configuration_arn = kwargs['recordingConfigurationArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if authorized is not None:
-            _setter("authorized", authorized)
+            pulumi.set(__self__, "authorized", authorized)
         if ingest_endpoint is not None:
-            _setter("ingest_endpoint", ingest_endpoint)
+            pulumi.set(__self__, "ingest_endpoint", ingest_endpoint)
         if latency_mode is not None:
-            _setter("latency_mode", latency_mode)
+            pulumi.set(__self__, "latency_mode", latency_mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if playback_url is not None:
-            _setter("playback_url", playback_url)
+            pulumi.set(__self__, "playback_url", playback_url)
         if recording_configuration_arn is not None:
-            _setter("recording_configuration_arn", recording_configuration_arn)
+            pulumi.set(__self__, "recording_configuration_arn", recording_configuration_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -432,10 +368,6 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

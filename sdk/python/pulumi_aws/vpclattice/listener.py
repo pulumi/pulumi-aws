@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,51 +34,18 @@ class ListenerArgs:
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ListenerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            protocol=protocol,
-            name=name,
-            port=port,
-            service_arn=service_arn,
-            service_identifier=service_identifier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: Optional[pulumi.Input['ListenerDefaultActionArgs']] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             service_arn: Optional[pulumi.Input[str]] = None,
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if default_action is None:
-            raise TypeError("Missing 'default_action' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if service_arn is None and 'serviceArn' in kwargs:
-            service_arn = kwargs['serviceArn']
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-
-        _setter("default_action", default_action)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "default_action", default_action)
+        pulumi.set(__self__, "protocol", protocol)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if service_arn is not None:
-            _setter("service_arn", service_arn)
+            pulumi.set(__self__, "service_arn", service_arn)
         if service_identifier is not None:
-            _setter("service_identifier", service_identifier)
+            pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -195,80 +162,33 @@ class _ListenerState:
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        _ListenerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_at=created_at,
-            default_action=default_action,
-            last_updated_at=last_updated_at,
-            listener_id=listener_id,
-            name=name,
-            port=port,
-            protocol=protocol,
-            service_arn=service_arn,
-            service_identifier=service_identifier,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             default_action: Optional[pulumi.Input['ListenerDefaultActionArgs']] = None,
-             last_updated_at: Optional[pulumi.Input[str]] = None,
-             listener_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             service_arn: Optional[pulumi.Input[str]] = None,
-             service_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if default_action is None and 'defaultAction' in kwargs:
-            default_action = kwargs['defaultAction']
-        if last_updated_at is None and 'lastUpdatedAt' in kwargs:
-            last_updated_at = kwargs['lastUpdatedAt']
-        if listener_id is None and 'listenerId' in kwargs:
-            listener_id = kwargs['listenerId']
-        if service_arn is None and 'serviceArn' in kwargs:
-            service_arn = kwargs['serviceArn']
-        if service_identifier is None and 'serviceIdentifier' in kwargs:
-            service_identifier = kwargs['serviceIdentifier']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if default_action is not None:
-            _setter("default_action", default_action)
+            pulumi.set(__self__, "default_action", default_action)
         if last_updated_at is not None:
-            _setter("last_updated_at", last_updated_at)
+            pulumi.set(__self__, "last_updated_at", last_updated_at)
         if listener_id is not None:
-            _setter("listener_id", listener_id)
+            pulumi.set(__self__, "listener_id", listener_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if service_arn is not None:
-            _setter("service_arn", service_arn)
+            pulumi.set(__self__, "service_arn", service_arn)
         if service_identifier is not None:
-            _setter("service_identifier", service_identifier)
+            pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -607,10 +527,6 @@ class Listener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -632,7 +548,6 @@ class Listener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ListenerArgs.__new__(ListenerArgs)
 
-            default_action = _utilities.configure(default_action, ListenerDefaultActionArgs, True)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action

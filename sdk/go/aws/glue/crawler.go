@@ -270,9 +270,9 @@ type Crawler struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
-	// List of nested Hudi target arguments. See Iceberg Target below.
+	// List nested Hudi target arguments. See Iceberg Target below.
 	HudiTargets CrawlerHudiTargetArrayOutput `pulumi:"hudiTargets"`
-	// List of nested Iceberg target arguments. See Iceberg Target below.
+	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
@@ -280,7 +280,7 @@ type Crawler struct {
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrOutput `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrOutput `pulumi:"lineageConfiguration"`
-	// List of nested MongoDB target arguments. See MongoDB Target below.
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayOutput `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -288,7 +288,7 @@ type Crawler struct {
 	RecrawlPolicy CrawlerRecrawlPolicyPtrOutput `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringOutput `pulumi:"role"`
-	// List of nested Amazon S3 target arguments. See S3 Target below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayOutput `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
@@ -361,9 +361,9 @@ type crawlerState struct {
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
-	// List of nested Hudi target arguments. See Iceberg Target below.
+	// List nested Hudi target arguments. See Iceberg Target below.
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
-	// List of nested Iceberg target arguments. See Iceberg Target below.
+	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
@@ -371,7 +371,7 @@ type crawlerState struct {
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
-	// List of nested MongoDB target arguments. See MongoDB Target below.
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
@@ -379,7 +379,7 @@ type crawlerState struct {
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role *string `pulumi:"role"`
-	// List of nested Amazon S3 target arguments. See S3 Target below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule *string `pulumi:"schedule"`
@@ -413,9 +413,9 @@ type CrawlerState struct {
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
-	// List of nested Hudi target arguments. See Iceberg Target below.
+	// List nested Hudi target arguments. See Iceberg Target below.
 	HudiTargets CrawlerHudiTargetArrayInput
-	// List of nested Iceberg target arguments. See Iceberg Target below.
+	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
@@ -423,7 +423,7 @@ type CrawlerState struct {
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrInput
-	// List of nested MongoDB target arguments. See MongoDB Target below.
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
@@ -431,7 +431,7 @@ type CrawlerState struct {
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringPtrInput
-	// List of nested Amazon S3 target arguments. See S3 Target below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayInput
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrInput
@@ -467,9 +467,9 @@ type crawlerArgs struct {
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
-	// List of nested Hudi target arguments. See Iceberg Target below.
+	// List nested Hudi target arguments. See Iceberg Target below.
 	HudiTargets []CrawlerHudiTarget `pulumi:"hudiTargets"`
-	// List of nested Iceberg target arguments. See Iceberg Target below.
+	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
@@ -477,7 +477,7 @@ type crawlerArgs struct {
 	LakeFormationConfiguration *CrawlerLakeFormationConfiguration `pulumi:"lakeFormationConfiguration"`
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration *CrawlerLineageConfiguration `pulumi:"lineageConfiguration"`
-	// List of nested MongoDB target arguments. See MongoDB Target below.
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets []CrawlerMongodbTarget `pulumi:"mongodbTargets"`
 	// Name of the crawler.
 	Name *string `pulumi:"name"`
@@ -485,7 +485,7 @@ type crawlerArgs struct {
 	RecrawlPolicy *CrawlerRecrawlPolicy `pulumi:"recrawlPolicy"`
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role string `pulumi:"role"`
-	// List of nested Amazon S3 target arguments. See S3 Target below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets []CrawlerS3Target `pulumi:"s3Targets"`
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule *string `pulumi:"schedule"`
@@ -514,9 +514,9 @@ type CrawlerArgs struct {
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
-	// List of nested Hudi target arguments. See Iceberg Target below.
+	// List nested Hudi target arguments. See Iceberg Target below.
 	HudiTargets CrawlerHudiTargetArrayInput
-	// List of nested Iceberg target arguments. See Iceberg Target below.
+	// List nested Iceberg target arguments. See Iceberg Target below.
 	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
@@ -524,7 +524,7 @@ type CrawlerArgs struct {
 	LakeFormationConfiguration CrawlerLakeFormationConfigurationPtrInput
 	// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
 	LineageConfiguration CrawlerLineageConfigurationPtrInput
-	// List of nested MongoDB target arguments. See MongoDB Target below.
+	// List nested MongoDB target arguments. See MongoDB Target below.
 	MongodbTargets CrawlerMongodbTargetArrayInput
 	// Name of the crawler.
 	Name pulumi.StringPtrInput
@@ -532,7 +532,7 @@ type CrawlerArgs struct {
 	RecrawlPolicy CrawlerRecrawlPolicyPtrInput
 	// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
 	Role pulumi.StringInput
-	// List of nested Amazon S3 target arguments. See S3 Target below.
+	// List nested Amazon S3 target arguments. See S3 Target below.
 	S3Targets CrawlerS3TargetArrayInput
 	// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 	Schedule pulumi.StringPtrInput
@@ -696,12 +696,12 @@ func (o CrawlerOutput) DynamodbTargets() CrawlerDynamodbTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDynamodbTargetArrayOutput { return v.DynamodbTargets }).(CrawlerDynamodbTargetArrayOutput)
 }
 
-// List of nested Hudi target arguments. See Iceberg Target below.
+// List nested Hudi target arguments. See Iceberg Target below.
 func (o CrawlerOutput) HudiTargets() CrawlerHudiTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerHudiTargetArrayOutput { return v.HudiTargets }).(CrawlerHudiTargetArrayOutput)
 }
 
-// List of nested Iceberg target arguments. See Iceberg Target below.
+// List nested Iceberg target arguments. See Iceberg Target below.
 func (o CrawlerOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerIcebergTargetArrayOutput { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
@@ -721,7 +721,7 @@ func (o CrawlerOutput) LineageConfiguration() CrawlerLineageConfigurationPtrOutp
 	return o.ApplyT(func(v *Crawler) CrawlerLineageConfigurationPtrOutput { return v.LineageConfiguration }).(CrawlerLineageConfigurationPtrOutput)
 }
 
-// List of nested MongoDB target arguments. See MongoDB Target below.
+// List nested MongoDB target arguments. See MongoDB Target below.
 func (o CrawlerOutput) MongodbTargets() CrawlerMongodbTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerMongodbTargetArrayOutput { return v.MongodbTargets }).(CrawlerMongodbTargetArrayOutput)
 }
@@ -741,7 +741,7 @@ func (o CrawlerOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
 }
 
-// List of nested Amazon S3 target arguments. See S3 Target below.
+// List nested Amazon S3 target arguments. See S3 Target below.
 func (o CrawlerOutput) S3Targets() CrawlerS3TargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerS3TargetArrayOutput { return v.S3Targets }).(CrawlerS3TargetArrayOutput)
 }

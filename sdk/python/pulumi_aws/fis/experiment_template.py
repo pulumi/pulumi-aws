@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,53 +35,16 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
-        ExperimentTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            description=description,
-            role_arn=role_arn,
-            stop_conditions=stop_conditions,
-            log_configuration=log_configuration,
-            tags=tags,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]] = None,
-             log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if stop_conditions is None and 'stopConditions' in kwargs:
-            stop_conditions = kwargs['stopConditions']
-        if stop_conditions is None:
-            raise TypeError("Missing 'stop_conditions' argument")
-        if log_configuration is None and 'logConfiguration' in kwargs:
-            log_configuration = kwargs['logConfiguration']
-
-        _setter("actions", actions)
-        _setter("description", description)
-        _setter("role_arn", role_arn)
-        _setter("stop_conditions", stop_conditions)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stop_conditions", stop_conditions)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -193,58 +156,25 @@ class _ExperimentTemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]] targets: Target of an action. See below.
         """
-        _ExperimentTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            description=description,
-            log_configuration=log_configuration,
-            role_arn=role_arn,
-            stop_conditions=stop_conditions,
-            tags=tags,
-            tags_all=tags_all,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if log_configuration is None and 'logConfiguration' in kwargs:
-            log_configuration = kwargs['logConfiguration']
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if stop_conditions is None and 'stopConditions' in kwargs:
-            stop_conditions = kwargs['stopConditions']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if stop_conditions is not None:
-            _setter("stop_conditions", stop_conditions)
+            pulumi.set(__self__, "stop_conditions", stop_conditions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -478,10 +408,6 @@ class ExperimentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExperimentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -509,7 +435,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
-            log_configuration = _utilities.configure(log_configuration, ExperimentTemplateLogConfigurationArgs, True)
             __props__.__dict__["log_configuration"] = log_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

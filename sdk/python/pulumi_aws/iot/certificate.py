@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -33,36 +33,13 @@ class CertificateArgs:
                If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
                for more information on generating keys and a certificate.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            ca_pem=ca_pem,
-            certificate_pem=certificate_pem,
-            csr=csr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             ca_pem: Optional[pulumi.Input[str]] = None,
-             certificate_pem: Optional[pulumi.Input[str]] = None,
-             csr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active is None:
-            raise TypeError("Missing 'active' argument")
-        if ca_pem is None and 'caPem' in kwargs:
-            ca_pem = kwargs['caPem']
-        if certificate_pem is None and 'certificatePem' in kwargs:
-            certificate_pem = kwargs['certificatePem']
-
-        _setter("active", active)
+        pulumi.set(__self__, "active", active)
         if ca_pem is not None:
-            _setter("ca_pem", ca_pem)
+            pulumi.set(__self__, "ca_pem", ca_pem)
         if certificate_pem is not None:
-            _setter("certificate_pem", certificate_pem)
+            pulumi.set(__self__, "certificate_pem", certificate_pem)
         if csr is not None:
-            _setter("csr", csr)
+            pulumi.set(__self__, "csr", csr)
 
     @property
     @pulumi.getter
@@ -149,51 +126,20 @@ class _CertificateState:
         :param pulumi.Input[str] private_key: When neither CSR nor certificate is provided, the private key.
         :param pulumi.Input[str] public_key: When neither CSR nor certificate is provided, the public key.
         """
-        _CertificateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            arn=arn,
-            ca_pem=ca_pem,
-            certificate_pem=certificate_pem,
-            csr=csr,
-            private_key=private_key,
-            public_key=public_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             ca_pem: Optional[pulumi.Input[str]] = None,
-             certificate_pem: Optional[pulumi.Input[str]] = None,
-             csr: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ca_pem is None and 'caPem' in kwargs:
-            ca_pem = kwargs['caPem']
-        if certificate_pem is None and 'certificatePem' in kwargs:
-            certificate_pem = kwargs['certificatePem']
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if public_key is None and 'publicKey' in kwargs:
-            public_key = kwargs['publicKey']
-
         if active is not None:
-            _setter("active", active)
+            pulumi.set(__self__, "active", active)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if ca_pem is not None:
-            _setter("ca_pem", ca_pem)
+            pulumi.set(__self__, "ca_pem", ca_pem)
         if certificate_pem is not None:
-            _setter("certificate_pem", certificate_pem)
+            pulumi.set(__self__, "certificate_pem", certificate_pem)
         if csr is not None:
-            _setter("csr", csr)
+            pulumi.set(__self__, "csr", csr)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
 
     @property
     @pulumi.getter
@@ -395,10 +341,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

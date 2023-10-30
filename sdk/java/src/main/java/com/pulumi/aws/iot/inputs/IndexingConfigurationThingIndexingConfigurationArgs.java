@@ -4,7 +4,6 @@
 package com.pulumi.aws.iot.inputs;
 
 import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs;
-import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs;
 import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,21 +46,6 @@ public final class IndexingConfigurationThingIndexingConfigurationArgs extends c
      */
     public Optional<Output<String>> deviceDefenderIndexingMode() {
         return Optional.ofNullable(this.deviceDefenderIndexingMode);
-    }
-
-    /**
-     * Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-     * 
-     */
-    @Import(name="filter")
-    private @Nullable Output<IndexingConfigurationThingIndexingConfigurationFilterArgs> filter;
-
-    /**
-     * @return Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-     * 
-     */
-    public Optional<Output<IndexingConfigurationThingIndexingConfigurationFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -129,7 +113,6 @@ public final class IndexingConfigurationThingIndexingConfigurationArgs extends c
     private IndexingConfigurationThingIndexingConfigurationArgs(IndexingConfigurationThingIndexingConfigurationArgs $) {
         this.customFields = $.customFields;
         this.deviceDefenderIndexingMode = $.deviceDefenderIndexingMode;
-        this.filter = $.filter;
         this.managedFields = $.managedFields;
         this.namedShadowIndexingMode = $.namedShadowIndexingMode;
         this.thingConnectivityIndexingMode = $.thingConnectivityIndexingMode;
@@ -204,27 +187,6 @@ public final class IndexingConfigurationThingIndexingConfigurationArgs extends c
          */
         public Builder deviceDefenderIndexingMode(String deviceDefenderIndexingMode) {
             return deviceDefenderIndexingMode(Output.of(deviceDefenderIndexingMode));
-        }
-
-        /**
-         * @param filter Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder filter(@Nullable Output<IndexingConfigurationThingIndexingConfigurationFilterArgs> filter) {
-            $.filter = filter;
-            return this;
-        }
-
-        /**
-         * @param filter Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder filter(IndexingConfigurationThingIndexingConfigurationFilterArgs filter) {
-            return filter(Output.of(filter));
         }
 
         /**

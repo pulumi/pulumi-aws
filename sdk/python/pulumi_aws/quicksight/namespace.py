@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,40 +30,15 @@ class NamespaceArgs:
         :param pulumi.Input[str] identity_store: User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        NamespaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-            aws_account_id=aws_account_id,
-            identity_store=identity_store,
-            tags=tags,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             identity_store: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace is None:
-            raise TypeError("Missing 'namespace' argument")
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if identity_store is None and 'identityStore' in kwargs:
-            identity_store = kwargs['identityStore']
-
-        _setter("namespace", namespace)
+        pulumi.set(__self__, "namespace", namespace)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if identity_store is not None:
-            _setter("identity_store", identity_store)
+            pulumi.set(__self__, "identity_store", identity_store)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -150,64 +125,27 @@ class _NamespaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _NamespaceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            aws_account_id=aws_account_id,
-            capacity_region=capacity_region,
-            creation_status=creation_status,
-            identity_store=identity_store,
-            namespace=namespace,
-            tags=tags,
-            tags_all=tags_all,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             aws_account_id: Optional[pulumi.Input[str]] = None,
-             capacity_region: Optional[pulumi.Input[str]] = None,
-             creation_status: Optional[pulumi.Input[str]] = None,
-             identity_store: Optional[pulumi.Input[str]] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_account_id is None and 'awsAccountId' in kwargs:
-            aws_account_id = kwargs['awsAccountId']
-        if capacity_region is None and 'capacityRegion' in kwargs:
-            capacity_region = kwargs['capacityRegion']
-        if creation_status is None and 'creationStatus' in kwargs:
-            creation_status = kwargs['creationStatus']
-        if identity_store is None and 'identityStore' in kwargs:
-            identity_store = kwargs['identityStore']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
-            _setter("aws_account_id", aws_account_id)
+            pulumi.set(__self__, "aws_account_id", aws_account_id)
         if capacity_region is not None:
-            _setter("capacity_region", capacity_region)
+            pulumi.set(__self__, "capacity_region", capacity_region)
         if creation_status is not None:
-            _setter("creation_status", creation_status)
+            pulumi.set(__self__, "creation_status", creation_status)
         if identity_store is not None:
-            _setter("identity_store", identity_store)
+            pulumi.set(__self__, "identity_store", identity_store)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
-            _setter("timeouts", timeouts)
+            pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -398,10 +336,6 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -427,7 +361,6 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
             __props__.__dict__["tags"] = tags
-            timeouts = _utilities.configure(timeouts, NamespaceTimeoutsArgs, True)
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
             __props__.__dict__["capacity_region"] = None

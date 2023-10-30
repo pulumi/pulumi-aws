@@ -514,20 +514,6 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.globalReplicationGroupId;
     }
     /**
-     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-     * 
-     */
-    @Export(name="ipDiscovery", refs={String.class}, tree="[0]")
-    private Output<String> ipDiscovery;
-
-    /**
-     * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-     * 
-     */
-    public Output<String> ipDiscovery() {
-        return this.ipDiscovery;
-    }
-    /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
      * 
      */
@@ -596,20 +582,6 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> multiAzEnabled() {
         return Codegen.optional(this.multiAzEnabled);
-    }
-    /**
-     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-     * 
-     */
-    @Export(name="networkType", refs={String.class}, tree="[0]")
-    private Output<String> networkType;
-
-    /**
-     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-     * 
-     */
-    public Output<String> networkType() {
-        return this.networkType;
     }
     /**
      * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
@@ -776,28 +748,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.replicationGroupId;
     }
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * List of cache security group names to associate with this replication group.
      * 
      */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupNames;
 
     /**
-     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return List of cache security group names to associate with this replication group.
      * 
      */
     public Output<List<String>> securityGroupNames() {

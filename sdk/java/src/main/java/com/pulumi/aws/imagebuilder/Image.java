@@ -6,7 +6,6 @@ package com.pulumi.aws.imagebuilder;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.imagebuilder.ImageArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImageState;
-import com.pulumi.aws.imagebuilder.outputs.ImageImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImageOutputResource;
 import com.pulumi.core.Output;
@@ -149,20 +148,6 @@ public class Image extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> imageRecipeArn() {
         return Codegen.optional(this.imageRecipeArn);
-    }
-    /**
-     * Configuration block with image scanning configuration. Detailed below.
-     * 
-     */
-    @Export(name="imageScanningConfiguration", refs={ImageImageScanningConfiguration.class}, tree="[0]")
-    private Output<ImageImageScanningConfiguration> imageScanningConfiguration;
-
-    /**
-     * @return Configuration block with image scanning configuration. Detailed below.
-     * 
-     */
-    public Output<ImageImageScanningConfiguration> imageScanningConfiguration() {
-        return this.imageScanningConfiguration;
     }
     /**
      * Configuration block with image tests configuration. Detailed below.

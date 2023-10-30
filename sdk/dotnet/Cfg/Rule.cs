@@ -216,12 +216,6 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        /// </summary>
-        [Output("evaluationModes")]
-        public Output<ImmutableArray<Outputs.RuleEvaluationMode>> EvaluationModes { get; private set; } = null!;
-
-        /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         /// </summary>
         [Output("inputParameters")]
@@ -325,18 +319,6 @@ namespace Pulumi.Aws.Cfg
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("evaluationModes")]
-        private InputList<Inputs.RuleEvaluationModeArgs>? _evaluationModes;
-
-        /// <summary>
-        /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        /// </summary>
-        public InputList<Inputs.RuleEvaluationModeArgs> EvaluationModes
-        {
-            get => _evaluationModes ?? (_evaluationModes = new InputList<Inputs.RuleEvaluationModeArgs>());
-            set => _evaluationModes = value;
-        }
-
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         /// </summary>
@@ -398,18 +380,6 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        [Input("evaluationModes")]
-        private InputList<Inputs.RuleEvaluationModeGetArgs>? _evaluationModes;
-
-        /// <summary>
-        /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        /// </summary>
-        public InputList<Inputs.RuleEvaluationModeGetArgs> EvaluationModes
-        {
-            get => _evaluationModes ?? (_evaluationModes = new InputList<Inputs.RuleEvaluationModeGetArgs>());
-            set => _evaluationModes = value;
-        }
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.

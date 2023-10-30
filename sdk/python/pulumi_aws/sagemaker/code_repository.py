@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,33 +25,10 @@ class CodeRepositoryArgs:
         :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        CodeRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code_repository_name=code_repository_name,
-            git_config=git_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code_repository_name: Optional[pulumi.Input[str]] = None,
-             git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code_repository_name is None and 'codeRepositoryName' in kwargs:
-            code_repository_name = kwargs['codeRepositoryName']
-        if code_repository_name is None:
-            raise TypeError("Missing 'code_repository_name' argument")
-        if git_config is None and 'gitConfig' in kwargs:
-            git_config = kwargs['gitConfig']
-        if git_config is None:
-            raise TypeError("Missing 'git_config' argument")
-
-        _setter("code_repository_name", code_repository_name)
-        _setter("git_config", git_config)
+        pulumi.set(__self__, "code_repository_name", code_repository_name)
+        pulumi.set(__self__, "git_config", git_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="codeRepositoryName")
@@ -106,44 +83,19 @@ class _CodeRepositoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _CodeRepositoryState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            code_repository_name=code_repository_name,
-            git_config=git_config,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             code_repository_name: Optional[pulumi.Input[str]] = None,
-             git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if code_repository_name is None and 'codeRepositoryName' in kwargs:
-            code_repository_name = kwargs['codeRepositoryName']
-        if git_config is None and 'gitConfig' in kwargs:
-            git_config = kwargs['gitConfig']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if code_repository_name is not None:
-            _setter("code_repository_name", code_repository_name)
+            pulumi.set(__self__, "code_repository_name", code_repository_name)
         if git_config is not None:
-            _setter("git_config", git_config)
+            pulumi.set(__self__, "git_config", git_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -334,10 +286,6 @@ class CodeRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CodeRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -358,7 +306,6 @@ class CodeRepository(pulumi.CustomResource):
             if code_repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'code_repository_name'")
             __props__.__dict__["code_repository_name"] = code_repository_name
-            git_config = _utilities.configure(git_config, CodeRepositoryGitConfigArgs, True)
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config

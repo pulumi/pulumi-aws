@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -34,19 +34,8 @@ __all__ = [
 class ConnectAttachmentOptionsArgs:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[str]] = None):
-        ConnectAttachmentOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -62,21 +51,8 @@ class ConnectAttachmentOptionsArgs:
 class ConnectPeerBgpOptionsArgs:
     def __init__(__self__, *,
                  peer_asn: Optional[pulumi.Input[int]] = None):
-        ConnectPeerBgpOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            peer_asn=peer_asn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             peer_asn: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if peer_asn is None and 'peerAsn' in kwargs:
-            peer_asn = kwargs['peerAsn']
-
         if peer_asn is not None:
-            _setter("peer_asn", peer_asn)
+            pulumi.set(__self__, "peer_asn", peer_asn)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -103,43 +79,16 @@ class ConnectPeerConfigurationArgs:
                
                The following arguments are optional:
         """
-        ConnectPeerConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bgp_configurations=bgp_configurations,
-            core_network_address=core_network_address,
-            inside_cidr_blocks=inside_cidr_blocks,
-            peer_address=peer_address,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bgp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]] = None,
-             core_network_address: Optional[pulumi.Input[str]] = None,
-             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             peer_address: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if bgp_configurations is None and 'bgpConfigurations' in kwargs:
-            bgp_configurations = kwargs['bgpConfigurations']
-        if core_network_address is None and 'coreNetworkAddress' in kwargs:
-            core_network_address = kwargs['coreNetworkAddress']
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-        if peer_address is None and 'peerAddress' in kwargs:
-            peer_address = kwargs['peerAddress']
-
         if bgp_configurations is not None:
-            _setter("bgp_configurations", bgp_configurations)
+            pulumi.set(__self__, "bgp_configurations", bgp_configurations)
         if core_network_address is not None:
-            _setter("core_network_address", core_network_address)
+            pulumi.set(__self__, "core_network_address", core_network_address)
         if inside_cidr_blocks is not None:
-            _setter("inside_cidr_blocks", inside_cidr_blocks)
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         if peer_address is not None:
-            _setter("peer_address", peer_address)
+            pulumi.set(__self__, "peer_address", peer_address)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="bgpConfigurations")
@@ -211,39 +160,14 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
                
                The following arguments are optional:
         """
-        ConnectPeerConfigurationBgpConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            core_network_address=core_network_address,
-            core_network_asn=core_network_asn,
-            peer_address=peer_address,
-            peer_asn=peer_asn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             core_network_address: Optional[pulumi.Input[str]] = None,
-             core_network_asn: Optional[pulumi.Input[int]] = None,
-             peer_address: Optional[pulumi.Input[str]] = None,
-             peer_asn: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if core_network_address is None and 'coreNetworkAddress' in kwargs:
-            core_network_address = kwargs['coreNetworkAddress']
-        if core_network_asn is None and 'coreNetworkAsn' in kwargs:
-            core_network_asn = kwargs['coreNetworkAsn']
-        if peer_address is None and 'peerAddress' in kwargs:
-            peer_address = kwargs['peerAddress']
-        if peer_asn is None and 'peerAsn' in kwargs:
-            peer_asn = kwargs['peerAsn']
-
         if core_network_address is not None:
-            _setter("core_network_address", core_network_address)
+            pulumi.set(__self__, "core_network_address", core_network_address)
         if core_network_asn is not None:
-            _setter("core_network_asn", core_network_asn)
+            pulumi.set(__self__, "core_network_asn", core_network_asn)
         if peer_address is not None:
-            _setter("peer_address", peer_address)
+            pulumi.set(__self__, "peer_address", peer_address)
         if peer_asn is not None:
-            _setter("peer_asn", peer_asn)
+            pulumi.set(__self__, "peer_asn", peer_asn)
 
     @property
     @pulumi.getter(name="coreNetworkAddress")
@@ -301,31 +225,12 @@ class CoreNetworkEdgeArgs:
         :param pulumi.Input[str] edge_location: Region where a core network edge is located.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: Inside IP addresses used for core network edges.
         """
-        CoreNetworkEdgeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            asn=asn,
-            edge_location=edge_location,
-            inside_cidr_blocks=inside_cidr_blocks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             asn: Optional[pulumi.Input[int]] = None,
-             edge_location: Optional[pulumi.Input[str]] = None,
-             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if edge_location is None and 'edgeLocation' in kwargs:
-            edge_location = kwargs['edgeLocation']
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-
         if asn is not None:
-            _setter("asn", asn)
+            pulumi.set(__self__, "asn", asn)
         if edge_location is not None:
-            _setter("edge_location", edge_location)
+            pulumi.set(__self__, "edge_location", edge_location)
         if inside_cidr_blocks is not None:
-            _setter("inside_cidr_blocks", inside_cidr_blocks)
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
 
     @property
     @pulumi.getter
@@ -375,31 +280,12 @@ class CoreNetworkSegmentArgs:
         :param pulumi.Input[str] name: Name of a core network segment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_segments: Shared segments of a core network.
         """
-        CoreNetworkSegmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            edge_locations=edge_locations,
-            name=name,
-            shared_segments=shared_segments,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             shared_segments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if edge_locations is None and 'edgeLocations' in kwargs:
-            edge_locations = kwargs['edgeLocations']
-        if shared_segments is None and 'sharedSegments' in kwargs:
-            shared_segments = kwargs['sharedSegments']
-
         if edge_locations is not None:
-            _setter("edge_locations", edge_locations)
+            pulumi.set(__self__, "edge_locations", edge_locations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if shared_segments is not None:
-            _setter("shared_segments", shared_segments)
+            pulumi.set(__self__, "shared_segments", shared_segments)
 
     @property
     @pulumi.getter(name="edgeLocations")
@@ -447,25 +333,10 @@ class DeviceAwsLocationArgs:
         :param pulumi.Input[str] subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
         :param pulumi.Input[str] zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
-        DeviceAwsLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_arn=subnet_arn,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_arn: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_arn is None and 'subnetArn' in kwargs:
-            subnet_arn = kwargs['subnetArn']
-
         if subnet_arn is not None:
-            _setter("subnet_arn", subnet_arn)
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="subnetArn")
@@ -503,27 +374,12 @@ class DeviceLocationArgs:
         :param pulumi.Input[str] latitude: The latitude.
         :param pulumi.Input[str] longitude: The longitude.
         """
-        DeviceLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            latitude=latitude,
-            longitude=longitude,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             latitude: Optional[pulumi.Input[str]] = None,
-             longitude: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if latitude is not None:
-            _setter("latitude", latitude)
+            pulumi.set(__self__, "latitude", latitude)
         if longitude is not None:
-            _setter("longitude", longitude)
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
@@ -571,27 +427,10 @@ class LinkBandwidthArgs:
         :param pulumi.Input[int] download_speed: Download speed in Mbps.
         :param pulumi.Input[int] upload_speed: Upload speed in Mbps.
         """
-        LinkBandwidthArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            download_speed=download_speed,
-            upload_speed=upload_speed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             download_speed: Optional[pulumi.Input[int]] = None,
-             upload_speed: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if download_speed is None and 'downloadSpeed' in kwargs:
-            download_speed = kwargs['downloadSpeed']
-        if upload_speed is None and 'uploadSpeed' in kwargs:
-            upload_speed = kwargs['uploadSpeed']
-
         if download_speed is not None:
-            _setter("download_speed", download_speed)
+            pulumi.set(__self__, "download_speed", download_speed)
         if upload_speed is not None:
-            _setter("upload_speed", upload_speed)
+            pulumi.set(__self__, "upload_speed", upload_speed)
 
     @property
     @pulumi.getter(name="downloadSpeed")
@@ -629,27 +468,12 @@ class SiteLocationArgs:
         :param pulumi.Input[str] latitude: Latitude of the location.
         :param pulumi.Input[str] longitude: Longitude of the location.
         """
-        SiteLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            latitude=latitude,
-            longitude=longitude,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             latitude: Optional[pulumi.Input[str]] = None,
-             longitude: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if latitude is not None:
-            _setter("latitude", latitude)
+            pulumi.set(__self__, "latitude", latitude)
         if longitude is not None:
-            _setter("longitude", longitude)
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
@@ -697,27 +521,10 @@ class VpcAttachmentOptionsArgs:
         :param pulumi.Input[bool] appliance_mode_support: Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
         :param pulumi.Input[bool] ipv6_support: Indicates whether IPv6 is supported.
         """
-        VpcAttachmentOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            appliance_mode_support=appliance_mode_support,
-            ipv6_support=ipv6_support,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             appliance_mode_support: Optional[pulumi.Input[bool]] = None,
-             ipv6_support: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if appliance_mode_support is None and 'applianceModeSupport' in kwargs:
-            appliance_mode_support = kwargs['applianceModeSupport']
-        if ipv6_support is None and 'ipv6Support' in kwargs:
-            ipv6_support = kwargs['ipv6Support']
-
         if appliance_mode_support is not None:
-            _setter("appliance_mode_support", appliance_mode_support)
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
         if ipv6_support is not None:
-            _setter("ipv6_support", ipv6_support)
+            pulumi.set(__self__, "ipv6_support", ipv6_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")
@@ -759,42 +566,13 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
         :param str condition_logic: Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
         :param str description: A user-defined description that further helps identify the rule.
         """
-        GetCoreNetworkPolicyDocumentAttachmentPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            conditions=conditions,
-            rule_number=rule_number,
-            condition_logic=condition_logic,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs'] = None,
-             conditions: Optional[Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs']] = None,
-             rule_number: Optional[int] = None,
-             condition_logic: Optional[str] = None,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if conditions is None:
-            raise TypeError("Missing 'conditions' argument")
-        if rule_number is None and 'ruleNumber' in kwargs:
-            rule_number = kwargs['ruleNumber']
-        if rule_number is None:
-            raise TypeError("Missing 'rule_number' argument")
-        if condition_logic is None and 'conditionLogic' in kwargs:
-            condition_logic = kwargs['conditionLogic']
-
-        _setter("action", action)
-        _setter("conditions", conditions)
-        _setter("rule_number", rule_number)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "rule_number", rule_number)
         if condition_logic is not None:
-            _setter("condition_logic", condition_logic)
+            pulumi.set(__self__, "condition_logic", condition_logic)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -870,38 +648,13 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
         :param str segment: Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         :param str tag_value_of_key: Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         """
-        GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            association_method=association_method,
-            require_acceptance=require_acceptance,
-            segment=segment,
-            tag_value_of_key=tag_value_of_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             association_method: Optional[str] = None,
-             require_acceptance: Optional[bool] = None,
-             segment: Optional[str] = None,
-             tag_value_of_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if association_method is None and 'associationMethod' in kwargs:
-            association_method = kwargs['associationMethod']
-        if association_method is None:
-            raise TypeError("Missing 'association_method' argument")
-        if require_acceptance is None and 'requireAcceptance' in kwargs:
-            require_acceptance = kwargs['requireAcceptance']
-        if tag_value_of_key is None and 'tagValueOfKey' in kwargs:
-            tag_value_of_key = kwargs['tagValueOfKey']
-
-        _setter("association_method", association_method)
+        pulumi.set(__self__, "association_method", association_method)
         if require_acceptance is not None:
-            _setter("require_acceptance", require_acceptance)
+            pulumi.set(__self__, "require_acceptance", require_acceptance)
         if segment is not None:
-            _setter("segment", segment)
+            pulumi.set(__self__, "segment", segment)
         if tag_value_of_key is not None:
-            _setter("tag_value_of_key", tag_value_of_key)
+            pulumi.set(__self__, "tag_value_of_key", tag_value_of_key)
 
     @property
     @pulumi.getter(name="associationMethod")
@@ -965,32 +718,13 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs:
         :param str operator: Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
         :param str value: string value
         """
-        GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            key=key,
-            operator=operator,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             key: Optional[str] = None,
-             operator: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if operator is not None:
-            _setter("operator", operator)
+            pulumi.set(__self__, "operator", operator)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1054,41 +788,12 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
         :param Sequence[str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         :param bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
-        GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            asn_ranges=asn_ranges,
-            edge_locations=edge_locations,
-            inside_cidr_blocks=inside_cidr_blocks,
-            vpn_ecmp_support=vpn_ecmp_support,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             asn_ranges: Optional[Sequence[str]] = None,
-             edge_locations: Optional[Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs']] = None,
-             inside_cidr_blocks: Optional[Sequence[str]] = None,
-             vpn_ecmp_support: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if asn_ranges is None and 'asnRanges' in kwargs:
-            asn_ranges = kwargs['asnRanges']
-        if asn_ranges is None:
-            raise TypeError("Missing 'asn_ranges' argument")
-        if edge_locations is None and 'edgeLocations' in kwargs:
-            edge_locations = kwargs['edgeLocations']
-        if edge_locations is None:
-            raise TypeError("Missing 'edge_locations' argument")
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-        if vpn_ecmp_support is None and 'vpnEcmpSupport' in kwargs:
-            vpn_ecmp_support = kwargs['vpnEcmpSupport']
-
-        _setter("asn_ranges", asn_ranges)
-        _setter("edge_locations", edge_locations)
+        pulumi.set(__self__, "asn_ranges", asn_ranges)
+        pulumi.set(__self__, "edge_locations", edge_locations)
         if inside_cidr_blocks is not None:
-            _setter("inside_cidr_blocks", inside_cidr_blocks)
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         if vpn_ecmp_support is not None:
-            _setter("vpn_ecmp_support", vpn_ecmp_support)
+            pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
     @property
     @pulumi.getter(name="asnRanges")
@@ -1149,30 +854,11 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
         :param str asn: ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
         :param Sequence[str] inside_cidr_blocks: The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
         """
-        GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            asn=asn,
-            inside_cidr_blocks=inside_cidr_blocks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: Optional[str] = None,
-             asn: Optional[str] = None,
-             inside_cidr_blocks: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
-            inside_cidr_blocks = kwargs['insideCidrBlocks']
-
-        _setter("location", location)
+        pulumi.set(__self__, "location", location)
         if asn is not None:
-            _setter("asn", asn)
+            pulumi.set(__self__, "asn", asn)
         if inside_cidr_blocks is not None:
-            _setter("inside_cidr_blocks", inside_cidr_blocks)
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
 
     @property
     @pulumi.getter
@@ -1227,54 +913,19 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
         :param bool isolate_attachments: This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
         :param bool require_attachment_acceptance: This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
         """
-        GetCoreNetworkPolicyDocumentSegmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            allow_filters=allow_filters,
-            deny_filters=deny_filters,
-            description=description,
-            edge_locations=edge_locations,
-            isolate_attachments=isolate_attachments,
-            require_attachment_acceptance=require_attachment_acceptance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             allow_filters: Optional[Sequence[str]] = None,
-             deny_filters: Optional[Sequence[str]] = None,
-             description: Optional[str] = None,
-             edge_locations: Optional[Sequence[str]] = None,
-             isolate_attachments: Optional[bool] = None,
-             require_attachment_acceptance: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if allow_filters is None and 'allowFilters' in kwargs:
-            allow_filters = kwargs['allowFilters']
-        if deny_filters is None and 'denyFilters' in kwargs:
-            deny_filters = kwargs['denyFilters']
-        if edge_locations is None and 'edgeLocations' in kwargs:
-            edge_locations = kwargs['edgeLocations']
-        if isolate_attachments is None and 'isolateAttachments' in kwargs:
-            isolate_attachments = kwargs['isolateAttachments']
-        if require_attachment_acceptance is None and 'requireAttachmentAcceptance' in kwargs:
-            require_attachment_acceptance = kwargs['requireAttachmentAcceptance']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if allow_filters is not None:
-            _setter("allow_filters", allow_filters)
+            pulumi.set(__self__, "allow_filters", allow_filters)
         if deny_filters is not None:
-            _setter("deny_filters", deny_filters)
+            pulumi.set(__self__, "deny_filters", deny_filters)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if edge_locations is not None:
-            _setter("edge_locations", edge_locations)
+            pulumi.set(__self__, "edge_locations", edge_locations)
         if isolate_attachments is not None:
-            _setter("isolate_attachments", isolate_attachments)
+            pulumi.set(__self__, "isolate_attachments", isolate_attachments)
         if require_attachment_acceptance is not None:
-            _setter("require_attachment_acceptance", require_attachment_acceptance)
+            pulumi.set(__self__, "require_attachment_acceptance", require_attachment_acceptance)
 
     @property
     @pulumi.getter
@@ -1382,55 +1033,20 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
         :param Sequence[str] share_with_excepts: A set subtraction of segments to not share with.
         :param Sequence[str] share_withs: A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
         """
-        GetCoreNetworkPolicyDocumentSegmentActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            segment=segment,
-            description=description,
-            destination_cidr_blocks=destination_cidr_blocks,
-            destinations=destinations,
-            mode=mode,
-            share_with_excepts=share_with_excepts,
-            share_withs=share_withs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             segment: Optional[str] = None,
-             description: Optional[str] = None,
-             destination_cidr_blocks: Optional[Sequence[str]] = None,
-             destinations: Optional[Sequence[str]] = None,
-             mode: Optional[str] = None,
-             share_with_excepts: Optional[Sequence[str]] = None,
-             share_withs: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if segment is None:
-            raise TypeError("Missing 'segment' argument")
-        if destination_cidr_blocks is None and 'destinationCidrBlocks' in kwargs:
-            destination_cidr_blocks = kwargs['destinationCidrBlocks']
-        if share_with_excepts is None and 'shareWithExcepts' in kwargs:
-            share_with_excepts = kwargs['shareWithExcepts']
-        if share_withs is None and 'shareWiths' in kwargs:
-            share_withs = kwargs['shareWiths']
-
-        _setter("action", action)
-        _setter("segment", segment)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "segment", segment)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination_cidr_blocks is not None:
-            _setter("destination_cidr_blocks", destination_cidr_blocks)
+            pulumi.set(__self__, "destination_cidr_blocks", destination_cidr_blocks)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if share_with_excepts is not None:
-            _setter("share_with_excepts", share_with_excepts)
+            pulumi.set(__self__, "share_with_excepts", share_with_excepts)
         if share_withs is not None:
-            _setter("share_withs", share_withs)
+            pulumi.set(__self__, "share_withs", share_withs)
 
     @property
     @pulumi.getter

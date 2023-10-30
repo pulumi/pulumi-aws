@@ -59,7 +59,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set.
+     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
  */
 export interface VpcIpv6CidrBlockAssociationState {
     /**
-     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set.
+     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface VpcIpv6CidrBlockAssociationState {
  */
 export interface VpcIpv6CidrBlockAssociationArgs {
     /**
-     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and the IPAM pool does not have `allocationDefaultNetmask` set.
+     * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
     /**

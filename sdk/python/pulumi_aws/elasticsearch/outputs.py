@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -29,7 +29,6 @@ __all__ = [
     'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
     'DomainVpcOptions',
-    'VpcEndpointVpcOptions',
     'GetDomainAdvancedSecurityOptionResult',
     'GetDomainAutoTuneOptionResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
@@ -76,32 +75,11 @@ class DomainAdvancedSecurityOptions(dict):
         :param bool internal_user_database_enabled: Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
         :param 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs' master_user_options: Configuration block for the main user. Detailed below.
         """
-        DomainAdvancedSecurityOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            internal_user_database_enabled=internal_user_database_enabled,
-            master_user_options=master_user_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             internal_user_database_enabled: Optional[bool] = None,
-             master_user_options: Optional['outputs.DomainAdvancedSecurityOptionsMasterUserOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if internal_user_database_enabled is None and 'internalUserDatabaseEnabled' in kwargs:
-            internal_user_database_enabled = kwargs['internalUserDatabaseEnabled']
-        if master_user_options is None and 'masterUserOptions' in kwargs:
-            master_user_options = kwargs['masterUserOptions']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
-            _setter("internal_user_database_enabled", internal_user_database_enabled)
+            pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
-            _setter("master_user_options", master_user_options)
+            pulumi.set(__self__, "master_user_options", master_user_options)
 
     @property
     @pulumi.getter
@@ -160,33 +138,12 @@ class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
         :param str master_user_name: Main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         :param str master_user_password: Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         """
-        DomainAdvancedSecurityOptionsMasterUserOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            master_user_arn=master_user_arn,
-            master_user_name=master_user_name,
-            master_user_password=master_user_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             master_user_arn: Optional[str] = None,
-             master_user_name: Optional[str] = None,
-             master_user_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if master_user_arn is None and 'masterUserArn' in kwargs:
-            master_user_arn = kwargs['masterUserArn']
-        if master_user_name is None and 'masterUserName' in kwargs:
-            master_user_name = kwargs['masterUserName']
-        if master_user_password is None and 'masterUserPassword' in kwargs:
-            master_user_password = kwargs['masterUserPassword']
-
         if master_user_arn is not None:
-            _setter("master_user_arn", master_user_arn)
+            pulumi.set(__self__, "master_user_arn", master_user_arn)
         if master_user_name is not None:
-            _setter("master_user_name", master_user_name)
+            pulumi.set(__self__, "master_user_name", master_user_name)
         if master_user_password is not None:
-            _setter("master_user_password", master_user_password)
+            pulumi.set(__self__, "master_user_password", master_user_password)
 
     @property
     @pulumi.getter(name="masterUserArn")
@@ -245,34 +202,11 @@ class DomainAutoTuneOptions(dict):
         :param Sequence['DomainAutoTuneOptionsMaintenanceScheduleArgs'] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         :param str rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         """
-        DomainAutoTuneOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            desired_state=desired_state,
-            maintenance_schedules=maintenance_schedules,
-            rollback_on_disable=rollback_on_disable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             desired_state: Optional[str] = None,
-             maintenance_schedules: Optional[Sequence['outputs.DomainAutoTuneOptionsMaintenanceSchedule']] = None,
-             rollback_on_disable: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if desired_state is None and 'desiredState' in kwargs:
-            desired_state = kwargs['desiredState']
-        if desired_state is None:
-            raise TypeError("Missing 'desired_state' argument")
-        if maintenance_schedules is None and 'maintenanceSchedules' in kwargs:
-            maintenance_schedules = kwargs['maintenanceSchedules']
-        if rollback_on_disable is None and 'rollbackOnDisable' in kwargs:
-            rollback_on_disable = kwargs['rollbackOnDisable']
-
-        _setter("desired_state", desired_state)
+        pulumi.set(__self__, "desired_state", desired_state)
         if maintenance_schedules is not None:
-            _setter("maintenance_schedules", maintenance_schedules)
+            pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         if rollback_on_disable is not None:
-            _setter("rollback_on_disable", rollback_on_disable)
+            pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -329,34 +263,9 @@ class DomainAutoTuneOptionsMaintenanceSchedule(dict):
         :param 'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs' duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         :param str start_at: Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
-        DomainAutoTuneOptionsMaintenanceSchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_expression_for_recurrence=cron_expression_for_recurrence,
-            duration=duration,
-            start_at=start_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_expression_for_recurrence: Optional[str] = None,
-             duration: Optional['outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration'] = None,
-             start_at: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cron_expression_for_recurrence is None and 'cronExpressionForRecurrence' in kwargs:
-            cron_expression_for_recurrence = kwargs['cronExpressionForRecurrence']
-        if cron_expression_for_recurrence is None:
-            raise TypeError("Missing 'cron_expression_for_recurrence' argument")
-        if duration is None:
-            raise TypeError("Missing 'duration' argument")
-        if start_at is None and 'startAt' in kwargs:
-            start_at = kwargs['startAt']
-        if start_at is None:
-            raise TypeError("Missing 'start_at' argument")
-
-        _setter("cron_expression_for_recurrence", cron_expression_for_recurrence)
-        _setter("duration", duration)
-        _setter("start_at", start_at)
+        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "start_at", start_at)
 
     @property
     @pulumi.getter(name="cronExpressionForRecurrence")
@@ -392,25 +301,8 @@ class DomainAutoTuneOptionsMaintenanceScheduleDuration(dict):
         :param str unit: The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
         :param int value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
         """
-        DomainAutoTuneOptionsMaintenanceScheduleDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -493,81 +385,28 @@ class DomainClusterConfig(dict):
         :param 'DomainClusterConfigZoneAwarenessConfigArgs' zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param bool zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
-        DomainClusterConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cold_storage_options=cold_storage_options,
-            dedicated_master_count=dedicated_master_count,
-            dedicated_master_enabled=dedicated_master_enabled,
-            dedicated_master_type=dedicated_master_type,
-            instance_count=instance_count,
-            instance_type=instance_type,
-            warm_count=warm_count,
-            warm_enabled=warm_enabled,
-            warm_type=warm_type,
-            zone_awareness_config=zone_awareness_config,
-            zone_awareness_enabled=zone_awareness_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cold_storage_options: Optional['outputs.DomainClusterConfigColdStorageOptions'] = None,
-             dedicated_master_count: Optional[int] = None,
-             dedicated_master_enabled: Optional[bool] = None,
-             dedicated_master_type: Optional[str] = None,
-             instance_count: Optional[int] = None,
-             instance_type: Optional[str] = None,
-             warm_count: Optional[int] = None,
-             warm_enabled: Optional[bool] = None,
-             warm_type: Optional[str] = None,
-             zone_awareness_config: Optional['outputs.DomainClusterConfigZoneAwarenessConfig'] = None,
-             zone_awareness_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cold_storage_options is None and 'coldStorageOptions' in kwargs:
-            cold_storage_options = kwargs['coldStorageOptions']
-        if dedicated_master_count is None and 'dedicatedMasterCount' in kwargs:
-            dedicated_master_count = kwargs['dedicatedMasterCount']
-        if dedicated_master_enabled is None and 'dedicatedMasterEnabled' in kwargs:
-            dedicated_master_enabled = kwargs['dedicatedMasterEnabled']
-        if dedicated_master_type is None and 'dedicatedMasterType' in kwargs:
-            dedicated_master_type = kwargs['dedicatedMasterType']
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if warm_count is None and 'warmCount' in kwargs:
-            warm_count = kwargs['warmCount']
-        if warm_enabled is None and 'warmEnabled' in kwargs:
-            warm_enabled = kwargs['warmEnabled']
-        if warm_type is None and 'warmType' in kwargs:
-            warm_type = kwargs['warmType']
-        if zone_awareness_config is None and 'zoneAwarenessConfig' in kwargs:
-            zone_awareness_config = kwargs['zoneAwarenessConfig']
-        if zone_awareness_enabled is None and 'zoneAwarenessEnabled' in kwargs:
-            zone_awareness_enabled = kwargs['zoneAwarenessEnabled']
-
         if cold_storage_options is not None:
-            _setter("cold_storage_options", cold_storage_options)
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
-            _setter("dedicated_master_count", dedicated_master_count)
+            pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
-            _setter("dedicated_master_enabled", dedicated_master_enabled)
+            pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
         if dedicated_master_type is not None:
-            _setter("dedicated_master_type", dedicated_master_type)
+            pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if warm_count is not None:
-            _setter("warm_count", warm_count)
+            pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
-            _setter("warm_enabled", warm_enabled)
+            pulumi.set(__self__, "warm_enabled", warm_enabled)
         if warm_type is not None:
-            _setter("warm_type", warm_type)
+            pulumi.set(__self__, "warm_type", warm_type)
         if zone_awareness_config is not None:
-            _setter("zone_awareness_config", zone_awareness_config)
+            pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
-            _setter("zone_awareness_enabled", zone_awareness_enabled)
+            pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
 
     @property
     @pulumi.getter(name="coldStorageOptions")
@@ -665,19 +504,8 @@ class DomainClusterConfigColdStorageOptions(dict):
         """
         :param bool enabled: Boolean to enable cold storage for an Elasticsearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
         """
-        DomainClusterConfigColdStorageOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -712,21 +540,8 @@ class DomainClusterConfigZoneAwarenessConfig(dict):
         """
         :param int availability_zone_count: Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
         """
-        DomainClusterConfigZoneAwarenessConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone_count=availability_zone_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone_count is None and 'availabilityZoneCount' in kwargs:
-            availability_zone_count = kwargs['availabilityZoneCount']
-
         if availability_zone_count is not None:
-            _setter("availability_zone_count", availability_zone_count)
+            pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
@@ -771,40 +586,11 @@ class DomainCognitoOptions(dict):
         :param str user_pool_id: ID of the Cognito User Pool to use.
         :param bool enabled: Whether Amazon Cognito authentication with Kibana is enabled or not.
         """
-        DomainCognitoOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_pool_id=identity_pool_id,
-            role_arn=role_arn,
-            user_pool_id=user_pool_id,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_pool_id: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             user_pool_id: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if identity_pool_id is None and 'identityPoolId' in kwargs:
-            identity_pool_id = kwargs['identityPoolId']
-        if identity_pool_id is None:
-            raise TypeError("Missing 'identity_pool_id' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if user_pool_id is None and 'userPoolId' in kwargs:
-            user_pool_id = kwargs['userPoolId']
-        if user_pool_id is None:
-            raise TypeError("Missing 'user_pool_id' argument")
-
-        _setter("identity_pool_id", identity_pool_id)
-        _setter("role_arn", role_arn)
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -879,45 +665,16 @@ class DomainDomainEndpointOptions(dict):
         :param bool enforce_https: Whether or not to require HTTPS. Defaults to `true`.
         :param str tls_security_policy: Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
         """
-        DomainDomainEndpointOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_endpoint=custom_endpoint,
-            custom_endpoint_certificate_arn=custom_endpoint_certificate_arn,
-            custom_endpoint_enabled=custom_endpoint_enabled,
-            enforce_https=enforce_https,
-            tls_security_policy=tls_security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_endpoint: Optional[str] = None,
-             custom_endpoint_certificate_arn: Optional[str] = None,
-             custom_endpoint_enabled: Optional[bool] = None,
-             enforce_https: Optional[bool] = None,
-             tls_security_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if custom_endpoint is None and 'customEndpoint' in kwargs:
-            custom_endpoint = kwargs['customEndpoint']
-        if custom_endpoint_certificate_arn is None and 'customEndpointCertificateArn' in kwargs:
-            custom_endpoint_certificate_arn = kwargs['customEndpointCertificateArn']
-        if custom_endpoint_enabled is None and 'customEndpointEnabled' in kwargs:
-            custom_endpoint_enabled = kwargs['customEndpointEnabled']
-        if enforce_https is None and 'enforceHttps' in kwargs:
-            enforce_https = kwargs['enforceHttps']
-        if tls_security_policy is None and 'tlsSecurityPolicy' in kwargs:
-            tls_security_policy = kwargs['tlsSecurityPolicy']
-
         if custom_endpoint is not None:
-            _setter("custom_endpoint", custom_endpoint)
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
-            _setter("custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
         if custom_endpoint_enabled is not None:
-            _setter("custom_endpoint_enabled", custom_endpoint_enabled)
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
         if enforce_https is not None:
-            _setter("enforce_https", enforce_https)
+            pulumi.set(__self__, "enforce_https", enforce_https)
         if tls_security_policy is not None:
-            _setter("tls_security_policy", tls_security_policy)
+            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="customEndpoint")
@@ -996,42 +753,15 @@ class DomainEbsOptions(dict):
         :param int volume_size: Size of EBS volumes attached to data nodes (in GiB).
         :param str volume_type: Type of EBS volumes attached to data nodes.
         """
-        DomainEbsOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_enabled=ebs_enabled,
-            iops=iops,
-            throughput=throughput,
-            volume_size=volume_size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_enabled: Optional[bool] = None,
-             iops: Optional[int] = None,
-             throughput: Optional[int] = None,
-             volume_size: Optional[int] = None,
-             volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ebs_enabled is None and 'ebsEnabled' in kwargs:
-            ebs_enabled = kwargs['ebsEnabled']
-        if ebs_enabled is None:
-            raise TypeError("Missing 'ebs_enabled' argument")
-        if volume_size is None and 'volumeSize' in kwargs:
-            volume_size = kwargs['volumeSize']
-        if volume_type is None and 'volumeType' in kwargs:
-            volume_type = kwargs['volumeType']
-
-        _setter("ebs_enabled", ebs_enabled)
+        pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
-            _setter("volume_size", volume_size)
+            pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="ebsEnabled")
@@ -1100,26 +830,9 @@ class DomainEncryptAtRest(dict):
         :param bool enabled: Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires `elasticsearch_version` 5.1 or greater.
         :param str kms_key_id: KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
         """
-        DomainEncryptAtRest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
@@ -1168,33 +881,10 @@ class DomainLogPublishingOption(dict):
         :param str log_type: Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
         :param bool enabled: Whether given log publishing option is enabled or not.
         """
-        DomainLogPublishingOption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
-            log_type=log_type,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloudwatch_log_group_arn: Optional[str] = None,
-             log_type: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cloudwatch_log_group_arn is None and 'cloudwatchLogGroupArn' in kwargs:
-            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
-        if cloudwatch_log_group_arn is None:
-            raise TypeError("Missing 'cloudwatch_log_group_arn' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        pulumi.set(__self__, "log_type", log_type)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -1228,20 +918,7 @@ class DomainNodeToNodeEncryption(dict):
         """
         :param bool enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
-        DomainNodeToNodeEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1296,53 +973,20 @@ class DomainSamlOptionsSamlOptions(dict):
         :param int session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
         :param str subject_key: Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         """
-        DomainSamlOptionsSamlOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            idp=idp,
-            master_backend_role=master_backend_role,
-            master_user_name=master_user_name,
-            roles_key=roles_key,
-            session_timeout_minutes=session_timeout_minutes,
-            subject_key=subject_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             idp: Optional['outputs.DomainSamlOptionsSamlOptionsIdp'] = None,
-             master_backend_role: Optional[str] = None,
-             master_user_name: Optional[str] = None,
-             roles_key: Optional[str] = None,
-             session_timeout_minutes: Optional[int] = None,
-             subject_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if master_backend_role is None and 'masterBackendRole' in kwargs:
-            master_backend_role = kwargs['masterBackendRole']
-        if master_user_name is None and 'masterUserName' in kwargs:
-            master_user_name = kwargs['masterUserName']
-        if roles_key is None and 'rolesKey' in kwargs:
-            roles_key = kwargs['rolesKey']
-        if session_timeout_minutes is None and 'sessionTimeoutMinutes' in kwargs:
-            session_timeout_minutes = kwargs['sessionTimeoutMinutes']
-        if subject_key is None and 'subjectKey' in kwargs:
-            subject_key = kwargs['subjectKey']
-
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if idp is not None:
-            _setter("idp", idp)
+            pulumi.set(__self__, "idp", idp)
         if master_backend_role is not None:
-            _setter("master_backend_role", master_backend_role)
+            pulumi.set(__self__, "master_backend_role", master_backend_role)
         if master_user_name is not None:
-            _setter("master_user_name", master_user_name)
+            pulumi.set(__self__, "master_user_name", master_user_name)
         if roles_key is not None:
-            _setter("roles_key", roles_key)
+            pulumi.set(__self__, "roles_key", roles_key)
         if session_timeout_minutes is not None:
-            _setter("session_timeout_minutes", session_timeout_minutes)
+            pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
         if subject_key is not None:
-            _setter("subject_key", subject_key)
+            pulumi.set(__self__, "subject_key", subject_key)
 
     @property
     @pulumi.getter
@@ -1429,29 +1073,8 @@ class DomainSamlOptionsSamlOptionsIdp(dict):
         :param str entity_id: The unique Entity ID of the application in SAML Identity Provider.
         :param str metadata_content: The Metadata of the SAML application in xml format.
         """
-        DomainSamlOptionsSamlOptionsIdp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_id=entity_id,
-            metadata_content=metadata_content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_id: Optional[str] = None,
-             metadata_content: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if entity_id is None and 'entityId' in kwargs:
-            entity_id = kwargs['entityId']
-        if entity_id is None:
-            raise TypeError("Missing 'entity_id' argument")
-        if metadata_content is None and 'metadataContent' in kwargs:
-            metadata_content = kwargs['metadataContent']
-        if metadata_content is None:
-            raise TypeError("Missing 'metadata_content' argument")
-
-        _setter("entity_id", entity_id)
-        _setter("metadata_content", metadata_content)
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "metadata_content", metadata_content)
 
     @property
     @pulumi.getter(name="entityId")
@@ -1494,22 +1117,7 @@ class DomainSnapshotOptions(dict):
         """
         :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
-        DomainSnapshotOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automated_snapshot_start_hour=automated_snapshot_start_hour,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automated_snapshot_start_hour: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automated_snapshot_start_hour is None and 'automatedSnapshotStartHour' in kwargs:
-            automated_snapshot_start_hour = kwargs['automatedSnapshotStartHour']
-        if automated_snapshot_start_hour is None:
-            raise TypeError("Missing 'automated_snapshot_start_hour' argument")
-
-        _setter("automated_snapshot_start_hour", automated_snapshot_start_hour)
+        pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
@@ -1554,39 +1162,14 @@ class DomainVpcOptions(dict):
         :param Sequence[str] security_group_ids: List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
         :param Sequence[str] subnet_ids: List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
         """
-        DomainVpcOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zones=availability_zones,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zones: Optional[Sequence[str]] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1616,102 +1199,6 @@ class DomainVpcOptions(dict):
 
 
 @pulumi.output_type
-class VpcEndpointVpcOptions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "subnetIds":
-            suggest = "subnet_ids"
-        elif key == "availabilityZones":
-            suggest = "availability_zones"
-        elif key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "vpcId":
-            suggest = "vpc_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointVpcOptions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VpcEndpointVpcOptions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VpcEndpointVpcOptions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 subnet_ids: Sequence[str],
-                 availability_zones: Optional[Sequence[str]] = None,
-                 security_group_ids: Optional[Sequence[str]] = None,
-                 vpc_id: Optional[str] = None):
-        """
-        :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-        :param Sequence[str] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
-        """
-        VpcEndpointVpcOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            availability_zones=availability_zones,
-            security_group_ids=security_group_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Optional[Sequence[str]] = None,
-             availability_zones: Optional[Sequence[str]] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-
-        _setter("subnet_ids", subnet_ids)
-        if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
-        if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
-        if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Sequence[str]:
-        """
-        A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
-        """
-        return pulumi.get(self, "subnet_ids")
-
-    @property
-    @pulumi.getter(name="availabilityZones")
-    def availability_zones(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "availability_zones")
-
-    @property
-    @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[Sequence[str]]:
-        """
-        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
-        """
-        return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[str]:
-        return pulumi.get(self, "vpc_id")
-
-
-@pulumi.output_type
 class GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
@@ -1720,27 +1207,8 @@ class GetDomainAdvancedSecurityOptionResult(dict):
         :param bool enabled: Whether node to node encryption is enabled.
         :param bool internal_user_database_enabled: Whether the internal user database is enabled.
         """
-        GetDomainAdvancedSecurityOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            internal_user_database_enabled=internal_user_database_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             internal_user_database_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if internal_user_database_enabled is None and 'internalUserDatabaseEnabled' in kwargs:
-            internal_user_database_enabled = kwargs['internalUserDatabaseEnabled']
-        if internal_user_database_enabled is None:
-            raise TypeError("Missing 'internal_user_database_enabled' argument")
-
-        _setter("enabled", enabled)
-        _setter("internal_user_database_enabled", internal_user_database_enabled)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
 
     @property
     @pulumi.getter
@@ -1770,36 +1238,9 @@ class GetDomainAutoTuneOptionResult(dict):
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
-        GetDomainAutoTuneOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            desired_state=desired_state,
-            maintenance_schedules=maintenance_schedules,
-            rollback_on_disable=rollback_on_disable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             desired_state: Optional[str] = None,
-             maintenance_schedules: Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult']] = None,
-             rollback_on_disable: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if desired_state is None and 'desiredState' in kwargs:
-            desired_state = kwargs['desiredState']
-        if desired_state is None:
-            raise TypeError("Missing 'desired_state' argument")
-        if maintenance_schedules is None and 'maintenanceSchedules' in kwargs:
-            maintenance_schedules = kwargs['maintenanceSchedules']
-        if maintenance_schedules is None:
-            raise TypeError("Missing 'maintenance_schedules' argument")
-        if rollback_on_disable is None and 'rollbackOnDisable' in kwargs:
-            rollback_on_disable = kwargs['rollbackOnDisable']
-        if rollback_on_disable is None:
-            raise TypeError("Missing 'rollback_on_disable' argument")
-
-        _setter("desired_state", desired_state)
-        _setter("maintenance_schedules", maintenance_schedules)
-        _setter("rollback_on_disable", rollback_on_disable)
+        pulumi.set(__self__, "desired_state", desired_state)
+        pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
+        pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -1837,34 +1278,9 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
         :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
-        GetDomainAutoTuneOptionMaintenanceScheduleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_expression_for_recurrence=cron_expression_for_recurrence,
-            durations=durations,
-            start_at=start_at,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_expression_for_recurrence: Optional[str] = None,
-             durations: Optional[Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult']] = None,
-             start_at: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cron_expression_for_recurrence is None and 'cronExpressionForRecurrence' in kwargs:
-            cron_expression_for_recurrence = kwargs['cronExpressionForRecurrence']
-        if cron_expression_for_recurrence is None:
-            raise TypeError("Missing 'cron_expression_for_recurrence' argument")
-        if durations is None:
-            raise TypeError("Missing 'durations' argument")
-        if start_at is None and 'startAt' in kwargs:
-            start_at = kwargs['startAt']
-        if start_at is None:
-            raise TypeError("Missing 'start_at' argument")
-
-        _setter("cron_expression_for_recurrence", cron_expression_for_recurrence)
-        _setter("durations", durations)
-        _setter("start_at", start_at)
+        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        pulumi.set(__self__, "durations", durations)
+        pulumi.set(__self__, "start_at", start_at)
 
     @property
     @pulumi.getter(name="cronExpressionForRecurrence")
@@ -1900,25 +1316,8 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
         :param str unit: Unit of time.
         :param int value: Duration of an Auto-Tune maintenance window.
         """
-        GetDomainAutoTuneOptionMaintenanceScheduleDurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1964,92 +1363,17 @@ class GetDomainClusterConfigResult(dict):
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
         """
-        GetDomainClusterConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cold_storage_options=cold_storage_options,
-            dedicated_master_count=dedicated_master_count,
-            dedicated_master_enabled=dedicated_master_enabled,
-            dedicated_master_type=dedicated_master_type,
-            instance_count=instance_count,
-            instance_type=instance_type,
-            warm_count=warm_count,
-            warm_enabled=warm_enabled,
-            warm_type=warm_type,
-            zone_awareness_configs=zone_awareness_configs,
-            zone_awareness_enabled=zone_awareness_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cold_storage_options: Optional[Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult']] = None,
-             dedicated_master_count: Optional[int] = None,
-             dedicated_master_enabled: Optional[bool] = None,
-             dedicated_master_type: Optional[str] = None,
-             instance_count: Optional[int] = None,
-             instance_type: Optional[str] = None,
-             warm_count: Optional[int] = None,
-             warm_enabled: Optional[bool] = None,
-             warm_type: Optional[str] = None,
-             zone_awareness_configs: Optional[Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult']] = None,
-             zone_awareness_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cold_storage_options is None and 'coldStorageOptions' in kwargs:
-            cold_storage_options = kwargs['coldStorageOptions']
-        if cold_storage_options is None:
-            raise TypeError("Missing 'cold_storage_options' argument")
-        if dedicated_master_count is None and 'dedicatedMasterCount' in kwargs:
-            dedicated_master_count = kwargs['dedicatedMasterCount']
-        if dedicated_master_count is None:
-            raise TypeError("Missing 'dedicated_master_count' argument")
-        if dedicated_master_enabled is None and 'dedicatedMasterEnabled' in kwargs:
-            dedicated_master_enabled = kwargs['dedicatedMasterEnabled']
-        if dedicated_master_enabled is None:
-            raise TypeError("Missing 'dedicated_master_enabled' argument")
-        if dedicated_master_type is None and 'dedicatedMasterType' in kwargs:
-            dedicated_master_type = kwargs['dedicatedMasterType']
-        if dedicated_master_type is None:
-            raise TypeError("Missing 'dedicated_master_type' argument")
-        if instance_count is None and 'instanceCount' in kwargs:
-            instance_count = kwargs['instanceCount']
-        if instance_count is None:
-            raise TypeError("Missing 'instance_count' argument")
-        if instance_type is None and 'instanceType' in kwargs:
-            instance_type = kwargs['instanceType']
-        if instance_type is None:
-            raise TypeError("Missing 'instance_type' argument")
-        if warm_count is None and 'warmCount' in kwargs:
-            warm_count = kwargs['warmCount']
-        if warm_count is None:
-            raise TypeError("Missing 'warm_count' argument")
-        if warm_enabled is None and 'warmEnabled' in kwargs:
-            warm_enabled = kwargs['warmEnabled']
-        if warm_enabled is None:
-            raise TypeError("Missing 'warm_enabled' argument")
-        if warm_type is None and 'warmType' in kwargs:
-            warm_type = kwargs['warmType']
-        if warm_type is None:
-            raise TypeError("Missing 'warm_type' argument")
-        if zone_awareness_configs is None and 'zoneAwarenessConfigs' in kwargs:
-            zone_awareness_configs = kwargs['zoneAwarenessConfigs']
-        if zone_awareness_configs is None:
-            raise TypeError("Missing 'zone_awareness_configs' argument")
-        if zone_awareness_enabled is None and 'zoneAwarenessEnabled' in kwargs:
-            zone_awareness_enabled = kwargs['zoneAwarenessEnabled']
-        if zone_awareness_enabled is None:
-            raise TypeError("Missing 'zone_awareness_enabled' argument")
-
-        _setter("cold_storage_options", cold_storage_options)
-        _setter("dedicated_master_count", dedicated_master_count)
-        _setter("dedicated_master_enabled", dedicated_master_enabled)
-        _setter("dedicated_master_type", dedicated_master_type)
-        _setter("instance_count", instance_count)
-        _setter("instance_type", instance_type)
-        _setter("warm_count", warm_count)
-        _setter("warm_enabled", warm_enabled)
-        _setter("warm_type", warm_type)
-        _setter("zone_awareness_configs", zone_awareness_configs)
-        _setter("zone_awareness_enabled", zone_awareness_enabled)
+        pulumi.set(__self__, "cold_storage_options", cold_storage_options)
+        pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
+        pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
+        pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "warm_count", warm_count)
+        pulumi.set(__self__, "warm_enabled", warm_enabled)
+        pulumi.set(__self__, "warm_type", warm_type)
+        pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
+        pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
 
     @property
     @pulumi.getter(name="coldStorageOptions")
@@ -2147,20 +1471,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
         """
         :param bool enabled: Whether node to node encryption is enabled.
         """
-        GetDomainClusterConfigColdStorageOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2178,22 +1489,7 @@ class GetDomainClusterConfigZoneAwarenessConfigResult(dict):
         """
         :param int availability_zone_count: Number of availability zones used.
         """
-        GetDomainClusterConfigZoneAwarenessConfigResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone_count=availability_zone_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zone_count is None and 'availabilityZoneCount' in kwargs:
-            availability_zone_count = kwargs['availabilityZoneCount']
-        if availability_zone_count is None:
-            raise TypeError("Missing 'availability_zone_count' argument")
-
-        _setter("availability_zone_count", availability_zone_count)
+        pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")
@@ -2217,41 +1513,10 @@ class GetDomainCognitoOptionResult(dict):
         :param str role_arn: The IAM Role with the AmazonESCognitoAccess policy attached.
         :param str user_pool_id: The Cognito User pool used by the domain.
         """
-        GetDomainCognitoOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            identity_pool_id=identity_pool_id,
-            role_arn=role_arn,
-            user_pool_id=user_pool_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             identity_pool_id: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if identity_pool_id is None and 'identityPoolId' in kwargs:
-            identity_pool_id = kwargs['identityPoolId']
-        if identity_pool_id is None:
-            raise TypeError("Missing 'identity_pool_id' argument")
-        if role_arn is None and 'roleArn' in kwargs:
-            role_arn = kwargs['roleArn']
-        if role_arn is None:
-            raise TypeError("Missing 'role_arn' argument")
-        if user_pool_id is None and 'userPoolId' in kwargs:
-            user_pool_id = kwargs['userPoolId']
-        if user_pool_id is None:
-            raise TypeError("Missing 'user_pool_id' argument")
-
-        _setter("enabled", enabled)
-        _setter("identity_pool_id", identity_pool_id)
-        _setter("role_arn", role_arn)
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter
@@ -2301,46 +1566,11 @@ class GetDomainEbsOptionResult(dict):
         :param int volume_size: The size of EBS volumes attached to data nodes (in GB).
         :param str volume_type: The type of EBS volumes attached to data nodes.
         """
-        GetDomainEbsOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_enabled=ebs_enabled,
-            iops=iops,
-            throughput=throughput,
-            volume_size=volume_size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_enabled: Optional[bool] = None,
-             iops: Optional[int] = None,
-             throughput: Optional[int] = None,
-             volume_size: Optional[int] = None,
-             volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ebs_enabled is None and 'ebsEnabled' in kwargs:
-            ebs_enabled = kwargs['ebsEnabled']
-        if ebs_enabled is None:
-            raise TypeError("Missing 'ebs_enabled' argument")
-        if iops is None:
-            raise TypeError("Missing 'iops' argument")
-        if throughput is None:
-            raise TypeError("Missing 'throughput' argument")
-        if volume_size is None and 'volumeSize' in kwargs:
-            volume_size = kwargs['volumeSize']
-        if volume_size is None:
-            raise TypeError("Missing 'volume_size' argument")
-        if volume_type is None and 'volumeType' in kwargs:
-            volume_type = kwargs['volumeType']
-        if volume_type is None:
-            raise TypeError("Missing 'volume_type' argument")
-
-        _setter("ebs_enabled", ebs_enabled)
-        _setter("iops", iops)
-        _setter("throughput", throughput)
-        _setter("volume_size", volume_size)
-        _setter("volume_type", volume_type)
+        pulumi.set(__self__, "ebs_enabled", ebs_enabled)
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "throughput", throughput)
+        pulumi.set(__self__, "volume_size", volume_size)
+        pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="ebsEnabled")
@@ -2392,27 +1622,8 @@ class GetDomainEncryptionAtRestResult(dict):
         :param bool enabled: Whether node to node encryption is enabled.
         :param str kms_key_id: The KMS key id used to encrypt data at rest.
         """
-        GetDomainEncryptionAtRestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if kms_key_id is None:
-            raise TypeError("Missing 'kms_key_id' argument")
-
-        _setter("enabled", enabled)
-        _setter("kms_key_id", kms_key_id)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
@@ -2442,34 +1653,9 @@ class GetDomainLogPublishingOptionResult(dict):
         :param bool enabled: Whether node to node encryption is enabled.
         :param str log_type: The type of Elasticsearch log being published.
         """
-        GetDomainLogPublishingOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloudwatch_log_group_arn=cloudwatch_log_group_arn,
-            enabled=enabled,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloudwatch_log_group_arn: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             log_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cloudwatch_log_group_arn is None and 'cloudwatchLogGroupArn' in kwargs:
-            cloudwatch_log_group_arn = kwargs['cloudwatchLogGroupArn']
-        if cloudwatch_log_group_arn is None:
-            raise TypeError("Missing 'cloudwatch_log_group_arn' argument")
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if log_type is None and 'logType' in kwargs:
-            log_type = kwargs['logType']
-        if log_type is None:
-            raise TypeError("Missing 'log_type' argument")
-
-        _setter("cloudwatch_log_group_arn", cloudwatch_log_group_arn)
-        _setter("enabled", enabled)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -2503,20 +1689,7 @@ class GetDomainNodeToNodeEncryptionResult(dict):
         """
         :param bool enabled: Whether node to node encryption is enabled.
         """
-        GetDomainNodeToNodeEncryptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2534,22 +1707,7 @@ class GetDomainSnapshotOptionResult(dict):
         """
         :param int automated_snapshot_start_hour: Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
-        GetDomainSnapshotOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automated_snapshot_start_hour=automated_snapshot_start_hour,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automated_snapshot_start_hour: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if automated_snapshot_start_hour is None and 'automatedSnapshotStartHour' in kwargs:
-            automated_snapshot_start_hour = kwargs['automatedSnapshotStartHour']
-        if automated_snapshot_start_hour is None:
-            raise TypeError("Missing 'automated_snapshot_start_hour' argument")
-
-        _setter("automated_snapshot_start_hour", automated_snapshot_start_hour)
+        pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
@@ -2573,43 +1731,10 @@ class GetDomainVpcOptionResult(dict):
         :param Sequence[str] subnet_ids: The subnets used by the domain.
         :param str vpc_id: The VPC used by the domain.
         """
-        GetDomainVpcOptionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zones=availability_zones,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zones: Optional[Sequence[str]] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if availability_zones is None and 'availabilityZones' in kwargs:
-            availability_zones = kwargs['availabilityZones']
-        if availability_zones is None:
-            raise TypeError("Missing 'availability_zones' argument")
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if security_group_ids is None:
-            raise TypeError("Missing 'security_group_ids' argument")
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if vpc_id is None:
-            raise TypeError("Missing 'vpc_id' argument")
-
-        _setter("availability_zones", availability_zones)
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="availabilityZones")

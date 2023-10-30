@@ -8903,7 +8903,7 @@ type InstanceRootBlockDevice struct {
 	VolumeId *string `pulumi:"volumeId"`
 	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	//
 	// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 	VolumeType *string `pulumi:"volumeType"`
@@ -8939,7 +8939,7 @@ type InstanceRootBlockDeviceArgs struct {
 	VolumeId pulumi.StringPtrInput `pulumi:"volumeId"`
 	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	//
 	// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
@@ -9085,7 +9085,7 @@ func (o InstanceRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 //
 // Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 func (o InstanceRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
@@ -9212,7 +9212,7 @@ func (o InstanceRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 //
 // Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 func (o InstanceRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {
@@ -36157,7 +36157,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	VolumeId   *string `pulumi:"volumeId"`
 	// Size of the volume in gibibytes (GiB).
 	VolumeSize *int `pulumi:"volumeSize"`
-	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	//
 	// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 	VolumeType *string `pulumi:"volumeType"`
@@ -36192,7 +36192,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	VolumeId   pulumi.StringPtrInput `pulumi:"volumeId"`
 	// Size of the volume in gibibytes (GiB).
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+	// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 	//
 	// Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
@@ -36337,7 +36337,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutp
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 //
 // Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 func (o SpotInstanceRequestRootBlockDeviceOutput) VolumeType() pulumi.StringPtrOutput {
@@ -36463,7 +36463,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeSize() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+// Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
 //
 // Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) VolumeType() pulumi.StringPtrOutput {

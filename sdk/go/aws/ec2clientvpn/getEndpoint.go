@@ -120,8 +120,6 @@ type LookupEndpointResult struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Whether the self-service portal for the Client VPN endpoint is enabled.
 	SelfServicePortal string `pulumi:"selfServicePortal"`
-	// The URL of the self-service portal.
-	SelfServicePortalUrl string `pulumi:"selfServicePortalUrl"`
 	// The ARN of the server certificate.
 	ServerCertificateArn string `pulumi:"serverCertificateArn"`
 	// The maximum VPN session duration time in hours.
@@ -251,11 +249,6 @@ func (o LookupEndpointResultOutput) SecurityGroupIds() pulumi.StringArrayOutput 
 // Whether the self-service portal for the Client VPN endpoint is enabled.
 func (o LookupEndpointResultOutput) SelfServicePortal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.SelfServicePortal }).(pulumi.StringOutput)
-}
-
-// The URL of the self-service portal.
-func (o LookupEndpointResultOutput) SelfServicePortalUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupEndpointResult) string { return v.SelfServicePortalUrl }).(pulumi.StringOutput)
 }
 
 // The ARN of the server certificate.

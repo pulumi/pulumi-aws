@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,33 +25,10 @@ class ContainerServiceDeploymentVersionArgs:
         :param pulumi.Input[str] service_name: The name for the container service.
         :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
-        ContainerServiceDeploymentVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            containers=containers,
-            service_name=service_name,
-            public_endpoint=public_endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
-             service_name: Optional[pulumi.Input[str]] = None,
-             public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if containers is None:
-            raise TypeError("Missing 'containers' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-        if public_endpoint is None and 'publicEndpoint' in kwargs:
-            public_endpoint = kwargs['publicEndpoint']
-
-        _setter("containers", containers)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "service_name", service_name)
         if public_endpoint is not None:
-            _setter("public_endpoint", public_endpoint)
+            pulumi.set(__self__, "public_endpoint", public_endpoint)
 
     @property
     @pulumi.getter
@@ -108,45 +85,18 @@ class _ContainerServiceDeploymentVersionState:
         :param pulumi.Input[str] state: The current state of the container service.
         :param pulumi.Input[int] version: The version number of the deployment.
         """
-        _ContainerServiceDeploymentVersionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            containers=containers,
-            created_at=created_at,
-            public_endpoint=public_endpoint,
-            service_name=service_name,
-            state=state,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
-             created_at: Optional[pulumi.Input[str]] = None,
-             public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
-             service_name: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if created_at is None and 'createdAt' in kwargs:
-            created_at = kwargs['createdAt']
-        if public_endpoint is None and 'publicEndpoint' in kwargs:
-            public_endpoint = kwargs['publicEndpoint']
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-
         if containers is not None:
-            _setter("containers", containers)
+            pulumi.set(__self__, "containers", containers)
         if created_at is not None:
-            _setter("created_at", created_at)
+            pulumi.set(__self__, "created_at", created_at)
         if public_endpoint is not None:
-            _setter("public_endpoint", public_endpoint)
+            pulumi.set(__self__, "public_endpoint", public_endpoint)
         if service_name is not None:
-            _setter("service_name", service_name)
+            pulumi.set(__self__, "service_name", service_name)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -350,10 +300,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ContainerServiceDeploymentVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -374,7 +320,6 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
-            public_endpoint = _utilities.configure(public_endpoint, ContainerServiceDeploymentVersionPublicEndpointArgs, True)
             __props__.__dict__["public_endpoint"] = public_endpoint
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

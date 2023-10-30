@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceShareArgs', 'ResourceShare']
@@ -25,35 +25,14 @@ class ResourceShareArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permission_arns: Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        ResourceShareArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_external_principals=allow_external_principals,
-            name=name,
-            permission_arns=permission_arns,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_external_principals: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_external_principals is None and 'allowExternalPrincipals' in kwargs:
-            allow_external_principals = kwargs['allowExternalPrincipals']
-        if permission_arns is None and 'permissionArns' in kwargs:
-            permission_arns = kwargs['permissionArns']
-
         if allow_external_principals is not None:
-            _setter("allow_external_principals", allow_external_principals)
+            pulumi.set(__self__, "allow_external_principals", allow_external_principals)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permission_arns is not None:
-            _setter("permission_arns", permission_arns)
+            pulumi.set(__self__, "permission_arns", permission_arns)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="allowExternalPrincipals")
@@ -122,48 +101,21 @@ class _ResourceShareState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        _ResourceShareState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_external_principals=allow_external_principals,
-            arn=arn,
-            name=name,
-            permission_arns=permission_arns,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_external_principals: Optional[pulumi.Input[bool]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permission_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_external_principals is None and 'allowExternalPrincipals' in kwargs:
-            allow_external_principals = kwargs['allowExternalPrincipals']
-        if permission_arns is None and 'permissionArns' in kwargs:
-            permission_arns = kwargs['permissionArns']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if allow_external_principals is not None:
-            _setter("allow_external_principals", allow_external_principals)
+            pulumi.set(__self__, "allow_external_principals", allow_external_principals)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permission_arns is not None:
-            _setter("permission_arns", permission_arns)
+            pulumi.set(__self__, "permission_arns", permission_arns)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="allowExternalPrincipals")
@@ -322,10 +274,6 @@ class ResourceShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ThingGroupMembershipArgs', 'ThingGroupMembership']
@@ -23,35 +23,10 @@ class ThingGroupMembershipArgs:
         :param pulumi.Input[str] thing_name: The name of the thing to add to a group.
         :param pulumi.Input[bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         """
-        ThingGroupMembershipArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            thing_group_name=thing_group_name,
-            thing_name=thing_name,
-            override_dynamic_group=override_dynamic_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             thing_group_name: Optional[pulumi.Input[str]] = None,
-             thing_name: Optional[pulumi.Input[str]] = None,
-             override_dynamic_group: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if thing_group_name is None and 'thingGroupName' in kwargs:
-            thing_group_name = kwargs['thingGroupName']
-        if thing_group_name is None:
-            raise TypeError("Missing 'thing_group_name' argument")
-        if thing_name is None and 'thingName' in kwargs:
-            thing_name = kwargs['thingName']
-        if thing_name is None:
-            raise TypeError("Missing 'thing_name' argument")
-        if override_dynamic_group is None and 'overrideDynamicGroup' in kwargs:
-            override_dynamic_group = kwargs['overrideDynamicGroup']
-
-        _setter("thing_group_name", thing_group_name)
-        _setter("thing_name", thing_name)
+        pulumi.set(__self__, "thing_group_name", thing_group_name)
+        pulumi.set(__self__, "thing_name", thing_name)
         if override_dynamic_group is not None:
-            _setter("override_dynamic_group", override_dynamic_group)
+            pulumi.set(__self__, "override_dynamic_group", override_dynamic_group)
 
     @property
     @pulumi.getter(name="thingGroupName")
@@ -102,33 +77,12 @@ class _ThingGroupMembershipState:
         :param pulumi.Input[str] thing_group_name: The name of the group to which you are adding a thing.
         :param pulumi.Input[str] thing_name: The name of the thing to add to a group.
         """
-        _ThingGroupMembershipState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            override_dynamic_group=override_dynamic_group,
-            thing_group_name=thing_group_name,
-            thing_name=thing_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             override_dynamic_group: Optional[pulumi.Input[bool]] = None,
-             thing_group_name: Optional[pulumi.Input[str]] = None,
-             thing_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if override_dynamic_group is None and 'overrideDynamicGroup' in kwargs:
-            override_dynamic_group = kwargs['overrideDynamicGroup']
-        if thing_group_name is None and 'thingGroupName' in kwargs:
-            thing_group_name = kwargs['thingGroupName']
-        if thing_name is None and 'thingName' in kwargs:
-            thing_name = kwargs['thingName']
-
         if override_dynamic_group is not None:
-            _setter("override_dynamic_group", override_dynamic_group)
+            pulumi.set(__self__, "override_dynamic_group", override_dynamic_group)
         if thing_group_name is not None:
-            _setter("thing_group_name", thing_group_name)
+            pulumi.set(__self__, "thing_group_name", thing_group_name)
         if thing_name is not None:
-            _setter("thing_name", thing_name)
+            pulumi.set(__self__, "thing_name", thing_name)
 
     @property
     @pulumi.getter(name="overrideDynamicGroup")
@@ -244,10 +198,6 @@ class ThingGroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThingGroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

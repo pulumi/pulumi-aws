@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -453,37 +453,14 @@ class GatewayRouteSpec(dict):
         :param 'GatewayRouteSpecHttpRouteArgs' http_route: Specification of an HTTP gateway route.
         :param int priority: Priority for the gateway route, between `0` and `1000`.
         """
-        GatewayRouteSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_route=grpc_route,
-            http2_route=http2_route,
-            http_route=http_route,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_route: Optional['outputs.GatewayRouteSpecGrpcRoute'] = None,
-             http2_route: Optional['outputs.GatewayRouteSpecHttp2Route'] = None,
-             http_route: Optional['outputs.GatewayRouteSpecHttpRoute'] = None,
-             priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpc_route is None and 'grpcRoute' in kwargs:
-            grpc_route = kwargs['grpcRoute']
-        if http2_route is None and 'http2Route' in kwargs:
-            http2_route = kwargs['http2Route']
-        if http_route is None and 'httpRoute' in kwargs:
-            http_route = kwargs['httpRoute']
-
         if grpc_route is not None:
-            _setter("grpc_route", grpc_route)
+            pulumi.set(__self__, "grpc_route", grpc_route)
         if http2_route is not None:
-            _setter("http2_route", http2_route)
+            pulumi.set(__self__, "http2_route", http2_route)
         if http_route is not None:
-            _setter("http_route", http_route)
+            pulumi.set(__self__, "http_route", http_route)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoute")
@@ -527,25 +504,8 @@ class GatewayRouteSpecGrpcRoute(dict):
         :param 'GatewayRouteSpecGrpcRouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecGrpcRouteMatchArgs' match: Criteria for determining a request match.
         """
-        GatewayRouteSpecGrpcRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.GatewayRouteSpecGrpcRouteAction'] = None,
-             match: Optional['outputs.GatewayRouteSpecGrpcRouteMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("action", action)
-        _setter("match", match)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -571,20 +531,7 @@ class GatewayRouteSpecGrpcRouteAction(dict):
         """
         :param 'GatewayRouteSpecGrpcRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         """
-        GatewayRouteSpecGrpcRouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target: Optional['outputs.GatewayRouteSpecGrpcRouteActionTarget'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-
-        _setter("target", target)
+        pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter
@@ -621,26 +568,9 @@ class GatewayRouteSpecGrpcRouteActionTarget(dict):
         :param 'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        GatewayRouteSpecGrpcRouteActionTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service=virtual_service,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service: Optional['outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService'] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service is None and 'virtualService' in kwargs:
-            virtual_service = kwargs['virtualService']
-        if virtual_service is None:
-            raise TypeError("Missing 'virtual_service' argument")
-
-        _setter("virtual_service", virtual_service)
+        pulumi.set(__self__, "virtual_service", virtual_service)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -683,22 +613,7 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        GatewayRouteSpecGrpcRouteActionTargetVirtualService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -735,26 +650,9 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
         :param str service_name: Fully qualified domain name for the service to match from the request.
         :param int port: The port number to match from the request.
         """
-        GatewayRouteSpecGrpcRouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_name=service_name,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_name: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "service_name", service_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -782,25 +680,8 @@ class GatewayRouteSpecHttp2Route(dict):
         :param 'GatewayRouteSpecHttp2RouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecHttp2RouteMatchArgs' match: Criteria for determining a request match.
         """
-        GatewayRouteSpecHttp2Route._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.GatewayRouteSpecHttp2RouteAction'] = None,
-             match: Optional['outputs.GatewayRouteSpecHttp2RouteMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("action", action)
-        _setter("match", match)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -828,24 +709,9 @@ class GatewayRouteSpecHttp2RouteAction(dict):
         :param 'GatewayRouteSpecHttp2RouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         :param 'GatewayRouteSpecHttp2RouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
         """
-        GatewayRouteSpecHttp2RouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target=target,
-            rewrite=rewrite,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target: Optional['outputs.GatewayRouteSpecHttp2RouteActionTarget'] = None,
-             rewrite: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewrite'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-
-        _setter("target", target)
+        pulumi.set(__self__, "target", target)
         if rewrite is not None:
-            _setter("rewrite", rewrite)
+            pulumi.set(__self__, "rewrite", rewrite)
 
     @property
     @pulumi.getter
@@ -875,27 +741,12 @@ class GatewayRouteSpecHttp2RouteActionRewrite(dict):
         :param 'GatewayRouteSpecHttp2RouteActionRewritePathArgs' path: Exact path to rewrite.
         :param 'GatewayRouteSpecHttp2RouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
         """
-        GatewayRouteSpecHttp2RouteActionRewrite._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            path=path,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname'] = None,
-             path: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePath'] = None,
-             prefix: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -946,22 +797,7 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostname(dict):
         """
         :param str default_target_hostname: Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         """
-        GatewayRouteSpecHttp2RouteActionRewriteHostname._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_target_hostname=default_target_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_target_hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_target_hostname is None and 'defaultTargetHostname' in kwargs:
-            default_target_hostname = kwargs['defaultTargetHostname']
-        if default_target_hostname is None:
-            raise TypeError("Missing 'default_target_hostname' argument")
-
-        _setter("default_target_hostname", default_target_hostname)
+        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -979,20 +815,7 @@ class GatewayRouteSpecHttp2RouteActionRewritePath(dict):
         """
         :param str exact: The exact path to match on.
         """
-        GatewayRouteSpecHttp2RouteActionRewritePath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -1029,25 +852,10 @@ class GatewayRouteSpecHttp2RouteActionRewritePrefix(dict):
         :param str default_prefix: Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         :param str value: Value used to replace the incoming route prefix when rewritten.
         """
-        GatewayRouteSpecHttp2RouteActionRewritePrefix._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_prefix=default_prefix,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_prefix: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_prefix is None and 'defaultPrefix' in kwargs:
-            default_prefix = kwargs['defaultPrefix']
-
         if default_prefix is not None:
-            _setter("default_prefix", default_prefix)
+            pulumi.set(__self__, "default_prefix", default_prefix)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -1092,26 +900,9 @@ class GatewayRouteSpecHttp2RouteActionTarget(dict):
         :param 'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        GatewayRouteSpecHttp2RouteActionTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service=virtual_service,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service: Optional['outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService'] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service is None and 'virtualService' in kwargs:
-            virtual_service = kwargs['virtualService']
-        if virtual_service is None:
-            raise TypeError("Missing 'virtual_service' argument")
-
-        _setter("virtual_service", virtual_service)
+        pulumi.set(__self__, "virtual_service", virtual_service)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -1154,22 +945,7 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        GatewayRouteSpecHttp2RouteActionTargetVirtualService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -1214,41 +990,18 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
         :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         """
-        GatewayRouteSpecHttp2RouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            hostname=hostname,
-            path=path,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchHeader']] = None,
-             hostname: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHostname'] = None,
-             path: Optional['outputs.GatewayRouteSpecHttp2RouteMatchPath'] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
-            _setter("query_parameters", query_parameters)
+            pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -1310,28 +1063,11 @@ class GatewayRouteSpecHttp2RouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        GatewayRouteSpecHttp2RouteMatchHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            invert=invert,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             invert: Optional[bool] = None,
-             match: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if invert is not None:
-            _setter("invert", invert)
+            pulumi.set(__self__, "invert", invert)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -1373,35 +1109,16 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
-        GatewayRouteSpecHttp2RouteMatchHeaderMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            range=range,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             range: Optional['outputs.GatewayRouteSpecHttp2RouteMatchHeaderMatchRange'] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -1453,25 +1170,8 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        GatewayRouteSpecHttp2RouteMatchHeaderMatchRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -1499,23 +1199,10 @@ class GatewayRouteSpecHttp2RouteMatchHostname(dict):
         :param str exact: Exact host name to match on.
         :param str suffix: Specified ending characters of the host name to match on.
         """
-        GatewayRouteSpecHttp2RouteMatchHostname._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -1543,23 +1230,10 @@ class GatewayRouteSpecHttp2RouteMatchPath(dict):
         :param str exact: The exact path to match on.
         :param str regex: The regex used to match the path.
         """
-        GatewayRouteSpecHttp2RouteMatchPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -1587,24 +1261,9 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameter(dict):
         :param str name: Name for the query parameter that will be matched on.
         :param 'GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
         """
-        GatewayRouteSpecHttp2RouteMatchQueryParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             match: Optional['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -1630,19 +1289,8 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch(dict):
         """
         :param str exact: Header value sent by the client must match the specified value exactly.
         """
-        GatewayRouteSpecHttp2RouteMatchQueryParameterMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -1662,25 +1310,8 @@ class GatewayRouteSpecHttpRoute(dict):
         :param 'GatewayRouteSpecHttpRouteActionArgs' action: Action to take if a match is determined.
         :param 'GatewayRouteSpecHttpRouteMatchArgs' match: Criteria for determining a request match.
         """
-        GatewayRouteSpecHttpRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.GatewayRouteSpecHttpRouteAction'] = None,
-             match: Optional['outputs.GatewayRouteSpecHttpRouteMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("action", action)
-        _setter("match", match)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -1708,24 +1339,9 @@ class GatewayRouteSpecHttpRouteAction(dict):
         :param 'GatewayRouteSpecHttpRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
         :param 'GatewayRouteSpecHttpRouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
         """
-        GatewayRouteSpecHttpRouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target=target,
-            rewrite=rewrite,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target: Optional['outputs.GatewayRouteSpecHttpRouteActionTarget'] = None,
-             rewrite: Optional['outputs.GatewayRouteSpecHttpRouteActionRewrite'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if target is None:
-            raise TypeError("Missing 'target' argument")
-
-        _setter("target", target)
+        pulumi.set(__self__, "target", target)
         if rewrite is not None:
-            _setter("rewrite", rewrite)
+            pulumi.set(__self__, "rewrite", rewrite)
 
     @property
     @pulumi.getter
@@ -1755,27 +1371,12 @@ class GatewayRouteSpecHttpRouteActionRewrite(dict):
         :param 'GatewayRouteSpecHttpRouteActionRewritePathArgs' path: Exact path to rewrite.
         :param 'GatewayRouteSpecHttpRouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
         """
-        GatewayRouteSpecHttpRouteActionRewrite._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            path=path,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: Optional['outputs.GatewayRouteSpecHttpRouteActionRewriteHostname'] = None,
-             path: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePath'] = None,
-             prefix: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePrefix'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -1826,22 +1427,7 @@ class GatewayRouteSpecHttpRouteActionRewriteHostname(dict):
         """
         :param str default_target_hostname: Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         """
-        GatewayRouteSpecHttpRouteActionRewriteHostname._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_target_hostname=default_target_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_target_hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_target_hostname is None and 'defaultTargetHostname' in kwargs:
-            default_target_hostname = kwargs['defaultTargetHostname']
-        if default_target_hostname is None:
-            raise TypeError("Missing 'default_target_hostname' argument")
-
-        _setter("default_target_hostname", default_target_hostname)
+        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -1859,20 +1445,7 @@ class GatewayRouteSpecHttpRouteActionRewritePath(dict):
         """
         :param str exact: The exact path to match on.
         """
-        GatewayRouteSpecHttpRouteActionRewritePath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -1909,25 +1482,10 @@ class GatewayRouteSpecHttpRouteActionRewritePrefix(dict):
         :param str default_prefix: Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
         :param str value: Value used to replace the incoming route prefix when rewritten.
         """
-        GatewayRouteSpecHttpRouteActionRewritePrefix._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_prefix=default_prefix,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_prefix: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_prefix is None and 'defaultPrefix' in kwargs:
-            default_prefix = kwargs['defaultPrefix']
-
         if default_prefix is not None:
-            _setter("default_prefix", default_prefix)
+            pulumi.set(__self__, "default_prefix", default_prefix)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -1972,26 +1530,9 @@ class GatewayRouteSpecHttpRouteActionTarget(dict):
         :param 'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
-        GatewayRouteSpecHttpRouteActionTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service=virtual_service,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service: Optional['outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService'] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service is None and 'virtualService' in kwargs:
-            virtual_service = kwargs['virtualService']
-        if virtual_service is None:
-            raise TypeError("Missing 'virtual_service' argument")
-
-        _setter("virtual_service", virtual_service)
+        pulumi.set(__self__, "virtual_service", virtual_service)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -2034,22 +1575,7 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
         """
         :param str virtual_service_name: Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
         """
-        GatewayRouteSpecHttpRouteActionTargetVirtualService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -2094,41 +1620,18 @@ class GatewayRouteSpecHttpRouteMatch(dict):
         :param str prefix: Header value sent by the client must begin with the specified characters.
         :param Sequence['GatewayRouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         """
-        GatewayRouteSpecHttpRouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            hostname=hostname,
-            path=path,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchHeader']] = None,
-             hostname: Optional['outputs.GatewayRouteSpecHttpRouteMatchHostname'] = None,
-             path: Optional['outputs.GatewayRouteSpecHttpRouteMatchPath'] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchQueryParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
-            _setter("query_parameters", query_parameters)
+            pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -2190,28 +1693,11 @@ class GatewayRouteSpecHttpRouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        GatewayRouteSpecHttpRouteMatchHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            invert=invert,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             invert: Optional[bool] = None,
-             match: Optional['outputs.GatewayRouteSpecHttpRouteMatchHeaderMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if invert is not None:
-            _setter("invert", invert)
+            pulumi.set(__self__, "invert", invert)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -2253,35 +1739,16 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
-        GatewayRouteSpecHttpRouteMatchHeaderMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            range=range,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             range: Optional['outputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRange'] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -2333,25 +1800,8 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        GatewayRouteSpecHttpRouteMatchHeaderMatchRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -2379,23 +1829,10 @@ class GatewayRouteSpecHttpRouteMatchHostname(dict):
         :param str exact: Exact host name to match on.
         :param str suffix: Specified ending characters of the host name to match on.
         """
-        GatewayRouteSpecHttpRouteMatchHostname._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -2423,23 +1860,10 @@ class GatewayRouteSpecHttpRouteMatchPath(dict):
         :param str exact: The exact path to match on.
         :param str regex: The regex used to match the path.
         """
-        GatewayRouteSpecHttpRouteMatchPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -2467,24 +1891,9 @@ class GatewayRouteSpecHttpRouteMatchQueryParameter(dict):
         :param str name: Name for the query parameter that will be matched on.
         :param 'GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
         """
-        GatewayRouteSpecHttpRouteMatchQueryParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             match: Optional['outputs.GatewayRouteSpecHttpRouteMatchQueryParameterMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -2510,19 +1919,8 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatch(dict):
         """
         :param str exact: Header value sent by the client must match the specified value exactly.
         """
-        GatewayRouteSpecHttpRouteMatchQueryParameterMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -2557,21 +1955,8 @@ class MeshSpec(dict):
         """
         :param 'MeshSpecEgressFilterArgs' egress_filter: Egress filter rules for the service mesh.
         """
-        MeshSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            egress_filter=egress_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if egress_filter is None and 'egressFilter' in kwargs:
-            egress_filter = kwargs['egressFilter']
-
         if egress_filter is not None:
-            _setter("egress_filter", egress_filter)
+            pulumi.set(__self__, "egress_filter", egress_filter)
 
     @property
     @pulumi.getter(name="egressFilter")
@@ -2590,19 +1975,8 @@ class MeshSpecEgressFilter(dict):
         :param str type: Egress filter type. By default, the type is `DROP_ALL`.
                Valid values are `ALLOW_ALL` and `DROP_ALL`.
         """
-        MeshSpecEgressFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -2653,43 +2027,16 @@ class RouteSpec(dict):
                Routes are matched based on the specified value, where `0` is the highest priority.
         :param 'RouteSpecTcpRouteArgs' tcp_route: TCP routing information for the route.
         """
-        RouteSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_route=grpc_route,
-            http2_route=http2_route,
-            http_route=http_route,
-            priority=priority,
-            tcp_route=tcp_route,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_route: Optional['outputs.RouteSpecGrpcRoute'] = None,
-             http2_route: Optional['outputs.RouteSpecHttp2Route'] = None,
-             http_route: Optional['outputs.RouteSpecHttpRoute'] = None,
-             priority: Optional[int] = None,
-             tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpc_route is None and 'grpcRoute' in kwargs:
-            grpc_route = kwargs['grpcRoute']
-        if http2_route is None and 'http2Route' in kwargs:
-            http2_route = kwargs['http2Route']
-        if http_route is None and 'httpRoute' in kwargs:
-            http_route = kwargs['httpRoute']
-        if tcp_route is None and 'tcpRoute' in kwargs:
-            tcp_route = kwargs['tcpRoute']
-
         if grpc_route is not None:
-            _setter("grpc_route", grpc_route)
+            pulumi.set(__self__, "grpc_route", grpc_route)
         if http2_route is not None:
-            _setter("http2_route", http2_route)
+            pulumi.set(__self__, "http2_route", http2_route)
         if http_route is not None:
-            _setter("http_route", http_route)
+            pulumi.set(__self__, "http_route", http_route)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if tcp_route is not None:
-            _setter("tcp_route", tcp_route)
+            pulumi.set(__self__, "tcp_route", tcp_route)
 
     @property
     @pulumi.getter(name="grpcRoute")
@@ -2763,34 +2110,13 @@ class RouteSpecGrpcRoute(dict):
         :param 'RouteSpecGrpcRouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecGrpcRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        RouteSpecGrpcRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-            retry_policy=retry_policy,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.RouteSpecGrpcRouteAction'] = None,
-             match: Optional['outputs.RouteSpecGrpcRouteMatch'] = None,
-             retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None,
-             timeout: Optional['outputs.RouteSpecGrpcRouteTimeout'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if retry_policy is None and 'retryPolicy' in kwargs:
-            retry_policy = kwargs['retryPolicy']
-
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
         if retry_policy is not None:
-            _setter("retry_policy", retry_policy)
+            pulumi.set(__self__, "retry_policy", retry_policy)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -2850,22 +2176,7 @@ class RouteSpecGrpcRouteAction(dict):
         :param Sequence['RouteSpecGrpcRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        RouteSpecGrpcRouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -2905,31 +2216,10 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        RouteSpecGrpcRouteActionWeightedTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node=virtual_node,
-            weight=weight,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -2990,39 +2280,16 @@ class RouteSpecGrpcRouteMatch(dict):
         :param str prefix: Header value sent by the client must begin with the specified characters.
         :param str service_name: Fully qualified domain name for the service to match from the request.
         """
-        RouteSpecGrpcRouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metadatas=metadatas,
-            method_name=method_name,
-            port=port,
-            prefix=prefix,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metadatas: Optional[Sequence['outputs.RouteSpecGrpcRouteMatchMetadata']] = None,
-             method_name: Optional[str] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if method_name is None and 'methodName' in kwargs:
-            method_name = kwargs['methodName']
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-
         if metadatas is not None:
-            _setter("metadatas", metadatas)
+            pulumi.set(__self__, "metadatas", metadatas)
         if method_name is not None:
-            _setter("method_name", method_name)
+            pulumi.set(__self__, "method_name", method_name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if service_name is not None:
-            _setter("service_name", service_name)
+            pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
@@ -3076,28 +2343,11 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
         :param 'RouteSpecGrpcRouteMatchMetadataMatchArgs' match: Data to match from the request.
         """
-        RouteSpecGrpcRouteMatchMetadata._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            invert=invert,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             invert: Optional[bool] = None,
-             match: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if invert is not None:
-            _setter("invert", invert)
+            pulumi.set(__self__, "invert", invert)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -3139,35 +2389,16 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
-        RouteSpecGrpcRouteMatchMetadataMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            range=range,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             range: Optional['outputs.RouteSpecGrpcRouteMatchMetadataMatchRange'] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -3219,25 +2450,8 @@ class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        RouteSpecGrpcRouteMatchMetadataMatchRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -3298,47 +2512,14 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
         """
-        RouteSpecGrpcRouteRetryPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_retries=max_retries,
-            per_retry_timeout=per_retry_timeout,
-            grpc_retry_events=grpc_retry_events,
-            http_retry_events=http_retry_events,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_retries: Optional[int] = None,
-             per_retry_timeout: Optional['outputs.RouteSpecGrpcRouteRetryPolicyPerRetryTimeout'] = None,
-             grpc_retry_events: Optional[Sequence[str]] = None,
-             http_retry_events: Optional[Sequence[str]] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeout is None and 'perRetryTimeout' in kwargs:
-            per_retry_timeout = kwargs['perRetryTimeout']
-        if per_retry_timeout is None:
-            raise TypeError("Missing 'per_retry_timeout' argument")
-        if grpc_retry_events is None and 'grpcRetryEvents' in kwargs:
-            grpc_retry_events = kwargs['grpcRetryEvents']
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeout", per_retry_timeout)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
         if grpc_retry_events is not None:
-            _setter("grpc_retry_events", grpc_retry_events)
+            pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
         if http_retry_events is not None:
-            _setter("http_retry_events", http_retry_events)
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            _setter("tcp_retry_events", tcp_retry_events)
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -3392,25 +2573,8 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        RouteSpecGrpcRouteRetryPolicyPerRetryTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3455,25 +2619,10 @@ class RouteSpecGrpcRouteTimeout(dict):
         :param 'RouteSpecGrpcRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecGrpcRouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
-        RouteSpecGrpcRouteTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.RouteSpecGrpcRouteTimeoutIdle'] = None,
-             per_request: Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -3501,25 +2650,8 @@ class RouteSpecGrpcRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecGrpcRouteTimeoutIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3547,25 +2679,8 @@ class RouteSpecGrpcRouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecGrpcRouteTimeoutPerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3614,35 +2729,12 @@ class RouteSpecHttp2Route(dict):
         :param 'RouteSpecHttp2RouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecHttp2RouteTimeoutArgs' timeout: Types of timeouts.
         """
-        RouteSpecHttp2Route._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-            retry_policy=retry_policy,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.RouteSpecHttp2RouteAction'] = None,
-             match: Optional['outputs.RouteSpecHttp2RouteMatch'] = None,
-             retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None,
-             timeout: Optional['outputs.RouteSpecHttp2RouteTimeout'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-        if retry_policy is None and 'retryPolicy' in kwargs:
-            retry_policy = kwargs['retryPolicy']
-
-        _setter("action", action)
-        _setter("match", match)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
         if retry_policy is not None:
-            _setter("retry_policy", retry_policy)
+            pulumi.set(__self__, "retry_policy", retry_policy)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -3702,22 +2794,7 @@ class RouteSpecHttp2RouteAction(dict):
         :param Sequence['RouteSpecHttp2RouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        RouteSpecHttp2RouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -3757,31 +2834,10 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        RouteSpecHttp2RouteActionWeightedTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node=virtual_node,
-            weight=weight,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -3844,45 +2900,20 @@ class RouteSpecHttp2RouteMatch(dict):
         :param Sequence['RouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
-        RouteSpecHttp2RouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            method=method,
-            path=path,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-            scheme=scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchHeader']] = None,
-             method: Optional[str] = None,
-             path: Optional['outputs.RouteSpecHttp2RouteMatchPath'] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchQueryParameter']] = None,
-             scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
-            _setter("query_parameters", query_parameters)
+            pulumi.set(__self__, "query_parameters", query_parameters)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -3952,28 +2983,11 @@ class RouteSpecHttp2RouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'RouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        RouteSpecHttp2RouteMatchHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            invert=invert,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             invert: Optional[bool] = None,
-             match: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if invert is not None:
-            _setter("invert", invert)
+            pulumi.set(__self__, "invert", invert)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -4015,35 +3029,16 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
-        RouteSpecHttp2RouteMatchHeaderMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            range=range,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             range: Optional['outputs.RouteSpecHttp2RouteMatchHeaderMatchRange'] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -4095,25 +3090,8 @@ class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        RouteSpecHttp2RouteMatchHeaderMatchRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -4141,23 +3119,10 @@ class RouteSpecHttp2RouteMatchPath(dict):
         :param str exact: Header value sent by the client must match the specified value exactly.
         :param str regex: Header value sent by the client must include the specified characters.
         """
-        RouteSpecHttp2RouteMatchPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -4185,24 +3150,9 @@ class RouteSpecHttp2RouteMatchQueryParameter(dict):
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param 'RouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
         """
-        RouteSpecHttp2RouteMatchQueryParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             match: Optional['outputs.RouteSpecHttp2RouteMatchQueryParameterMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -4228,19 +3178,8 @@ class RouteSpecHttp2RouteMatchQueryParameterMatch(dict):
         """
         :param str exact: The exact path to match on.
         """
-        RouteSpecHttp2RouteMatchQueryParameterMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -4288,41 +3227,12 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
         """
-        RouteSpecHttp2RouteRetryPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_retries=max_retries,
-            per_retry_timeout=per_retry_timeout,
-            http_retry_events=http_retry_events,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_retries: Optional[int] = None,
-             per_retry_timeout: Optional['outputs.RouteSpecHttp2RouteRetryPolicyPerRetryTimeout'] = None,
-             http_retry_events: Optional[Sequence[str]] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeout is None and 'perRetryTimeout' in kwargs:
-            per_retry_timeout = kwargs['perRetryTimeout']
-        if per_retry_timeout is None:
-            raise TypeError("Missing 'per_retry_timeout' argument")
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeout", per_retry_timeout)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
         if http_retry_events is not None:
-            _setter("http_retry_events", http_retry_events)
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            _setter("tcp_retry_events", tcp_retry_events)
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -4367,25 +3277,8 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        RouteSpecHttp2RouteRetryPolicyPerRetryTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4430,25 +3323,10 @@ class RouteSpecHttp2RouteTimeout(dict):
         :param 'RouteSpecHttp2RouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecHttp2RouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
-        RouteSpecHttp2RouteTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.RouteSpecHttp2RouteTimeoutIdle'] = None,
-             per_request: Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -4476,25 +3354,8 @@ class RouteSpecHttp2RouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecHttp2RouteTimeoutIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4522,25 +3383,8 @@ class RouteSpecHttp2RouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecHttp2RouteTimeoutPerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4589,35 +3433,12 @@ class RouteSpecHttpRoute(dict):
         :param 'RouteSpecHttpRouteRetryPolicyArgs' retry_policy: Retry policy.
         :param 'RouteSpecHttpRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        RouteSpecHttpRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-            retry_policy=retry_policy,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.RouteSpecHttpRouteAction'] = None,
-             match: Optional['outputs.RouteSpecHttpRouteMatch'] = None,
-             retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None,
-             timeout: Optional['outputs.RouteSpecHttpRouteTimeout'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-        if retry_policy is None and 'retryPolicy' in kwargs:
-            retry_policy = kwargs['retryPolicy']
-
-        _setter("action", action)
-        _setter("match", match)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "match", match)
         if retry_policy is not None:
-            _setter("retry_policy", retry_policy)
+            pulumi.set(__self__, "retry_policy", retry_policy)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -4677,22 +3498,7 @@ class RouteSpecHttpRouteAction(dict):
         :param Sequence['RouteSpecHttpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        RouteSpecHttpRouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -4732,31 +3538,10 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        RouteSpecHttpRouteActionWeightedTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node=virtual_node,
-            weight=weight,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -4819,45 +3604,20 @@ class RouteSpecHttpRouteMatch(dict):
         :param Sequence['RouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
-        RouteSpecHttpRouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            method=method,
-            path=path,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-            scheme=scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.RouteSpecHttpRouteMatchHeader']] = None,
-             method: Optional[str] = None,
-             path: Optional['outputs.RouteSpecHttpRouteMatchPath'] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.RouteSpecHttpRouteMatchQueryParameter']] = None,
-             scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if query_parameters is not None:
-            _setter("query_parameters", query_parameters)
+            pulumi.set(__self__, "query_parameters", query_parameters)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -4927,28 +3687,11 @@ class RouteSpecHttpRouteMatchHeader(dict):
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
         :param 'RouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
-        RouteSpecHttpRouteMatchHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            invert=invert,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             invert: Optional[bool] = None,
-             match: Optional['outputs.RouteSpecHttpRouteMatchHeaderMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if invert is not None:
-            _setter("invert", invert)
+            pulumi.set(__self__, "invert", invert)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -4990,35 +3733,16 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
-        RouteSpecHttpRouteMatchHeaderMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            range=range,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             range: Optional['outputs.RouteSpecHttpRouteMatchHeaderMatchRange'] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
         if suffix is not None:
-            _setter("suffix", suffix)
+            pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -5070,25 +3794,8 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
         :param int end: End of the range.
         :param int start: Start of the range.
         """
-        RouteSpecHttpRouteMatchHeaderMatchRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -5116,23 +3823,10 @@ class RouteSpecHttpRouteMatchPath(dict):
         :param str exact: Header value sent by the client must match the specified value exactly.
         :param str regex: Header value sent by the client must include the specified characters.
         """
-        RouteSpecHttpRouteMatchPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if regex is not None:
-            _setter("regex", regex)
+            pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -5160,24 +3854,9 @@ class RouteSpecHttpRouteMatchQueryParameter(dict):
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param 'RouteSpecHttpRouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
         """
-        RouteSpecHttpRouteMatchQueryParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             match: Optional['outputs.RouteSpecHttpRouteMatchQueryParameterMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -5203,19 +3882,8 @@ class RouteSpecHttpRouteMatchQueryParameterMatch(dict):
         """
         :param str exact: The exact path to match on.
         """
-        RouteSpecHttpRouteMatchQueryParameterMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -5263,41 +3931,12 @@ class RouteSpecHttpRouteRetryPolicy(dict):
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
         """
-        RouteSpecHttpRouteRetryPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_retries=max_retries,
-            per_retry_timeout=per_retry_timeout,
-            http_retry_events=http_retry_events,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_retries: Optional[int] = None,
-             per_retry_timeout: Optional['outputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeout'] = None,
-             http_retry_events: Optional[Sequence[str]] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeout is None and 'perRetryTimeout' in kwargs:
-            per_retry_timeout = kwargs['perRetryTimeout']
-        if per_retry_timeout is None:
-            raise TypeError("Missing 'per_retry_timeout' argument")
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeout", per_retry_timeout)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeout", per_retry_timeout)
         if http_retry_events is not None:
-            _setter("http_retry_events", http_retry_events)
+            pulumi.set(__self__, "http_retry_events", http_retry_events)
         if tcp_retry_events is not None:
-            _setter("tcp_retry_events", tcp_retry_events)
+            pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -5342,25 +3981,8 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
         :param str unit: Retry unit. Valid values: `ms`, `s`.
         :param int value: Retry value.
         """
-        RouteSpecHttpRouteRetryPolicyPerRetryTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5405,25 +4027,10 @@ class RouteSpecHttpRouteTimeout(dict):
         :param 'RouteSpecHttpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'RouteSpecHttpRouteTimeoutPerRequestArgs' per_request: Per request timeout.
         """
-        RouteSpecHttpRouteTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.RouteSpecHttpRouteTimeoutIdle'] = None,
-             per_request: Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -5451,25 +4058,8 @@ class RouteSpecHttpRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecHttpRouteTimeoutIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5497,25 +4087,8 @@ class RouteSpecHttpRouteTimeoutPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecHttpRouteTimeoutPerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5545,28 +4118,11 @@ class RouteSpecTcpRoute(dict):
         :param 'RouteSpecTcpRouteMatchArgs' match: Criteria for determining an gRPC request match.
         :param 'RouteSpecTcpRouteTimeoutArgs' timeout: Types of timeouts.
         """
-        RouteSpecTcpRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            match=match,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional['outputs.RouteSpecTcpRouteAction'] = None,
-             match: Optional['outputs.RouteSpecTcpRouteMatch'] = None,
-             timeout: Optional['outputs.RouteSpecTcpRouteTimeout'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if action is None:
-            raise TypeError("Missing 'action' argument")
-
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if match is not None:
-            _setter("match", match)
+            pulumi.set(__self__, "match", match)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -5618,22 +4174,7 @@ class RouteSpecTcpRouteAction(dict):
         :param Sequence['RouteSpecTcpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
-        RouteSpecTcpRouteAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -5673,31 +4214,10 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
         :param int weight: Relative weight of the weighted target. An integer between 0 and 100.
         :param int port: The targeted port of the weighted object.
         """
-        RouteSpecTcpRouteActionWeightedTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node=virtual_node,
-            weight=weight,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -5731,19 +4251,8 @@ class RouteSpecTcpRouteMatch(dict):
         """
         :param int port: The port number to match from the request.
         """
-        RouteSpecTcpRouteMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -5761,19 +4270,8 @@ class RouteSpecTcpRouteTimeout(dict):
         """
         :param 'RouteSpecTcpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
-        RouteSpecTcpRouteTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.RouteSpecTcpRouteTimeoutIdle'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
 
     @property
     @pulumi.getter
@@ -5793,25 +4291,8 @@ class RouteSpecTcpRouteTimeoutIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        RouteSpecTcpRouteTimeoutIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5858,30 +4339,11 @@ class VirtualGatewaySpec(dict):
         :param 'VirtualGatewaySpecBackendDefaultsArgs' backend_defaults: Defaults for backends.
         :param 'VirtualGatewaySpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual gateway.
         """
-        VirtualGatewaySpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            listeners=listeners,
-            backend_defaults=backend_defaults,
-            logging=logging,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             listeners: Optional[Sequence['outputs.VirtualGatewaySpecListener']] = None,
-             backend_defaults: Optional['outputs.VirtualGatewaySpecBackendDefaults'] = None,
-             logging: Optional['outputs.VirtualGatewaySpecLogging'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if listeners is None:
-            raise TypeError("Missing 'listeners' argument")
-        if backend_defaults is None and 'backendDefaults' in kwargs:
-            backend_defaults = kwargs['backendDefaults']
-
-        _setter("listeners", listeners)
+        pulumi.set(__self__, "listeners", listeners)
         if backend_defaults is not None:
-            _setter("backend_defaults", backend_defaults)
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
 
     @property
     @pulumi.getter
@@ -5932,21 +4394,8 @@ class VirtualGatewaySpecBackendDefaults(dict):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual gateway backends.
         """
-        VirtualGatewaySpecBackendDefaults._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_policy=client_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_policy: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_policy is None and 'clientPolicy' in kwargs:
-            client_policy = kwargs['clientPolicy']
-
         if client_policy is not None:
-            _setter("client_policy", client_policy)
+            pulumi.set(__self__, "client_policy", client_policy)
 
     @property
     @pulumi.getter(name="clientPolicy")
@@ -5964,19 +4413,8 @@ class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -6000,32 +4438,13 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            validation=validation,
-            certificate=certificate,
-            enforce=enforce,
-            ports=ports,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             validation: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation'] = None,
-             certificate: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate'] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if validation is None:
-            raise TypeError("Missing 'validation' argument")
-
-        _setter("validation", validation)
+        pulumi.set(__self__, "validation", validation)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
-            _setter("enforce", enforce)
+            pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
-            _setter("ports", ports)
+            pulumi.set(__self__, "ports", ports)
 
     @property
     @pulumi.getter
@@ -6069,23 +4488,10 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
-             sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -6132,29 +4538,8 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6197,22 +4582,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6249,26 +4619,9 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trust=trust,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trust: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust'] = None,
-             subject_alternative_names: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if trust is None:
-            raise TypeError("Missing 'trust' argument")
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("trust", trust)
+        pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -6294,20 +4647,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         """
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -6325,20 +4665,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -6360,27 +4687,12 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm=acm,
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
-             file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
-             sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if acm is not None:
-            _setter("acm", acm)
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -6431,22 +4743,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -6481,22 +4778,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -6531,22 +4813,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -6591,38 +4858,13 @@ class VirtualGatewaySpecListener(dict):
         :param 'VirtualGatewaySpecListenerHealthCheckArgs' health_check: Health check information for the listener.
         :param 'VirtualGatewaySpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
         """
-        VirtualGatewaySpecListener._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port_mapping=port_mapping,
-            connection_pool=connection_pool,
-            health_check=health_check,
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port_mapping: Optional['outputs.VirtualGatewaySpecListenerPortMapping'] = None,
-             connection_pool: Optional['outputs.VirtualGatewaySpecListenerConnectionPool'] = None,
-             health_check: Optional['outputs.VirtualGatewaySpecListenerHealthCheck'] = None,
-             tls: Optional['outputs.VirtualGatewaySpecListenerTls'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port_mapping is None and 'portMapping' in kwargs:
-            port_mapping = kwargs['portMapping']
-        if port_mapping is None:
-            raise TypeError("Missing 'port_mapping' argument")
-        if connection_pool is None and 'connectionPool' in kwargs:
-            connection_pool = kwargs['connectionPool']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-
-        _setter("port_mapping", port_mapping)
+        pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
-            _setter("connection_pool", connection_pool)
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -6668,27 +4910,12 @@ class VirtualGatewaySpecListenerConnectionPool(dict):
         :param 'VirtualGatewaySpecListenerConnectionPoolHttpArgs' http: Connection pool information for HTTP listeners.
         :param 'VirtualGatewaySpecListenerConnectionPoolHttp2Args' http2: Connection pool information for HTTP2 listeners.
         """
-        VirtualGatewaySpecListenerConnectionPool._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc=grpc,
-            http=http,
-            http2=http2,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolGrpc'] = None,
-             http: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp'] = None,
-             http2: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp2'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if grpc is not None:
-            _setter("grpc", grpc)
+            pulumi.set(__self__, "grpc", grpc)
         if http is not None:
-            _setter("http", http)
+            pulumi.set(__self__, "http", http)
         if http2 is not None:
-            _setter("http2", http2)
+            pulumi.set(__self__, "http2", http2)
 
     @property
     @pulumi.getter
@@ -6739,22 +4966,7 @@ class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        VirtualGatewaySpecListenerConnectionPoolGrpc._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -6789,22 +5001,7 @@ class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        VirtualGatewaySpecListenerConnectionPoolHttp2._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -6845,28 +5042,9 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
                
                The `http2` connection pool object supports the following:
         """
-        VirtualGatewaySpecListenerConnectionPoolHttp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-            max_pending_requests=max_pending_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             max_pending_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-        if max_pending_requests is None and 'maxPendingRequests' in kwargs:
-            max_pending_requests = kwargs['maxPendingRequests']
-
-        _setter("max_connections", max_connections)
+        pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
-            _setter("max_pending_requests", max_pending_requests)
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -6929,56 +5107,15 @@ class VirtualGatewaySpecListenerHealthCheck(dict):
         :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
-        VirtualGatewaySpecListenerHealthCheck._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval_millis=interval_millis,
-            protocol=protocol,
-            timeout_millis=timeout_millis,
-            unhealthy_threshold=unhealthy_threshold,
-            path=path,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: Optional[int] = None,
-             interval_millis: Optional[int] = None,
-             protocol: Optional[str] = None,
-             timeout_millis: Optional[int] = None,
-             unhealthy_threshold: Optional[int] = None,
-             path: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if healthy_threshold is None and 'healthyThreshold' in kwargs:
-            healthy_threshold = kwargs['healthyThreshold']
-        if healthy_threshold is None:
-            raise TypeError("Missing 'healthy_threshold' argument")
-        if interval_millis is None and 'intervalMillis' in kwargs:
-            interval_millis = kwargs['intervalMillis']
-        if interval_millis is None:
-            raise TypeError("Missing 'interval_millis' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if timeout_millis is None and 'timeoutMillis' in kwargs:
-            timeout_millis = kwargs['timeoutMillis']
-        if timeout_millis is None:
-            raise TypeError("Missing 'timeout_millis' argument")
-        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
-            unhealthy_threshold = kwargs['unhealthyThreshold']
-        if unhealthy_threshold is None:
-            raise TypeError("Missing 'unhealthy_threshold' argument")
-
-        _setter("healthy_threshold", healthy_threshold)
-        _setter("interval_millis", interval_millis)
-        _setter("protocol", protocol)
-        _setter("timeout_millis", timeout_millis)
-        _setter("unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -7046,25 +5183,8 @@ class VirtualGatewaySpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
-        VirtualGatewaySpecListenerPortMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -7094,29 +5214,10 @@ class VirtualGatewaySpecListenerTls(dict):
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         :param 'VirtualGatewaySpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
-        VirtualGatewaySpecListenerTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate=certificate,
-            mode=mode,
-            validation=validation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate: Optional['outputs.VirtualGatewaySpecListenerTlsCertificate'] = None,
-             mode: Optional[str] = None,
-             validation: Optional['outputs.VirtualGatewaySpecListenerTlsValidation'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate is None:
-            raise TypeError("Missing 'certificate' argument")
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("certificate", certificate)
-        _setter("mode", mode)
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "mode", mode)
         if validation is not None:
-            _setter("validation", validation)
+            pulumi.set(__self__, "validation", validation)
 
     @property
     @pulumi.getter
@@ -7154,27 +5255,12 @@ class VirtualGatewaySpecListenerTlsCertificate(dict):
         :param 'VirtualGatewaySpecListenerTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualGatewaySpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualGatewaySpecListenerTlsCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm=acm,
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm'] = None,
-             file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None,
-             sds: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if acm is not None:
-            _setter("acm", acm)
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -7225,22 +5311,7 @@ class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
         """
         :param str certificate_arn: ARN for the certificate.
         """
-        VirtualGatewaySpecListenerTlsCertificateAcm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_arn is None and 'certificateArn' in kwargs:
-            certificate_arn = kwargs['certificateArn']
-        if certificate_arn is None:
-            raise TypeError("Missing 'certificate_arn' argument")
-
-        _setter("certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -7279,29 +5350,8 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualGatewaySpecListenerTlsCertificateFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -7344,22 +5394,7 @@ class VirtualGatewaySpecListenerTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualGatewaySpecListenerTlsCertificateSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -7396,26 +5431,9 @@ class VirtualGatewaySpecListenerTlsValidation(dict):
         :param 'VirtualGatewaySpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
-        VirtualGatewaySpecListenerTlsValidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trust=trust,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trust: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrust'] = None,
-             subject_alternative_names: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if trust is None:
-            raise TypeError("Missing 'trust' argument")
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("trust", trust)
+        pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -7441,20 +5459,7 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -7472,20 +5477,7 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -7505,23 +5497,10 @@ class VirtualGatewaySpecListenerTlsValidationTrust(dict):
         :param 'VirtualGatewaySpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualGatewaySpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualGatewaySpecListenerTlsValidationTrust._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustFile'] = None,
-             sds: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -7564,22 +5543,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualGatewaySpecListenerTlsValidationTrustFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -7614,22 +5578,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualGatewaySpecListenerTlsValidationTrustSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -7664,21 +5613,8 @@ class VirtualGatewaySpecLogging(dict):
         """
         :param 'VirtualGatewaySpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual gateway.
         """
-        VirtualGatewaySpecLogging._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_log=access_log,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_log: Optional['outputs.VirtualGatewaySpecLoggingAccessLog'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_log is None and 'accessLog' in kwargs:
-            access_log = kwargs['accessLog']
-
         if access_log is not None:
-            _setter("access_log", access_log)
+            pulumi.set(__self__, "access_log", access_log)
 
     @property
     @pulumi.getter(name="accessLog")
@@ -7696,19 +5632,8 @@ class VirtualGatewaySpecLoggingAccessLog(dict):
         """
         :param 'VirtualGatewaySpecLoggingAccessLogFileArgs' file: File object to send virtual gateway access logs to.
         """
-        VirtualGatewaySpecLoggingAccessLog._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFile'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
 
     @property
     @pulumi.getter
@@ -7728,24 +5653,9 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         :param 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
-        VirtualGatewaySpecLoggingAccessLogFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-            format=format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: Optional[str] = None,
-             format: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFileFormat'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-
-        _setter("path", path)
+        pulumi.set(__self__, "path", path)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -7773,23 +5683,10 @@ class VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
         :param Sequence['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
-        VirtualGatewaySpecLoggingAccessLogFileFormat._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jsons=jsons,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jsons: Optional[Sequence['outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson']] = None,
-             text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if jsons is not None:
-            _setter("jsons", jsons)
+            pulumi.set(__self__, "jsons", jsons)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
@@ -7817,25 +5714,8 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
         :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
         :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
-        VirtualGatewaySpecLoggingAccessLogFileFormatJson._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7888,39 +5768,16 @@ class VirtualNodeSpec(dict):
         :param 'VirtualNodeSpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryArgs' service_discovery: Service discovery information for the virtual node.
         """
-        VirtualNodeSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_defaults=backend_defaults,
-            backends=backends,
-            listeners=listeners,
-            logging=logging,
-            service_discovery=service_discovery,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_defaults: Optional['outputs.VirtualNodeSpecBackendDefaults'] = None,
-             backends: Optional[Sequence['outputs.VirtualNodeSpecBackend']] = None,
-             listeners: Optional[Sequence['outputs.VirtualNodeSpecListener']] = None,
-             logging: Optional['outputs.VirtualNodeSpecLogging'] = None,
-             service_discovery: Optional['outputs.VirtualNodeSpecServiceDiscovery'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_defaults is None and 'backendDefaults' in kwargs:
-            backend_defaults = kwargs['backendDefaults']
-        if service_discovery is None and 'serviceDiscovery' in kwargs:
-            service_discovery = kwargs['serviceDiscovery']
-
         if backend_defaults is not None:
-            _setter("backend_defaults", backend_defaults)
+            pulumi.set(__self__, "backend_defaults", backend_defaults)
         if backends is not None:
-            _setter("backends", backends)
+            pulumi.set(__self__, "backends", backends)
         if listeners is not None:
-            _setter("listeners", listeners)
+            pulumi.set(__self__, "listeners", listeners)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
         if service_discovery is not None:
-            _setter("service_discovery", service_discovery)
+            pulumi.set(__self__, "service_discovery", service_discovery)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -7987,22 +5844,7 @@ class VirtualNodeSpecBackend(dict):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceArgs' virtual_service: Virtual service to use as a backend for a virtual node.
         """
-        VirtualNodeSpecBackend._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service=virtual_service,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service: Optional['outputs.VirtualNodeSpecBackendVirtualService'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service is None and 'virtualService' in kwargs:
-            virtual_service = kwargs['virtualService']
-        if virtual_service is None:
-            raise TypeError("Missing 'virtual_service' argument")
-
-        _setter("virtual_service", virtual_service)
+        pulumi.set(__self__, "virtual_service", virtual_service)
 
     @property
     @pulumi.getter(name="virtualService")
@@ -8037,21 +5879,8 @@ class VirtualNodeSpecBackendDefaults(dict):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual service backends. See above for details.
         """
-        VirtualNodeSpecBackendDefaults._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_policy=client_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_policy: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_policy is None and 'clientPolicy' in kwargs:
-            client_policy = kwargs['clientPolicy']
-
         if client_policy is not None:
-            _setter("client_policy", client_policy)
+            pulumi.set(__self__, "client_policy", client_policy)
 
     @property
     @pulumi.getter(name="clientPolicy")
@@ -8069,19 +5898,8 @@ class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -8105,32 +5923,13 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            validation=validation,
-            certificate=certificate,
-            enforce=enforce,
-            ports=ports,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             validation: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation'] = None,
-             certificate: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate'] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if validation is None:
-            raise TypeError("Missing 'validation' argument")
-
-        _setter("validation", validation)
+        pulumi.set(__self__, "validation", validation)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
-            _setter("enforce", enforce)
+            pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
-            _setter("ports", ports)
+            pulumi.set(__self__, "ports", ports)
 
     @property
     @pulumi.getter
@@ -8174,23 +5973,10 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -8237,29 +6023,8 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -8302,22 +6067,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -8354,26 +6104,9 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trust=trust,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trust: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust'] = None,
-             subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if trust is None:
-            raise TypeError("Missing 'trust' argument")
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("trust", trust)
+        pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -8399,20 +6132,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         """
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -8430,20 +6150,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -8465,27 +6172,12 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm=acm,
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
-             file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if acm is not None:
-            _setter("acm", acm)
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -8536,22 +6228,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -8586,22 +6263,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -8636,22 +6298,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -8690,28 +6337,9 @@ class VirtualNodeSpecBackendVirtualService(dict):
         :param str virtual_service_name: Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArgs' client_policy: Client policy for the backend.
         """
-        VirtualNodeSpecBackendVirtualService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-            client_policy=client_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-        if client_policy is None and 'clientPolicy' in kwargs:
-            client_policy = kwargs['clientPolicy']
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
         if client_policy is not None:
-            _setter("client_policy", client_policy)
+            pulumi.set(__self__, "client_policy", client_policy)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -8737,19 +6365,8 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -8773,32 +6390,13 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            validation=validation,
-            certificate=certificate,
-            enforce=enforce,
-            ports=ports,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             validation: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation'] = None,
-             certificate: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate'] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if validation is None:
-            raise TypeError("Missing 'validation' argument")
-
-        _setter("validation", validation)
+        pulumi.set(__self__, "validation", validation)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if enforce is not None:
-            _setter("enforce", enforce)
+            pulumi.set(__self__, "enforce", enforce)
         if ports is not None:
-            _setter("ports", ports)
+            pulumi.set(__self__, "ports", ports)
 
     @property
     @pulumi.getter
@@ -8842,23 +6440,10 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -8905,29 +6490,8 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -8970,22 +6534,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -9022,26 +6571,9 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trust=trust,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trust: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust'] = None,
-             subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if trust is None:
-            raise TypeError("Missing 'trust' argument")
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("trust", trust)
+        pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -9067,20 +6599,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         """
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -9098,20 +6617,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -9133,27 +6639,12 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm=acm,
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
-             file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if acm is not None:
-            _setter("acm", acm)
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -9204,22 +6695,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict
         """
         :param Sequence[str] certificate_authority_arns: One or more ACM ARNs.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -9254,22 +6730,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -9304,22 +6765,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -9370,48 +6816,17 @@ class VirtualNodeSpecListener(dict):
         :param 'VirtualNodeSpecListenerTimeoutArgs' timeout: Timeouts for different protocols.
         :param 'VirtualNodeSpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
         """
-        VirtualNodeSpecListener._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port_mapping=port_mapping,
-            connection_pool=connection_pool,
-            health_check=health_check,
-            outlier_detection=outlier_detection,
-            timeout=timeout,
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port_mapping: Optional['outputs.VirtualNodeSpecListenerPortMapping'] = None,
-             connection_pool: Optional['outputs.VirtualNodeSpecListenerConnectionPool'] = None,
-             health_check: Optional['outputs.VirtualNodeSpecListenerHealthCheck'] = None,
-             outlier_detection: Optional['outputs.VirtualNodeSpecListenerOutlierDetection'] = None,
-             timeout: Optional['outputs.VirtualNodeSpecListenerTimeout'] = None,
-             tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port_mapping is None and 'portMapping' in kwargs:
-            port_mapping = kwargs['portMapping']
-        if port_mapping is None:
-            raise TypeError("Missing 'port_mapping' argument")
-        if connection_pool is None and 'connectionPool' in kwargs:
-            connection_pool = kwargs['connectionPool']
-        if health_check is None and 'healthCheck' in kwargs:
-            health_check = kwargs['healthCheck']
-        if outlier_detection is None and 'outlierDetection' in kwargs:
-            outlier_detection = kwargs['outlierDetection']
-
-        _setter("port_mapping", port_mapping)
+        pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
-            _setter("connection_pool", connection_pool)
+            pulumi.set(__self__, "connection_pool", connection_pool)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if outlier_detection is not None:
-            _setter("outlier_detection", outlier_detection)
+            pulumi.set(__self__, "outlier_detection", outlier_detection)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if tls is not None:
-            _setter("tls", tls)
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -9475,31 +6890,14 @@ class VirtualNodeSpecListenerConnectionPool(dict):
         :param Sequence['VirtualNodeSpecListenerConnectionPoolHttpArgs'] https: Connection pool information for HTTP listeners.
         :param Sequence['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcps: Connection pool information for TCP listeners.
         """
-        VirtualNodeSpecListenerConnectionPool._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc=grpc,
-            http2s=http2s,
-            https=https,
-            tcps=tcps,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc: Optional['outputs.VirtualNodeSpecListenerConnectionPoolGrpc'] = None,
-             http2s: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp2']] = None,
-             https: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp']] = None,
-             tcps: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolTcp']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if grpc is not None:
-            _setter("grpc", grpc)
+            pulumi.set(__self__, "grpc", grpc)
         if http2s is not None:
-            _setter("http2s", http2s)
+            pulumi.set(__self__, "http2s", http2s)
         if https is not None:
-            _setter("https", https)
+            pulumi.set(__self__, "https", https)
         if tcps is not None:
-            _setter("tcps", tcps)
+            pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
@@ -9558,22 +6956,7 @@ class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        VirtualNodeSpecListenerConnectionPoolGrpc._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -9608,22 +6991,7 @@ class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
         """
         :param int max_requests: Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         """
-        VirtualNodeSpecListenerConnectionPoolHttp2._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -9664,28 +7032,9 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
                
                The `http2` connection pool object supports the following:
         """
-        VirtualNodeSpecListenerConnectionPoolHttp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-            max_pending_requests=max_pending_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             max_pending_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-        if max_pending_requests is None and 'maxPendingRequests' in kwargs:
-            max_pending_requests = kwargs['maxPendingRequests']
-
-        _setter("max_connections", max_connections)
+        pulumi.set(__self__, "max_connections", max_connections)
         if max_pending_requests is not None:
-            _setter("max_pending_requests", max_pending_requests)
+            pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -9730,22 +7079,7 @@ class VirtualNodeSpecListenerConnectionPoolTcp(dict):
         """
         :param int max_connections: Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         """
-        VirtualNodeSpecListenerConnectionPoolTcp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-
-        _setter("max_connections", max_connections)
+        pulumi.set(__self__, "max_connections", max_connections)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -9798,56 +7132,15 @@ class VirtualNodeSpecListenerHealthCheck(dict):
         :param str path: Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         :param int port: Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         """
-        VirtualNodeSpecListenerHealthCheck._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval_millis=interval_millis,
-            protocol=protocol,
-            timeout_millis=timeout_millis,
-            unhealthy_threshold=unhealthy_threshold,
-            path=path,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: Optional[int] = None,
-             interval_millis: Optional[int] = None,
-             protocol: Optional[str] = None,
-             timeout_millis: Optional[int] = None,
-             unhealthy_threshold: Optional[int] = None,
-             path: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if healthy_threshold is None and 'healthyThreshold' in kwargs:
-            healthy_threshold = kwargs['healthyThreshold']
-        if healthy_threshold is None:
-            raise TypeError("Missing 'healthy_threshold' argument")
-        if interval_millis is None and 'intervalMillis' in kwargs:
-            interval_millis = kwargs['intervalMillis']
-        if interval_millis is None:
-            raise TypeError("Missing 'interval_millis' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if timeout_millis is None and 'timeoutMillis' in kwargs:
-            timeout_millis = kwargs['timeoutMillis']
-        if timeout_millis is None:
-            raise TypeError("Missing 'timeout_millis' argument")
-        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
-            unhealthy_threshold = kwargs['unhealthyThreshold']
-        if unhealthy_threshold is None:
-            raise TypeError("Missing 'unhealthy_threshold' argument")
-
-        _setter("healthy_threshold", healthy_threshold)
-        _setter("interval_millis", interval_millis)
-        _setter("protocol", protocol)
-        _setter("timeout_millis", timeout_millis)
-        _setter("unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -9941,41 +7234,10 @@ class VirtualNodeSpecListenerOutlierDetection(dict):
                Minimum value of `0`. Maximum value of `100`.
         :param int max_server_errors: Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
         """
-        VirtualNodeSpecListenerOutlierDetection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_ejection_duration=base_ejection_duration,
-            interval=interval,
-            max_ejection_percent=max_ejection_percent,
-            max_server_errors=max_server_errors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_ejection_duration: Optional['outputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration'] = None,
-             interval: Optional['outputs.VirtualNodeSpecListenerOutlierDetectionInterval'] = None,
-             max_ejection_percent: Optional[int] = None,
-             max_server_errors: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if base_ejection_duration is None and 'baseEjectionDuration' in kwargs:
-            base_ejection_duration = kwargs['baseEjectionDuration']
-        if base_ejection_duration is None:
-            raise TypeError("Missing 'base_ejection_duration' argument")
-        if interval is None:
-            raise TypeError("Missing 'interval' argument")
-        if max_ejection_percent is None and 'maxEjectionPercent' in kwargs:
-            max_ejection_percent = kwargs['maxEjectionPercent']
-        if max_ejection_percent is None:
-            raise TypeError("Missing 'max_ejection_percent' argument")
-        if max_server_errors is None and 'maxServerErrors' in kwargs:
-            max_server_errors = kwargs['maxServerErrors']
-        if max_server_errors is None:
-            raise TypeError("Missing 'max_server_errors' argument")
-
-        _setter("base_ejection_duration", base_ejection_duration)
-        _setter("interval", interval)
-        _setter("max_ejection_percent", max_ejection_percent)
-        _setter("max_server_errors", max_server_errors)
+        pulumi.set(__self__, "base_ejection_duration", base_ejection_duration)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        pulumi.set(__self__, "max_server_errors", max_server_errors)
 
     @property
     @pulumi.getter(name="baseEjectionDuration")
@@ -10020,25 +7282,8 @@ class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10066,25 +7311,8 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerOutlierDetectionInterval._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10112,25 +7340,8 @@ class VirtualNodeSpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
         """
-        VirtualNodeSpecListenerPortMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -10162,31 +7373,14 @@ class VirtualNodeSpecListenerTimeout(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttp2Args' http2: Timeouts for HTTP2 listeners.
         :param 'VirtualNodeSpecListenerTimeoutTcpArgs' tcp: Timeouts for TCP listeners.
         """
-        VirtualNodeSpecListenerTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc=grpc,
-            http=http,
-            http2=http2,
-            tcp=tcp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpc'] = None,
-             http: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp'] = None,
-             http2: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2'] = None,
-             tcp: Optional['outputs.VirtualNodeSpecListenerTimeoutTcp'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if grpc is not None:
-            _setter("grpc", grpc)
+            pulumi.set(__self__, "grpc", grpc)
         if http is not None:
-            _setter("http", http)
+            pulumi.set(__self__, "http", http)
         if http2 is not None:
-            _setter("http2", http2)
+            pulumi.set(__self__, "http2", http2)
         if tcp is not None:
-            _setter("tcp", tcp)
+            pulumi.set(__self__, "tcp", tcp)
 
     @property
     @pulumi.getter
@@ -10247,25 +7441,10 @@ class VirtualNodeSpecListenerTimeoutGrpc(dict):
         :param 'VirtualNodeSpecListenerTimeoutGrpcIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs' per_request: Per request timeout.
         """
-        VirtualNodeSpecListenerTimeoutGrpc._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle'] = None,
-             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -10293,25 +7472,8 @@ class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutGrpcIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10339,25 +7501,8 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutGrpcPerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10402,25 +7547,10 @@ class VirtualNodeSpecListenerTimeoutHttp2(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttp2IdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs' per_request: Per request timeout.
         """
-        VirtualNodeSpecListenerTimeoutHttp2._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle'] = None,
-             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -10448,25 +7578,8 @@ class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutHttp2Idle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10494,25 +7607,8 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutHttp2PerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10557,25 +7653,10 @@ class VirtualNodeSpecListenerTimeoutHttp(dict):
         :param 'VirtualNodeSpecListenerTimeoutHttpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         :param 'VirtualNodeSpecListenerTimeoutHttpPerRequestArgs' per_request: Per request timeout.
         """
-        VirtualNodeSpecListenerTimeoutHttp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-            per_request=per_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle'] = None,
-             per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if per_request is None and 'perRequest' in kwargs:
-            per_request = kwargs['perRequest']
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
         if per_request is not None:
-            _setter("per_request", per_request)
+            pulumi.set(__self__, "per_request", per_request)
 
     @property
     @pulumi.getter
@@ -10603,25 +7684,8 @@ class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutHttpIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10649,25 +7713,8 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutHttpPerRequest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10693,19 +7740,8 @@ class VirtualNodeSpecListenerTimeoutTcp(dict):
         """
         :param 'VirtualNodeSpecListenerTimeoutTcpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
-        VirtualNodeSpecListenerTimeoutTcp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle=idle,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle: Optional['outputs.VirtualNodeSpecListenerTimeoutTcpIdle'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if idle is not None:
-            _setter("idle", idle)
+            pulumi.set(__self__, "idle", idle)
 
     @property
     @pulumi.getter
@@ -10725,25 +7761,8 @@ class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
         :param str unit: Unit of time. Valid values: `ms`, `s`.
         :param int value: Number of time units. Minimum value of `0`.
         """
-        VirtualNodeSpecListenerTimeoutTcpIdle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -10773,29 +7792,10 @@ class VirtualNodeSpecListenerTls(dict):
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
         :param 'VirtualNodeSpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
-        VirtualNodeSpecListenerTls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate=certificate,
-            mode=mode,
-            validation=validation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate: Optional['outputs.VirtualNodeSpecListenerTlsCertificate'] = None,
-             mode: Optional[str] = None,
-             validation: Optional['outputs.VirtualNodeSpecListenerTlsValidation'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate is None:
-            raise TypeError("Missing 'certificate' argument")
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-
-        _setter("certificate", certificate)
-        _setter("mode", mode)
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "mode", mode)
         if validation is not None:
-            _setter("validation", validation)
+            pulumi.set(__self__, "validation", validation)
 
     @property
     @pulumi.getter
@@ -10833,27 +7833,12 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
         :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: Local file certificate.
         :param 'VirtualNodeSpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecListenerTlsCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acm=acm,
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
-             file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecListenerTlsCertificateSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if acm is not None:
-            _setter("acm", acm)
+            pulumi.set(__self__, "acm", acm)
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -10904,22 +7889,7 @@ class VirtualNodeSpecListenerTlsCertificateAcm(dict):
         """
         :param str certificate_arn: ARN for the certificate.
         """
-        VirtualNodeSpecListenerTlsCertificateAcm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_arn is None and 'certificateArn' in kwargs:
-            certificate_arn = kwargs['certificateArn']
-        if certificate_arn is None:
-            raise TypeError("Missing 'certificate_arn' argument")
-
-        _setter("certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -10958,29 +7928,8 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         :param str private_key: Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecListenerTlsCertificateFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11023,22 +7972,7 @@ class VirtualNodeSpecListenerTlsCertificateSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecListenerTlsCertificateSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11075,26 +8009,9 @@ class VirtualNodeSpecListenerTlsValidation(dict):
         :param 'VirtualNodeSpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
         :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
         """
-        VirtualNodeSpecListenerTlsValidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trust=trust,
-            subject_alternative_names=subject_alternative_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trust: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrust'] = None,
-             subject_alternative_names: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if trust is None:
-            raise TypeError("Missing 'trust' argument")
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-
-        _setter("trust", trust)
+        pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter
@@ -11120,20 +8037,7 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
         """
         :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
         """
-        VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if match is None:
-            raise TypeError("Missing 'match' argument")
-
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
 
     @property
     @pulumi.getter
@@ -11151,20 +8055,7 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
         """
         :param Sequence[str] exacts: Values sent must match the specified values exactly.
         """
-        VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -11184,23 +8075,10 @@ class VirtualNodeSpecListenerTlsValidationTrust(dict):
         :param 'VirtualNodeSpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
         :param 'VirtualNodeSpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
-        VirtualNodeSpecListenerTlsValidationTrust._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustFile'] = None,
-             sds: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustSds'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
         if sds is not None:
-            _setter("sds", sds)
+            pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -11243,22 +8121,7 @@ class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
         """
         :param str certificate_chain: Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
         """
-        VirtualNodeSpecListenerTlsValidationTrustFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -11293,22 +8156,7 @@ class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
         """
         :param str secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
         """
-        VirtualNodeSpecListenerTlsValidationTrustSds._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -11343,21 +8191,8 @@ class VirtualNodeSpecLogging(dict):
         """
         :param 'VirtualNodeSpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual node.
         """
-        VirtualNodeSpecLogging._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_log=access_log,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_log: Optional['outputs.VirtualNodeSpecLoggingAccessLog'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_log is None and 'accessLog' in kwargs:
-            access_log = kwargs['accessLog']
-
         if access_log is not None:
-            _setter("access_log", access_log)
+            pulumi.set(__self__, "access_log", access_log)
 
     @property
     @pulumi.getter(name="accessLog")
@@ -11375,19 +8210,8 @@ class VirtualNodeSpecLoggingAccessLog(dict):
         """
         :param 'VirtualNodeSpecLoggingAccessLogFileArgs' file: File object to send virtual node access logs to.
         """
-        VirtualNodeSpecLoggingAccessLog._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file=file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file: Optional['outputs.VirtualNodeSpecLoggingAccessLogFile'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if file is not None:
-            _setter("file", file)
+            pulumi.set(__self__, "file", file)
 
     @property
     @pulumi.getter
@@ -11407,24 +8231,9 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
         :param 'VirtualNodeSpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
         """
-        VirtualNodeSpecLoggingAccessLogFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-            format=format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: Optional[str] = None,
-             format: Optional['outputs.VirtualNodeSpecLoggingAccessLogFileFormat'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-
-        _setter("path", path)
+        pulumi.set(__self__, "path", path)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter
@@ -11452,23 +8261,10 @@ class VirtualNodeSpecLoggingAccessLogFileFormat(dict):
         :param Sequence['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
-        VirtualNodeSpecLoggingAccessLogFileFormat._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jsons=jsons,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jsons: Optional[Sequence['outputs.VirtualNodeSpecLoggingAccessLogFileFormatJson']] = None,
-             text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if jsons is not None:
-            _setter("jsons", jsons)
+            pulumi.set(__self__, "jsons", jsons)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
@@ -11496,25 +8292,8 @@ class VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
         :param str key: The specified key for the JSON. Must be between 1 and 100 characters in length.
         :param str value: The specified value for the JSON. Must be between 1 and 100 characters in length.
         """
-        VirtualNodeSpecLoggingAccessLogFileFormatJson._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -11559,25 +8338,10 @@ class VirtualNodeSpecServiceDiscovery(dict):
         :param 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs' aws_cloud_map: Any AWS Cloud Map information for the virtual node.
         :param 'VirtualNodeSpecServiceDiscoveryDnsArgs' dns: DNS service name for the virtual node.
         """
-        VirtualNodeSpecServiceDiscovery._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_cloud_map=aws_cloud_map,
-            dns=dns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_cloud_map: Optional['outputs.VirtualNodeSpecServiceDiscoveryAwsCloudMap'] = None,
-             dns: Optional['outputs.VirtualNodeSpecServiceDiscoveryDns'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_cloud_map is None and 'awsCloudMap' in kwargs:
-            aws_cloud_map = kwargs['awsCloudMap']
-
         if aws_cloud_map is not None:
-            _setter("aws_cloud_map", aws_cloud_map)
+            pulumi.set(__self__, "aws_cloud_map", aws_cloud_map)
         if dns is not None:
-            _setter("dns", dns)
+            pulumi.set(__self__, "dns", dns)
 
     @property
     @pulumi.getter(name="awsCloudMap")
@@ -11627,33 +8391,10 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
         :param str service_name: Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
         :param Mapping[str, str] attributes: String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
         """
-        VirtualNodeSpecServiceDiscoveryAwsCloudMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace_name=namespace_name,
-            service_name=service_name,
-            attributes=attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace_name: Optional[str] = None,
-             service_name: Optional[str] = None,
-             attributes: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if namespace_name is None:
-            raise TypeError("Missing 'namespace_name' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("namespace_name", namespace_name)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "service_name", service_name)
         if attributes is not None:
-            _setter("attributes", attributes)
+            pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -11711,32 +8452,11 @@ class VirtualNodeSpecServiceDiscoveryDns(dict):
         :param str ip_preference: The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
         :param str response_type: The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
         """
-        VirtualNodeSpecServiceDiscoveryDns._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            ip_preference=ip_preference,
-            response_type=response_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: Optional[str] = None,
-             ip_preference: Optional[str] = None,
-             response_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hostname is None:
-            raise TypeError("Missing 'hostname' argument")
-        if ip_preference is None and 'ipPreference' in kwargs:
-            ip_preference = kwargs['ipPreference']
-        if response_type is None and 'responseType' in kwargs:
-            response_type = kwargs['responseType']
-
-        _setter("hostname", hostname)
+        pulumi.set(__self__, "hostname", hostname)
         if ip_preference is not None:
-            _setter("ip_preference", ip_preference)
+            pulumi.set(__self__, "ip_preference", ip_preference)
         if response_type is not None:
-            _setter("response_type", response_type)
+            pulumi.set(__self__, "response_type", response_type)
 
     @property
     @pulumi.getter
@@ -11771,19 +8491,8 @@ class VirtualRouterSpec(dict):
         :param Sequence['VirtualRouterSpecListenerArgs'] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
                Currently only one listener is supported per virtual router.
         """
-        VirtualRouterSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            listeners=listeners,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             listeners: Optional[Sequence['outputs.VirtualRouterSpecListener']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if listeners is not None:
-            _setter("listeners", listeners)
+            pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
@@ -11819,22 +8528,7 @@ class VirtualRouterSpecListener(dict):
         """
         :param 'VirtualRouterSpecListenerPortMappingArgs' port_mapping: Port mapping information for the listener.
         """
-        VirtualRouterSpecListener._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port_mapping=port_mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port_mapping: Optional['outputs.VirtualRouterSpecListenerPortMapping'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port_mapping is None and 'portMapping' in kwargs:
-            port_mapping = kwargs['portMapping']
-        if port_mapping is None:
-            raise TypeError("Missing 'port_mapping' argument")
-
-        _setter("port_mapping", port_mapping)
+        pulumi.set(__self__, "port_mapping", port_mapping)
 
     @property
     @pulumi.getter(name="portMapping")
@@ -11854,25 +8548,8 @@ class VirtualRouterSpecListenerPortMapping(dict):
         :param int port: Port used for the port mapping.
         :param str protocol: Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
         """
-        VirtualRouterSpecListenerPortMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -11898,19 +8575,8 @@ class VirtualServiceSpec(dict):
         """
         :param 'VirtualServiceSpecProviderArgs' provider: App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
         """
-        VirtualServiceSpec._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider=provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider: Optional['outputs.VirtualServiceSpecProvider'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if provider is not None:
-            _setter("provider", provider)
+            pulumi.set(__self__, "provider", provider)
 
     @property
     @pulumi.getter
@@ -11949,27 +8615,10 @@ class VirtualServiceSpecProvider(dict):
         :param 'VirtualServiceSpecProviderVirtualNodeArgs' virtual_node: Virtual node associated with a virtual service.
         :param 'VirtualServiceSpecProviderVirtualRouterArgs' virtual_router: Virtual router associated with a virtual service.
         """
-        VirtualServiceSpecProvider._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node=virtual_node,
-            virtual_router=virtual_router,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node: Optional['outputs.VirtualServiceSpecProviderVirtualNode'] = None,
-             virtual_router: Optional['outputs.VirtualServiceSpecProviderVirtualRouter'] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_router is None and 'virtualRouter' in kwargs:
-            virtual_router = kwargs['virtualRouter']
-
         if virtual_node is not None:
-            _setter("virtual_node", virtual_node)
+            pulumi.set(__self__, "virtual_node", virtual_node)
         if virtual_router is not None:
-            _setter("virtual_router", virtual_router)
+            pulumi.set(__self__, "virtual_router", virtual_router)
 
     @property
     @pulumi.getter(name="virtualNode")
@@ -12012,22 +8661,7 @@ class VirtualServiceSpecProviderVirtualNode(dict):
         """
         :param str virtual_node_name: Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
-        VirtualServiceSpecProviderVirtualNode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node_name=virtual_node_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node_name is None and 'virtualNodeName' in kwargs:
-            virtual_node_name = kwargs['virtualNodeName']
-        if virtual_node_name is None:
-            raise TypeError("Missing 'virtual_node_name' argument")
-
-        _setter("virtual_node_name", virtual_node_name)
+        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
 
     @property
     @pulumi.getter(name="virtualNodeName")
@@ -12062,22 +8696,7 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
         """
         :param str virtual_router_name: Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
-        VirtualServiceSpecProviderVirtualRouter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_router_name=virtual_router_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_router_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_router_name is None and 'virtualRouterName' in kwargs:
-            virtual_router_name = kwargs['virtualRouterName']
-        if virtual_router_name is None:
-            raise TypeError("Missing 'virtual_router_name' argument")
-
-        _setter("virtual_router_name", virtual_router_name)
+        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="virtualRouterName")
@@ -12095,41 +8714,10 @@ class GetGatewayRouteSpecResult(dict):
                  http2_routes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult'],
                  http_routes: Sequence['outputs.GetGatewayRouteSpecHttpRouteResult'],
                  priority: int):
-        GetGatewayRouteSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_routes=grpc_routes,
-            http2_routes=http2_routes,
-            http_routes=http_routes,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_routes: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult']] = None,
-             http2_routes: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult']] = None,
-             http_routes: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteResult']] = None,
-             priority: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpc_routes is None and 'grpcRoutes' in kwargs:
-            grpc_routes = kwargs['grpcRoutes']
-        if grpc_routes is None:
-            raise TypeError("Missing 'grpc_routes' argument")
-        if http2_routes is None and 'http2Routes' in kwargs:
-            http2_routes = kwargs['http2Routes']
-        if http2_routes is None:
-            raise TypeError("Missing 'http2_routes' argument")
-        if http_routes is None and 'httpRoutes' in kwargs:
-            http_routes = kwargs['httpRoutes']
-        if http_routes is None:
-            raise TypeError("Missing 'http_routes' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-
-        _setter("grpc_routes", grpc_routes)
-        _setter("http2_routes", http2_routes)
-        _setter("http_routes", http_routes)
-        _setter("priority", priority)
+        pulumi.set(__self__, "grpc_routes", grpc_routes)
+        pulumi.set(__self__, "http2_routes", http2_routes)
+        pulumi.set(__self__, "http_routes", http_routes)
+        pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="grpcRoutes")
@@ -12157,25 +8745,8 @@ class GetGatewayRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']):
-        GetGatewayRouteSpecGrpcRouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -12192,20 +8763,7 @@ class GetGatewayRouteSpecGrpcRouteResult(dict):
 class GetGatewayRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  targets: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']):
-        GetGatewayRouteSpecGrpcRouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             targets: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if targets is None:
-            raise TypeError("Missing 'targets' argument")
-
-        _setter("targets", targets)
+        pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -12218,27 +8776,8 @@ class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']):
-        GetGatewayRouteSpecGrpcRouteActionTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_services=virtual_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_services is None and 'virtualServices' in kwargs:
-            virtual_services = kwargs['virtualServices']
-        if virtual_services is None:
-            raise TypeError("Missing 'virtual_services' argument")
-
-        _setter("port", port)
-        _setter("virtual_services", virtual_services)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -12255,22 +8794,7 @@ class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
 class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -12283,27 +8807,8 @@ class GetGatewayRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int,
                  service_name: str):
-        GetGatewayRouteSpecGrpcRouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("port", port)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
@@ -12321,25 +8826,8 @@ class GetGatewayRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']):
-        GetGatewayRouteSpecHttp2RouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -12357,25 +8845,8 @@ class GetGatewayRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']):
-        GetGatewayRouteSpecHttp2RouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rewrites=rewrites,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rewrites: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult']] = None,
-             targets: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rewrites is None:
-            raise TypeError("Missing 'rewrites' argument")
-        if targets is None:
-            raise TypeError("Missing 'targets' argument")
-
-        _setter("rewrites", rewrites)
-        _setter("targets", targets)
+        pulumi.set(__self__, "rewrites", rewrites)
+        pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -12394,30 +8865,9 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult'],
                  prefixes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']):
-        GetGatewayRouteSpecHttp2RouteActionRewriteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostnames=hostnames,
-            paths=paths,
-            prefixes=prefixes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult']] = None,
-             paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult']] = None,
-             prefixes: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hostnames is None:
-            raise TypeError("Missing 'hostnames' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if prefixes is None:
-            raise TypeError("Missing 'prefixes' argument")
-
-        _setter("hostnames", hostnames)
-        _setter("paths", paths)
-        _setter("prefixes", prefixes)
+        pulumi.set(__self__, "hostnames", hostnames)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "prefixes", prefixes)
 
     @property
     @pulumi.getter
@@ -12439,22 +8889,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
-        GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_target_hostname=default_target_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_target_hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_target_hostname is None and 'defaultTargetHostname' in kwargs:
-            default_target_hostname = kwargs['defaultTargetHostname']
-        if default_target_hostname is None:
-            raise TypeError("Missing 'default_target_hostname' argument")
-
-        _setter("default_target_hostname", default_target_hostname)
+        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -12466,20 +8901,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetGatewayRouteSpecHttp2RouteActionRewritePathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -12492,27 +8914,8 @@ class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
-        GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_prefix=default_prefix,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_prefix: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_prefix is None and 'defaultPrefix' in kwargs:
-            default_prefix = kwargs['defaultPrefix']
-        if default_prefix is None:
-            raise TypeError("Missing 'default_prefix' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("default_prefix", default_prefix)
-        _setter("value", value)
+        pulumi.set(__self__, "default_prefix", default_prefix)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -12530,27 +8933,8 @@ class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']):
-        GetGatewayRouteSpecHttp2RouteActionTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_services=virtual_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_services is None and 'virtualServices' in kwargs:
-            virtual_services = kwargs['virtualServices']
-        if virtual_services is None:
-            raise TypeError("Missing 'virtual_services' argument")
-
-        _setter("port", port)
-        _setter("virtual_services", virtual_services)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -12567,22 +8951,7 @@ class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
 class GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -12599,47 +8968,12 @@ class GetGatewayRouteSpecHttp2RouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  query_parameters: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']):
-        GetGatewayRouteSpecHttp2RouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            hostnames=hostnames,
-            paths=paths,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult']] = None,
-             hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult']] = None,
-             paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchPathResult']] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if headers is None:
-            raise TypeError("Missing 'headers' argument")
-        if hostnames is None:
-            raise TypeError("Missing 'hostnames' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-        if query_parameters is None:
-            raise TypeError("Missing 'query_parameters' argument")
-
-        _setter("headers", headers)
-        _setter("hostnames", hostnames)
-        _setter("paths", paths)
-        _setter("port", port)
-        _setter("prefix", prefix)
-        _setter("query_parameters", query_parameters)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "hostnames", hostnames)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -12681,30 +9015,9 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        GetGatewayRouteSpecHttp2RouteMatchHeaderResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invert=invert,
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invert: Optional[bool] = None,
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if invert is None:
-            raise TypeError("Missing 'invert' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("invert", invert)
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -12733,40 +9046,11 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            ranges=ranges,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             ranges: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult']] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if ranges is None:
-            raise TypeError("Missing 'ranges' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("prefix", prefix)
-        _setter("ranges", ranges)
-        _setter("regex", regex)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -12799,25 +9083,8 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -12835,25 +9102,8 @@ class GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
-        GetGatewayRouteSpecHttp2RouteMatchHostnameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -12871,25 +9121,8 @@ class GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        GetGatewayRouteSpecHttp2RouteMatchPathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-
-        _setter("exact", exact)
-        _setter("regex", regex)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -12910,25 +9143,8 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -12948,20 +9164,7 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 class GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -12974,25 +9177,8 @@ class GetGatewayRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']):
-        GetGatewayRouteSpecHttpRouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -13010,25 +9196,8 @@ class GetGatewayRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']):
-        GetGatewayRouteSpecHttpRouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rewrites=rewrites,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rewrites: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult']] = None,
-             targets: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if rewrites is None:
-            raise TypeError("Missing 'rewrites' argument")
-        if targets is None:
-            raise TypeError("Missing 'targets' argument")
-
-        _setter("rewrites", rewrites)
-        _setter("targets", targets)
+        pulumi.set(__self__, "rewrites", rewrites)
+        pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -13047,30 +9216,9 @@ class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult'],
                  prefixes: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']):
-        GetGatewayRouteSpecHttpRouteActionRewriteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostnames=hostnames,
-            paths=paths,
-            prefixes=prefixes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult']] = None,
-             paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult']] = None,
-             prefixes: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePrefixResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hostnames is None:
-            raise TypeError("Missing 'hostnames' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if prefixes is None:
-            raise TypeError("Missing 'prefixes' argument")
-
-        _setter("hostnames", hostnames)
-        _setter("paths", paths)
-        _setter("prefixes", prefixes)
+        pulumi.set(__self__, "hostnames", hostnames)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "prefixes", prefixes)
 
     @property
     @pulumi.getter
@@ -13092,22 +9240,7 @@ class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
 class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
-        GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_target_hostname=default_target_hostname,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_target_hostname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_target_hostname is None and 'defaultTargetHostname' in kwargs:
-            default_target_hostname = kwargs['defaultTargetHostname']
-        if default_target_hostname is None:
-            raise TypeError("Missing 'default_target_hostname' argument")
-
-        _setter("default_target_hostname", default_target_hostname)
+        pulumi.set(__self__, "default_target_hostname", default_target_hostname)
 
     @property
     @pulumi.getter(name="defaultTargetHostname")
@@ -13119,20 +9252,7 @@ class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
 class GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetGatewayRouteSpecHttpRouteActionRewritePathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -13145,27 +9265,8 @@ class GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
-        GetGatewayRouteSpecHttpRouteActionRewritePrefixResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_prefix=default_prefix,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_prefix: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_prefix is None and 'defaultPrefix' in kwargs:
-            default_prefix = kwargs['defaultPrefix']
-        if default_prefix is None:
-            raise TypeError("Missing 'default_prefix' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("default_prefix", default_prefix)
-        _setter("value", value)
+        pulumi.set(__self__, "default_prefix", default_prefix)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="defaultPrefix")
@@ -13183,27 +9284,8 @@ class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']):
-        GetGatewayRouteSpecHttpRouteActionTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_services=virtual_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_services: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_services is None and 'virtualServices' in kwargs:
-            virtual_services = kwargs['virtualServices']
-        if virtual_services is None:
-            raise TypeError("Missing 'virtual_services' argument")
-
-        _setter("port", port)
-        _setter("virtual_services", virtual_services)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter
@@ -13220,22 +9302,7 @@ class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
 class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
-        GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="virtualServiceName")
@@ -13252,47 +9319,12 @@ class GetGatewayRouteSpecHttpRouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  query_parameters: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']):
-        GetGatewayRouteSpecHttpRouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            hostnames=hostnames,
-            paths=paths,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult']] = None,
-             hostnames: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult']] = None,
-             paths: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchPathResult']] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if headers is None:
-            raise TypeError("Missing 'headers' argument")
-        if hostnames is None:
-            raise TypeError("Missing 'hostnames' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-        if query_parameters is None:
-            raise TypeError("Missing 'query_parameters' argument")
-
-        _setter("headers", headers)
-        _setter("hostnames", hostnames)
-        _setter("paths", paths)
-        _setter("port", port)
-        _setter("prefix", prefix)
-        _setter("query_parameters", query_parameters)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "hostnames", hostnames)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "query_parameters", query_parameters)
 
     @property
     @pulumi.getter
@@ -13334,30 +9366,9 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        GetGatewayRouteSpecHttpRouteMatchHeaderResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invert=invert,
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invert: Optional[bool] = None,
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if invert is None:
-            raise TypeError("Missing 'invert' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("invert", invert)
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -13386,40 +9397,11 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            ranges=ranges,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             ranges: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult']] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if ranges is None:
-            raise TypeError("Missing 'ranges' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("prefix", prefix)
-        _setter("ranges", ranges)
-        _setter("regex", regex)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -13452,25 +9434,8 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -13488,25 +9453,8 @@ class GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
-        GetGatewayRouteSpecHttpRouteMatchHostnameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -13524,25 +9472,8 @@ class GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        GetGatewayRouteSpecHttpRouteMatchPathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-
-        _setter("exact", exact)
-        _setter("regex", regex)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -13563,25 +9494,8 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the gateway route.
         """
-        GetGatewayRouteSpecHttpRouteMatchQueryParameterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -13601,20 +9515,7 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
 class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -13626,22 +9527,7 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
 class GetMeshSpecResult(dict):
     def __init__(__self__, *,
                  egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
-        GetMeshSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            egress_filters=egress_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             egress_filters: Optional[Sequence['outputs.GetMeshSpecEgressFilterResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if egress_filters is None and 'egressFilters' in kwargs:
-            egress_filters = kwargs['egressFilters']
-        if egress_filters is None:
-            raise TypeError("Missing 'egress_filters' argument")
-
-        _setter("egress_filters", egress_filters)
+        pulumi.set(__self__, "egress_filters", egress_filters)
 
     @property
     @pulumi.getter(name="egressFilters")
@@ -13653,20 +9539,7 @@ class GetMeshSpecResult(dict):
 class GetMeshSpecEgressFilterResult(dict):
     def __init__(__self__, *,
                  type: str):
-        GetMeshSpecEgressFilterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -13682,48 +9555,11 @@ class GetRouteSpecResult(dict):
                  http_routes: Sequence['outputs.GetRouteSpecHttpRouteResult'],
                  priority: int,
                  tcp_routes: Sequence['outputs.GetRouteSpecTcpRouteResult']):
-        GetRouteSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_routes=grpc_routes,
-            http2_routes=http2_routes,
-            http_routes=http_routes,
-            priority=priority,
-            tcp_routes=tcp_routes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_routes: Optional[Sequence['outputs.GetRouteSpecGrpcRouteResult']] = None,
-             http2_routes: Optional[Sequence['outputs.GetRouteSpecHttp2RouteResult']] = None,
-             http_routes: Optional[Sequence['outputs.GetRouteSpecHttpRouteResult']] = None,
-             priority: Optional[int] = None,
-             tcp_routes: Optional[Sequence['outputs.GetRouteSpecTcpRouteResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpc_routes is None and 'grpcRoutes' in kwargs:
-            grpc_routes = kwargs['grpcRoutes']
-        if grpc_routes is None:
-            raise TypeError("Missing 'grpc_routes' argument")
-        if http2_routes is None and 'http2Routes' in kwargs:
-            http2_routes = kwargs['http2Routes']
-        if http2_routes is None:
-            raise TypeError("Missing 'http2_routes' argument")
-        if http_routes is None and 'httpRoutes' in kwargs:
-            http_routes = kwargs['httpRoutes']
-        if http_routes is None:
-            raise TypeError("Missing 'http_routes' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if tcp_routes is None and 'tcpRoutes' in kwargs:
-            tcp_routes = kwargs['tcpRoutes']
-        if tcp_routes is None:
-            raise TypeError("Missing 'tcp_routes' argument")
-
-        _setter("grpc_routes", grpc_routes)
-        _setter("http2_routes", http2_routes)
-        _setter("http_routes", http_routes)
-        _setter("priority", priority)
-        _setter("tcp_routes", tcp_routes)
+        pulumi.set(__self__, "grpc_routes", grpc_routes)
+        pulumi.set(__self__, "http2_routes", http2_routes)
+        pulumi.set(__self__, "http_routes", http_routes)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "tcp_routes", tcp_routes)
 
     @property
     @pulumi.getter(name="grpcRoutes")
@@ -13758,37 +9594,10 @@ class GetRouteSpecGrpcRouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']):
-        GetRouteSpecGrpcRouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-            retry_policies=retry_policies,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchResult']] = None,
-             retry_policies: Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyResult']] = None,
-             timeouts: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if retry_policies is None and 'retryPolicies' in kwargs:
-            retry_policies = kwargs['retryPolicies']
-        if retry_policies is None:
-            raise TypeError("Missing 'retry_policies' argument")
-        if timeouts is None:
-            raise TypeError("Missing 'timeouts' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
-        _setter("retry_policies", retry_policies)
-        _setter("timeouts", timeouts)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -13815,22 +9624,7 @@ class GetRouteSpecGrpcRouteResult(dict):
 class GetRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']):
-        GetRouteSpecGrpcRouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -13844,32 +9638,9 @@ class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        GetRouteSpecGrpcRouteActionWeightedTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_node=virtual_node,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("port", port)
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -13895,44 +9666,11 @@ class GetRouteSpecGrpcRouteMatchResult(dict):
                  port: int,
                  prefix: str,
                  service_name: str):
-        GetRouteSpecGrpcRouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metadatas=metadatas,
-            method_name=method_name,
-            port=port,
-            prefix=prefix,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metadatas: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult']] = None,
-             method_name: Optional[str] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if metadatas is None:
-            raise TypeError("Missing 'metadatas' argument")
-        if method_name is None and 'methodName' in kwargs:
-            method_name = kwargs['methodName']
-        if method_name is None:
-            raise TypeError("Missing 'method_name' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("metadatas", metadatas)
-        _setter("method_name", method_name)
-        _setter("port", port)
-        _setter("prefix", prefix)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "metadatas", metadatas)
+        pulumi.set(__self__, "method_name", method_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
@@ -13969,30 +9707,9 @@ class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
         """
         :param str name: Name of the route.
         """
-        GetRouteSpecGrpcRouteMatchMetadataResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invert=invert,
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invert: Optional[bool] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if invert is None:
-            raise TypeError("Missing 'invert' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("invert", invert)
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -14021,40 +9738,11 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        GetRouteSpecGrpcRouteMatchMetadataMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            ranges=ranges,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             ranges: Optional[Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult']] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if ranges is None:
-            raise TypeError("Missing 'ranges' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("prefix", prefix)
-        _setter("ranges", ranges)
-        _setter("regex", regex)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -14087,25 +9775,8 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -14126,50 +9797,11 @@ class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        GetRouteSpecGrpcRouteRetryPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_retry_events=grpc_retry_events,
-            http_retry_events=http_retry_events,
-            max_retries=max_retries,
-            per_retry_timeouts=per_retry_timeouts,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_retry_events: Optional[Sequence[str]] = None,
-             http_retry_events: Optional[Sequence[str]] = None,
-             max_retries: Optional[int] = None,
-             per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult']] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpc_retry_events is None and 'grpcRetryEvents' in kwargs:
-            grpc_retry_events = kwargs['grpcRetryEvents']
-        if grpc_retry_events is None:
-            raise TypeError("Missing 'grpc_retry_events' argument")
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if http_retry_events is None:
-            raise TypeError("Missing 'http_retry_events' argument")
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeouts is None and 'perRetryTimeouts' in kwargs:
-            per_retry_timeouts = kwargs['perRetryTimeouts']
-        if per_retry_timeouts is None:
-            raise TypeError("Missing 'per_retry_timeouts' argument")
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-        if tcp_retry_events is None:
-            raise TypeError("Missing 'tcp_retry_events' argument")
-
-        _setter("grpc_retry_events", grpc_retry_events)
-        _setter("http_retry_events", http_retry_events)
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeouts", per_retry_timeouts)
-        _setter("tcp_retry_events", tcp_retry_events)
+        pulumi.set(__self__, "grpc_retry_events", grpc_retry_events)
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="grpcRetryEvents")
@@ -14202,25 +9834,8 @@ class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -14238,27 +9853,8 @@ class GetRouteSpecGrpcRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']):
-        GetRouteSpecGrpcRouteTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -14276,25 +9872,8 @@ class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecGrpcRouteTimeoutIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -14312,25 +9891,8 @@ class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecGrpcRouteTimeoutPerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -14350,37 +9912,10 @@ class GetRouteSpecHttp2RouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']):
-        GetRouteSpecHttp2RouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-            retry_policies=retry_policies,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchResult']] = None,
-             retry_policies: Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyResult']] = None,
-             timeouts: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if retry_policies is None and 'retryPolicies' in kwargs:
-            retry_policies = kwargs['retryPolicies']
-        if retry_policies is None:
-            raise TypeError("Missing 'retry_policies' argument")
-        if timeouts is None:
-            raise TypeError("Missing 'timeouts' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
-        _setter("retry_policies", retry_policies)
-        _setter("timeouts", timeouts)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -14407,22 +9942,7 @@ class GetRouteSpecHttp2RouteResult(dict):
 class GetRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']):
-        GetRouteSpecHttp2RouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -14436,32 +9956,9 @@ class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        GetRouteSpecHttp2RouteActionWeightedTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_node=virtual_node,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("port", port)
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -14489,52 +9986,13 @@ class GetRouteSpecHttp2RouteMatchResult(dict):
                  prefix: str,
                  query_parameters: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult'],
                  scheme: str):
-        GetRouteSpecHttp2RouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            method=method,
-            paths=paths,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-            scheme=scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult']] = None,
-             method: Optional[str] = None,
-             paths: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchPathResult']] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterResult']] = None,
-             scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if headers is None:
-            raise TypeError("Missing 'headers' argument")
-        if method is None:
-            raise TypeError("Missing 'method' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-        if query_parameters is None:
-            raise TypeError("Missing 'query_parameters' argument")
-        if scheme is None:
-            raise TypeError("Missing 'scheme' argument")
-
-        _setter("headers", headers)
-        _setter("method", method)
-        _setter("paths", paths)
-        _setter("port", port)
-        _setter("prefix", prefix)
-        _setter("query_parameters", query_parameters)
-        _setter("scheme", scheme)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "query_parameters", query_parameters)
+        pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -14581,30 +10039,9 @@ class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
         """
         :param str name: Name of the route.
         """
-        GetRouteSpecHttp2RouteMatchHeaderResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invert=invert,
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invert: Optional[bool] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if invert is None:
-            raise TypeError("Missing 'invert' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("invert", invert)
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -14633,40 +10070,11 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        GetRouteSpecHttp2RouteMatchHeaderMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            ranges=ranges,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             ranges: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult']] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if ranges is None:
-            raise TypeError("Missing 'ranges' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("prefix", prefix)
-        _setter("ranges", ranges)
-        _setter("regex", regex)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -14699,25 +10107,8 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -14735,25 +10126,8 @@ class GetRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        GetRouteSpecHttp2RouteMatchPathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-
-        _setter("exact", exact)
-        _setter("regex", regex)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -14774,25 +10148,8 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the route.
         """
-        GetRouteSpecHttp2RouteMatchQueryParameterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -14812,20 +10169,7 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 class GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetRouteSpecHttp2RouteMatchQueryParameterMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -14840,43 +10184,10 @@ class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        GetRouteSpecHttp2RouteRetryPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_retry_events=http_retry_events,
-            max_retries=max_retries,
-            per_retry_timeouts=per_retry_timeouts,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_retry_events: Optional[Sequence[str]] = None,
-             max_retries: Optional[int] = None,
-             per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult']] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if http_retry_events is None:
-            raise TypeError("Missing 'http_retry_events' argument")
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeouts is None and 'perRetryTimeouts' in kwargs:
-            per_retry_timeouts = kwargs['perRetryTimeouts']
-        if per_retry_timeouts is None:
-            raise TypeError("Missing 'per_retry_timeouts' argument")
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-        if tcp_retry_events is None:
-            raise TypeError("Missing 'tcp_retry_events' argument")
-
-        _setter("http_retry_events", http_retry_events)
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeouts", per_retry_timeouts)
-        _setter("tcp_retry_events", tcp_retry_events)
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
@@ -14904,25 +10215,8 @@ class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -14940,27 +10234,8 @@ class GetRouteSpecHttp2RouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']):
-        GetRouteSpecHttp2RouteTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -14978,25 +10253,8 @@ class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttp2RouteTimeoutIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15014,25 +10272,8 @@ class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttp2RouteTimeoutPerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15052,37 +10293,10 @@ class GetRouteSpecHttpRouteResult(dict):
                  matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
                  retry_policies: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult'],
                  timeouts: Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']):
-        GetRouteSpecHttpRouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-            retry_policies=retry_policies,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetRouteSpecHttpRouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchResult']] = None,
-             retry_policies: Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyResult']] = None,
-             timeouts: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if retry_policies is None and 'retryPolicies' in kwargs:
-            retry_policies = kwargs['retryPolicies']
-        if retry_policies is None:
-            raise TypeError("Missing 'retry_policies' argument")
-        if timeouts is None:
-            raise TypeError("Missing 'timeouts' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
-        _setter("retry_policies", retry_policies)
-        _setter("timeouts", timeouts)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "retry_policies", retry_policies)
+        pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -15109,22 +10323,7 @@ class GetRouteSpecHttpRouteResult(dict):
 class GetRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']):
-        GetRouteSpecHttpRouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -15138,32 +10337,9 @@ class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        GetRouteSpecHttpRouteActionWeightedTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_node=virtual_node,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("port", port)
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -15191,52 +10367,13 @@ class GetRouteSpecHttpRouteMatchResult(dict):
                  prefix: str,
                  query_parameters: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult'],
                  scheme: str):
-        GetRouteSpecHttpRouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            headers=headers,
-            method=method,
-            paths=paths,
-            port=port,
-            prefix=prefix,
-            query_parameters=query_parameters,
-            scheme=scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             headers: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult']] = None,
-             method: Optional[str] = None,
-             paths: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchPathResult']] = None,
-             port: Optional[int] = None,
-             prefix: Optional[str] = None,
-             query_parameters: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterResult']] = None,
-             scheme: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if headers is None:
-            raise TypeError("Missing 'headers' argument")
-        if method is None:
-            raise TypeError("Missing 'method' argument")
-        if paths is None:
-            raise TypeError("Missing 'paths' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if query_parameters is None and 'queryParameters' in kwargs:
-            query_parameters = kwargs['queryParameters']
-        if query_parameters is None:
-            raise TypeError("Missing 'query_parameters' argument")
-        if scheme is None:
-            raise TypeError("Missing 'scheme' argument")
-
-        _setter("headers", headers)
-        _setter("method", method)
-        _setter("paths", paths)
-        _setter("port", port)
-        _setter("prefix", prefix)
-        _setter("query_parameters", query_parameters)
-        _setter("scheme", scheme)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "paths", paths)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "query_parameters", query_parameters)
+        pulumi.set(__self__, "scheme", scheme)
 
     @property
     @pulumi.getter
@@ -15283,30 +10420,9 @@ class GetRouteSpecHttpRouteMatchHeaderResult(dict):
         """
         :param str name: Name of the route.
         """
-        GetRouteSpecHttpRouteMatchHeaderResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invert=invert,
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invert: Optional[bool] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if invert is None:
-            raise TypeError("Missing 'invert' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("invert", invert)
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "invert", invert)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -15335,40 +10451,11 @@ class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
                  ranges: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult'],
                  regex: str,
                  suffix: str):
-        GetRouteSpecHttpRouteMatchHeaderMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-            ranges=ranges,
-            regex=regex,
-            suffix=suffix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             ranges: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchRangeResult']] = None,
-             regex: Optional[str] = None,
-             suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if prefix is None:
-            raise TypeError("Missing 'prefix' argument")
-        if ranges is None:
-            raise TypeError("Missing 'ranges' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-        if suffix is None:
-            raise TypeError("Missing 'suffix' argument")
-
-        _setter("exact", exact)
-        _setter("prefix", prefix)
-        _setter("ranges", ranges)
-        _setter("regex", regex)
-        _setter("suffix", suffix)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "ranges", ranges)
+        pulumi.set(__self__, "regex", regex)
+        pulumi.set(__self__, "suffix", suffix)
 
     @property
     @pulumi.getter
@@ -15401,25 +10488,8 @@ class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
-        GetRouteSpecHttpRouteMatchHeaderMatchRangeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[int] = None,
-             start: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if end is None:
-            raise TypeError("Missing 'end' argument")
-        if start is None:
-            raise TypeError("Missing 'start' argument")
-
-        _setter("end", end)
-        _setter("start", start)
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -15437,25 +10507,8 @@ class GetRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
-        GetRouteSpecHttpRouteMatchPathResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            regex=regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-        if regex is None:
-            raise TypeError("Missing 'regex' argument")
-
-        _setter("exact", exact)
-        _setter("regex", regex)
+        pulumi.set(__self__, "exact", exact)
+        pulumi.set(__self__, "regex", regex)
 
     @property
     @pulumi.getter
@@ -15476,25 +10529,8 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
         """
         :param str name: Name of the route.
         """
-        GetRouteSpecHttpRouteMatchQueryParameterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult']] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("matches", matches)
-        _setter("name", name)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -15514,20 +10550,7 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
 class GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
-        GetRouteSpecHttpRouteMatchQueryParameterMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exact is None:
-            raise TypeError("Missing 'exact' argument")
-
-        _setter("exact", exact)
+        pulumi.set(__self__, "exact", exact)
 
     @property
     @pulumi.getter
@@ -15542,43 +10565,10 @@ class GetRouteSpecHttpRouteRetryPolicyResult(dict):
                  max_retries: int,
                  per_retry_timeouts: Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult'],
                  tcp_retry_events: Sequence[str]):
-        GetRouteSpecHttpRouteRetryPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_retry_events=http_retry_events,
-            max_retries=max_retries,
-            per_retry_timeouts=per_retry_timeouts,
-            tcp_retry_events=tcp_retry_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_retry_events: Optional[Sequence[str]] = None,
-             max_retries: Optional[int] = None,
-             per_retry_timeouts: Optional[Sequence['outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult']] = None,
-             tcp_retry_events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if http_retry_events is None and 'httpRetryEvents' in kwargs:
-            http_retry_events = kwargs['httpRetryEvents']
-        if http_retry_events is None:
-            raise TypeError("Missing 'http_retry_events' argument")
-        if max_retries is None and 'maxRetries' in kwargs:
-            max_retries = kwargs['maxRetries']
-        if max_retries is None:
-            raise TypeError("Missing 'max_retries' argument")
-        if per_retry_timeouts is None and 'perRetryTimeouts' in kwargs:
-            per_retry_timeouts = kwargs['perRetryTimeouts']
-        if per_retry_timeouts is None:
-            raise TypeError("Missing 'per_retry_timeouts' argument")
-        if tcp_retry_events is None and 'tcpRetryEvents' in kwargs:
-            tcp_retry_events = kwargs['tcpRetryEvents']
-        if tcp_retry_events is None:
-            raise TypeError("Missing 'tcp_retry_events' argument")
-
-        _setter("http_retry_events", http_retry_events)
-        _setter("max_retries", max_retries)
-        _setter("per_retry_timeouts", per_retry_timeouts)
-        _setter("tcp_retry_events", tcp_retry_events)
+        pulumi.set(__self__, "http_retry_events", http_retry_events)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "per_retry_timeouts", per_retry_timeouts)
+        pulumi.set(__self__, "tcp_retry_events", tcp_retry_events)
 
     @property
     @pulumi.getter(name="httpRetryEvents")
@@ -15606,25 +10596,8 @@ class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15642,27 +10615,8 @@ class GetRouteSpecHttpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']):
-        GetRouteSpecHttpRouteTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -15680,25 +10634,8 @@ class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttpRouteTimeoutIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15716,25 +10653,8 @@ class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecHttpRouteTimeoutPerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15753,30 +10673,9 @@ class GetRouteSpecTcpRouteResult(dict):
                  actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
                  timeouts: Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']):
-        GetRouteSpecTcpRouteResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            matches=matches,
-            timeouts=timeouts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[Sequence['outputs.GetRouteSpecTcpRouteActionResult']] = None,
-             matches: Optional[Sequence['outputs.GetRouteSpecTcpRouteMatchResult']] = None,
-             timeouts: Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if actions is None:
-            raise TypeError("Missing 'actions' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if timeouts is None:
-            raise TypeError("Missing 'timeouts' argument")
-
-        _setter("actions", actions)
-        _setter("matches", matches)
-        _setter("timeouts", timeouts)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -15798,22 +10697,7 @@ class GetRouteSpecTcpRouteResult(dict):
 class GetRouteSpecTcpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']):
-        GetRouteSpecTcpRouteActionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            weighted_targets=weighted_targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             weighted_targets: Optional[Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if weighted_targets is None and 'weightedTargets' in kwargs:
-            weighted_targets = kwargs['weightedTargets']
-        if weighted_targets is None:
-            raise TypeError("Missing 'weighted_targets' argument")
-
-        _setter("weighted_targets", weighted_targets)
+        pulumi.set(__self__, "weighted_targets", weighted_targets)
 
     @property
     @pulumi.getter(name="weightedTargets")
@@ -15827,32 +10711,9 @@ class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
                  port: int,
                  virtual_node: str,
                  weight: int):
-        GetRouteSpecTcpRouteActionWeightedTargetResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            virtual_node=virtual_node,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             virtual_node: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if virtual_node is None and 'virtualNode' in kwargs:
-            virtual_node = kwargs['virtualNode']
-        if virtual_node is None:
-            raise TypeError("Missing 'virtual_node' argument")
-        if weight is None:
-            raise TypeError("Missing 'weight' argument")
-
-        _setter("port", port)
-        _setter("virtual_node", virtual_node)
-        _setter("weight", weight)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "virtual_node", virtual_node)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -15874,20 +10735,7 @@ class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
 class GetRouteSpecTcpRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int):
-        GetRouteSpecTcpRouteMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("port", port)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -15899,20 +10747,7 @@ class GetRouteSpecTcpRouteMatchResult(dict):
 class GetRouteSpecTcpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']):
-        GetRouteSpecTcpRouteTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-
-        _setter("idles", idles)
+        pulumi.set(__self__, "idles", idles)
 
     @property
     @pulumi.getter
@@ -15925,25 +10760,8 @@ class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetRouteSpecTcpRouteTimeoutIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -15962,32 +10780,9 @@ class GetVirtualGatewaySpecResult(dict):
                  backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
                  listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
                  loggings: Sequence['outputs.GetVirtualGatewaySpecLoggingResult']):
-        GetVirtualGatewaySpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_defaults=backend_defaults,
-            listeners=listeners,
-            loggings=loggings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_defaults: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult']] = None,
-             listeners: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerResult']] = None,
-             loggings: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_defaults is None and 'backendDefaults' in kwargs:
-            backend_defaults = kwargs['backendDefaults']
-        if backend_defaults is None:
-            raise TypeError("Missing 'backend_defaults' argument")
-        if listeners is None:
-            raise TypeError("Missing 'listeners' argument")
-        if loggings is None:
-            raise TypeError("Missing 'loggings' argument")
-
-        _setter("backend_defaults", backend_defaults)
-        _setter("listeners", listeners)
-        _setter("loggings", loggings)
+        pulumi.set(__self__, "backend_defaults", backend_defaults)
+        pulumi.set(__self__, "listeners", listeners)
+        pulumi.set(__self__, "loggings", loggings)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -16009,22 +10804,7 @@ class GetVirtualGatewaySpecResult(dict):
 class GetVirtualGatewaySpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']):
-        GetVirtualGatewaySpecBackendDefaultResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_policies=client_policies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_policies: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_policies is None and 'clientPolicies' in kwargs:
-            client_policies = kwargs['clientPolicies']
-        if client_policies is None:
-            raise TypeError("Missing 'client_policies' argument")
-
-        _setter("client_policies", client_policies)
+        pulumi.set(__self__, "client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -16036,20 +10816,7 @@ class GetVirtualGatewaySpecBackendDefaultResult(dict):
 class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-
-        _setter("tls", tls)
+        pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -16064,35 +10831,10 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-            enforce=enforce,
-            ports=ports,
-            validations=validations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult']] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             validations: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-        if enforce is None:
-            raise TypeError("Missing 'enforce' argument")
-        if ports is None:
-            raise TypeError("Missing 'ports' argument")
-        if validations is None:
-            raise TypeError("Missing 'validations' argument")
-
-        _setter("certificates", certificates)
-        _setter("enforce", enforce)
-        _setter("ports", ports)
-        _setter("validations", validations)
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "ports", ports)
+        pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
@@ -16120,25 +10862,8 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -16156,29 +10881,8 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dic
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -16195,22 +10899,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dic
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -16223,27 +10912,8 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subject_alternative_names=subject_alternative_names,
-            trusts=trusts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subject_alternative_names: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
-             trusts: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if subject_alternative_names is None:
-            raise TypeError("Missing 'subject_alternative_names' argument")
-        if trusts is None:
-            raise TypeError("Missing 'trusts' argument")
-
-        _setter("subject_alternative_names", subject_alternative_names)
-        _setter("trusts", trusts)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -16260,20 +10930,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("matches", matches)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -16285,20 +10942,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternat
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -16312,30 +10956,9 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dic
                  acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acms=acms,
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acms: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult']] = None,
-             files: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acms is None:
-            raise TypeError("Missing 'acms' argument")
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("acms", acms)
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -16357,22 +10980,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dic
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -16384,22 +10992,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -16411,22 +11004,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult
 class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -16441,41 +11019,10 @@ class GetVirtualGatewaySpecListenerResult(dict):
                  health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
                  port_mappings: Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult'],
                  tls: Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']):
-        GetVirtualGatewaySpecListenerResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_pools=connection_pools,
-            health_checks=health_checks,
-            port_mappings=port_mappings,
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_pools: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult']] = None,
-             health_checks: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult']] = None,
-             port_mappings: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerPortMappingResult']] = None,
-             tls: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_pools is None and 'connectionPools' in kwargs:
-            connection_pools = kwargs['connectionPools']
-        if connection_pools is None:
-            raise TypeError("Missing 'connection_pools' argument")
-        if health_checks is None and 'healthChecks' in kwargs:
-            health_checks = kwargs['healthChecks']
-        if health_checks is None:
-            raise TypeError("Missing 'health_checks' argument")
-        if port_mappings is None and 'portMappings' in kwargs:
-            port_mappings = kwargs['portMappings']
-        if port_mappings is None:
-            raise TypeError("Missing 'port_mappings' argument")
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-
-        _setter("connection_pools", connection_pools)
-        _setter("health_checks", health_checks)
-        _setter("port_mappings", port_mappings)
-        _setter("tls", tls)
+        pulumi.set(__self__, "connection_pools", connection_pools)
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "port_mappings", port_mappings)
+        pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
@@ -16504,30 +11051,9 @@ class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
                  grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
                  http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
                  https: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']):
-        GetVirtualGatewaySpecListenerConnectionPoolResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpcs=grpcs,
-            http2s=http2s,
-            https=https,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpcs: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult']] = None,
-             http2s: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result']] = None,
-             https: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttpResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpcs is None:
-            raise TypeError("Missing 'grpcs' argument")
-        if http2s is None:
-            raise TypeError("Missing 'http2s' argument")
-        if https is None:
-            raise TypeError("Missing 'https' argument")
-
-        _setter("grpcs", grpcs)
-        _setter("http2s", http2s)
-        _setter("https", https)
+        pulumi.set(__self__, "grpcs", grpcs)
+        pulumi.set(__self__, "http2s", http2s)
+        pulumi.set(__self__, "https", https)
 
     @property
     @pulumi.getter
@@ -16549,22 +11075,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
 class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        GetVirtualGatewaySpecListenerConnectionPoolGrpcResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -16576,22 +11087,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
 class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        GetVirtualGatewaySpecListenerConnectionPoolHttp2Result._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -16604,29 +11100,8 @@ class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
-        GetVirtualGatewaySpecListenerConnectionPoolHttpResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-            max_pending_requests=max_pending_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             max_pending_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-        if max_pending_requests is None and 'maxPendingRequests' in kwargs:
-            max_pending_requests = kwargs['maxPendingRequests']
-        if max_pending_requests is None:
-            raise TypeError("Missing 'max_pending_requests' argument")
-
-        _setter("max_connections", max_connections)
-        _setter("max_pending_requests", max_pending_requests)
+        pulumi.set(__self__, "max_connections", max_connections)
+        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -16649,58 +11124,13 @@ class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
                  protocol: str,
                  timeout_millis: int,
                  unhealthy_threshold: int):
-        GetVirtualGatewaySpecListenerHealthCheckResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval_millis=interval_millis,
-            path=path,
-            port=port,
-            protocol=protocol,
-            timeout_millis=timeout_millis,
-            unhealthy_threshold=unhealthy_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: Optional[int] = None,
-             interval_millis: Optional[int] = None,
-             path: Optional[str] = None,
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             timeout_millis: Optional[int] = None,
-             unhealthy_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if healthy_threshold is None and 'healthyThreshold' in kwargs:
-            healthy_threshold = kwargs['healthyThreshold']
-        if healthy_threshold is None:
-            raise TypeError("Missing 'healthy_threshold' argument")
-        if interval_millis is None and 'intervalMillis' in kwargs:
-            interval_millis = kwargs['intervalMillis']
-        if interval_millis is None:
-            raise TypeError("Missing 'interval_millis' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if timeout_millis is None and 'timeoutMillis' in kwargs:
-            timeout_millis = kwargs['timeoutMillis']
-        if timeout_millis is None:
-            raise TypeError("Missing 'timeout_millis' argument")
-        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
-            unhealthy_threshold = kwargs['unhealthyThreshold']
-        if unhealthy_threshold is None:
-            raise TypeError("Missing 'unhealthy_threshold' argument")
-
-        _setter("healthy_threshold", healthy_threshold)
-        _setter("interval_millis", interval_millis)
-        _setter("path", path)
-        _setter("port", port)
-        _setter("protocol", protocol)
-        _setter("timeout_millis", timeout_millis)
-        _setter("unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -16743,25 +11173,8 @@ class GetVirtualGatewaySpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        GetVirtualGatewaySpecListenerPortMappingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -16780,30 +11193,9 @@ class GetVirtualGatewaySpecListenerTlResult(dict):
                  certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
                  mode: str,
                  validations: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']):
-        GetVirtualGatewaySpecListenerTlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-            mode=mode,
-            validations=validations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult']] = None,
-             mode: Optional[str] = None,
-             validations: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if validations is None:
-            raise TypeError("Missing 'validations' argument")
-
-        _setter("certificates", certificates)
-        _setter("mode", mode)
-        _setter("validations", validations)
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
@@ -16827,30 +11219,9 @@ class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
                  acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']):
-        GetVirtualGatewaySpecListenerTlCertificateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acms=acms,
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acms: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult']] = None,
-             files: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acms is None:
-            raise TypeError("Missing 'acms' argument")
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("acms", acms)
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -16872,22 +11243,7 @@ class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
 class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
-        GetVirtualGatewaySpecListenerTlCertificateAcmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_arn is None and 'certificateArn' in kwargs:
-            certificate_arn = kwargs['certificateArn']
-        if certificate_arn is None:
-            raise TypeError("Missing 'certificate_arn' argument")
-
-        _setter("certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -16900,29 +11256,8 @@ class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        GetVirtualGatewaySpecListenerTlCertificateFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -16939,22 +11274,7 @@ class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
 class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualGatewaySpecListenerTlCertificateSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -16967,27 +11287,8 @@ class GetVirtualGatewaySpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']):
-        GetVirtualGatewaySpecListenerTlValidationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subject_alternative_names=subject_alternative_names,
-            trusts=trusts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subject_alternative_names: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult']] = None,
-             trusts: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if subject_alternative_names is None:
-            raise TypeError("Missing 'subject_alternative_names' argument")
-        if trusts is None:
-            raise TypeError("Missing 'trusts' argument")
-
-        _setter("subject_alternative_names", subject_alternative_names)
-        _setter("trusts", trusts)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -17004,20 +11305,7 @@ class GetVirtualGatewaySpecListenerTlValidationResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("matches", matches)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -17029,20 +11317,7 @@ class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict
 class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -17055,25 +11330,8 @@ class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']):
-        GetVirtualGatewaySpecListenerTlValidationTrustResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -17090,22 +11348,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        GetVirtualGatewaySpecListenerTlValidationTrustFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -17117,22 +11360,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
 class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualGatewaySpecListenerTlValidationTrustSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -17144,22 +11372,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
 class GetVirtualGatewaySpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']):
-        GetVirtualGatewaySpecLoggingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_logs=access_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_logs: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_logs is None and 'accessLogs' in kwargs:
-            access_logs = kwargs['accessLogs']
-        if access_logs is None:
-            raise TypeError("Missing 'access_logs' argument")
-
-        _setter("access_logs", access_logs)
+        pulumi.set(__self__, "access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -17171,20 +11384,7 @@ class GetVirtualGatewaySpecLoggingResult(dict):
 class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']):
-        GetVirtualGatewaySpecLoggingAccessLogResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-
-        _setter("files", files)
+        pulumi.set(__self__, "files", files)
 
     @property
     @pulumi.getter
@@ -17197,25 +11397,8 @@ class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
                  path: str):
-        GetVirtualGatewaySpecLoggingAccessLogFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            formats=formats,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             formats: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult']] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if formats is None:
-            raise TypeError("Missing 'formats' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-
-        _setter("formats", formats)
-        _setter("path", path)
+        pulumi.set(__self__, "formats", formats)
+        pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -17233,25 +11416,8 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
-        GetVirtualGatewaySpecLoggingAccessLogFileFormatResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jsons=jsons,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jsons: Optional[Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult']] = None,
-             text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if jsons is None:
-            raise TypeError("Missing 'jsons' argument")
-        if text is None:
-            raise TypeError("Missing 'text' argument")
-
-        _setter("jsons", jsons)
-        _setter("text", text)
+        pulumi.set(__self__, "jsons", jsons)
+        pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
@@ -17269,25 +11435,8 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -17308,44 +11457,11 @@ class GetVirtualNodeSpecResult(dict):
                  listeners: Sequence['outputs.GetVirtualNodeSpecListenerResult'],
                  loggings: Sequence['outputs.GetVirtualNodeSpecLoggingResult'],
                  service_discoveries: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']):
-        GetVirtualNodeSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            backend_defaults=backend_defaults,
-            backends=backends,
-            listeners=listeners,
-            loggings=loggings,
-            service_discoveries=service_discoveries,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             backend_defaults: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult']] = None,
-             backends: Optional[Sequence['outputs.GetVirtualNodeSpecBackendResult']] = None,
-             listeners: Optional[Sequence['outputs.GetVirtualNodeSpecListenerResult']] = None,
-             loggings: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingResult']] = None,
-             service_discoveries: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if backend_defaults is None and 'backendDefaults' in kwargs:
-            backend_defaults = kwargs['backendDefaults']
-        if backend_defaults is None:
-            raise TypeError("Missing 'backend_defaults' argument")
-        if backends is None:
-            raise TypeError("Missing 'backends' argument")
-        if listeners is None:
-            raise TypeError("Missing 'listeners' argument")
-        if loggings is None:
-            raise TypeError("Missing 'loggings' argument")
-        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
-            service_discoveries = kwargs['serviceDiscoveries']
-        if service_discoveries is None:
-            raise TypeError("Missing 'service_discoveries' argument")
-
-        _setter("backend_defaults", backend_defaults)
-        _setter("backends", backends)
-        _setter("listeners", listeners)
-        _setter("loggings", loggings)
-        _setter("service_discoveries", service_discoveries)
+        pulumi.set(__self__, "backend_defaults", backend_defaults)
+        pulumi.set(__self__, "backends", backends)
+        pulumi.set(__self__, "listeners", listeners)
+        pulumi.set(__self__, "loggings", loggings)
+        pulumi.set(__self__, "service_discoveries", service_discoveries)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -17377,22 +11493,7 @@ class GetVirtualNodeSpecResult(dict):
 class GetVirtualNodeSpecBackendResult(dict):
     def __init__(__self__, *,
                  virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']):
-        GetVirtualNodeSpecBackendResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_services=virtual_services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_services: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_services is None and 'virtualServices' in kwargs:
-            virtual_services = kwargs['virtualServices']
-        if virtual_services is None:
-            raise TypeError("Missing 'virtual_services' argument")
-
-        _setter("virtual_services", virtual_services)
+        pulumi.set(__self__, "virtual_services", virtual_services)
 
     @property
     @pulumi.getter(name="virtualServices")
@@ -17404,22 +11505,7 @@ class GetVirtualNodeSpecBackendResult(dict):
 class GetVirtualNodeSpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']):
-        GetVirtualNodeSpecBackendDefaultResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_policies=client_policies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_policies: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_policies is None and 'clientPolicies' in kwargs:
-            client_policies = kwargs['clientPolicies']
-        if client_policies is None:
-            raise TypeError("Missing 'client_policies' argument")
-
-        _setter("client_policies", client_policies)
+        pulumi.set(__self__, "client_policies", client_policies)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -17431,20 +11517,7 @@ class GetVirtualNodeSpecBackendDefaultResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-
-        _setter("tls", tls)
+        pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -17459,35 +11532,10 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-            enforce=enforce,
-            ports=ports,
-            validations=validations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult']] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             validations: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-        if enforce is None:
-            raise TypeError("Missing 'enforce' argument")
-        if ports is None:
-            raise TypeError("Missing 'ports' argument")
-        if validations is None:
-            raise TypeError("Missing 'validations' argument")
-
-        _setter("certificates", certificates)
-        _setter("enforce", enforce)
-        _setter("ports", ports)
-        _setter("validations", validations)
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "ports", ports)
+        pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
@@ -17515,25 +11563,8 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -17551,29 +11582,8 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -17590,22 +11600,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -17618,27 +11613,8 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subject_alternative_names=subject_alternative_names,
-            trusts=trusts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
-             trusts: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if subject_alternative_names is None:
-            raise TypeError("Missing 'subject_alternative_names' argument")
-        if trusts is None:
-            raise TypeError("Missing 'trusts' argument")
-
-        _setter("subject_alternative_names", subject_alternative_names)
-        _setter("trusts", trusts)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -17655,20 +11631,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("matches", matches)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -17680,20 +11643,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternative
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -17707,30 +11657,9 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acms=acms,
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acms: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult']] = None,
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acms is None:
-            raise TypeError("Missing 'acms' argument")
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("acms", acms)
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -17752,22 +11681,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -17779,22 +11693,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dic
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -17806,22 +11705,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(di
 class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -17834,29 +11718,8 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
                  virtual_service_name: str):
-        GetVirtualNodeSpecBackendVirtualServiceResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_policies=client_policies,
-            virtual_service_name=virtual_service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_policies: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult']] = None,
-             virtual_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_policies is None and 'clientPolicies' in kwargs:
-            client_policies = kwargs['clientPolicies']
-        if client_policies is None:
-            raise TypeError("Missing 'client_policies' argument")
-        if virtual_service_name is None and 'virtualServiceName' in kwargs:
-            virtual_service_name = kwargs['virtualServiceName']
-        if virtual_service_name is None:
-            raise TypeError("Missing 'virtual_service_name' argument")
-
-        _setter("client_policies", client_policies)
-        _setter("virtual_service_name", virtual_service_name)
+        pulumi.set(__self__, "client_policies", client_policies)
+        pulumi.set(__self__, "virtual_service_name", virtual_service_name)
 
     @property
     @pulumi.getter(name="clientPolicies")
@@ -17873,20 +11736,7 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-
-        _setter("tls", tls)
+        pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
@@ -17901,35 +11751,10 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
                  enforce: bool,
                  ports: Sequence[int],
                  validations: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-            enforce=enforce,
-            ports=ports,
-            validations=validations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult']] = None,
-             enforce: Optional[bool] = None,
-             ports: Optional[Sequence[int]] = None,
-             validations: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-        if enforce is None:
-            raise TypeError("Missing 'enforce' argument")
-        if ports is None:
-            raise TypeError("Missing 'ports' argument")
-        if validations is None:
-            raise TypeError("Missing 'validations' argument")
-
-        _setter("certificates", certificates)
-        _setter("enforce", enforce)
-        _setter("ports", ports)
-        _setter("validations", validations)
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "enforce", enforce)
+        pulumi.set(__self__, "ports", ports)
+        pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
@@ -17957,25 +11782,8 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dic
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -17993,29 +11801,8 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -18032,22 +11819,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -18060,27 +11832,8 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subject_alternative_names=subject_alternative_names,
-            trusts=trusts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult']] = None,
-             trusts: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if subject_alternative_names is None:
-            raise TypeError("Missing 'subject_alternative_names' argument")
-        if trusts is None:
-            raise TypeError("Missing 'trusts' argument")
-
-        _setter("subject_alternative_names", subject_alternative_names)
-        _setter("trusts", trusts)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -18097,20 +11850,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("matches", matches)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -18122,20 +11862,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlte
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -18149,30 +11876,9 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acms=acms,
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acms: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult']] = None,
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acms is None:
-            raise TypeError("Missing 'acms' argument")
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("acms", acms)
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -18194,22 +11900,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arns=certificate_authority_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_authority_arns is None and 'certificateAuthorityArns' in kwargs:
-            certificate_authority_arns = kwargs['certificateAuthorityArns']
-        if certificate_authority_arns is None:
-            raise TypeError("Missing 'certificate_authority_arns' argument")
-
-        _setter("certificate_authority_arns", certificate_authority_arns)
+        pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
@@ -18221,22 +11912,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmRes
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -18248,22 +11924,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileRe
 class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -18280,53 +11941,12 @@ class GetVirtualNodeSpecListenerResult(dict):
                  port_mappings: Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult'],
                  timeouts: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult'],
                  tls: Sequence['outputs.GetVirtualNodeSpecListenerTlResult']):
-        GetVirtualNodeSpecListenerResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_pools=connection_pools,
-            health_checks=health_checks,
-            outlier_detections=outlier_detections,
-            port_mappings=port_mappings,
-            timeouts=timeouts,
-            tls=tls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_pools: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult']] = None,
-             health_checks: Optional[Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult']] = None,
-             outlier_detections: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionResult']] = None,
-             port_mappings: Optional[Sequence['outputs.GetVirtualNodeSpecListenerPortMappingResult']] = None,
-             timeouts: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutResult']] = None,
-             tls: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_pools is None and 'connectionPools' in kwargs:
-            connection_pools = kwargs['connectionPools']
-        if connection_pools is None:
-            raise TypeError("Missing 'connection_pools' argument")
-        if health_checks is None and 'healthChecks' in kwargs:
-            health_checks = kwargs['healthChecks']
-        if health_checks is None:
-            raise TypeError("Missing 'health_checks' argument")
-        if outlier_detections is None and 'outlierDetections' in kwargs:
-            outlier_detections = kwargs['outlierDetections']
-        if outlier_detections is None:
-            raise TypeError("Missing 'outlier_detections' argument")
-        if port_mappings is None and 'portMappings' in kwargs:
-            port_mappings = kwargs['portMappings']
-        if port_mappings is None:
-            raise TypeError("Missing 'port_mappings' argument")
-        if timeouts is None:
-            raise TypeError("Missing 'timeouts' argument")
-        if tls is None:
-            raise TypeError("Missing 'tls' argument")
-
-        _setter("connection_pools", connection_pools)
-        _setter("health_checks", health_checks)
-        _setter("outlier_detections", outlier_detections)
-        _setter("port_mappings", port_mappings)
-        _setter("timeouts", timeouts)
-        _setter("tls", tls)
+        pulumi.set(__self__, "connection_pools", connection_pools)
+        pulumi.set(__self__, "health_checks", health_checks)
+        pulumi.set(__self__, "outlier_detections", outlier_detections)
+        pulumi.set(__self__, "port_mappings", port_mappings)
+        pulumi.set(__self__, "timeouts", timeouts)
+        pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter(name="connectionPools")
@@ -18366,35 +11986,10 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']):
-        GetVirtualNodeSpecListenerConnectionPoolResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpcs=grpcs,
-            http2s=http2s,
-            https=https,
-            tcps=tcps,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpcs: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult']] = None,
-             http2s: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result']] = None,
-             https: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttpResult']] = None,
-             tcps: Optional[Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolTcpResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpcs is None:
-            raise TypeError("Missing 'grpcs' argument")
-        if http2s is None:
-            raise TypeError("Missing 'http2s' argument")
-        if https is None:
-            raise TypeError("Missing 'https' argument")
-        if tcps is None:
-            raise TypeError("Missing 'tcps' argument")
-
-        _setter("grpcs", grpcs)
-        _setter("http2s", http2s)
-        _setter("https", https)
-        _setter("tcps", tcps)
+        pulumi.set(__self__, "grpcs", grpcs)
+        pulumi.set(__self__, "http2s", http2s)
+        pulumi.set(__self__, "https", https)
+        pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
@@ -18421,22 +12016,7 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        GetVirtualNodeSpecListenerConnectionPoolGrpcResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -18448,22 +12028,7 @@ class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
-        GetVirtualNodeSpecListenerConnectionPoolHttp2Result._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_requests=max_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_requests is None and 'maxRequests' in kwargs:
-            max_requests = kwargs['maxRequests']
-        if max_requests is None:
-            raise TypeError("Missing 'max_requests' argument")
-
-        _setter("max_requests", max_requests)
+        pulumi.set(__self__, "max_requests", max_requests)
 
     @property
     @pulumi.getter(name="maxRequests")
@@ -18476,29 +12041,8 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
-        GetVirtualNodeSpecListenerConnectionPoolHttpResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-            max_pending_requests=max_pending_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             max_pending_requests: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-        if max_pending_requests is None and 'maxPendingRequests' in kwargs:
-            max_pending_requests = kwargs['maxPendingRequests']
-        if max_pending_requests is None:
-            raise TypeError("Missing 'max_pending_requests' argument")
-
-        _setter("max_connections", max_connections)
-        _setter("max_pending_requests", max_pending_requests)
+        pulumi.set(__self__, "max_connections", max_connections)
+        pulumi.set(__self__, "max_pending_requests", max_pending_requests)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -18515,22 +12059,7 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
 class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
     def __init__(__self__, *,
                  max_connections: int):
-        GetVirtualNodeSpecListenerConnectionPoolTcpResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_connections=max_connections,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_connections: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_connections is None and 'maxConnections' in kwargs:
-            max_connections = kwargs['maxConnections']
-        if max_connections is None:
-            raise TypeError("Missing 'max_connections' argument")
-
-        _setter("max_connections", max_connections)
+        pulumi.set(__self__, "max_connections", max_connections)
 
     @property
     @pulumi.getter(name="maxConnections")
@@ -18548,58 +12077,13 @@ class GetVirtualNodeSpecListenerHealthCheckResult(dict):
                  protocol: str,
                  timeout_millis: int,
                  unhealthy_threshold: int):
-        GetVirtualNodeSpecListenerHealthCheckResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval_millis=interval_millis,
-            path=path,
-            port=port,
-            protocol=protocol,
-            timeout_millis=timeout_millis,
-            unhealthy_threshold=unhealthy_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: Optional[int] = None,
-             interval_millis: Optional[int] = None,
-             path: Optional[str] = None,
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             timeout_millis: Optional[int] = None,
-             unhealthy_threshold: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if healthy_threshold is None and 'healthyThreshold' in kwargs:
-            healthy_threshold = kwargs['healthyThreshold']
-        if healthy_threshold is None:
-            raise TypeError("Missing 'healthy_threshold' argument")
-        if interval_millis is None and 'intervalMillis' in kwargs:
-            interval_millis = kwargs['intervalMillis']
-        if interval_millis is None:
-            raise TypeError("Missing 'interval_millis' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if timeout_millis is None and 'timeoutMillis' in kwargs:
-            timeout_millis = kwargs['timeoutMillis']
-        if timeout_millis is None:
-            raise TypeError("Missing 'timeout_millis' argument")
-        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
-            unhealthy_threshold = kwargs['unhealthyThreshold']
-        if unhealthy_threshold is None:
-            raise TypeError("Missing 'unhealthy_threshold' argument")
-
-        _setter("healthy_threshold", healthy_threshold)
-        _setter("interval_millis", interval_millis)
-        _setter("path", path)
-        _setter("port", port)
-        _setter("protocol", protocol)
-        _setter("timeout_millis", timeout_millis)
-        _setter("unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval_millis", interval_millis)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "timeout_millis", timeout_millis)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -18644,41 +12128,10 @@ class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
                  intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
                  max_ejection_percent: int,
                  max_server_errors: int):
-        GetVirtualNodeSpecListenerOutlierDetectionResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_ejection_durations=base_ejection_durations,
-            intervals=intervals,
-            max_ejection_percent=max_ejection_percent,
-            max_server_errors=max_server_errors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_ejection_durations: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult']] = None,
-             intervals: Optional[Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult']] = None,
-             max_ejection_percent: Optional[int] = None,
-             max_server_errors: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if base_ejection_durations is None and 'baseEjectionDurations' in kwargs:
-            base_ejection_durations = kwargs['baseEjectionDurations']
-        if base_ejection_durations is None:
-            raise TypeError("Missing 'base_ejection_durations' argument")
-        if intervals is None:
-            raise TypeError("Missing 'intervals' argument")
-        if max_ejection_percent is None and 'maxEjectionPercent' in kwargs:
-            max_ejection_percent = kwargs['maxEjectionPercent']
-        if max_ejection_percent is None:
-            raise TypeError("Missing 'max_ejection_percent' argument")
-        if max_server_errors is None and 'maxServerErrors' in kwargs:
-            max_server_errors = kwargs['maxServerErrors']
-        if max_server_errors is None:
-            raise TypeError("Missing 'max_server_errors' argument")
-
-        _setter("base_ejection_durations", base_ejection_durations)
-        _setter("intervals", intervals)
-        _setter("max_ejection_percent", max_ejection_percent)
-        _setter("max_server_errors", max_server_errors)
+        pulumi.set(__self__, "base_ejection_durations", base_ejection_durations)
+        pulumi.set(__self__, "intervals", intervals)
+        pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+        pulumi.set(__self__, "max_server_errors", max_server_errors)
 
     @property
     @pulumi.getter(name="baseEjectionDurations")
@@ -18706,25 +12159,8 @@ class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict)
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -18742,25 +12178,8 @@ class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerOutlierDetectionIntervalResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -18778,25 +12197,8 @@ class GetVirtualNodeSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        GetVirtualNodeSpecListenerPortMappingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -18816,35 +12218,10 @@ class GetVirtualNodeSpecListenerTimeoutResult(dict):
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
                  https: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult'],
                  tcps: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']):
-        GetVirtualNodeSpecListenerTimeoutResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpcs=grpcs,
-            http2s=http2s,
-            https=https,
-            tcps=tcps,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpcs: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult']] = None,
-             http2s: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result']] = None,
-             https: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpResult']] = None,
-             tcps: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if grpcs is None:
-            raise TypeError("Missing 'grpcs' argument")
-        if http2s is None:
-            raise TypeError("Missing 'http2s' argument")
-        if https is None:
-            raise TypeError("Missing 'https' argument")
-        if tcps is None:
-            raise TypeError("Missing 'tcps' argument")
-
-        _setter("grpcs", grpcs)
-        _setter("http2s", http2s)
-        _setter("https", https)
-        _setter("tcps", tcps)
+        pulumi.set(__self__, "grpcs", grpcs)
+        pulumi.set(__self__, "http2s", http2s)
+        pulumi.set(__self__, "https", https)
+        pulumi.set(__self__, "tcps", tcps)
 
     @property
     @pulumi.getter
@@ -18872,27 +12249,8 @@ class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']):
-        GetVirtualNodeSpecListenerTimeoutGrpcResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -18910,25 +12268,8 @@ class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutGrpcIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -18946,25 +12287,8 @@ class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -18982,27 +12306,8 @@ class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']):
-        GetVirtualNodeSpecListenerTimeoutHttp2Result._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -19020,25 +12325,8 @@ class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutHttp2IdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19056,25 +12344,8 @@ class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19092,27 +12363,8 @@ class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']):
-        GetVirtualNodeSpecListenerTimeoutHttpResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-            per_requests=per_requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult']] = None,
-             per_requests: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-        if per_requests is None and 'perRequests' in kwargs:
-            per_requests = kwargs['perRequests']
-        if per_requests is None:
-            raise TypeError("Missing 'per_requests' argument")
-
-        _setter("idles", idles)
-        _setter("per_requests", per_requests)
+        pulumi.set(__self__, "idles", idles)
+        pulumi.set(__self__, "per_requests", per_requests)
 
     @property
     @pulumi.getter
@@ -19130,25 +12382,8 @@ class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutHttpIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19166,25 +12401,8 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19201,20 +12419,7 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
 class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']):
-        GetVirtualNodeSpecListenerTimeoutTcpResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idles=idles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idles: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if idles is None:
-            raise TypeError("Missing 'idles' argument")
-
-        _setter("idles", idles)
+        pulumi.set(__self__, "idles", idles)
 
     @property
     @pulumi.getter
@@ -19227,25 +12432,8 @@ class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
-        GetVirtualNodeSpecListenerTimeoutTcpIdleResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if unit is None:
-            raise TypeError("Missing 'unit' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19264,30 +12452,9 @@ class GetVirtualNodeSpecListenerTlResult(dict):
                  certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
                  mode: str,
                  validations: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']):
-        GetVirtualNodeSpecListenerTlResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificates=certificates,
-            mode=mode,
-            validations=validations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificates: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult']] = None,
-             mode: Optional[str] = None,
-             validations: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificates is None:
-            raise TypeError("Missing 'certificates' argument")
-        if mode is None:
-            raise TypeError("Missing 'mode' argument")
-        if validations is None:
-            raise TypeError("Missing 'validations' argument")
-
-        _setter("certificates", certificates)
-        _setter("mode", mode)
-        _setter("validations", validations)
+        pulumi.set(__self__, "certificates", certificates)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "validations", validations)
 
     @property
     @pulumi.getter
@@ -19311,30 +12478,9 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
                  acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']):
-        GetVirtualNodeSpecListenerTlCertificateResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acms=acms,
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acms: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult']] = None,
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if acms is None:
-            raise TypeError("Missing 'acms' argument")
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("acms", acms)
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "acms", acms)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -19356,22 +12502,7 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
-        GetVirtualNodeSpecListenerTlCertificateAcmResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_arn is None and 'certificateArn' in kwargs:
-            certificate_arn = kwargs['certificateArn']
-        if certificate_arn is None:
-            raise TypeError("Missing 'certificate_arn' argument")
-
-        _setter("certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -19384,29 +12515,8 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
-        GetVirtualNodeSpecListenerTlCertificateFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if private_key is None:
-            raise TypeError("Missing 'private_key' argument")
-
-        _setter("certificate_chain", certificate_chain)
-        _setter("private_key", private_key)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
+        pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -19423,22 +12533,7 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
 class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecListenerTlCertificateSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -19451,27 +12546,8 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']):
-        GetVirtualNodeSpecListenerTlValidationResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subject_alternative_names=subject_alternative_names,
-            trusts=trusts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subject_alternative_names: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult']] = None,
-             trusts: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
-            subject_alternative_names = kwargs['subjectAlternativeNames']
-        if subject_alternative_names is None:
-            raise TypeError("Missing 'subject_alternative_names' argument")
-        if trusts is None:
-            raise TypeError("Missing 'trusts' argument")
-
-        _setter("subject_alternative_names", subject_alternative_names)
-        _setter("trusts", trusts)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+        pulumi.set(__self__, "trusts", trusts)
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
@@ -19488,20 +12564,7 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']):
-        GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matches=matches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matches: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-
-        _setter("matches", matches)
+        pulumi.set(__self__, "matches", matches)
 
     @property
     @pulumi.getter
@@ -19513,20 +12576,7 @@ class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
 class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
-        GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exacts=exacts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exacts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if exacts is None:
-            raise TypeError("Missing 'exacts' argument")
-
-        _setter("exacts", exacts)
+        pulumi.set(__self__, "exacts", exacts)
 
     @property
     @pulumi.getter
@@ -19539,25 +12589,8 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']):
-        GetVirtualNodeSpecListenerTlValidationTrustResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-            sds=sds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult']] = None,
-             sds: Optional[Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-        if sds is None:
-            raise TypeError("Missing 'sds' argument")
-
-        _setter("files", files)
-        _setter("sds", sds)
+        pulumi.set(__self__, "files", files)
+        pulumi.set(__self__, "sds", sds)
 
     @property
     @pulumi.getter
@@ -19574,22 +12607,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
-        GetVirtualNodeSpecListenerTlValidationTrustFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_chain=certificate_chain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_chain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if certificate_chain is None and 'certificateChain' in kwargs:
-            certificate_chain = kwargs['certificateChain']
-        if certificate_chain is None:
-            raise TypeError("Missing 'certificate_chain' argument")
-
-        _setter("certificate_chain", certificate_chain)
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
 
     @property
     @pulumi.getter(name="certificateChain")
@@ -19601,22 +12619,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
 class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
-        GetVirtualNodeSpecListenerTlValidationTrustSdResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if secret_name is None and 'secretName' in kwargs:
-            secret_name = kwargs['secretName']
-        if secret_name is None:
-            raise TypeError("Missing 'secret_name' argument")
-
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
 
     @property
     @pulumi.getter(name="secretName")
@@ -19628,22 +12631,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
 class GetVirtualNodeSpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']):
-        GetVirtualNodeSpecLoggingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_logs=access_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_logs: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if access_logs is None and 'accessLogs' in kwargs:
-            access_logs = kwargs['accessLogs']
-        if access_logs is None:
-            raise TypeError("Missing 'access_logs' argument")
-
-        _setter("access_logs", access_logs)
+        pulumi.set(__self__, "access_logs", access_logs)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -19655,20 +12643,7 @@ class GetVirtualNodeSpecLoggingResult(dict):
 class GetVirtualNodeSpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']):
-        GetVirtualNodeSpecLoggingAccessLogResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            files=files,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             files: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if files is None:
-            raise TypeError("Missing 'files' argument")
-
-        _setter("files", files)
+        pulumi.set(__self__, "files", files)
 
     @property
     @pulumi.getter
@@ -19681,25 +12656,8 @@ class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
                  path: str):
-        GetVirtualNodeSpecLoggingAccessLogFileResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            formats=formats,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             formats: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult']] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if formats is None:
-            raise TypeError("Missing 'formats' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-
-        _setter("formats", formats)
-        _setter("path", path)
+        pulumi.set(__self__, "formats", formats)
+        pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -19717,25 +12675,8 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
-        GetVirtualNodeSpecLoggingAccessLogFileFormatResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jsons=jsons,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jsons: Optional[Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult']] = None,
-             text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if jsons is None:
-            raise TypeError("Missing 'jsons' argument")
-        if text is None:
-            raise TypeError("Missing 'text' argument")
-
-        _setter("jsons", jsons)
-        _setter("text", text)
+        pulumi.set(__self__, "jsons", jsons)
+        pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
@@ -19753,25 +12694,8 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -19789,27 +12713,8 @@ class GetVirtualNodeSpecServiceDiscoveryResult(dict):
     def __init__(__self__, *,
                  aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
                  dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']):
-        GetVirtualNodeSpecServiceDiscoveryResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_cloud_maps=aws_cloud_maps,
-            dns=dns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_cloud_maps: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult']] = None,
-             dns: Optional[Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if aws_cloud_maps is None and 'awsCloudMaps' in kwargs:
-            aws_cloud_maps = kwargs['awsCloudMaps']
-        if aws_cloud_maps is None:
-            raise TypeError("Missing 'aws_cloud_maps' argument")
-        if dns is None:
-            raise TypeError("Missing 'dns' argument")
-
-        _setter("aws_cloud_maps", aws_cloud_maps)
-        _setter("dns", dns)
+        pulumi.set(__self__, "aws_cloud_maps", aws_cloud_maps)
+        pulumi.set(__self__, "dns", dns)
 
     @property
     @pulumi.getter(name="awsCloudMaps")
@@ -19828,34 +12733,9 @@ class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
                  attributes: Mapping[str, str],
                  namespace_name: str,
                  service_name: str):
-        GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            namespace_name=namespace_name,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Optional[Mapping[str, str]] = None,
-             namespace_name: Optional[str] = None,
-             service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if attributes is None:
-            raise TypeError("Missing 'attributes' argument")
-        if namespace_name is None and 'namespaceName' in kwargs:
-            namespace_name = kwargs['namespaceName']
-        if namespace_name is None:
-            raise TypeError("Missing 'namespace_name' argument")
-        if service_name is None and 'serviceName' in kwargs:
-            service_name = kwargs['serviceName']
-        if service_name is None:
-            raise TypeError("Missing 'service_name' argument")
-
-        _setter("attributes", attributes)
-        _setter("namespace_name", namespace_name)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "namespace_name", namespace_name)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter
@@ -19879,34 +12759,9 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
                  hostname: str,
                  ip_preference: str,
                  response_type: str):
-        GetVirtualNodeSpecServiceDiscoveryDnResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            ip_preference=ip_preference,
-            response_type=response_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: Optional[str] = None,
-             ip_preference: Optional[str] = None,
-             response_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if hostname is None:
-            raise TypeError("Missing 'hostname' argument")
-        if ip_preference is None and 'ipPreference' in kwargs:
-            ip_preference = kwargs['ipPreference']
-        if ip_preference is None:
-            raise TypeError("Missing 'ip_preference' argument")
-        if response_type is None and 'responseType' in kwargs:
-            response_type = kwargs['responseType']
-        if response_type is None:
-            raise TypeError("Missing 'response_type' argument")
-
-        _setter("hostname", hostname)
-        _setter("ip_preference", ip_preference)
-        _setter("response_type", response_type)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "ip_preference", ip_preference)
+        pulumi.set(__self__, "response_type", response_type)
 
     @property
     @pulumi.getter
@@ -19928,20 +12783,7 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
 class GetVirtualRouterSpecResult(dict):
     def __init__(__self__, *,
                  listeners: Sequence['outputs.GetVirtualRouterSpecListenerResult']):
-        GetVirtualRouterSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            listeners=listeners,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             listeners: Optional[Sequence['outputs.GetVirtualRouterSpecListenerResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if listeners is None:
-            raise TypeError("Missing 'listeners' argument")
-
-        _setter("listeners", listeners)
+        pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
@@ -19953,22 +12795,7 @@ class GetVirtualRouterSpecResult(dict):
 class GetVirtualRouterSpecListenerResult(dict):
     def __init__(__self__, *,
                  port_mappings: Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']):
-        GetVirtualRouterSpecListenerResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port_mappings=port_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port_mappings: Optional[Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port_mappings is None and 'portMappings' in kwargs:
-            port_mappings = kwargs['portMappings']
-        if port_mappings is None:
-            raise TypeError("Missing 'port_mappings' argument")
-
-        _setter("port_mappings", port_mappings)
+        pulumi.set(__self__, "port_mappings", port_mappings)
 
     @property
     @pulumi.getter(name="portMappings")
@@ -19981,25 +12808,8 @@ class GetVirtualRouterSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
-        GetVirtualRouterSpecListenerPortMappingResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: Optional[int] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -20016,20 +12826,7 @@ class GetVirtualRouterSpecListenerPortMappingResult(dict):
 class GetVirtualServiceSpecResult(dict):
     def __init__(__self__, *,
                  providers: Sequence['outputs.GetVirtualServiceSpecProviderResult']):
-        GetVirtualServiceSpecResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            providers=providers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             providers: Optional[Sequence['outputs.GetVirtualServiceSpecProviderResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if providers is None:
-            raise TypeError("Missing 'providers' argument")
-
-        _setter("providers", providers)
+        pulumi.set(__self__, "providers", providers)
 
     @property
     @pulumi.getter
@@ -20042,29 +12839,8 @@ class GetVirtualServiceSpecProviderResult(dict):
     def __init__(__self__, *,
                  virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
                  virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']):
-        GetVirtualServiceSpecProviderResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_nodes=virtual_nodes,
-            virtual_routers=virtual_routers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_nodes: Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult']] = None,
-             virtual_routers: Optional[Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_nodes is None and 'virtualNodes' in kwargs:
-            virtual_nodes = kwargs['virtualNodes']
-        if virtual_nodes is None:
-            raise TypeError("Missing 'virtual_nodes' argument")
-        if virtual_routers is None and 'virtualRouters' in kwargs:
-            virtual_routers = kwargs['virtualRouters']
-        if virtual_routers is None:
-            raise TypeError("Missing 'virtual_routers' argument")
-
-        _setter("virtual_nodes", virtual_nodes)
-        _setter("virtual_routers", virtual_routers)
+        pulumi.set(__self__, "virtual_nodes", virtual_nodes)
+        pulumi.set(__self__, "virtual_routers", virtual_routers)
 
     @property
     @pulumi.getter(name="virtualNodes")
@@ -20081,22 +12857,7 @@ class GetVirtualServiceSpecProviderResult(dict):
 class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
     def __init__(__self__, *,
                  virtual_node_name: str):
-        GetVirtualServiceSpecProviderVirtualNodeResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_node_name=virtual_node_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_node_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_node_name is None and 'virtualNodeName' in kwargs:
-            virtual_node_name = kwargs['virtualNodeName']
-        if virtual_node_name is None:
-            raise TypeError("Missing 'virtual_node_name' argument")
-
-        _setter("virtual_node_name", virtual_node_name)
+        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
 
     @property
     @pulumi.getter(name="virtualNodeName")
@@ -20108,22 +12869,7 @@ class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
 class GetVirtualServiceSpecProviderVirtualRouterResult(dict):
     def __init__(__self__, *,
                  virtual_router_name: str):
-        GetVirtualServiceSpecProviderVirtualRouterResult._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            virtual_router_name=virtual_router_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             virtual_router_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if virtual_router_name is None and 'virtualRouterName' in kwargs:
-            virtual_router_name = kwargs['virtualRouterName']
-        if virtual_router_name is None:
-            raise TypeError("Missing 'virtual_router_name' argument")
-
-        _setter("virtual_router_name", virtual_router_name)
+        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
 
     @property
     @pulumi.getter(name="virtualRouterName")

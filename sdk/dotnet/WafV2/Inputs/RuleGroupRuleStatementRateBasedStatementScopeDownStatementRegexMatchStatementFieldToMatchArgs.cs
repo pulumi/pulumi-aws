@@ -42,9 +42,6 @@ namespace Pulumi.Aws.WafV2.Inputs
             set => _headers = value;
         }
 
-        [Input("ja3Fingerprint")]
-        public Input<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs>? Ja3Fingerprint { get; set; }
-
         /// <summary>
         /// Inspect the request body as JSON. See JSON Body for details.
         /// </summary>

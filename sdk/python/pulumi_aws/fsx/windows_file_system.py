@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,133 +61,44 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        WindowsFileSystemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            throughput_capacity=throughput_capacity,
-            active_directory_id=active_directory_id,
-            aliases=aliases,
-            audit_log_configuration=audit_log_configuration,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            backup_id=backup_id,
-            copy_tags_to_backups=copy_tags_to_backups,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            deployment_type=deployment_type,
-            disk_iops_configuration=disk_iops_configuration,
-            kms_key_id=kms_key_id,
-            preferred_subnet_id=preferred_subnet_id,
-            security_group_ids=security_group_ids,
-            self_managed_active_directory=self_managed_active_directory,
-            skip_final_backup=skip_final_backup,
-            storage_capacity=storage_capacity,
-            storage_type=storage_type,
-            tags=tags,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             throughput_capacity: Optional[pulumi.Input[int]] = None,
-             active_directory_id: Optional[pulumi.Input[str]] = None,
-             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
-             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
-             backup_id: Optional[pulumi.Input[str]] = None,
-             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
-             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
-             deployment_type: Optional[pulumi.Input[str]] = None,
-             disk_iops_configuration: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
-             skip_final_backup: Optional[pulumi.Input[bool]] = None,
-             storage_capacity: Optional[pulumi.Input[int]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if subnet_ids is None:
-            raise TypeError("Missing 'subnet_ids' argument")
-        if throughput_capacity is None and 'throughputCapacity' in kwargs:
-            throughput_capacity = kwargs['throughputCapacity']
-        if throughput_capacity is None:
-            raise TypeError("Missing 'throughput_capacity' argument")
-        if active_directory_id is None and 'activeDirectoryId' in kwargs:
-            active_directory_id = kwargs['activeDirectoryId']
-        if audit_log_configuration is None and 'auditLogConfiguration' in kwargs:
-            audit_log_configuration = kwargs['auditLogConfiguration']
-        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
-            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
-        if backup_id is None and 'backupId' in kwargs:
-            backup_id = kwargs['backupId']
-        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
-            copy_tags_to_backups = kwargs['copyTagsToBackups']
-        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
-            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
-        if deployment_type is None and 'deploymentType' in kwargs:
-            deployment_type = kwargs['deploymentType']
-        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
-            disk_iops_configuration = kwargs['diskIopsConfiguration']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
-            preferred_subnet_id = kwargs['preferredSubnetId']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if self_managed_active_directory is None and 'selfManagedActiveDirectory' in kwargs:
-            self_managed_active_directory = kwargs['selfManagedActiveDirectory']
-        if skip_final_backup is None and 'skipFinalBackup' in kwargs:
-            skip_final_backup = kwargs['skipFinalBackup']
-        if storage_capacity is None and 'storageCapacity' in kwargs:
-            storage_capacity = kwargs['storageCapacity']
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
-            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
-
-        _setter("subnet_ids", subnet_ids)
-        _setter("throughput_capacity", throughput_capacity)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
-            _setter("active_directory_id", active_directory_id)
+            pulumi.set(__self__, "active_directory_id", active_directory_id)
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if audit_log_configuration is not None:
-            _setter("audit_log_configuration", audit_log_configuration)
+            pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if backup_id is not None:
-            _setter("backup_id", backup_id)
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
-            _setter("deployment_type", deployment_type)
+            pulumi.set(__self__, "deployment_type", deployment_type)
         if disk_iops_configuration is not None:
-            _setter("disk_iops_configuration", disk_iops_configuration)
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if preferred_subnet_id is not None:
-            _setter("preferred_subnet_id", preferred_subnet_id)
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_managed_active_directory is not None:
-            _setter("self_managed_active_directory", self_managed_active_directory)
+            pulumi.set(__self__, "self_managed_active_directory", self_managed_active_directory)
         if skip_final_backup is not None:
-            _setter("skip_final_backup", skip_final_backup)
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
         if storage_capacity is not None:
-            _setter("storage_capacity", storage_capacity)
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -496,180 +407,65 @@ class _WindowsFileSystemState:
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        _WindowsFileSystemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active_directory_id=active_directory_id,
-            aliases=aliases,
-            arn=arn,
-            audit_log_configuration=audit_log_configuration,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            backup_id=backup_id,
-            copy_tags_to_backups=copy_tags_to_backups,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            deployment_type=deployment_type,
-            disk_iops_configuration=disk_iops_configuration,
-            dns_name=dns_name,
-            kms_key_id=kms_key_id,
-            network_interface_ids=network_interface_ids,
-            owner_id=owner_id,
-            preferred_file_server_ip=preferred_file_server_ip,
-            preferred_subnet_id=preferred_subnet_id,
-            remote_administration_endpoint=remote_administration_endpoint,
-            security_group_ids=security_group_ids,
-            self_managed_active_directory=self_managed_active_directory,
-            skip_final_backup=skip_final_backup,
-            storage_capacity=storage_capacity,
-            storage_type=storage_type,
-            subnet_ids=subnet_ids,
-            tags=tags,
-            tags_all=tags_all,
-            throughput_capacity=throughput_capacity,
-            vpc_id=vpc_id,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active_directory_id: Optional[pulumi.Input[str]] = None,
-             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             arn: Optional[pulumi.Input[str]] = None,
-             audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
-             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
-             backup_id: Optional[pulumi.Input[str]] = None,
-             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
-             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
-             deployment_type: Optional[pulumi.Input[str]] = None,
-             disk_iops_configuration: Optional[pulumi.Input['WindowsFileSystemDiskIopsConfigurationArgs']] = None,
-             dns_name: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             owner_id: Optional[pulumi.Input[str]] = None,
-             preferred_file_server_ip: Optional[pulumi.Input[str]] = None,
-             preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-             remote_administration_endpoint: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
-             skip_final_backup: Optional[pulumi.Input[bool]] = None,
-             storage_capacity: Optional[pulumi.Input[int]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             throughput_capacity: Optional[pulumi.Input[int]] = None,
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if active_directory_id is None and 'activeDirectoryId' in kwargs:
-            active_directory_id = kwargs['activeDirectoryId']
-        if audit_log_configuration is None and 'auditLogConfiguration' in kwargs:
-            audit_log_configuration = kwargs['auditLogConfiguration']
-        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
-            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
-        if backup_id is None and 'backupId' in kwargs:
-            backup_id = kwargs['backupId']
-        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
-            copy_tags_to_backups = kwargs['copyTagsToBackups']
-        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
-            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
-        if deployment_type is None and 'deploymentType' in kwargs:
-            deployment_type = kwargs['deploymentType']
-        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
-            disk_iops_configuration = kwargs['diskIopsConfiguration']
-        if dns_name is None and 'dnsName' in kwargs:
-            dns_name = kwargs['dnsName']
-        if kms_key_id is None and 'kmsKeyId' in kwargs:
-            kms_key_id = kwargs['kmsKeyId']
-        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
-            network_interface_ids = kwargs['networkInterfaceIds']
-        if owner_id is None and 'ownerId' in kwargs:
-            owner_id = kwargs['ownerId']
-        if preferred_file_server_ip is None and 'preferredFileServerIp' in kwargs:
-            preferred_file_server_ip = kwargs['preferredFileServerIp']
-        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
-            preferred_subnet_id = kwargs['preferredSubnetId']
-        if remote_administration_endpoint is None and 'remoteAdministrationEndpoint' in kwargs:
-            remote_administration_endpoint = kwargs['remoteAdministrationEndpoint']
-        if security_group_ids is None and 'securityGroupIds' in kwargs:
-            security_group_ids = kwargs['securityGroupIds']
-        if self_managed_active_directory is None and 'selfManagedActiveDirectory' in kwargs:
-            self_managed_active_directory = kwargs['selfManagedActiveDirectory']
-        if skip_final_backup is None and 'skipFinalBackup' in kwargs:
-            skip_final_backup = kwargs['skipFinalBackup']
-        if storage_capacity is None and 'storageCapacity' in kwargs:
-            storage_capacity = kwargs['storageCapacity']
-        if storage_type is None and 'storageType' in kwargs:
-            storage_type = kwargs['storageType']
-        if subnet_ids is None and 'subnetIds' in kwargs:
-            subnet_ids = kwargs['subnetIds']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-        if throughput_capacity is None and 'throughputCapacity' in kwargs:
-            throughput_capacity = kwargs['throughputCapacity']
-        if vpc_id is None and 'vpcId' in kwargs:
-            vpc_id = kwargs['vpcId']
-        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
-            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
-
         if active_directory_id is not None:
-            _setter("active_directory_id", active_directory_id)
+            pulumi.set(__self__, "active_directory_id", active_directory_id)
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if audit_log_configuration is not None:
-            _setter("audit_log_configuration", audit_log_configuration)
+            pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if backup_id is not None:
-            _setter("backup_id", backup_id)
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
-            _setter("deployment_type", deployment_type)
+            pulumi.set(__self__, "deployment_type", deployment_type)
         if disk_iops_configuration is not None:
-            _setter("disk_iops_configuration", disk_iops_configuration)
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if dns_name is not None:
-            _setter("dns_name", dns_name)
+            pulumi.set(__self__, "dns_name", dns_name)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if network_interface_ids is not None:
-            _setter("network_interface_ids", network_interface_ids)
+            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if owner_id is not None:
-            _setter("owner_id", owner_id)
+            pulumi.set(__self__, "owner_id", owner_id)
         if preferred_file_server_ip is not None:
-            _setter("preferred_file_server_ip", preferred_file_server_ip)
+            pulumi.set(__self__, "preferred_file_server_ip", preferred_file_server_ip)
         if preferred_subnet_id is not None:
-            _setter("preferred_subnet_id", preferred_subnet_id)
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if remote_administration_endpoint is not None:
-            _setter("remote_administration_endpoint", remote_administration_endpoint)
+            pulumi.set(__self__, "remote_administration_endpoint", remote_administration_endpoint)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_managed_active_directory is not None:
-            _setter("self_managed_active_directory", self_managed_active_directory)
+            pulumi.set(__self__, "self_managed_active_directory", self_managed_active_directory)
         if skip_final_backup is not None:
-            _setter("skip_final_backup", skip_final_backup)
+            pulumi.set(__self__, "skip_final_backup", skip_final_backup)
         if storage_capacity is not None:
-            _setter("storage_capacity", storage_capacity)
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
-            _setter("throughput_capacity", throughput_capacity)
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="activeDirectoryId")
@@ -1188,10 +984,6 @@ class WindowsFileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WindowsFileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1228,19 +1020,16 @@ class WindowsFileSystem(pulumi.CustomResource):
 
             __props__.__dict__["active_directory_id"] = active_directory_id
             __props__.__dict__["aliases"] = aliases
-            audit_log_configuration = _utilities.configure(audit_log_configuration, WindowsFileSystemAuditLogConfigurationArgs, True)
             __props__.__dict__["audit_log_configuration"] = audit_log_configuration
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
             __props__.__dict__["backup_id"] = backup_id
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
             __props__.__dict__["deployment_type"] = deployment_type
-            disk_iops_configuration = _utilities.configure(disk_iops_configuration, WindowsFileSystemDiskIopsConfigurationArgs, True)
             __props__.__dict__["disk_iops_configuration"] = disk_iops_configuration
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
             __props__.__dict__["security_group_ids"] = security_group_ids
-            self_managed_active_directory = _utilities.configure(self_managed_active_directory, WindowsFileSystemSelfManagedActiveDirectoryArgs, True)
             __props__.__dict__["self_managed_active_directory"] = self_managed_active_directory
             __props__.__dict__["skip_final_backup"] = skip_final_backup
             __props__.__dict__["storage_capacity"] = storage_capacity

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogServiceArgs', 'LogService']
@@ -21,29 +21,8 @@ class LogServiceArgs:
         :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
-        LogServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            directory_id=directory_id,
-            log_group_name=log_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             directory_id: Optional[pulumi.Input[str]] = None,
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if directory_id is None:
-            raise TypeError("Missing 'directory_id' argument")
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-        if log_group_name is None:
-            raise TypeError("Missing 'log_group_name' argument")
-
-        _setter("directory_id", directory_id)
-        _setter("log_group_name", log_group_name)
+        pulumi.set(__self__, "directory_id", directory_id)
+        pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -80,27 +59,10 @@ class _LogServiceState:
         :param pulumi.Input[str] directory_id: ID of directory.
         :param pulumi.Input[str] log_group_name: Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
         """
-        _LogServiceState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            directory_id=directory_id,
-            log_group_name=log_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             directory_id: Optional[pulumi.Input[str]] = None,
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if directory_id is None and 'directoryId' in kwargs:
-            directory_id = kwargs['directoryId']
-        if log_group_name is None and 'logGroupName' in kwargs:
-            log_group_name = kwargs['logGroupName']
-
         if directory_id is not None:
-            _setter("directory_id", directory_id)
+            pulumi.set(__self__, "directory_id", directory_id)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="directoryId")
@@ -232,10 +194,6 @@ class LogService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
