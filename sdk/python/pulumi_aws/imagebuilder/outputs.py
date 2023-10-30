@@ -26,6 +26,8 @@ __all__ = [
     'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate',
     'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration',
     'DistributionConfigurationDistributionLaunchTemplateConfiguration',
+    'ImageImageScanningConfiguration',
+    'ImageImageScanningConfigurationEcrConfiguration',
     'ImageImageTestsConfiguration',
     'ImageOutputResource',
     'ImageOutputResourceAmi',
@@ -60,6 +62,8 @@ __all__ = [
     'GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult',
     'GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult',
     'GetDistributionConfigurationsFilterResult',
+    'GetImageImageScanningConfigurationResult',
+    'GetImageImageScanningConfigurationEcrConfigurationResult',
     'GetImageImageTestsConfigurationResult',
     'GetImageOutputResourceResult',
     'GetImageOutputResourceAmiResult',
@@ -1095,6 +1099,106 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
         Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
         """
         return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class ImageImageScanningConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ecrConfiguration":
+            suggest = "ecr_configuration"
+        elif key == "imageScanningEnabled":
+            suggest = "image_scanning_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageImageScanningConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageImageScanningConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageImageScanningConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ecr_configuration: Optional['outputs.ImageImageScanningConfigurationEcrConfiguration'] = None,
+                 image_scanning_enabled: Optional[bool] = None):
+        """
+        :param 'ImageImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration. Detailed below.
+        :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional['outputs.ImageImageScanningConfigurationEcrConfiguration']:
+        """
+        Configuration block with ECR configuration. Detailed below.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+
+@pulumi.output_type
+class ImageImageScanningConfigurationEcrConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerTags":
+            suggest = "container_tags"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageImageScanningConfigurationEcrConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageImageScanningConfigurationEcrConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageImageScanningConfigurationEcrConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_tags: Optional[Sequence[str]] = None,
+                 repository_name: Optional[str] = None):
+        """
+        :param Sequence[str] container_tags: Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+        :param str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[Sequence[str]]:
+        """
+        Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+        """
+        return pulumi.get(self, "repository_name")
 
 
 @pulumi.output_type
@@ -2747,6 +2851,64 @@ class GetDistributionConfigurationsFilterResult(dict):
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetImageImageScanningConfigurationResult(dict):
+    def __init__(__self__, *,
+                 ecr_configurations: Sequence['outputs.GetImageImageScanningConfigurationEcrConfigurationResult'],
+                 image_scanning_enabled: bool):
+        """
+        :param Sequence['GetImageImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: Configuration block with ECR configuration.
+        :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        pulumi.set(__self__, "ecr_configurations", ecr_configurations)
+        pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfigurations")
+    def ecr_configurations(self) -> Sequence['outputs.GetImageImageScanningConfigurationEcrConfigurationResult']:
+        """
+        Configuration block with ECR configuration.
+        """
+        return pulumi.get(self, "ecr_configurations")
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> bool:
+        """
+        Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+
+@pulumi.output_type
+class GetImageImageScanningConfigurationEcrConfigurationResult(dict):
+    def __init__(__self__, *,
+                 container_tags: Sequence[str],
+                 repository_name: str):
+        """
+        :param Sequence[str] container_tags: Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+        :param str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+        """
+        pulumi.set(__self__, "container_tags", container_tags)
+        pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Sequence[str]:
+        """
+        Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> str:
+        """
+        The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+        """
+        return pulumi.get(self, "repository_name")
 
 
 @pulumi.output_type

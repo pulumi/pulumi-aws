@@ -65,14 +65,14 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Recording Strategy - see below..
+     * Recording Strategy. Detailed below.
      * 
      */
     @Import(name="recordingStrategies")
     private @Nullable Output<List<RecorderRecordingGroupRecordingStrategyArgs>> recordingStrategies;
 
     /**
-     * @return Recording Strategy - see below..
+     * @return Recording Strategy. Detailed below.
      * 
      */
     public Optional<Output<List<RecorderRecordingGroupRecordingStrategyArgs>>> recordingStrategies() {
@@ -196,7 +196,7 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param recordingStrategies Recording Strategy - see below..
+         * @param recordingStrategies Recording Strategy. Detailed below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param recordingStrategies Recording Strategy - see below..
+         * @param recordingStrategies Recording Strategy. Detailed below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param recordingStrategies Recording Strategy - see below..
+         * @param recordingStrategies Recording Strategy. Detailed below.
          * 
          * @return builder
          * 

@@ -187,10 +187,10 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * An optional PGP key to encrypt the resulting private key material. Only used when creating a new key pair

@@ -4835,6 +4835,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "elasticsearch/vpcEndpoint",
+  "fqn": "pulumi_aws.elasticsearch",
+  "classes": {
+   "aws:elasticsearch/vpcEndpoint:VpcEndpoint": "VpcEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "elastictranscoder/pipeline",
   "fqn": "pulumi_aws.elastictranscoder",
   "classes": {
@@ -5955,6 +5963,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/domainConfiguration",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/domainConfiguration:DomainConfiguration": "DomainConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iot/indexingConfiguration",
   "fqn": "pulumi_aws.iot",
   "classes": {
@@ -6991,6 +7007,14 @@ _utilities.register(
   "fqn": "pulumi_aws.msk",
   "classes": {
    "aws:msk/configuration:Configuration": "Configuration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "msk/replicator",
+  "fqn": "pulumi_aws.msk",
+  "classes": {
+   "aws:msk/replicator:Replicator": "Replicator"
   }
  },
  {

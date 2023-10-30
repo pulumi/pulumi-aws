@@ -287,6 +287,7 @@ class _EndpointState:
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_service_portal: Optional[pulumi.Input[str]] = None,
+                 self_service_portal_url: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
                  session_timeout_hours: Optional[pulumi.Input[int]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
@@ -308,6 +309,7 @@ class _EndpointState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        :param pulumi.Input[str] self_service_portal_url: The URL of the self-service portal.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -339,6 +341,8 @@ class _EndpointState:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_service_portal is not None:
             pulumi.set(__self__, "self_service_portal", self_service_portal)
+        if self_service_portal_url is not None:
+            pulumi.set(__self__, "self_service_portal_url", self_service_portal_url)
         if server_certificate_arn is not None:
             pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
         if session_timeout_hours is not None:
@@ -490,6 +494,18 @@ class _EndpointState:
     @self_service_portal.setter
     def self_service_portal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "self_service_portal", value)
+
+    @property
+    @pulumi.getter(name="selfServicePortalUrl")
+    def self_service_portal_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the self-service portal.
+        """
+        return pulumi.get(self, "self_service_portal_url")
+
+    @self_service_portal_url.setter
+    def self_service_portal_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_portal_url", value)
 
     @property
     @pulumi.getter(name="serverCertificateArn")
@@ -770,6 +786,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["vpn_port"] = vpn_port
             __props__.__dict__["arn"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["self_service_portal_url"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -794,6 +811,7 @@ class Endpoint(pulumi.CustomResource):
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             self_service_portal: Optional[pulumi.Input[str]] = None,
+            self_service_portal_url: Optional[pulumi.Input[str]] = None,
             server_certificate_arn: Optional[pulumi.Input[str]] = None,
             session_timeout_hours: Optional[pulumi.Input[int]] = None,
             split_tunnel: Optional[pulumi.Input[bool]] = None,
@@ -820,6 +838,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        :param pulumi.Input[str] self_service_portal_url: The URL of the self-service portal.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[int] session_timeout_hours: The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -844,6 +863,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["dns_servers"] = dns_servers
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["self_service_portal"] = self_service_portal
+        __props__.__dict__["self_service_portal_url"] = self_service_portal_url
         __props__.__dict__["server_certificate_arn"] = server_certificate_arn
         __props__.__dict__["session_timeout_hours"] = session_timeout_hours
         __props__.__dict__["split_tunnel"] = split_tunnel
@@ -941,6 +961,14 @@ class Endpoint(pulumi.CustomResource):
         Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         """
         return pulumi.get(self, "self_service_portal")
+
+    @property
+    @pulumi.getter(name="selfServicePortalUrl")
+    def self_service_portal_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the self-service portal.
+        """
+        return pulumi.get(self, "self_service_portal_url")
 
     @property
     @pulumi.getter(name="serverCertificateArn")

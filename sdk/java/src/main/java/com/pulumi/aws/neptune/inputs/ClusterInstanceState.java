@@ -156,14 +156,14 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The neptune engine version.
+     * The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return The neptune engine version.
+     * @return The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -645,7 +645,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engineVersion The neptune engine version.
+         * @param engineVersion The neptune engine version. Currently configuring this argumnet has no effect.
          * 
          * @return builder
          * 
@@ -656,7 +656,7 @@ public final class ClusterInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param engineVersion The neptune engine version.
+         * @param engineVersion The neptune engine version. Currently configuring this argumnet has no effect.
          * 
          * @return builder
          * 

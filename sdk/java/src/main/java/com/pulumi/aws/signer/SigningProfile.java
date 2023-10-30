@@ -110,14 +110,14 @@ public class SigningProfile extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
     /**
      * @return A signing profile name prefix. The provider will generate a unique suffix. Conflicts with `name`.
      * 
      */
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * A human-readable name for the signing platform associated with the signing profile.

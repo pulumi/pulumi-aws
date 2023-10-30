@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Cfg
     /// &gt; **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -58,6 +59,44 @@ namespace Pulumi.Aws.Cfg
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
     ///         RoleArn = role.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Exclude Resources Types Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo = new Aws.Cfg.Recorder("foo", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.R.Arn,
+    ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
+    ///         {
+    ///             AllSupported = false,
+    ///             ExclusionByResourceTypes = new[]
+    ///             {
+    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs
+    ///                 {
+    ///                     ResourceTypes = new[]
+    ///                     {
+    ///                         "AWS::EC2::Instance",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RecordingStrategies = new[]
+    ///             {
+    ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupRecordingStrategyArgs
+    ///                 {
+    ///                     UseOnly = "EXCLUSION_BY_RESOURCE_TYPES",
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

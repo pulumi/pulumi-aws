@@ -89,6 +89,8 @@ type Endpoint struct {
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrOutput `pulumi:"selfServicePortal"`
+	// The URL of the self-service portal.
+	SelfServicePortalUrl pulumi.StringOutput `pulumi:"selfServicePortalUrl"`
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn pulumi.StringOutput `pulumi:"serverCertificateArn"`
 	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
@@ -177,6 +179,8 @@ type endpointState struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal *string `pulumi:"selfServicePortal"`
+	// The URL of the self-service portal.
+	SelfServicePortalUrl *string `pulumi:"selfServicePortalUrl"`
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn *string `pulumi:"serverCertificateArn"`
 	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
@@ -220,6 +224,8 @@ type EndpointState struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 	SelfServicePortal pulumi.StringPtrInput
+	// The URL of the self-service portal.
+	SelfServicePortalUrl pulumi.StringPtrInput
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn pulumi.StringPtrInput
 	// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
@@ -479,6 +485,11 @@ func (o EndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 // Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
 func (o EndpointOutput) SelfServicePortal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.SelfServicePortal }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the self-service portal.
+func (o EndpointOutput) SelfServicePortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.SelfServicePortalUrl }).(pulumi.StringOutput)
 }
 
 // The ARN of the ACM server certificate.

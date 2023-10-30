@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
  * Allows setting policy to an OpenSearch domain while referencing domain attributes (e.g., ARN).
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -48,11 +47,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var mainPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .effect(&#34;Allow&#34;)
- *             .principals(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .actions(&#34;es:*&#34;)
- *             .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *             .condition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;es:*&#34;)
+ *                 .resources(example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;IpAddress&#34;)
+ *                     .variable(&#34;aws:SourceIp&#34;)
+ *                     .values(&#34;127.0.0.1/32&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *         var mainDomainPolicy = new DomainPolicy(&#34;mainDomainPolicy&#34;, DomainPolicyArgs.builder()        

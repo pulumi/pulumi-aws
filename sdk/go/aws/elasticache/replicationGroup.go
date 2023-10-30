@@ -300,6 +300,8 @@ type ReplicationGroup struct {
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
+	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+	IpDiscovery pulumi.StringOutput `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
@@ -310,6 +312,8 @@ type ReplicationGroup struct {
 	MemberClusters pulumi.StringArrayOutput `pulumi:"memberClusters"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrOutput `pulumi:"multiAzEnabled"`
+	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -337,9 +341,9 @@ type ReplicationGroup struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
-	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// List of cache security group names to associate with this replication group.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
@@ -438,6 +442,8 @@ type replicationGroupState struct {
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
+	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+	IpDiscovery *string `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
@@ -448,6 +454,8 @@ type replicationGroupState struct {
 	MemberClusters []string `pulumi:"memberClusters"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
+	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+	NetworkType *string `pulumi:"networkType"`
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -475,9 +483,9 @@ type replicationGroupState struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of cache security group names to associate with this replication group.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
@@ -539,6 +547,8 @@ type ReplicationGroupState struct {
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
 	GlobalReplicationGroupId pulumi.StringPtrInput
+	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+	IpDiscovery pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
@@ -549,6 +559,8 @@ type ReplicationGroupState struct {
 	MemberClusters pulumi.StringArrayInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
+	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+	NetworkType pulumi.StringPtrInput
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -576,9 +588,9 @@ type ReplicationGroupState struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringPtrInput
-	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupIds pulumi.StringArrayInput
-	// List of cache security group names to associate with this replication group.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupNames pulumi.StringArrayInput
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
@@ -636,6 +648,8 @@ type replicationGroupArgs struct {
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
+	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+	IpDiscovery *string `pulumi:"ipDiscovery"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
@@ -644,6 +658,8 @@ type replicationGroupArgs struct {
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled *bool `pulumi:"multiAzEnabled"`
+	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+	NetworkType *string `pulumi:"networkType"`
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -667,9 +683,9 @@ type replicationGroupArgs struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// List of cache security group names to associate with this replication group.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
@@ -720,6 +736,8 @@ type ReplicationGroupArgs struct {
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter cannot be set.
 	GlobalReplicationGroupId pulumi.StringPtrInput
+	// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+	IpDiscovery pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
@@ -728,6 +746,8 @@ type ReplicationGroupArgs struct {
 	MaintenanceWindow pulumi.StringPtrInput
 	// Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 	MultiAzEnabled pulumi.BoolPtrInput
+	// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+	NetworkType pulumi.StringPtrInput
 	// Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
@@ -751,9 +771,9 @@ type ReplicationGroupArgs struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringPtrInput
-	// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupIds pulumi.StringArrayInput
-	// List of cache security group names to associate with this replication group.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 	SecurityGroupNames pulumi.StringArrayInput
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
@@ -966,6 +986,11 @@ func (o ReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupId }).(pulumi.StringOutput)
 }
 
+// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+func (o ReplicationGroupOutput) IpDiscovery() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.IpDiscovery }).(pulumi.StringOutput)
+}
+
 // The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 func (o ReplicationGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -991,6 +1016,11 @@ func (o ReplicationGroupOutput) MemberClusters() pulumi.StringArrayOutput {
 // Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
 func (o ReplicationGroupOutput) MultiAzEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAzEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dualStack`.
+func (o ReplicationGroupOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
@@ -1053,12 +1083,12 @@ func (o ReplicationGroupOutput) ReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReplicationGroupId }).(pulumi.StringOutput)
 }
 
-// One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 func (o ReplicationGroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// List of cache security group names to associate with this replication group.
+// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
 func (o ReplicationGroupOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }

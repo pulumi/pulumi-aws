@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,51 +30,14 @@ class ReplicatorArgs:
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[str] description: A summary description of the replicator.
         """
-        ReplicatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kafka_clusters=kafka_clusters,
-            replication_info_list=replication_info_list,
-            replicator_name=replicator_name,
-            service_execution_role_arn=service_execution_role_arn,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
-             replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']] = None,
-             replicator_name: Optional[pulumi.Input[str]] = None,
-             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if kafka_clusters is None and 'kafkaClusters' in kwargs:
-            kafka_clusters = kwargs['kafkaClusters']
-        if kafka_clusters is None:
-            raise TypeError("Missing 'kafka_clusters' argument")
-        if replication_info_list is None and 'replicationInfoList' in kwargs:
-            replication_info_list = kwargs['replicationInfoList']
-        if replication_info_list is None:
-            raise TypeError("Missing 'replication_info_list' argument")
-        if replicator_name is None and 'replicatorName' in kwargs:
-            replicator_name = kwargs['replicatorName']
-        if replicator_name is None:
-            raise TypeError("Missing 'replicator_name' argument")
-        if service_execution_role_arn is None and 'serviceExecutionRoleArn' in kwargs:
-            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
-        if service_execution_role_arn is None:
-            raise TypeError("Missing 'service_execution_role_arn' argument")
-
-        _setter("kafka_clusters", kafka_clusters)
-        _setter("replication_info_list", replication_info_list)
-        _setter("replicator_name", replicator_name)
-        _setter("service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "kafka_clusters", kafka_clusters)
+        pulumi.set(__self__, "replication_info_list", replication_info_list)
+        pulumi.set(__self__, "replicator_name", replicator_name)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="kafkaClusters")
@@ -167,66 +130,27 @@ class _ReplicatorState:
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """
-        _ReplicatorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            current_version=current_version,
-            description=description,
-            kafka_clusters=kafka_clusters,
-            replication_info_list=replication_info_list,
-            replicator_name=replicator_name,
-            service_execution_role_arn=service_execution_role_arn,
-            tags=tags,
-            tags_all=tags_all,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             current_version: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
-             replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']] = None,
-             replicator_name: Optional[pulumi.Input[str]] = None,
-             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if current_version is None and 'currentVersion' in kwargs:
-            current_version = kwargs['currentVersion']
-        if kafka_clusters is None and 'kafkaClusters' in kwargs:
-            kafka_clusters = kwargs['kafkaClusters']
-        if replication_info_list is None and 'replicationInfoList' in kwargs:
-            replication_info_list = kwargs['replicationInfoList']
-        if replicator_name is None and 'replicatorName' in kwargs:
-            replicator_name = kwargs['replicatorName']
-        if service_execution_role_arn is None and 'serviceExecutionRoleArn' in kwargs:
-            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
-        if tags_all is None and 'tagsAll' in kwargs:
-            tags_all = kwargs['tagsAll']
-
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kafka_clusters is not None:
-            _setter("kafka_clusters", kafka_clusters)
+            pulumi.set(__self__, "kafka_clusters", kafka_clusters)
         if replication_info_list is not None:
-            _setter("replication_info_list", replication_info_list)
+            pulumi.set(__self__, "replication_info_list", replication_info_list)
         if replicator_name is not None:
-            _setter("replicator_name", replicator_name)
+            pulumi.set(__self__, "replicator_name", replicator_name)
         if service_execution_role_arn is not None:
-            _setter("service_execution_role_arn", service_execution_role_arn)
+            pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            _setter("tags_all", tags_all)
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -393,10 +317,6 @@ class Replicator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -421,7 +341,6 @@ class Replicator(pulumi.CustomResource):
             if kafka_clusters is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_clusters'")
             __props__.__dict__["kafka_clusters"] = kafka_clusters
-            replication_info_list = _utilities.configure(replication_info_list, ReplicatorReplicationInfoListArgs, True)
             if replication_info_list is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_info_list'")
             __props__.__dict__["replication_info_list"] = replication_info_list

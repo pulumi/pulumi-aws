@@ -183,7 +183,7 @@ export class Cluster extends pulumi.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -251,7 +251,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly replicationGroupId!: pulumi.Output<string>;
     /**
-     * One or more VPC security groups associated with the cache cluster
+     * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
@@ -271,7 +271,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly snapshotWindow!: pulumi.Output<string>;
     /**
-     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     /**
@@ -436,7 +436,7 @@ export interface ClusterState {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -504,7 +504,7 @@ export interface ClusterState {
      */
     replicationGroupId?: pulumi.Input<string>;
     /**
-     * One or more VPC security groups associated with the cache cluster
+     * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -524,7 +524,7 @@ export interface ClusterState {
      */
     snapshotWindow?: pulumi.Input<string>;
     /**
-     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      */
     subnetGroupName?: pulumi.Input<string>;
     /**
@@ -581,7 +581,7 @@ export interface ClusterArgs {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -645,7 +645,7 @@ export interface ClusterArgs {
      */
     replicationGroupId?: pulumi.Input<string>;
     /**
-     * One or more VPC security groups associated with the cache cluster
+     * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -665,7 +665,7 @@ export interface ClusterArgs {
      */
     snapshotWindow?: pulumi.Input<string>;
     /**
-     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      */
     subnetGroupName?: pulumi.Input<string>;
     /**

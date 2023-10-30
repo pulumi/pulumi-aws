@@ -204,7 +204,7 @@ type Cluster struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -240,7 +240,7 @@ type Cluster struct {
 	PreferredOutpostArn pulumi.StringOutput `pulumi:"preferredOutpostArn"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
-	// One or more VPC security groups associated with the cache cluster
+	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrOutput `pulumi:"snapshotArns"`
@@ -250,7 +250,7 @@ type Cluster struct {
 	SnapshotRetentionLimit pulumi.IntPtrOutput `pulumi:"snapshotRetentionLimit"`
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
-	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -325,7 +325,7 @@ type clusterState struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -361,7 +361,7 @@ type clusterState struct {
 	PreferredOutpostArn *string `pulumi:"preferredOutpostArn"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// One or more VPC security groups associated with the cache cluster
+	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
@@ -371,7 +371,7 @@ type clusterState struct {
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
-	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -413,7 +413,7 @@ type ClusterState struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 	EngineVersion pulumi.StringPtrInput
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
@@ -449,7 +449,7 @@ type ClusterState struct {
 	PreferredOutpostArn pulumi.StringPtrInput
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringPtrInput
-	// One or more VPC security groups associated with the cache cluster
+	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
@@ -459,7 +459,7 @@ type ClusterState struct {
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow pulumi.StringPtrInput
-	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -497,7 +497,7 @@ type clusterArgs struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -531,7 +531,7 @@ type clusterArgs struct {
 	PreferredOutpostArn *string `pulumi:"preferredOutpostArn"`
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// One or more VPC security groups associated with the cache cluster
+	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns *string `pulumi:"snapshotArns"`
@@ -541,7 +541,7 @@ type clusterArgs struct {
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
-	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 	SubnetGroupName *string `pulumi:"subnetGroupName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -572,7 +572,7 @@ type ClusterArgs struct {
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 	EngineVersion pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -606,7 +606,7 @@ type ClusterArgs struct {
 	PreferredOutpostArn pulumi.StringPtrInput
 	// ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
 	ReplicationGroupId pulumi.StringPtrInput
-	// One or more VPC security groups associated with the cache cluster
+	// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 	SecurityGroupIds pulumi.StringArrayInput
 	// Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
 	SnapshotArns pulumi.StringPtrInput
@@ -616,7 +616,7 @@ type ClusterArgs struct {
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow pulumi.StringPtrInput
-	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 	SubnetGroupName pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -794,7 +794,7 @@ func (o ClusterOutput) Engine() pulumi.StringOutput {
 // When the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // Otherwise, specify the full version desired, e.g., `5.0.6`.
-// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
 func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -878,7 +878,7 @@ func (o ClusterOutput) ReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ReplicationGroupId }).(pulumi.StringOutput)
 }
 
-// One or more VPC security groups associated with the cache cluster
+// One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
 func (o ClusterOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -903,7 +903,7 @@ func (o ClusterOutput) SnapshotWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SnapshotWindow }).(pulumi.StringOutput)
 }
 
-// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
 func (o ClusterOutput) SubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SubnetGroupName }).(pulumi.StringOutput)
 }

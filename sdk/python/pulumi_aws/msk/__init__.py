@@ -13,6 +13,7 @@ from .get_cluster import *
 from .get_configuration import *
 from .get_kafka_version import *
 from .get_vpc_connection import *
+from .replicator import *
 from .scram_secret_association import *
 from .serverless_cluster import *
 from .vpc_connection import *

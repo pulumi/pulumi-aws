@@ -10,11 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DomainConfigurationAuthorizerConfigArgs',
+    'DomainConfigurationTlsConfigArgs',
     'IndexingConfigurationThingGroupIndexingConfigurationArgs',
     'IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs',
     'IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs',
     'IndexingConfigurationThingIndexingConfigurationArgs',
     'IndexingConfigurationThingIndexingConfigurationCustomFieldArgs',
+    'IndexingConfigurationThingIndexingConfigurationFilterArgs',
     'IndexingConfigurationThingIndexingConfigurationManagedFieldArgs',
     'ProvisioningTemplatePreProvisioningHookArgs',
     'ThingGroupMetadataArgs',
@@ -71,6 +74,68 @@ __all__ = [
     'TopicRuleTimestreamDimensionArgs',
     'TopicRuleTimestreamTimestampArgs',
 ]
+
+@pulumi.input_type
+class DomainConfigurationAuthorizerConfigArgs:
+    def __init__(__self__, *,
+                 allow_authorizer_override: Optional[pulumi.Input[bool]] = None,
+                 default_authorizer_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] allow_authorizer_override: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        :param pulumi.Input[str] default_authorizer_name: The name of the authorization service for a domain configuration.
+        """
+        if allow_authorizer_override is not None:
+            pulumi.set(__self__, "allow_authorizer_override", allow_authorizer_override)
+        if default_authorizer_name is not None:
+            pulumi.set(__self__, "default_authorizer_name", default_authorizer_name)
+
+    @property
+    @pulumi.getter(name="allowAuthorizerOverride")
+    def allow_authorizer_override(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        """
+        return pulumi.get(self, "allow_authorizer_override")
+
+    @allow_authorizer_override.setter
+    def allow_authorizer_override(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_authorizer_override", value)
+
+    @property
+    @pulumi.getter(name="defaultAuthorizerName")
+    def default_authorizer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the authorization service for a domain configuration.
+        """
+        return pulumi.get(self, "default_authorizer_name")
+
+    @default_authorizer_name.setter
+    def default_authorizer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_authorizer_name", value)
+
+
+@pulumi.input_type
+class DomainConfigurationTlsConfigArgs:
+    def __init__(__self__, *,
+                 security_policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] security_policy: The security policy for a domain configuration.
+        """
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The security policy for a domain configuration.
+        """
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_policy", value)
+
 
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationArgs:
@@ -210,6 +275,7 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
                  thing_indexing_mode: pulumi.Input[str],
                  custom_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]] = None,
                  device_defender_indexing_mode: Optional[pulumi.Input[str]] = None,
+                 filter: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']] = None,
                  managed_fields: Optional[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]] = None,
                  named_shadow_indexing_mode: Optional[pulumi.Input[str]] = None,
                  thing_connectivity_indexing_mode: Optional[pulumi.Input[str]] = None):
@@ -217,6 +283,7 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
         :param pulumi.Input[str] thing_indexing_mode: Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]] custom_fields: Contains custom field names and their data type. See below.
         :param pulumi.Input[str] device_defender_indexing_mode: Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+        :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs'] filter: Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
         :param pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         :param pulumi.Input[str] named_shadow_indexing_mode: [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         :param pulumi.Input[str] thing_connectivity_indexing_mode: Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
@@ -226,6 +293,8 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
             pulumi.set(__self__, "custom_fields", custom_fields)
         if device_defender_indexing_mode is not None:
             pulumi.set(__self__, "device_defender_indexing_mode", device_defender_indexing_mode)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if managed_fields is not None:
             pulumi.set(__self__, "managed_fields", managed_fields)
         if named_shadow_indexing_mode is not None:
@@ -268,6 +337,18 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
     @device_defender_indexing_mode.setter
     def device_defender_indexing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_defender_indexing_mode", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']]:
+        """
+        Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgs']]):
+        pulumi.set(self, "filter", value)
 
     @property
     @pulumi.getter(name="managedFields")
@@ -343,6 +424,29 @@ class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class IndexingConfigurationThingIndexingConfigurationFilterArgs:
+    def __init__(__self__, *,
+                 named_shadow_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] named_shadow_names: List of shadow names that you select to index.
+        """
+        if named_shadow_names is not None:
+            pulumi.set(__self__, "named_shadow_names", named_shadow_names)
+
+    @property
+    @pulumi.getter(name="namedShadowNames")
+    def named_shadow_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of shadow names that you select to index.
+        """
+        return pulumi.get(self, "named_shadow_names")
+
+    @named_shadow_names.setter
+    def named_shadow_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "named_shadow_names", value)
 
 
 @pulumi.input_type

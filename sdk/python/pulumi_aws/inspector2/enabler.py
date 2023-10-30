@@ -21,7 +21,7 @@ class EnablerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, and `LAMBDA`.
+               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
         """
         pulumi.set(__self__, "account_ids", account_ids)
@@ -45,7 +45,7 @@ class EnablerArgs:
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")
@@ -65,7 +65,7 @@ class _EnablerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, and `LAMBDA`.
+               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
         """
         if account_ids is not None:
@@ -91,7 +91,7 @@ class _EnablerState:
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")
@@ -145,7 +145,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, and `LAMBDA`.
+               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
         """
         ...
@@ -239,7 +239,7 @@ class Enabler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
                Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan.
-               Valid values are `EC2`, `ECR`, and `LAMBDA`.
+               Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
                At least one item is required.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -264,7 +264,7 @@ class Enabler(pulumi.CustomResource):
     def resource_types(self) -> pulumi.Output[Sequence[str]]:
         """
         Type of resources to scan.
-        Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         At least one item is required.
         """
         return pulumi.get(self, "resource_types")

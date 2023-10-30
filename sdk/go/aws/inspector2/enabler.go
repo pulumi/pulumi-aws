@@ -91,7 +91,7 @@ type Enabler struct {
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 }
@@ -136,7 +136,7 @@ type enablerState struct {
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
@@ -146,7 +146,7 @@ type EnablerState struct {
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayInput
 }
@@ -160,7 +160,7 @@ type enablerArgs struct {
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
@@ -171,7 +171,7 @@ type EnablerArgs struct {
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
 	// Type of resources to scan.
-	// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
 	ResourceTypes pulumi.StringArrayInput
 }
@@ -294,7 +294,7 @@ func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 }
 
 // Type of resources to scan.
-// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 // At least one item is required.
 func (o EnablerOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)

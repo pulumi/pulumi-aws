@@ -383,28 +383,28 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dynamodbTargets);
     }
     /**
-     * List nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See Iceberg Target below.
      * 
      */
     @Export(name="hudiTargets", refs={List.class,CrawlerHudiTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerHudiTarget>> hudiTargets;
 
     /**
-     * @return List nested Hudi target arguments. See Iceberg Target below.
+     * @return List of nested Hudi target arguments. See Iceberg Target below.
      * 
      */
     public Output<Optional<List<CrawlerHudiTarget>>> hudiTargets() {
         return Codegen.optional(this.hudiTargets);
     }
     /**
-     * List nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
     @Export(name="icebergTargets", refs={List.class,CrawlerIcebergTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerIcebergTarget>> icebergTargets;
 
     /**
-     * @return List nested Iceberg target arguments. See Iceberg Target below.
+     * @return List of nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
     public Output<Optional<List<CrawlerIcebergTarget>>> icebergTargets() {
@@ -453,14 +453,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lineageConfiguration);
     }
     /**
-     * List nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
     @Export(name="mongodbTargets", refs={List.class,CrawlerMongodbTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerMongodbTarget>> mongodbTargets;
 
     /**
-     * @return List nested MongoDB target arguments. See MongoDB Target below.
+     * @return List of nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
     public Output<Optional<List<CrawlerMongodbTarget>>> mongodbTargets() {
@@ -509,14 +509,14 @@ public class Crawler extends com.pulumi.resources.CustomResource {
         return this.role;
     }
     /**
-     * List nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
     @Export(name="s3Targets", refs={List.class,CrawlerS3Target.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerS3Target>> s3Targets;
 
     /**
-     * @return List nested Amazon S3 target arguments. See S3 Target below.
+     * @return List of nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
     public Output<Optional<List<CrawlerS3Target>>> s3Targets() {

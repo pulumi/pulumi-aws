@@ -528,7 +528,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         return pulumi.get(self, "name_prefix")
 
     @property

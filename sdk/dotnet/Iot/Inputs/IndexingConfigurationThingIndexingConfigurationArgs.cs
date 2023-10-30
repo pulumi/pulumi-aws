@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("deviceDefenderIndexingMode")]
         public Input<string>? DeviceDefenderIndexingMode { get; set; }
 
+        /// <summary>
+        /// Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        /// </summary>
+        [Input("filter")]
+        public Input<Inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs>? Filter { get; set; }
+
         [Input("managedFields")]
         private InputList<Inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldArgs>? _managedFields;
 

@@ -167,6 +167,8 @@ type ProvisioningTemplate struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
+	// The type you define in a provisioning template.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
@@ -231,6 +233,8 @@ type provisioningTemplateState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody *string `pulumi:"templateBody"`
+	// The type you define in a provisioning template.
+	Type *string `pulumi:"type"`
 }
 
 type ProvisioningTemplateState struct {
@@ -256,6 +260,8 @@ type ProvisioningTemplateState struct {
 	TagsAll pulumi.StringMapInput
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringPtrInput
+	// The type you define in a provisioning template.
+	Type pulumi.StringPtrInput
 }
 
 func (ProvisioningTemplateState) ElementType() reflect.Type {
@@ -277,6 +283,8 @@ type provisioningTemplateArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody string `pulumi:"templateBody"`
+	// The type you define in a provisioning template.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ProvisioningTemplate resource.
@@ -295,6 +303,8 @@ type ProvisioningTemplateArgs struct {
 	Tags pulumi.StringMapInput
 	// The JSON formatted contents of the fleet provisioning template.
 	TemplateBody pulumi.StringInput
+	// The type you define in a provisioning template.
+	Type pulumi.StringPtrInput
 }
 
 func (ProvisioningTemplateArgs) ElementType() reflect.Type {
@@ -460,6 +470,11 @@ func (o ProvisioningTemplateOutput) TagsAll() pulumi.StringMapOutput {
 // The JSON formatted contents of the fleet provisioning template.
 func (o ProvisioningTemplateOutput) TemplateBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.TemplateBody }).(pulumi.StringOutput)
+}
+
+// The type you define in a provisioning template.
+func (o ProvisioningTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 type ProvisioningTemplateArrayOutput struct{ *pulumi.OutputState }

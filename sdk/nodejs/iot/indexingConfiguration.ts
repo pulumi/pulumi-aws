@@ -36,6 +36,9 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     deviceDefenderIndexingMode: "VIOLATIONS",
+ *     filter: {
+ *         namedShadowNames: ["thing1shadow"],
+ *     },
  *     namedShadowIndexingMode: "ON",
  *     thingConnectivityIndexingMode: "STATUS",
  *     thingIndexingMode: "REGISTRY_AND_SHADOW",

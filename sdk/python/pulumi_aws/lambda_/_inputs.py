@@ -785,13 +785,17 @@ class FunctionVpcConfigArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[bool]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs associated with the Lambda function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs associated with the Lambda function.
+        :param pulumi.Input[bool] ipv6_allowed_for_dual_stack: Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if ipv6_allowed_for_dual_stack is not None:
+            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -818,6 +822,18 @@ class FunctionVpcConfigArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+        """
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
+
+    @ipv6_allowed_for_dual_stack.setter
+    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
 
     @property
     @pulumi.getter(name="vpcId")

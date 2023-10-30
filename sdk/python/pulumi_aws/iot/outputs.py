@@ -11,11 +11,14 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DomainConfigurationAuthorizerConfig',
+    'DomainConfigurationTlsConfig',
     'IndexingConfigurationThingGroupIndexingConfiguration',
     'IndexingConfigurationThingGroupIndexingConfigurationCustomField',
     'IndexingConfigurationThingGroupIndexingConfigurationManagedField',
     'IndexingConfigurationThingIndexingConfiguration',
     'IndexingConfigurationThingIndexingConfigurationCustomField',
+    'IndexingConfigurationThingIndexingConfigurationFilter',
     'IndexingConfigurationThingIndexingConfigurationManagedField',
     'ProvisioningTemplatePreProvisioningHook',
     'ThingGroupMetadata',
@@ -72,6 +75,92 @@ __all__ = [
     'TopicRuleTimestreamDimension',
     'TopicRuleTimestreamTimestamp',
 ]
+
+@pulumi.output_type
+class DomainConfigurationAuthorizerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowAuthorizerOverride":
+            suggest = "allow_authorizer_override"
+        elif key == "defaultAuthorizerName":
+            suggest = "default_authorizer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationAuthorizerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationAuthorizerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationAuthorizerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_authorizer_override: Optional[bool] = None,
+                 default_authorizer_name: Optional[str] = None):
+        """
+        :param bool allow_authorizer_override: A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        :param str default_authorizer_name: The name of the authorization service for a domain configuration.
+        """
+        if allow_authorizer_override is not None:
+            pulumi.set(__self__, "allow_authorizer_override", allow_authorizer_override)
+        if default_authorizer_name is not None:
+            pulumi.set(__self__, "default_authorizer_name", default_authorizer_name)
+
+    @property
+    @pulumi.getter(name="allowAuthorizerOverride")
+    def allow_authorizer_override(self) -> Optional[bool]:
+        """
+        A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+        """
+        return pulumi.get(self, "allow_authorizer_override")
+
+    @property
+    @pulumi.getter(name="defaultAuthorizerName")
+    def default_authorizer_name(self) -> Optional[str]:
+        """
+        The name of the authorization service for a domain configuration.
+        """
+        return pulumi.get(self, "default_authorizer_name")
+
+
+@pulumi.output_type
+class DomainConfigurationTlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityPolicy":
+            suggest = "security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationTlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainConfigurationTlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainConfigurationTlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_policy: Optional[str] = None):
+        """
+        :param str security_policy: The security policy for a domain configuration.
+        """
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
+
+    @property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[str]:
+        """
+        The security policy for a domain configuration.
+        """
+        return pulumi.get(self, "security_policy")
+
 
 @pulumi.output_type
 class IndexingConfigurationThingGroupIndexingConfiguration(dict):
@@ -231,6 +320,7 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
                  thing_indexing_mode: str,
                  custom_fields: Optional[Sequence['outputs.IndexingConfigurationThingIndexingConfigurationCustomField']] = None,
                  device_defender_indexing_mode: Optional[str] = None,
+                 filter: Optional['outputs.IndexingConfigurationThingIndexingConfigurationFilter'] = None,
                  managed_fields: Optional[Sequence['outputs.IndexingConfigurationThingIndexingConfigurationManagedField']] = None,
                  named_shadow_indexing_mode: Optional[str] = None,
                  thing_connectivity_indexing_mode: Optional[str] = None):
@@ -238,6 +328,7 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
         :param str thing_indexing_mode: Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
         :param Sequence['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs'] custom_fields: Contains custom field names and their data type. See below.
         :param str device_defender_indexing_mode: Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+        :param 'IndexingConfigurationThingIndexingConfigurationFilterArgs' filter: Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
         :param Sequence['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs'] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         :param str named_shadow_indexing_mode: [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         :param str thing_connectivity_indexing_mode: Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
@@ -247,6 +338,8 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
             pulumi.set(__self__, "custom_fields", custom_fields)
         if device_defender_indexing_mode is not None:
             pulumi.set(__self__, "device_defender_indexing_mode", device_defender_indexing_mode)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
         if managed_fields is not None:
             pulumi.set(__self__, "managed_fields", managed_fields)
         if named_shadow_indexing_mode is not None:
@@ -277,6 +370,14 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
         Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
         """
         return pulumi.get(self, "device_defender_indexing_mode")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.IndexingConfigurationThingIndexingConfigurationFilter']:
+        """
+        Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        """
+        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter(name="managedFields")
@@ -332,6 +433,42 @@ class IndexingConfigurationThingIndexingConfigurationCustomField(dict):
         The data type of the field. Valid values: `Number`, `String`, `Boolean`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IndexingConfigurationThingIndexingConfigurationFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "namedShadowNames":
+            suggest = "named_shadow_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexingConfigurationThingIndexingConfigurationFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexingConfigurationThingIndexingConfigurationFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexingConfigurationThingIndexingConfigurationFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 named_shadow_names: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] named_shadow_names: List of shadow names that you select to index.
+        """
+        if named_shadow_names is not None:
+            pulumi.set(__self__, "named_shadow_names", named_shadow_names)
+
+    @property
+    @pulumi.getter(name="namedShadowNames")
+    def named_shadow_names(self) -> Optional[Sequence[str]]:
+        """
+        List of shadow names that you select to index.
+        """
+        return pulumi.get(self, "named_shadow_names")
 
 
 @pulumi.output_type

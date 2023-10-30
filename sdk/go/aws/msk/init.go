@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterPolicy{}
 	case "aws:msk/configuration:Configuration":
 		r = &Configuration{}
+	case "aws:msk/replicator:Replicator":
+		r = &Replicator{}
 	case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
 		r = &ScramSecretAssociation{}
 	case "aws:msk/serverlessCluster:ServerlessCluster":
@@ -59,6 +61,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"msk/configuration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"msk/replicator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

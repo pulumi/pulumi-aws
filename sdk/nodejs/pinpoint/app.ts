@@ -86,7 +86,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The name of the Pinpoint application. Conflicts with `name`
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      */

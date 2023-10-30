@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -92,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:signer/signingProfilePermission:SigningProfilePermission")
 public class SigningProfilePermission extends com.pulumi.resources.CustomResource {
     /**
-     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
+     * An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, or `signer:RevokeSignature`.
+     * @return An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
      * 
      */
     public Output<String> action() {
@@ -166,14 +165,14 @@ public class SigningProfilePermission extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> statementIdPrefix;
+    private Output<String> statementIdPrefix;
 
     /**
      * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
      * 
      */
-    public Output<Optional<String>> statementIdPrefix() {
-        return Codegen.optional(this.statementIdPrefix);
+    public Output<String> statementIdPrefix() {
+        return this.statementIdPrefix;
     }
 
     /**

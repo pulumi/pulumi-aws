@@ -146,7 +146,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
     }
 
     /**
-     * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+     * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
      * 
      * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
      * 
@@ -155,7 +155,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
     private @Nullable Output<String> volumeType;
 
     /**
-     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
      * 
      * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
      * 
@@ -375,7 +375,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         }
 
         /**
-         * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+         * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          * 
          * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
          * 
@@ -388,7 +388,7 @@ public final class SpotInstanceRequestRootBlockDeviceArgs extends com.pulumi.res
         }
 
         /**
-         * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+         * @param volumeType Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          * 
          * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
          * 

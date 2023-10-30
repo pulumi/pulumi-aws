@@ -139,6 +139,7 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -154,6 +155,24 @@ class Recorder(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        ```
+        ### Exclude Resources Types Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.cfg.Recorder("foo",
+            role_arn=aws_iam_role["r"]["arn"],
+            recording_group=aws.cfg.RecorderRecordingGroupArgs(
+                all_supported=False,
+                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
+                    resource_types=["AWS::EC2::Instance"],
+                )],
+                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
+                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
+                )],
+            ))
         ```
 
         ## Import
@@ -182,6 +201,7 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -197,6 +217,24 @@ class Recorder(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
+        ```
+        ### Exclude Resources Types Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.cfg.Recorder("foo",
+            role_arn=aws_iam_role["r"]["arn"],
+            recording_group=aws.cfg.RecorderRecordingGroupArgs(
+                all_supported=False,
+                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
+                    resource_types=["AWS::EC2::Instance"],
+                )],
+                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
+                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
+                )],
+            ))
         ```
 
         ## Import

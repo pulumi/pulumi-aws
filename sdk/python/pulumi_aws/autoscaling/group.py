@@ -2600,7 +2600,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> pulumi.Output[Optional['outputs.GroupLaunchTemplate']]:
+    def launch_template(self) -> pulumi.Output['outputs.GroupLaunchTemplate']:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
@@ -2661,7 +2661,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> pulumi.Output[Optional['outputs.GroupMixedInstancesPolicy']]:
+    def mixed_instances_policy(self) -> pulumi.Output['outputs.GroupMixedInstancesPolicy']:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """

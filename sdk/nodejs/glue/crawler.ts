@@ -188,11 +188,11 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
     /**
-     * List nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See Iceberg Target below.
      */
     public readonly hudiTargets!: pulumi.Output<outputs.glue.CrawlerHudiTarget[] | undefined>;
     /**
-     * List nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See Iceberg Target below.
      */
     public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly lineageConfiguration!: pulumi.Output<outputs.glue.CrawlerLineageConfiguration | undefined>;
     /**
-     * List nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See MongoDB Target below.
      */
     public readonly mongodbTargets!: pulumi.Output<outputs.glue.CrawlerMongodbTarget[] | undefined>;
     /**
@@ -224,7 +224,7 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string>;
     /**
-     * List nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See S3 Target below.
      */
     public readonly s3Targets!: pulumi.Output<outputs.glue.CrawlerS3Target[] | undefined>;
     /**
@@ -365,11 +365,11 @@ export interface CrawlerState {
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
-     * List nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See Iceberg Target below.
      */
     hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
     /**
-     * List nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See Iceberg Target below.
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
@@ -385,7 +385,7 @@ export interface CrawlerState {
      */
     lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
     /**
-     * List nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See MongoDB Target below.
      */
     mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
@@ -401,7 +401,7 @@ export interface CrawlerState {
      */
     role?: pulumi.Input<string>;
     /**
-     * List nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See S3 Target below.
      */
     s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**
@@ -462,11 +462,11 @@ export interface CrawlerArgs {
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
-     * List nested Hudi target arguments. See Iceberg Target below.
+     * List of nested Hudi target arguments. See Iceberg Target below.
      */
     hudiTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerHudiTarget>[]>;
     /**
-     * List nested Iceberg target arguments. See Iceberg Target below.
+     * List of nested Iceberg target arguments. See Iceberg Target below.
      */
     icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
@@ -482,7 +482,7 @@ export interface CrawlerArgs {
      */
     lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
     /**
-     * List nested MongoDB target arguments. See MongoDB Target below.
+     * List of nested MongoDB target arguments. See MongoDB Target below.
      */
     mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
@@ -498,7 +498,7 @@ export interface CrawlerArgs {
      */
     role: pulumi.Input<string>;
     /**
-     * List nested Amazon S3 target arguments. See S3 Target below.
+     * List of nested Amazon S3 target arguments. See S3 Target below.
      */
     s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**

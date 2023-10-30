@@ -39,6 +39,7 @@ __all__ = [
     'TargetGroupHealthCheckArgs',
     'TargetGroupStickinessArgs',
     'TargetGroupTargetFailoverArgs',
+    'TargetGroupTargetHealthStateArgs',
 ]
 
 @pulumi.input_type
@@ -2157,5 +2158,27 @@ class TargetGroupTargetFailoverArgs:
     @on_unhealthy.setter
     def on_unhealthy(self, value: pulumi.Input[str]):
         pulumi.set(self, "on_unhealthy", value)
+
+
+@pulumi.input_type
+class TargetGroupTargetHealthStateArgs:
+    def __init__(__self__, *,
+                 enable_unhealthy_connection_termination: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enable_unhealthy_connection_termination: Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+        """
+        pulumi.set(__self__, "enable_unhealthy_connection_termination", enable_unhealthy_connection_termination)
+
+    @property
+    @pulumi.getter(name="enableUnhealthyConnectionTermination")
+    def enable_unhealthy_connection_termination(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+        """
+        return pulumi.get(self, "enable_unhealthy_connection_termination")
+
+    @enable_unhealthy_connection_termination.setter
+    def enable_unhealthy_connection_termination(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable_unhealthy_connection_termination", value)
 
 

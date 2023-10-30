@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See blue_green_update below
+        /// See `blue_green_update` below.
         /// </summary>
         [Output("blueGreenUpdate")]
         public Output<Outputs.InstanceBlueGreenUpdate?> BlueGreenUpdate { get; private set; } = null!;
@@ -417,8 +417,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> LatestRestorableTime { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e., Oracle
-        /// SE1) License model information for this DB instance.
+        /// License model information for this DB instance. Valid values for this field are as follows:
+        /// * RDS for MariaDB: `general-public-license`
+        /// * RDS for Microsoft SQL Server: `license-included`
+        /// * RDS for MySQL: `general-public-license`
+        /// * RDS for Oracle: `bring-your-own-license | license-included`
+        /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
         [Output("licenseModel")]
         public Output<string> LicenseModel { get; private set; } = null!;
@@ -796,7 +800,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See blue_green_update below
+        /// See `blue_green_update` below.
         /// </summary>
         [Input("blueGreenUpdate")]
         public Input<Inputs.InstanceBlueGreenUpdateArgs>? BlueGreenUpdate { get; set; }
@@ -954,8 +958,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e., Oracle
-        /// SE1) License model information for this DB instance.
+        /// License model information for this DB instance. Valid values for this field are as follows:
+        /// * RDS for MariaDB: `general-public-license`
+        /// * RDS for Microsoft SQL Server: `license-included`
+        /// * RDS for MySQL: `general-public-license`
+        /// * RDS for Oracle: `bring-your-own-license | license-included`
+        /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
@@ -1291,7 +1299,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-        /// See blue_green_update below
+        /// See `blue_green_update` below.
         /// </summary>
         [Input("blueGreenUpdate")]
         public Input<Inputs.InstanceBlueGreenUpdateGetArgs>? BlueGreenUpdate { get; set; }
@@ -1473,8 +1481,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? LatestRestorableTime { get; set; }
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e., Oracle
-        /// SE1) License model information for this DB instance.
+        /// License model information for this DB instance. Valid values for this field are as follows:
+        /// * RDS for MariaDB: `general-public-license`
+        /// * RDS for Microsoft SQL Server: `license-included`
+        /// * RDS for MySQL: `general-public-license`
+        /// * RDS for Oracle: `bring-your-own-license | license-included`
+        /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
         [Input("licenseModel")]
         public Input<string>? LicenseModel { get; set; }
