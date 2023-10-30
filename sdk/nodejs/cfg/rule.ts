@@ -152,6 +152,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+     */
+    public readonly evaluationModes!: pulumi.Output<outputs.cfg.RuleEvaluationMode[]>;
+    /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
     public readonly inputParameters!: pulumi.Output<string | undefined>;
@@ -201,6 +205,7 @@ export class Rule extends pulumi.CustomResource {
             const state = argsOrState as RuleState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["evaluationModes"] = state ? state.evaluationModes : undefined;
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -215,6 +220,7 @@ export class Rule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'source'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["evaluationModes"] = args ? args.evaluationModes : undefined;
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -244,6 +250,10 @@ export interface RuleState {
      * Description of the rule
      */
     description?: pulumi.Input<string>;
+    /**
+     * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+     */
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
@@ -288,6 +298,10 @@ export interface RuleArgs {
      * Description of the rule
      */
     description?: pulumi.Input<string>;
+    /**
+     * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+     */
+    evaluationModes?: pulumi.Input<pulumi.Input<inputs.cfg.RuleEvaluationMode>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */

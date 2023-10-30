@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -109,15 +108,15 @@ public class RolePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      * 
      */
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide

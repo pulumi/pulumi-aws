@@ -1,40 +1,8 @@
-From affeb78d097bc03e8a82894824fc98d8f3e177d0 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 22/30] Change default descriptions to "Managed by Pulumi"
 
----
- internal/service/apigateway/api_key.go        |   2 +-
- internal/service/appsync/api_key.go           |   2 +-
- .../cloudfront/origin_access_control.go       |   2 +-
- .../service/docdb/cluster_parameter_group.go  |   2 +-
- internal/service/docdb/subnet_group.go        |   2 +-
- internal/service/ec2/vpc_security_group.go    |   2 +-
- .../service/elasticache/parameter_group.go    |   2 +-
- .../service/elasticache/security_group.go     | 127 +++++++
- internal/service/elasticache/subnet_group.go  |   2 +-
- internal/service/mediapackage/channel.go      |   2 +-
- internal/service/memorydb/cluster.go          |   2 +-
- internal/service/memorydb/parameter_group.go  |   2 +-
- internal/service/memorydb/subnet_group.go     |   2 +-
- .../neptune/cluster_parameter_group.go        |   2 +-
- internal/service/neptune/parameter_group.go   |   2 +-
- internal/service/neptune/subnet_group.go      |   2 +-
- .../service/rds/cluster_parameter_group.go    |   2 +-
- internal/service/rds/option_group.go          |   2 +-
- internal/service/rds/parameter_group.go       |   2 +-
- internal/service/rds/security_group.go        | 316 ++++++++++++++++++
- internal/service/rds/subnet_group.go          |   2 +-
- internal/service/redshift/parameter_group.go  |   2 +-
- internal/service/redshift/security_group.go   | 291 ++++++++++++++++
- internal/service/redshift/subnet_group.go     |   2 +-
- internal/service/route53/record.go            |   6 +-
- internal/service/route53/zone.go              |   2 +-
- internal/service/route53/zone_association.go  |   4 +-
- 27 files changed, 761 insertions(+), 27 deletions(-)
- create mode 100644 internal/service/elasticache/security_group.go
- create mode 100644 internal/service/rds/security_group.go
- create mode 100644 internal/service/redshift/security_group.go
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
 index a9bc1cc418..9284fc793b 100644
@@ -76,31 +44,31 @@ index 6812593087..18de58a8a7 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 27a0b9ab0d..6771f57dba 100644
+index 435e139674..6f923a8ed0 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
-@@ -69,7 +69,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"parameter": {
- 				Type:     schema.TypeSet,
+ 			"family": {
+ 				Type:     schema.TypeString,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
-index bf1d7bba97..35959c7f19 100644
+index 6970e2c917..9644b1a733 100644
 --- a/internal/service/docdb/subnet_group.go
 +++ b/internal/service/docdb/subnet_group.go
-@@ -63,7 +63,7 @@ func ResourceSubnetGroup() *schema.Resource {
+@@ -45,7 +45,7 @@ func ResourceSubnetGroup() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 
- 			"subnet_ids": {
+ 			"name": {
+ 				Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
 index 48be193e59..e3a4359db9 100644
 --- a/internal/service/ec2/vpc_security_group.go
@@ -326,18 +294,18 @@ index f8739b158d..b0c862290d 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index a482521b57..5b84686770 100644
+index 7a4f6d707b..aea15d9cce 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
-@@ -65,7 +65,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"parameter": {
- 				Type:     schema.TypeSet,
+ 			"family": {
+ 				Type:     schema.TypeString,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
 index 634e4f17cc..4572e60174 100644
 --- a/internal/service/neptune/parameter_group.go
@@ -365,7 +333,7 @@ index be08ae2bf4..3bfb5db0d6 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 20f886b6cc..57ab8dac3b 100644
+index 1a8c89f656..126e6879bd 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -50,7 +50,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -378,18 +346,18 @@ index 20f886b6cc..57ab8dac3b 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index 5ac5d2bbf9..90e0116219 100644
+index 7336c50e7a..431e2d47b9 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
-@@ -78,7 +78,7 @@ func ResourceOptionGroup() *schema.Resource {
+@@ -123,7 +123,7 @@ func ResourceOptionGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 
- 			"option": {
+ 			names.AttrTags:    tftags.TagsSchema(),
+ 			names.AttrTagsAll: tftags.TagsSchemaComputed(),
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
 index 227dae6935..5c46cc3fb9 100644
 --- a/internal/service/rds/parameter_group.go
@@ -1127,6 +1095,3 @@ index e17fa7c445..fb9e5b7304 100644
  	}
  
  	_, err = conn.DisassociateVPCFromHostedZoneWithContext(ctx, input)
--- 
-2.39.1
-

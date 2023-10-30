@@ -67,6 +67,8 @@ type Image struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImageImageScanningConfigurationOutput `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationOutput `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -140,6 +142,8 @@ type imageState struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration *ImageImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -177,6 +181,8 @@ type ImageState struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImageImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -214,6 +220,8 @@ type imageArgs struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration *ImageImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -234,6 +242,8 @@ type ImageArgs struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of the image recipe.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Configuration block with image scanning configuration. Detailed below.
+	ImageScanningConfiguration ImageImageScanningConfigurationPtrInput
 	// Configuration block with image tests configuration. Detailed below.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
 	// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
@@ -383,6 +393,11 @@ func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 // Amazon Resource Name (ARN) of the image recipe.
 func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block with image scanning configuration. Detailed below.
+func (o ImageOutput) ImageScanningConfiguration() ImageImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *Image) ImageImageScanningConfigurationOutput { return v.ImageScanningConfiguration }).(ImageImageScanningConfigurationOutput)
 }
 
 // Configuration block with image tests configuration. Detailed below.

@@ -472,7 +472,9 @@ jobs:
               go-version-file: provider/go.mod
           - name: go test
             run: |
-              cd upstream/shim
+              cd upstream
+              go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
+              cd shim
               go test -v -coverprofile="coverage.txt" .
           - env:
               CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

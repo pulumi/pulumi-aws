@@ -87,7 +87,7 @@ type UserPolicy struct {
 	// The name of the policy. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// IAM user to which to attach this policy.
@@ -295,8 +295,8 @@ func (o UserPolicyOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-func (o UserPolicyOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPolicy) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
+func (o UserPolicyOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPolicy) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // The policy document. This is a JSON formatted string.

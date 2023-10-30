@@ -1,11 +1,8 @@
-From 766cbf2d4fd7c989806410e56c62fa2bac091ef1 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
 Subject: [PATCH 09/30] Add EKS cluster certificate_authorities (plural)
 
----
- internal/service/eks/cluster.go | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
 index d8544be700..01c6b3caa0 100644
@@ -50,6 +47,3 @@ index d8544be700..01c6b3caa0 100644
  	if err := d.Set("certificate_authority", flattenCertificate(cluster.CertificateAuthority)); err != nil {
  		return diag.Errorf("setting certificate_authority: %s", err)
  	}
--- 
-2.39.1
-

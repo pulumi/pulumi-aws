@@ -1,17 +1,8 @@
-From c3d4f9035e685d466d1e645a024a1f362009961f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 10 Jul 2023 11:51:24 +0200
 Subject: [PATCH 27/30] Provide context to conns
 
----
- internal/service/ecr/credentials_data_source.go  |  4 +++-
- internal/service/elasticache/security_group.go   |  4 ++--
- .../gamelift/matchmaking_configuration.go        | 12 ++++++------
- .../service/gamelift/matchmaking_rule_set.go     | 12 ++++++------
- internal/service/rds/security_group.go           |  6 +++---
- internal/service/redshift/security_group.go      |  6 +++---
- internal/service/s3legacy/bucket_legacy.go       | 16 ++++++++--------
- 7 files changed, 31 insertions(+), 29 deletions(-)
 
 diff --git a/internal/service/ecr/credentials_data_source.go b/internal/service/ecr/credentials_data_source.go
 index 572754846f..9dd9fd0e8c 100644
@@ -236,10 +227,10 @@ index 47b5d7cda2..050fee663a 100644
  	opts := redshift.DescribeClusterSecurityGroupsInput{
  		ClusterSecurityGroupName: aws.String(d.Id()),
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index ba95f6c2b6..0563bd3a25 100644
+index 69cdf81c1e..575767763b 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -672,7 +672,7 @@ func ResourceBucketLegacy() *schema.Resource {
+@@ -673,7 +673,7 @@ func ResourceBucketLegacy() *schema.Resource {
  }
  
  func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -248,7 +239,7 @@ index ba95f6c2b6..0563bd3a25 100644
  
  	// Get the bucket and acl
  	var bucket string
-@@ -745,7 +745,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
+@@ -746,7 +746,7 @@ func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, met
  }
  
  func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -257,7 +248,7 @@ index ba95f6c2b6..0563bd3a25 100644
  
  	if d.HasChange("tags_all") {
  		o, n := d.GetChange("tags_all")
-@@ -853,7 +853,7 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
+@@ -854,7 +854,7 @@ func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, met
  }
  
  func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -266,7 +257,7 @@ index ba95f6c2b6..0563bd3a25 100644
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
  
-@@ -1364,7 +1364,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1365,7 +1365,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  	}
  
  	// Add website_endpoint as an attribute
@@ -275,7 +266,7 @@ index ba95f6c2b6..0563bd3a25 100644
  	if err != nil {
  		return diag.FromErr(err)
  	}
-@@ -1414,7 +1414,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+@@ -1415,7 +1415,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
  }
  
  func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
@@ -284,7 +275,7 @@ index ba95f6c2b6..0563bd3a25 100644
  
  	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
  	_, err := conn.DeleteBucket(&s3.DeleteBucketInput{
-@@ -1430,7 +1430,7 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
+@@ -1431,7 +1431,7 @@ func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, met
  			// Use a S3 service client that can handle multiple slashes in URIs.
  			// While aws_s3_bucket_object resources cannot create these object
  			// keys, other AWS services and applications using the S3 Bucket can.
@@ -293,7 +284,7 @@ index ba95f6c2b6..0563bd3a25 100644
  
  			// bucket may have things delete them
  			log.Printf("[DEBUG] S3 Bucket attempting to forceDestroy %+v", err)
-@@ -1752,7 +1752,7 @@ func resourceBucketLegacyWebsiteDelete(conn *s3.S3, d *schema.ResourceData) erro
+@@ -1753,7 +1753,7 @@ func resourceBucketLegacyWebsiteDelete(conn *s3.S3, d *schema.ResourceData) erro
  	return nil
  }
  
@@ -302,7 +293,7 @@ index ba95f6c2b6..0563bd3a25 100644
  	// If the bucket doesn't have a website configuration, return an empty
  	// endpoint
  	if _, ok := d.GetOk("website"); !ok {
-@@ -1764,7 +1764,7 @@ func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3
+@@ -1765,7 +1765,7 @@ func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3
  	// Lookup the region for this bucket
  
  	locationResponse, err := retryOnAWSCode(s3.ErrCodeNoSuchBucket, func() (interface{}, error) {
@@ -311,6 +302,3 @@ index ba95f6c2b6..0563bd3a25 100644
  			&s3.GetBucketLocationInput{
  				Bucket: aws.String(bucket),
  			},
--- 
-2.39.1
-

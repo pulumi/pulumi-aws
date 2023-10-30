@@ -856,7 +856,7 @@ type RecorderRecordingGroup struct {
 	ExclusionByResourceTypes []RecorderRecordingGroupExclusionByResourceType `pulumi:"exclusionByResourceTypes"`
 	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes *bool `pulumi:"includeGlobalResourceTypes"`
-	// Recording Strategy - see below..
+	// Recording Strategy. Detailed below.
 	RecordingStrategies []RecorderRecordingGroupRecordingStrategy `pulumi:"recordingStrategies"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes []string `pulumi:"resourceTypes"`
@@ -880,7 +880,7 @@ type RecorderRecordingGroupArgs struct {
 	ExclusionByResourceTypes RecorderRecordingGroupExclusionByResourceTypeArrayInput `pulumi:"exclusionByResourceTypes"`
 	// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
 	IncludeGlobalResourceTypes pulumi.BoolPtrInput `pulumi:"includeGlobalResourceTypes"`
-	// Recording Strategy - see below..
+	// Recording Strategy. Detailed below.
 	RecordingStrategies RecorderRecordingGroupRecordingStrategyArrayInput `pulumi:"recordingStrategies"`
 	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
@@ -998,7 +998,7 @@ func (o RecorderRecordingGroupOutput) IncludeGlobalResourceTypes() pulumi.BoolPt
 	return o.ApplyT(func(v RecorderRecordingGroup) *bool { return v.IncludeGlobalResourceTypes }).(pulumi.BoolPtrOutput)
 }
 
-// Recording Strategy - see below..
+// Recording Strategy. Detailed below.
 func (o RecorderRecordingGroupOutput) RecordingStrategies() RecorderRecordingGroupRecordingStrategyArrayOutput {
 	return o.ApplyT(func(v RecorderRecordingGroup) []RecorderRecordingGroupRecordingStrategy { return v.RecordingStrategies }).(RecorderRecordingGroupRecordingStrategyArrayOutput)
 }
@@ -1068,7 +1068,7 @@ func (o RecorderRecordingGroupPtrOutput) IncludeGlobalResourceTypes() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Recording Strategy - see below..
+// Recording Strategy. Detailed below.
 func (o RecorderRecordingGroupPtrOutput) RecordingStrategies() RecorderRecordingGroupRecordingStrategyArrayOutput {
 	return o.ApplyT(func(v *RecorderRecordingGroup) []RecorderRecordingGroupRecordingStrategy {
 		if v == nil {
@@ -1089,7 +1089,7 @@ func (o RecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.StringArrayOutpu
 }
 
 type RecorderRecordingGroupExclusionByResourceType struct {
-	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	// A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 }
 
@@ -1105,7 +1105,7 @@ type RecorderRecordingGroupExclusionByResourceTypeInput interface {
 }
 
 type RecorderRecordingGroupExclusionByResourceTypeArgs struct {
-	// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+	// A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 }
 
@@ -1178,7 +1178,7 @@ func (o RecorderRecordingGroupExclusionByResourceTypeOutput) ToOutput(ctx contex
 	}
 }
 
-// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+// A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RecorderRecordingGroupExclusionByResourceTypeOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecorderRecordingGroupExclusionByResourceType) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -1818,6 +1818,127 @@ func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) R
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationConfigurationParameter {
 		return vs[0].([]RemediationConfigurationParameter)[vs[1].(int)]
 	}).(RemediationConfigurationParameterOutput)
+}
+
+type RuleEvaluationMode struct {
+	// The mode of an evaluation.
+	Mode *string `pulumi:"mode"`
+}
+
+// RuleEvaluationModeInput is an input type that accepts RuleEvaluationModeArgs and RuleEvaluationModeOutput values.
+// You can construct a concrete instance of `RuleEvaluationModeInput` via:
+//
+//	RuleEvaluationModeArgs{...}
+type RuleEvaluationModeInput interface {
+	pulumi.Input
+
+	ToRuleEvaluationModeOutput() RuleEvaluationModeOutput
+	ToRuleEvaluationModeOutputWithContext(context.Context) RuleEvaluationModeOutput
+}
+
+type RuleEvaluationModeArgs struct {
+	// The mode of an evaluation.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (RuleEvaluationModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEvaluationMode)(nil)).Elem()
+}
+
+func (i RuleEvaluationModeArgs) ToRuleEvaluationModeOutput() RuleEvaluationModeOutput {
+	return i.ToRuleEvaluationModeOutputWithContext(context.Background())
+}
+
+func (i RuleEvaluationModeArgs) ToRuleEvaluationModeOutputWithContext(ctx context.Context) RuleEvaluationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEvaluationModeOutput)
+}
+
+func (i RuleEvaluationModeArgs) ToOutput(ctx context.Context) pulumix.Output[RuleEvaluationMode] {
+	return pulumix.Output[RuleEvaluationMode]{
+		OutputState: i.ToRuleEvaluationModeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RuleEvaluationModeArrayInput is an input type that accepts RuleEvaluationModeArray and RuleEvaluationModeArrayOutput values.
+// You can construct a concrete instance of `RuleEvaluationModeArrayInput` via:
+//
+//	RuleEvaluationModeArray{ RuleEvaluationModeArgs{...} }
+type RuleEvaluationModeArrayInput interface {
+	pulumi.Input
+
+	ToRuleEvaluationModeArrayOutput() RuleEvaluationModeArrayOutput
+	ToRuleEvaluationModeArrayOutputWithContext(context.Context) RuleEvaluationModeArrayOutput
+}
+
+type RuleEvaluationModeArray []RuleEvaluationModeInput
+
+func (RuleEvaluationModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEvaluationMode)(nil)).Elem()
+}
+
+func (i RuleEvaluationModeArray) ToRuleEvaluationModeArrayOutput() RuleEvaluationModeArrayOutput {
+	return i.ToRuleEvaluationModeArrayOutputWithContext(context.Background())
+}
+
+func (i RuleEvaluationModeArray) ToRuleEvaluationModeArrayOutputWithContext(ctx context.Context) RuleEvaluationModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEvaluationModeArrayOutput)
+}
+
+func (i RuleEvaluationModeArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleEvaluationMode] {
+	return pulumix.Output[[]RuleEvaluationMode]{
+		OutputState: i.ToRuleEvaluationModeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RuleEvaluationModeOutput struct{ *pulumi.OutputState }
+
+func (RuleEvaluationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEvaluationMode)(nil)).Elem()
+}
+
+func (o RuleEvaluationModeOutput) ToRuleEvaluationModeOutput() RuleEvaluationModeOutput {
+	return o
+}
+
+func (o RuleEvaluationModeOutput) ToRuleEvaluationModeOutputWithContext(ctx context.Context) RuleEvaluationModeOutput {
+	return o
+}
+
+func (o RuleEvaluationModeOutput) ToOutput(ctx context.Context) pulumix.Output[RuleEvaluationMode] {
+	return pulumix.Output[RuleEvaluationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The mode of an evaluation.
+func (o RuleEvaluationModeOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleEvaluationMode) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type RuleEvaluationModeArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleEvaluationModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEvaluationMode)(nil)).Elem()
+}
+
+func (o RuleEvaluationModeArrayOutput) ToRuleEvaluationModeArrayOutput() RuleEvaluationModeArrayOutput {
+	return o
+}
+
+func (o RuleEvaluationModeArrayOutput) ToRuleEvaluationModeArrayOutputWithContext(ctx context.Context) RuleEvaluationModeArrayOutput {
+	return o
+}
+
+func (o RuleEvaluationModeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleEvaluationMode] {
+	return pulumix.Output[[]RuleEvaluationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleEvaluationModeArrayOutput) Index(i pulumi.IntInput) RuleEvaluationModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleEvaluationMode {
+		return vs[0].([]RuleEvaluationMode)[vs[1].(int)]
+	}).(RuleEvaluationModeOutput)
 }
 
 type RuleScope struct {
@@ -2617,6 +2738,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsSsmControlsPtrInput)(nil)).Elem(), RemediationConfigurationExecutionControlsSsmControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationParameterInput)(nil)).Elem(), RemediationConfigurationParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationParameterArrayInput)(nil)).Elem(), RemediationConfigurationParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEvaluationModeInput)(nil)).Elem(), RuleEvaluationModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEvaluationModeArrayInput)(nil)).Elem(), RuleEvaluationModeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleScopeInput)(nil)).Elem(), RuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleScopePtrInput)(nil)).Elem(), RuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceInput)(nil)).Elem(), RuleSourceArgs{})
@@ -2647,6 +2770,8 @@ func init() {
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsSsmControlsPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationParameterOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationParameterArrayOutput{})
+	pulumi.RegisterOutputType(RuleEvaluationModeOutput{})
+	pulumi.RegisterOutputType(RuleEvaluationModeArrayOutput{})
 	pulumi.RegisterOutputType(RuleScopeOutput{})
 	pulumi.RegisterOutputType(RuleScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceOutput{})

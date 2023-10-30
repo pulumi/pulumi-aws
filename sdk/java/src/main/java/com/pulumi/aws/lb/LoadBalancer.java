@@ -202,6 +202,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
+     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * 
+     */
+    @Export(name="dnsRecordClientRoutingPolicy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> dnsRecordClientRoutingPolicy;
+
+    /**
+     * @return Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * 
+     */
+    public Output<Optional<String>> dnsRecordClientRoutingPolicy() {
+        return Codegen.optional(this.dnsRecordClientRoutingPolicy);
+    }
+    /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
@@ -378,14 +392,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> namePrefix;
+    private Output<String> namePrefix;
 
     /**
      * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    public Output<Optional<String>> namePrefix() {
-        return Codegen.optional(this.namePrefix);
+    public Output<String> namePrefix() {
+        return this.namePrefix;
     }
     /**
      * Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.

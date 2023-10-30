@@ -1,11 +1,8 @@
-From abc0d53604e450a37c62b1f2407d426d951c3690 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
 Subject: [PATCH 17/30] fix: Adding back in removeAddons
 
----
- internal/service/eks/cluster.go | 4 ++++
- 1 file changed, 4 insertions(+)
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
 index 01c6b3caa0..4d7e5760fd 100644
@@ -22,6 +19,3 @@ index 01c6b3caa0..4d7e5760fd 100644
  	return resourceClusterRead(ctx, d, meta)
  }
  
--- 
-2.39.1
-

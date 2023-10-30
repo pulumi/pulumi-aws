@@ -1,14 +1,8 @@
-From c58a72391073e79ba3967e2a1a532659dc186279 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 10:08:05 +0000
 Subject: [PATCH 13/30] Add dedicated_host docs
 
----
- website/docs/d/dedicated_host.html.markdown | 75 +++++++++++++++++++++
- website/docs/r/dedicated_host.html.markdown | 71 +++++++++++++++++++
- 2 files changed, 146 insertions(+)
- create mode 100644 website/docs/d/dedicated_host.html.markdown
- create mode 100644 website/docs/r/dedicated_host.html.markdown
 
 diff --git a/website/docs/d/dedicated_host.html.markdown b/website/docs/d/dedicated_host.html.markdown
 new file mode 100644
@@ -168,6 +162,3 @@ index 0000000000..01845aa221
 +```
 +$ terraform import aws_dedicated_host.host_id h-0385a99d0e4b20cbb
 +```
--- 
-2.39.1
-

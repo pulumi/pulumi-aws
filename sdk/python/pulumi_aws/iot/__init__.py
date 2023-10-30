@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .authorizer import *
 from .certificate import *
+from .domain_configuration import *
 from .get_endpoint import *
 from .indexing_configuration import *
 from .logging_options import *

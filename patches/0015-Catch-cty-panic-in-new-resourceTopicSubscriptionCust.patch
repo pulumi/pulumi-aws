@@ -1,13 +1,10 @@
-From 430c04fdcac5352fc74a2c3ca8ef4e13dc0b283f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@gmail.com>
 Date: Thu, 1 Dec 2022 10:56:32 -0800
 Subject: [PATCH 15/30] Catch cty panic in new
  resourceTopicSubscriptionCustomizeDiff.
 
 The root cause is not fully understood yet but this might unblock us.
----
- internal/service/sns/topic_subscription.go | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/internal/service/sns/topic_subscription.go b/internal/service/sns/topic_subscription.go
 index 97e1d8a056..bb3caf2e1d 100644
@@ -26,6 +23,3 @@ index 97e1d8a056..bb3caf2e1d 100644
  	if hasPolicy && !hasScope {
  		if !hadScope {
  			// When the filter_policy_scope hasn't been read back from the API,
--- 
-2.39.1
-

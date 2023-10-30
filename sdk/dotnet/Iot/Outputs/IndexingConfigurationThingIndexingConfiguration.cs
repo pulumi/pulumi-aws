@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string? DeviceDefenderIndexingMode;
         /// <summary>
+        /// Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        /// </summary>
+        public readonly Outputs.IndexingConfigurationThingIndexingConfigurationFilter? Filter;
+        /// <summary>
         /// Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField> ManagedFields;
@@ -44,6 +48,8 @@ namespace Pulumi.Aws.Iot.Outputs
 
             string? deviceDefenderIndexingMode,
 
+            Outputs.IndexingConfigurationThingIndexingConfigurationFilter? filter,
+
             ImmutableArray<Outputs.IndexingConfigurationThingIndexingConfigurationManagedField> managedFields,
 
             string? namedShadowIndexingMode,
@@ -54,6 +60,7 @@ namespace Pulumi.Aws.Iot.Outputs
         {
             CustomFields = customFields;
             DeviceDefenderIndexingMode = deviceDefenderIndexingMode;
+            Filter = filter;
             ManagedFields = managedFields;
             NamedShadowIndexingMode = namedShadowIndexingMode;
             ThingConnectivityIndexingMode = thingConnectivityIndexingMode;

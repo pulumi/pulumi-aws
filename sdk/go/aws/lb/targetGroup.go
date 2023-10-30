@@ -139,6 +139,38 @@ import (
 //	}
 //
 // ```
+// ### Target group with unhealthy connection termination disabled
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewTargetGroup(ctx, "tcp-example", &lb.TargetGroupArgs{
+//				Port:     pulumi.Int(25),
+//				Protocol: pulumi.String("TCP"),
+//				VpcId:    pulumi.Any(aws_vpc.Main.Id),
+//				TargetHealthStates: lb.TargetGroupTargetHealthStateArray{
+//					&lb.TargetGroupTargetHealthStateArgs{
+//						EnableUnhealthyConnectionTermination: pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -157,7 +189,7 @@ type TargetGroup struct {
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
 	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-	ConnectionTermination pulumi.BoolPtrOutput `pulumi:"connectionTermination"`
+	ConnectionTermination pulumi.BoolOutput `pulumi:"connectionTermination"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay pulumi.IntPtrOutput `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
@@ -173,7 +205,7 @@ type TargetGroup struct {
 	// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
@@ -196,6 +228,8 @@ type TargetGroup struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
+	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+	TargetHealthStates TargetGroupTargetHealthStateArrayOutput `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -294,6 +328,8 @@ type targetGroupState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
+	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -353,6 +389,8 @@ type TargetGroupState struct {
 	TagsAll pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
+	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+	TargetHealthStates TargetGroupTargetHealthStateArrayInput
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -408,6 +446,8 @@ type targetGroupArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
+	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+	TargetHealthStates []TargetGroupTargetHealthState `pulumi:"targetHealthStates"`
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -460,6 +500,8 @@ type TargetGroupArgs struct {
 	Tags pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
+	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+	TargetHealthStates TargetGroupTargetHealthStateArrayInput
 	// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
 	//
 	// Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -596,8 +638,8 @@ func (o TargetGroupOutput) ArnSuffix() pulumi.StringOutput {
 }
 
 // Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-func (o TargetGroupOutput) ConnectionTermination() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.BoolPtrOutput { return v.ConnectionTermination }).(pulumi.BoolPtrOutput)
+func (o TargetGroupOutput) ConnectionTermination() pulumi.BoolOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.BoolOutput { return v.ConnectionTermination }).(pulumi.BoolOutput)
 }
 
 // Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
@@ -636,8 +678,8 @@ func (o TargetGroupOutput) Name() pulumi.StringOutput {
 }
 
 // Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-func (o TargetGroupOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.NamePrefix }).(pulumi.StringPtrOutput)
+func (o TargetGroupOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
 // Port on which targets receive traffic, unless overridden when registering a specific target. Required when `targetType` is `instance`, `ip` or `alb`. Does not apply when `targetType` is `lambda`.
@@ -690,6 +732,11 @@ func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 // Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 func (o TargetGroupOutput) TargetFailovers() TargetGroupTargetFailoverArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetFailoverArrayOutput { return v.TargetFailovers }).(TargetGroupTargetFailoverArrayOutput)
+}
+
+// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
+func (o TargetGroupOutput) TargetHealthStates() TargetGroupTargetHealthStateArrayOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetHealthStateArrayOutput { return v.TargetHealthStates }).(TargetGroupTargetHealthStateArrayOutput)
 }
 
 // Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.

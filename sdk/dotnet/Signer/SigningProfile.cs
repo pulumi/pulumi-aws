@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Signer
         /// A signing profile name prefix. The provider will generate a unique suffix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing profile.

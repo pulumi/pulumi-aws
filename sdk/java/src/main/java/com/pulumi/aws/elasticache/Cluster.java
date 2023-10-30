@@ -351,7 +351,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -365,7 +365,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
     public Output<String> engineVersion() {
@@ -590,14 +590,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.replicationGroupId;
     }
     /**
-     * One or more VPC security groups associated with the cache cluster
+     * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return One or more VPC security groups associated with the cache cluster
+     * @return One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -660,14 +660,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.snapshotWindow;
     }
     /**
-     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
     /**
-     * @return Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
+     * @return Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
     public Output<String> subnetGroupName() {

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Inspector2
 
         /// <summary>
         /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         /// </summary>
         [Output("resourceTypes")]
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Inspector2
 
         /// <summary>
         /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         /// </summary>
         public InputList<string> ResourceTypes
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Inspector2
 
         /// <summary>
         /// Type of resources to scan.
-        /// Valid values are `EC2`, `ECR`, and `LAMBDA`.
+        /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         /// </summary>
         public InputList<string> ResourceTypes

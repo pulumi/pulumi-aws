@@ -200,6 +200,21 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    @Import(name="ipDiscovery")
+    private @Nullable Output<String> ipDiscovery;
+
+    /**
+     * @return The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> ipDiscovery() {
+        return Optional.ofNullable(this.ipDiscovery);
+    }
+
+    /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
      * 
      */
@@ -257,6 +272,21 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<Boolean>> multiAzEnabled() {
         return Optional.ofNullable(this.multiAzEnabled);
+    }
+
+    /**
+     * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
     }
 
     /**
@@ -405,14 +435,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -420,14 +450,14 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of cache security group names to associate with this replication group.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
     @Import(name="securityGroupNames")
     private @Nullable Output<List<String>> securityGroupNames;
 
     /**
-     * @return List of cache security group names to associate with this replication group.
+     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
     public Optional<Output<List<String>>> securityGroupNames() {
@@ -568,10 +598,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         this.engineVersion = $.engineVersion;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
         this.globalReplicationGroupId = $.globalReplicationGroupId;
+        this.ipDiscovery = $.ipDiscovery;
         this.kmsKeyId = $.kmsKeyId;
         this.logDeliveryConfigurations = $.logDeliveryConfigurations;
         this.maintenanceWindow = $.maintenanceWindow;
         this.multiAzEnabled = $.multiAzEnabled;
+        this.networkType = $.networkType;
         this.nodeType = $.nodeType;
         this.notificationTopicArn = $.notificationTopicArn;
         this.numCacheClusters = $.numCacheClusters;
@@ -857,6 +889,27 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param ipDiscovery The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(@Nullable Output<String> ipDiscovery) {
+            $.ipDiscovery = ipDiscovery;
+            return this;
+        }
+
+        /**
+         * @param ipDiscovery The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipDiscovery(String ipDiscovery) {
+            return ipDiscovery(Output.of(ipDiscovery));
+        }
+
+        /**
          * @param kmsKeyId The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
          * 
          * @return builder
@@ -948,6 +1001,27 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder multiAzEnabled(Boolean multiAzEnabled) {
             return multiAzEnabled(Output.of(multiAzEnabled));
+        }
+
+        /**
+         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**
@@ -1160,7 +1234,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 
@@ -1171,7 +1245,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 
@@ -1181,7 +1255,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupIds One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 
@@ -1191,7 +1265,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupNames List of cache security group names to associate with this replication group.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 
@@ -1202,7 +1276,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupNames List of cache security group names to associate with this replication group.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 
@@ -1212,7 +1286,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param securityGroupNames List of cache security group names to associate with this replication group.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
          * 
          * @return builder
          * 

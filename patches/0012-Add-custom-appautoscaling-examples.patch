@@ -1,12 +1,8 @@
-From 7c137d3e64305e24185fd3a6116c6bc20a4b6483 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Wed, 9 Nov 2022 17:37:35 +0000
 Subject: [PATCH 12/30] Add custom appautoscaling examples
 
----
- .../r/appautoscaling_policy.html.markdown     | 28 +++++++++++++++++++
- .../r/appautoscaling_target.html.markdown     | 12 ++++++++
- 2 files changed, 40 insertions(+)
 
 diff --git a/website/docs/r/appautoscaling_policy.html.markdown b/website/docs/r/appautoscaling_policy.html.markdown
 index 10307ebf61..642fd54cec 100644
@@ -70,6 +66,3 @@ index c8899c14fe..eec6f7ca46 100644
  ## Argument Reference
  
  This resource supports the following arguments:
--- 
-2.39.1
-

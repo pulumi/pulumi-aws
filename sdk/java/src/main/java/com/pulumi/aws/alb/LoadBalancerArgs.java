@@ -67,6 +67,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * 
+     */
+    @Import(name="dnsRecordClientRoutingPolicy")
+    private @Nullable Output<String> dnsRecordClientRoutingPolicy;
+
+    /**
+     * @return Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+     * 
+     */
+    public Optional<Output<String>> dnsRecordClientRoutingPolicy() {
+        return Optional.ofNullable(this.dnsRecordClientRoutingPolicy);
+    }
+
+    /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
@@ -365,6 +380,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.accessLogs = $.accessLogs;
         this.customerOwnedIpv4Pool = $.customerOwnedIpv4Pool;
         this.desyncMitigationMode = $.desyncMitigationMode;
+        this.dnsRecordClientRoutingPolicy = $.dnsRecordClientRoutingPolicy;
         this.dropInvalidHeaderFields = $.dropInvalidHeaderFields;
         this.enableCrossZoneLoadBalancing = $.enableCrossZoneLoadBalancing;
         this.enableDeletionProtection = $.enableDeletionProtection;
@@ -465,6 +481,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder desyncMitigationMode(String desyncMitigationMode) {
             return desyncMitigationMode(Output.of(desyncMitigationMode));
+        }
+
+        /**
+         * @param dnsRecordClientRoutingPolicy Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsRecordClientRoutingPolicy(@Nullable Output<String> dnsRecordClientRoutingPolicy) {
+            $.dnsRecordClientRoutingPolicy = dnsRecordClientRoutingPolicy;
+            return this;
+        }
+
+        /**
+         * @param dnsRecordClientRoutingPolicy Indicates how traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsRecordClientRoutingPolicy(String dnsRecordClientRoutingPolicy) {
+            return dnsRecordClientRoutingPolicy(Output.of(dnsRecordClientRoutingPolicy));
         }
 
         /**

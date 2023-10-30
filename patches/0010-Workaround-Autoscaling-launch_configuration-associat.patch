@@ -1,13 +1,10 @@
-From f8e53c4a556b3ef318e2e8c16df4cd7cacee42a9 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:34:56 +0000
 Subject: [PATCH 10/30] Workaround Autoscaling launch_configuration
  associate_public_ip_address
 
 - Disable computation of property until fixed.
----
- .../autoscaling/launch_configuration.go       | 22 +++++++++++--------
- 1 file changed, 13 insertions(+), 9 deletions(-)
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
 index 0cd504e232..74d309153f 100644
@@ -51,6 +48,3 @@ index 0cd504e232..74d309153f 100644
  
  	if v, ok := d.GetOk("iam_instance_profile"); ok {
  		input.IamInstanceProfile = aws.String(v.(string))
--- 
-2.39.1
-

@@ -15,6 +15,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { DomainConfigurationArgs, DomainConfigurationState } from "./domainConfiguration";
+export type DomainConfiguration = import("./domainConfiguration").DomainConfiguration;
+export const DomainConfiguration: typeof import("./domainConfiguration").DomainConfiguration = null as any;
+utilities.lazyLoad(exports, ["DomainConfiguration"], () => require("./domainConfiguration"));
+
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
@@ -94,6 +99,8 @@ const _module = {
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws:iot/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws:iot/domainConfiguration:DomainConfiguration":
+                return new DomainConfiguration(name, <any>undefined, { urn })
             case "aws:iot/indexingConfiguration:IndexingConfiguration":
                 return new IndexingConfiguration(name, <any>undefined, { urn })
             case "aws:iot/loggingOptions:LoggingOptions":
@@ -127,6 +134,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "iot/authorizer", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/certificate", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/domainConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/indexingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/loggingOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policy", _module)

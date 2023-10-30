@@ -1,4 +1,4 @@
-From 6890fd0d90ed5c4defe13873a5585bc16e36009f Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/30] Add S3 legacy bucket to resources
@@ -12,97 +12,12 @@ https://github.com/pulumi/terraform-provider-aws/pull/65.
 In the upstream, all resources and datasources now use a different
 scheme for registration: see
 https://github.com/hashicorp/terraform-provider-aws/pull/29717.
----
- go.mod                                        |    2 +
- go.sum                                        |    6 +
- internal/provider/provider.go                 |    6 +-
- internal/service/s3legacy/bucket_legacy.go    | 3029 +++++++++++++++++
- internal/service/s3legacy/enum.go             |   32 +
- internal/service/s3legacy/errors.go           |    8 +
- internal/service/s3legacy/generate.go         |    4 +
- internal/service/s3legacy/hosted_zones.go     |   45 +
- internal/service/s3legacy/object.go           |  177 +
- internal/service/s3legacy/retry.go            |   30 +
- internal/service/s3legacy/tags.go             |  174 +
- internal/service/s3legacy/tags_gen.go         |   38 +
- internal/service/s3legacy/wait.go             |   18 +
- website/docs/r/s3_bucket_legacy.html.markdown |  575 ++++
- 14 files changed, 4143 insertions(+), 1 deletion(-)
- create mode 100644 internal/service/s3legacy/bucket_legacy.go
- create mode 100644 internal/service/s3legacy/enum.go
- create mode 100644 internal/service/s3legacy/errors.go
- create mode 100644 internal/service/s3legacy/generate.go
- create mode 100644 internal/service/s3legacy/hosted_zones.go
- create mode 100644 internal/service/s3legacy/object.go
- create mode 100644 internal/service/s3legacy/retry.go
- create mode 100644 internal/service/s3legacy/tags.go
- create mode 100644 internal/service/s3legacy/tags_gen.go
- create mode 100644 internal/service/s3legacy/wait.go
- create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
-diff --git a/go.mod b/go.mod
-index 3a9bb8ddd3..7fbef27e45 100644
---- a/go.mod
-+++ b/go.mod
-@@ -2,6 +2,8 @@ module github.com/hashicorp/terraform-provider-aws
- 
- go 1.20
- 
-+require github.com/hashicorp/aws-sdk-go-base v1.1.0
-+
- require (
- 	github.com/ProtonMail/go-crypto v0.0.0-20230717121422-5aa5874ade95
- 	github.com/YakDriver/regexache v0.23.0
-diff --git a/go.sum b/go.sum
-index 961b3f0b77..a8f8fa0c03 100644
---- a/go.sum
-+++ b/go.sum
-@@ -22,6 +22,7 @@ github.com/apparentlymart/go-textseg/v15 v15.0.0/go.mod h1:K8XmNZdhEBkdlyDdvbmms
- github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
- github.com/armon/go-radix v1.0.0 h1:F4z6KzEeeQIMeLFa97iZU6vupzoecKdU5TX24SNppXI=
- github.com/armon/go-radix v1.0.0/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
-+github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.45.24 h1:TZx/CizkmCQn8Rtsb11iLYutEQVGK5PK9wAhwouELBo=
- github.com/aws/aws-sdk-go v1.45.24/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
- github.com/aws/aws-sdk-go-v2 v1.21.1 h1:wjHYshtPpYOZm+/mu3NhVgRRc0baM6LJZOmxPZ5Cwzs=
-@@ -229,6 +230,7 @@ github.com/go-logr/logr v1.2.4 h1:g01GSCwiDw2xSZfjJ2/T9M+S6pFdcNtFYsp+Y43HYDQ=
- github.com/go-logr/logr v1.2.4/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
- github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
- github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
-+github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
- github.com/go-test/deep v1.1.0 h1:WOcxcdHcvdgThNXjw0t76K42FXTU7HpNQWHpA2HHNlg=
- github.com/go-test/deep v1.1.0/go.mod h1:5C2ZWiW0ErCdrYzpqxLbTX7MG14M9iiw8DgHncVwcsE=
- github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l8iNU+DwB5epxmsaqB+rhGL0m5jtYqE=
-@@ -249,6 +251,8 @@ github.com/google/uuid v1.3.1 h1:KjJaJ9iWZ3jOFZIf1Lqf4laDRCasjl0BCmnEGxkdLb4=
- github.com/google/uuid v1.3.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
- github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0 h1:IUypt/TbXiJBkBbE3926CgnjD8IltAitdn7Yive61DY=
- github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.21.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
-+github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
-+github.com/hashicorp/aws-sdk-go-base v1.1.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.37 h1:cpyObAk6869M/kROO/b9F14d8zyLbO3H7Fxqxn8J7DI=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.37/go.mod h1:9OxAOakW2pTtcX5bQMIEXwKjSJbpTNhumMCppJ4EaGw=
- github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.38 h1:eTdtMVp6z9iqxsh9yvWFM4I+a/cy2c4BQgqnx0JSL08=
-@@ -320,6 +324,7 @@ github.com/imdario/mergo v0.3.15/go.mod h1:WBLT9ZmE3lPoWsEzCh9LPo3TiwVN+ZKEjmz+h
- github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
- github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
- github.com/jhump/protoreflect v1.15.1 h1:HUMERORf3I3ZdX05WaQ6MIpd/NJ434hTp5YiKgfCL6c=
-+github.com/jmespath/go-jmespath v0.3.0/go.mod h1:9QtRXoHjLGCJ5IBSaohpXITPlowMeeYCZ7fLUTSywik=
- github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
- github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
- github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
-@@ -440,6 +445,7 @@ golang.org/x/mod v0.13.0/go.mod h1:hTbmBsO62+eylJbnUtE2MGJUyE7QWk4xUqPFrRgJ+7c=
- golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
- golang.org/x/net v0.0.0-20190603091049-60506f45cf65/go.mod h1:HSz+uSET+XFnRR8LxR5pz3Of3rY3CfYBVs4xY44aLks=
- golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
-+golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
- golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
- golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
- golang.org/x/net v0.1.0/go.mod h1:Cx3nUiGt4eDBEyega/BKRp+/AlGL8hYe7U9odMt2Cco=
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 81932c8792..69bbdaa6ec 100644
+index 0bcb6d6a98..2bc27a3348 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
-@@ -12,6 +12,8 @@ import (
+@@ -13,6 +13,8 @@ import (
  
  	"github.com/YakDriver/regexache"
  	"github.com/aws/aws-sdk-go-v2/aws"
@@ -124,10 +39,10 @@ index 81932c8792..69bbdaa6ec 100644
  	provider.ConfigureContextFunc = func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 new file mode 100644
-index 0000000000..27fe651a83
+index 0000000000..fd117b2971
 --- /dev/null
 +++ b/internal/service/s3legacy/bucket_legacy.go
-@@ -0,0 +1,3029 @@
+@@ -0,0 +1,3030 @@
 +package s3legacy
 +
 +import (
@@ -150,7 +65,8 @@ index 0000000000..27fe651a83
 +	"github.com/aws/aws-sdk-go/service/s3"
 +	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 +	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/id"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
 +	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
@@ -186,7 +102,7 @@ index 0000000000..27fe651a83
 +				Optional:      true,
 +				ForceNew:      true,
 +				ConflictsWith: []string{"bucket"},
-+				ValidateFunc:  validation.StringLenBetween(0, 63-resource.UniqueIDSuffixLength),
++				ValidateFunc:  validation.StringLenBetween(0, 63-id.UniqueIDSuffixLength),
 +			},
 +
 +			"bucket_domain_name": {
@@ -807,9 +723,9 @@ index 0000000000..27fe651a83
 +	if v, ok := d.GetOk("bucket"); ok {
 +		bucket = v.(string)
 +	} else if v, ok := d.GetOk("bucket_prefix"); ok {
-+		bucket = resource.PrefixedUniqueId(v.(string))
++		bucket = id.PrefixedUniqueId(v.(string))
 +	} else {
-+		bucket = resource.UniqueId()
++		bucket = id.UniqueId()
 +	}
 +	d.Set("bucket", bucket)
 +
@@ -846,16 +762,16 @@ index 0000000000..27fe651a83
 +		req.ObjectLockEnabledForBucket = aws.Bool(true)
 +	}
 +
-+	err := resource.Retry(5*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(5*time.Minute, func() *retry.RetryError {
 +		_, err := conn.CreateBucket(req)
 +		if awsErr, ok := err.(awserr.Error); ok {
 +			if awsErr.Code() == "OperationAborted" {
-+				return resource.RetryableError(
++				return retry.RetryableError(
 +					fmt.Errorf("Error creating S3 bucket %s, retrying: %s", bucket, err))
 +			}
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -989,19 +905,19 @@ index 0000000000..27fe651a83
 +		Bucket: aws.String(d.Id()),
 +	}
 +
-+	err := resource.Retry(bucketCreatedTimeout, func() *resource.RetryError {
++	err := retry.Retry(bucketCreatedTimeout, func() *retry.RetryError {
 +		_, err := conn.HeadBucket(input)
 +
 +		if d.IsNewResource() && tfawserr.ErrStatusCodeEquals(err, http.StatusNotFound) {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if d.IsNewResource() && tfawserr.ErrCodeEquals(err, s3.ErrCodeNoSuchBucket) {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -1605,13 +1521,13 @@ index 0000000000..27fe651a83
 +			Policy: aws.String(policy),
 +		}
 +
-+		err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++		err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +			_, err := conn.PutBucketPolicy(params)
 +			if tfawserr.ErrMessageContains(err, "MalformedPolicy", "") || tfawserr.ErrMessageContains(err, s3.ErrCodeNoSuchBucket, "") {
-+				return resource.RetryableError(err)
++				return retry.RetryableError(err)
 +			}
 +			if err != nil {
-+				return resource.NonRetryableError(err)
++				return retry.NonRetryableError(err)
 +			}
 +			return nil
 +		})
@@ -2323,13 +2239,13 @@ index 0000000000..27fe651a83
 +	}
 +	log.Printf("[DEBUG] S3 put bucket replication configuration: %#v", i)
 +
-+	err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +		_, err := conn.PutBucketReplication(i)
 +		if tfawserr.ErrMessageContains(err, s3.ErrCodeNoSuchBucket, "") || tfawserr.ErrMessageContains(err, "InvalidRequest", "Versioning must be 'Enabled' on the bucket") {
-+			return resource.RetryableError(err)
++			return retry.RetryableError(err)
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +		return nil
 +	})
@@ -2384,7 +2300,7 @@ index 0000000000..27fe651a83
 +		if val, ok := r["id"].(string); ok && val != "" {
 +			rule.ID = aws.String(val)
 +		} else {
-+			rule.ID = aws.String(resource.PrefixedUniqueId("tf-s3-lifecycle-"))
++			rule.ID = aws.String(id.PrefixedUniqueId("tf-s3-lifecycle-"))
 +		}
 +
 +		// Enabled
@@ -3455,7 +3371,7 @@ index 0000000000..f44b435af6
 +}
 diff --git a/internal/service/s3legacy/retry.go b/internal/service/s3legacy/retry.go
 new file mode 100644
-index 0000000000..0dab58b0a3
+index 0000000000..dcf7e39759
 --- /dev/null
 +++ b/internal/service/s3legacy/retry.go
 @@ -0,0 +1,30 @@
@@ -3463,7 +3379,7 @@ index 0000000000..0dab58b0a3
 +
 +import (
 +	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 +	"time"
 +)
@@ -3471,14 +3387,14 @@ index 0000000000..0dab58b0a3
 +// FORK: Adding the retryOnAWSCode to the fork for the old AWS S3 Logic
 +func retryOnAWSCode(code string, f func() (interface{}, error)) (interface{}, error) {
 +	var resp interface{}
-+	err := resource.Retry(2*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(2*time.Minute, func() *retry.RetryError {
 +		var err error
 +		resp, err = f()
 +		if err != nil {
 +			if tfawserr.ErrCodeEquals(err, code) {
-+				return resource.RetryableError(err)
++				return retry.RetryableError(err)
 +			}
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +		return nil
 +	})
@@ -3491,7 +3407,7 @@ index 0000000000..0dab58b0a3
 +}
 diff --git a/internal/service/s3legacy/tags.go b/internal/service/s3legacy/tags.go
 new file mode 100644
-index 0000000000..543d41715a
+index 0000000000..669813747b
 --- /dev/null
 +++ b/internal/service/s3legacy/tags.go
 @@ -0,0 +1,174 @@
@@ -3509,7 +3425,7 @@ index 0000000000..543d41715a
 +	"github.com/aws/aws-sdk-go/aws/awserr"
 +	"github.com/aws/aws-sdk-go/service/s3"
 +	"github.com/hashicorp/aws-sdk-go-base/tfawserr"
-+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
 +	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
 +	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 +)
@@ -3595,18 +3511,18 @@ index 0000000000..543d41715a
 +
 +	var output *s3.GetObjectTaggingOutput
 +
-+	err := resource.Retry(1*time.Minute, func() *resource.RetryError {
++	err := retry.Retry(1*time.Minute, func() *retry.RetryError {
 +		var err error
 +		output, err = conn.GetObjectTagging(input)
 +		if awsErr, ok := err.(awserr.Error); ok {
 +			if awsErr.Code() == "NoSuchKey" {
-+				return resource.RetryableError(
++				return retry.RetryableError(
 +					fmt.Errorf("getting object tagging %s, retrying: %w", bucket, err),
 +				)
 +			}
 +		}
 +		if err != nil {
-+			return resource.NonRetryableError(err)
++			return retry.NonRetryableError(err)
 +		}
 +
 +		return nil
@@ -4318,6 +4234,3 @@ index 0000000000..529368067d
 +```
 +
 +The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
--- 
-2.39.1
-

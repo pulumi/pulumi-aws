@@ -238,7 +238,7 @@ type Instance struct {
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringOutput `pulumi:"backupWindow"`
 	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-	// See blueGreenUpdate below
+	// See `blueGreenUpdate` below.
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrOutput `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringOutput `pulumi:"caCertIdentifier"`
@@ -310,8 +310,12 @@ type Instance struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime pulumi.StringOutput `pulumi:"latestRestorableTime"`
-	// (Optional, but required for some DB engines, i.e., Oracle
-	// SE1) License model information for this DB instance.
+	// License model information for this DB instance. Valid values for this field are as follows:
+	// * RDS for MariaDB: `general-public-license`
+	// * RDS for Microsoft SQL Server: `license-included`
+	// * RDS for MySQL: `general-public-license`
+	// * RDS for Oracle: `bring-your-own-license | license-included`
+	// * RDS for PostgreSQL: `postgresql-license`
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
 	ListenerEndpoints InstanceListenerEndpointArrayOutput `pulumi:"listenerEndpoints"`
@@ -508,7 +512,7 @@ type instanceState struct {
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
 	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-	// See blueGreenUpdate below
+	// See `blueGreenUpdate` below.
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
@@ -580,8 +584,12 @@ type instanceState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime *string `pulumi:"latestRestorableTime"`
-	// (Optional, but required for some DB engines, i.e., Oracle
-	// SE1) License model information for this DB instance.
+	// License model information for this DB instance. Valid values for this field are as follows:
+	// * RDS for MariaDB: `general-public-license`
+	// * RDS for Microsoft SQL Server: `license-included`
+	// * RDS for MySQL: `general-public-license`
+	// * RDS for Oracle: `bring-your-own-license | license-included`
+	// * RDS for PostgreSQL: `postgresql-license`
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
 	ListenerEndpoints []InstanceListenerEndpoint `pulumi:"listenerEndpoints"`
@@ -738,7 +746,7 @@ type InstanceState struct {
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
 	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-	// See blueGreenUpdate below
+	// See `blueGreenUpdate` below.
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
@@ -810,8 +818,12 @@ type InstanceState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime pulumi.StringPtrInput
-	// (Optional, but required for some DB engines, i.e., Oracle
-	// SE1) License model information for this DB instance.
+	// License model information for this DB instance. Valid values for this field are as follows:
+	// * RDS for MariaDB: `general-public-license`
+	// * RDS for Microsoft SQL Server: `license-included`
+	// * RDS for MySQL: `general-public-license`
+	// * RDS for Oracle: `bring-your-own-license | license-included`
+	// * RDS for PostgreSQL: `postgresql-license`
 	LicenseModel pulumi.StringPtrInput
 	// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
 	ListenerEndpoints InstanceListenerEndpointArrayInput
@@ -968,7 +980,7 @@ type instanceArgs struct {
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow *string `pulumi:"backupWindow"`
 	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-	// See blueGreenUpdate below
+	// See `blueGreenUpdate` below.
 	BlueGreenUpdate *InstanceBlueGreenUpdate `pulumi:"blueGreenUpdate"`
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier *string `pulumi:"caCertIdentifier"`
@@ -1032,8 +1044,12 @@ type instanceArgs struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// (Optional, but required for some DB engines, i.e., Oracle
-	// SE1) License model information for this DB instance.
+	// License model information for this DB instance. Valid values for this field are as follows:
+	// * RDS for MariaDB: `general-public-license`
+	// * RDS for Microsoft SQL Server: `license-included`
+	// * RDS for MySQL: `general-public-license`
+	// * RDS for Oracle: `bring-your-own-license | license-included`
+	// * RDS for PostgreSQL: `postgresql-license`
 	LicenseModel *string `pulumi:"licenseModel"`
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -1174,7 +1190,7 @@ type InstanceArgs struct {
 	// Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
 	BackupWindow pulumi.StringPtrInput
 	// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-	// See blueGreenUpdate below
+	// See `blueGreenUpdate` below.
 	BlueGreenUpdate InstanceBlueGreenUpdatePtrInput
 	// The identifier of the CA certificate for the DB instance.
 	CaCertIdentifier pulumi.StringPtrInput
@@ -1238,8 +1254,12 @@ type InstanceArgs struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringPtrInput
-	// (Optional, but required for some DB engines, i.e., Oracle
-	// SE1) License model information for this DB instance.
+	// License model information for this DB instance. Valid values for this field are as follows:
+	// * RDS for MariaDB: `general-public-license`
+	// * RDS for Microsoft SQL Server: `license-included`
+	// * RDS for MySQL: `general-public-license`
+	// * RDS for Oracle: `bring-your-own-license | license-included`
+	// * RDS for PostgreSQL: `postgresql-license`
 	LicenseModel pulumi.StringPtrInput
 	// The window to perform maintenance in.
 	// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -1523,7 +1543,7 @@ func (o InstanceOutput) BackupWindow() pulumi.StringOutput {
 }
 
 // Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-// See blueGreenUpdate below
+// See `blueGreenUpdate` below.
 func (o InstanceOutput) BlueGreenUpdate() InstanceBlueGreenUpdatePtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceBlueGreenUpdatePtrOutput { return v.BlueGreenUpdate }).(InstanceBlueGreenUpdatePtrOutput)
 }
@@ -1673,8 +1693,12 @@ func (o InstanceOutput) LatestRestorableTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LatestRestorableTime }).(pulumi.StringOutput)
 }
 
-// (Optional, but required for some DB engines, i.e., Oracle
-// SE1) License model information for this DB instance.
+// License model information for this DB instance. Valid values for this field are as follows:
+// * RDS for MariaDB: `general-public-license`
+// * RDS for Microsoft SQL Server: `license-included`
+// * RDS for MySQL: `general-public-license`
+// * RDS for Oracle: `bring-your-own-license | license-included`
+// * RDS for PostgreSQL: `postgresql-license`
 func (o InstanceOutput) LicenseModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LicenseModel }).(pulumi.StringOutput)
 }

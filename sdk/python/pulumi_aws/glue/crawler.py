@@ -47,15 +47,15 @@ class CrawlerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input['CrawlerSchemaChangePolicyArgs'] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -202,7 +202,7 @@ class CrawlerArgs:
     @pulumi.getter(name="hudiTargets")
     def hudi_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]:
         """
-        List nested Hudi target arguments. See Iceberg Target below.
+        List of nested Hudi target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "hudi_targets")
 
@@ -214,7 +214,7 @@ class CrawlerArgs:
     @pulumi.getter(name="icebergTargets")
     def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
         """
-        List nested Iceberg target arguments. See Iceberg Target below.
+        List of nested Iceberg target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "iceberg_targets")
 
@@ -262,7 +262,7 @@ class CrawlerArgs:
     @pulumi.getter(name="mongodbTargets")
     def mongodb_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]]:
         """
-        List nested MongoDB target arguments. See MongoDB Target below.
+        List of nested MongoDB target arguments. See MongoDB Target below.
         """
         return pulumi.get(self, "mongodb_targets")
 
@@ -298,7 +298,7 @@ class CrawlerArgs:
     @pulumi.getter(name="s3Targets")
     def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
         """
-        List nested Amazon S3 target arguments. See S3 Target below.
+        List of nested Amazon S3 target arguments. See S3 Target below.
         """
         return pulumi.get(self, "s3_targets")
 
@@ -403,16 +403,16 @@ class _CrawlerState:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDynamodbTargetArgs']]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerJdbcTargetArgs']]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input['CrawlerLakeFormationConfigurationArgs'] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input['CrawlerLineageConfigurationArgs'] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input['CrawlerSchemaChangePolicyArgs'] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -569,7 +569,7 @@ class _CrawlerState:
     @pulumi.getter(name="hudiTargets")
     def hudi_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerHudiTargetArgs']]]]:
         """
-        List nested Hudi target arguments. See Iceberg Target below.
+        List of nested Hudi target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "hudi_targets")
 
@@ -581,7 +581,7 @@ class _CrawlerState:
     @pulumi.getter(name="icebergTargets")
     def iceberg_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerIcebergTargetArgs']]]]:
         """
-        List nested Iceberg target arguments. See Iceberg Target below.
+        List of nested Iceberg target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "iceberg_targets")
 
@@ -629,7 +629,7 @@ class _CrawlerState:
     @pulumi.getter(name="mongodbTargets")
     def mongodb_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]]:
         """
-        List nested MongoDB target arguments. See MongoDB Target below.
+        List of nested MongoDB target arguments. See MongoDB Target below.
         """
         return pulumi.get(self, "mongodb_targets")
 
@@ -677,7 +677,7 @@ class _CrawlerState:
     @pulumi.getter(name="s3Targets")
     def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
         """
-        List nested Amazon S3 target arguments. See S3 Target below.
+        List of nested Amazon S3 target arguments. See S3 Target below.
         """
         return pulumi.get(self, "s3_targets")
 
@@ -915,16 +915,16 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[pulumi.InputType['CrawlerRecrawlPolicyArgs']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -1179,16 +1179,16 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDeltaTargetArgs']]]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
         :param pulumi.Input[str] description: Description of the crawler.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerDynamodbTargetArgs']]]] dynamodb_targets: List of nested DynamoDB target arguments. See Dynamodb Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List nested Hudi target arguments. See Iceberg Target below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List nested Iceberg target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerHudiTargetArgs']]]] hudi_targets: List of nested Hudi target arguments. See Iceberg Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerIcebergTargetArgs']]]] iceberg_targets: List of nested Iceberg target arguments. See Iceberg Target below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerJdbcTargetArgs']]]] jdbc_targets: List of nested JBDC target arguments. See JDBC Target below.
         :param pulumi.Input[pulumi.InputType['CrawlerLakeFormationConfigurationArgs']] lake_formation_configuration: Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         :param pulumi.Input[pulumi.InputType['CrawlerLineageConfigurationArgs']] lineage_configuration: Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List nested MongoDB target arguments. See MongoDB Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerMongodbTargetArgs']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[str] name: Name of the crawler.
         :param pulumi.Input[pulumi.InputType['CrawlerRecrawlPolicyArgs']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List nested Amazon S3 target arguments. See S3 Target below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerS3TargetArgs']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input[pulumi.InputType['CrawlerSchemaChangePolicyArgs']] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         :param pulumi.Input[str] security_configuration: The name of Security Configuration to be used by the crawler
@@ -1291,7 +1291,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="hudiTargets")
     def hudi_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerHudiTarget']]]:
         """
-        List nested Hudi target arguments. See Iceberg Target below.
+        List of nested Hudi target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "hudi_targets")
 
@@ -1299,7 +1299,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="icebergTargets")
     def iceberg_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerIcebergTarget']]]:
         """
-        List nested Iceberg target arguments. See Iceberg Target below.
+        List of nested Iceberg target arguments. See Iceberg Target below.
         """
         return pulumi.get(self, "iceberg_targets")
 
@@ -1331,7 +1331,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="mongodbTargets")
     def mongodb_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerMongodbTarget']]]:
         """
-        List nested MongoDB target arguments. See MongoDB Target below.
+        List of nested MongoDB target arguments. See MongoDB Target below.
         """
         return pulumi.get(self, "mongodb_targets")
 
@@ -1363,7 +1363,7 @@ class Crawler(pulumi.CustomResource):
     @pulumi.getter(name="s3Targets")
     def s3_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerS3Target']]]:
         """
-        List nested Amazon S3 target arguments. See S3 Target below.
+        List of nested Amazon S3 target arguments. See S3 Target below.
         """
         return pulumi.get(self, "s3_targets")
 

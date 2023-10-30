@@ -31,7 +31,7 @@ public final class RecorderRecordingGroup {
      */
     private @Nullable Boolean includeGlobalResourceTypes;
     /**
-     * @return Recording Strategy - see below..
+     * @return Recording Strategy. Detailed below.
      * 
      */
     private @Nullable List<RecorderRecordingGroupRecordingStrategy> recordingStrategies;
@@ -64,7 +64,7 @@ public final class RecorderRecordingGroup {
         return Optional.ofNullable(this.includeGlobalResourceTypes);
     }
     /**
-     * @return Recording Strategy - see below..
+     * @return Recording Strategy. Detailed below.
      * 
      */
     public List<RecorderRecordingGroupRecordingStrategy> recordingStrategies() {

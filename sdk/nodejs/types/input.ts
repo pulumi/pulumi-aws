@@ -1143,6 +1143,13 @@ export namespace alb {
          */
         onUnhealthy: pulumi.Input<string>;
     }
+
+    export interface TargetGroupTargetHealthState {
+        /**
+         * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+         */
+        enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
+    }
 }
 
 export namespace amp {
@@ -8930,7 +8937,7 @@ export namespace cfg {
          */
         includeGlobalResourceTypes?: pulumi.Input<boolean>;
         /**
-         * Recording Strategy - see below..
+         * Recording Strategy. Detailed below.
          */
         recordingStrategies?: pulumi.Input<pulumi.Input<inputs.cfg.RecorderRecordingGroupRecordingStrategy>[]>;
         /**
@@ -8941,7 +8948,7 @@ export namespace cfg {
 
     export interface RecorderRecordingGroupExclusionByResourceType {
         /**
-         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+         * A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -8985,6 +8992,13 @@ export namespace cfg {
          * List of static values.
          */
         staticValues?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleEvaluationMode {
+        /**
+         * The mode of an evaluation.
+         */
+        mode?: pulumi.Input<string>;
     }
 
     export interface RuleScope {
@@ -18961,7 +18975,7 @@ export namespace ec2 {
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
@@ -21337,7 +21351,7 @@ export namespace ec2 {
          */
         volumeSize?: pulumi.Input<number>;
         /**
-         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+         * Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
          *
          * Modifying the `encrypted` or `kmsKeyId` settings of the `rootBlockDevice` requires resource replacement.
          */
@@ -23747,6 +23761,18 @@ export namespace elasticsearch {
         vpcId?: pulumi.Input<string>;
     }
 
+    export interface VpcEndpointVpcOptions {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
+    }
 }
 
 export namespace elastictranscoder {
@@ -28629,6 +28655,28 @@ export namespace imagebuilder {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ImageImageScanningConfiguration {
+        /**
+         * Configuration block with ECR configuration. Detailed below.
+         */
+        ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageScanningConfigurationEcrConfiguration>;
+        /**
+         * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
+         */
+        imageScanningEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ImageImageScanningConfigurationEcrConfiguration {
+        /**
+         * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+         */
+        repositoryName?: pulumi.Input<string>;
+    }
+
     export interface ImageImageTestsConfiguration {
         /**
          * Whether image tests are enabled. Defaults to `true`.
@@ -28878,6 +28926,24 @@ export namespace inspector2 {
 }
 
 export namespace iot {
+    export interface DomainConfigurationAuthorizerConfig {
+        /**
+         * A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+         */
+        allowAuthorizerOverride?: pulumi.Input<boolean>;
+        /**
+         * The name of the authorization service for a domain configuration.
+         */
+        defaultAuthorizerName?: pulumi.Input<string>;
+    }
+
+    export interface DomainConfigurationTlsConfig {
+        /**
+         * The security policy for a domain configuration.
+         */
+        securityPolicy?: pulumi.Input<string>;
+    }
+
     export interface IndexingConfigurationThingGroupIndexingConfiguration {
         /**
          * A list of thing group fields to index. This list cannot contain any managed fields. See below.
@@ -28925,6 +28991,10 @@ export namespace iot {
          */
         deviceDefenderIndexingMode?: pulumi.Input<string>;
         /**
+         * Required if `namedShadowIndexingMode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+         */
+        filter?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfigurationFilter>;
+        /**
          * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
          */
         managedFields?: pulumi.Input<pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField>[]>;
@@ -28951,6 +29021,13 @@ export namespace iot {
          * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfigurationFilter {
+        /**
+         * List of shadow names that you select to index.
+         */
+        namedShadowNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IndexingConfigurationThingIndexingConfigurationManagedField {
@@ -33780,6 +33857,10 @@ export namespace lambda {
 
     export interface FunctionVpcConfig {
         /**
+         * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+         */
+        ipv6AllowedForDualStack?: pulumi.Input<boolean>;
+        /**
          * List of security group IDs associated with the Lambda function.
          */
         securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -34371,6 +34452,13 @@ export namespace lb {
          * Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `noRebalance`. Must match the attribute value set for `onDeregistration`. Default: `noRebalance`.
          */
         onUnhealthy: pulumi.Input<string>;
+    }
+
+    export interface TargetGroupTargetHealthState {
+        /**
+         * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
+         */
+        enableUnhealthyConnectionTermination: pulumi.Input<boolean>;
     }
 }
 
@@ -38759,6 +38847,102 @@ export namespace msk {
          * Indicates whether you want to enable or disable the Node Exporter.
          */
         enabledInBroker: pulumi.Input<boolean>;
+    }
+
+    export interface ReplicatorKafkaCluster {
+        /**
+         * Details of an Amazon MSK cluster.
+         */
+        amazonMskCluster: pulumi.Input<inputs.msk.ReplicatorKafkaClusterAmazonMskCluster>;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         */
+        vpcConfig: pulumi.Input<inputs.msk.ReplicatorKafkaClusterVpcConfig>;
+    }
+
+    export interface ReplicatorKafkaClusterAmazonMskCluster {
+        /**
+         * The ARN of an Amazon MSK cluster.
+         */
+        mskClusterArn: pulumi.Input<string>;
+    }
+
+    export interface ReplicatorKafkaClusterVpcConfig {
+        /**
+         * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+         */
+        securityGroupsIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ReplicatorReplicationInfoList {
+        /**
+         * Confguration relating to consumer group replication.
+         */
+        consumerGroupReplications: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication>[]>;
+        sourceKafkaClusterAlias?: pulumi.Input<string>;
+        /**
+         * The ARN of the source Kafka cluster.
+         */
+        sourceKafkaClusterArn: pulumi.Input<string>;
+        /**
+         * The type of compression to use writing records to target Kafka cluster.
+         */
+        targetCompressionType: pulumi.Input<string>;
+        targetKafkaClusterAlias?: pulumi.Input<string>;
+        /**
+         * The ARN of the target Kafka cluster.
+         */
+        targetKafkaClusterArn: pulumi.Input<string>;
+        /**
+         * Configuration relating to topic replication.
+         */
+        topicReplications: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorReplicationInfoListTopicReplication>[]>;
+    }
+
+    export interface ReplicatorReplicationInfoListConsumerGroupReplication {
+        /**
+         * List of regular expression patterns indicating the consumer groups that should not be replicated.
+         */
+        consumerGroupsToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of regular expression patterns indicating the consumer groups to copy.
+         */
+        consumerGroupsToReplicates: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether to periodically check for new consumer groups.
+         */
+        detectAndCopyNewConsumerGroups?: pulumi.Input<boolean>;
+        /**
+         * Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+         */
+        synchroniseConsumerGroupOffsets?: pulumi.Input<boolean>;
+    }
+
+    export interface ReplicatorReplicationInfoListTopicReplication {
+        /**
+         * Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+         */
+        copyAccessControlListsForTopics?: pulumi.Input<boolean>;
+        /**
+         * Whether to periodically configure remote topics to match their corresponding upstream topics.
+         */
+        copyTopicConfigurations?: pulumi.Input<boolean>;
+        /**
+         * Whether to periodically check for new topics and partitions.
+         */
+        detectAndCopyNewTopics?: pulumi.Input<boolean>;
+        /**
+         * List of regular expression patterns indicating the topics that should not be replica.
+         */
+        topicsToExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of regular expression patterns indicating the topics to copy.
+         */
+        topicsToReplicates: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ServerlessClusterClientAuthentication {
@@ -55340,6 +55524,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -55434,6 +55619,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody {
@@ -55870,6 +56062,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -55964,6 +56157,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -56137,6 +56337,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -56231,6 +56432,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -56331,6 +56539,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -56425,6 +56634,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -56529,6 +56745,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -56625,6 +56842,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -56719,6 +56943,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -56815,6 +57040,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -56909,6 +57141,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57003,6 +57236,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -57103,6 +57343,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57197,6 +57438,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -57297,6 +57545,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57391,6 +57640,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -57495,6 +57751,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57591,6 +57848,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -57685,6 +57949,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57781,6 +58046,13 @@ export namespace wafv2 {
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -57875,6 +58147,7 @@ export namespace wafv2 {
          * Inspect the request headers. See Headers below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader>[]>;
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See JSON Body for details.
          */
@@ -57969,6 +58242,13 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody {
@@ -58606,6 +58886,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody>;
@@ -58699,6 +58983,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
@@ -59415,6 +59706,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody>;
@@ -59508,6 +59803,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -59680,6 +59982,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody>;
@@ -59773,6 +60079,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -59872,6 +60185,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
@@ -59965,6 +60282,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -60068,6 +60392,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody>;
@@ -60163,6 +60491,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -60255,6 +60590,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -60351,6 +60690,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -60443,6 +60789,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -60537,6 +60887,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -60903,6 +61260,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody>;
@@ -60996,6 +61357,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
@@ -61168,6 +61536,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody>;
@@ -61261,6 +61633,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -61360,6 +61739,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
@@ -61453,6 +61836,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -61556,6 +61946,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody>;
@@ -61651,6 +62045,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -61743,6 +62144,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -61839,6 +62244,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -61931,6 +62343,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -62025,6 +62441,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
@@ -62124,6 +62547,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody>;
@@ -62217,6 +62644,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
@@ -62316,6 +62750,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
@@ -62409,6 +62847,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
@@ -62690,6 +63135,10 @@ export namespace wafv2 {
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader>[]>;
         /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint>;
+        /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
         jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody>;
@@ -62785,6 +63234,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -62877,6 +63333,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -62973,6 +63433,13 @@ export namespace wafv2 {
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
     }
 
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
         /**
          * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
@@ -63065,6 +63532,10 @@ export namespace wafv2 {
          * Inspect the request headers. See `headers` below for details.
          */
         headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the JA3 fingerprint. See `ja3Fingerprint` below for details.
+         */
+        ja3Fingerprint?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint>;
         /**
          * Inspect the request body as JSON. See `jsonBody` for details.
          */
@@ -63159,6 +63630,13 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {

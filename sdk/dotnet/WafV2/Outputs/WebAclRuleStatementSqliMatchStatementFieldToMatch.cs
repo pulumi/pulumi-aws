@@ -30,6 +30,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader> Headers;
         /// <summary>
+        /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint;
+        /// <summary>
         /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody;
@@ -64,6 +68,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             ImmutableArray<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader> headers,
 
+            Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? ja3Fingerprint,
+
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? jsonBody,
 
             Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? method,
@@ -80,6 +86,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Body = body;
             Cookies = cookies;
             Headers = headers;
+            Ja3Fingerprint = ja3Fingerprint;
             JsonBody = jsonBody;
             Method = method;
             QueryString = queryString;

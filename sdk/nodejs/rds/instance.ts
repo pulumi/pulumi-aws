@@ -212,7 +212,7 @@ export class Instance extends pulumi.CustomResource {
     public readonly backupWindow!: pulumi.Output<string>;
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blueGreenUpdate below
+     * See `blueGreenUpdate` below.
      */
     public readonly blueGreenUpdate!: pulumi.Output<outputs.rds.InstanceBlueGreenUpdate | undefined>;
     /**
@@ -336,8 +336,12 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly latestRestorableTime!: pulumi.Output<string>;
     /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      */
     public readonly licenseModel!: pulumi.Output<string>;
     /**
@@ -764,7 +768,7 @@ export interface InstanceState {
     backupWindow?: pulumi.Input<string>;
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blueGreenUpdate below
+     * See `blueGreenUpdate` below.
      */
     blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
     /**
@@ -888,8 +892,12 @@ export interface InstanceState {
      */
     latestRestorableTime?: pulumi.Input<string>;
     /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      */
     licenseModel?: pulumi.Input<string>;
     /**
@@ -1135,7 +1143,7 @@ export interface InstanceArgs {
     backupWindow?: pulumi.Input<string>;
     /**
      * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blueGreenUpdate below
+     * See `blueGreenUpdate` below.
      */
     blueGreenUpdate?: pulumi.Input<inputs.rds.InstanceBlueGreenUpdate>;
     /**
@@ -1243,8 +1251,12 @@ export interface InstanceArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
+     * License model information for this DB instance. Valid values for this field are as follows:
+     * * RDS for MariaDB: `general-public-license`
+     * * RDS for Microsoft SQL Server: `license-included`
+     * * RDS for MySQL: `general-public-license`
+     * * RDS for Oracle: `bring-your-own-license | license-included`
+     * * RDS for PostgreSQL: `postgresql-license`
      */
     licenseModel?: pulumi.Input<string>;
     /**

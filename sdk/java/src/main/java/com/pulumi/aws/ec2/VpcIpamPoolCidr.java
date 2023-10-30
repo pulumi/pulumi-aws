@@ -79,7 +79,6 @@ import javax.annotation.Nullable;
  * ```
  * 
  * Provision Public IPv6 Pool CIDRs:
- * 
  * ```java
  * package generated_program;
  * 
@@ -95,7 +94,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
  * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
- * import com.pulumi.aws.ec2.inputs.VpcIpamPoolCidrCidrAuthorizationContextArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -122,17 +120,14 @@ import javax.annotation.Nullable;
  *             .ipamScopeId(example.publicDefaultScopeId())
  *             .locale(&#34;us-east-1&#34;)
  *             .description(&#34;public ipv6&#34;)
- *             .advertisable(false)
+ *             .publiclyAdvertisable(false)
+ *             .publicIpSource(&#34;amazon&#34;)
  *             .awsService(&#34;ec2&#34;)
  *             .build());
  * 
  *         var ipv6TestPublicVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;ipv6TestPublicVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(ipv6TestPublicVpcIpamPool.id())
- *             .cidr(var_.ipv6_cidr())
- *             .cidrAuthorizationContext(VpcIpamPoolCidrCidrAuthorizationContextArgs.builder()
- *                 .message(var_.message())
- *                 .signature(var_.signature())
- *                 .build())
+ *             .netmaskLength(52)
  *             .build());
  * 
  *     }
