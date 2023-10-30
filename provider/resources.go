@@ -620,7 +620,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 			"Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`. \n\n"+
 			"NEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the "+
 			"correct and valid credentials are used.\nLearn more: "+
-			"https://www.pulumi.com/docs/pulumi-cloud/esc/environments/", formatDiags(diag))
+			"https://www.pulumi.com/blog/esc-env-run-aws/", formatDiags(diag))
 	}
 
 	return nil
