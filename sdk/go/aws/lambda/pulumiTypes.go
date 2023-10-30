@@ -5070,9 +5070,10 @@ func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCor
 }
 
 type GetFunctionVpcConfig struct {
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	SubnetIds        []string `pulumi:"subnetIds"`
-	VpcId            string   `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack bool     `pulumi:"ipv6AllowedForDualStack"`
+	SecurityGroupIds        []string `pulumi:"securityGroupIds"`
+	SubnetIds               []string `pulumi:"subnetIds"`
+	VpcId                   string   `pulumi:"vpcId"`
 }
 
 // GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
@@ -5087,9 +5088,10 @@ type GetFunctionVpcConfigInput interface {
 }
 
 type GetFunctionVpcConfigArgs struct {
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId            pulumi.StringInput      `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack pulumi.BoolInput        `pulumi:"ipv6AllowedForDualStack"`
+	SecurityGroupIds        pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	SubnetIds               pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId                   pulumi.StringInput      `pulumi:"vpcId"`
 }
 
 func (GetFunctionVpcConfigArgs) ElementType() reflect.Type {
@@ -5128,6 +5130,10 @@ func (o GetFunctionVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output
 	return pulumix.Output[GetFunctionVpcConfig]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFunctionVpcConfig) bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolOutput)
 }
 
 func (o GetFunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {

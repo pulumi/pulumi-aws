@@ -39134,6 +39134,7 @@ export namespace lambda {
     }
 
     export interface GetFunctionVpcConfig {
+        ipv6AllowedForDualStack: boolean;
         securityGroupIds: string[];
         subnetIds: string[];
         vpcId: string;

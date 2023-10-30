@@ -1148,12 +1148,19 @@ class GetFunctionUrlCorResult(dict):
 @pulumi.output_type
 class GetFunctionVpcConfigResult(dict):
     def __init__(__self__, *,
+                 ipv6_allowed_for_dual_stack: bool,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str],
                  vpc_id: str):
+        pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="ipv6AllowedForDualStack")
+    def ipv6_allowed_for_dual_stack(self) -> bool:
+        return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @property
     @pulumi.getter(name="securityGroupIds")

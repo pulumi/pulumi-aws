@@ -13,18 +13,22 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class GetFunctionVpcConfigResult
     {
+        public readonly bool Ipv6AllowedForDualStack;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly ImmutableArray<string> SubnetIds;
         public readonly string VpcId;
 
         [OutputConstructor]
         private GetFunctionVpcConfigResult(
+            bool ipv6AllowedForDualStack,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
 
             string vpcId)
         {
+            Ipv6AllowedForDualStack = ipv6AllowedForDualStack;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcId = vpcId;
