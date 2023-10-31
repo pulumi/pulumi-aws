@@ -47,14 +47,15 @@ func main() {
 			return err
 		}
 
-		r1, err := ec2.NewDefaultVpc(ctx, "go-web-default-vpc", &ec2.DefaultVpcArgs{
-			Tags: tagsMap,
+		vpc, err := ec2.NewVpc(ctx, "mainvpc", &ec2.VpcArgs{
+			CidrBlock: pulumi.String("10.0.0.0/16"),
+			Tags:      tagsMap,
 		}, pulumi.Provider(p))
 		if err != nil {
 			return err
 		}
 
-		ctx.Export("r1", r1.Tags.ApplyT(func(x interface{}) string {
+		ctx.Export("vpc", vpc.Tags.ApplyT(func(x interface{}) string {
 			b, err := json.Marshal(x.(map[string]string))
 			if err != nil {
 				panic(err)
