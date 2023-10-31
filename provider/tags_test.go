@@ -215,3 +215,92 @@ func TestApplyTags(t *testing.T) {
 		})
 	}
 }
+
+func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
+	replayEvent := `
+	[
+	  {
+	    "method": "/pulumirpc.ResourceProvider/Diff",
+	    "request": {
+	      "id": "vpc-4b82e033",
+	      "urn": "urn:pulumi:testtags::tags-combinations-go::aws:ec2/defaultVpc:DefaultVpc::go-web-default-vpc",
+	      "olds": {
+		"__meta": "{\"schema_version\":\"1\"}",
+		"arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-4b82e033",
+		"assignGeneratedIpv6CidrBlock": false,
+		"cidrBlock": "172.31.0.0/16",
+		"defaultNetworkAclId": "acl-3b778d40",
+		"defaultRouteTableId": "rtb-a05f10db",
+		"defaultSecurityGroupId": "sg-4d436f12",
+		"dhcpOptionsId": "dopt-1649d26e",
+		"enableDnsHostnames": true,
+		"enableDnsSupport": true,
+		"enableNetworkAddressUsageMetrics": false,
+		"existingDefaultVpc": true,
+		"forceDestroy": false,
+		"id": "vpc-4b82e033",
+		"instanceTenancy": "default",
+		"ipv6AssociationId": "",
+		"ipv6CidrBlock": "",
+		"ipv6CidrBlockNetworkBorderGroup": "",
+		"ipv6IpamPoolId": "",
+		"ipv6NetmaskLength": 0,
+		"mainRouteTableId": "rtb-a05f10db",
+		"ownerId": "616138583583",
+		"tags": {
+		  "x": "s"
+		},
+		"tagsAll": {
+		  "x": "s"
+		}
+	      },
+	      "news": {
+		"__defaults": [
+		  "enableDnsHostnames",
+		  "enableDnsSupport",
+		  "forceDestroy"
+		],
+		"enableDnsHostnames": true,
+		"enableDnsSupport": true,
+		"forceDestroy": false,
+		"tags": {
+		  "__defaults": [],
+		  "x": "s",
+		  "y": ""
+		},
+		"tagsAll": {
+		  "__defaults": [],
+		  "x": "s",
+		  "y": ""
+		}
+	      },
+	      "oldInputs": {
+		"__defaults": [
+		  "enableDnsHostnames",
+		  "enableDnsSupport",
+		  "forceDestroy"
+		],
+		"enableDnsHostnames": true,
+		"enableDnsSupport": true,
+		"forceDestroy": false,
+		"tags": {
+		  "__defaults": [],
+		  "x": "s"
+		},
+		"tagsAll": {
+		  "__defaults": [],
+		  "x": "s"
+		}
+	      }
+	    },
+	    "response": {
+	      "changes": "DIFF_SOME",
+	      "hasDetailedDiff": true,
+              "diffs": ["tags", "tagsAll"],
+              "detailedDiff": {"tags.y": {}, "tagsAll.y": {}}
+	    }
+	  }
+	]`
+
+	replaySequence(t, replayEvent)
+}
