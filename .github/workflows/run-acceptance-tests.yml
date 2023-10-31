@@ -269,6 +269,7 @@ jobs:
       ! cancelled()
     needs:
     - test
+    - license_check
     - go_test_shim
     runs-on: ubuntu-latest
     steps:
@@ -399,6 +400,39 @@ jobs:
         - dotnet
         - go
         - java
+  license_check:
+    name: License Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
+    - name: Install Go
+      uses: actions/setup-go@v4
+      with:
+        cache-dependency-path: |
+            sdk/go.sum
+        go-version: 1.21.x
+    - run: make upstream
+    - uses: pulumi/license-check-action@main
+      with:
+        module-path: provider
+        ignore-modules: >-
+            golang.org,
+            github.com/cloudflare/circl,
+            github.com/modern-go/reflect2,
+            github.com/segmentio/asm,
+            github.com/klauspost/compress,
+            github.com/golang,
+            github.com/pulumi,
+            github.com/pjbgf/sha1cd,
+            github.com/pierrec/lz4,
+            github.com/aead/chacha20,
+            github.com/jmespath/go-jmespath,
+            github.com/mattn/go-localereader
   go_test_shim:
       name: Run test of provider shim
       runs-on: ubuntu-latest
