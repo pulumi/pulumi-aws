@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Tue, 31 Oct 2023 16:38:06 -0400
+Subject: [PATCH 32/32] Handle nil/err carefully in
+ markTagsAllNotComputedForResources
+
+
+diff --git a/shim/shim.go b/shim/shim.go
+index 2073270778..8c3e7c7a0b 100644
+--- a/shim/shim.go
++++ b/shim/shim.go
+@@ -17,10 +17,12 @@ type UpstreamProvider struct {
+ 
+ func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
+ 	primary, err := provider.New(ctx)
+-	markTagsAllNotComputedForResources(primary)
+ 	if err != nil {
+ 		return UpstreamProvider{}, err
+ 	}
++	if primary != nil {
++		markTagsAllNotComputedForResources(primary)
++	}
+ 	pf := fwprovider.New(primary)
+ 	return UpstreamProvider{
+ 		SDKV2Provider:           primary,
