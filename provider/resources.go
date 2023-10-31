@@ -7142,13 +7142,13 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			return true
 		}
 		// Skip resources that don't have tags_all.
-		tagsAllF, ok := value.Schema().GetOk("tags_all")
+		_, ok = value.Schema().GetOk("tags_all")
 		if !ok {
 			return true
 		}
 
-		// tags_all must computed, tags must be non-computed.
-		if tagsF.Computed() || !tagsAllF.Computed() {
+		// tags must be non-computed.
+		if tagsF.Computed() {
 			return true
 		}
 
