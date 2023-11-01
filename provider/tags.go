@@ -60,7 +60,7 @@ func applyTags(
 		return ret, nil
 	}
 	ret["tags"] = allTags
-	ret["tags_all"] = allTags
+	ret["tagsAll"] = allTags
 
 	return ret, nil
 }

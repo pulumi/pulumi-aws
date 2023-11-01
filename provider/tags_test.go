@@ -211,6 +211,8 @@ func TestApplyTags(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			r, err := applyTags(ctx, tc.config, tc.meta)
 			require.NoError(t, err)
+			// Expect tagsAll to be copied from tags.
+			tc.expect["tagsAll"] = tc.expect["tags"]
 			require.Equal(t, tc.expect, r)
 		})
 	}
