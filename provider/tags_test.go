@@ -304,3 +304,9 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 
 	replaySequence(t, replayEvent)
 }
+
+func TestTagsAllNoLongerComputed(t *testing.T) {
+	p := Provider()
+	s := p.P.ResourcesMap().Get("aws_sqs_queue").Schema()
+	require.False(t, s.Get("tags_all").Computed())
+}
