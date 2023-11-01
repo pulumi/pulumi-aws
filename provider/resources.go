@@ -648,7 +648,7 @@ var metadata []byte
 func Provider() *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
