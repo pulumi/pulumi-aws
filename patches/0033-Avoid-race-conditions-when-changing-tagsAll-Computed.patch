@@ -1,0 +1,52 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Wed, 1 Nov 2023 10:09:10 -0400
+Subject: [PATCH 33/33] Avoid race conditions when changing tagsAll Computed
+ value
+
+
+diff --git a/shim/shim.go b/shim/shim.go
+index 8c3e7c7a0b..f15010faff 100644
+--- a/shim/shim.go
++++ b/shim/shim.go
+@@ -39,6 +39,7 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
+ }
+ 
+ func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
++	updatedResourcesMap := map[string]*schema.Resource{}
+ 	for rn, r := range sdkV2Provider.ResourcesMap {
+ 
+ 		// Not skipping these resources results in an error:
+@@ -57,11 +58,28 @@ func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
+ 			continue
+ 		}
+ 
+-		if tagsAll, ok := r.Schema["tags_all"]; ok {
+-			tagsAll.Computed = false
+-			if !(tagsAll.Required || tagsAll.Optional) {
+-				tagsAll.Optional = true
++		if _, ok := r.Schema["tags_all"]; ok {
++			var updatedResource schema.Resource = *r
++			updatedResource.Schema = map[string]*schema.Schema{}
++
++			for k, v := range r.Schema {
++				if k == "tags_all" {
++					var tagsAll schema.Schema
++					tagsAll = *v
++					tagsAll.Computed = false
++					if !(tagsAll.Required || tagsAll.Optional) {
++						tagsAll.Optional = true
++					}
++					updatedResource.Schema[k] = &tagsAll
++				} else {
++					updatedResource.Schema[k] = v
++				}
+ 			}
++
++			updatedResourcesMap[rn] = &updatedResource
++		} else {
++			updatedResourcesMap[rn] = r
+ 		}
+ 	}
++	sdkV2Provider.ResourcesMap = updatedResourcesMap
+ }
