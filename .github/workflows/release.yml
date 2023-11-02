@@ -141,6 +141,10 @@ jobs:
       name: Dispatch Event
       run: pulumictl create docs-build pulumi-${{ env.PROVIDER }}
         "${GITHUB_REF#refs/tags/}"
+  license_check:
+    name: License Check
+    uses: ./.github/workflows/license.yml
+    secrets: inherit
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -235,6 +239,7 @@ jobs:
     name: publish
     needs:
       - test
+      - license_check
       - go_test_shim
     runs-on: pulumi-ubuntu-8core
     steps:
