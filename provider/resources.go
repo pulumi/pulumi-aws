@@ -7205,10 +7205,6 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
 			"prov.Resources[key].TransformOutputs==nil")
 
-		// TODO[pulumi/pulumi-terraform-bridge#1380] this should not be necessary once 1380
-		// is fixed since marking tags_all as Secret should achieve the same effect
-		prov.Resources[key].TransformOutputs = ensureTagsAllSecret
-
 		return true
 	})
 
@@ -7226,6 +7222,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 	prov.SetAutonaming(255, "-")
 
 	prov.MustApplyAutoAliases()
+
+	prov.XSkipDetailedDiffForChanges = true
 
 	return &prov
 }
