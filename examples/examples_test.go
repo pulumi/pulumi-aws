@@ -421,7 +421,8 @@ func TestRegressUnknownTags(t *testing.T) {
 		"name": "example-ng-tags-ng2-nodeSecurityGroup-8012419",
 		"revokeRulesOnDelete": true,
 		"vpcId": "vpc-4b82e033",
-		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+		"tags": "04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+		"tagsAll": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
 	      }
 	    }
 	  }
