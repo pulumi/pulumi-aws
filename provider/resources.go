@@ -22,6 +22,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync/atomic"
 	"unicode"
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
@@ -531,19 +532,7 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 	return vals
 }
 
-// preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
-// configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
-// before passing control to the TF provider to ensure we can report actionable errors.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
-		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
-
-	// if we skipCredentialsValidation then we don't need to do anything in
-	// preConfigureCallback as this is an explicit operation
-	if skipCredentialsValidation {
-		return nil
-	}
-
+func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error {
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
@@ -624,6 +613,30 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	}
 
 	return nil
+}
+
+// We should only run the validation once to avoid duplicating the reported errors.
+var credentialsValidationCounter atomic.Int32
+
+// preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
+// configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
+// before passing control to the TF provider to ensure we can report actionable errors.
+func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	skipCredentialsValidation := boolValue(vars, "skipCredentialsValidation",
+		[]string{"AWS_SKIP_CREDENTIALS_VALIDATION"})
+
+	// if we skipCredentialsValidation then we don't need to do anything in
+	// preConfigureCallback as this is an explicit operation
+	if skipCredentialsValidation {
+		return nil
+	}
+
+	counterVal := credentialsValidationCounter.Add(1)
+	if counterVal > 1 {
+		return nil
+	}
+
+	return validateCredentials(vars, c)
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
