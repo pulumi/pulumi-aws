@@ -269,6 +269,7 @@ jobs:
       ! cancelled()
     needs:
     - test
+    - license_check
     - go_test_shim
     runs-on: ubuntu-latest
     steps:
@@ -399,6 +400,10 @@ jobs:
         - dotnet
         - go
         - java
+  license_check:
+    name: License Check
+    uses: ./.github/workflows/license.yml
+    secrets: inherit
   go_test_shim:
       name: Run test of provider shim
       runs-on: ubuntu-latest
