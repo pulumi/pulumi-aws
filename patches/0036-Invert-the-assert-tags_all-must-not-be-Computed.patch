@@ -1,0 +1,21 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 3 Nov 2023 16:42:02 -0400
+Subject: [PATCH 36/36] Invert the assert - tags_all must not be Computed
+
+
+diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
+index 85a814022b..b119e21c46 100644
+--- a/internal/provider/fwprovider/provider.go
++++ b/internal/provider/fwprovider/provider.go
+@@ -413,8 +413,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+ 					continue
+ 				}
+ 				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
+-					if !v.IsComputed() {
+-						errs = append(errs, fmt.Errorf("`%s` attribute must be Computed: %s", names.AttrTagsAll, typeName))
++					if v.IsComputed() {
++						errs = append(errs, fmt.Errorf("`%s` attribute must not be Computed: %s", names.AttrTagsAll, typeName))
+ 						continue
+ 					}
+ 				} else {
