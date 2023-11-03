@@ -21,6 +21,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"pgregory.net/rapid"
 
+	"github.com/hashicorp/terraform-provider-aws/shim"
+	"github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
+	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -306,7 +309,27 @@ func TestAddingEmptyTagProducesChangeDiff(t *testing.T) {
 }
 
 func TestTagsAllNoLongerComputed(t *testing.T) {
-	p := Provider()
-	s := p.P.ResourcesMap().Get("aws_sqs_queue").Schema()
-	require.False(t, s.Get("tags_all").Computed())
+	ctx := context.Background()
+	upstreamProvider, err := shim.NewUpstreamProvider(ctx)
+	require.NoError(t, err)
+
+	t.Run("sdk_v2", func(t *testing.T) {
+		for key, res := range upstreamProvider.SDKV2Provider.ResourcesMap {
+			tagsAll, ok := res.Schema["tags_all"]
+			if ok {
+				require.Falsef(t, tagsAll.Computed, "tags_all is Computed for %s", key)
+			}
+		}
+	})
+
+	t.Run("plugin_framework", func(t *testing.T) {
+		p := tfbridge.ShimProviderWithContext(ctx, upstreamProvider.PluginFrameworkProvider)
+		p.ResourcesMap().Range(func(key string, res tfshim.Resource) bool {
+			tagsAll, ok := res.Schema().GetOk("tags_all")
+			if ok {
+				require.Falsef(t, tagsAll.Computed(), "tags_all is Computed for %s", key)
+			}
+			return true
+		})
+	})
 }
