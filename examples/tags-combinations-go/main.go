@@ -6,7 +6,9 @@ import (
 	"encoding/json"
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -55,14 +57,34 @@ func main() {
 			return err
 		}
 
-		ctx.Export("vpc", vpc.Tags.ApplyT(func(x interface{}) string {
-			b, err := json.Marshal(x.(map[string]string))
-			if err != nil {
-				panic(err)
-			}
-			return string(b)
-		}))
+		bucket, err := s3.NewBucketV2(ctx, "bucketv2", &s3.BucketV2Args{
+			Tags: tagsMap,
+		}, pulumi.Provider(p))
+		if err != nil {
+			return err
+		}
+
+		app, err := appconfig.NewApplication(ctx, "testappconfigapp", &appconfig.ApplicationArgs{
+			Tags: tagsMap,
+		}, pulumi.Provider(p))
+		if err != nil {
+			return err
+		}
+
+		ctx.Export("vpc", exportTags(vpc.Tags))
+		ctx.Export("bucket", exportTags(bucket.Tags))
+		ctx.Export("appconfig-app", exportTags(app.Tags))
 
 		return nil
 	})
+}
+
+func exportTags(tags pulumi.StringMapOutput) pulumi.StringOutput {
+	return tags.ApplyT(func(x interface{}) string {
+		b, err := json.Marshal(x.(map[string]string))
+		if err != nil {
+			panic(err)
+		}
+		return string(b)
+	}).(pulumi.StringOutput)
 }
