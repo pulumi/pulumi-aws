@@ -22,7 +22,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
-	"sync/atomic"
+	"sync"
 	"unicode"
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
@@ -616,7 +616,7 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 }
 
 // We should only run the validation once to avoid duplicating the reported errors.
-var credentialsValidationCounter atomic.Int32
+var credentialsValidationOnce sync.Once
 
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
@@ -631,12 +631,11 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		return nil
 	}
 
-	counterVal := credentialsValidationCounter.Add(1)
-	if counterVal > 1 {
-		return nil
-	}
-
-	return validateCredentials(vars, c)
+	var err error = nil
+	credentialsValidationOnce.Do(func() {
+		err = validateCredentials(vars, c)
+	})
+	return err
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
