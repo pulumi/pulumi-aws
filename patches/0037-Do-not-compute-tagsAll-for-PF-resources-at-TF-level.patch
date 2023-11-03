@@ -1,0 +1,46 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Fri, 3 Nov 2023 16:45:37 -0400
+Subject: [PATCH 37/37] Do not compute tagsAll for PF resources at TF level
+
+
+diff --git a/internal/framework/base.go b/internal/framework/base.go
+index 34065d9285..89248e4569 100644
+--- a/internal/framework/base.go
++++ b/internal/framework/base.go
+@@ -69,34 +69,7 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
+ 
+ // SetTagsAll calculates the new value for the `tags_all` attribute.
+ func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
+-	// If the entire plan is null, the resource is planned for destruction.
+-	if request.Plan.Raw.IsNull() {
+-		return
+-	}
+-
+-	defaultTagsConfig := r.Meta().DefaultTagsConfig
+-	ignoreTagsConfig := r.Meta().IgnoreTagsConfig
+-
+-	var planTags types.Map
+-
+-	response.Diagnostics.Append(request.Plan.GetAttribute(ctx, path.Root(names.AttrTags), &planTags)...)
+-
+-	if response.Diagnostics.HasError() {
+-		return
+-	}
+-
+-	if !planTags.IsUnknown() {
+-		if !mapHasUnknownElements(planTags) {
+-			resourceTags := tftags.New(ctx, planTags)
+-			allTags := defaultTagsConfig.MergeTags(resourceTags).IgnoreConfig(ignoreTagsConfig)
+-
+-			response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), flex.FlattenFrameworkStringValueMapLegacy(ctx, allTags.Map()))...)
+-		} else {
+-			response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), tftags.Unknown)...)
+-		}
+-	} else {
+-		response.Diagnostics.Append(response.Plan.SetAttribute(ctx, path.Root(names.AttrTagsAll), tftags.Unknown)...)
+-	}
++	return
+ }
+ 
+ // WithImportByID is intended to be embedded in resources which import state via the "id" attribute.
