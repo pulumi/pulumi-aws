@@ -631,7 +631,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		return nil
 	}
 
-	var err error = nil
+	var err error
 	credentialsValidationOnce.Do(func() {
 		err = validateCredentials(vars, c)
 	})
