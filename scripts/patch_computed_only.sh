@@ -8,10 +8,9 @@ set -euo pipefail
 FILES=$(cd upstream && git grep TagsAttributeComputedOnly |
         grep -v data_source |
         grep -v tools/ |
-        grep -v tags/framework/ |
+        grep -v tags/framework |
         grep -v docs/ |
         grep -v skaff/ |
-        grep -v framework.go |
         awk -F: '{print $1}')
 
 
