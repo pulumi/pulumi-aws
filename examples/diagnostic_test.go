@@ -3,7 +3,6 @@ package examples
 import (
 	"bytes"
 	"path/filepath"
-	"q"
 	"strings"
 	"testing"
 
@@ -22,15 +21,7 @@ func TestCredentialsErrorNotDuplicated(t *testing.T) {
 			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
 				assert.Equal(t, 1, strings.Count(outputBuf.String(), "No valid credential sources found"))
 			},
-			LocalProviders: []integration.LocalDependency{
-				{
-					Package: "aws",
-					Path:    filepath.Join(getCwd(t), "..", "bin"),
-				},
-			},
 		})
 
 	integration.ProgramTest(t, &test)
-
-	q.Q(outputBuf.String())
 }
