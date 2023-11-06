@@ -161,6 +161,37 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// });
     /// ```
+    /// ### Custom Headers
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amplify.App("example", new()
+    ///     {
+    ///         CustomHeaders = @"  customHeaders:
+    ///     - pattern: '**'
+    ///       headers:
+    ///         - key: 'Strict-Transport-Security'
+    ///           value: 'max-age=31536000; includeSubDomains'
+    ///         - key: 'X-Frame-Options'
+    ///           value: 'SAMEORIGIN'
+    ///         - key: 'X-XSS-Protection'
+    ///           value: '1; mode=block'
+    ///         - key: 'X-Content-Type-Options'
+    ///           value: 'nosniff'
+    ///         - key: 'Content-Security-Policy'
+    ///           value: ""default-src 'self'""
+    /// 
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -209,6 +240,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Output("buildSpec")]
         public Output<string> BuildSpec { get; private set; } = null!;
+
+        /// <summary>
+        /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        /// </summary>
+        [Output("customHeaders")]
+        public Output<string> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
@@ -415,6 +452,12 @@ namespace Pulumi.Aws.Amplify
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
+        /// <summary>
+        /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        /// </summary>
+        [Input("customHeaders")]
+        public Input<string>? CustomHeaders { get; set; }
+
         [Input("customRules")]
         private InputList<Inputs.AppCustomRuleArgs>? _customRules;
 
@@ -590,6 +633,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
+
+        /// <summary>
+        /// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        /// </summary>
+        [Input("customHeaders")]
+        public Input<string>? CustomHeaders { get; set; }
 
         [Input("customRules")]
         private InputList<Inputs.AppCustomRuleGetArgs>? _customRules;

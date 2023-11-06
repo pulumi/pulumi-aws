@@ -53,8 +53,8 @@ import (
 //							"s3:GetObject",
 //						},
 //						Resources: []string{
-//							"arn:aws:s3:::example_source",
-//							"arn:aws:s3:::example_source/*",
+//							"arn:aws:s3:::example-source",
+//							"arn:aws:s3:::example-source/*",
 //						},
 //					},
 //				},
@@ -103,8 +103,8 @@ import (
 //							"s3:PutObjectAcl",
 //						},
 //						Resources: []string{
-//							"arn:aws:s3:::example_destination",
-//							"arn:aws:s3:::example_destination/*",
+//							"arn:aws:s3:::example-destination",
+//							"arn:aws:s3:::example-destination/*",
 //						},
 //					},
 //				},

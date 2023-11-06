@@ -35,6 +35,11 @@ export const getServerlessCollection: typeof import("./getServerlessCollection")
 export const getServerlessCollectionOutput: typeof import("./getServerlessCollection").getServerlessCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCollection","getServerlessCollectionOutput"], () => require("./getServerlessCollection"));
 
+export { GetServerlessLifecyclePolicyArgs, GetServerlessLifecyclePolicyResult, GetServerlessLifecyclePolicyOutputArgs } from "./getServerlessLifecyclePolicy";
+export const getServerlessLifecyclePolicy: typeof import("./getServerlessLifecyclePolicy").getServerlessLifecyclePolicy = null as any;
+export const getServerlessLifecyclePolicyOutput: typeof import("./getServerlessLifecyclePolicy").getServerlessLifecyclePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessLifecyclePolicy","getServerlessLifecyclePolicyOutput"], () => require("./getServerlessLifecyclePolicy"));
+
 export { GetServerlessSecurityConfigArgs, GetServerlessSecurityConfigResult, GetServerlessSecurityConfigOutputArgs } from "./getServerlessSecurityConfig";
 export const getServerlessSecurityConfig: typeof import("./getServerlessSecurityConfig").getServerlessSecurityConfig = null as any;
 export const getServerlessSecurityConfigOutput: typeof import("./getServerlessSecurityConfig").getServerlessSecurityConfigOutput = null as any;
@@ -80,6 +85,11 @@ export type ServerlessCollection = import("./serverlessCollection").ServerlessCo
 export const ServerlessCollection: typeof import("./serverlessCollection").ServerlessCollection = null as any;
 utilities.lazyLoad(exports, ["ServerlessCollection"], () => require("./serverlessCollection"));
 
+export { ServerlessLifecyclePolicyArgs, ServerlessLifecyclePolicyState } from "./serverlessLifecyclePolicy";
+export type ServerlessLifecyclePolicy = import("./serverlessLifecyclePolicy").ServerlessLifecyclePolicy;
+export const ServerlessLifecyclePolicy: typeof import("./serverlessLifecyclePolicy").ServerlessLifecyclePolicy = null as any;
+utilities.lazyLoad(exports, ["ServerlessLifecyclePolicy"], () => require("./serverlessLifecyclePolicy"));
+
 export { ServerlessSecurityConfigArgs, ServerlessSecurityConfigState } from "./serverlessSecurityConfig";
 export type ServerlessSecurityConfig = import("./serverlessSecurityConfig").ServerlessSecurityConfig;
 export const ServerlessSecurityConfig: typeof import("./serverlessSecurityConfig").ServerlessSecurityConfig = null as any;
@@ -123,6 +133,8 @@ const _module = {
                 return new ServerlessAccessPolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessCollection:ServerlessCollection":
                 return new ServerlessCollection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy":
+                return new ServerlessLifecyclePolicy(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
                 return new ServerlessSecurityConfig(name, <any>undefined, { urn })
             case "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy":
@@ -145,6 +157,7 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/package", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/packageAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessLifecyclePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessVpcEndpoint", _module)

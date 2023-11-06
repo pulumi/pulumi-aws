@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {Bucket} from "./index";
@@ -95,6 +98,30 @@ import {Bucket} from "./index";
  *     forceDestroy: true,
  * }, {
  *     dependsOn: [exampleBucketVersioningV2],
+ * });
+ * ```
+ * ### Ignoring Provider `defaultTags`
+ *
+ * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ * If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplebucket = new aws.s3.BucketV2("examplebucket", {});
+ * const examplebucketObject = new aws.s3.BucketObjectv2("examplebucketObject", {
+ *     key: "someobject",
+ *     bucket: examplebucket.id,
+ *     source: new pulumi.asset.FileAsset("important.txt"),
+ *     tags: {
+ *         Env: "test",
+ *     },
+ *     overrideProvider: {
+ *         defaultTags: {
+ *             tags: {},
+ *         },
+ *     },
  * });
  * ```
  *
@@ -238,6 +265,10 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     public readonly objectLockRetainUntilDate!: pulumi.Output<string | undefined>;
     /**
+     * Override provider-level configuration options. See Override Provider below for more details.
+     */
+    public readonly overrideProvider!: pulumi.Output<outputs.s3.BucketObjectv2OverrideProvider | undefined>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
@@ -312,6 +343,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
+            resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
@@ -344,6 +376,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
+            resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
@@ -464,6 +497,10 @@ export interface BucketObjectv2State {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    /**
+     * Override provider-level configuration options. See Override Provider below for more details.
+     */
+    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
@@ -586,6 +623,10 @@ export interface BucketObjectv2Args {
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
+    /**
+     * Override provider-level configuration options. See Override Provider below for more details.
+     */
+    overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

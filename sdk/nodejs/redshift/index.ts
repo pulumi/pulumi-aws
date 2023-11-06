@@ -85,6 +85,11 @@ export type Partner = import("./partner").Partner;
 export const Partner: typeof import("./partner").Partner = null as any;
 utilities.lazyLoad(exports, ["Partner"], () => require("./partner"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { ScheduledActionArgs, ScheduledActionState } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
@@ -142,6 +147,8 @@ const _module = {
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:redshift/partner:Partner":
                 return new Partner(name, <any>undefined, { urn })
+            case "aws:redshift/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
             case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
@@ -170,6 +177,7 @@ pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _m
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/partner", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotSchedule", _module)

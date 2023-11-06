@@ -112,6 +112,21 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     * 
+     */
+    @Import(name="customHeaders")
+    private @Nullable Output<String> customHeaders;
+
+    /**
+     * @return The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     * 
+     */
+    public Optional<Output<String>> customHeaders() {
+        return Optional.ofNullable(this.customHeaders);
+    }
+
+    /**
      * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
      * 
      */
@@ -368,6 +383,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         this.autoBranchCreationPatterns = $.autoBranchCreationPatterns;
         this.basicAuthCredentials = $.basicAuthCredentials;
         this.buildSpec = $.buildSpec;
+        this.customHeaders = $.customHeaders;
         this.customRules = $.customRules;
         this.defaultDomain = $.defaultDomain;
         this.description = $.description;
@@ -538,6 +554,27 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder buildSpec(String buildSpec) {
             return buildSpec(Output.of(buildSpec));
+        }
+
+        /**
+         * @param customHeaders The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customHeaders(@Nullable Output<String> customHeaders) {
+            $.customHeaders = customHeaders;
+            return this;
+        }
+
+        /**
+         * @param customHeaders The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customHeaders(String customHeaders) {
+            return customHeaders(Output.of(customHeaders));
         }
 
         /**

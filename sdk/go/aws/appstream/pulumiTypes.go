@@ -1085,7 +1085,7 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName
 type ImageBuilderVpcConfig struct {
 	// Identifiers of the security groups for the image builder or image builder.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+	// Identifier of the subnet to which a network interface is attached from the image builder instance.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -1103,7 +1103,7 @@ type ImageBuilderVpcConfigInput interface {
 type ImageBuilderVpcConfigArgs struct {
 	// Identifiers of the security groups for the image builder or image builder.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+	// Identifier of the subnet to which a network interface is attached from the image builder instance.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -1207,7 +1207,7 @@ func (o ImageBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+// Identifier of the subnet to which a network interface is attached from the image builder instance.
 func (o ImageBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -1252,7 +1252,7 @@ func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+// Identifier of the subnet to which a network interface is attached from the image builder instance.
 func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
 		if v == nil {

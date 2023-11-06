@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .revision(aws_mq_configuration.test().latest_revision())
  *                 .build())
  *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.15.9&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
  *             .hostInstanceType(&#34;mq.t2.micro&#34;)
  *             .securityGroups(aws_security_group.test().id())
  *             .users(BrokerUserArgs.builder()
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *                 .revision(aws_mq_configuration.test().latest_revision())
  *                 .build())
  *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.15.9&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
  *             .storageType(&#34;ebs&#34;)
  *             .hostInstanceType(&#34;mq.m5.large&#34;)
  *             .securityGroups(aws_security_group.test().id())
@@ -260,14 +260,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.engineType;
     }
     /**
-     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+     * @return Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      * 
      */
     public Output<String> engineVersion() {

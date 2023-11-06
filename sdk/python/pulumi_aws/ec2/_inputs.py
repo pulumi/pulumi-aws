@@ -4886,7 +4886,7 @@ class LaunchTemplateIamInstanceProfileArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the instance profile.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         :param pulumi.Input[str] name: The name of the instance profile.
         """
         if arn is not None:
@@ -4898,7 +4898,7 @@ class LaunchTemplateIamInstanceProfileArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Resource Name (ARN) of the instance profile.
+        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         """
         return pulumi.get(self, "arn")
 

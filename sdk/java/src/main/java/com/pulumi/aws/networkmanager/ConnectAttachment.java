@@ -125,7 +125,7 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
         return this.edgeLocation;
     }
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 
@@ -134,7 +134,7 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     private Output<ConnectAttachmentOptions> options;
 
     /**
-     * @return Options for creating an attachment.
+     * @return Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 

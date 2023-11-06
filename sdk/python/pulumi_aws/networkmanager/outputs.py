@@ -39,12 +39,18 @@ __all__ = [
 class ConnectAttachmentOptions(dict):
     def __init__(__self__, *,
                  protocol: Optional[str] = None):
+        """
+        :param str protocol: The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        """
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
+        """
+        The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -111,7 +117,7 @@ class ConnectPeerConfiguration(dict):
                  protocol: Optional[str] = None):
         """
         :param str core_network_address: A Connect peer core network address.
-        :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for BGP peering.
+        :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param str peer_address: The Connect peer address.
                
                The following arguments are optional:
@@ -144,7 +150,7 @@ class ConnectPeerConfiguration(dict):
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[str]]:
         """
-        The inside IP addresses used for BGP peering.
+        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 

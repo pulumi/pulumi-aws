@@ -11786,7 +11786,7 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) Configured() pulumi.BoolPtrOu
 }
 
 type LaunchTemplateIamInstanceProfile struct {
-	// The Amazon Resource Name (ARN) of the instance profile.
+	// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
 	Arn *string `pulumi:"arn"`
 	// The name of the instance profile.
 	Name *string `pulumi:"name"`
@@ -11804,7 +11804,7 @@ type LaunchTemplateIamInstanceProfileInput interface {
 }
 
 type LaunchTemplateIamInstanceProfileArgs struct {
-	// The Amazon Resource Name (ARN) of the instance profile.
+	// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The name of the instance profile.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -11905,7 +11905,7 @@ func (o LaunchTemplateIamInstanceProfileOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// The Amazon Resource Name (ARN) of the instance profile.
+// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
 func (o LaunchTemplateIamInstanceProfileOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -11945,7 +11945,7 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInsta
 	}).(LaunchTemplateIamInstanceProfileOutput)
 }
 
-// The Amazon Resource Name (ARN) of the instance profile.
+// The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) *string {
 		if v == nil {
@@ -65961,8 +65961,7 @@ type GetVpcIamPoolsIpamPool struct {
 	// Description for the IPAM pool.
 	Description string `pulumi:"description"`
 	// ID of the IPAM pool.
-	Id         *string `pulumi:"id"`
-	IpamPoolId string  `pulumi:"ipamPoolId"`
+	Id string `pulumi:"id"`
 	// ID of the scope the pool belongs to.
 	IpamScopeId   string `pulumi:"ipamScopeId"`
 	IpamScopeType string `pulumi:"ipamScopeType"`
@@ -66009,8 +66008,7 @@ type GetVpcIamPoolsIpamPoolArgs struct {
 	// Description for the IPAM pool.
 	Description pulumi.StringInput `pulumi:"description"`
 	// ID of the IPAM pool.
-	Id         pulumi.StringPtrInput `pulumi:"id"`
-	IpamPoolId pulumi.StringInput    `pulumi:"ipamPoolId"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// ID of the scope the pool belongs to.
 	IpamScopeId   pulumi.StringInput `pulumi:"ipamScopeId"`
 	IpamScopeType pulumi.StringInput `pulumi:"ipamScopeType"`
@@ -66141,12 +66139,8 @@ func (o GetVpcIamPoolsIpamPoolOutput) Description() pulumi.StringOutput {
 }
 
 // ID of the IPAM pool.
-func (o GetVpcIamPoolsIpamPoolOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o GetVpcIamPoolsIpamPoolOutput) IpamPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.IpamPoolId }).(pulumi.StringOutput)
+func (o GetVpcIamPoolsIpamPoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolsIpamPool) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // ID of the scope the pool belongs to.
@@ -66746,8 +66740,7 @@ type GetVpcIpamPoolsIpamPool struct {
 	// Description for the IPAM pool.
 	Description string `pulumi:"description"`
 	// ID of the IPAM pool.
-	Id         *string `pulumi:"id"`
-	IpamPoolId string  `pulumi:"ipamPoolId"`
+	Id string `pulumi:"id"`
 	// ID of the scope the pool belongs to.
 	IpamScopeId   string `pulumi:"ipamScopeId"`
 	IpamScopeType string `pulumi:"ipamScopeType"`
@@ -66794,8 +66787,7 @@ type GetVpcIpamPoolsIpamPoolArgs struct {
 	// Description for the IPAM pool.
 	Description pulumi.StringInput `pulumi:"description"`
 	// ID of the IPAM pool.
-	Id         pulumi.StringPtrInput `pulumi:"id"`
-	IpamPoolId pulumi.StringInput    `pulumi:"ipamPoolId"`
+	Id pulumi.StringInput `pulumi:"id"`
 	// ID of the scope the pool belongs to.
 	IpamScopeId   pulumi.StringInput `pulumi:"ipamScopeId"`
 	IpamScopeType pulumi.StringInput `pulumi:"ipamScopeType"`
@@ -66926,12 +66918,8 @@ func (o GetVpcIpamPoolsIpamPoolOutput) Description() pulumi.StringOutput {
 }
 
 // ID of the IPAM pool.
-func (o GetVpcIpamPoolsIpamPoolOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o GetVpcIpamPoolsIpamPoolOutput) IpamPoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.IpamPoolId }).(pulumi.StringOutput)
+func (o GetVpcIpamPoolsIpamPoolOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolsIpamPool) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // ID of the scope the pool belongs to.

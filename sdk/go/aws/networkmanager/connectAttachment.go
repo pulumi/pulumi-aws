@@ -42,7 +42,7 @@ type ConnectAttachment struct {
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// Options for creating an attachment.
+	// Options block. See options for more information.
 	//
 	// The following arguments are optional:
 	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
@@ -123,7 +123,7 @@ type connectAttachmentState struct {
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
 	EdgeLocation *string `pulumi:"edgeLocation"`
-	// Options for creating an attachment.
+	// Options block. See options for more information.
 	//
 	// The following arguments are optional:
 	Options *ConnectAttachmentOptions `pulumi:"options"`
@@ -159,7 +159,7 @@ type ConnectAttachmentState struct {
 	CoreNetworkId pulumi.StringPtrInput
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringPtrInput
-	// Options for creating an attachment.
+	// Options block. See options for more information.
 	//
 	// The following arguments are optional:
 	Options ConnectAttachmentOptionsPtrInput
@@ -190,7 +190,7 @@ type connectAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// The Region where the edge is located.
 	EdgeLocation string `pulumi:"edgeLocation"`
-	// Options for creating an attachment.
+	// Options block. See options for more information.
 	//
 	// The following arguments are optional:
 	Options ConnectAttachmentOptions `pulumi:"options"`
@@ -206,7 +206,7 @@ type ConnectAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// The Region where the edge is located.
 	EdgeLocation pulumi.StringInput
-	// Options for creating an attachment.
+	// Options block. See options for more information.
 	//
 	// The following arguments are optional:
 	Options ConnectAttachmentOptionsInput
@@ -361,7 +361,7 @@ func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// Options for creating an attachment.
+// Options block. See options for more information.
 //
 // The following arguments are optional:
 func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {

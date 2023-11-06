@@ -15,6 +15,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConnectAttachmentOptions struct {
+	// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -30,6 +31,7 @@ type ConnectAttachmentOptionsInput interface {
 }
 
 type ConnectAttachmentOptionsArgs struct {
+	// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -128,6 +130,7 @@ func (o ConnectAttachmentOptionsOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
 func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +165,7 @@ func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput
 	}).(ConnectAttachmentOptionsOutput)
 }
 
+// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
 func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectAttachmentOptions) *string {
 		if v == nil {
@@ -332,7 +336,7 @@ type ConnectPeerConfiguration struct {
 	BgpConfigurations []ConnectPeerConfigurationBgpConfiguration `pulumi:"bgpConfigurations"`
 	// A Connect peer core network address.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
-	// The inside IP addresses used for BGP peering.
+	// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
 	//
@@ -356,7 +360,7 @@ type ConnectPeerConfigurationArgs struct {
 	BgpConfigurations ConnectPeerConfigurationBgpConfigurationArrayInput `pulumi:"bgpConfigurations"`
 	// A Connect peer core network address.
 	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
-	// The inside IP addresses used for BGP peering.
+	// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
 	// The Connect peer address.
 	//
@@ -445,7 +449,7 @@ func (o ConnectPeerConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOut
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
 
-// The inside IP addresses used for BGP peering.
+// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }

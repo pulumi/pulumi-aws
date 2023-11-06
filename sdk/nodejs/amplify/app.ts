@@ -109,6 +109,28 @@ import * as utilities from "../utilities";
  *     _CUSTOM_IMAGE: "node:16",
  * }});
  * ```
+ * ### Custom Headers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {customHeaders: `  customHeaders:
+ *     - pattern: '**'
+ *       headers:
+ *         - key: 'Strict-Transport-Security'
+ *           value: 'max-age=31536000; includeSubDomains'
+ *         - key: 'X-Frame-Options'
+ *           value: 'SAMEORIGIN'
+ *         - key: 'X-XSS-Protection'
+ *           value: '1; mode=block'
+ *         - key: 'X-Content-Type-Options'
+ *           value: 'nosniff'
+ *         - key: 'Content-Security-Policy'
+ *           value: "default-src 'self'"
+ *
+ * `});
+ * ```
  *
  * ## Import
  *
@@ -171,6 +193,10 @@ export class App extends pulumi.CustomResource {
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      */
     public readonly buildSpec!: pulumi.Output<string>;
+    /**
+     * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     */
+    public readonly customHeaders!: pulumi.Output<string>;
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
@@ -257,6 +283,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationPatterns"] = state ? state.autoBranchCreationPatterns : undefined;
             resourceInputs["basicAuthCredentials"] = state ? state.basicAuthCredentials : undefined;
             resourceInputs["buildSpec"] = state ? state.buildSpec : undefined;
+            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
             resourceInputs["customRules"] = state ? state.customRules : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -280,6 +307,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["autoBranchCreationPatterns"] = args ? args.autoBranchCreationPatterns : undefined;
             resourceInputs["basicAuthCredentials"] = args?.basicAuthCredentials ? pulumi.secret(args.basicAuthCredentials) : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["customRules"] = args ? args.customRules : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableAutoBranchCreation"] = args ? args.enableAutoBranchCreation : undefined;
@@ -333,6 +361,10 @@ export interface AppState {
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      */
     buildSpec?: pulumi.Input<string>;
+    /**
+     * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     */
+    customHeaders?: pulumi.Input<string>;
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */
@@ -425,6 +457,10 @@ export interface AppArgs {
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      */
     buildSpec?: pulumi.Input<string>;
+    /**
+     * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     */
+    customHeaders?: pulumi.Input<string>;
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
      */

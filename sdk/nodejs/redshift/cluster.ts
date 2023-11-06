@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `aws.redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  *
  * ## Example Usage
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,6 +24,21 @@ import * as utilities from "../utilities";
  *     clusterType: "single-node",
  *     databaseName: "mydb",
  *     masterPassword: "Mustbe8characters",
+ *     masterUsername: "exampleuser",
+ *     nodeType: "dc1.large",
+ * });
+ * ```
+ * ### With Managed Credentials
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.redshift.Cluster("example", {
+ *     clusterIdentifier: "tf-redshift-cluster",
+ *     clusterType: "single-node",
+ *     databaseName: "mydb",
+ *     manageMasterPassword: true,
  *     masterUsername: "exampleuser",
  *     nodeType: "dc1.large",
  * });
@@ -183,15 +199,31 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
     /**
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `masterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     */
+    public readonly manageMasterPassword!: pulumi.Output<boolean | undefined>;
+    /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      */
     public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
      * Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manageMasterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     public readonly masterPassword!: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the cluster admin credentials secret
+     */
+    public /*out*/ readonly masterPasswordSecretArn!: pulumi.Output<string>;
+    /**
+     * ID of the KMS key used to encrypt the cluster admin credentials secret.
+     */
+    public readonly masterPasswordSecretKmsKeyId!: pulumi.Output<string>;
     /**
      * Username for the master DB user.
      */
@@ -229,6 +261,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+     */
+    public readonly snapshotArn!: pulumi.Output<string | undefined>;
+    /**
      * The name of the cluster the source snapshot was created from.
      */
     public readonly snapshotClusterIdentifier!: pulumi.Output<string | undefined>;
@@ -237,7 +273,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly snapshotCopy!: pulumi.Output<outputs.redshift.ClusterSnapshotCopy | undefined>;
     /**
-     * The name of the snapshot from which to create the new cluster.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
     public readonly snapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -296,8 +332,11 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logging"] = state ? state.logging : undefined;
             resourceInputs["maintenanceTrackName"] = state ? state.maintenanceTrackName : undefined;
+            resourceInputs["manageMasterPassword"] = state ? state.manageMasterPassword : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
+            resourceInputs["masterPasswordSecretArn"] = state ? state.masterPasswordSecretArn : undefined;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = state ? state.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
@@ -306,6 +345,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
+            resourceInputs["snapshotArn"] = state ? state.snapshotArn : undefined;
             resourceInputs["snapshotClusterIdentifier"] = state ? state.snapshotClusterIdentifier : undefined;
             resourceInputs["snapshotCopy"] = state ? state.snapshotCopy : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
@@ -344,8 +384,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
+            resourceInputs["manageMasterPassword"] = args ? args.manageMasterPassword : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
             resourceInputs["masterPassword"] = args?.masterPassword ? pulumi.secret(args.masterPassword) : undefined;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
@@ -354,6 +396,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
+            resourceInputs["snapshotArn"] = args ? args.snapshotArn : undefined;
             resourceInputs["snapshotClusterIdentifier"] = args ? args.snapshotClusterIdentifier : undefined;
             resourceInputs["snapshotCopy"] = args ? args.snapshotCopy : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
@@ -363,6 +406,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["clusterNodes"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -495,15 +539,31 @@ export interface ClusterState {
      */
     maintenanceTrackName?: pulumi.Input<string>;
     /**
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `masterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     */
+    manageMasterPassword?: pulumi.Input<boolean>;
+    /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
      * Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manageMasterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * ARN of the cluster admin credentials secret
+     */
+    masterPasswordSecretArn?: pulumi.Input<string>;
+    /**
+     * ID of the KMS key used to encrypt the cluster admin credentials secret.
+     */
+    masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * Username for the master DB user.
      */
@@ -541,6 +601,10 @@ export interface ClusterState {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+     */
+    snapshotArn?: pulumi.Input<string>;
+    /**
      * The name of the cluster the source snapshot was created from.
      */
     snapshotClusterIdentifier?: pulumi.Input<string>;
@@ -549,7 +613,7 @@ export interface ClusterState {
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
-     * The name of the snapshot from which to create the new cluster.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**
@@ -675,15 +739,27 @@ export interface ClusterArgs {
      */
     maintenanceTrackName?: pulumi.Input<string>;
     /**
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `masterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     */
+    manageMasterPassword?: pulumi.Input<boolean>;
+    /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
      * Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manageMasterPassword`.
+     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     masterPassword?: pulumi.Input<string>;
+    /**
+     * ID of the KMS key used to encrypt the cluster admin credentials secret.
+     */
+    masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
     /**
      * Username for the master DB user.
      */
@@ -721,6 +797,10 @@ export interface ClusterArgs {
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+     */
+    snapshotArn?: pulumi.Input<string>;
+    /**
      * The name of the cluster the source snapshot was created from.
      */
     snapshotClusterIdentifier?: pulumi.Input<string>;
@@ -729,7 +809,7 @@ export interface ClusterArgs {
      */
     snapshotCopy?: pulumi.Input<inputs.redshift.ClusterSnapshotCopy>;
     /**
-     * The name of the snapshot from which to create the new cluster.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
      */
     snapshotIdentifier?: pulumi.Input<string>;
     /**

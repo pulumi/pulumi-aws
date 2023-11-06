@@ -64,18 +64,18 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    @Import(name="insideCidrBlocks", required=true)
-    private Output<List<String>> insideCidrBlocks;
+    @Import(name="insideCidrBlocks")
+    private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    public Output<List<String>> insideCidrBlocks() {
-        return this.insideCidrBlocks;
+    public Optional<Output<List<String>>> insideCidrBlocks() {
+        return Optional.ofNullable(this.insideCidrBlocks);
     }
 
     /**
@@ -95,6 +95,21 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> peerAddress() {
         return this.peerAddress;
+    }
+
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    @Import(name="subnetArn")
+    private @Nullable Output<String> subnetArn;
+
+    /**
+     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    public Optional<Output<String>> subnetArn() {
+        return Optional.ofNullable(this.subnetArn);
     }
 
     /**
@@ -120,6 +135,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         this.coreNetworkAddress = $.coreNetworkAddress;
         this.insideCidrBlocks = $.insideCidrBlocks;
         this.peerAddress = $.peerAddress;
+        this.subnetArn = $.subnetArn;
         this.tags = $.tags;
     }
 
@@ -205,18 +221,18 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
          */
-        public Builder insideCidrBlocks(Output<List<String>> insideCidrBlocks) {
+        public Builder insideCidrBlocks(@Nullable Output<List<String>> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -226,7 +242,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -261,6 +277,27 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetArn(@Nullable Output<String> subnetArn) {
+            $.subnetArn = subnetArn;
+            return this;
+        }
+
+        /**
+         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetArn(String subnetArn) {
+            return subnetArn(Output.of(subnetArn));
+        }
+
+        /**
          * @param tags Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -283,7 +320,6 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
 
         public ConnectPeerArgs build() {
             $.connectAttachmentId = Objects.requireNonNull($.connectAttachmentId, "expected parameter 'connectAttachmentId' to be non-null");
-            $.insideCidrBlocks = Objects.requireNonNull($.insideCidrBlocks, "expected parameter 'insideCidrBlocks' to be non-null");
             $.peerAddress = Objects.requireNonNull($.peerAddress, "expected parameter 'peerAddress' to be non-null");
             return $;
         }

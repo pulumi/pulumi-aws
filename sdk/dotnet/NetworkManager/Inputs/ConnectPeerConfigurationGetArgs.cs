@@ -30,7 +30,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>
-        /// The inside IP addresses used for BGP peering.
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public InputList<string> InsideCidrBlocks
         {

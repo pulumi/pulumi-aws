@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -87,18 +88,18 @@ public class SecretRotation extends com.pulumi.resources.CustomResource {
         return this.rotationEnabled;
     }
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     @Export(name="rotationLambdaArn", refs={String.class}, tree="[0]")
-    private Output<String> rotationLambdaArn;
+    private Output</* @Nullable */ String> rotationLambdaArn;
 
     /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret.
+     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
-    public Output<String> rotationLambdaArn() {
-        return this.rotationLambdaArn;
+    public Output<Optional<String>> rotationLambdaArn() {
+        return Codegen.optional(this.rotationLambdaArn);
     }
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.

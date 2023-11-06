@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * `,
  *     description: "Example Configuration",
  *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.0",
+ *     engineVersion: "5.17.6",
  * });
  * ```
  * ### RabbitMQ
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * `,
  *     description: "Example Configuration",
  *     engineType: "RabbitMQ",
- *     engineVersion: "3.11.16",
+ *     engineVersion: "3.11.20",
  * });
  * ```
  *

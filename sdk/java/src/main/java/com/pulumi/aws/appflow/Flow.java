@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  *                     &#34;s3:ListBucket&#34;,
  *                     &#34;s3:GetObject&#34;)
  *                 .resources(                
- *                     &#34;arn:aws:s3:::example_source&#34;,
- *                     &#34;arn:aws:s3:::example_source/*&#34;)
+ *                     &#34;arn:aws:s3:::example-source&#34;,
+ *                     &#34;arn:aws:s3:::example-source/*&#34;)
  *                 .build())
  *             .build());
  * 
@@ -111,8 +111,8 @@ import javax.annotation.Nullable;
  *                     &#34;s3:GetBucketAcl&#34;,
  *                     &#34;s3:PutObjectAcl&#34;)
  *                 .resources(                
- *                     &#34;arn:aws:s3:::example_destination&#34;,
- *                     &#34;arn:aws:s3:::example_destination/*&#34;)
+ *                     &#34;arn:aws:s3:::example-destination&#34;,
+ *                     &#34;arn:aws:s3:::example-destination/*&#34;)
  *                 .build())
  *             .build());
  * 

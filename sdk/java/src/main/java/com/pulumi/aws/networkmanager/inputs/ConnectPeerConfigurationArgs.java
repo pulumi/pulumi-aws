@@ -40,14 +40,14 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -143,7 +143,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConnectPeerConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 

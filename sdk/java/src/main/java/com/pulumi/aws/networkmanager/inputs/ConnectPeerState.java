@@ -139,14 +139,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -185,6 +185,21 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
+    }
+
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    @Import(name="subnetArn")
+    private @Nullable Output<String> subnetArn;
+
+    /**
+     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    public Optional<Output<String>> subnetArn() {
+        return Optional.ofNullable(this.subnetArn);
     }
 
     /**
@@ -240,6 +255,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         this.insideCidrBlocks = $.insideCidrBlocks;
         this.peerAddress = $.peerAddress;
         this.state = $.state;
+        this.subnetArn = $.subnetArn;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -438,7 +454,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -449,7 +465,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -459,7 +475,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering.
+         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -512,6 +528,27 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder state(String state) {
             return state(Output.of(state));
+        }
+
+        /**
+         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetArn(@Nullable Output<String> subnetArn) {
+            $.subnetArn = subnetArn;
+            return this;
+        }
+
+        /**
+         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetArn(String subnetArn) {
+            return subnetArn(Output.of(subnetArn));
         }
 
         /**
