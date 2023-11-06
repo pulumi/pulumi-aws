@@ -32,6 +32,12 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230912190043-e6d96b3b8f7e
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
+	github.com/pulumi/pulumi-terraform-bridge/pf => /Users/bryce/src/pulumi-terraform-bridge/pf
+
+	github.com/pulumi/pulumi-terraform-bridge/v3 => /Users/bryce/src/pulumi-terraform-bridge
+	github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge => /Users/bryce/src/pulumi-terraform-bridge/pkg/tfbridge
+	github.com/pulumi/pulumi-terraform-bridge/v3/unstable => /Users/bryce/src/pulumi-terraform-bridge/unstable
+	github.com/pulumi/pulumi-terraform-bridge/v3/unstable/metadata => /Users/bryce/src/pulumi-terraform-bridge/unstable/metadata
 )
 
 require (
