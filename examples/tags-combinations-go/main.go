@@ -73,6 +73,7 @@ func main() {
 		}
 
 		ctx.Export("vpc", exportTags(vpc.Tags))
+		ctx.Export("vpc-id", vpc.ID())
 		ctx.Export("bucket", exportTags(bucket.Tags))
 		ctx.Export("bucket-name", bucket.Bucket)
 		ctx.Export("appconfig-app", exportTags(app.Tags))

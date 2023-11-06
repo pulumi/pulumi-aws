@@ -1,4 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build go || all
+// +build go all
 
 package examples
 
@@ -7,14 +9,15 @@ import (
 	"fmt"
 	"math/rand"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws/session"
+	ec2sdk "github.com/aws/aws-sdk-go/service/ec2"
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
 	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"strings"
 )
 
 func TestAccWebserverGo(t *testing.T) {
@@ -182,11 +185,11 @@ func (st tagsState) validateStateResult(phase int) func(
 	stack integration.RuntimeValidationStackInfo,
 ) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
-		bucketName := stack.Outputs["bucket-name"].(string)
-		actualBucketTags := fetchBucketTags(t, bucketName)
-
+		actualBucketTags := fetchBucketTags(t, stack.Outputs["bucket-name"].(string))
+		actualVpcTags := fetchVpcTags(t, stack.Outputs["vpc-id"].(string))
 		for k, v := range stack.Outputs {
-			if k == "bucket-name" {
+			switch k {
+			case "bucket-name", "vpc-id":
 				continue
 			}
 
@@ -201,6 +204,9 @@ func (st tagsState) validateStateResult(phase int) func(
 
 			if k == "bucket" {
 				require.Equalf(t, st.expectedTags(), actualBucketTags, "bad bucket tags")
+			}
+			if k == "vpc" {
+				require.Equalf(t, st.expectedTags(), actualVpcTags, "bad vpc tags")
 			}
 		}
 	}
@@ -229,4 +235,41 @@ func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
 	}
 
 	return tags
+}
+
+func fetchVpcTags(t *testing.T, vpc string) map[string]string {
+	ptr := func(x string) *string {
+		return &x
+	}
+
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+
+	client := ec2sdk.New(sess)
+
+	tagsOut, err := client.DescribeTags(&ec2sdk.DescribeTagsInput{
+		Filters: []*ec2sdk.Filter{
+			{
+				Name: ptr("resource-type"),
+				Values: []*string{
+					ptr("vpc"),
+				},
+			},
+			{
+				Name: ptr("resource-id"),
+				Values: []*string{
+					ptr(vpc),
+				},
+			},
+		},
+	})
+	require.NoError(t, err)
+
+	res := map[string]string{}
+	for _, tag := range tagsOut.Tags {
+		res[*tag.Key] = *tag.Value
+	}
+
+	return res
 }
