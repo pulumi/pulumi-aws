@@ -118,6 +118,11 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides a resource for managing the main routing table of a VPC.
+
+        > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
+        For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`ec2.RouteTable`][tf-route-tables].
+
         ## Example Usage
 
         ```python
@@ -150,6 +155,11 @@ class MainRouteTableAssociation(pulumi.CustomResource):
                  args: MainRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource for managing the main routing table of a VPC.
+
+        > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
+        For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`ec2.RouteTable`][tf-route-tables].
+
         ## Example Usage
 
         ```python
