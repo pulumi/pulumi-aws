@@ -1,6 +1,4 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
-//go:build go || all
-// +build go all
 
 package examples
 
@@ -11,9 +9,12 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/aws/aws-sdk-go/aws/session"
+	s3sdk "github.com/aws/aws-sdk-go/service/s3"
 	"github.com/stretchr/testify/require"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"strings"
 )
 
 func TestAccWebserverGo(t *testing.T) {
@@ -217,6 +218,9 @@ func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
 	}
 
 	result, err := client.GetBucketTagging(input)
+	if err != nil && strings.Contains(err.Error(), "NoSuchTagSet") {
+		return map[string]string{}
+	}
 	require.NoError(t, err)
 
 	tags := make(map[string]string)
