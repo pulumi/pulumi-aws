@@ -13,6 +13,7 @@ import (
 	"testing"
 
 	"github.com/aws/aws-sdk-go/aws/session"
+	appconfigsdk "github.com/aws/aws-sdk-go/service/appconfig"
 	ec2sdk "github.com/aws/aws-sdk-go/service/ec2"
 	s3sdk "github.com/aws/aws-sdk-go/service/s3"
 	"github.com/stretchr/testify/require"
@@ -187,9 +188,10 @@ func (st tagsState) validateStateResult(phase int) func(
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
 		actualBucketTags := fetchBucketTags(t, stack.Outputs["bucket-name"].(string))
 		actualVpcTags := fetchVpcTags(t, stack.Outputs["vpc-id"].(string))
+		appTags := fetchAppConfigTags(t, stack.Outputs["appconfig-app-arn"].(string))
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "vpc-id":
+			case "bucket-name", "vpc-id", "appconfig-app-arn":
 				continue
 			}
 
@@ -207,6 +209,9 @@ func (st tagsState) validateStateResult(phase int) func(
 			}
 			if k == "vpc" {
 				require.Equalf(t, st.expectedTags(), actualVpcTags, "bad vpc tags")
+			}
+			if k == "appconfig-app" {
+				require.Equalf(t, st.expectedTags(), appTags, "bad appconfig app tags")
 			}
 		}
 	}
@@ -271,5 +276,21 @@ func fetchVpcTags(t *testing.T, vpc string) map[string]string {
 		res[*tag.Key] = *tag.Value
 	}
 
+	return res
+}
+
+func fetchAppConfigTags(t *testing.T, arn string) map[string]string {
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+	client := appconfigsdk.New(sess)
+	out, err := client.ListTagsForResource(&appconfigsdk.ListTagsForResourceInput{
+		ResourceArn: &arn,
+	})
+	require.NoError(t, err)
+	res := map[string]string{}
+	for k, v := range out.Tags {
+		res[k] = *v
+	}
 	return res
 }

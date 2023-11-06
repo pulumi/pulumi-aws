@@ -77,6 +77,7 @@ func main() {
 		ctx.Export("bucket", exportTags(bucket.Tags))
 		ctx.Export("bucket-name", bucket.Bucket)
 		ctx.Export("appconfig-app", exportTags(app.Tags))
+		ctx.Export("appconfig-app-arn", app.Arn)
 
 		return nil
 	})
