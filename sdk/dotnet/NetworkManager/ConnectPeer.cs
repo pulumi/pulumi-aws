@@ -74,7 +74,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The inside IP addresses used for BGP peering.
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         [Output("insideCidrBlocks")]
         public Output<ImmutableArray<string>> InsideCidrBlocks { get; private set; } = null!;
@@ -92,6 +92,12 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// </summary>
+        [Output("subnetArn")]
+        public Output<string?> SubnetArn { get; private set; } = null!;
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -173,11 +179,11 @@ namespace Pulumi.Aws.NetworkManager
         [Input("coreNetworkAddress")]
         public Input<string>? CoreNetworkAddress { get; set; }
 
-        [Input("insideCidrBlocks", required: true)]
+        [Input("insideCidrBlocks")]
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>
-        /// The inside IP addresses used for BGP peering.
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public InputList<string> InsideCidrBlocks
         {
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
+
+        /// <summary>
+        /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// </summary>
+        [Input("subnetArn")]
+        public Input<string>? SubnetArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -271,7 +283,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<string>? _insideCidrBlocks;
 
         /// <summary>
-        /// The inside IP addresses used for BGP peering.
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public InputList<string> InsideCidrBlocks
         {
@@ -292,6 +304,12 @@ namespace Pulumi.Aws.NetworkManager
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+        /// </summary>
+        [Input("subnetArn")]
+        public Input<string>? SubnetArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

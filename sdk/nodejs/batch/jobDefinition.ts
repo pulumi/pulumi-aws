@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Provides a Batch Job Definition resource.
  *
  * ## Example Usage
+ * ### Job definition of type container
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,6 +55,46 @@ import * as utilities from "../utilities";
  *             name: "nofile",
  *             softLimit: 1024,
  *         }],
+ *     }),
+ * });
+ * ```
+ * ### Job definition of type multinode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.batch.JobDefinition("test", {
+ *     type: "multinode",
+ *     nodeProperties: JSON.stringify({
+ *         mainNode: 0,
+ *         nodeRangeProperties: [
+ *             {
+ *                 container: {
+ *                     command: [
+ *                         "ls",
+ *                         "-la",
+ *                     ],
+ *                     image: "busybox",
+ *                     memory: 128,
+ *                     vcpus: 1,
+ *                 },
+ *                 targetNodes: "0:",
+ *             },
+ *             {
+ *                 container: {
+ *                     command: [
+ *                         "echo",
+ *                         "test",
+ *                     ],
+ *                     image: "busybox",
+ *                     memory: 128,
+ *                     vcpus: 1,
+ *                 },
+ *                 targetNodes: "1:",
+ *             },
+ *         ],
+ *         numNodes: 2,
  *     }),
  * });
  * ```
@@ -155,6 +196,11 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     */
+    public readonly nodeProperties!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -190,7 +236,7 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
     /**
-     * The type of job definition. Must be `container`.
+     * The type of job definition. Must be `container` or `multinode`.
      *
      * The following arguments are optional:
      */
@@ -212,6 +258,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["containerProperties"] = state ? state.containerProperties : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nodeProperties"] = state ? state.nodeProperties : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
@@ -228,6 +275,7 @@ export class JobDefinition extends pulumi.CustomResource {
             }
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
@@ -264,6 +312,11 @@ export interface JobDefinitionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     */
+    nodeProperties?: pulumi.Input<string>;
+    /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -299,7 +352,7 @@ export interface JobDefinitionState {
      */
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition. Must be `container`.
+     * The type of job definition. Must be `container` or `multinode`.
      *
      * The following arguments are optional:
      */
@@ -319,6 +372,11 @@ export interface JobDefinitionArgs {
      * Specifies the name of the job definition.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     */
+    nodeProperties?: pulumi.Input<string>;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
@@ -345,7 +403,7 @@ export interface JobDefinitionArgs {
      */
     timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
-     * The type of job definition. Must be `container`.
+     * The type of job definition. Must be `container` or `multinode`.
      *
      * The following arguments are optional:
      */

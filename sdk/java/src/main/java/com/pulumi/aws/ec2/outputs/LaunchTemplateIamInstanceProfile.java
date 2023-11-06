@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LaunchTemplateIamInstanceProfile {
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * @return The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     private @Nullable String arn;
@@ -24,7 +24,7 @@ public final class LaunchTemplateIamInstanceProfile {
 
     private LaunchTemplateIamInstanceProfile() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * @return The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     public Optional<String> arn() {

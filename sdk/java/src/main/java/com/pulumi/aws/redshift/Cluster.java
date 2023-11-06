@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource&#39;s `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  * 
  * ## Example Usage
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -53,6 +54,40 @@ import javax.annotation.Nullable;
  *             .clusterType(&#34;single-node&#34;)
  *             .databaseName(&#34;mydb&#34;)
  *             .masterPassword(&#34;Mustbe8characters&#34;)
+ *             .masterUsername(&#34;exampleuser&#34;)
+ *             .nodeType(&#34;dc1.large&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Managed Credentials
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
+ *             .clusterIdentifier(&#34;tf-redshift-cluster&#34;)
+ *             .clusterType(&#34;single-node&#34;)
+ *             .databaseName(&#34;mydb&#34;)
+ *             .manageMasterPassword(true)
  *             .masterUsername(&#34;exampleuser&#34;)
  *             .nodeType(&#34;dc1.large&#34;)
  *             .build());
@@ -477,6 +512,24 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceTrackName);
     }
     /**
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * 
+     */
+    @Export(name="manageMasterPassword", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> manageMasterPassword;
+
+    /**
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * 
+     */
+    public Output<Optional<Boolean>> manageMasterPassword() {
+        return Codegen.optional(this.manageMasterPassword);
+    }
+    /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      * 
      */
@@ -492,8 +545,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manage_master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
@@ -501,12 +556,42 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manage_master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Output<Optional<String>> masterPassword() {
         return Codegen.optional(this.masterPassword);
+    }
+    /**
+     * ARN of the cluster admin credentials secret
+     * 
+     */
+    @Export(name="masterPasswordSecretArn", refs={String.class}, tree="[0]")
+    private Output<String> masterPasswordSecretArn;
+
+    /**
+     * @return ARN of the cluster admin credentials secret
+     * 
+     */
+    public Output<String> masterPasswordSecretArn() {
+        return this.masterPasswordSecretArn;
+    }
+    /**
+     * ID of the KMS key used to encrypt the cluster admin credentials secret.
+     * 
+     */
+    @Export(name="masterPasswordSecretKmsKeyId", refs={String.class}, tree="[0]")
+    private Output<String> masterPasswordSecretKmsKeyId;
+
+    /**
+     * @return ID of the KMS key used to encrypt the cluster admin credentials secret.
+     * 
+     */
+    public Output<String> masterPasswordSecretKmsKeyId() {
+        return this.masterPasswordSecretKmsKeyId;
     }
     /**
      * Username for the master DB user.
@@ -629,6 +714,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalSnapshot);
     }
     /**
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * 
+     */
+    @Export(name="snapshotArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> snapshotArn;
+
+    /**
+     * @return The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * 
+     */
+    public Output<Optional<String>> snapshotArn() {
+        return Codegen.optional(this.snapshotArn);
+    }
+    /**
      * The name of the cluster the source snapshot was created from.
      * 
      */
@@ -657,14 +756,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotCopy);
     }
     /**
-     * The name of the snapshot from which to create the new cluster.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
-     * @return The name of the snapshot from which to create the new cluster.
+     * @return The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
     public Output<Optional<String>> snapshotIdentifier() {

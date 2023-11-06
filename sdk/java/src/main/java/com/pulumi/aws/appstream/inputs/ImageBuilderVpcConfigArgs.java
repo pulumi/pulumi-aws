@@ -32,14 +32,14 @@ public final class ImageBuilderVpcConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * Identifier of the subnet to which a network interface is attached from the image builder instance.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * @return Identifier of the subnet to which a network interface is attached from the image builder instance.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -103,7 +103,7 @@ public final class ImageBuilderVpcConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+         * @param subnetIds Identifier of the subnet to which a network interface is attached from the image builder instance.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ImageBuilderVpcConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+         * @param subnetIds Identifier of the subnet to which a network interface is attached from the image builder instance.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class ImageBuilderVpcConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param subnetIds Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+         * @param subnetIds Identifier of the subnet to which a network interface is attached from the image builder instance.
          * 
          * @return builder
          * 

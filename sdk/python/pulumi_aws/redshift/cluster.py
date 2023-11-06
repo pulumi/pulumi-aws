@@ -41,8 +41,10 @@ class ClusterArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -50,6 +52,7 @@ class ClusterArgs:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -86,10 +89,16 @@ class ClusterArgs:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
+               Conflicts with `master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
-               Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-               contain at least one uppercase letter, one lowercase letter, and one number.
+               Conflicts with `manage_master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+               Note that this may show up in logs, and it will be stored in the state file.
+               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
@@ -101,9 +110,10 @@ class ClusterArgs:
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
+        :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
-        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -158,10 +168,14 @@ class ClusterArgs:
             pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manage_master_password is not None:
+            pulumi.set(__self__, "manage_master_password", manage_master_password)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_password_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if number_of_nodes is not None:
@@ -176,6 +190,8 @@ class ClusterArgs:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+        if snapshot_arn is not None:
+            pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
         if snapshot_copy is not None:
@@ -495,6 +511,20 @@ class ClusterArgs:
         pulumi.set(self, "maintenance_track_name", value)
 
     @property
+    @pulumi.getter(name="manageMasterPassword")
+    def manage_master_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        Conflicts with `master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        """
+        return pulumi.get(self, "manage_master_password")
+
+    @manage_master_password.setter
+    def manage_master_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_password", value)
+
+    @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -511,14 +541,28 @@ class ClusterArgs:
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for the master DB user.
-        Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        contain at least one uppercase letter, one lowercase letter, and one number.
+        Conflicts with `manage_master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Note that this may show up in logs, and it will be stored in the state file.
+        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
     def master_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_password", value)
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the KMS key used to encrypt the cluster admin credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
+
+    @master_password_secret_kms_key_id.setter
+    def master_password_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_password_secret_kms_key_id", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -609,6 +653,18 @@ class ClusterArgs:
         pulumi.set(self, "skip_final_snapshot", value)
 
     @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_arn", value)
+
+    @property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -636,7 +692,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the snapshot from which to create the new cluster.
+        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -700,8 +756,11 @@ class _ClusterState:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_password_secret_arn: Optional[pulumi.Input[str]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
@@ -710,6 +769,7 @@ class _ClusterState:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -750,10 +810,17 @@ class _ClusterState:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
+               Conflicts with `master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
-               Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-               contain at least one uppercase letter, one lowercase letter, and one number.
+               Conflicts with `manage_master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+               Note that this may show up in logs, and it will be stored in the state file.
+               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[str] master_password_secret_arn: ARN of the cluster admin credentials secret
+        :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -766,9 +833,10 @@ class _ClusterState:
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
+        :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
-        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
@@ -832,10 +900,16 @@ class _ClusterState:
             pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manage_master_password is not None:
+            pulumi.set(__self__, "manage_master_password", manage_master_password)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
+        if master_password_secret_arn is not None:
+            pulumi.set(__self__, "master_password_secret_arn", master_password_secret_arn)
+        if master_password_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if node_type is not None:
@@ -852,6 +926,8 @@ class _ClusterState:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
+        if snapshot_arn is not None:
+            pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
         if snapshot_copy is not None:
@@ -1212,6 +1288,20 @@ class _ClusterState:
         pulumi.set(self, "maintenance_track_name", value)
 
     @property
+    @pulumi.getter(name="manageMasterPassword")
+    def manage_master_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        Conflicts with `master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        """
+        return pulumi.get(self, "manage_master_password")
+
+    @manage_master_password.setter
+    def manage_master_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_password", value)
+
+    @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1228,14 +1318,40 @@ class _ClusterState:
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
         Password for the master DB user.
-        Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        contain at least one uppercase letter, one lowercase letter, and one number.
+        Conflicts with `manage_master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Note that this may show up in logs, and it will be stored in the state file.
+        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
 
     @master_password.setter
     def master_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_password", value)
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretArn")
+    def master_password_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARN of the cluster admin credentials secret
+        """
+        return pulumi.get(self, "master_password_secret_arn")
+
+    @master_password_secret_arn.setter
+    def master_password_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_password_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the KMS key used to encrypt the cluster admin credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
+
+    @master_password_secret_kms_key_id.setter
+    def master_password_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_password_secret_kms_key_id", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -1338,6 +1454,18 @@ class _ClusterState:
         pulumi.set(self, "skip_final_snapshot", value)
 
     @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_arn", value)
+
+    @property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1365,7 +1493,7 @@ class _ClusterState:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the snapshot from which to create the new cluster.
+        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -1442,8 +1570,10 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
@@ -1452,6 +1582,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1464,6 +1595,7 @@ class Cluster(pulumi.CustomResource):
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -1474,6 +1606,20 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             database_name="mydb",
             master_password="Mustbe8characters",
+            master_username="exampleuser",
+            node_type="dc1.large")
+        ```
+        ### With Managed Credentials
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshift.Cluster("example",
+            cluster_identifier="tf-redshift-cluster",
+            cluster_type="single-node",
+            database_name="mydb",
+            manage_master_password=True,
             master_username="exampleuser",
             node_type="dc1.large")
         ```
@@ -1516,10 +1662,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
+               Conflicts with `master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
-               Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-               contain at least one uppercase letter, one lowercase letter, and one number.
+               Conflicts with `manage_master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+               Note that this may show up in logs, and it will be stored in the state file.
+               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -1532,9 +1684,10 @@ class Cluster(pulumi.CustomResource):
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
+        :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
-        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
@@ -1550,6 +1703,7 @@ class Cluster(pulumi.CustomResource):
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
         ## Example Usage
+        ### Basic Usage
 
         ```python
         import pulumi
@@ -1560,6 +1714,20 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             database_name="mydb",
             master_password="Mustbe8characters",
+            master_username="exampleuser",
+            node_type="dc1.large")
+        ```
+        ### With Managed Credentials
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.redshift.Cluster("example",
+            cluster_identifier="tf-redshift-cluster",
+            cluster_type="single-node",
+            database_name="mydb",
+            manage_master_password=True,
             master_username="exampleuser",
             node_type="dc1.large")
         ```
@@ -1611,8 +1779,10 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
@@ -1621,6 +1791,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+                 snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1661,8 +1832,10 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["logging"] = logging
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+            __props__.__dict__["manage_master_password"] = manage_master_password
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
             __props__.__dict__["master_password"] = None if master_password is None else pulumi.Output.secret(master_password)
+            __props__.__dict__["master_password_secret_kms_key_id"] = master_password_secret_kms_key_id
             __props__.__dict__["master_username"] = master_username
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
@@ -1673,6 +1846,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
+            __props__.__dict__["snapshot_arn"] = snapshot_arn
             __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
             __props__.__dict__["snapshot_copy"] = snapshot_copy
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
@@ -1682,6 +1856,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["master_password_secret_arn"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword", "tagsAll"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1723,8 +1898,11 @@ class Cluster(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[str]] = None,
             logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
             maintenance_track_name: Optional[pulumi.Input[str]] = None,
+            manage_master_password: Optional[pulumi.Input[bool]] = None,
             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
             master_password: Optional[pulumi.Input[str]] = None,
+            master_password_secret_arn: Optional[pulumi.Input[str]] = None,
+            master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
             number_of_nodes: Optional[pulumi.Input[int]] = None,
@@ -1733,6 +1911,7 @@ class Cluster(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
+            snapshot_arn: Optional[pulumi.Input[str]] = None,
             snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
             snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1778,10 +1957,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
+               Conflicts with `master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
-               Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-               contain at least one uppercase letter, one lowercase letter, and one number.
+               Conflicts with `manage_master_password`.
+               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+               Note that this may show up in logs, and it will be stored in the state file.
+               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[str] master_password_secret_arn: ARN of the cluster admin credentials secret
+        :param pulumi.Input[str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -1794,9 +1980,10 @@ class Cluster(pulumi.CustomResource):
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
+        :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
         :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
-        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
@@ -1833,8 +2020,11 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["logging"] = logging
         __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+        __props__.__dict__["manage_master_password"] = manage_master_password
         __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
         __props__.__dict__["master_password"] = master_password
+        __props__.__dict__["master_password_secret_arn"] = master_password_secret_arn
+        __props__.__dict__["master_password_secret_kms_key_id"] = master_password_secret_kms_key_id
         __props__.__dict__["master_username"] = master_username
         __props__.__dict__["node_type"] = node_type
         __props__.__dict__["number_of_nodes"] = number_of_nodes
@@ -1843,6 +2033,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
+        __props__.__dict__["snapshot_arn"] = snapshot_arn
         __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
         __props__.__dict__["snapshot_copy"] = snapshot_copy
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
@@ -2083,6 +2274,16 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "maintenance_track_name")
 
     @property
+    @pulumi.getter(name="manageMasterPassword")
+    def manage_master_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        Conflicts with `master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        """
+        return pulumi.get(self, "manage_master_password")
+
+    @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
@@ -2095,10 +2296,28 @@ class Cluster(pulumi.CustomResource):
     def master_password(self) -> pulumi.Output[Optional[str]]:
         """
         Password for the master DB user.
-        Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        contain at least one uppercase letter, one lowercase letter, and one number.
+        Conflicts with `manage_master_password`.
+        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Note that this may show up in logs, and it will be stored in the state file.
+        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretArn")
+    def master_password_secret_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the cluster admin credentials secret
+        """
+        return pulumi.get(self, "master_password_secret_arn")
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> pulumi.Output[str]:
+        """
+        ID of the KMS key used to encrypt the cluster admin credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -2169,6 +2388,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "skip_final_snapshot")
 
     @property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @property
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
@@ -2188,7 +2415,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the snapshot from which to create the new cluster.
+        The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         """
         return pulumi.get(self, "snapshot_identifier")
 

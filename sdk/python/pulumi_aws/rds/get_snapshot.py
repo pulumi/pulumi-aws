@@ -352,8 +352,6 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
            copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-           `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB snapshot.
     :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
@@ -362,6 +360,8 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB snapshot.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -447,8 +447,6 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
     :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
            copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-           `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB snapshot.
     :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
@@ -457,5 +455,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
     :param str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
+           a pair on the desired DB snapshot.
     """
     ...

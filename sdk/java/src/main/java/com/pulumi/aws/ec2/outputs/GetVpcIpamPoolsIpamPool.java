@@ -9,8 +9,6 @@ import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVpcIpamPoolsIpamPool {
@@ -63,8 +61,7 @@ public final class GetVpcIpamPoolsIpamPool {
      * @return ID of the IPAM pool.
      * 
      */
-    private @Nullable String id;
-    private String ipamPoolId;
+    private String id;
     /**
      * @return ID of the scope the pool belongs to.
      * 
@@ -162,11 +159,8 @@ public final class GetVpcIpamPoolsIpamPool {
      * @return ID of the IPAM pool.
      * 
      */
-    public Optional<String> id() {
-        return Optional.ofNullable(this.id);
-    }
-    public String ipamPoolId() {
-        return this.ipamPoolId;
+    public String id() {
+        return this.id;
     }
     /**
      * @return ID of the scope the pool belongs to.
@@ -231,8 +225,7 @@ public final class GetVpcIpamPoolsIpamPool {
         private Boolean autoImport;
         private String awsService;
         private String description;
-        private @Nullable String id;
-        private String ipamPoolId;
+        private String id;
         private String ipamScopeId;
         private String ipamScopeType;
         private String locale;
@@ -254,7 +247,6 @@ public final class GetVpcIpamPoolsIpamPool {
     	      this.awsService = defaults.awsService;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
-    	      this.ipamPoolId = defaults.ipamPoolId;
     	      this.ipamScopeId = defaults.ipamScopeId;
     	      this.ipamScopeType = defaults.ipamScopeType;
     	      this.locale = defaults.locale;
@@ -311,13 +303,8 @@ public final class GetVpcIpamPoolsIpamPool {
             return this;
         }
         @CustomType.Setter
-        public Builder id(@Nullable String id) {
-            this.id = id;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ipamPoolId(String ipamPoolId) {
-            this.ipamPoolId = Objects.requireNonNull(ipamPoolId);
+        public Builder id(String id) {
+            this.id = Objects.requireNonNull(id);
             return this;
         }
         @CustomType.Setter
@@ -372,7 +359,6 @@ public final class GetVpcIpamPoolsIpamPool {
             o.awsService = awsService;
             o.description = description;
             o.id = id;
-            o.ipamPoolId = ipamPoolId;
             o.ipamScopeId = ipamScopeId;
             o.ipamScopeType = ipamScopeType;
             o.locale = locale;

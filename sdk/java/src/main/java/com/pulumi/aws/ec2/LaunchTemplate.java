@@ -157,14 +157,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/launchTemplate:LaunchTemplate")
 public class LaunchTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the instance profile.
+     * The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * @return The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     public Output<String> arn() {

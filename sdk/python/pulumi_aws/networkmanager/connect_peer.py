@@ -17,29 +17,34 @@ __all__ = ['ConnectPeerArgs', 'ConnectPeer']
 class ConnectPeerArgs:
     def __init__(__self__, *,
                  connect_attachment_id: pulumi.Input[str],
-                 inside_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
                  peer_address: pulumi.Input[str],
                  bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
+                 inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
         :param pulumi.Input[str] peer_address: The Connect peer address.
                
                The following arguments are optional:
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
-        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
         pulumi.set(__self__, "peer_address", peer_address)
         if bgp_options is not None:
             pulumi.set(__self__, "bgp_options", bgp_options)
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
+        if inside_cidr_blocks is not None:
+            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -54,18 +59,6 @@ class ConnectPeerArgs:
     @connect_attachment_id.setter
     def connect_attachment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "connect_attachment_id", value)
-
-    @property
-    @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The inside IP addresses used for BGP peering.
-        """
-        return pulumi.get(self, "inside_cidr_blocks")
-
-    @inside_cidr_blocks.setter
-    def inside_cidr_blocks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "inside_cidr_blocks", value)
 
     @property
     @pulumi.getter(name="peerAddress")
@@ -106,6 +99,30 @@ class ConnectPeerArgs:
         pulumi.set(self, "core_network_address", value)
 
     @property
+    @pulumi.getter(name="insideCidrBlocks")
+    def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        """
+        return pulumi.get(self, "inside_cidr_blocks")
+
+    @inside_cidr_blocks.setter
+    def inside_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inside_cidr_blocks", value)
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        """
+        return pulumi.get(self, "subnet_arn")
+
+    @subnet_arn.setter
+    def subnet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -133,6 +150,7 @@ class _ConnectPeerState:
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -144,11 +162,12 @@ class _ConnectPeerState:
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
         :param pulumi.Input[str] edge_location: The Region where the peer is located.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[str] peer_address: The Connect peer address.
                
                The following arguments are optional:
         :param pulumi.Input[str] state: The state of the Connect peer.
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -176,6 +195,8 @@ class _ConnectPeerState:
             pulumi.set(__self__, "peer_address", peer_address)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -290,7 +311,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The inside IP addresses used for BGP peering.
+        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -323,6 +344,18 @@ class _ConnectPeerState:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        """
+        return pulumi.get(self, "subnet_arn")
+
+    @subnet_arn.setter
+    def subnet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_arn", value)
 
     @property
     @pulumi.getter
@@ -362,6 +395,7 @@ class ConnectPeer(pulumi.CustomResource):
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -382,10 +416,11 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']] bgp_options: The Connect peer BGP options.
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[str] peer_address: The Connect peer address.
                
                The following arguments are optional:
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -427,6 +462,7 @@ class ConnectPeer(pulumi.CustomResource):
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -442,12 +478,11 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connect_attachment_id'")
             __props__.__dict__["connect_attachment_id"] = connect_attachment_id
             __props__.__dict__["core_network_address"] = core_network_address
-            if inside_cidr_blocks is None and not opts.urn:
-                raise TypeError("Missing required property 'inside_cidr_blocks'")
             __props__.__dict__["inside_cidr_blocks"] = inside_cidr_blocks
             if peer_address is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_address'")
             __props__.__dict__["peer_address"] = peer_address
+            __props__.__dict__["subnet_arn"] = subnet_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["configurations"] = None
@@ -481,6 +516,7 @@ class ConnectPeer(pulumi.CustomResource):
             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             peer_address: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
+            subnet_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ConnectPeer':
         """
@@ -497,11 +533,12 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
         :param pulumi.Input[str] edge_location: The Region where the peer is located.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[str] peer_address: The Connect peer address.
                
                The following arguments are optional:
         :param pulumi.Input[str] state: The state of the Connect peer.
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -521,6 +558,7 @@ class ConnectPeer(pulumi.CustomResource):
         __props__.__dict__["inside_cidr_blocks"] = inside_cidr_blocks
         __props__.__dict__["peer_address"] = peer_address
         __props__.__dict__["state"] = state
+        __props__.__dict__["subnet_arn"] = subnet_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return ConnectPeer(resource_name, opts=opts, __props__=__props__)
@@ -593,9 +631,9 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insideCidrBlocks")
-    def inside_cidr_blocks(self) -> pulumi.Output[Sequence[str]]:
+    def inside_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The inside IP addresses used for BGP peering.
+        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -616,6 +654,14 @@ class ConnectPeer(pulumi.CustomResource):
         The state of the Connect peer.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        """
+        return pulumi.get(self, "subnet_arn")
 
     @property
     @pulumi.getter

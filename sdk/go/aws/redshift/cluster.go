@@ -18,6 +18,7 @@ import (
 // > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -38,6 +39,36 @@ import (
 //				MasterPassword:    pulumi.String("Mustbe8characters"),
 //				MasterUsername:    pulumi.String("exampleuser"),
 //				NodeType:          pulumi.String("dc1.large"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Managed Credentials
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := redshift.NewCluster(ctx, "example", &redshift.ClusterArgs{
+//				ClusterIdentifier:    pulumi.String("tf-redshift-cluster"),
+//				ClusterType:          pulumi.String("single-node"),
+//				DatabaseName:         pulumi.String("mydb"),
+//				ManageMasterPassword: pulumi.Bool(true),
+//				MasterUsername:       pulumi.String("exampleuser"),
+//				NodeType:             pulumi.String("dc1.large"),
 //			})
 //			if err != nil {
 //				return err
@@ -122,12 +153,22 @@ type Cluster struct {
 	Logging ClusterLoggingPtrOutput `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+	// Conflicts with `masterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	ManageMasterPassword pulumi.BoolPtrOutput `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-	// contain at least one uppercase letter, one lowercase letter, and one number.
+	// Conflicts with `manageMasterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs, and it will be stored in the state file.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
+	// ARN of the cluster admin credentials secret
+	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
+	// ID of the KMS key used to encrypt the cluster admin credentials secret.
+	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// The node type to be provisioned for the cluster.
@@ -148,11 +189,13 @@ type Cluster struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
+	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+	SnapshotArn pulumi.StringPtrOutput `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrOutput `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	SnapshotCopy ClusterSnapshotCopyPtrOutput `pulumi:"snapshotCopy"`
-	// The name of the snapshot from which to create the new cluster.
+	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -270,12 +313,22 @@ type clusterState struct {
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+	// Conflicts with `masterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-	// contain at least one uppercase letter, one lowercase letter, and one number.
+	// Conflicts with `manageMasterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs, and it will be stored in the state file.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
+	// ARN of the cluster admin credentials secret
+	MasterPasswordSecretArn *string `pulumi:"masterPasswordSecretArn"`
+	// ID of the KMS key used to encrypt the cluster admin credentials secret.
+	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The node type to be provisioned for the cluster.
@@ -296,11 +349,13 @@ type clusterState struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
+	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+	SnapshotArn *string `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
-	// The name of the snapshot from which to create the new cluster.
+	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -375,12 +430,22 @@ type ClusterState struct {
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+	// Conflicts with `masterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
-	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-	// contain at least one uppercase letter, one lowercase letter, and one number.
+	// Conflicts with `manageMasterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs, and it will be stored in the state file.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
+	// ARN of the cluster admin credentials secret
+	MasterPasswordSecretArn pulumi.StringPtrInput
+	// ID of the KMS key used to encrypt the cluster admin credentials secret.
+	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The node type to be provisioned for the cluster.
@@ -401,11 +466,13 @@ type ClusterState struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrInput
+	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+	SnapshotArn pulumi.StringPtrInput
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
-	// The name of the snapshot from which to create the new cluster.
+	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -476,12 +543,20 @@ type clusterArgs struct {
 	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+	// Conflicts with `masterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
-	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-	// contain at least one uppercase letter, one lowercase letter, and one number.
+	// Conflicts with `manageMasterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs, and it will be stored in the state file.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
+	// ID of the KMS key used to encrypt the cluster admin credentials secret.
+	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The node type to be provisioned for the cluster.
@@ -502,11 +577,13 @@ type clusterArgs struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
+	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+	SnapshotArn *string `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
-	// The name of the snapshot from which to create the new cluster.
+	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -570,12 +647,20 @@ type ClusterArgs struct {
 	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+	// Conflicts with `masterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
-	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-	// contain at least one uppercase letter, one lowercase letter, and one number.
+	// Conflicts with `manageMasterPassword`.
+	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Note that this may show up in logs, and it will be stored in the state file.
+	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
+	// ID of the KMS key used to encrypt the cluster admin credentials secret.
+	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
 	// The node type to be provisioned for the cluster.
@@ -596,11 +681,13 @@ type ClusterArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrInput
+	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+	SnapshotArn pulumi.StringPtrInput
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
 	// Configuration of automatic copy of snapshots from one region to another. Documented below.
 	SnapshotCopy ClusterSnapshotCopyPtrInput
-	// The name of the snapshot from which to create the new cluster.
+	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -865,16 +952,35 @@ func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceTrackName }).(pulumi.StringPtrOutput)
 }
 
+// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+// Conflicts with `masterPassword`.
+// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+func (o ClusterOutput) ManageMasterPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterPassword }).(pulumi.BoolPtrOutput)
+}
+
 // The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
 // Password for the master DB user.
-// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-// contain at least one uppercase letter, one lowercase letter, and one number.
+// Conflicts with `manageMasterPassword`.
+// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+// Note that this may show up in logs, and it will be stored in the state file.
+// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the cluster admin credentials secret
+func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretArn }).(pulumi.StringOutput)
+}
+
+// ID of the KMS key used to encrypt the cluster admin credentials secret.
+func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringOutput)
 }
 
 // Username for the master DB user.
@@ -921,6 +1027,11 @@ func (o ClusterOutput) SkipFinalSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.SkipFinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
+// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
+func (o ClusterOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotArn }).(pulumi.StringPtrOutput)
+}
+
 // The name of the cluster the source snapshot was created from.
 func (o ClusterOutput) SnapshotClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotClusterIdentifier }).(pulumi.StringPtrOutput)
@@ -931,7 +1042,7 @@ func (o ClusterOutput) SnapshotCopy() ClusterSnapshotCopyPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterSnapshotCopyPtrOutput { return v.SnapshotCopy }).(ClusterSnapshotCopyPtrOutput)
 }
 
-// The name of the snapshot from which to create the new cluster.
+// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
 }

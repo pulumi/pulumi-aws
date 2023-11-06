@@ -3059,6 +3059,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "detective/organizationAdminAccount",
+  "fqn": "pulumi_aws.detective",
+  "classes": {
+   "aws:detective/organizationAdminAccount:OrganizationAdminAccount": "OrganizationAdminAccount"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "detective/organizationConfiguration",
+  "fqn": "pulumi_aws.detective",
+  "classes": {
+   "aws:detective/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "devicefarm/devicePool",
   "fqn": "pulumi_aws.devicefarm",
   "classes": {
@@ -7427,6 +7443,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearch/serverlessLifecyclePolicy",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy": "ServerlessLifecyclePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opensearch/serverlessSecurityConfig",
   "fqn": "pulumi_aws.opensearch",
   "classes": {
@@ -8231,6 +8255,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/partner:Partner": "Partner"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/resourcePolicy",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -10327,6 +10359,14 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedaccess/endpoint",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/endpoint:Endpoint": "Endpoint"
   }
  },
  {

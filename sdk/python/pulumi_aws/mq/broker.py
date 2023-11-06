@@ -38,7 +38,7 @@ class BrokerArgs:
         """
         The set of arguments for constructing a Broker resource.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
@@ -110,7 +110,7 @@ class BrokerArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[str]:
         """
-        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         """
         return pulumi.get(self, "engine_version")
 
@@ -361,7 +361,7 @@ class _BrokerState:
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         :param pulumi.Input['BrokerEncryptionOptionsArgs'] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]] instances: List of information about allocated brokers (both active & standby).
                * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
@@ -548,7 +548,7 @@ class _BrokerState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         """
         return pulumi.get(self, "engine_version")
 
@@ -764,7 +764,7 @@ class Broker(pulumi.CustomResource):
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
-            engine_version="5.15.9",
+            engine_version="5.17.6",
             host_instance_type="mq.t2.micro",
             security_groups=[aws_security_group["test"]["id"]],
             users=[aws.mq.BrokerUserArgs(
@@ -786,7 +786,7 @@ class Broker(pulumi.CustomResource):
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
-            engine_version="5.15.9",
+            engine_version="5.17.6",
             storage_type="ebs",
             host_instance_type="mq.m5.large",
             security_groups=[aws_security_group["test"]["id"]],
@@ -814,7 +814,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         :param pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         :param pulumi.Input[pulumi.InputType['BrokerLogsArgs']] logs: Configuration block for the logging configuration of the broker. Detailed below.
@@ -856,7 +856,7 @@ class Broker(pulumi.CustomResource):
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
-            engine_version="5.15.9",
+            engine_version="5.17.6",
             host_instance_type="mq.t2.micro",
             security_groups=[aws_security_group["test"]["id"]],
             users=[aws.mq.BrokerUserArgs(
@@ -878,7 +878,7 @@ class Broker(pulumi.CustomResource):
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
-            engine_version="5.15.9",
+            engine_version="5.17.6",
             storage_type="ebs",
             host_instance_type="mq.m5.large",
             security_groups=[aws_security_group["test"]["id"]],
@@ -1019,7 +1019,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
-        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]] instances: List of information about allocated brokers (both active & standby).
                * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
@@ -1150,7 +1150,7 @@ class Broker(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         """
         return pulumi.get(self, "engine_version")
 

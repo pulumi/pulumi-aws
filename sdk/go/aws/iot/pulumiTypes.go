@@ -6750,8 +6750,10 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) RoleArn() pulumi.StringPtrOutput
 type TopicRuleErrorActionKafka struct {
 	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties map[string]string `pulumi:"clientProperties"`
-	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 	DestinationArn string `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify. Nested arguments below.
+	Headers []TopicRuleErrorActionKafkaHeader `pulumi:"headers"`
 	// The Kafka message key.
 	Key *string `pulumi:"key"`
 	// The Kafka message partition.
@@ -6774,8 +6776,10 @@ type TopicRuleErrorActionKafkaInput interface {
 type TopicRuleErrorActionKafkaArgs struct {
 	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
-	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify. Nested arguments below.
+	Headers TopicRuleErrorActionKafkaHeaderArrayInput `pulumi:"headers"`
 	// The Kafka message key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The Kafka message partition.
@@ -6884,9 +6888,14 @@ func (o TopicRuleErrorActionKafkaOutput) ClientProperties() pulumi.StringMapOutp
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
-// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 func (o TopicRuleErrorActionKafkaOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// The list of Kafka headers that you specify. Nested arguments below.
+func (o TopicRuleErrorActionKafkaOutput) Headers() TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) []TopicRuleErrorActionKafkaHeader { return v.Headers }).(TopicRuleErrorActionKafkaHeaderArrayOutput)
 }
 
 // The Kafka message key.
@@ -6944,7 +6953,7 @@ func (o TopicRuleErrorActionKafkaPtrOutput) ClientProperties() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
-// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 func (o TopicRuleErrorActionKafkaPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
 		if v == nil {
@@ -6952,6 +6961,16 @@ func (o TopicRuleErrorActionKafkaPtrOutput) DestinationArn() pulumi.StringPtrOut
 		}
 		return &v.DestinationArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The list of Kafka headers that you specify. Nested arguments below.
+func (o TopicRuleErrorActionKafkaPtrOutput) Headers() TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) []TopicRuleErrorActionKafkaHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(TopicRuleErrorActionKafkaHeaderArrayOutput)
 }
 
 // The Kafka message key.
@@ -6982,6 +7001,136 @@ func (o TopicRuleErrorActionKafkaPtrOutput) Topic() pulumi.StringPtrOutput {
 		}
 		return &v.Topic
 	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleErrorActionKafkaHeader struct {
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleErrorActionKafkaHeaderInput is an input type that accepts TopicRuleErrorActionKafkaHeaderArgs and TopicRuleErrorActionKafkaHeaderOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionKafkaHeaderInput` via:
+//
+//	TopicRuleErrorActionKafkaHeaderArgs{...}
+type TopicRuleErrorActionKafkaHeaderInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionKafkaHeaderOutput() TopicRuleErrorActionKafkaHeaderOutput
+	ToTopicRuleErrorActionKafkaHeaderOutputWithContext(context.Context) TopicRuleErrorActionKafkaHeaderOutput
+}
+
+type TopicRuleErrorActionKafkaHeaderArgs struct {
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleErrorActionKafkaHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionKafkaHeader)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArgs) ToTopicRuleErrorActionKafkaHeaderOutput() TopicRuleErrorActionKafkaHeaderOutput {
+	return i.ToTopicRuleErrorActionKafkaHeaderOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArgs) ToTopicRuleErrorActionKafkaHeaderOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionKafkaHeaderOutput)
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRuleErrorActionKafkaHeader] {
+	return pulumix.Output[TopicRuleErrorActionKafkaHeader]{
+		OutputState: i.ToTopicRuleErrorActionKafkaHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicRuleErrorActionKafkaHeaderArrayInput is an input type that accepts TopicRuleErrorActionKafkaHeaderArray and TopicRuleErrorActionKafkaHeaderArrayOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionKafkaHeaderArrayInput` via:
+//
+//	TopicRuleErrorActionKafkaHeaderArray{ TopicRuleErrorActionKafkaHeaderArgs{...} }
+type TopicRuleErrorActionKafkaHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionKafkaHeaderArrayOutput() TopicRuleErrorActionKafkaHeaderArrayOutput
+	ToTopicRuleErrorActionKafkaHeaderArrayOutputWithContext(context.Context) TopicRuleErrorActionKafkaHeaderArrayOutput
+}
+
+type TopicRuleErrorActionKafkaHeaderArray []TopicRuleErrorActionKafkaHeaderInput
+
+func (TopicRuleErrorActionKafkaHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionKafkaHeader)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArray) ToTopicRuleErrorActionKafkaHeaderArrayOutput() TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return i.ToTopicRuleErrorActionKafkaHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArray) ToTopicRuleErrorActionKafkaHeaderArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionKafkaHeaderArrayOutput)
+}
+
+func (i TopicRuleErrorActionKafkaHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleErrorActionKafkaHeader] {
+	return pulumix.Output[[]TopicRuleErrorActionKafkaHeader]{
+		OutputState: i.ToTopicRuleErrorActionKafkaHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicRuleErrorActionKafkaHeaderOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionKafkaHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionKafkaHeader)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionKafkaHeaderOutput) ToTopicRuleErrorActionKafkaHeaderOutput() TopicRuleErrorActionKafkaHeaderOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaHeaderOutput) ToTopicRuleErrorActionKafkaHeaderOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaHeaderOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRuleErrorActionKafkaHeader] {
+	return pulumix.Output[TopicRuleErrorActionKafkaHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the HTTP header.
+func (o TopicRuleErrorActionKafkaHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafkaHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleErrorActionKafkaHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafkaHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionKafkaHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionKafkaHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionKafkaHeader)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionKafkaHeaderArrayOutput) ToTopicRuleErrorActionKafkaHeaderArrayOutput() TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaHeaderArrayOutput) ToTopicRuleErrorActionKafkaHeaderArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleErrorActionKafkaHeader] {
+	return pulumix.Output[[]TopicRuleErrorActionKafkaHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicRuleErrorActionKafkaHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleErrorActionKafkaHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleErrorActionKafkaHeader {
+		return vs[0].([]TopicRuleErrorActionKafkaHeader)[vs[1].(int)]
+	}).(TopicRuleErrorActionKafkaHeaderOutput)
 }
 
 type TopicRuleErrorActionKinesis struct {
@@ -9620,8 +9769,10 @@ func (o TopicRuleIotEventArrayOutput) Index(i pulumi.IntInput) TopicRuleIotEvent
 type TopicRuleKafka struct {
 	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties map[string]string `pulumi:"clientProperties"`
-	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 	DestinationArn string `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify. Nested arguments below.
+	Headers []TopicRuleKafkaHeader `pulumi:"headers"`
 	// The Kafka message key.
 	Key *string `pulumi:"key"`
 	// The Kafka message partition.
@@ -9644,8 +9795,10 @@ type TopicRuleKafkaInput interface {
 type TopicRuleKafkaArgs struct {
 	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
 	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
-	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The list of Kafka headers that you specify. Nested arguments below.
+	Headers TopicRuleKafkaHeaderArrayInput `pulumi:"headers"`
 	// The Kafka message key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The Kafka message partition.
@@ -9728,9 +9881,14 @@ func (o TopicRuleKafkaOutput) ClientProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TopicRuleKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
 }
 
-// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
 func (o TopicRuleKafkaOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// The list of Kafka headers that you specify. Nested arguments below.
+func (o TopicRuleKafkaOutput) Headers() TopicRuleKafkaHeaderArrayOutput {
+	return o.ApplyT(func(v TopicRuleKafka) []TopicRuleKafkaHeader { return v.Headers }).(TopicRuleKafkaHeaderArrayOutput)
 }
 
 // The Kafka message key.
@@ -9772,6 +9930,136 @@ func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKafka {
 		return vs[0].([]TopicRuleKafka)[vs[1].(int)]
 	}).(TopicRuleKafkaOutput)
+}
+
+type TopicRuleKafkaHeader struct {
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleKafkaHeaderInput is an input type that accepts TopicRuleKafkaHeaderArgs and TopicRuleKafkaHeaderOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaHeaderInput` via:
+//
+//	TopicRuleKafkaHeaderArgs{...}
+type TopicRuleKafkaHeaderInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaHeaderOutput() TopicRuleKafkaHeaderOutput
+	ToTopicRuleKafkaHeaderOutputWithContext(context.Context) TopicRuleKafkaHeaderOutput
+}
+
+type TopicRuleKafkaHeaderArgs struct {
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleKafkaHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafkaHeader)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaHeaderArgs) ToTopicRuleKafkaHeaderOutput() TopicRuleKafkaHeaderOutput {
+	return i.ToTopicRuleKafkaHeaderOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaHeaderArgs) ToTopicRuleKafkaHeaderOutputWithContext(ctx context.Context) TopicRuleKafkaHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaHeaderOutput)
+}
+
+func (i TopicRuleKafkaHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRuleKafkaHeader] {
+	return pulumix.Output[TopicRuleKafkaHeader]{
+		OutputState: i.ToTopicRuleKafkaHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicRuleKafkaHeaderArrayInput is an input type that accepts TopicRuleKafkaHeaderArray and TopicRuleKafkaHeaderArrayOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaHeaderArrayInput` via:
+//
+//	TopicRuleKafkaHeaderArray{ TopicRuleKafkaHeaderArgs{...} }
+type TopicRuleKafkaHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaHeaderArrayOutput() TopicRuleKafkaHeaderArrayOutput
+	ToTopicRuleKafkaHeaderArrayOutputWithContext(context.Context) TopicRuleKafkaHeaderArrayOutput
+}
+
+type TopicRuleKafkaHeaderArray []TopicRuleKafkaHeaderInput
+
+func (TopicRuleKafkaHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafkaHeader)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaHeaderArray) ToTopicRuleKafkaHeaderArrayOutput() TopicRuleKafkaHeaderArrayOutput {
+	return i.ToTopicRuleKafkaHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaHeaderArray) ToTopicRuleKafkaHeaderArrayOutputWithContext(ctx context.Context) TopicRuleKafkaHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaHeaderArrayOutput)
+}
+
+func (i TopicRuleKafkaHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleKafkaHeader] {
+	return pulumix.Output[[]TopicRuleKafkaHeader]{
+		OutputState: i.ToTopicRuleKafkaHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicRuleKafkaHeaderOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafkaHeader)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaHeaderOutput) ToTopicRuleKafkaHeaderOutput() TopicRuleKafkaHeaderOutput {
+	return o
+}
+
+func (o TopicRuleKafkaHeaderOutput) ToTopicRuleKafkaHeaderOutputWithContext(ctx context.Context) TopicRuleKafkaHeaderOutput {
+	return o
+}
+
+func (o TopicRuleKafkaHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRuleKafkaHeader] {
+	return pulumix.Output[TopicRuleKafkaHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the HTTP header.
+func (o TopicRuleKafkaHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafkaHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleKafkaHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafkaHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleKafkaHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafkaHeader)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaHeaderArrayOutput) ToTopicRuleKafkaHeaderArrayOutput() TopicRuleKafkaHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaHeaderArrayOutput) ToTopicRuleKafkaHeaderArrayOutputWithContext(ctx context.Context) TopicRuleKafkaHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicRuleKafkaHeader] {
+	return pulumix.Output[[]TopicRuleKafkaHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicRuleKafkaHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKafkaHeader {
+		return vs[0].([]TopicRuleKafkaHeader)[vs[1].(int)]
+	}).(TopicRuleKafkaHeaderOutput)
 }
 
 type TopicRuleKinesis struct {
@@ -11286,6 +11574,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionIotEventsPtrInput)(nil)).Elem(), TopicRuleErrorActionIotEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaInput)(nil)).Elem(), TopicRuleErrorActionKafkaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaPtrInput)(nil)).Elem(), TopicRuleErrorActionKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaHeaderInput)(nil)).Elem(), TopicRuleErrorActionKafkaHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaHeaderArrayInput)(nil)).Elem(), TopicRuleErrorActionKafkaHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKinesisInput)(nil)).Elem(), TopicRuleErrorActionKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKinesisPtrInput)(nil)).Elem(), TopicRuleErrorActionKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionLambdaInput)(nil)).Elem(), TopicRuleErrorActionLambdaArgs{})
@@ -11318,6 +11608,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventArrayInput)(nil)).Elem(), TopicRuleIotEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaInput)(nil)).Elem(), TopicRuleKafkaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaArrayInput)(nil)).Elem(), TopicRuleKafkaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaHeaderInput)(nil)).Elem(), TopicRuleKafkaHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaHeaderArrayInput)(nil)).Elem(), TopicRuleKafkaHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisInput)(nil)).Elem(), TopicRuleKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisArrayInput)(nil)).Elem(), TopicRuleKinesisArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaInput)(nil)).Elem(), TopicRuleLambdaArgs{})
@@ -11412,6 +11704,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleErrorActionIotEventsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaHeaderOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKinesisOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKinesisPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionLambdaOutput{})
@@ -11444,6 +11738,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleIotEventArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaHeaderOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaOutput{})

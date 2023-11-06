@@ -2673,7 +2673,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
-    def backup_retention_period(self) -> pulumi.Output[Optional[int]]:
+    def backup_retention_period(self) -> pulumi.Output[int]:
         """
         Days to retain backups for. Default `1`
         """

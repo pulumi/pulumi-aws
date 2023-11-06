@@ -48,6 +48,7 @@ __all__ = [
     'TopicRuleErrorActionIotAnalytics',
     'TopicRuleErrorActionIotEvents',
     'TopicRuleErrorActionKafka',
+    'TopicRuleErrorActionKafkaHeader',
     'TopicRuleErrorActionKinesis',
     'TopicRuleErrorActionLambda',
     'TopicRuleErrorActionRepublish',
@@ -64,6 +65,7 @@ __all__ = [
     'TopicRuleIotAnalytic',
     'TopicRuleIotEvent',
     'TopicRuleKafka',
+    'TopicRuleKafkaHeader',
     'TopicRuleKinesis',
     'TopicRuleLambda',
     'TopicRuleRepublish',
@@ -2434,18 +2436,22 @@ class TopicRuleErrorActionKafka(dict):
                  client_properties: Mapping[str, str],
                  destination_arn: str,
                  topic: str,
+                 headers: Optional[Sequence['outputs.TopicRuleErrorActionKafkaHeader']] = None,
                  key: Optional[str] = None,
                  partition: Optional[str] = None):
         """
         :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param Sequence['TopicRuleErrorActionKafkaHeaderArgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param str key: The Kafka message key.
         :param str partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "topic", topic)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if partition is not None:
@@ -2463,7 +2469,7 @@ class TopicRuleErrorActionKafka(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> str:
         """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -2474,6 +2480,14 @@ class TopicRuleErrorActionKafka(dict):
         The Kafka topic for messages to be sent to the Kafka broker.
         """
         return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.TopicRuleErrorActionKafkaHeader']]:
+        """
+        The list of Kafka headers that you specify. Nested arguments below.
+        """
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
@@ -2490,6 +2504,35 @@ class TopicRuleErrorActionKafka(dict):
         The Kafka message partition.
         """
         return pulumi.get(self, "partition")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionKafkaHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the HTTP header.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -3378,18 +3421,22 @@ class TopicRuleKafka(dict):
                  client_properties: Mapping[str, str],
                  destination_arn: str,
                  topic: str,
+                 headers: Optional[Sequence['outputs.TopicRuleKafkaHeader']] = None,
                  key: Optional[str] = None,
                  partition: Optional[str] = None):
         """
         :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param Sequence['TopicRuleKafkaHeaderArgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param str key: The Kafka message key.
         :param str partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "topic", topic)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if partition is not None:
@@ -3407,7 +3454,7 @@ class TopicRuleKafka(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> str:
         """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -3418,6 +3465,14 @@ class TopicRuleKafka(dict):
         The Kafka topic for messages to be sent to the Kafka broker.
         """
         return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.TopicRuleKafkaHeader']]:
+        """
+        The list of Kafka headers that you specify. Nested arguments below.
+        """
+        return pulumi.get(self, "headers")
 
     @property
     @pulumi.getter
@@ -3434,6 +3489,35 @@ class TopicRuleKafka(dict):
         The Kafka message partition.
         """
         return pulumi.get(self, "partition")
+
+
+@pulumi.output_type
+class TopicRuleKafkaHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the HTTP header.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

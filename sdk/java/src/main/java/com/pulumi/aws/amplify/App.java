@@ -219,6 +219,50 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Custom Headers
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amplify.App;
+ * import com.pulumi.aws.amplify.AppArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new App(&#34;example&#34;, AppArgs.builder()        
+ *             .customHeaders(&#34;&#34;&#34;
+ *   customHeaders:
+ *     - pattern: &#39;**&#39;
+ *       headers:
+ *         - key: &#39;Strict-Transport-Security&#39;
+ *           value: &#39;max-age=31536000; includeSubDomains&#39;
+ *         - key: &#39;X-Frame-Options&#39;
+ *           value: &#39;SAMEORIGIN&#39;
+ *         - key: &#39;X-XSS-Protection&#39;
+ *           value: &#39;1; mode=block&#39;
+ *         - key: &#39;X-Content-Type-Options&#39;
+ *           value: &#39;nosniff&#39;
+ *         - key: &#39;Content-Security-Policy&#39;
+ *           value: &#34;default-src &#39;self&#39;&#34;
+ * 
+ *             &#34;&#34;&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -315,6 +359,20 @@ public class App extends com.pulumi.resources.CustomResource {
      */
     public Output<String> buildSpec() {
         return this.buildSpec;
+    }
+    /**
+     * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     * 
+     */
+    @Export(name="customHeaders", refs={String.class}, tree="[0]")
+    private Output<String> customHeaders;
+
+    /**
+     * @return The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+     * 
+     */
+    public Output<String> customHeaders() {
+        return this.customHeaders;
     }
     /**
      * Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.

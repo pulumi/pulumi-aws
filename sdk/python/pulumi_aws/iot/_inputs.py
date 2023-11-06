@@ -47,6 +47,7 @@ __all__ = [
     'TopicRuleErrorActionIotAnalyticsArgs',
     'TopicRuleErrorActionIotEventsArgs',
     'TopicRuleErrorActionKafkaArgs',
+    'TopicRuleErrorActionKafkaHeaderArgs',
     'TopicRuleErrorActionKinesisArgs',
     'TopicRuleErrorActionLambdaArgs',
     'TopicRuleErrorActionRepublishArgs',
@@ -63,6 +64,7 @@ __all__ = [
     'TopicRuleIotAnalyticArgs',
     'TopicRuleIotEventArgs',
     'TopicRuleKafkaArgs',
+    'TopicRuleKafkaHeaderArgs',
     'TopicRuleKinesisArgs',
     'TopicRuleLambdaArgs',
     'TopicRuleRepublishArgs',
@@ -2306,18 +2308,22 @@ class TopicRuleErrorActionKafkaArgs:
                  client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  destination_arn: pulumi.Input[str],
                  topic: pulumi.Input[str],
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param pulumi.Input[str] key: The Kafka message key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "topic", topic)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if partition is not None:
@@ -2339,7 +2345,7 @@ class TopicRuleErrorActionKafkaArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -2358,6 +2364,18 @@ class TopicRuleErrorActionKafkaArgs:
     @topic.setter
     def topic(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]:
+        """
+        The list of Kafka headers that you specify. Nested arguments below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter
@@ -2382,6 +2400,43 @@ class TopicRuleErrorActionKafkaArgs:
     @partition.setter
     def partition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionKafkaHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -3187,18 +3242,22 @@ class TopicRuleKafkaArgs:
                  client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  destination_arn: pulumi.Input[str],
                  topic: pulumi.Input[str],
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param pulumi.Input[str] key: The Kafka message key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
         pulumi.set(__self__, "client_properties", client_properties)
         pulumi.set(__self__, "destination_arn", destination_arn)
         pulumi.set(__self__, "topic", topic)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if partition is not None:
@@ -3220,7 +3279,7 @@ class TopicRuleKafkaArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -3239,6 +3298,18 @@ class TopicRuleKafkaArgs:
     @topic.setter
     def topic(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]:
+        """
+        The list of Kafka headers that you specify. Nested arguments below.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
 
     @property
     @pulumi.getter
@@ -3263,6 +3334,43 @@ class TopicRuleKafkaArgs:
     @partition.setter
     def partition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition", value)
+
+
+@pulumi.input_type
+class TopicRuleKafkaHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

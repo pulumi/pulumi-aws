@@ -9,18 +9,10 @@ in state.
 Fix for https://github.com/pulumi/pulumi-aws/issues/2307.
 
 diff --git a/internal/service/sqs/queue_redrive_policy.go b/internal/service/sqs/queue_redrive_policy.go
-index 7f55a8e6e8..d3a620f555 100644
+index 3d871cf4d7..30ced084d0 100644
 --- a/internal/service/sqs/queue_redrive_policy.go
 +++ b/internal/service/sqs/queue_redrive_policy.go
-@@ -8,6 +8,7 @@ import (
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
- 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
-+	"github.com/hashicorp/terraform-provider-aws/internal/verify"
- )
- 
- // @SDKResource("aws_sqs_queue_redrive_policy")
-@@ -31,9 +32,10 @@ func ResourceQueueRedrivePolicy() *schema.Resource {
+@@ -32,9 +32,10 @@ func resourceQueueRedrivePolicy() *schema.Resource {
  				ForceNew: true,
  			},
  			"redrive_policy": {

@@ -11,6 +11,7 @@ from .domain_saml_options import *
 from .get_domain import *
 from .get_serverless_access_policy import *
 from .get_serverless_collection import *
+from .get_serverless_lifecycle_policy import *
 from .get_serverless_security_config import *
 from .get_serverless_security_policy import *
 from .get_serverless_vpc_endpoint import *
@@ -20,6 +21,7 @@ from .package import *
 from .package_association import *
 from .serverless_access_policy import *
 from .serverless_collection import *
+from .serverless_lifecycle_policy import *
 from .serverless_security_config import *
 from .serverless_security_policy import *
 from .serverless_vpc_endpoint import *

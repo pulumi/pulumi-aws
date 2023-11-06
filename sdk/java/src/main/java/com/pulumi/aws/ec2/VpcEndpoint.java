@@ -322,7 +322,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.prefixListId;
     }
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      * 
      */
@@ -330,7 +330,7 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> privateDnsEnabled;
 
     /**
-     * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+     * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      * 
      */
@@ -410,14 +410,14 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+     * @return The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     public Output<List<String>> subnetIds() {

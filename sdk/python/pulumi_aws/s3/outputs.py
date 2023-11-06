@@ -54,6 +54,8 @@ __all__ = [
     'BucketObjectLockConfigurationRuleDefaultRetention',
     'BucketObjectLockConfigurationV2Rule',
     'BucketObjectLockConfigurationV2RuleDefaultRetention',
+    'BucketObjectv2OverrideProvider',
+    'BucketObjectv2OverrideProviderDefaultTags',
     'BucketOwnershipControlsRule',
     'BucketReplicationConfigRule',
     'BucketReplicationConfigRuleDeleteMarkerReplication',
@@ -2574,6 +2576,61 @@ class BucketObjectLockConfigurationV2RuleDefaultRetention(dict):
         Number of years that you want to specify for the default retention period.
         """
         return pulumi.get(self, "years")
+
+
+@pulumi.output_type
+class BucketObjectv2OverrideProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultTags":
+            suggest = "default_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketObjectv2OverrideProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketObjectv2OverrideProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketObjectv2OverrideProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_tags: Optional['outputs.BucketObjectv2OverrideProviderDefaultTags'] = None):
+        """
+        :param 'BucketObjectv2OverrideProviderDefaultTagsArgs' default_tags: Override the provider `default_tags` configuration block.
+        """
+        if default_tags is not None:
+            pulumi.set(__self__, "default_tags", default_tags)
+
+    @property
+    @pulumi.getter(name="defaultTags")
+    def default_tags(self) -> Optional['outputs.BucketObjectv2OverrideProviderDefaultTags']:
+        """
+        Override the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "default_tags")
+
+
+@pulumi.output_type
+class BucketObjectv2OverrideProviderDefaultTags(dict):
+    def __init__(__self__, *,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

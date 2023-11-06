@@ -8,6 +8,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,18 +17,18 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
 
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
-    @Import(name="rotationLambdaArn", required=true)
-    private Output<String> rotationLambdaArn;
+    @Import(name="rotationLambdaArn")
+    private @Nullable Output<String> rotationLambdaArn;
 
     /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret.
+     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
-    public Output<String> rotationLambdaArn() {
-        return this.rotationLambdaArn;
+    public Optional<Output<String>> rotationLambdaArn() {
+        return Optional.ofNullable(this.rotationLambdaArn);
     }
 
     /**
@@ -86,18 +88,18 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
+         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 
          */
-        public Builder rotationLambdaArn(Output<String> rotationLambdaArn) {
+        public Builder rotationLambdaArn(@Nullable Output<String> rotationLambdaArn) {
             $.rotationLambdaArn = rotationLambdaArn;
             return this;
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
+         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 
@@ -149,7 +151,6 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public SecretRotationArgs build() {
-            $.rotationLambdaArn = Objects.requireNonNull($.rotationLambdaArn, "expected parameter 'rotationLambdaArn' to be non-null");
             $.rotationRules = Objects.requireNonNull($.rotationRules, "expected parameter 'rotationRules' to be non-null");
             $.secretId = Objects.requireNonNull($.secretId, "expected parameter 'secretId' to be non-null");
             return $;

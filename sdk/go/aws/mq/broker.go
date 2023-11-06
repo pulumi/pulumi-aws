@@ -42,7 +42,7 @@ import (
 //					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
 //				},
 //				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.15.9"),
+//				EngineVersion:    pulumi.String("5.17.6"),
 //				HostInstanceType: pulumi.String("mq.t2.micro"),
 //				SecurityGroups: pulumi.StringArray{
 //					aws_security_group.Test.Id,
@@ -84,7 +84,7 @@ import (
 //					Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
 //				},
 //				EngineType:       pulumi.String("ActiveMQ"),
-//				EngineVersion:    pulumi.String("5.15.9"),
+//				EngineVersion:    pulumi.String("5.17.6"),
 //				StorageType:      pulumi.String("ebs"),
 //				HostInstanceType: pulumi.String("mq.m5.large"),
 //				SecurityGroups: pulumi.StringArray{
@@ -136,7 +136,7 @@ type Broker struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrOutput `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringOutput `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringOutput `pulumi:"hostInstanceType"`
@@ -243,7 +243,7 @@ type brokerState struct {
 	EncryptionOptions *BrokerEncryptionOptions `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType *string `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
@@ -305,7 +305,7 @@ type BrokerState struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrInput
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringPtrInput
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 	EngineVersion pulumi.StringPtrInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringPtrInput
@@ -369,7 +369,7 @@ type brokerArgs struct {
 	EncryptionOptions *BrokerEncryptionOptions `pulumi:"encryptionOptions"`
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType string `pulumi:"engineType"`
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 	EngineVersion string `pulumi:"engineVersion"`
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType string `pulumi:"hostInstanceType"`
@@ -413,7 +413,7 @@ type BrokerArgs struct {
 	EncryptionOptions BrokerEncryptionOptionsPtrInput
 	// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
 	EngineType pulumi.StringInput
-	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+	// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 	EngineVersion pulumi.StringInput
 	// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
 	HostInstanceType pulumi.StringInput
@@ -595,7 +595,7 @@ func (o BrokerOutput) EngineType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineType }).(pulumi.StringOutput)
 }
 
-// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
 func (o BrokerOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

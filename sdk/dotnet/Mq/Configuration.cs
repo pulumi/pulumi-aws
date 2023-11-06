@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Mq
     /// ",
     ///         Description = "Example Configuration",
     ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.15.0",
+    ///         EngineVersion = "5.17.6",
     ///     });
     /// 
     /// });
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Mq
     /// ",
     ///         Description = "Example Configuration",
     ///         EngineType = "RabbitMQ",
-    ///         EngineVersion = "3.11.16",
+    ///         EngineVersion = "3.11.20",
     ///     });
     /// 
     /// });

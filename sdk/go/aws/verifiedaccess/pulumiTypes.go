@@ -14,6 +14,567 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type EndpointLoadBalancerOptions struct {
+	LoadBalancerArn *string  `pulumi:"loadBalancerArn"`
+	Port            *int     `pulumi:"port"`
+	Protocol        *string  `pulumi:"protocol"`
+	SubnetIds       []string `pulumi:"subnetIds"`
+}
+
+// EndpointLoadBalancerOptionsInput is an input type that accepts EndpointLoadBalancerOptionsArgs and EndpointLoadBalancerOptionsOutput values.
+// You can construct a concrete instance of `EndpointLoadBalancerOptionsInput` via:
+//
+//	EndpointLoadBalancerOptionsArgs{...}
+type EndpointLoadBalancerOptionsInput interface {
+	pulumi.Input
+
+	ToEndpointLoadBalancerOptionsOutput() EndpointLoadBalancerOptionsOutput
+	ToEndpointLoadBalancerOptionsOutputWithContext(context.Context) EndpointLoadBalancerOptionsOutput
+}
+
+type EndpointLoadBalancerOptionsArgs struct {
+	LoadBalancerArn pulumi.StringPtrInput   `pulumi:"loadBalancerArn"`
+	Port            pulumi.IntPtrInput      `pulumi:"port"`
+	Protocol        pulumi.StringPtrInput   `pulumi:"protocol"`
+	SubnetIds       pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (EndpointLoadBalancerOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsOutput() EndpointLoadBalancerOptionsOutput {
+	return i.ToEndpointLoadBalancerOptionsOutputWithContext(context.Background())
+}
+
+func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointLoadBalancerOptionsOutput)
+}
+
+func (i EndpointLoadBalancerOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointLoadBalancerOptions] {
+	return pulumix.Output[EndpointLoadBalancerOptions]{
+		OutputState: i.ToEndpointLoadBalancerOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput {
+	return i.ToEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointLoadBalancerOptionsOutput).ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx)
+}
+
+// EndpointLoadBalancerOptionsPtrInput is an input type that accepts EndpointLoadBalancerOptionsArgs, EndpointLoadBalancerOptionsPtr and EndpointLoadBalancerOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointLoadBalancerOptionsPtrInput` via:
+//
+//	        EndpointLoadBalancerOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointLoadBalancerOptionsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput
+	ToEndpointLoadBalancerOptionsPtrOutputWithContext(context.Context) EndpointLoadBalancerOptionsPtrOutput
+}
+
+type endpointLoadBalancerOptionsPtrType EndpointLoadBalancerOptionsArgs
+
+func EndpointLoadBalancerOptionsPtr(v *EndpointLoadBalancerOptionsArgs) EndpointLoadBalancerOptionsPtrInput {
+	return (*endpointLoadBalancerOptionsPtrType)(v)
+}
+
+func (*endpointLoadBalancerOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (i *endpointLoadBalancerOptionsPtrType) ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput {
+	return i.ToEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointLoadBalancerOptionsPtrType) ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointLoadBalancerOptionsPtrOutput)
+}
+
+func (i *endpointLoadBalancerOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointLoadBalancerOptions] {
+	return pulumix.Output[*EndpointLoadBalancerOptions]{
+		OutputState: i.ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointLoadBalancerOptionsOutput struct{ *pulumi.OutputState }
+
+func (EndpointLoadBalancerOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsOutput() EndpointLoadBalancerOptionsOutput {
+	return o
+}
+
+func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsOutput {
+	return o
+}
+
+func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput {
+	return o.ToEndpointLoadBalancerOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointLoadBalancerOptions) *EndpointLoadBalancerOptions {
+		return &v
+	}).(EndpointLoadBalancerOptionsPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointLoadBalancerOptions] {
+	return pulumix.Output[EndpointLoadBalancerOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointLoadBalancerOptionsOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointLoadBalancerOptions) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointLoadBalancerOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointLoadBalancerOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointLoadBalancerOptions) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type EndpointLoadBalancerOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointLoadBalancerOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointLoadBalancerOptions)(nil)).Elem()
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointLoadBalancerOptions] {
+	return pulumix.Output[*EndpointLoadBalancerOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) Elem() EndpointLoadBalancerOptionsOutput {
+	return o.ApplyT(func(v *EndpointLoadBalancerOptions) EndpointLoadBalancerOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointLoadBalancerOptions
+		return ret
+	}).(EndpointLoadBalancerOptionsOutput)
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointLoadBalancerOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointLoadBalancerOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointLoadBalancerOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type EndpointNetworkInterfaceOptions struct {
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	Port               *int    `pulumi:"port"`
+	Protocol           *string `pulumi:"protocol"`
+}
+
+// EndpointNetworkInterfaceOptionsInput is an input type that accepts EndpointNetworkInterfaceOptionsArgs and EndpointNetworkInterfaceOptionsOutput values.
+// You can construct a concrete instance of `EndpointNetworkInterfaceOptionsInput` via:
+//
+//	EndpointNetworkInterfaceOptionsArgs{...}
+type EndpointNetworkInterfaceOptionsInput interface {
+	pulumi.Input
+
+	ToEndpointNetworkInterfaceOptionsOutput() EndpointNetworkInterfaceOptionsOutput
+	ToEndpointNetworkInterfaceOptionsOutputWithContext(context.Context) EndpointNetworkInterfaceOptionsOutput
+}
+
+type EndpointNetworkInterfaceOptionsArgs struct {
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (EndpointNetworkInterfaceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsOutput() EndpointNetworkInterfaceOptionsOutput {
+	return i.ToEndpointNetworkInterfaceOptionsOutputWithContext(context.Background())
+}
+
+func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOptionsOutput)
+}
+
+func (i EndpointNetworkInterfaceOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterfaceOptions] {
+	return pulumix.Output[EndpointNetworkInterfaceOptions]{
+		OutputState: i.ToEndpointNetworkInterfaceOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput {
+	return i.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOptionsOutput).ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx)
+}
+
+// EndpointNetworkInterfaceOptionsPtrInput is an input type that accepts EndpointNetworkInterfaceOptionsArgs, EndpointNetworkInterfaceOptionsPtr and EndpointNetworkInterfaceOptionsPtrOutput values.
+// You can construct a concrete instance of `EndpointNetworkInterfaceOptionsPtrInput` via:
+//
+//	        EndpointNetworkInterfaceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointNetworkInterfaceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput
+	ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Context) EndpointNetworkInterfaceOptionsPtrOutput
+}
+
+type endpointNetworkInterfaceOptionsPtrType EndpointNetworkInterfaceOptionsArgs
+
+func EndpointNetworkInterfaceOptionsPtr(v *EndpointNetworkInterfaceOptionsArgs) EndpointNetworkInterfaceOptionsPtrInput {
+	return (*endpointNetworkInterfaceOptionsPtrType)(v)
+}
+
+func (*endpointNetworkInterfaceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (i *endpointNetworkInterfaceOptionsPtrType) ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput {
+	return i.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointNetworkInterfaceOptionsPtrType) ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+func (i *endpointNetworkInterfaceOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointNetworkInterfaceOptions] {
+	return pulumix.Output[*EndpointNetworkInterfaceOptions]{
+		OutputState: i.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointNetworkInterfaceOptionsOutput struct{ *pulumi.OutputState }
+
+func (EndpointNetworkInterfaceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptionsOutput() EndpointNetworkInterfaceOptionsOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptionsOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput {
+	return o.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointNetworkInterfaceOptions) *EndpointNetworkInterfaceOptions {
+		return &v
+	}).(EndpointNetworkInterfaceOptionsPtrOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterfaceOptions] {
+	return pulumix.Output[EndpointNetworkInterfaceOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointNetworkInterfaceOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type EndpointNetworkInterfaceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointNetworkInterfaceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointNetworkInterfaceOptions)(nil)).Elem()
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsPtrOutput {
+	return o
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointNetworkInterfaceOptions] {
+	return pulumix.Output[*EndpointNetworkInterfaceOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) Elem() EndpointNetworkInterfaceOptionsOutput {
+	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) EndpointNetworkInterfaceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointNetworkInterfaceOptions
+		return ret
+	}).(EndpointNetworkInterfaceOptionsOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointNetworkInterfaceOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointNetworkInterfaceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointSseSpecification struct {
+	CustomerManagedKeyEnabled *bool   `pulumi:"customerManagedKeyEnabled"`
+	KmsKeyArn                 *string `pulumi:"kmsKeyArn"`
+}
+
+// EndpointSseSpecificationInput is an input type that accepts EndpointSseSpecificationArgs and EndpointSseSpecificationOutput values.
+// You can construct a concrete instance of `EndpointSseSpecificationInput` via:
+//
+//	EndpointSseSpecificationArgs{...}
+type EndpointSseSpecificationInput interface {
+	pulumi.Input
+
+	ToEndpointSseSpecificationOutput() EndpointSseSpecificationOutput
+	ToEndpointSseSpecificationOutputWithContext(context.Context) EndpointSseSpecificationOutput
+}
+
+type EndpointSseSpecificationArgs struct {
+	CustomerManagedKeyEnabled pulumi.BoolPtrInput   `pulumi:"customerManagedKeyEnabled"`
+	KmsKeyArn                 pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (EndpointSseSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointSseSpecification)(nil)).Elem()
+}
+
+func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationOutput() EndpointSseSpecificationOutput {
+	return i.ToEndpointSseSpecificationOutputWithContext(context.Background())
+}
+
+func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationOutputWithContext(ctx context.Context) EndpointSseSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointSseSpecificationOutput)
+}
+
+func (i EndpointSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointSseSpecification] {
+	return pulumix.Output[EndpointSseSpecification]{
+		OutputState: i.ToEndpointSseSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput {
+	return i.ToEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) EndpointSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointSseSpecificationOutput).ToEndpointSseSpecificationPtrOutputWithContext(ctx)
+}
+
+// EndpointSseSpecificationPtrInput is an input type that accepts EndpointSseSpecificationArgs, EndpointSseSpecificationPtr and EndpointSseSpecificationPtrOutput values.
+// You can construct a concrete instance of `EndpointSseSpecificationPtrInput` via:
+//
+//	        EndpointSseSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointSseSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput
+	ToEndpointSseSpecificationPtrOutputWithContext(context.Context) EndpointSseSpecificationPtrOutput
+}
+
+type endpointSseSpecificationPtrType EndpointSseSpecificationArgs
+
+func EndpointSseSpecificationPtr(v *EndpointSseSpecificationArgs) EndpointSseSpecificationPtrInput {
+	return (*endpointSseSpecificationPtrType)(v)
+}
+
+func (*endpointSseSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointSseSpecification)(nil)).Elem()
+}
+
+func (i *endpointSseSpecificationPtrType) ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput {
+	return i.ToEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointSseSpecificationPtrType) ToEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) EndpointSseSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointSseSpecificationPtrOutput)
+}
+
+func (i *endpointSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointSseSpecification] {
+	return pulumix.Output[*EndpointSseSpecification]{
+		OutputState: i.ToEndpointSseSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointSseSpecificationOutput struct{ *pulumi.OutputState }
+
+func (EndpointSseSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointSseSpecification)(nil)).Elem()
+}
+
+func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationOutput() EndpointSseSpecificationOutput {
+	return o
+}
+
+func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationOutputWithContext(ctx context.Context) EndpointSseSpecificationOutput {
+	return o
+}
+
+func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput {
+	return o.ToEndpointSseSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) EndpointSseSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointSseSpecification) *EndpointSseSpecification {
+		return &v
+	}).(EndpointSseSpecificationPtrOutput)
+}
+
+func (o EndpointSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointSseSpecification] {
+	return pulumix.Output[EndpointSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointSseSpecificationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointSseSpecification) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type EndpointSseSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointSseSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointSseSpecification)(nil)).Elem()
+}
+
+func (o EndpointSseSpecificationPtrOutput) ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput {
+	return o
+}
+
+func (o EndpointSseSpecificationPtrOutput) ToEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) EndpointSseSpecificationPtrOutput {
+	return o
+}
+
+func (o EndpointSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointSseSpecification] {
+	return pulumix.Output[*EndpointSseSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointSseSpecificationPtrOutput) Elem() EndpointSseSpecificationOutput {
+	return o.ApplyT(func(v *EndpointSseSpecification) EndpointSseSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointSseSpecification
+		return ret
+	}).(EndpointSseSpecificationOutput)
+}
+
+func (o EndpointSseSpecificationPtrOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointSseSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedKeyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointSseSpecificationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointSseSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceLoggingConfigurationAccessLogs struct {
 	// A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
 	CloudwatchLogs *InstanceLoggingConfigurationAccessLogsCloudwatchLogs `pulumi:"cloudwatchLogs"`
@@ -1395,6 +1956,12 @@ func (o TrustProviderOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointLoadBalancerOptionsInput)(nil)).Elem(), EndpointLoadBalancerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointLoadBalancerOptionsPtrInput)(nil)).Elem(), EndpointLoadBalancerOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceOptionsInput)(nil)).Elem(), EndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceOptionsPtrInput)(nil)).Elem(), EndpointNetworkInterfaceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSseSpecificationInput)(nil)).Elem(), EndpointSseSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSseSpecificationPtrInput)(nil)).Elem(), EndpointSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsPtrInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLoggingConfigurationAccessLogsCloudwatchLogsInput)(nil)).Elem(), InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs{})
@@ -1409,6 +1976,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderDeviceOptionsPtrInput)(nil)).Elem(), TrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustProviderOidcOptionsPtrInput)(nil)).Elem(), TrustProviderOidcOptionsArgs{})
+	pulumi.RegisterOutputType(EndpointLoadBalancerOptionsOutput{})
+	pulumi.RegisterOutputType(EndpointLoadBalancerOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointNetworkInterfaceOptionsOutput{})
+	pulumi.RegisterOutputType(EndpointNetworkInterfaceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointSseSpecificationOutput{})
+	pulumi.RegisterOutputType(EndpointSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput{})

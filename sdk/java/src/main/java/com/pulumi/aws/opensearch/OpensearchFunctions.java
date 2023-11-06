@@ -10,6 +10,8 @@ import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessAccessPolicyPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessCollectionPlainArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigPlainArgs;
 import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityPolicyArgs;
@@ -19,6 +21,7 @@ import com.pulumi.aws.opensearch.inputs.GetServerlessVpcEndpointPlainArgs;
 import com.pulumi.aws.opensearch.outputs.GetDomainResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessAccessPolicyResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessCollectionResult;
+import com.pulumi.aws.opensearch.outputs.GetServerlessLifecyclePolicyResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityPolicyResult;
 import com.pulumi.aws.opensearch.outputs.GetServerlessVpcEndpointResult;
@@ -560,6 +563,162 @@ public final class OpensearchFunctions {
      */
     public static CompletableFuture<GetServerlessCollectionResult> getServerlessCollectionPlain(GetServerlessCollectionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:opensearch/getServerlessCollection:getServerlessCollection", TypeShape.of(GetServerlessCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
+     *             .name(&#34;example-lifecycle-policy&#34;)
+     *             .type(&#34;retention&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args) {
+        return getServerlessLifecyclePolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
+     *             .name(&#34;example-lifecycle-policy&#34;)
+     *             .type(&#34;retention&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args) {
+        return getServerlessLifecyclePolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
+     *             .name(&#34;example-lifecycle-policy&#34;)
+     *             .type(&#34;retention&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", TypeShape.of(GetServerlessLifecyclePolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.opensearch.OpensearchFunctions;
+     * import com.pulumi.aws.opensearch.inputs.GetServerlessLifecyclePolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OpensearchFunctions.getServerlessLifecyclePolicy(GetServerlessLifecyclePolicyArgs.builder()
+     *             .name(&#34;example-lifecycle-policy&#34;)
+     *             .type(&#34;retention&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServerlessLifecyclePolicyResult> getServerlessLifecyclePolicyPlain(GetServerlessLifecyclePolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", TypeShape.of(GetServerlessLifecyclePolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS OpenSearch Serverless Security Config.

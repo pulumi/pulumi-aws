@@ -15,6 +15,7 @@ namespace Pulumi.Aws.RedShift
     /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -30,6 +31,28 @@ namespace Pulumi.Aws.RedShift
     ///         ClusterType = "single-node",
     ///         DatabaseName = "mydb",
     ///         MasterPassword = "Mustbe8characters",
+    ///         MasterUsername = "exampleuser",
+    ///         NodeType = "dc1.large",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Managed Credentials
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.RedShift.Cluster("example", new()
+    ///     {
+    ///         ClusterIdentifier = "tf-redshift-cluster",
+    ///         ClusterType = "single-node",
+    ///         DatabaseName = "mydb",
+    ///         ManageMasterPassword = true,
     ///         MasterUsername = "exampleuser",
     ///         NodeType = "dc1.large",
     ///     });
@@ -221,6 +244,14 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> MaintenanceTrackName { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        /// Conflicts with `master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// </summary>
+        [Output("manageMasterPassword")]
+        public Output<bool?> ManageMasterPassword { get; private set; } = null!;
+
+        /// <summary>
         /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         /// </summary>
         [Output("manualSnapshotRetentionPeriod")]
@@ -228,11 +259,25 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        /// contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Conflicts with `manage_master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Note that this may show up in logs, and it will be stored in the state file.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the cluster admin credentials secret
+        /// </summary>
+        [Output("masterPasswordSecretArn")]
+        public Output<string> MasterPasswordSecretArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the KMS key used to encrypt the cluster admin credentials secret.
+        /// </summary>
+        [Output("masterPasswordSecretKmsKeyId")]
+        public Output<string> MasterPasswordSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Username for the master DB user.
@@ -287,6 +332,12 @@ namespace Pulumi.Aws.RedShift
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// </summary>
+        [Output("snapshotArn")]
+        public Output<string?> SnapshotArn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the cluster the source snapshot was created from.
         /// </summary>
         [Output("snapshotClusterIdentifier")]
@@ -299,7 +350,7 @@ namespace Pulumi.Aws.RedShift
         public Output<Outputs.ClusterSnapshotCopy?> SnapshotCopy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
@@ -528,6 +579,14 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        /// Conflicts with `master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// </summary>
+        [Input("manageMasterPassword")]
+        public Input<bool>? ManageMasterPassword { get; set; }
+
+        /// <summary>
         /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
@@ -538,8 +597,10 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        /// contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Conflicts with `manage_master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Note that this may show up in logs, and it will be stored in the state file.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -550,6 +611,12 @@ namespace Pulumi.Aws.RedShift
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// ID of the KMS key used to encrypt the cluster admin credentials secret.
+        /// </summary>
+        [Input("masterPasswordSecretKmsKeyId")]
+        public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
 
         /// <summary>
         /// Username for the master DB user.
@@ -604,6 +671,12 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// </summary>
+        [Input("snapshotArn")]
+        public Input<string>? SnapshotArn { get; set; }
+
+        /// <summary>
         /// The name of the cluster the source snapshot was created from.
         /// </summary>
         [Input("snapshotClusterIdentifier")]
@@ -616,7 +689,7 @@ namespace Pulumi.Aws.RedShift
         public Input<Inputs.ClusterSnapshotCopyArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
@@ -838,6 +911,14 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
+        /// Conflicts with `master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// </summary>
+        [Input("manageMasterPassword")]
+        public Input<bool>? ManageMasterPassword { get; set; }
+
+        /// <summary>
         /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         /// </summary>
         [Input("manualSnapshotRetentionPeriod")]
@@ -848,8 +929,10 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// Password for the master DB user.
-        /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-        /// contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Conflicts with `manage_master_password`.
+        /// One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        /// Note that this may show up in logs, and it will be stored in the state file.
+        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -860,6 +943,18 @@ namespace Pulumi.Aws.RedShift
                 _masterPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// ARN of the cluster admin credentials secret
+        /// </summary>
+        [Input("masterPasswordSecretArn")]
+        public Input<string>? MasterPasswordSecretArn { get; set; }
+
+        /// <summary>
+        /// ID of the KMS key used to encrypt the cluster admin credentials secret.
+        /// </summary>
+        [Input("masterPasswordSecretKmsKeyId")]
+        public Input<string>? MasterPasswordSecretKmsKeyId { get; set; }
 
         /// <summary>
         /// Username for the master DB user.
@@ -914,6 +1009,12 @@ namespace Pulumi.Aws.RedShift
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
+        /// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+        /// </summary>
+        [Input("snapshotArn")]
+        public Input<string>? SnapshotArn { get; set; }
+
+        /// <summary>
         /// The name of the cluster the source snapshot was created from.
         /// </summary>
         [Input("snapshotClusterIdentifier")]
@@ -926,7 +1027,7 @@ namespace Pulumi.Aws.RedShift
         public Input<Inputs.ClusterSnapshotCopyGetArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
-        /// The name of the snapshot from which to create the new cluster.
+        /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }

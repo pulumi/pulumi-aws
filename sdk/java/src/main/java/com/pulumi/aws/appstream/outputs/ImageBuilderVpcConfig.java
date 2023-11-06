@@ -17,7 +17,7 @@ public final class ImageBuilderVpcConfig {
      */
     private @Nullable List<String> securityGroupIds;
     /**
-     * @return Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * @return Identifier of the subnet to which a network interface is attached from the image builder instance.
      * 
      */
     private @Nullable List<String> subnetIds;
@@ -31,7 +31,7 @@ public final class ImageBuilderVpcConfig {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
-     * @return Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+     * @return Identifier of the subnet to which a network interface is attached from the image builder instance.
      * 
      */
     public List<String> subnetIds() {

@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.iot.inputs;
 
+import com.pulumi.aws.iot.inputs.TopicRuleErrorActionKafkaHeaderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,18 +34,33 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+     * The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
      * 
      */
     @Import(name="destinationArn", required=true)
     private Output<String> destinationArn;
 
     /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
      * 
      */
     public Output<String> destinationArn() {
         return this.destinationArn;
+    }
+
+    /**
+     * The list of Kafka headers that you specify. Nested arguments below.
+     * 
+     */
+    @Import(name="headers")
+    private @Nullable Output<List<TopicRuleErrorActionKafkaHeaderArgs>> headers;
+
+    /**
+     * @return The list of Kafka headers that you specify. Nested arguments below.
+     * 
+     */
+    public Optional<Output<List<TopicRuleErrorActionKafkaHeaderArgs>>> headers() {
+        return Optional.ofNullable(this.headers);
     }
 
     /**
@@ -96,6 +113,7 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
     private TopicRuleErrorActionKafkaArgs(TopicRuleErrorActionKafkaArgs $) {
         this.clientProperties = $.clientProperties;
         this.destinationArn = $.destinationArn;
+        this.headers = $.headers;
         this.key = $.key;
         this.partition = $.partition;
         this.topic = $.topic;
@@ -141,7 +159,7 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
          * 
          * @return builder
          * 
@@ -152,13 +170,44 @@ public final class TopicRuleErrorActionKafkaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+         * @param destinationArn The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
          * 
          * @return builder
          * 
          */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
+        }
+
+        /**
+         * @param headers The list of Kafka headers that you specify. Nested arguments below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(@Nullable Output<List<TopicRuleErrorActionKafkaHeaderArgs>> headers) {
+            $.headers = headers;
+            return this;
+        }
+
+        /**
+         * @param headers The list of Kafka headers that you specify. Nested arguments below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(List<TopicRuleErrorActionKafkaHeaderArgs> headers) {
+            return headers(Output.of(headers));
+        }
+
+        /**
+         * @param headers The list of Kafka headers that you specify. Nested arguments below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder headers(TopicRuleErrorActionKafkaHeaderArgs... headers) {
+            return headers(List.of(headers));
         }
 
         /**

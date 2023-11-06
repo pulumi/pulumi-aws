@@ -4,6 +4,7 @@
 package com.pulumi.aws.s3;
 
 import com.pulumi.asset.AssetOrArchive;
+import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -308,6 +309,21 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Override provider-level configuration options. See Override Provider below for more details.
+     * 
+     */
+    @Import(name="overrideProvider")
+    private @Nullable Output<BucketObjectv2OverrideProviderArgs> overrideProvider;
+
+    /**
+     * @return Override provider-level configuration options. See Override Provider below for more details.
+     * 
+     */
+    public Optional<Output<BucketObjectv2OverrideProviderArgs>> overrideProvider() {
+        return Optional.ofNullable(this.overrideProvider);
+    }
+
+    /**
      * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
@@ -427,6 +443,7 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
         this.objectLockLegalHoldStatus = $.objectLockLegalHoldStatus;
         this.objectLockMode = $.objectLockMode;
         this.objectLockRetainUntilDate = $.objectLockRetainUntilDate;
+        this.overrideProvider = $.overrideProvider;
         this.serverSideEncryption = $.serverSideEncryption;
         this.source = $.source;
         this.sourceHash = $.sourceHash;
@@ -854,6 +871,27 @@ public final class BucketObjectv2Args extends com.pulumi.resources.ResourceArgs 
          */
         public Builder objectLockRetainUntilDate(String objectLockRetainUntilDate) {
             return objectLockRetainUntilDate(Output.of(objectLockRetainUntilDate));
+        }
+
+        /**
+         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrideProvider(@Nullable Output<BucketObjectv2OverrideProviderArgs> overrideProvider) {
+            $.overrideProvider = overrideProvider;
+            return this;
+        }
+
+        /**
+         * @param overrideProvider Override provider-level configuration options. See Override Provider below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder overrideProvider(BucketObjectv2OverrideProviderArgs overrideProvider) {
+            return overrideProvider(Output.of(overrideProvider));
         }
 
         /**
