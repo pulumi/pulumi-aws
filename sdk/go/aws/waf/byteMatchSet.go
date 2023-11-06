@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Byte Match Set Resource
@@ -163,12 +162,6 @@ func (i *ByteMatchSet) ToByteMatchSetOutputWithContext(ctx context.Context) Byte
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetOutput)
 }
 
-func (i *ByteMatchSet) ToOutput(ctx context.Context) pulumix.Output[*ByteMatchSet] {
-	return pulumix.Output[*ByteMatchSet]{
-		OutputState: i.ToByteMatchSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ByteMatchSetArrayInput is an input type that accepts ByteMatchSetArray and ByteMatchSetArrayOutput values.
 // You can construct a concrete instance of `ByteMatchSetArrayInput` via:
 //
@@ -192,12 +185,6 @@ func (i ByteMatchSetArray) ToByteMatchSetArrayOutput() ByteMatchSetArrayOutput {
 
 func (i ByteMatchSetArray) ToByteMatchSetArrayOutputWithContext(ctx context.Context) ByteMatchSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetArrayOutput)
-}
-
-func (i ByteMatchSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ByteMatchSet] {
-	return pulumix.Output[[]*ByteMatchSet]{
-		OutputState: i.ToByteMatchSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ByteMatchSetMapInput is an input type that accepts ByteMatchSetMap and ByteMatchSetMapOutput values.
@@ -225,12 +212,6 @@ func (i ByteMatchSetMap) ToByteMatchSetMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetMapOutput)
 }
 
-func (i ByteMatchSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ByteMatchSet] {
-	return pulumix.Output[map[string]*ByteMatchSet]{
-		OutputState: i.ToByteMatchSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ByteMatchSetOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetOutput) ElementType() reflect.Type {
@@ -243,12 +224,6 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutput() ByteMatchSetOutput {
 
 func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context) ByteMatchSetOutput {
 	return o
-}
-
-func (o ByteMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ByteMatchSet] {
-	return pulumix.Output[*ByteMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the bytes (typically a string that corresponds
@@ -277,12 +252,6 @@ func (o ByteMatchSetArrayOutput) ToByteMatchSetArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ByteMatchSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ByteMatchSet] {
-	return pulumix.Output[[]*ByteMatchSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ByteMatchSetArrayOutput) Index(i pulumi.IntInput) ByteMatchSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ByteMatchSet {
 		return vs[0].([]*ByteMatchSet)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o ByteMatchSetMapOutput) ToByteMatchSetMapOutput() ByteMatchSetMapOutput {
 
 func (o ByteMatchSetMapOutput) ToByteMatchSetMapOutputWithContext(ctx context.Context) ByteMatchSetMapOutput {
 	return o
-}
-
-func (o ByteMatchSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ByteMatchSet] {
-	return pulumix.Output[map[string]*ByteMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ByteMatchSetMapOutput) MapIndex(k pulumi.StringInput) ByteMatchSetOutput {

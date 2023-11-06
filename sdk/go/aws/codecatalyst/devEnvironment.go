@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CodeCatalyst Dev Environment.
@@ -231,12 +230,6 @@ func (i *DevEnvironment) ToDevEnvironmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentOutput)
 }
 
-func (i *DevEnvironment) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironment] {
-	return pulumix.Output[*DevEnvironment]{
-		OutputState: i.ToDevEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevEnvironmentArrayInput is an input type that accepts DevEnvironmentArray and DevEnvironmentArrayOutput values.
 // You can construct a concrete instance of `DevEnvironmentArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i DevEnvironmentArray) ToDevEnvironmentArrayOutput() DevEnvironmentArrayOu
 
 func (i DevEnvironmentArray) ToDevEnvironmentArrayOutputWithContext(ctx context.Context) DevEnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentArrayOutput)
-}
-
-func (i DevEnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*DevEnvironment] {
-	return pulumix.Output[[]*DevEnvironment]{
-		OutputState: i.ToDevEnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevEnvironmentMapInput is an input type that accepts DevEnvironmentMap and DevEnvironmentMapOutput values.
@@ -293,12 +280,6 @@ func (i DevEnvironmentMap) ToDevEnvironmentMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentMapOutput)
 }
 
-func (i DevEnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEnvironment] {
-	return pulumix.Output[map[string]*DevEnvironment]{
-		OutputState: i.ToDevEnvironmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (DevEnvironmentOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o DevEnvironmentOutput) ToDevEnvironmentOutput() DevEnvironmentOutput {
 
 func (o DevEnvironmentOutput) ToDevEnvironmentOutputWithContext(ctx context.Context) DevEnvironmentOutput {
 	return o
-}
-
-func (o DevEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironment] {
-	return pulumix.Output[*DevEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEnvironmentOutput) Alias() pulumi.StringPtrOutput {
@@ -374,12 +349,6 @@ func (o DevEnvironmentArrayOutput) ToDevEnvironmentArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o DevEnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DevEnvironment] {
-	return pulumix.Output[[]*DevEnvironment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevEnvironmentArrayOutput) Index(i pulumi.IntInput) DevEnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevEnvironment {
 		return vs[0].([]*DevEnvironment)[vs[1].(int)]
@@ -398,12 +367,6 @@ func (o DevEnvironmentMapOutput) ToDevEnvironmentMapOutput() DevEnvironmentMapOu
 
 func (o DevEnvironmentMapOutput) ToDevEnvironmentMapOutputWithContext(ctx context.Context) DevEnvironmentMapOutput {
 	return o
-}
-
-func (o DevEnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEnvironment] {
-	return pulumix.Output[map[string]*DevEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEnvironmentMapOutput) MapIndex(k pulumi.StringInput) DevEnvironmentOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM OpenID Connect provider.
@@ -201,12 +200,6 @@ func (i *OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderOutput)
 }
 
-func (i *OpenIdConnectProvider) ToOutput(ctx context.Context) pulumix.Output[*OpenIdConnectProvider] {
-	return pulumix.Output[*OpenIdConnectProvider]{
-		OutputState: i.ToOpenIdConnectProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenIdConnectProviderArrayInput is an input type that accepts OpenIdConnectProviderArray and OpenIdConnectProviderArrayOutput values.
 // You can construct a concrete instance of `OpenIdConnectProviderArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutput() OpenIdC
 
 func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutputWithContext(ctx context.Context) OpenIdConnectProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderArrayOutput)
-}
-
-func (i OpenIdConnectProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*OpenIdConnectProvider] {
-	return pulumix.Output[[]*OpenIdConnectProvider]{
-		OutputState: i.ToOpenIdConnectProviderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OpenIdConnectProviderMapInput is an input type that accepts OpenIdConnectProviderMap and OpenIdConnectProviderMapOutput values.
@@ -263,12 +250,6 @@ func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OpenIdConnectProviderMapOutput)
 }
 
-func (i OpenIdConnectProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenIdConnectProvider] {
-	return pulumix.Output[map[string]*OpenIdConnectProvider]{
-		OutputState: i.ToOpenIdConnectProviderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenIdConnectProviderOutput struct{ *pulumi.OutputState }
 
 func (OpenIdConnectProviderOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutput() OpenIdConne
 
 func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ctx context.Context) OpenIdConnectProviderOutput {
 	return o
-}
-
-func (o OpenIdConnectProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenIdConnectProvider] {
-	return pulumix.Output[*OpenIdConnectProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN assigned by AWS for this provider.
@@ -335,12 +310,6 @@ func (o OpenIdConnectProviderArrayOutput) ToOpenIdConnectProviderArrayOutputWith
 	return o
 }
 
-func (o OpenIdConnectProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OpenIdConnectProvider] {
-	return pulumix.Output[[]*OpenIdConnectProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OpenIdConnectProviderArrayOutput) Index(i pulumi.IntInput) OpenIdConnectProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenIdConnectProvider {
 		return vs[0].([]*OpenIdConnectProvider)[vs[1].(int)]
@@ -359,12 +328,6 @@ func (o OpenIdConnectProviderMapOutput) ToOpenIdConnectProviderMapOutput() OpenI
 
 func (o OpenIdConnectProviderMapOutput) ToOpenIdConnectProviderMapOutputWithContext(ctx context.Context) OpenIdConnectProviderMapOutput {
 	return o
-}
-
-func (o OpenIdConnectProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenIdConnectProvider] {
-	return pulumix.Output[map[string]*OpenIdConnectProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenIdConnectProviderMapOutput) MapIndex(k pulumi.StringInput) OpenIdConnectProviderOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Direct Connect Connection with a LAG.
@@ -155,12 +154,6 @@ func (i *ConnectionAssociation) ToConnectionAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationOutput)
 }
 
-func (i *ConnectionAssociation) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAssociation] {
-	return pulumix.Output[*ConnectionAssociation]{
-		OutputState: i.ToConnectionAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionAssociationArrayInput is an input type that accepts ConnectionAssociationArray and ConnectionAssociationArrayOutput values.
 // You can construct a concrete instance of `ConnectionAssociationArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutput() Connect
 
 func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutputWithContext(ctx context.Context) ConnectionAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationArrayOutput)
-}
-
-func (i ConnectionAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionAssociation] {
-	return pulumix.Output[[]*ConnectionAssociation]{
-		OutputState: i.ToConnectionAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectionAssociationMapInput is an input type that accepts ConnectionAssociationMap and ConnectionAssociationMapOutput values.
@@ -217,12 +204,6 @@ func (i ConnectionAssociationMap) ToConnectionAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationMapOutput)
 }
 
-func (i ConnectionAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionAssociation] {
-	return pulumix.Output[map[string]*ConnectionAssociation]{
-		OutputState: i.ToConnectionAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o ConnectionAssociationOutput) ToConnectionAssociationOutput() ConnectionA
 
 func (o ConnectionAssociationOutput) ToConnectionAssociationOutputWithContext(ctx context.Context) ConnectionAssociationOutput {
 	return o
-}
-
-func (o ConnectionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAssociation] {
-	return pulumix.Output[*ConnectionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the connection.
@@ -267,12 +242,6 @@ func (o ConnectionAssociationArrayOutput) ToConnectionAssociationArrayOutputWith
 	return o
 }
 
-func (o ConnectionAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionAssociation] {
-	return pulumix.Output[[]*ConnectionAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionAssociation {
 		return vs[0].([]*ConnectionAssociation)[vs[1].(int)]
@@ -291,12 +260,6 @@ func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutput() Conne
 
 func (o ConnectionAssociationMapOutput) ToConnectionAssociationMapOutputWithContext(ctx context.Context) ConnectionAssociationMapOutput {
 	return o
-}
-
-func (o ConnectionAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionAssociation] {
-	return pulumix.Output[map[string]*ConnectionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionAssociationMapOutput) MapIndex(k pulumi.StringInput) ConnectionAssociationOutput {

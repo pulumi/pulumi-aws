@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup Global Settings resource.
@@ -139,12 +138,6 @@ func (i *GlobalSettings) ToGlobalSettingsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSettingsOutput)
 }
 
-func (i *GlobalSettings) ToOutput(ctx context.Context) pulumix.Output[*GlobalSettings] {
-	return pulumix.Output[*GlobalSettings]{
-		OutputState: i.ToGlobalSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalSettingsArrayInput is an input type that accepts GlobalSettingsArray and GlobalSettingsArrayOutput values.
 // You can construct a concrete instance of `GlobalSettingsArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i GlobalSettingsArray) ToGlobalSettingsArrayOutput() GlobalSettingsArrayOu
 
 func (i GlobalSettingsArray) ToGlobalSettingsArrayOutputWithContext(ctx context.Context) GlobalSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSettingsArrayOutput)
-}
-
-func (i GlobalSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalSettings] {
-	return pulumix.Output[[]*GlobalSettings]{
-		OutputState: i.ToGlobalSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalSettingsMapInput is an input type that accepts GlobalSettingsMap and GlobalSettingsMapOutput values.
@@ -201,12 +188,6 @@ func (i GlobalSettingsMap) ToGlobalSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSettingsMapOutput)
 }
 
-func (i GlobalSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalSettings] {
-	return pulumix.Output[map[string]*GlobalSettings]{
-		OutputState: i.ToGlobalSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalSettingsOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o GlobalSettingsOutput) ToGlobalSettingsOutput() GlobalSettingsOutput {
 
 func (o GlobalSettingsOutput) ToGlobalSettingsOutputWithContext(ctx context.Context) GlobalSettingsOutput {
 	return o
-}
-
-func (o GlobalSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalSettings] {
-	return pulumix.Output[*GlobalSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of resources along with the opt-in preferences for the account.
@@ -246,12 +221,6 @@ func (o GlobalSettingsArrayOutput) ToGlobalSettingsArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o GlobalSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalSettings] {
-	return pulumix.Output[[]*GlobalSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalSettingsArrayOutput) Index(i pulumi.IntInput) GlobalSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalSettings {
 		return vs[0].([]*GlobalSettings)[vs[1].(int)]
@@ -270,12 +239,6 @@ func (o GlobalSettingsMapOutput) ToGlobalSettingsMapOutput() GlobalSettingsMapOu
 
 func (o GlobalSettingsMapOutput) ToGlobalSettingsMapOutputWithContext(ctx context.Context) GlobalSettingsMapOutput {
 	return o
-}
-
-func (o GlobalSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalSettings] {
-	return pulumix.Output[map[string]*GlobalSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalSettingsMapOutput) MapIndex(k pulumi.StringInput) GlobalSettingsOutput {

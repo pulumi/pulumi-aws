@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -103,12 +102,6 @@ func (o GetConfigurationProfilesResultOutput) ToGetConfigurationProfilesResultOu
 
 func (o GetConfigurationProfilesResultOutput) ToGetConfigurationProfilesResultOutputWithContext(ctx context.Context) GetConfigurationProfilesResultOutput {
 	return o
-}
-
-func (o GetConfigurationProfilesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationProfilesResult] {
-	return pulumix.Output[GetConfigurationProfilesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationProfilesResultOutput) ApplicationId() pulumi.StringOutput {

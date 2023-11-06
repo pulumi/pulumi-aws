@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Connection resource.
@@ -274,12 +273,6 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-func (i *Connection) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
-	return pulumix.Output[*Connection]{
-		OutputState: i.ToConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i ConnectionArray) ToConnectionArrayOutput() ConnectionArrayOutput {
 
 func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context) ConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionArrayOutput)
-}
-
-func (i ConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
-	return pulumix.Output[[]*Connection]{
-		OutputState: i.ToConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
@@ -336,12 +323,6 @@ func (i ConnectionMap) ToConnectionMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMapOutput)
 }
 
-func (i ConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
-	return pulumix.Output[map[string]*Connection]{
-		OutputState: i.ToConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o ConnectionOutput) ToConnectionOutput() ConnectionOutput {
 
 func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) ConnectionOutput {
 	return o
-}
-
-func (o ConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Connection] {
-	return pulumix.Output[*Connection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Glue Connection.
@@ -430,12 +405,6 @@ func (o ConnectionArrayOutput) ToConnectionArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Connection] {
-	return pulumix.Output[[]*Connection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionArrayOutput) Index(i pulumi.IntInput) ConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Connection {
 		return vs[0].([]*Connection)[vs[1].(int)]
@@ -454,12 +423,6 @@ func (o ConnectionMapOutput) ToConnectionMapOutput() ConnectionMapOutput {
 
 func (o ConnectionMapOutput) ToConnectionMapOutputWithContext(ctx context.Context) ConnectionMapOutput {
 	return o
-}
-
-func (o ConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connection] {
-	return pulumix.Output[map[string]*Connection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionMapOutput) MapIndex(k pulumi.StringInput) ConnectionOutput {

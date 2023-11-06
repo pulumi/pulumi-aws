@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i ClassificationExportConfigurationS3DestinationArgs) ToClassificationExpo
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationExportConfigurationS3DestinationOutput)
 }
 
-func (i ClassificationExportConfigurationS3DestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationExportConfigurationS3Destination] {
-	return pulumix.Output[ClassificationExportConfigurationS3Destination]{
-		OutputState: i.ToClassificationExportConfigurationS3DestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationExportConfigurationS3DestinationArgs) ToClassificationExportConfigurationS3DestinationPtrOutput() ClassificationExportConfigurationS3DestinationPtrOutput {
 	return i.ToClassificationExportConfigurationS3DestinationPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *classificationExportConfigurationS3DestinationPtrType) ToClassification
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationExportConfigurationS3DestinationPtrOutput)
 }
 
-func (i *classificationExportConfigurationS3DestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationExportConfigurationS3Destination] {
-	return pulumix.Output[*ClassificationExportConfigurationS3Destination]{
-		OutputState: i.ToClassificationExportConfigurationS3DestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationExportConfigurationS3DestinationOutput struct{ *pulumi.OutputState }
 
 func (ClassificationExportConfigurationS3DestinationOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o ClassificationExportConfigurationS3DestinationOutput) ToClassificationEx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationExportConfigurationS3Destination) *ClassificationExportConfigurationS3Destination {
 		return &v
 	}).(ClassificationExportConfigurationS3DestinationPtrOutput)
-}
-
-func (o ClassificationExportConfigurationS3DestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationExportConfigurationS3Destination] {
-	return pulumix.Output[ClassificationExportConfigurationS3Destination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
@@ -171,12 +152,6 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) ToClassificatio
 
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) ToClassificationExportConfigurationS3DestinationPtrOutputWithContext(ctx context.Context) ClassificationExportConfigurationS3DestinationPtrOutput {
 	return o
-}
-
-func (o ClassificationExportConfigurationS3DestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationExportConfigurationS3Destination] {
-	return pulumix.Output[*ClassificationExportConfigurationS3Destination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) Elem() ClassificationExportConfigurationS3DestinationOutput {
@@ -262,12 +237,6 @@ func (i ClassificationJobS3JobDefinitionArgs) ToClassificationJobS3JobDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinition] {
-	return pulumix.Output[ClassificationJobS3JobDefinition]{
-		OutputState: i.ToClassificationJobS3JobDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionArgs) ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionPtrOutputWithContext(context.Background())
 }
@@ -309,12 +278,6 @@ func (i *classificationJobS3JobDefinitionPtrType) ToClassificationJobS3JobDefini
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinition] {
-	return pulumix.Output[*ClassificationJobS3JobDefinition]{
-		OutputState: i.ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionOutput) ElementType() reflect.Type {
@@ -337,12 +300,6 @@ func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefiniti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinition {
 		return &v
 	}).(ClassificationJobS3JobDefinitionPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinition] {
-	return pulumix.Output[ClassificationJobS3JobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucketDefinitions`. (documented below)
@@ -376,12 +333,6 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) ToClassificationJobS3JobDefin
 
 func (o ClassificationJobS3JobDefinitionPtrOutput) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinition] {
-	return pulumix.Output[*ClassificationJobS3JobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionPtrOutput) Elem() ClassificationJobS3JobDefinitionOutput {
@@ -461,12 +412,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaArgs) ToClassificationJobS
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteria] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteria]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaArgs) ToClassificationJobS3JobDefinitionBucketCriteriaPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaPtrOutputWithContext(context.Background())
 }
@@ -508,12 +453,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaPtrType) ToClassification
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteria] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteria]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaOutput) ElementType() reflect.Type {
@@ -536,12 +475,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaOutput) ToClassificationJo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionBucketCriteria) *ClassificationJobS3JobDefinitionBucketCriteria {
 		return &v
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteria] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
@@ -570,12 +503,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) ToClassificatio
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteria] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaOutput {
@@ -641,12 +568,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs) ToClassifica
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutputWithContext(context.Background())
 }
@@ -688,12 +609,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesPtrType) ToClassi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) ElementType() reflect.Type {
@@ -718,12 +633,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) ToClassifi
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput)
 }
 
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaExcludes) []ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd {
@@ -743,12 +652,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) ToClass
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaExcludesOutput {
@@ -808,12 +711,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs) ToClassif
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArray and ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayInput` via:
 //
@@ -839,12 +736,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArray) ToClassi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) ElementType() reflect.Type {
@@ -857,12 +748,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) ToClass
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
@@ -891,12 +776,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput) To
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndOutput {
@@ -946,12 +825,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutputWithContext(context.Background())
 }
@@ -993,12 +866,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput) ElementType() reflect.Type {
@@ -1021,12 +888,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion) *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion {
 		return &v
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
@@ -1060,12 +921,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionOutput {
@@ -1145,12 +1000,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArg
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutputWithContext(context.Background())
 }
@@ -1192,12 +1041,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput) ElementType() reflect.Type {
@@ -1220,12 +1063,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion) *ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion {
 		return &v
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
@@ -1254,12 +1091,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtr
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionOutput {
@@ -1329,12 +1160,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArray and ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayInput` via:
 //
@@ -1360,12 +1185,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput) ElementType() reflect.Type {
@@ -1378,12 +1197,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The tag key.
@@ -1412,12 +1225,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTag
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput) ToClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueOutput {
@@ -1457,12 +1264,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs) ToClassifica
 
 func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput)
-}
-
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput {
@@ -1506,12 +1307,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesPtrType) ToClassi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) ElementType() reflect.Type {
@@ -1536,12 +1331,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) ToClassifi
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput)
 }
 
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput) Ands() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionBucketCriteriaIncludes) []ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
@@ -1561,12 +1350,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) ToClass
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaIncludesOutput {
@@ -1626,12 +1409,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs) ToClassif
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArray and ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayInput` via:
 //
@@ -1657,12 +1434,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArray) ToClassi
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) ElementType() reflect.Type {
@@ -1675,12 +1446,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) ToClass
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
@@ -1709,12 +1474,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput) To
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndOutput {
@@ -1764,12 +1523,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutputWithContext(context.Background())
 }
@@ -1811,12 +1564,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput) ElementType() reflect.Type {
@@ -1839,12 +1586,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion) *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion {
 		return &v
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
@@ -1878,12 +1619,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionOutput {
@@ -1963,12 +1698,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArg
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutputWithContext(context.Background())
 }
@@ -2010,12 +1739,6 @@ func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPt
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput) ElementType() reflect.Type {
@@ -2038,12 +1761,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion) *ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion {
 		return &v
 	}).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
@@ -2072,12 +1789,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtr
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionPtrOutput) Elem() ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionOutput {
@@ -2147,12 +1858,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayInput is an input type that accepts ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArray and ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayInput` via:
 //
@@ -2178,12 +1883,6 @@ func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput) ElementType() reflect.Type {
@@ -2196,12 +1895,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The tag key.
@@ -2230,12 +1923,6 @@ func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTag
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput) ToClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueOutput {
@@ -2281,12 +1968,6 @@ func (i ClassificationJobS3JobDefinitionBucketDefinitionArgs) ToClassificationJo
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketDefinitionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketDefinition] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketDefinition]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionBucketDefinitionArrayInput is an input type that accepts ClassificationJobS3JobDefinitionBucketDefinitionArray and ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionBucketDefinitionArrayInput` via:
 //
@@ -2312,12 +1993,6 @@ func (i ClassificationJobS3JobDefinitionBucketDefinitionArray) ToClassificationJ
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionBucketDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketDefinition] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketDefinition]{
-		OutputState: i.ToClassificationJobS3JobDefinitionBucketDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionBucketDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionBucketDefinitionOutput) ElementType() reflect.Type {
@@ -2330,12 +2005,6 @@ func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) ToClassification
 
 func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) ToClassificationJobS3JobDefinitionBucketDefinitionOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketDefinitionOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionBucketDefinition] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionBucketDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique identifier for the AWS account that owns the buckets.
@@ -2360,12 +2029,6 @@ func (o ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput) ToClassific
 
 func (o ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput) ToClassificationJobS3JobDefinitionBucketDefinitionArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionBucketDefinition] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionBucketDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionBucketDefinitionOutput {
@@ -2411,12 +2074,6 @@ func (i ClassificationJobS3JobDefinitionScopingArgs) ToClassificationJobS3JobDef
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScoping] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScoping]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingArgs) ToClassificationJobS3JobDefinitionScopingPtrOutput() ClassificationJobS3JobDefinitionScopingPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingPtrOutputWithContext(context.Background())
 }
@@ -2458,12 +2115,6 @@ func (i *classificationJobS3JobDefinitionScopingPtrType) ToClassificationJobS3Jo
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScoping] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScoping]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingOutput) ElementType() reflect.Type {
@@ -2486,12 +2137,6 @@ func (o ClassificationJobS3JobDefinitionScopingOutput) ToClassificationJobS3JobD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScoping {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionScopingOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScoping] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScoping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
@@ -2520,12 +2165,6 @@ func (o ClassificationJobS3JobDefinitionScopingPtrOutput) ToClassificationJobS3J
 
 func (o ClassificationJobS3JobDefinitionScopingPtrOutput) ToClassificationJobS3JobDefinitionScopingPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScoping] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScoping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingOutput {
@@ -2591,12 +2230,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesArgs) ToClassificationJob
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingExcludesArgs) ToClassificationJobS3JobDefinitionScopingExcludesPtrOutput() ClassificationJobS3JobDefinitionScopingExcludesPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingExcludesPtrOutputWithContext(context.Background())
 }
@@ -2638,12 +2271,6 @@ func (i *classificationJobS3JobDefinitionScopingExcludesPtrType) ToClassificatio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingExcludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingExcludesOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesOutput) ElementType() reflect.Type {
@@ -2668,12 +2295,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) ToClassificationJ
 	}).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
 
-func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) Ands() ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludes) []ClassificationJobS3JobDefinitionScopingExcludesAnd {
@@ -2693,12 +2314,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) ToClassificationJobS3JobDefinitionScopingExcludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesOutput {
@@ -2758,12 +2373,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndArgs) ToClassification
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionScopingExcludesAndArrayInput is an input type that accepts ClassificationJobS3JobDefinitionScopingExcludesAndArray and ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionScopingExcludesAndArrayInput` via:
 //
@@ -2789,12 +2398,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndArray) ToClassificatio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingExcludesAndOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndOutput) ElementType() reflect.Type {
@@ -2807,12 +2410,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
@@ -2841,12 +2438,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput) ToClassif
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionScopingExcludesAndOutput {
@@ -2896,12 +2487,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs) ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput() ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutputWithContext(context.Background())
 }
@@ -2943,12 +2528,6 @@ func (i *classificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) ElementType() reflect.Type {
@@ -2971,12 +2550,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
@@ -3006,12 +2579,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput {
@@ -3099,12 +2666,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs) ToCl
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs) ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutputWithContext(context.Background())
 }
@@ -3146,12 +2707,6 @@ func (i *classificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) ElementType() reflect.Type {
@@ -3174,12 +2729,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in the condition.
@@ -3216,12 +2765,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput {
@@ -3311,12 +2854,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayInput is an input type that accepts ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArray and ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayInput` via:
 //
@@ -3342,12 +2879,6 @@ func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput) ElementType() reflect.Type {
@@ -3360,12 +2891,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOu
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The tag key.
@@ -3390,12 +2915,6 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueAr
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueOutput {
@@ -3435,12 +2954,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesArgs) ToClassificationJob
 
 func (i ClassificationJobS3JobDefinitionScopingIncludesArgs) ToClassificationJobS3JobDefinitionScopingIncludesOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesOutput)
-}
-
-func (i ClassificationJobS3JobDefinitionScopingIncludesArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ClassificationJobS3JobDefinitionScopingIncludesArgs) ToClassificationJobS3JobDefinitionScopingIncludesPtrOutput() ClassificationJobS3JobDefinitionScopingIncludesPtrOutput {
@@ -3484,12 +2997,6 @@ func (i *classificationJobS3JobDefinitionScopingIncludesPtrType) ToClassificatio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingIncludesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludes]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingIncludesOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesOutput) ElementType() reflect.Type {
@@ -3514,12 +3021,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToClassificationJ
 	}).(ClassificationJobS3JobDefinitionScopingIncludesPtrOutput)
 }
 
-func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludes] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
 func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) Ands() ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludes) []ClassificationJobS3JobDefinitionScopingIncludesAnd {
@@ -3539,12 +3040,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) ToClassificationJobS3JobDefinitionScopingIncludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludes] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesOutput {
@@ -3604,12 +3099,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndArgs) ToClassification
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionScopingIncludesAndArrayInput is an input type that accepts ClassificationJobS3JobDefinitionScopingIncludesAndArray and ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionScopingIncludesAndArrayInput` via:
 //
@@ -3635,12 +3124,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndArray) ToClassificatio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAnd]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingIncludesAndOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndOutput) ElementType() reflect.Type {
@@ -3653,12 +3136,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAnd] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
@@ -3687,12 +3164,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput) ToClassif
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAnd] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionScopingIncludesAndOutput {
@@ -3742,12 +3213,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs) ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput() ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutputWithContext(context.Background())
 }
@@ -3789,12 +3254,6 @@ func (i *classificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) ElementType() reflect.Type {
@@ -3817,12 +3276,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
@@ -3852,12 +3305,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput {
@@ -3945,12 +3392,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs) ToCl
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs) ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput {
 	return i.ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutputWithContext(context.Background())
 }
@@ -3992,12 +3433,6 @@ func (i *classificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 }
 
-func (i *classificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) ElementType() reflect.Type {
@@ -4020,12 +3455,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The operator to use in the condition.
@@ -4062,12 +3491,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm] {
-	return pulumix.Output[*ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput {
@@ -4157,12 +3580,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayInput is an input type that accepts ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArray and ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayInput` via:
 //
@@ -4188,12 +3605,6 @@ func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue]{
-		OutputState: i.ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput) ElementType() reflect.Type {
@@ -4206,12 +3617,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOu
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue] {
-	return pulumix.Output[ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The tag key.
@@ -4236,12 +3641,6 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueAr
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput {
 	return o
-}
-
-func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue] {
-	return pulumix.Output[[]ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayOutput) Index(i pulumi.IntInput) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueOutput {
@@ -4295,12 +3694,6 @@ func (i ClassificationJobScheduleFrequencyArgs) ToClassificationJobScheduleFrequ
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobScheduleFrequencyOutput)
 }
 
-func (i ClassificationJobScheduleFrequencyArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobScheduleFrequency] {
-	return pulumix.Output[ClassificationJobScheduleFrequency]{
-		OutputState: i.ToClassificationJobScheduleFrequencyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClassificationJobScheduleFrequencyArgs) ToClassificationJobScheduleFrequencyPtrOutput() ClassificationJobScheduleFrequencyPtrOutput {
 	return i.ToClassificationJobScheduleFrequencyPtrOutputWithContext(context.Background())
 }
@@ -4342,12 +3735,6 @@ func (i *classificationJobScheduleFrequencyPtrType) ToClassificationJobScheduleF
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobScheduleFrequencyPtrOutput)
 }
 
-func (i *classificationJobScheduleFrequencyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobScheduleFrequency] {
-	return pulumix.Output[*ClassificationJobScheduleFrequency]{
-		OutputState: i.ToClassificationJobScheduleFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobScheduleFrequencyOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobScheduleFrequencyOutput) ElementType() reflect.Type {
@@ -4370,12 +3757,6 @@ func (o ClassificationJobScheduleFrequencyOutput) ToClassificationJobScheduleFre
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobScheduleFrequency) *ClassificationJobScheduleFrequency {
 		return &v
 	}).(ClassificationJobScheduleFrequencyPtrOutput)
-}
-
-func (o ClassificationJobScheduleFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobScheduleFrequency] {
-	return pulumix.Output[ClassificationJobScheduleFrequency]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a daily recurrence pattern for running the job.
@@ -4407,12 +3788,6 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) ToClassificationJobSchedule
 
 func (o ClassificationJobScheduleFrequencyPtrOutput) ToClassificationJobScheduleFrequencyPtrOutputWithContext(ctx context.Context) ClassificationJobScheduleFrequencyPtrOutput {
 	return o
-}
-
-func (o ClassificationJobScheduleFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJobScheduleFrequency] {
-	return pulumix.Output[*ClassificationJobScheduleFrequency]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobScheduleFrequencyPtrOutput) Elem() ClassificationJobScheduleFrequencyOutput {
@@ -4492,12 +3867,6 @@ func (i ClassificationJobUserPausedDetailArgs) ToClassificationJobUserPausedDeta
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobUserPausedDetailOutput)
 }
 
-func (i ClassificationJobUserPausedDetailArgs) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobUserPausedDetail] {
-	return pulumix.Output[ClassificationJobUserPausedDetail]{
-		OutputState: i.ToClassificationJobUserPausedDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobUserPausedDetailArrayInput is an input type that accepts ClassificationJobUserPausedDetailArray and ClassificationJobUserPausedDetailArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobUserPausedDetailArrayInput` via:
 //
@@ -4523,12 +3892,6 @@ func (i ClassificationJobUserPausedDetailArray) ToClassificationJobUserPausedDet
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobUserPausedDetailArrayOutput)
 }
 
-func (i ClassificationJobUserPausedDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobUserPausedDetail] {
-	return pulumix.Output[[]ClassificationJobUserPausedDetail]{
-		OutputState: i.ToClassificationJobUserPausedDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobUserPausedDetailOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobUserPausedDetailOutput) ElementType() reflect.Type {
@@ -4541,12 +3904,6 @@ func (o ClassificationJobUserPausedDetailOutput) ToClassificationJobUserPausedDe
 
 func (o ClassificationJobUserPausedDetailOutput) ToClassificationJobUserPausedDetailOutputWithContext(ctx context.Context) ClassificationJobUserPausedDetailOutput {
 	return o
-}
-
-func (o ClassificationJobUserPausedDetailOutput) ToOutput(ctx context.Context) pulumix.Output[ClassificationJobUserPausedDetail] {
-	return pulumix.Output[ClassificationJobUserPausedDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobUserPausedDetailOutput) JobExpiresAt() pulumi.StringPtrOutput {
@@ -4573,12 +3930,6 @@ func (o ClassificationJobUserPausedDetailArrayOutput) ToClassificationJobUserPau
 
 func (o ClassificationJobUserPausedDetailArrayOutput) ToClassificationJobUserPausedDetailArrayOutputWithContext(ctx context.Context) ClassificationJobUserPausedDetailArrayOutput {
 	return o
-}
-
-func (o ClassificationJobUserPausedDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClassificationJobUserPausedDetail] {
-	return pulumix.Output[[]ClassificationJobUserPausedDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobUserPausedDetailArrayOutput) Index(i pulumi.IntInput) ClassificationJobUserPausedDetailOutput {

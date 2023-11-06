@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Virtual Private Gateway attachment resource, allowing for an existing
@@ -168,12 +167,6 @@ func (i *VpnGatewayAttachment) ToVpnGatewayAttachmentOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentOutput)
 }
 
-func (i *VpnGatewayAttachment) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayAttachment] {
-	return pulumix.Output[*VpnGatewayAttachment]{
-		OutputState: i.ToVpnGatewayAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpnGatewayAttachmentArrayInput is an input type that accepts VpnGatewayAttachmentArray and VpnGatewayAttachmentArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayAttachmentArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i VpnGatewayAttachmentArray) ToVpnGatewayAttachmentArrayOutput() VpnGatewa
 
 func (i VpnGatewayAttachmentArray) ToVpnGatewayAttachmentArrayOutputWithContext(ctx context.Context) VpnGatewayAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentArrayOutput)
-}
-
-func (i VpnGatewayAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayAttachment] {
-	return pulumix.Output[[]*VpnGatewayAttachment]{
-		OutputState: i.ToVpnGatewayAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpnGatewayAttachmentMapInput is an input type that accepts VpnGatewayAttachmentMap and VpnGatewayAttachmentMapOutput values.
@@ -230,12 +217,6 @@ func (i VpnGatewayAttachmentMap) ToVpnGatewayAttachmentMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayAttachmentMapOutput)
 }
 
-func (i VpnGatewayAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayAttachment] {
-	return pulumix.Output[map[string]*VpnGatewayAttachment]{
-		OutputState: i.ToVpnGatewayAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayAttachmentOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutput() VpnGatewayAtt
 
 func (o VpnGatewayAttachmentOutput) ToVpnGatewayAttachmentOutputWithContext(ctx context.Context) VpnGatewayAttachmentOutput {
 	return o
-}
-
-func (o VpnGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayAttachment] {
-	return pulumix.Output[*VpnGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the VPC.
@@ -280,12 +255,6 @@ func (o VpnGatewayAttachmentArrayOutput) ToVpnGatewayAttachmentArrayOutputWithCo
 	return o
 }
 
-func (o VpnGatewayAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayAttachment] {
-	return pulumix.Output[[]*VpnGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpnGatewayAttachmentArrayOutput) Index(i pulumi.IntInput) VpnGatewayAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnGatewayAttachment {
 		return vs[0].([]*VpnGatewayAttachment)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o VpnGatewayAttachmentMapOutput) ToVpnGatewayAttachmentMapOutput() VpnGate
 
 func (o VpnGatewayAttachmentMapOutput) ToVpnGatewayAttachmentMapOutputWithContext(ctx context.Context) VpnGatewayAttachmentMapOutput {
 	return o
-}
-
-func (o VpnGatewayAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayAttachment] {
-	return pulumix.Output[map[string]*VpnGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpnGatewayAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayAttachmentOutput {

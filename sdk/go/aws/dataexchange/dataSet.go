@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Data Exchange DataSets.
@@ -193,12 +192,6 @@ func (i *DataSet) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutput)
 }
 
-func (i *DataSet) ToOutput(ctx context.Context) pulumix.Output[*DataSet] {
-	return pulumix.Output[*DataSet]{
-		OutputState: i.ToDataSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataSetArrayInput is an input type that accepts DataSetArray and DataSetArrayOutput values.
 // You can construct a concrete instance of `DataSetArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i DataSetArray) ToDataSetArrayOutput() DataSetArrayOutput {
 
 func (i DataSetArray) ToDataSetArrayOutputWithContext(ctx context.Context) DataSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetArrayOutput)
-}
-
-func (i DataSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSet] {
-	return pulumix.Output[[]*DataSet]{
-		OutputState: i.ToDataSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataSetMapInput is an input type that accepts DataSetMap and DataSetMapOutput values.
@@ -255,12 +242,6 @@ func (i DataSetMap) ToDataSetMapOutputWithContext(ctx context.Context) DataSetMa
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetMapOutput)
 }
 
-func (i DataSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSet] {
-	return pulumix.Output[map[string]*DataSet]{
-		OutputState: i.ToDataSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataSetOutput struct{ *pulumi.OutputState }
 
 func (DataSetOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o DataSetOutput) ToDataSetOutput() DataSetOutput {
 
 func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOutput {
 	return o
-}
-
-func (o DataSetOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSet] {
-	return pulumix.Output[*DataSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of this data set.
@@ -327,12 +302,6 @@ func (o DataSetArrayOutput) ToDataSetArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o DataSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSet] {
-	return pulumix.Output[[]*DataSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetArrayOutput) Index(i pulumi.IntInput) DataSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSet {
 		return vs[0].([]*DataSet)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o DataSetMapOutput) ToDataSetMapOutput() DataSetMapOutput {
 
 func (o DataSetMapOutput) ToDataSetMapOutputWithContext(ctx context.Context) DataSetMapOutput {
 	return o
-}
-
-func (o DataSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSet] {
-	return pulumix.Output[map[string]*DataSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetMapOutput) MapIndex(k pulumi.StringInput) DataSetOutput {

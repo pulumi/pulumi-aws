@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
@@ -203,12 +202,6 @@ func (i *ProtectionHealthCheckAssociation) ToProtectionHealthCheckAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationOutput)
 }
 
-func (i *ProtectionHealthCheckAssociation) ToOutput(ctx context.Context) pulumix.Output[*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[*ProtectionHealthCheckAssociation]{
-		OutputState: i.ToProtectionHealthCheckAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProtectionHealthCheckAssociationArrayInput is an input type that accepts ProtectionHealthCheckAssociationArray and ProtectionHealthCheckAssociationArrayOutput values.
 // You can construct a concrete instance of `ProtectionHealthCheckAssociationArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i ProtectionHealthCheckAssociationArray) ToProtectionHealthCheckAssociatio
 
 func (i ProtectionHealthCheckAssociationArray) ToProtectionHealthCheckAssociationArrayOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationArrayOutput)
-}
-
-func (i ProtectionHealthCheckAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[[]*ProtectionHealthCheckAssociation]{
-		OutputState: i.ToProtectionHealthCheckAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProtectionHealthCheckAssociationMapInput is an input type that accepts ProtectionHealthCheckAssociationMap and ProtectionHealthCheckAssociationMapOutput values.
@@ -265,12 +252,6 @@ func (i ProtectionHealthCheckAssociationMap) ToProtectionHealthCheckAssociationM
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionHealthCheckAssociationMapOutput)
 }
 
-func (i ProtectionHealthCheckAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[map[string]*ProtectionHealthCheckAssociation]{
-		OutputState: i.ToProtectionHealthCheckAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProtectionHealthCheckAssociationOutput struct{ *pulumi.OutputState }
 
 func (ProtectionHealthCheckAssociationOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociati
 
 func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociationOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationOutput {
 	return o
-}
-
-func (o ProtectionHealthCheckAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[*ProtectionHealthCheckAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
@@ -315,12 +290,6 @@ func (o ProtectionHealthCheckAssociationArrayOutput) ToProtectionHealthCheckAsso
 	return o
 }
 
-func (o ProtectionHealthCheckAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[[]*ProtectionHealthCheckAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionHealthCheckAssociationArrayOutput) Index(i pulumi.IntInput) ProtectionHealthCheckAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionHealthCheckAssociation {
 		return vs[0].([]*ProtectionHealthCheckAssociation)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o ProtectionHealthCheckAssociationMapOutput) ToProtectionHealthCheckAssoci
 
 func (o ProtectionHealthCheckAssociationMapOutput) ToProtectionHealthCheckAssociationMapOutputWithContext(ctx context.Context) ProtectionHealthCheckAssociationMapOutput {
 	return o
-}
-
-func (o ProtectionHealthCheckAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionHealthCheckAssociation] {
-	return pulumix.Output[map[string]*ProtectionHealthCheckAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionHealthCheckAssociationMapOutput) MapIndex(k pulumi.StringInput) ProtectionHealthCheckAssociationOutput {

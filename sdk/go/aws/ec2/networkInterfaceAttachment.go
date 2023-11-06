@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attach an Elastic network interface (ENI) resource with EC2 instance.
@@ -177,12 +176,6 @@ func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentOutput)
 }
 
-func (i *NetworkInterfaceAttachment) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceAttachment] {
-	return pulumix.Output[*NetworkInterfaceAttachment]{
-		OutputState: i.ToNetworkInterfaceAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkInterfaceAttachmentArrayInput is an input type that accepts NetworkInterfaceAttachmentArray and NetworkInterfaceAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceAttachmentArrayInput` via:
 //
@@ -206,12 +199,6 @@ func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutput
 
 func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentArrayOutput)
-}
-
-func (i NetworkInterfaceAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceAttachment] {
-	return pulumix.Output[[]*NetworkInterfaceAttachment]{
-		OutputState: i.ToNetworkInterfaceAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkInterfaceAttachmentMapInput is an input type that accepts NetworkInterfaceAttachmentMap and NetworkInterfaceAttachmentMapOutput values.
@@ -239,12 +226,6 @@ func (i NetworkInterfaceAttachmentMap) ToNetworkInterfaceAttachmentMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentMapOutput)
 }
 
-func (i NetworkInterfaceAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceAttachment] {
-	return pulumix.Output[map[string]*NetworkInterfaceAttachment]{
-		OutputState: i.ToNetworkInterfaceAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
@@ -257,12 +238,6 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() N
 
 func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
 	return o
-}
-
-func (o NetworkInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceAttachment] {
-	return pulumix.Output[*NetworkInterfaceAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ENI Attachment ID.
@@ -304,12 +279,6 @@ func (o NetworkInterfaceAttachmentArrayOutput) ToNetworkInterfaceAttachmentArray
 	return o
 }
 
-func (o NetworkInterfaceAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceAttachment] {
-	return pulumix.Output[[]*NetworkInterfaceAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkInterfaceAttachmentArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceAttachment {
 		return vs[0].([]*NetworkInterfaceAttachment)[vs[1].(int)]
@@ -328,12 +297,6 @@ func (o NetworkInterfaceAttachmentMapOutput) ToNetworkInterfaceAttachmentMapOutp
 
 func (o NetworkInterfaceAttachmentMapOutput) ToNetworkInterfaceAttachmentMapOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentMapOutput {
 	return o
-}
-
-func (o NetworkInterfaceAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceAttachment] {
-	return pulumix.Output[map[string]*NetworkInterfaceAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInterfaceAttachmentMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceAttachmentOutput {

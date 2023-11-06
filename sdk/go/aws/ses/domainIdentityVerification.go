@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a successful verification of an SES domain identity.
@@ -164,12 +163,6 @@ func (i *DomainIdentityVerification) ToDomainIdentityVerificationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationOutput)
 }
 
-func (i *DomainIdentityVerification) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentityVerification] {
-	return pulumix.Output[*DomainIdentityVerification]{
-		OutputState: i.ToDomainIdentityVerificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainIdentityVerificationArrayInput is an input type that accepts DomainIdentityVerificationArray and DomainIdentityVerificationArrayOutput values.
 // You can construct a concrete instance of `DomainIdentityVerificationArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i DomainIdentityVerificationArray) ToDomainIdentityVerificationArrayOutput
 
 func (i DomainIdentityVerificationArray) ToDomainIdentityVerificationArrayOutputWithContext(ctx context.Context) DomainIdentityVerificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationArrayOutput)
-}
-
-func (i DomainIdentityVerificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainIdentityVerification] {
-	return pulumix.Output[[]*DomainIdentityVerification]{
-		OutputState: i.ToDomainIdentityVerificationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DomainIdentityVerificationMapInput is an input type that accepts DomainIdentityVerificationMap and DomainIdentityVerificationMapOutput values.
@@ -226,12 +213,6 @@ func (i DomainIdentityVerificationMap) ToDomainIdentityVerificationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityVerificationMapOutput)
 }
 
-func (i DomainIdentityVerificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainIdentityVerification] {
-	return pulumix.Output[map[string]*DomainIdentityVerification]{
-		OutputState: i.ToDomainIdentityVerificationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainIdentityVerificationOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityVerificationOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutput() D
 
 func (o DomainIdentityVerificationOutput) ToDomainIdentityVerificationOutputWithContext(ctx context.Context) DomainIdentityVerificationOutput {
 	return o
-}
-
-func (o DomainIdentityVerificationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentityVerification] {
-	return pulumix.Output[*DomainIdentityVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the domain identity.
@@ -276,12 +251,6 @@ func (o DomainIdentityVerificationArrayOutput) ToDomainIdentityVerificationArray
 	return o
 }
 
-func (o DomainIdentityVerificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainIdentityVerification] {
-	return pulumix.Output[[]*DomainIdentityVerification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainIdentityVerificationArrayOutput) Index(i pulumi.IntInput) DomainIdentityVerificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainIdentityVerification {
 		return vs[0].([]*DomainIdentityVerification)[vs[1].(int)]
@@ -300,12 +269,6 @@ func (o DomainIdentityVerificationMapOutput) ToDomainIdentityVerificationMapOutp
 
 func (o DomainIdentityVerificationMapOutput) ToDomainIdentityVerificationMapOutputWithContext(ctx context.Context) DomainIdentityVerificationMapOutput {
 	return o
-}
-
-func (o DomainIdentityVerificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainIdentityVerification] {
-	return pulumix.Output[map[string]*DomainIdentityVerification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainIdentityVerificationMapOutput) MapIndex(k pulumi.StringInput) DomainIdentityVerificationOutput {

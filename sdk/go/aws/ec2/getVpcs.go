@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of VPC Ids for a region.
@@ -89,12 +88,6 @@ func (o GetVpcsResultOutput) ToGetVpcsResultOutput() GetVpcsResultOutput {
 
 func (o GetVpcsResultOutput) ToGetVpcsResultOutputWithContext(ctx context.Context) GetVpcsResultOutput {
 	return o
-}
-
-func (o GetVpcsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcsResult] {
-	return pulumix.Output[GetVpcsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVpcsResultOutput) Filters() GetVpcsFilterArrayOutput {

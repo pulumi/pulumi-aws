@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MemoryDB Subnet Group.
@@ -234,12 +233,6 @@ func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
 }
 
-func (i *SubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
-	return pulumix.Output[*SubnetGroup]{
-		OutputState: i.ToSubnetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubnetGroupArrayInput is an input type that accepts SubnetGroupArray and SubnetGroupArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i SubnetGroupArray) ToSubnetGroupArrayOutput() SubnetGroupArrayOutput {
 
 func (i SubnetGroupArray) ToSubnetGroupArrayOutputWithContext(ctx context.Context) SubnetGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupArrayOutput)
-}
-
-func (i SubnetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetGroup] {
-	return pulumix.Output[[]*SubnetGroup]{
-		OutputState: i.ToSubnetGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubnetGroupMapInput is an input type that accepts SubnetGroupMap and SubnetGroupMapOutput values.
@@ -296,12 +283,6 @@ func (i SubnetGroupMap) ToSubnetGroupMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupMapOutput)
 }
 
-func (i SubnetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetGroup] {
-	return pulumix.Output[map[string]*SubnetGroup]{
-		OutputState: i.ToSubnetGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (SubnetGroupOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
 
 func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
 	return o
-}
-
-func (o SubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
-	return pulumix.Output[*SubnetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the subnet group.
@@ -380,12 +355,6 @@ func (o SubnetGroupArrayOutput) ToSubnetGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o SubnetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetGroup] {
-	return pulumix.Output[[]*SubnetGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubnetGroupArrayOutput) Index(i pulumi.IntInput) SubnetGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetGroup {
 		return vs[0].([]*SubnetGroup)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o SubnetGroupMapOutput) ToSubnetGroupMapOutput() SubnetGroupMapOutput {
 
 func (o SubnetGroupMapOutput) ToSubnetGroupMapOutputWithContext(ctx context.Context) SubnetGroupMapOutput {
 	return o
-}
-
-func (o SubnetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetGroup] {
-	return pulumix.Output[map[string]*SubnetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetGroupMapOutput) MapIndex(k pulumi.StringInput) SubnetGroupOutput {

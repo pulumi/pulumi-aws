@@ -108,12 +108,6 @@ func (o RuntimeOutput) ToRuntimePtrOutputWithContext(ctx context.Context) Runtim
 	}).(RuntimePtrOutput)
 }
 
-func (o RuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[Runtime] {
-	return pulumix.Output[Runtime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RuntimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -147,12 +141,6 @@ func (o RuntimePtrOutput) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (o RuntimePtrOutput) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return o
-}
-
-func (o RuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
-	return pulumix.Output[*Runtime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RuntimePtrOutput) Elem() RuntimeOutput {

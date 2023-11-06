@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Virtual Router data source allows details of an App Mesh Virtual Service to be retrieved by its name and mesh_name.
@@ -123,12 +122,6 @@ func (o LookupVirtualRouterResultOutput) ToLookupVirtualRouterResultOutput() Loo
 
 func (o LookupVirtualRouterResultOutput) ToLookupVirtualRouterResultOutputWithContext(ctx context.Context) LookupVirtualRouterResultOutput {
 	return o
-}
-
-func (o LookupVirtualRouterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualRouterResult] {
-	return pulumix.Output[LookupVirtualRouterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the virtual router.

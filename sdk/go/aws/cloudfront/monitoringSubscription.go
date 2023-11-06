@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront real-time log configuration resource.
@@ -155,12 +154,6 @@ func (i *MonitoringSubscription) ToMonitoringSubscriptionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionOutput)
 }
 
-func (i *MonitoringSubscription) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscription] {
-	return pulumix.Output[*MonitoringSubscription]{
-		OutputState: i.ToMonitoringSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitoringSubscriptionArrayInput is an input type that accepts MonitoringSubscriptionArray and MonitoringSubscriptionArrayOutput values.
 // You can construct a concrete instance of `MonitoringSubscriptionArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i MonitoringSubscriptionArray) ToMonitoringSubscriptionArrayOutput() Monit
 
 func (i MonitoringSubscriptionArray) ToMonitoringSubscriptionArrayOutputWithContext(ctx context.Context) MonitoringSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionArrayOutput)
-}
-
-func (i MonitoringSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringSubscription] {
-	return pulumix.Output[[]*MonitoringSubscription]{
-		OutputState: i.ToMonitoringSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitoringSubscriptionMapInput is an input type that accepts MonitoringSubscriptionMap and MonitoringSubscriptionMapOutput values.
@@ -217,12 +204,6 @@ func (i MonitoringSubscriptionMap) ToMonitoringSubscriptionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMapOutput)
 }
 
-func (i MonitoringSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringSubscription] {
-	return pulumix.Output[map[string]*MonitoringSubscription]{
-		OutputState: i.ToMonitoringSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitoringSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutput() Monitorin
 
 func (o MonitoringSubscriptionOutput) ToMonitoringSubscriptionOutputWithContext(ctx context.Context) MonitoringSubscriptionOutput {
 	return o
-}
-
-func (o MonitoringSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscription] {
-	return pulumix.Output[*MonitoringSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the distribution that you are enabling metrics for.
@@ -269,12 +244,6 @@ func (o MonitoringSubscriptionArrayOutput) ToMonitoringSubscriptionArrayOutputWi
 	return o
 }
 
-func (o MonitoringSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitoringSubscription] {
-	return pulumix.Output[[]*MonitoringSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringSubscriptionArrayOutput) Index(i pulumi.IntInput) MonitoringSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitoringSubscription {
 		return vs[0].([]*MonitoringSubscription)[vs[1].(int)]
@@ -293,12 +262,6 @@ func (o MonitoringSubscriptionMapOutput) ToMonitoringSubscriptionMapOutput() Mon
 
 func (o MonitoringSubscriptionMapOutput) ToMonitoringSubscriptionMapOutputWithContext(ctx context.Context) MonitoringSubscriptionMapOutput {
 	return o
-}
-
-func (o MonitoringSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitoringSubscription] {
-	return pulumix.Output[map[string]*MonitoringSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringSubscriptionMapOutput) MapIndex(k pulumi.StringInput) MonitoringSubscriptionOutput {

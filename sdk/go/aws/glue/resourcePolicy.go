@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue resource policy. Only one can exist per region.
@@ -186,12 +185,6 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
 }
 
-func (i *ResourcePolicy) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
-	return pulumix.Output[*ResourcePolicy]{
-		OutputState: i.ToResourcePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourcePolicyArrayInput is an input type that accepts ResourcePolicyArray and ResourcePolicyArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i ResourcePolicyArray) ToResourcePolicyArrayOutput() ResourcePolicyArrayOu
 
 func (i ResourcePolicyArray) ToResourcePolicyArrayOutputWithContext(ctx context.Context) ResourcePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyArrayOutput)
-}
-
-func (i ResourcePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourcePolicy] {
-	return pulumix.Output[[]*ResourcePolicy]{
-		OutputState: i.ToResourcePolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourcePolicyMapInput is an input type that accepts ResourcePolicyMap and ResourcePolicyMapOutput values.
@@ -248,12 +235,6 @@ func (i ResourcePolicyMap) ToResourcePolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyMapOutput)
 }
 
-func (i ResourcePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourcePolicy] {
-	return pulumix.Output[map[string]*ResourcePolicy]{
-		OutputState: i.ToResourcePolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
 
 func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
 	return o
-}
-
-func (o ResourcePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
-	return pulumix.Output[*ResourcePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
@@ -298,12 +273,6 @@ func (o ResourcePolicyArrayOutput) ToResourcePolicyArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ResourcePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourcePolicy] {
-	return pulumix.Output[[]*ResourcePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourcePolicyArrayOutput) Index(i pulumi.IntInput) ResourcePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourcePolicy {
 		return vs[0].([]*ResourcePolicy)[vs[1].(int)]
@@ -322,12 +291,6 @@ func (o ResourcePolicyMapOutput) ToResourcePolicyMapOutput() ResourcePolicyMapOu
 
 func (o ResourcePolicyMapOutput) ToResourcePolicyMapOutputWithContext(ctx context.Context) ResourcePolicyMapOutput {
 	return o
-}
-
-func (o ResourcePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourcePolicy] {
-	return pulumix.Output[map[string]*ResourcePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) ResourcePolicyOutput {

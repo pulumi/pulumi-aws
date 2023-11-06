@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -79,12 +78,6 @@ func (i MediaInsightsPipelineConfigurationElementArgs) ToMediaInsightsPipelineCo
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElement] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElement]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MediaInsightsPipelineConfigurationElementArrayInput is an input type that accepts MediaInsightsPipelineConfigurationElementArray and MediaInsightsPipelineConfigurationElementArrayOutput values.
 // You can construct a concrete instance of `MediaInsightsPipelineConfigurationElementArrayInput` via:
 //
@@ -110,12 +103,6 @@ func (i MediaInsightsPipelineConfigurationElementArray) ToMediaInsightsPipelineC
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementArrayOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementArray) ToOutput(ctx context.Context) pulumix.Output[[]MediaInsightsPipelineConfigurationElement] {
-	return pulumix.Output[[]MediaInsightsPipelineConfigurationElement]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o MediaInsightsPipelineConfigurationElementOutput) ToMediaInsightsPipeline
 
 func (o MediaInsightsPipelineConfigurationElementOutput) ToMediaInsightsPipelineConfigurationElementOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElement] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration for Amazon Transcribe Call Analytics processor.
@@ -209,12 +190,6 @@ func (o MediaInsightsPipelineConfigurationElementArrayOutput) ToMediaInsightsPip
 
 func (o MediaInsightsPipelineConfigurationElementArrayOutput) ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementArrayOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MediaInsightsPipelineConfigurationElement] {
-	return pulumix.Output[[]MediaInsightsPipelineConfigurationElement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementArrayOutput) Index(i pulumi.IntInput) MediaInsightsPipelineConfigurationElementOutput {
@@ -304,12 +279,6 @@ func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(context.Background())
 }
@@ -351,12 +320,6 @@ func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsP
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ElementType() reflect.Type {
@@ -379,12 +342,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Filter for category events to be delivered to insights target.
@@ -490,12 +447,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
@@ -683,12 +634,6 @@ func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(context.Background())
 }
@@ -730,12 +675,6 @@ func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsP
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) ElementType() reflect.Type {
@@ -758,12 +697,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings) *MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings {
 		return &v
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should output be redacted.
@@ -806,12 +739,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsPr
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsPtrOutput) Elem() MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsOutput {
@@ -941,12 +868,6 @@ func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutputWithContext(context.Background())
 }
@@ -988,12 +909,6 @@ func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) ElementType() reflect.Type {
@@ -1016,12 +931,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Labels all personally identifiable information (PII) identified in Transcript events.
@@ -1120,12 +1029,6 @@ func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfig
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationOutput {
@@ -1291,12 +1194,6 @@ func (i MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1338,12 +1235,6 @@ func (i *mediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput) ElementType() reflect.Type {
@@ -1368,12 +1259,6 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 	}).(MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration) string {
@@ -1393,12 +1278,6 @@ func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurat
 
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationOutput {
@@ -1454,12 +1333,6 @@ func (i MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1501,12 +1374,6 @@ func (i *mediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput) ElementType() reflect.Type {
@@ -1531,12 +1398,6 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 	}).(MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration) string {
@@ -1556,12 +1417,6 @@ func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration
 
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationOutput {
@@ -1617,12 +1472,6 @@ func (i MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArg
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1664,12 +1513,6 @@ func (i *mediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput) ElementType() reflect.Type {
@@ -1694,12 +1537,6 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOut
 	}).(MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // S3 URI to deliver recordings.
 func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration) *string {
@@ -1719,12 +1556,6 @@ func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtr
 
 func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationOutput {
@@ -1780,12 +1611,6 @@ func (i MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1827,12 +1652,6 @@ func (i *mediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput) ElementType() reflect.Type {
@@ -1857,12 +1676,6 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput
 	}).(MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration) string {
@@ -1882,12 +1695,6 @@ func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOut
 
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationOutput {
@@ -1943,12 +1750,6 @@ func (i MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1990,12 +1791,6 @@ func (i *mediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput) ElementType() reflect.Type {
@@ -2020,12 +1815,6 @@ func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput
 	}).(MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // SQS queue to deliver results.
 func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput) InsightsTarget() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration) string {
@@ -2045,12 +1834,6 @@ func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOut
 
 func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationOutput {
@@ -2110,12 +1893,6 @@ func (i MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2157,12 +1934,6 @@ func (i *mediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput) ElementType() reflect.Type {
@@ -2185,12 +1956,6 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable speaker search.
@@ -2219,12 +1984,6 @@ func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigur
 
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationOutput {
@@ -2294,12 +2053,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMedi
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2341,12 +2094,6 @@ func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ElementType() reflect.Type {
@@ -2369,12 +2116,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Disables real time alert rules.
@@ -2401,12 +2142,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) T
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
@@ -2484,12 +2219,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArray and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayInput` via:
 //
@@ -2515,12 +2244,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule] {
-	return pulumix.Output[[]MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) ElementType() reflect.Type {
@@ -2533,12 +2256,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) 
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration for an issue detection rule.
@@ -2581,12 +2298,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOut
 	return o
 }
 
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule] {
-	return pulumix.Output[[]MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrayOutput) Index(i pulumi.IntInput) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule {
 		return vs[0].([]MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule)[vs[1].(int)]
@@ -2624,12 +2335,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 
 func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput)
-}
-
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput {
@@ -2673,12 +2378,6 @@ func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDe
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput) ElementType() reflect.Type {
@@ -2703,12 +2402,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput)
 }
 
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Rule name.
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration) string {
@@ -2728,12 +2421,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDet
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationOutput {
@@ -2797,12 +2484,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2844,12 +2525,6 @@ func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeyword
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput) ElementType() reflect.Type {
@@ -2872,12 +2547,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration) *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Collection of keywords to match.
@@ -2913,12 +2582,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordM
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationOutput {
@@ -3002,12 +2665,6 @@ func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput)
 }
 
-func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput {
 	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3049,12 +2706,6 @@ func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentime
 	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput)
 }
 
-func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration]{
-		OutputState: i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput) ElementType() reflect.Type {
@@ -3077,12 +2728,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration) *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration {
 		return &v
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput)
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration] {
-	return pulumix.Output[MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Rule name.
@@ -3118,12 +2763,6 @@ func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimen
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput {
 	return o
-}
-
-func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration] {
-	return pulumix.Output[*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationOutput {

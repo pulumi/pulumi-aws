@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates an AppConfig Extension with a Resource.
@@ -230,12 +229,6 @@ func (i *ExtensionAssociation) ToExtensionAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationOutput)
 }
 
-func (i *ExtensionAssociation) ToOutput(ctx context.Context) pulumix.Output[*ExtensionAssociation] {
-	return pulumix.Output[*ExtensionAssociation]{
-		OutputState: i.ToExtensionAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionAssociationArrayInput is an input type that accepts ExtensionAssociationArray and ExtensionAssociationArrayOutput values.
 // You can construct a concrete instance of `ExtensionAssociationArrayInput` via:
 //
@@ -259,12 +252,6 @@ func (i ExtensionAssociationArray) ToExtensionAssociationArrayOutput() Extension
 
 func (i ExtensionAssociationArray) ToExtensionAssociationArrayOutputWithContext(ctx context.Context) ExtensionAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationArrayOutput)
-}
-
-func (i ExtensionAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExtensionAssociation] {
-	return pulumix.Output[[]*ExtensionAssociation]{
-		OutputState: i.ToExtensionAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExtensionAssociationMapInput is an input type that accepts ExtensionAssociationMap and ExtensionAssociationMapOutput values.
@@ -292,12 +279,6 @@ func (i ExtensionAssociationMap) ToExtensionAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationMapOutput)
 }
 
-func (i ExtensionAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExtensionAssociation] {
-	return pulumix.Output[map[string]*ExtensionAssociation]{
-		OutputState: i.ToExtensionAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ExtensionAssociationOutput) ElementType() reflect.Type {
@@ -310,12 +291,6 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutput() ExtensionAsso
 
 func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx context.Context) ExtensionAssociationOutput {
 	return o
-}
-
-func (o ExtensionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ExtensionAssociation] {
-	return pulumix.Output[*ExtensionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the AppConfig Extension Association.
@@ -357,12 +332,6 @@ func (o ExtensionAssociationArrayOutput) ToExtensionAssociationArrayOutputWithCo
 	return o
 }
 
-func (o ExtensionAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExtensionAssociation] {
-	return pulumix.Output[[]*ExtensionAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExtensionAssociationArrayOutput) Index(i pulumi.IntInput) ExtensionAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExtensionAssociation {
 		return vs[0].([]*ExtensionAssociation)[vs[1].(int)]
@@ -381,12 +350,6 @@ func (o ExtensionAssociationMapOutput) ToExtensionAssociationMapOutput() Extensi
 
 func (o ExtensionAssociationMapOutput) ToExtensionAssociationMapOutputWithContext(ctx context.Context) ExtensionAssociationMapOutput {
 	return o
-}
-
-func (o ExtensionAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExtensionAssociation] {
-	return pulumix.Output[map[string]*ExtensionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionAssociationMapOutput) MapIndex(k pulumi.StringInput) ExtensionAssociationOutput {

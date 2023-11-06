@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data resource to get a list of Lambda Functions.
@@ -81,12 +80,6 @@ func (o GetFunctionsResultOutput) ToGetFunctionsResultOutput() GetFunctionsResul
 
 func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx context.Context) GetFunctionsResultOutput {
 	return o
-}
-
-func (o GetFunctionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionsResult] {
-	return pulumix.Output[GetFunctionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Lambda Function ARNs.

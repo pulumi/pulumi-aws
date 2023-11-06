@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
@@ -223,12 +222,6 @@ func (i *BucketLoggingV2) ToBucketLoggingV2OutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2Output)
 }
 
-func (i *BucketLoggingV2) ToOutput(ctx context.Context) pulumix.Output[*BucketLoggingV2] {
-	return pulumix.Output[*BucketLoggingV2]{
-		OutputState: i.ToBucketLoggingV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketLoggingV2ArrayInput is an input type that accepts BucketLoggingV2Array and BucketLoggingV2ArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingV2ArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i BucketLoggingV2Array) ToBucketLoggingV2ArrayOutput() BucketLoggingV2Arra
 
 func (i BucketLoggingV2Array) ToBucketLoggingV2ArrayOutputWithContext(ctx context.Context) BucketLoggingV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2ArrayOutput)
-}
-
-func (i BucketLoggingV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLoggingV2] {
-	return pulumix.Output[[]*BucketLoggingV2]{
-		OutputState: i.ToBucketLoggingV2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketLoggingV2MapInput is an input type that accepts BucketLoggingV2Map and BucketLoggingV2MapOutput values.
@@ -285,12 +272,6 @@ func (i BucketLoggingV2Map) ToBucketLoggingV2MapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2MapOutput)
 }
 
-func (i BucketLoggingV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLoggingV2] {
-	return pulumix.Output[map[string]*BucketLoggingV2]{
-		OutputState: i.ToBucketLoggingV2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLoggingV2Output struct{ *pulumi.OutputState }
 
 func (BucketLoggingV2Output) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o BucketLoggingV2Output) ToBucketLoggingV2Output() BucketLoggingV2Output {
 
 func (o BucketLoggingV2Output) ToBucketLoggingV2OutputWithContext(ctx context.Context) BucketLoggingV2Output {
 	return o
-}
-
-func (o BucketLoggingV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketLoggingV2] {
-	return pulumix.Output[*BucketLoggingV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket.
@@ -350,12 +325,6 @@ func (o BucketLoggingV2ArrayOutput) ToBucketLoggingV2ArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o BucketLoggingV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLoggingV2] {
-	return pulumix.Output[[]*BucketLoggingV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketLoggingV2ArrayOutput) Index(i pulumi.IntInput) BucketLoggingV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketLoggingV2 {
 		return vs[0].([]*BucketLoggingV2)[vs[1].(int)]
@@ -374,12 +343,6 @@ func (o BucketLoggingV2MapOutput) ToBucketLoggingV2MapOutput() BucketLoggingV2Ma
 
 func (o BucketLoggingV2MapOutput) ToBucketLoggingV2MapOutputWithContext(ctx context.Context) BucketLoggingV2MapOutput {
 	return o
-}
-
-func (o BucketLoggingV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLoggingV2] {
-	return pulumix.Output[map[string]*BucketLoggingV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLoggingV2MapOutput) MapIndex(k pulumi.StringInput) BucketLoggingV2Output {

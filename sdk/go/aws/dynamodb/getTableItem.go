@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for retrieving a value from an AWS DynamoDB table.
@@ -127,12 +126,6 @@ func (o LookupTableItemResultOutput) ToLookupTableItemResultOutput() LookupTable
 
 func (o LookupTableItemResultOutput) ToLookupTableItemResultOutputWithContext(ctx context.Context) LookupTableItemResultOutput {
 	return o
-}
-
-func (o LookupTableItemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTableItemResult] {
-	return pulumix.Output[LookupTableItemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTableItemResultOutput) ExpressionAttributeNames() pulumi.StringMapOutput {

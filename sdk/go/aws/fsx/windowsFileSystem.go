@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx Windows File System. See the [FSx Windows Guide](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) for more information.
@@ -452,12 +451,6 @@ func (i *WindowsFileSystem) ToWindowsFileSystemOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemOutput)
 }
 
-func (i *WindowsFileSystem) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystem] {
-	return pulumix.Output[*WindowsFileSystem]{
-		OutputState: i.ToWindowsFileSystemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WindowsFileSystemArrayInput is an input type that accepts WindowsFileSystemArray and WindowsFileSystemArrayOutput values.
 // You can construct a concrete instance of `WindowsFileSystemArrayInput` via:
 //
@@ -481,12 +474,6 @@ func (i WindowsFileSystemArray) ToWindowsFileSystemArrayOutput() WindowsFileSyst
 
 func (i WindowsFileSystemArray) ToWindowsFileSystemArrayOutputWithContext(ctx context.Context) WindowsFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemArrayOutput)
-}
-
-func (i WindowsFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFileSystem] {
-	return pulumix.Output[[]*WindowsFileSystem]{
-		OutputState: i.ToWindowsFileSystemArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsFileSystemMapInput is an input type that accepts WindowsFileSystemMap and WindowsFileSystemMapOutput values.
@@ -514,12 +501,6 @@ func (i WindowsFileSystemMap) ToWindowsFileSystemMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemMapOutput)
 }
 
-func (i WindowsFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFileSystem] {
-	return pulumix.Output[map[string]*WindowsFileSystem]{
-		OutputState: i.ToWindowsFileSystemMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFileSystemOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemOutput) ElementType() reflect.Type {
@@ -532,12 +513,6 @@ func (o WindowsFileSystemOutput) ToWindowsFileSystemOutput() WindowsFileSystemOu
 
 func (o WindowsFileSystemOutput) ToWindowsFileSystemOutputWithContext(ctx context.Context) WindowsFileSystemOutput {
 	return o
-}
-
-func (o WindowsFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystem] {
-	return pulumix.Output[*WindowsFileSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
@@ -704,12 +679,6 @@ func (o WindowsFileSystemArrayOutput) ToWindowsFileSystemArrayOutputWithContext(
 	return o
 }
 
-func (o WindowsFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFileSystem] {
-	return pulumix.Output[[]*WindowsFileSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WindowsFileSystemArrayOutput) Index(i pulumi.IntInput) WindowsFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsFileSystem {
 		return vs[0].([]*WindowsFileSystem)[vs[1].(int)]
@@ -728,12 +697,6 @@ func (o WindowsFileSystemMapOutput) ToWindowsFileSystemMapOutput() WindowsFileSy
 
 func (o WindowsFileSystemMapOutput) ToWindowsFileSystemMapOutputWithContext(ctx context.Context) WindowsFileSystemMapOutput {
 	return o
-}
-
-func (o WindowsFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFileSystem] {
-	return pulumix.Output[map[string]*WindowsFileSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFileSystemMapOutput) MapIndex(k pulumi.StringInput) WindowsFileSystemOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.VpcIpamPool` provides details about an IPAM pool.
@@ -174,12 +173,6 @@ func (o LookupVpcIpamPoolResultOutput) ToLookupVpcIpamPoolResultOutput() LookupV
 
 func (o LookupVpcIpamPoolResultOutput) ToLookupVpcIpamPoolResultOutputWithContext(ctx context.Context) LookupVpcIpamPoolResultOutput {
 	return o
-}
-
-func (o LookupVpcIpamPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcIpamPoolResult] {
-	return pulumix.Output[LookupVpcIpamPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP protocol assigned to this pool.

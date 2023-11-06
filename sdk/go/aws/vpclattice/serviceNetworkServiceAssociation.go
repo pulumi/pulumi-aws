@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Service Network Service Association.
@@ -213,12 +212,6 @@ func (i *ServiceNetworkServiceAssociation) ToServiceNetworkServiceAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationOutput)
 }
 
-func (i *ServiceNetworkServiceAssociation) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[*ServiceNetworkServiceAssociation]{
-		OutputState: i.ToServiceNetworkServiceAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceNetworkServiceAssociationArrayInput is an input type that accepts ServiceNetworkServiceAssociationArray and ServiceNetworkServiceAssociationArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkServiceAssociationArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i ServiceNetworkServiceAssociationArray) ToServiceNetworkServiceAssociatio
 
 func (i ServiceNetworkServiceAssociationArray) ToServiceNetworkServiceAssociationArrayOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationArrayOutput)
-}
-
-func (i ServiceNetworkServiceAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[[]*ServiceNetworkServiceAssociation]{
-		OutputState: i.ToServiceNetworkServiceAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceNetworkServiceAssociationMapInput is an input type that accepts ServiceNetworkServiceAssociationMap and ServiceNetworkServiceAssociationMapOutput values.
@@ -275,12 +262,6 @@ func (i ServiceNetworkServiceAssociationMap) ToServiceNetworkServiceAssociationM
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationMapOutput)
 }
 
-func (i ServiceNetworkServiceAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[map[string]*ServiceNetworkServiceAssociation]{
-		OutputState: i.ToServiceNetworkServiceAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkServiceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkServiceAssociationOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociati
 
 func (o ServiceNetworkServiceAssociationOutput) ToServiceNetworkServiceAssociationOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationOutput {
 	return o
-}
-
-func (o ServiceNetworkServiceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[*ServiceNetworkServiceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Association.
@@ -365,12 +340,6 @@ func (o ServiceNetworkServiceAssociationArrayOutput) ToServiceNetworkServiceAsso
 	return o
 }
 
-func (o ServiceNetworkServiceAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[[]*ServiceNetworkServiceAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkServiceAssociationArrayOutput) Index(i pulumi.IntInput) ServiceNetworkServiceAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceNetworkServiceAssociation {
 		return vs[0].([]*ServiceNetworkServiceAssociation)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o ServiceNetworkServiceAssociationMapOutput) ToServiceNetworkServiceAssoci
 
 func (o ServiceNetworkServiceAssociationMapOutput) ToServiceNetworkServiceAssociationMapOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationMapOutput {
 	return o
-}
-
-func (o ServiceNetworkServiceAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkServiceAssociation] {
-	return pulumix.Output[map[string]*ServiceNetworkServiceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkServiceAssociationMapOutput) MapIndex(k pulumi.StringInput) ServiceNetworkServiceAssociationOutput {

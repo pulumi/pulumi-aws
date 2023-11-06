@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Image Recipe.
@@ -311,12 +310,6 @@ func (i *ImageRecipe) ToImageRecipeOutputWithContext(ctx context.Context) ImageR
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeOutput)
 }
 
-func (i *ImageRecipe) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipe] {
-	return pulumix.Output[*ImageRecipe]{
-		OutputState: i.ToImageRecipeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageRecipeArrayInput is an input type that accepts ImageRecipeArray and ImageRecipeArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeArrayInput` via:
 //
@@ -340,12 +333,6 @@ func (i ImageRecipeArray) ToImageRecipeArrayOutput() ImageRecipeArrayOutput {
 
 func (i ImageRecipeArray) ToImageRecipeArrayOutputWithContext(ctx context.Context) ImageRecipeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeArrayOutput)
-}
-
-func (i ImageRecipeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImageRecipe] {
-	return pulumix.Output[[]*ImageRecipe]{
-		OutputState: i.ToImageRecipeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ImageRecipeMapInput is an input type that accepts ImageRecipeMap and ImageRecipeMapOutput values.
@@ -373,12 +360,6 @@ func (i ImageRecipeMap) ToImageRecipeMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeMapOutput)
 }
 
-func (i ImageRecipeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageRecipe] {
-	return pulumix.Output[map[string]*ImageRecipe]{
-		OutputState: i.ToImageRecipeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImageRecipeOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeOutput) ElementType() reflect.Type {
@@ -391,12 +372,6 @@ func (o ImageRecipeOutput) ToImageRecipeOutput() ImageRecipeOutput {
 
 func (o ImageRecipeOutput) ToImageRecipeOutputWithContext(ctx context.Context) ImageRecipeOutput {
 	return o
-}
-
-func (o ImageRecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipe] {
-	return pulumix.Output[*ImageRecipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required) Amazon Resource Name (ARN) of the image recipe.
@@ -492,12 +467,6 @@ func (o ImageRecipeArrayOutput) ToImageRecipeArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ImageRecipeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImageRecipe] {
-	return pulumix.Output[[]*ImageRecipe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageRecipeArrayOutput) Index(i pulumi.IntInput) ImageRecipeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageRecipe {
 		return vs[0].([]*ImageRecipe)[vs[1].(int)]
@@ -516,12 +485,6 @@ func (o ImageRecipeMapOutput) ToImageRecipeMapOutput() ImageRecipeMapOutput {
 
 func (o ImageRecipeMapOutput) ToImageRecipeMapOutputWithContext(ctx context.Context) ImageRecipeMapOutput {
 	return o
-}
-
-func (o ImageRecipeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageRecipe] {
-	return pulumix.Output[map[string]*ImageRecipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeMapOutput) MapIndex(k pulumi.StringInput) ImageRecipeOutput {

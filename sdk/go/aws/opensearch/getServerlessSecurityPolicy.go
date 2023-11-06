@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
@@ -114,12 +113,6 @@ func (o LookupServerlessSecurityPolicyResultOutput) ToLookupServerlessSecurityPo
 
 func (o LookupServerlessSecurityPolicyResultOutput) ToLookupServerlessSecurityPolicyResultOutputWithContext(ctx context.Context) LookupServerlessSecurityPolicyResultOutput {
 	return o
-}
-
-func (o LookupServerlessSecurityPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessSecurityPolicyResult] {
-	return pulumix.Output[LookupServerlessSecurityPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date the security policy was created.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a GuardDuty ThreatIntelSet.
@@ -256,12 +255,6 @@ func (i *ThreatIntelSet) ToThreatIntelSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetOutput)
 }
 
-func (i *ThreatIntelSet) ToOutput(ctx context.Context) pulumix.Output[*ThreatIntelSet] {
-	return pulumix.Output[*ThreatIntelSet]{
-		OutputState: i.ToThreatIntelSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThreatIntelSetArrayInput is an input type that accepts ThreatIntelSetArray and ThreatIntelSetArrayOutput values.
 // You can construct a concrete instance of `ThreatIntelSetArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i ThreatIntelSetArray) ToThreatIntelSetArrayOutput() ThreatIntelSetArrayOu
 
 func (i ThreatIntelSetArray) ToThreatIntelSetArrayOutputWithContext(ctx context.Context) ThreatIntelSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetArrayOutput)
-}
-
-func (i ThreatIntelSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatIntelSet] {
-	return pulumix.Output[[]*ThreatIntelSet]{
-		OutputState: i.ToThreatIntelSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThreatIntelSetMapInput is an input type that accepts ThreatIntelSetMap and ThreatIntelSetMapOutput values.
@@ -318,12 +305,6 @@ func (i ThreatIntelSetMap) ToThreatIntelSetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetMapOutput)
 }
 
-func (i ThreatIntelSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatIntelSet] {
-	return pulumix.Output[map[string]*ThreatIntelSet]{
-		OutputState: i.ToThreatIntelSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThreatIntelSetOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelSetOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetOutput() ThreatIntelSetOutput {
 
 func (o ThreatIntelSetOutput) ToThreatIntelSetOutputWithContext(ctx context.Context) ThreatIntelSetOutput {
 	return o
-}
-
-func (o ThreatIntelSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ThreatIntelSet] {
-	return pulumix.Output[*ThreatIntelSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
@@ -400,12 +375,6 @@ func (o ThreatIntelSetArrayOutput) ToThreatIntelSetArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ThreatIntelSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThreatIntelSet] {
-	return pulumix.Output[[]*ThreatIntelSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThreatIntelSetArrayOutput) Index(i pulumi.IntInput) ThreatIntelSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThreatIntelSet {
 		return vs[0].([]*ThreatIntelSet)[vs[1].(int)]
@@ -424,12 +393,6 @@ func (o ThreatIntelSetMapOutput) ToThreatIntelSetMapOutput() ThreatIntelSetMapOu
 
 func (o ThreatIntelSetMapOutput) ToThreatIntelSetMapOutputWithContext(ctx context.Context) ThreatIntelSetMapOutput {
 	return o
-}
-
-func (o ThreatIntelSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThreatIntelSet] {
-	return pulumix.Output[map[string]*ThreatIntelSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThreatIntelSetMapOutput) MapIndex(k pulumi.StringInput) ThreatIntelSetOutput {

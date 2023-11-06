@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GameLift Matchmaking Rule Set resources.
@@ -150,12 +149,6 @@ func (i *MatchmakingRuleSet) ToMatchmakingRuleSetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetOutput)
 }
 
-func (i *MatchmakingRuleSet) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingRuleSet] {
-	return pulumix.Output[*MatchmakingRuleSet]{
-		OutputState: i.ToMatchmakingRuleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MatchmakingRuleSetArrayInput is an input type that accepts MatchmakingRuleSetArray and MatchmakingRuleSetArrayOutput values.
 // You can construct a concrete instance of `MatchmakingRuleSetArrayInput` via:
 //
@@ -179,12 +172,6 @@ func (i MatchmakingRuleSetArray) ToMatchmakingRuleSetArrayOutput() MatchmakingRu
 
 func (i MatchmakingRuleSetArray) ToMatchmakingRuleSetArrayOutputWithContext(ctx context.Context) MatchmakingRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetArrayOutput)
-}
-
-func (i MatchmakingRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*MatchmakingRuleSet] {
-	return pulumix.Output[[]*MatchmakingRuleSet]{
-		OutputState: i.ToMatchmakingRuleSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MatchmakingRuleSetMapInput is an input type that accepts MatchmakingRuleSetMap and MatchmakingRuleSetMapOutput values.
@@ -212,12 +199,6 @@ func (i MatchmakingRuleSetMap) ToMatchmakingRuleSetMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingRuleSetMapOutput)
 }
 
-func (i MatchmakingRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MatchmakingRuleSet] {
-	return pulumix.Output[map[string]*MatchmakingRuleSet]{
-		OutputState: i.ToMatchmakingRuleSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MatchmakingRuleSetOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingRuleSetOutput) ElementType() reflect.Type {
@@ -230,12 +211,6 @@ func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutput() MatchmakingRuleSe
 
 func (o MatchmakingRuleSetOutput) ToMatchmakingRuleSetOutputWithContext(ctx context.Context) MatchmakingRuleSetOutput {
 	return o
-}
-
-func (o MatchmakingRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingRuleSet] {
-	return pulumix.Output[*MatchmakingRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Rule Set ARN.
@@ -278,12 +253,6 @@ func (o MatchmakingRuleSetArrayOutput) ToMatchmakingRuleSetArrayOutputWithContex
 	return o
 }
 
-func (o MatchmakingRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MatchmakingRuleSet] {
-	return pulumix.Output[[]*MatchmakingRuleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingRuleSetArrayOutput) Index(i pulumi.IntInput) MatchmakingRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MatchmakingRuleSet {
 		return vs[0].([]*MatchmakingRuleSet)[vs[1].(int)]
@@ -302,12 +271,6 @@ func (o MatchmakingRuleSetMapOutput) ToMatchmakingRuleSetMapOutput() Matchmaking
 
 func (o MatchmakingRuleSetMapOutput) ToMatchmakingRuleSetMapOutputWithContext(ctx context.Context) MatchmakingRuleSetMapOutput {
 	return o
-}
-
-func (o MatchmakingRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MatchmakingRuleSet] {
-	return pulumix.Output[map[string]*MatchmakingRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchmakingRuleSetMapOutput) MapIndex(k pulumi.StringInput) MatchmakingRuleSetOutput {

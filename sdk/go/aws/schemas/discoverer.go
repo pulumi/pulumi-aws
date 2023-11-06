@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Schema Discoverer resource.
@@ -187,12 +186,6 @@ func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) Discover
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererOutput)
 }
 
-func (i *Discoverer) ToOutput(ctx context.Context) pulumix.Output[*Discoverer] {
-	return pulumix.Output[*Discoverer]{
-		OutputState: i.ToDiscovererOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiscovererArrayInput is an input type that accepts DiscovererArray and DiscovererArrayOutput values.
 // You can construct a concrete instance of `DiscovererArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i DiscovererArray) ToDiscovererArrayOutput() DiscovererArrayOutput {
 
 func (i DiscovererArray) ToDiscovererArrayOutputWithContext(ctx context.Context) DiscovererArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererArrayOutput)
-}
-
-func (i DiscovererArray) ToOutput(ctx context.Context) pulumix.Output[[]*Discoverer] {
-	return pulumix.Output[[]*Discoverer]{
-		OutputState: i.ToDiscovererArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiscovererMapInput is an input type that accepts DiscovererMap and DiscovererMapOutput values.
@@ -249,12 +236,6 @@ func (i DiscovererMap) ToDiscovererMapOutputWithContext(ctx context.Context) Dis
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererMapOutput)
 }
 
-func (i DiscovererMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Discoverer] {
-	return pulumix.Output[map[string]*Discoverer]{
-		OutputState: i.ToDiscovererMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiscovererOutput struct{ *pulumi.OutputState }
 
 func (DiscovererOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o DiscovererOutput) ToDiscovererOutput() DiscovererOutput {
 
 func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput {
 	return o
-}
-
-func (o DiscovererOutput) ToOutput(ctx context.Context) pulumix.Output[*Discoverer] {
-	return pulumix.Output[*Discoverer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the discoverer.
@@ -316,12 +291,6 @@ func (o DiscovererArrayOutput) ToDiscovererArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DiscovererArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Discoverer] {
-	return pulumix.Output[[]*Discoverer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiscovererArrayOutput) Index(i pulumi.IntInput) DiscovererOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Discoverer {
 		return vs[0].([]*Discoverer)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o DiscovererMapOutput) ToDiscovererMapOutput() DiscovererMapOutput {
 
 func (o DiscovererMapOutput) ToDiscovererMapOutputWithContext(ctx context.Context) DiscovererMapOutput {
 	return o
-}
-
-func (o DiscovererMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Discoverer] {
-	return pulumix.Output[map[string]*Discoverer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiscovererMapOutput) MapIndex(k pulumi.StringInput) DiscovererOutput {

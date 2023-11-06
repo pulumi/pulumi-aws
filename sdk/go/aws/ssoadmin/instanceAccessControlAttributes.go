@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
@@ -130,12 +129,6 @@ func (i *InstanceAccessControlAttributes) ToInstanceAccessControlAttributesOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesOutput)
 }
 
-func (i *InstanceAccessControlAttributes) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributes] {
-	return pulumix.Output[*InstanceAccessControlAttributes]{
-		OutputState: i.ToInstanceAccessControlAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceAccessControlAttributesArrayInput is an input type that accepts InstanceAccessControlAttributesArray and InstanceAccessControlAttributesArrayOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributesArrayInput` via:
 //
@@ -159,12 +152,6 @@ func (i InstanceAccessControlAttributesArray) ToInstanceAccessControlAttributesA
 
 func (i InstanceAccessControlAttributesArray) ToInstanceAccessControlAttributesArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesArrayOutput)
-}
-
-func (i InstanceAccessControlAttributesArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceAccessControlAttributes] {
-	return pulumix.Output[[]*InstanceAccessControlAttributes]{
-		OutputState: i.ToInstanceAccessControlAttributesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceAccessControlAttributesMapInput is an input type that accepts InstanceAccessControlAttributesMap and InstanceAccessControlAttributesMapOutput values.
@@ -192,12 +179,6 @@ func (i InstanceAccessControlAttributesMap) ToInstanceAccessControlAttributesMap
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesMapOutput)
 }
 
-func (i InstanceAccessControlAttributesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceAccessControlAttributes] {
-	return pulumix.Output[map[string]*InstanceAccessControlAttributes]{
-		OutputState: i.ToInstanceAccessControlAttributesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceAccessControlAttributesOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributesOutput) ElementType() reflect.Type {
@@ -210,12 +191,6 @@ func (o InstanceAccessControlAttributesOutput) ToInstanceAccessControlAttributes
 
 func (o InstanceAccessControlAttributesOutput) ToInstanceAccessControlAttributesOutputWithContext(ctx context.Context) InstanceAccessControlAttributesOutput {
 	return o
-}
-
-func (o InstanceAccessControlAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAccessControlAttributes] {
-	return pulumix.Output[*InstanceAccessControlAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // See AccessControlAttribute for more details.
@@ -252,12 +227,6 @@ func (o InstanceAccessControlAttributesArrayOutput) ToInstanceAccessControlAttri
 	return o
 }
 
-func (o InstanceAccessControlAttributesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceAccessControlAttributes] {
-	return pulumix.Output[[]*InstanceAccessControlAttributes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceAccessControlAttributesArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceAccessControlAttributes {
 		return vs[0].([]*InstanceAccessControlAttributes)[vs[1].(int)]
@@ -276,12 +245,6 @@ func (o InstanceAccessControlAttributesMapOutput) ToInstanceAccessControlAttribu
 
 func (o InstanceAccessControlAttributesMapOutput) ToInstanceAccessControlAttributesMapOutputWithContext(ctx context.Context) InstanceAccessControlAttributesMapOutput {
 	return o
-}
-
-func (o InstanceAccessControlAttributesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceAccessControlAttributes] {
-	return pulumix.Output[map[string]*InstanceAccessControlAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceAccessControlAttributesMapOutput) MapIndex(k pulumi.StringInput) InstanceAccessControlAttributesOutput {

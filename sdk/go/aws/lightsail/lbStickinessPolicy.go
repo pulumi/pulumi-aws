@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Session Stickiness for a Lightsail Load Balancer.
@@ -175,12 +174,6 @@ func (i *LbStickinessPolicy) ToLbStickinessPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LbStickinessPolicyOutput)
 }
 
-func (i *LbStickinessPolicy) ToOutput(ctx context.Context) pulumix.Output[*LbStickinessPolicy] {
-	return pulumix.Output[*LbStickinessPolicy]{
-		OutputState: i.ToLbStickinessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LbStickinessPolicyArrayInput is an input type that accepts LbStickinessPolicyArray and LbStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `LbStickinessPolicyArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i LbStickinessPolicyArray) ToLbStickinessPolicyArrayOutput() LbStickinessP
 
 func (i LbStickinessPolicyArray) ToLbStickinessPolicyArrayOutputWithContext(ctx context.Context) LbStickinessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbStickinessPolicyArrayOutput)
-}
-
-func (i LbStickinessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LbStickinessPolicy] {
-	return pulumix.Output[[]*LbStickinessPolicy]{
-		OutputState: i.ToLbStickinessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LbStickinessPolicyMapInput is an input type that accepts LbStickinessPolicyMap and LbStickinessPolicyMapOutput values.
@@ -237,12 +224,6 @@ func (i LbStickinessPolicyMap) ToLbStickinessPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LbStickinessPolicyMapOutput)
 }
 
-func (i LbStickinessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbStickinessPolicy] {
-	return pulumix.Output[map[string]*LbStickinessPolicy]{
-		OutputState: i.ToLbStickinessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LbStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LbStickinessPolicyOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o LbStickinessPolicyOutput) ToLbStickinessPolicyOutput() LbStickinessPolic
 
 func (o LbStickinessPolicyOutput) ToLbStickinessPolicyOutputWithContext(ctx context.Context) LbStickinessPolicyOutput {
 	return o
-}
-
-func (o LbStickinessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LbStickinessPolicy] {
-	return pulumix.Output[*LbStickinessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The cookie duration in seconds. This determines the length of the session stickiness.
@@ -292,12 +267,6 @@ func (o LbStickinessPolicyArrayOutput) ToLbStickinessPolicyArrayOutputWithContex
 	return o
 }
 
-func (o LbStickinessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LbStickinessPolicy] {
-	return pulumix.Output[[]*LbStickinessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LbStickinessPolicyArrayOutput) Index(i pulumi.IntInput) LbStickinessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LbStickinessPolicy {
 		return vs[0].([]*LbStickinessPolicy)[vs[1].(int)]
@@ -316,12 +285,6 @@ func (o LbStickinessPolicyMapOutput) ToLbStickinessPolicyMapOutput() LbStickines
 
 func (o LbStickinessPolicyMapOutput) ToLbStickinessPolicyMapOutputWithContext(ctx context.Context) LbStickinessPolicyMapOutput {
 	return o
-}
-
-func (o LbStickinessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbStickinessPolicy] {
-	return pulumix.Output[map[string]*LbStickinessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LbStickinessPolicyMapOutput) MapIndex(k pulumi.StringInput) LbStickinessPolicyOutput {

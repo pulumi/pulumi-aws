@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -309,12 +308,6 @@ func (i *NetworkAclRule) ToNetworkAclRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleOutput)
 }
 
-func (i *NetworkAclRule) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclRule] {
-	return pulumix.Output[*NetworkAclRule]{
-		OutputState: i.ToNetworkAclRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkAclRuleArrayInput is an input type that accepts NetworkAclRuleArray and NetworkAclRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkAclRuleArrayInput` via:
 //
@@ -338,12 +331,6 @@ func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOu
 
 func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutputWithContext(ctx context.Context) NetworkAclRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleArrayOutput)
-}
-
-func (i NetworkAclRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclRule] {
-	return pulumix.Output[[]*NetworkAclRule]{
-		OutputState: i.ToNetworkAclRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkAclRuleMapInput is an input type that accepts NetworkAclRuleMap and NetworkAclRuleMapOutput values.
@@ -371,12 +358,6 @@ func (i NetworkAclRuleMap) ToNetworkAclRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclRuleMapOutput)
 }
 
-func (i NetworkAclRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclRule] {
-	return pulumix.Output[map[string]*NetworkAclRule]{
-		OutputState: i.ToNetworkAclRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkAclRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclRuleOutput) ElementType() reflect.Type {
@@ -389,12 +370,6 @@ func (o NetworkAclRuleOutput) ToNetworkAclRuleOutput() NetworkAclRuleOutput {
 
 func (o NetworkAclRuleOutput) ToNetworkAclRuleOutputWithContext(ctx context.Context) NetworkAclRuleOutput {
 	return o
-}
-
-func (o NetworkAclRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclRule] {
-	return pulumix.Output[*NetworkAclRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
@@ -472,12 +447,6 @@ func (o NetworkAclRuleArrayOutput) ToNetworkAclRuleArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o NetworkAclRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclRule] {
-	return pulumix.Output[[]*NetworkAclRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAclRuleArrayOutput) Index(i pulumi.IntInput) NetworkAclRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkAclRule {
 		return vs[0].([]*NetworkAclRule)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutput() NetworkAclRuleMapOu
 
 func (o NetworkAclRuleMapOutput) ToNetworkAclRuleMapOutputWithContext(ctx context.Context) NetworkAclRuleMapOutput {
 	return o
-}
-
-func (o NetworkAclRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclRule] {
-	return pulumix.Output[map[string]*NetworkAclRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAclRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkAclRuleOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -79,12 +78,6 @@ func (i AppMonitorAppMonitorConfigurationArgs) ToAppMonitorAppMonitorConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorAppMonitorConfigurationOutput)
 }
 
-func (i AppMonitorAppMonitorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AppMonitorAppMonitorConfiguration] {
-	return pulumix.Output[AppMonitorAppMonitorConfiguration]{
-		OutputState: i.ToAppMonitorAppMonitorConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppMonitorAppMonitorConfigurationArgs) ToAppMonitorAppMonitorConfigurationPtrOutput() AppMonitorAppMonitorConfigurationPtrOutput {
 	return i.ToAppMonitorAppMonitorConfigurationPtrOutputWithContext(context.Background())
 }
@@ -126,12 +119,6 @@ func (i *appMonitorAppMonitorConfigurationPtrType) ToAppMonitorAppMonitorConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorAppMonitorConfigurationPtrOutput)
 }
 
-func (i *appMonitorAppMonitorConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorAppMonitorConfiguration] {
-	return pulumix.Output[*AppMonitorAppMonitorConfiguration]{
-		OutputState: i.ToAppMonitorAppMonitorConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppMonitorAppMonitorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorAppMonitorConfigurationOutput) ElementType() reflect.Type {
@@ -154,12 +141,6 @@ func (o AppMonitorAppMonitorConfigurationOutput) ToAppMonitorAppMonitorConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorAppMonitorConfiguration) *AppMonitorAppMonitorConfiguration {
 		return &v
 	}).(AppMonitorAppMonitorConfigurationPtrOutput)
-}
-
-func (o AppMonitorAppMonitorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorAppMonitorConfiguration] {
-	return pulumix.Output[AppMonitorAppMonitorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
@@ -219,12 +200,6 @@ func (o AppMonitorAppMonitorConfigurationPtrOutput) ToAppMonitorAppMonitorConfig
 
 func (o AppMonitorAppMonitorConfigurationPtrOutput) ToAppMonitorAppMonitorConfigurationPtrOutputWithContext(ctx context.Context) AppMonitorAppMonitorConfigurationPtrOutput {
 	return o
-}
-
-func (o AppMonitorAppMonitorConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorAppMonitorConfiguration] {
-	return pulumix.Output[*AppMonitorAppMonitorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorAppMonitorConfigurationPtrOutput) Elem() AppMonitorAppMonitorConfigurationOutput {
@@ -360,12 +335,6 @@ func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorCustomEventsOutput)
 }
 
-func (i AppMonitorCustomEventsArgs) ToOutput(ctx context.Context) pulumix.Output[AppMonitorCustomEvents] {
-	return pulumix.Output[AppMonitorCustomEvents]{
-		OutputState: i.ToAppMonitorCustomEventsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput {
 	return i.ToAppMonitorCustomEventsPtrOutputWithContext(context.Background())
 }
@@ -407,12 +376,6 @@ func (i *appMonitorCustomEventsPtrType) ToAppMonitorCustomEventsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorCustomEventsPtrOutput)
 }
 
-func (i *appMonitorCustomEventsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorCustomEvents] {
-	return pulumix.Output[*AppMonitorCustomEvents]{
-		OutputState: i.ToAppMonitorCustomEventsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppMonitorCustomEventsOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorCustomEventsOutput) ElementType() reflect.Type {
@@ -437,12 +400,6 @@ func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsPtrOutputWithConte
 	}).(AppMonitorCustomEventsPtrOutput)
 }
 
-func (o AppMonitorCustomEventsOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorCustomEvents] {
-	return pulumix.Output[AppMonitorCustomEvents]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
 func (o AppMonitorCustomEventsOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppMonitorCustomEvents) *string { return v.Status }).(pulumi.StringPtrOutput)
@@ -460,12 +417,6 @@ func (o AppMonitorCustomEventsPtrOutput) ToAppMonitorCustomEventsPtrOutput() App
 
 func (o AppMonitorCustomEventsPtrOutput) ToAppMonitorCustomEventsPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsPtrOutput {
 	return o
-}
-
-func (o AppMonitorCustomEventsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorCustomEvents] {
-	return pulumix.Output[*AppMonitorCustomEvents]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorCustomEventsPtrOutput) Elem() AppMonitorCustomEventsOutput {

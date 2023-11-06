@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i GetSecurityGroupRuleFilterArgs) ToGetSecurityGroupRuleFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupRuleFilterOutput)
 }
 
-func (i GetSecurityGroupRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRuleFilter] {
-	return pulumix.Output[GetSecurityGroupRuleFilter]{
-		OutputState: i.ToGetSecurityGroupRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSecurityGroupRuleFilterArrayInput is an input type that accepts GetSecurityGroupRuleFilterArray and GetSecurityGroupRuleFilterArrayOutput values.
 // You can construct a concrete instance of `GetSecurityGroupRuleFilterArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i GetSecurityGroupRuleFilterArray) ToGetSecurityGroupRuleFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupRuleFilterArrayOutput)
 }
 
-func (i GetSecurityGroupRuleFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecurityGroupRuleFilter] {
-	return pulumix.Output[[]GetSecurityGroupRuleFilter]{
-		OutputState: i.ToGetSecurityGroupRuleFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSecurityGroupRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSecurityGroupRuleFilterOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o GetSecurityGroupRuleFilterOutput) ToGetSecurityGroupRuleFilterOutput() G
 
 func (o GetSecurityGroupRuleFilterOutput) ToGetSecurityGroupRuleFilterOutputWithContext(ctx context.Context) GetSecurityGroupRuleFilterOutput {
 	return o
-}
-
-func (o GetSecurityGroupRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRuleFilter] {
-	return pulumix.Output[GetSecurityGroupRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
@@ -130,12 +111,6 @@ func (o GetSecurityGroupRuleFilterArrayOutput) ToGetSecurityGroupRuleFilterArray
 
 func (o GetSecurityGroupRuleFilterArrayOutput) ToGetSecurityGroupRuleFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupRuleFilterArrayOutput {
 	return o
-}
-
-func (o GetSecurityGroupRuleFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecurityGroupRuleFilter] {
-	return pulumix.Output[[]GetSecurityGroupRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecurityGroupRuleFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupRuleFilterOutput {
@@ -185,12 +160,6 @@ func (i GetSecurityGroupRulesFilterArgs) ToGetSecurityGroupRulesFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupRulesFilterOutput)
 }
 
-func (i GetSecurityGroupRulesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRulesFilter] {
-	return pulumix.Output[GetSecurityGroupRulesFilter]{
-		OutputState: i.ToGetSecurityGroupRulesFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSecurityGroupRulesFilterArrayInput is an input type that accepts GetSecurityGroupRulesFilterArray and GetSecurityGroupRulesFilterArrayOutput values.
 // You can construct a concrete instance of `GetSecurityGroupRulesFilterArrayInput` via:
 //
@@ -216,12 +185,6 @@ func (i GetSecurityGroupRulesFilterArray) ToGetSecurityGroupRulesFilterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupRulesFilterArrayOutput)
 }
 
-func (i GetSecurityGroupRulesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecurityGroupRulesFilter] {
-	return pulumix.Output[[]GetSecurityGroupRulesFilter]{
-		OutputState: i.ToGetSecurityGroupRulesFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSecurityGroupRulesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSecurityGroupRulesFilterOutput) ElementType() reflect.Type {
@@ -234,12 +197,6 @@ func (o GetSecurityGroupRulesFilterOutput) ToGetSecurityGroupRulesFilterOutput()
 
 func (o GetSecurityGroupRulesFilterOutput) ToGetSecurityGroupRulesFilterOutputWithContext(ctx context.Context) GetSecurityGroupRulesFilterOutput {
 	return o
-}
-
-func (o GetSecurityGroupRulesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRulesFilter] {
-	return pulumix.Output[GetSecurityGroupRulesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by
@@ -266,12 +223,6 @@ func (o GetSecurityGroupRulesFilterArrayOutput) ToGetSecurityGroupRulesFilterArr
 
 func (o GetSecurityGroupRulesFilterArrayOutput) ToGetSecurityGroupRulesFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupRulesFilterArrayOutput {
 	return o
-}
-
-func (o GetSecurityGroupRulesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecurityGroupRulesFilter] {
-	return pulumix.Output[[]GetSecurityGroupRulesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecurityGroupRulesFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupRulesFilterOutput {

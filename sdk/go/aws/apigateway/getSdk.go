@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -125,12 +124,6 @@ func (o GetSdkResultOutput) ToGetSdkResultOutput() GetSdkResultOutput {
 
 func (o GetSdkResultOutput) ToGetSdkResultOutputWithContext(ctx context.Context) GetSdkResultOutput {
 	return o
-}
-
-func (o GetSdkResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSdkResult] {
-	return pulumix.Output[GetSdkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // SDK as a string.

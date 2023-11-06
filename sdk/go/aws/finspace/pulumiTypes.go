@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i KxClusterAutoScalingConfigurationArgs) ToKxClusterAutoScalingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterAutoScalingConfigurationOutput)
 }
 
-func (i KxClusterAutoScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterAutoScalingConfiguration] {
-	return pulumix.Output[KxClusterAutoScalingConfiguration]{
-		OutputState: i.ToKxClusterAutoScalingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxClusterAutoScalingConfigurationArgs) ToKxClusterAutoScalingConfigurationPtrOutput() KxClusterAutoScalingConfigurationPtrOutput {
 	return i.ToKxClusterAutoScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *kxClusterAutoScalingConfigurationPtrType) ToKxClusterAutoScalingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterAutoScalingConfigurationPtrOutput)
 }
 
-func (i *kxClusterAutoScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KxClusterAutoScalingConfiguration] {
-	return pulumix.Output[*KxClusterAutoScalingConfiguration]{
-		OutputState: i.ToKxClusterAutoScalingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterAutoScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterAutoScalingConfigurationOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o KxClusterAutoScalingConfigurationOutput) ToKxClusterAutoScalingConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterAutoScalingConfiguration) *KxClusterAutoScalingConfiguration {
 		return &v
 	}).(KxClusterAutoScalingConfigurationPtrOutput)
-}
-
-func (o KxClusterAutoScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterAutoScalingConfiguration] {
-	return pulumix.Output[KxClusterAutoScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
@@ -192,12 +173,6 @@ func (o KxClusterAutoScalingConfigurationPtrOutput) ToKxClusterAutoScalingConfig
 
 func (o KxClusterAutoScalingConfigurationPtrOutput) ToKxClusterAutoScalingConfigurationPtrOutputWithContext(ctx context.Context) KxClusterAutoScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o KxClusterAutoScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxClusterAutoScalingConfiguration] {
-	return pulumix.Output[*KxClusterAutoScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterAutoScalingConfigurationPtrOutput) Elem() KxClusterAutoScalingConfigurationOutput {
@@ -313,12 +288,6 @@ func (i KxClusterCacheStorageConfigurationArgs) ToKxClusterCacheStorageConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCacheStorageConfigurationOutput)
 }
 
-func (i KxClusterCacheStorageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterCacheStorageConfiguration] {
-	return pulumix.Output[KxClusterCacheStorageConfiguration]{
-		OutputState: i.ToKxClusterCacheStorageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxClusterCacheStorageConfigurationArrayInput is an input type that accepts KxClusterCacheStorageConfigurationArray and KxClusterCacheStorageConfigurationArrayOutput values.
 // You can construct a concrete instance of `KxClusterCacheStorageConfigurationArrayInput` via:
 //
@@ -344,12 +313,6 @@ func (i KxClusterCacheStorageConfigurationArray) ToKxClusterCacheStorageConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCacheStorageConfigurationArrayOutput)
 }
 
-func (i KxClusterCacheStorageConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterCacheStorageConfiguration] {
-	return pulumix.Output[[]KxClusterCacheStorageConfiguration]{
-		OutputState: i.ToKxClusterCacheStorageConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterCacheStorageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterCacheStorageConfigurationOutput) ElementType() reflect.Type {
@@ -362,12 +325,6 @@ func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigu
 
 func (o KxClusterCacheStorageConfigurationOutput) ToKxClusterCacheStorageConfigurationOutputWithContext(ctx context.Context) KxClusterCacheStorageConfigurationOutput {
 	return o
-}
-
-func (o KxClusterCacheStorageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterCacheStorageConfiguration] {
-	return pulumix.Output[KxClusterCacheStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Size of cache in Gigabytes.
@@ -395,12 +352,6 @@ func (o KxClusterCacheStorageConfigurationArrayOutput) ToKxClusterCacheStorageCo
 
 func (o KxClusterCacheStorageConfigurationArrayOutput) ToKxClusterCacheStorageConfigurationArrayOutputWithContext(ctx context.Context) KxClusterCacheStorageConfigurationArrayOutput {
 	return o
-}
-
-func (o KxClusterCacheStorageConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterCacheStorageConfiguration] {
-	return pulumix.Output[[]KxClusterCacheStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterCacheStorageConfigurationArrayOutput) Index(i pulumi.IntInput) KxClusterCacheStorageConfigurationOutput {
@@ -464,12 +415,6 @@ func (i KxClusterCapacityConfigurationArgs) ToKxClusterCapacityConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCapacityConfigurationOutput)
 }
 
-func (i KxClusterCapacityConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterCapacityConfiguration] {
-	return pulumix.Output[KxClusterCapacityConfiguration]{
-		OutputState: i.ToKxClusterCapacityConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxClusterCapacityConfigurationArgs) ToKxClusterCapacityConfigurationPtrOutput() KxClusterCapacityConfigurationPtrOutput {
 	return i.ToKxClusterCapacityConfigurationPtrOutputWithContext(context.Background())
 }
@@ -511,12 +456,6 @@ func (i *kxClusterCapacityConfigurationPtrType) ToKxClusterCapacityConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCapacityConfigurationPtrOutput)
 }
 
-func (i *kxClusterCapacityConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KxClusterCapacityConfiguration] {
-	return pulumix.Output[*KxClusterCapacityConfiguration]{
-		OutputState: i.ToKxClusterCapacityConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterCapacityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterCapacityConfigurationOutput) ElementType() reflect.Type {
@@ -539,12 +478,6 @@ func (o KxClusterCapacityConfigurationOutput) ToKxClusterCapacityConfigurationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterCapacityConfiguration) *KxClusterCapacityConfiguration {
 		return &v
 	}).(KxClusterCapacityConfigurationPtrOutput)
-}
-
-func (o KxClusterCapacityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterCapacityConfiguration] {
-	return pulumix.Output[KxClusterCapacityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of instances running in a cluster. Must be at least 1 and at most 5.
@@ -578,12 +511,6 @@ func (o KxClusterCapacityConfigurationPtrOutput) ToKxClusterCapacityConfiguratio
 
 func (o KxClusterCapacityConfigurationPtrOutput) ToKxClusterCapacityConfigurationPtrOutputWithContext(ctx context.Context) KxClusterCapacityConfigurationPtrOutput {
 	return o
-}
-
-func (o KxClusterCapacityConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxClusterCapacityConfiguration] {
-	return pulumix.Output[*KxClusterCapacityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterCapacityConfigurationPtrOutput) Elem() KxClusterCapacityConfigurationOutput {
@@ -666,12 +593,6 @@ func (i KxClusterCodeArgs) ToKxClusterCodeOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCodeOutput)
 }
 
-func (i KxClusterCodeArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterCode] {
-	return pulumix.Output[KxClusterCode]{
-		OutputState: i.ToKxClusterCodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxClusterCodeArgs) ToKxClusterCodePtrOutput() KxClusterCodePtrOutput {
 	return i.ToKxClusterCodePtrOutputWithContext(context.Background())
 }
@@ -713,12 +634,6 @@ func (i *kxClusterCodePtrType) ToKxClusterCodePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterCodePtrOutput)
 }
 
-func (i *kxClusterCodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KxClusterCode] {
-	return pulumix.Output[*KxClusterCode]{
-		OutputState: i.ToKxClusterCodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterCodeOutput struct{ *pulumi.OutputState }
 
 func (KxClusterCodeOutput) ElementType() reflect.Type {
@@ -741,12 +656,6 @@ func (o KxClusterCodeOutput) ToKxClusterCodePtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterCode) *KxClusterCode {
 		return &v
 	}).(KxClusterCodePtrOutput)
-}
-
-func (o KxClusterCodeOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterCode] {
-	return pulumix.Output[KxClusterCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name for the S3 bucket.
@@ -776,12 +685,6 @@ func (o KxClusterCodePtrOutput) ToKxClusterCodePtrOutput() KxClusterCodePtrOutpu
 
 func (o KxClusterCodePtrOutput) ToKxClusterCodePtrOutputWithContext(ctx context.Context) KxClusterCodePtrOutput {
 	return o
-}
-
-func (o KxClusterCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxClusterCode] {
-	return pulumix.Output[*KxClusterCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterCodePtrOutput) Elem() KxClusterCodeOutput {
@@ -865,12 +768,6 @@ func (i KxClusterDatabaseArgs) ToKxClusterDatabaseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterDatabaseOutput)
 }
 
-func (i KxClusterDatabaseArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterDatabase] {
-	return pulumix.Output[KxClusterDatabase]{
-		OutputState: i.ToKxClusterDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxClusterDatabaseArrayInput is an input type that accepts KxClusterDatabaseArray and KxClusterDatabaseArrayOutput values.
 // You can construct a concrete instance of `KxClusterDatabaseArrayInput` via:
 //
@@ -896,12 +793,6 @@ func (i KxClusterDatabaseArray) ToKxClusterDatabaseArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterDatabaseArrayOutput)
 }
 
-func (i KxClusterDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterDatabase] {
-	return pulumix.Output[[]KxClusterDatabase]{
-		OutputState: i.ToKxClusterDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterDatabaseOutput struct{ *pulumi.OutputState }
 
 func (KxClusterDatabaseOutput) ElementType() reflect.Type {
@@ -914,12 +805,6 @@ func (o KxClusterDatabaseOutput) ToKxClusterDatabaseOutput() KxClusterDatabaseOu
 
 func (o KxClusterDatabaseOutput) ToKxClusterDatabaseOutputWithContext(ctx context.Context) KxClusterDatabaseOutput {
 	return o
-}
-
-func (o KxClusterDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterDatabase] {
-	return pulumix.Output[KxClusterDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
@@ -949,12 +834,6 @@ func (o KxClusterDatabaseArrayOutput) ToKxClusterDatabaseArrayOutput() KxCluster
 
 func (o KxClusterDatabaseArrayOutput) ToKxClusterDatabaseArrayOutputWithContext(ctx context.Context) KxClusterDatabaseArrayOutput {
 	return o
-}
-
-func (o KxClusterDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterDatabase] {
-	return pulumix.Output[[]KxClusterDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterDatabaseArrayOutput) Index(i pulumi.IntInput) KxClusterDatabaseOutput {
@@ -1000,12 +879,6 @@ func (i KxClusterDatabaseCacheConfigurationArgs) ToKxClusterDatabaseCacheConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterDatabaseCacheConfigurationOutput)
 }
 
-func (i KxClusterDatabaseCacheConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterDatabaseCacheConfiguration] {
-	return pulumix.Output[KxClusterDatabaseCacheConfiguration]{
-		OutputState: i.ToKxClusterDatabaseCacheConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxClusterDatabaseCacheConfigurationArrayInput is an input type that accepts KxClusterDatabaseCacheConfigurationArray and KxClusterDatabaseCacheConfigurationArrayOutput values.
 // You can construct a concrete instance of `KxClusterDatabaseCacheConfigurationArrayInput` via:
 //
@@ -1031,12 +904,6 @@ func (i KxClusterDatabaseCacheConfigurationArray) ToKxClusterDatabaseCacheConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterDatabaseCacheConfigurationArrayOutput)
 }
 
-func (i KxClusterDatabaseCacheConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterDatabaseCacheConfiguration] {
-	return pulumix.Output[[]KxClusterDatabaseCacheConfiguration]{
-		OutputState: i.ToKxClusterDatabaseCacheConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterDatabaseCacheConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterDatabaseCacheConfigurationOutput) ElementType() reflect.Type {
@@ -1049,12 +916,6 @@ func (o KxClusterDatabaseCacheConfigurationOutput) ToKxClusterDatabaseCacheConfi
 
 func (o KxClusterDatabaseCacheConfigurationOutput) ToKxClusterDatabaseCacheConfigurationOutputWithContext(ctx context.Context) KxClusterDatabaseCacheConfigurationOutput {
 	return o
-}
-
-func (o KxClusterDatabaseCacheConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterDatabaseCacheConfiguration] {
-	return pulumix.Output[KxClusterDatabaseCacheConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of disk cache.
@@ -1079,12 +940,6 @@ func (o KxClusterDatabaseCacheConfigurationArrayOutput) ToKxClusterDatabaseCache
 
 func (o KxClusterDatabaseCacheConfigurationArrayOutput) ToKxClusterDatabaseCacheConfigurationArrayOutputWithContext(ctx context.Context) KxClusterDatabaseCacheConfigurationArrayOutput {
 	return o
-}
-
-func (o KxClusterDatabaseCacheConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KxClusterDatabaseCacheConfiguration] {
-	return pulumix.Output[[]KxClusterDatabaseCacheConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterDatabaseCacheConfigurationArrayOutput) Index(i pulumi.IntInput) KxClusterDatabaseCacheConfigurationOutput {
@@ -1132,12 +987,6 @@ func (i KxClusterSavedownStorageConfigurationArgs) ToKxClusterSavedownStorageCon
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterSavedownStorageConfigurationOutput)
 }
 
-func (i KxClusterSavedownStorageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterSavedownStorageConfiguration] {
-	return pulumix.Output[KxClusterSavedownStorageConfiguration]{
-		OutputState: i.ToKxClusterSavedownStorageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxClusterSavedownStorageConfigurationArgs) ToKxClusterSavedownStorageConfigurationPtrOutput() KxClusterSavedownStorageConfigurationPtrOutput {
 	return i.ToKxClusterSavedownStorageConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1179,12 +1028,6 @@ func (i *kxClusterSavedownStorageConfigurationPtrType) ToKxClusterSavedownStorag
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterSavedownStorageConfigurationPtrOutput)
 }
 
-func (i *kxClusterSavedownStorageConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KxClusterSavedownStorageConfiguration] {
-	return pulumix.Output[*KxClusterSavedownStorageConfiguration]{
-		OutputState: i.ToKxClusterSavedownStorageConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterSavedownStorageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterSavedownStorageConfigurationOutput) ElementType() reflect.Type {
@@ -1207,12 +1050,6 @@ func (o KxClusterSavedownStorageConfigurationOutput) ToKxClusterSavedownStorageC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterSavedownStorageConfiguration) *KxClusterSavedownStorageConfiguration {
 		return &v
 	}).(KxClusterSavedownStorageConfigurationPtrOutput)
-}
-
-func (o KxClusterSavedownStorageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterSavedownStorageConfiguration] {
-	return pulumix.Output[KxClusterSavedownStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Size of temporary storage in gigabytes. Must be between 10 and 16000.
@@ -1238,12 +1075,6 @@ func (o KxClusterSavedownStorageConfigurationPtrOutput) ToKxClusterSavedownStora
 
 func (o KxClusterSavedownStorageConfigurationPtrOutput) ToKxClusterSavedownStorageConfigurationPtrOutputWithContext(ctx context.Context) KxClusterSavedownStorageConfigurationPtrOutput {
 	return o
-}
-
-func (o KxClusterSavedownStorageConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxClusterSavedownStorageConfiguration] {
-	return pulumix.Output[*KxClusterSavedownStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterSavedownStorageConfigurationPtrOutput) Elem() KxClusterSavedownStorageConfigurationOutput {
@@ -1322,12 +1153,6 @@ func (i KxClusterVpcConfigurationArgs) ToKxClusterVpcConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterVpcConfigurationOutput)
 }
 
-func (i KxClusterVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxClusterVpcConfiguration] {
-	return pulumix.Output[KxClusterVpcConfiguration]{
-		OutputState: i.ToKxClusterVpcConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxClusterVpcConfigurationArgs) ToKxClusterVpcConfigurationPtrOutput() KxClusterVpcConfigurationPtrOutput {
 	return i.ToKxClusterVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1369,12 +1194,6 @@ func (i *kxClusterVpcConfigurationPtrType) ToKxClusterVpcConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KxClusterVpcConfigurationPtrOutput)
 }
 
-func (i *kxClusterVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KxClusterVpcConfiguration] {
-	return pulumix.Output[*KxClusterVpcConfiguration]{
-		OutputState: i.ToKxClusterVpcConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxClusterVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxClusterVpcConfigurationOutput) ElementType() reflect.Type {
@@ -1397,12 +1216,6 @@ func (o KxClusterVpcConfigurationOutput) ToKxClusterVpcConfigurationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxClusterVpcConfiguration) *KxClusterVpcConfiguration {
 		return &v
 	}).(KxClusterVpcConfigurationPtrOutput)
-}
-
-func (o KxClusterVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxClusterVpcConfiguration] {
-	return pulumix.Output[KxClusterVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
@@ -1437,12 +1250,6 @@ func (o KxClusterVpcConfigurationPtrOutput) ToKxClusterVpcConfigurationPtrOutput
 
 func (o KxClusterVpcConfigurationPtrOutput) ToKxClusterVpcConfigurationPtrOutputWithContext(ctx context.Context) KxClusterVpcConfigurationPtrOutput {
 	return o
-}
-
-func (o KxClusterVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxClusterVpcConfiguration] {
-	return pulumix.Output[*KxClusterVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxClusterVpcConfigurationPtrOutput) Elem() KxClusterVpcConfigurationOutput {
@@ -1532,12 +1339,6 @@ func (i KxEnvironmentCustomDnsConfigurationArgs) ToKxEnvironmentCustomDnsConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentCustomDnsConfigurationOutput)
 }
 
-func (i KxEnvironmentCustomDnsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentCustomDnsConfiguration] {
-	return pulumix.Output[KxEnvironmentCustomDnsConfiguration]{
-		OutputState: i.ToKxEnvironmentCustomDnsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxEnvironmentCustomDnsConfigurationArrayInput is an input type that accepts KxEnvironmentCustomDnsConfigurationArray and KxEnvironmentCustomDnsConfigurationArrayOutput values.
 // You can construct a concrete instance of `KxEnvironmentCustomDnsConfigurationArrayInput` via:
 //
@@ -1563,12 +1364,6 @@ func (i KxEnvironmentCustomDnsConfigurationArray) ToKxEnvironmentCustomDnsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentCustomDnsConfigurationArrayOutput)
 }
 
-func (i KxEnvironmentCustomDnsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]KxEnvironmentCustomDnsConfiguration] {
-	return pulumix.Output[[]KxEnvironmentCustomDnsConfiguration]{
-		OutputState: i.ToKxEnvironmentCustomDnsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxEnvironmentCustomDnsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentCustomDnsConfigurationOutput) ElementType() reflect.Type {
@@ -1581,12 +1376,6 @@ func (o KxEnvironmentCustomDnsConfigurationOutput) ToKxEnvironmentCustomDnsConfi
 
 func (o KxEnvironmentCustomDnsConfigurationOutput) ToKxEnvironmentCustomDnsConfigurationOutputWithContext(ctx context.Context) KxEnvironmentCustomDnsConfigurationOutput {
 	return o
-}
-
-func (o KxEnvironmentCustomDnsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentCustomDnsConfiguration] {
-	return pulumix.Output[KxEnvironmentCustomDnsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP address of the DNS server.
@@ -1611,12 +1400,6 @@ func (o KxEnvironmentCustomDnsConfigurationArrayOutput) ToKxEnvironmentCustomDns
 
 func (o KxEnvironmentCustomDnsConfigurationArrayOutput) ToKxEnvironmentCustomDnsConfigurationArrayOutputWithContext(ctx context.Context) KxEnvironmentCustomDnsConfigurationArrayOutput {
 	return o
-}
-
-func (o KxEnvironmentCustomDnsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KxEnvironmentCustomDnsConfiguration] {
-	return pulumix.Output[[]KxEnvironmentCustomDnsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxEnvironmentCustomDnsConfigurationArrayOutput) Index(i pulumi.IntInput) KxEnvironmentCustomDnsConfigurationOutput {
@@ -1666,12 +1449,6 @@ func (i KxEnvironmentTransitGatewayConfigurationArgs) ToKxEnvironmentTransitGate
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationOutput)
 }
 
-func (i KxEnvironmentTransitGatewayConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfiguration] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfiguration]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxEnvironmentTransitGatewayConfigurationArgs) ToKxEnvironmentTransitGatewayConfigurationPtrOutput() KxEnvironmentTransitGatewayConfigurationPtrOutput {
 	return i.ToKxEnvironmentTransitGatewayConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1713,12 +1490,6 @@ func (i *kxEnvironmentTransitGatewayConfigurationPtrType) ToKxEnvironmentTransit
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationPtrOutput)
 }
 
-func (i *kxEnvironmentTransitGatewayConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfiguration] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfiguration]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxEnvironmentTransitGatewayConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentTransitGatewayConfigurationOutput) ElementType() reflect.Type {
@@ -1741,12 +1512,6 @@ func (o KxEnvironmentTransitGatewayConfigurationOutput) ToKxEnvironmentTransitGa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxEnvironmentTransitGatewayConfiguration) *KxEnvironmentTransitGatewayConfiguration {
 		return &v
 	}).(KxEnvironmentTransitGatewayConfigurationPtrOutput)
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfiguration] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
@@ -1778,12 +1543,6 @@ func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) ToKxEnvironmentTransi
 
 func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) ToKxEnvironmentTransitGatewayConfigurationPtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationPtrOutput {
 	return o
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfiguration] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxEnvironmentTransitGatewayConfigurationPtrOutput) Elem() KxEnvironmentTransitGatewayConfigurationOutput {
@@ -1879,12 +1638,6 @@ func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput)
 }
 
-func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput is an input type that accepts KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray and KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput values.
 // You can construct a concrete instance of `KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayInput` via:
 //
@@ -1910,12 +1663,6 @@ func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput)
 }
 
-func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration] {
-	return pulumix.Output[[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ElementType() reflect.Type {
@@ -1928,12 +1675,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
 	return o
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
@@ -1992,12 +1733,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return o
 }
 
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration] {
-	return pulumix.Output[[]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrayOutput) Index(i pulumi.IntInput) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
 		return vs[0].([]KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration)[vs[1].(int)]
@@ -2041,12 +1776,6 @@ func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput)
 }
 
-func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
 	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(context.Background())
 }
@@ -2088,12 +1817,6 @@ func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput)
 }
 
-func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ElementType() reflect.Type {
@@ -2116,12 +1839,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
 		return &v
 	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput)
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ICMP code. A value of `-1` means all codes for the specified ICMP type.
@@ -2150,12 +1867,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput {
 	return o
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodePtrOutput) Elem() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeOutput {
@@ -2225,12 +1936,6 @@ func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput)
 }
 
-func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
 	return i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(context.Background())
 }
@@ -2272,12 +1977,6 @@ func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput)
 }
 
-func (i *kxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange]{
-		OutputState: i.ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput struct{ *pulumi.OutputState }
 
 func (KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ElementType() reflect.Type {
@@ -2300,12 +1999,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange) *KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
 		return &v
 	}).(KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput)
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange] {
-	return pulumix.Output[KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // First port in the range.
@@ -2334,12 +2027,6 @@ func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguratio
 
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) ToKxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutputWithContext(ctx context.Context) KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput {
 	return o
-}
-
-func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange] {
-	return pulumix.Output[*KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangePtrOutput) Elem() KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeOutput {

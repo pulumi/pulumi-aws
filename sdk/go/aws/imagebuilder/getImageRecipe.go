@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Image Recipe.
@@ -126,12 +125,6 @@ func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutput() LookupI
 
 func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContext(ctx context.Context) LookupImageRecipeResultOutput {
 	return o
-}
-
-func (o LookupImageRecipeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImageRecipeResult] {
-	return pulumix.Output[LookupImageRecipeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {

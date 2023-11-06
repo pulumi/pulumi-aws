@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
@@ -276,12 +275,6 @@ func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackOutput)
 }
 
-func (i *ConformancePack) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
-	return pulumix.Output[*ConformancePack]{
-		OutputState: i.ToConformancePackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConformancePackArrayInput is an input type that accepts ConformancePackArray and ConformancePackArrayOutput values.
 // You can construct a concrete instance of `ConformancePackArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i ConformancePackArray) ToConformancePackArrayOutput() ConformancePackArra
 
 func (i ConformancePackArray) ToConformancePackArrayOutputWithContext(ctx context.Context) ConformancePackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackArrayOutput)
-}
-
-func (i ConformancePackArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConformancePack] {
-	return pulumix.Output[[]*ConformancePack]{
-		OutputState: i.ToConformancePackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConformancePackMapInput is an input type that accepts ConformancePackMap and ConformancePackMapOutput values.
@@ -338,12 +325,6 @@ func (i ConformancePackMap) ToConformancePackMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackMapOutput)
 }
 
-func (i ConformancePackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConformancePack] {
-	return pulumix.Output[map[string]*ConformancePack]{
-		OutputState: i.ToConformancePackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {
 
 func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
 	return o
-}
-
-func (o ConformancePackOutput) ToOutput(ctx context.Context) pulumix.Output[*ConformancePack] {
-	return pulumix.Output[*ConformancePack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the conformance pack.
@@ -413,12 +388,6 @@ func (o ConformancePackArrayOutput) ToConformancePackArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ConformancePackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConformancePack] {
-	return pulumix.Output[[]*ConformancePack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConformancePackArrayOutput) Index(i pulumi.IntInput) ConformancePackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConformancePack {
 		return vs[0].([]*ConformancePack)[vs[1].(int)]
@@ -437,12 +406,6 @@ func (o ConformancePackMapOutput) ToConformancePackMapOutput() ConformancePackMa
 
 func (o ConformancePackMapOutput) ToConformancePackMapOutputWithContext(ctx context.Context) ConformancePackMapOutput {
 	return o
-}
-
-func (o ConformancePackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConformancePack] {
-	return pulumix.Output[map[string]*ConformancePack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConformancePackMapOutput) MapIndex(k pulumi.StringInput) ConformancePackOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataOutput)
 }
 
-func (i JobTemplateJobTemplateDataArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateData] {
-	return pulumix.Output[JobTemplateJobTemplateData]{
-		OutputState: i.ToJobTemplateJobTemplateDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataArgs) ToJobTemplateJobTemplateDataPtrOutput() JobTemplateJobTemplateDataPtrOutput {
 	return i.ToJobTemplateJobTemplateDataPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *jobTemplateJobTemplateDataPtrType) ToJobTemplateJobTemplateDataPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateData] {
-	return pulumix.Output[*JobTemplateJobTemplateData]{
-		OutputState: i.ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o JobTemplateJobTemplateDataOutput) ToJobTemplateJobTemplateDataPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateData) *JobTemplateJobTemplateData {
 		return &v
 	}).(JobTemplateJobTemplateDataPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateData] {
-	return pulumix.Output[JobTemplateJobTemplateData]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The configuration settings that are used to override defaults configuration.
@@ -185,12 +166,6 @@ func (o JobTemplateJobTemplateDataPtrOutput) ToJobTemplateJobTemplateDataPtrOutp
 
 func (o JobTemplateJobTemplateDataPtrOutput) ToJobTemplateJobTemplateDataPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateData] {
-	return pulumix.Output[*JobTemplateJobTemplateData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataPtrOutput) Elem() JobTemplateJobTemplateDataOutput {
@@ -290,12 +265,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTe
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverrides] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverrides]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataConfigurationOverridesArgs) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
 	return i.ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(context.Background())
 }
@@ -337,12 +306,6 @@ func (i *jobTemplateJobTemplateDataConfigurationOverridesPtrType) ToJobTemplateJ
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataConfigurationOverridesPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverrides] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverrides]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesOutput) ElementType() reflect.Type {
@@ -365,12 +328,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToJobTemplateJob
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverrides) *JobTemplateJobTemplateDataConfigurationOverrides {
 		return &v
 	}).(JobTemplateJobTemplateDataConfigurationOverridesPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverrides] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The configurations for the application running by the job run.
@@ -399,12 +356,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ToJobTemplate
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverrides] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesOutput {
@@ -478,12 +429,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayInput` via:
 //
@@ -509,12 +454,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration] {
-	return pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -527,12 +466,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The classification within a configuration.
@@ -568,12 +501,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration] {
-	return pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrayOutput) Index(i pulumi.IntInput) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationOutput {
@@ -619,12 +546,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput is an input type that accepts JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray and JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput values.
 // You can construct a concrete instance of `JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayInput` via:
 //
@@ -650,12 +571,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration] {
-	return pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ElementType() reflect.Type {
@@ -668,12 +583,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The classification within a configuration.
@@ -702,12 +611,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) ToJobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration] {
-	return pulumix.Output[[]JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrayOutput) Index(i pulumi.IntInput) JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationOutput {
@@ -757,12 +660,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
 	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -804,12 +701,6 @@ func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -832,12 +723,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration {
 		return &v
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Monitoring configurations for CloudWatch.
@@ -873,12 +758,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationP
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationOutput {
@@ -958,12 +837,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
 	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1005,12 +878,6 @@ func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -1033,12 +900,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration) *JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration {
 		return &v
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the log group for log publishing.
@@ -1067,12 +928,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationC
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationOutput {
@@ -1138,12 +993,6 @@ func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput)
 }
 
-func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1185,12 +1034,6 @@ func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration]{
-		OutputState: i.ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -1215,12 +1058,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 	}).(JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput)
 }
 
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration] {
-	return pulumix.Output[JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon S3 destination URI for log publishing.
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput) LogUri() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration) string {
@@ -1240,12 +1077,6 @@ func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToJobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration] {
-	return pulumix.Output[*JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationPtrOutput) Elem() JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationOutput {
@@ -1305,12 +1136,6 @@ func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJob
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverOutput)
 }
 
-func (i JobTemplateJobTemplateDataJobDriverArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverPtrOutput {
 	return i.ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(context.Background())
 }
@@ -1352,12 +1177,6 @@ func (i *jobTemplateJobTemplateDataJobDriverPtrType) ToJobTemplateJobTemplateDat
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataJobDriverPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataJobDriverOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataJobDriverOutput) ElementType() reflect.Type {
@@ -1380,12 +1199,6 @@ func (o JobTemplateJobTemplateDataJobDriverOutput) ToJobTemplateJobTemplateDataJ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataJobDriver) *JobTemplateJobTemplateDataJobDriver {
 		return &v
 	}).(JobTemplateJobTemplateDataJobDriverPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataJobDriverOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The job driver for job type.
@@ -1414,12 +1227,6 @@ func (o JobTemplateJobTemplateDataJobDriverPtrOutput) ToJobTemplateJobTemplateDa
 
 func (o JobTemplateJobTemplateDataJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataJobDriverPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverOutput {
@@ -1489,12 +1296,6 @@ func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJ
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput)
 }
 
-func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
 	return i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(context.Background())
 }
@@ -1536,12 +1337,6 @@ func (i *jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType) ToJobTempl
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ElementType() reflect.Type {
@@ -1566,12 +1361,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToJobTemplat
 	}).(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput)
 }
 
-func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The SQL file to be executed.
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput) EntryPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver) *string { return v.EntryPoint }).(pulumi.StringPtrOutput)
@@ -1594,12 +1383,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ToJobTemp
 
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverOutput {
@@ -1673,12 +1456,6 @@ func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTempla
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput)
 }
 
-func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
 	return i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(context.Background())
 }
@@ -1720,12 +1497,6 @@ func (i *jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType) ToJobTe
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
 }
 
-func (i *jobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver]{
-		OutputState: i.ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ElementType() reflect.Type {
@@ -1748,12 +1519,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToJobTemp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver) *JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver {
 		return &v
 	}).(JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput)
-}
-
-func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver] {
-	return pulumix.Output[JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The entry point of job application.
@@ -1785,12 +1550,6 @@ func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ToJobT
 
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ToJobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutputWithContext(ctx context.Context) JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput {
 	return o
-}
-
-func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver] {
-	return pulumix.Output[*JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverPtrOutput) Elem() JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverOutput {
@@ -1874,12 +1633,6 @@ func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderOu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderOutput)
 }
 
-func (i VirtualClusterContainerProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
-	return pulumix.Output[VirtualClusterContainerProvider]{
-		OutputState: i.ToVirtualClusterContainerProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderPtrOutput() VirtualClusterContainerProviderPtrOutput {
 	return i.ToVirtualClusterContainerProviderPtrOutputWithContext(context.Background())
 }
@@ -1921,12 +1674,6 @@ func (i *virtualClusterContainerProviderPtrType) ToVirtualClusterContainerProvid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderPtrOutput)
 }
 
-func (i *virtualClusterContainerProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProvider] {
-	return pulumix.Output[*VirtualClusterContainerProvider]{
-		OutputState: i.ToVirtualClusterContainerProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterContainerProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderOutput) ElementType() reflect.Type {
@@ -1949,12 +1696,6 @@ func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProvider
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualClusterContainerProvider) *VirtualClusterContainerProvider {
 		return &v
 	}).(VirtualClusterContainerProviderPtrOutput)
-}
-
-func (o VirtualClusterContainerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
-	return pulumix.Output[VirtualClusterContainerProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the container provider that is running your EMR Containers cluster
@@ -1984,12 +1725,6 @@ func (o VirtualClusterContainerProviderPtrOutput) ToVirtualClusterContainerProvi
 
 func (o VirtualClusterContainerProviderPtrOutput) ToVirtualClusterContainerProviderPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderPtrOutput {
 	return o
-}
-
-func (o VirtualClusterContainerProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProvider] {
-	return pulumix.Output[*VirtualClusterContainerProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterContainerProviderPtrOutput) Elem() VirtualClusterContainerProviderOutput {
@@ -2065,12 +1800,6 @@ func (i VirtualClusterContainerProviderInfoArgs) ToVirtualClusterContainerProvid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoOutput)
 }
 
-func (i VirtualClusterContainerProviderInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfo] {
-	return pulumix.Output[VirtualClusterContainerProviderInfo]{
-		OutputState: i.ToVirtualClusterContainerProviderInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualClusterContainerProviderInfoArgs) ToVirtualClusterContainerProviderInfoPtrOutput() VirtualClusterContainerProviderInfoPtrOutput {
 	return i.ToVirtualClusterContainerProviderInfoPtrOutputWithContext(context.Background())
 }
@@ -2112,12 +1841,6 @@ func (i *virtualClusterContainerProviderInfoPtrType) ToVirtualClusterContainerPr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-func (i *virtualClusterContainerProviderInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfo] {
-	return pulumix.Output[*VirtualClusterContainerProviderInfo]{
-		OutputState: i.ToVirtualClusterContainerProviderInfoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterContainerProviderInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderInfoOutput) ElementType() reflect.Type {
@@ -2142,12 +1865,6 @@ func (o VirtualClusterContainerProviderInfoOutput) ToVirtualClusterContainerProv
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
-func (o VirtualClusterContainerProviderInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfo] {
-	return pulumix.Output[VirtualClusterContainerProviderInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfo) VirtualClusterContainerProviderInfoEksInfo {
@@ -2167,12 +1884,6 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) ToVirtualClusterContainerP
 
 func (o VirtualClusterContainerProviderInfoPtrOutput) ToVirtualClusterContainerProviderInfoPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderInfoPtrOutput {
 	return o
-}
-
-func (o VirtualClusterContainerProviderInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfo] {
-	return pulumix.Output[*VirtualClusterContainerProviderInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterContainerProviderInfoPtrOutput) Elem() VirtualClusterContainerProviderInfoOutput {
@@ -2228,12 +1939,6 @@ func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToVirtualClusterContaine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
-func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[VirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: i.ToVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToVirtualClusterContainerProviderInfoEksInfoPtrOutput() VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return i.ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(context.Background())
 }
@@ -2275,12 +1980,6 @@ func (i *virtualClusterContainerProviderInfoEksInfoPtrType) ToVirtualClusterCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
-func (i *virtualClusterContainerProviderInfoEksInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: i.ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterContainerProviderInfoEksInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderInfoEksInfoOutput) ElementType() reflect.Type {
@@ -2305,12 +2004,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
-func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[VirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
@@ -2328,12 +2021,6 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToVirtualClusterCon
 
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return o
-}
-
-func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClusterContainerProviderInfoEksInfoOutput {
@@ -2397,12 +2084,6 @@ func (i GetVirtualClusterContainerProviderArgs) ToGetVirtualClusterContainerProv
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderOutput)
 }
 
-func (i GetVirtualClusterContainerProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProvider] {
-	return pulumix.Output[GetVirtualClusterContainerProvider]{
-		OutputState: i.ToGetVirtualClusterContainerProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVirtualClusterContainerProviderArrayInput is an input type that accepts GetVirtualClusterContainerProviderArray and GetVirtualClusterContainerProviderArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderArrayInput` via:
 //
@@ -2428,12 +2109,6 @@ func (i GetVirtualClusterContainerProviderArray) ToGetVirtualClusterContainerPro
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderArrayOutput)
 }
 
-func (i GetVirtualClusterContainerProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProvider] {
-	return pulumix.Output[[]GetVirtualClusterContainerProvider]{
-		OutputState: i.ToGetVirtualClusterContainerProviderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVirtualClusterContainerProviderOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderOutput) ElementType() reflect.Type {
@@ -2446,12 +2121,6 @@ func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerPr
 
 func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerProviderOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProvider] {
-	return pulumix.Output[GetVirtualClusterContainerProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the container provider that is running your EMR Containers cluster
@@ -2481,12 +2150,6 @@ func (o GetVirtualClusterContainerProviderArrayOutput) ToGetVirtualClusterContai
 
 func (o GetVirtualClusterContainerProviderArrayOutput) ToGetVirtualClusterContainerProviderArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderArrayOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProvider] {
-	return pulumix.Output[[]GetVirtualClusterContainerProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVirtualClusterContainerProviderArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderOutput {
@@ -2528,12 +2191,6 @@ func (i GetVirtualClusterContainerProviderInfoArgs) ToGetVirtualClusterContainer
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoOutput)
 }
 
-func (i GetVirtualClusterContainerProviderInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfo] {
-	return pulumix.Output[GetVirtualClusterContainerProviderInfo]{
-		OutputState: i.ToGetVirtualClusterContainerProviderInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVirtualClusterContainerProviderInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoArray and GetVirtualClusterContainerProviderInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoArrayInput` via:
 //
@@ -2559,12 +2216,6 @@ func (i GetVirtualClusterContainerProviderInfoArray) ToGetVirtualClusterContaine
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoArrayOutput)
 }
 
-func (i GetVirtualClusterContainerProviderInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfo] {
-	return pulumix.Output[[]GetVirtualClusterContainerProviderInfo]{
-		OutputState: i.ToGetVirtualClusterContainerProviderInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVirtualClusterContainerProviderInfoOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderInfoOutput) ElementType() reflect.Type {
@@ -2577,12 +2228,6 @@ func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContain
 
 func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContainerProviderInfoOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfo] {
-	return pulumix.Output[GetVirtualClusterContainerProviderInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
@@ -2604,12 +2249,6 @@ func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToGetVirtualClusterCo
 
 func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToGetVirtualClusterContainerProviderInfoArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoArrayOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfo] {
-	return pulumix.Output[[]GetVirtualClusterContainerProviderInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVirtualClusterContainerProviderInfoArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderInfoOutput {
@@ -2651,12 +2290,6 @@ func (i GetVirtualClusterContainerProviderInfoEksInfoArgs) ToGetVirtualClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
-func (i GetVirtualClusterContainerProviderInfoEksInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: i.ToGetVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVirtualClusterContainerProviderInfoEksInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoEksInfoArray and GetVirtualClusterContainerProviderInfoEksInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoEksInfoArrayInput` via:
 //
@@ -2682,12 +2315,6 @@ func (i GetVirtualClusterContainerProviderInfoEksInfoArray) ToGetVirtualClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoEksInfoArrayOutput)
 }
 
-func (i GetVirtualClusterContainerProviderInfoEksInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: i.ToGetVirtualClusterContainerProviderInfoEksInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVirtualClusterContainerProviderInfoEksInfoOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderInfoEksInfoOutput) ElementType() reflect.Type {
@@ -2700,12 +2327,6 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualCluster
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoEksInfoOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The namespace where the EMR Containers cluster is running
@@ -2725,12 +2346,6 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToGetVirtualCl
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToGetVirtualClusterContainerProviderInfoEksInfoArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoEksInfoArrayOutput {
 	return o
-}
-
-func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo] {
-	return pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderInfoEksInfoOutput {

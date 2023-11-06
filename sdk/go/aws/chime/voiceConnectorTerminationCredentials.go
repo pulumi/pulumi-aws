@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
@@ -181,12 +180,6 @@ func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCreden
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsOutput)
 }
 
-func (i *VoiceConnectorTerminationCredentials) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[*VoiceConnectorTerminationCredentials]{
-		OutputState: i.ToVoiceConnectorTerminationCredentialsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VoiceConnectorTerminationCredentialsArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsArray and VoiceConnectorTerminationCredentialsArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationCredentialsArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i VoiceConnectorTerminationCredentialsArray) ToVoiceConnectorTerminationCr
 
 func (i VoiceConnectorTerminationCredentialsArray) ToVoiceConnectorTerminationCredentialsArrayOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsArrayOutput)
-}
-
-func (i VoiceConnectorTerminationCredentialsArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[[]*VoiceConnectorTerminationCredentials]{
-		OutputState: i.ToVoiceConnectorTerminationCredentialsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VoiceConnectorTerminationCredentialsMapInput is an input type that accepts VoiceConnectorTerminationCredentialsMap and VoiceConnectorTerminationCredentialsMapOutput values.
@@ -243,12 +230,6 @@ func (i VoiceConnectorTerminationCredentialsMap) ToVoiceConnectorTerminationCred
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsMapOutput)
 }
 
-func (i VoiceConnectorTerminationCredentialsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[map[string]*VoiceConnectorTerminationCredentials]{
-		OutputState: i.ToVoiceConnectorTerminationCredentialsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VoiceConnectorTerminationCredentialsOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationCredentialsOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationC
 
 func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationCredentialsOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsOutput {
 	return o
-}
-
-func (o VoiceConnectorTerminationCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[*VoiceConnectorTerminationCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of termination SIP credentials.
@@ -295,12 +270,6 @@ func (o VoiceConnectorTerminationCredentialsArrayOutput) ToVoiceConnectorTermina
 	return o
 }
 
-func (o VoiceConnectorTerminationCredentialsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[[]*VoiceConnectorTerminationCredentials]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VoiceConnectorTerminationCredentialsArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationCredentialsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorTerminationCredentials {
 		return vs[0].([]*VoiceConnectorTerminationCredentials)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o VoiceConnectorTerminationCredentialsMapOutput) ToVoiceConnectorTerminati
 
 func (o VoiceConnectorTerminationCredentialsMapOutput) ToVoiceConnectorTerminationCredentialsMapOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsMapOutput {
 	return o
-}
-
-func (o VoiceConnectorTerminationCredentialsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorTerminationCredentials] {
-	return pulumix.Output[map[string]*VoiceConnectorTerminationCredentials]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VoiceConnectorTerminationCredentialsMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorTerminationCredentialsOutput {

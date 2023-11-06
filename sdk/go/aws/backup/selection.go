@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages selection conditions for AWS Backup plan resources.
@@ -392,12 +391,6 @@ func (i *Selection) ToSelectionOutputWithContext(ctx context.Context) SelectionO
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionOutput)
 }
 
-func (i *Selection) ToOutput(ctx context.Context) pulumix.Output[*Selection] {
-	return pulumix.Output[*Selection]{
-		OutputState: i.ToSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SelectionArrayInput is an input type that accepts SelectionArray and SelectionArrayOutput values.
 // You can construct a concrete instance of `SelectionArrayInput` via:
 //
@@ -421,12 +414,6 @@ func (i SelectionArray) ToSelectionArrayOutput() SelectionArrayOutput {
 
 func (i SelectionArray) ToSelectionArrayOutputWithContext(ctx context.Context) SelectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionArrayOutput)
-}
-
-func (i SelectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Selection] {
-	return pulumix.Output[[]*Selection]{
-		OutputState: i.ToSelectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SelectionMapInput is an input type that accepts SelectionMap and SelectionMapOutput values.
@@ -454,12 +441,6 @@ func (i SelectionMap) ToSelectionMapOutputWithContext(ctx context.Context) Selec
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionMapOutput)
 }
 
-func (i SelectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Selection] {
-	return pulumix.Output[map[string]*Selection]{
-		OutputState: i.ToSelectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SelectionOutput struct{ *pulumi.OutputState }
 
 func (SelectionOutput) ElementType() reflect.Type {
@@ -472,12 +453,6 @@ func (o SelectionOutput) ToSelectionOutput() SelectionOutput {
 
 func (o SelectionOutput) ToSelectionOutputWithContext(ctx context.Context) SelectionOutput {
 	return o
-}
-
-func (o SelectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Selection] {
-	return pulumix.Output[*Selection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of conditions that you define to assign resources to your backup plans using tags.
@@ -529,12 +504,6 @@ func (o SelectionArrayOutput) ToSelectionArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SelectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Selection] {
-	return pulumix.Output[[]*Selection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SelectionArrayOutput) Index(i pulumi.IntInput) SelectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Selection {
 		return vs[0].([]*Selection)[vs[1].(int)]
@@ -553,12 +522,6 @@ func (o SelectionMapOutput) ToSelectionMapOutput() SelectionMapOutput {
 
 func (o SelectionMapOutput) ToSelectionMapOutputWithContext(ctx context.Context) SelectionMapOutput {
 	return o
-}
-
-func (o SelectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Selection] {
-	return pulumix.Output[map[string]*Selection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SelectionMapOutput) MapIndex(k pulumi.StringInput) SelectionOutput {

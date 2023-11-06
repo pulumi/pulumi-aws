@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks Ganglia layer resource.
@@ -388,12 +387,6 @@ func (i *GangliaLayer) ToGangliaLayerOutputWithContext(ctx context.Context) Gang
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerOutput)
 }
 
-func (i *GangliaLayer) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayer] {
-	return pulumix.Output[*GangliaLayer]{
-		OutputState: i.ToGangliaLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GangliaLayerArrayInput is an input type that accepts GangliaLayerArray and GangliaLayerArrayOutput values.
 // You can construct a concrete instance of `GangliaLayerArrayInput` via:
 //
@@ -417,12 +410,6 @@ func (i GangliaLayerArray) ToGangliaLayerArrayOutput() GangliaLayerArrayOutput {
 
 func (i GangliaLayerArray) ToGangliaLayerArrayOutputWithContext(ctx context.Context) GangliaLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerArrayOutput)
-}
-
-func (i GangliaLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*GangliaLayer] {
-	return pulumix.Output[[]*GangliaLayer]{
-		OutputState: i.ToGangliaLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GangliaLayerMapInput is an input type that accepts GangliaLayerMap and GangliaLayerMapOutput values.
@@ -450,12 +437,6 @@ func (i GangliaLayerMap) ToGangliaLayerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GangliaLayerMapOutput)
 }
 
-func (i GangliaLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GangliaLayer] {
-	return pulumix.Output[map[string]*GangliaLayer]{
-		OutputState: i.ToGangliaLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GangliaLayerOutput struct{ *pulumi.OutputState }
 
 func (GangliaLayerOutput) ElementType() reflect.Type {
@@ -468,12 +449,6 @@ func (o GangliaLayerOutput) ToGangliaLayerOutput() GangliaLayerOutput {
 
 func (o GangliaLayerOutput) ToGangliaLayerOutputWithContext(ctx context.Context) GangliaLayerOutput {
 	return o
-}
-
-func (o GangliaLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*GangliaLayer] {
-	return pulumix.Output[*GangliaLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -629,12 +604,6 @@ func (o GangliaLayerArrayOutput) ToGangliaLayerArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o GangliaLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GangliaLayer] {
-	return pulumix.Output[[]*GangliaLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GangliaLayerArrayOutput) Index(i pulumi.IntInput) GangliaLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GangliaLayer {
 		return vs[0].([]*GangliaLayer)[vs[1].(int)]
@@ -653,12 +622,6 @@ func (o GangliaLayerMapOutput) ToGangliaLayerMapOutput() GangliaLayerMapOutput {
 
 func (o GangliaLayerMapOutput) ToGangliaLayerMapOutputWithContext(ctx context.Context) GangliaLayerMapOutput {
 	return o
-}
-
-func (o GangliaLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GangliaLayer] {
-	return pulumix.Output[map[string]*GangliaLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GangliaLayerMapOutput) MapIndex(k pulumi.StringInput) GangliaLayerOutput {

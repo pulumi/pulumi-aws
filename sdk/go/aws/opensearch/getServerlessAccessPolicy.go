@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS OpenSearch Serverless Access Policy.
@@ -110,12 +109,6 @@ func (o LookupServerlessAccessPolicyResultOutput) ToLookupServerlessAccessPolicy
 
 func (o LookupServerlessAccessPolicyResultOutput) ToLookupServerlessAccessPolicyResultOutputWithContext(ctx context.Context) LookupServerlessAccessPolicyResultOutput {
 	return o
-}
-
-func (o LookupServerlessAccessPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessAccessPolicyResult] {
-	return pulumix.Output[LookupServerlessAccessPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the policy. Typically used to store information about the permissions defined in the policy.

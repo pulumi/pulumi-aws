@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Gateway Route data source allows details of an App Mesh Gateway Route to be retrieved by its name, mesh_name, virtual_gateway_name, and optionally the mesh_owner.
@@ -131,12 +130,6 @@ func (o LookupGatewayRouteResultOutput) ToLookupGatewayRouteResultOutput() Looku
 
 func (o LookupGatewayRouteResultOutput) ToLookupGatewayRouteResultOutputWithContext(ctx context.Context) LookupGatewayRouteResultOutput {
 	return o
-}
-
-func (o LookupGatewayRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayRouteResult] {
-	return pulumix.Output[LookupGatewayRouteResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the gateway route.

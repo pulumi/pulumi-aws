@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
@@ -165,12 +164,6 @@ func (i *VoiceConnectorLogging) ToVoiceConnectorLoggingOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingOutput)
 }
 
-func (i *VoiceConnectorLogging) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorLogging] {
-	return pulumix.Output[*VoiceConnectorLogging]{
-		OutputState: i.ToVoiceConnectorLoggingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VoiceConnectorLoggingArrayInput is an input type that accepts VoiceConnectorLoggingArray and VoiceConnectorLoggingArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorLoggingArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i VoiceConnectorLoggingArray) ToVoiceConnectorLoggingArrayOutput() VoiceCo
 
 func (i VoiceConnectorLoggingArray) ToVoiceConnectorLoggingArrayOutputWithContext(ctx context.Context) VoiceConnectorLoggingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingArrayOutput)
-}
-
-func (i VoiceConnectorLoggingArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorLogging] {
-	return pulumix.Output[[]*VoiceConnectorLogging]{
-		OutputState: i.ToVoiceConnectorLoggingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VoiceConnectorLoggingMapInput is an input type that accepts VoiceConnectorLoggingMap and VoiceConnectorLoggingMapOutput values.
@@ -227,12 +214,6 @@ func (i VoiceConnectorLoggingMap) ToVoiceConnectorLoggingMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorLoggingMapOutput)
 }
 
-func (i VoiceConnectorLoggingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorLogging] {
-	return pulumix.Output[map[string]*VoiceConnectorLogging]{
-		OutputState: i.ToVoiceConnectorLoggingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VoiceConnectorLoggingOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorLoggingOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutput() VoiceConnec
 
 func (o VoiceConnectorLoggingOutput) ToVoiceConnectorLoggingOutputWithContext(ctx context.Context) VoiceConnectorLoggingOutput {
 	return o
-}
-
-func (o VoiceConnectorLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorLogging] {
-	return pulumix.Output[*VoiceConnectorLogging]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
@@ -282,12 +257,6 @@ func (o VoiceConnectorLoggingArrayOutput) ToVoiceConnectorLoggingArrayOutputWith
 	return o
 }
 
-func (o VoiceConnectorLoggingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorLogging] {
-	return pulumix.Output[[]*VoiceConnectorLogging]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VoiceConnectorLoggingArrayOutput) Index(i pulumi.IntInput) VoiceConnectorLoggingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorLogging {
 		return vs[0].([]*VoiceConnectorLogging)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o VoiceConnectorLoggingMapOutput) ToVoiceConnectorLoggingMapOutput() Voice
 
 func (o VoiceConnectorLoggingMapOutput) ToVoiceConnectorLoggingMapOutputWithContext(ctx context.Context) VoiceConnectorLoggingMapOutput {
 	return o
-}
-
-func (o VoiceConnectorLoggingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorLogging] {
-	return pulumix.Output[map[string]*VoiceConnectorLogging]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VoiceConnectorLoggingMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorLoggingOutput {

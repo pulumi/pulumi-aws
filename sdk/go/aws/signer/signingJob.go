@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Signer Signing Job.
@@ -277,12 +276,6 @@ func (i *SigningJob) ToSigningJobOutputWithContext(ctx context.Context) SigningJ
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobOutput)
 }
 
-func (i *SigningJob) ToOutput(ctx context.Context) pulumix.Output[*SigningJob] {
-	return pulumix.Output[*SigningJob]{
-		OutputState: i.ToSigningJobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SigningJobArrayInput is an input type that accepts SigningJobArray and SigningJobArrayOutput values.
 // You can construct a concrete instance of `SigningJobArrayInput` via:
 //
@@ -306,12 +299,6 @@ func (i SigningJobArray) ToSigningJobArrayOutput() SigningJobArrayOutput {
 
 func (i SigningJobArray) ToSigningJobArrayOutputWithContext(ctx context.Context) SigningJobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobArrayOutput)
-}
-
-func (i SigningJobArray) ToOutput(ctx context.Context) pulumix.Output[[]*SigningJob] {
-	return pulumix.Output[[]*SigningJob]{
-		OutputState: i.ToSigningJobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SigningJobMapInput is an input type that accepts SigningJobMap and SigningJobMapOutput values.
@@ -339,12 +326,6 @@ func (i SigningJobMap) ToSigningJobMapOutputWithContext(ctx context.Context) Sig
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobMapOutput)
 }
 
-func (i SigningJobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningJob] {
-	return pulumix.Output[map[string]*SigningJob]{
-		OutputState: i.ToSigningJobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SigningJobOutput struct{ *pulumi.OutputState }
 
 func (SigningJobOutput) ElementType() reflect.Type {
@@ -357,12 +338,6 @@ func (o SigningJobOutput) ToSigningJobOutput() SigningJobOutput {
 
 func (o SigningJobOutput) ToSigningJobOutputWithContext(ctx context.Context) SigningJobOutput {
 	return o
-}
-
-func (o SigningJobOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningJob] {
-	return pulumix.Output[*SigningJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
@@ -469,12 +444,6 @@ func (o SigningJobArrayOutput) ToSigningJobArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SigningJobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SigningJob] {
-	return pulumix.Output[[]*SigningJob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningJobArrayOutput) Index(i pulumi.IntInput) SigningJobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SigningJob {
 		return vs[0].([]*SigningJob)[vs[1].(int)]
@@ -493,12 +462,6 @@ func (o SigningJobMapOutput) ToSigningJobMapOutput() SigningJobMapOutput {
 
 func (o SigningJobMapOutput) ToSigningJobMapOutputWithContext(ctx context.Context) SigningJobMapOutput {
 	return o
-}
-
-func (o SigningJobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningJob] {
-	return pulumix.Output[map[string]*SigningJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SigningJobMapOutput) MapIndex(k pulumi.StringInput) SigningJobOutput {

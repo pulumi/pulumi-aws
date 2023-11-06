@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
@@ -92,12 +91,6 @@ func (o GetRouteTablesResultOutput) ToGetRouteTablesResultOutput() GetRouteTable
 
 func (o GetRouteTablesResultOutput) ToGetRouteTablesResultOutputWithContext(ctx context.Context) GetRouteTablesResultOutput {
 	return o
-}
-
-func (o GetRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTablesResult] {
-	return pulumix.Output[GetRouteTablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTablesResultOutput) Filters() GetRouteTablesFilterArrayOutput {

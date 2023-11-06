@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Feature Group resource.
@@ -265,12 +264,6 @@ func (i *FeatureGroup) ToFeatureGroupOutputWithContext(ctx context.Context) Feat
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOutput)
 }
 
-func (i *FeatureGroup) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroup] {
-	return pulumix.Output[*FeatureGroup]{
-		OutputState: i.ToFeatureGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FeatureGroupArrayInput is an input type that accepts FeatureGroupArray and FeatureGroupArrayOutput values.
 // You can construct a concrete instance of `FeatureGroupArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i FeatureGroupArray) ToFeatureGroupArrayOutput() FeatureGroupArrayOutput {
 
 func (i FeatureGroupArray) ToFeatureGroupArrayOutputWithContext(ctx context.Context) FeatureGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupArrayOutput)
-}
-
-func (i FeatureGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*FeatureGroup] {
-	return pulumix.Output[[]*FeatureGroup]{
-		OutputState: i.ToFeatureGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FeatureGroupMapInput is an input type that accepts FeatureGroupMap and FeatureGroupMapOutput values.
@@ -327,12 +314,6 @@ func (i FeatureGroupMap) ToFeatureGroupMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupMapOutput)
 }
 
-func (i FeatureGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FeatureGroup] {
-	return pulumix.Output[map[string]*FeatureGroup]{
-		OutputState: i.ToFeatureGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FeatureGroupOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o FeatureGroupOutput) ToFeatureGroupOutput() FeatureGroupOutput {
 
 func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context) FeatureGroupOutput {
 	return o
-}
-
-func (o FeatureGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroup] {
-	return pulumix.Output[*FeatureGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
@@ -424,12 +399,6 @@ func (o FeatureGroupArrayOutput) ToFeatureGroupArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o FeatureGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FeatureGroup] {
-	return pulumix.Output[[]*FeatureGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FeatureGroupArrayOutput) Index(i pulumi.IntInput) FeatureGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FeatureGroup {
 		return vs[0].([]*FeatureGroup)[vs[1].(int)]
@@ -448,12 +417,6 @@ func (o FeatureGroupMapOutput) ToFeatureGroupMapOutput() FeatureGroupMapOutput {
 
 func (o FeatureGroupMapOutput) ToFeatureGroupMapOutputWithContext(ctx context.Context) FeatureGroupMapOutput {
 	return o
-}
-
-func (o FeatureGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FeatureGroup] {
-	return pulumix.Output[map[string]*FeatureGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FeatureGroupMapOutput) MapIndex(k pulumi.StringInput) FeatureGroupOutput {

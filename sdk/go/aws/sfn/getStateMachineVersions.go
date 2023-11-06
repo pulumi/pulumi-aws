@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SFN (Step Functions) State Machine Versions.
@@ -101,12 +100,6 @@ func (o GetStateMachineVersionsResultOutput) ToGetStateMachineVersionsResultOutp
 
 func (o GetStateMachineVersionsResultOutput) ToGetStateMachineVersionsResultOutputWithContext(ctx context.Context) GetStateMachineVersionsResultOutput {
 	return o
-}
-
-func (o GetStateMachineVersionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetStateMachineVersionsResult] {
-	return pulumix.Output[GetStateMachineVersionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

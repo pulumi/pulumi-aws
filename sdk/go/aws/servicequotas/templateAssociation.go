@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Service Quotas Template Association.
@@ -135,12 +134,6 @@ func (i *TemplateAssociation) ToTemplateAssociationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAssociationOutput)
 }
 
-func (i *TemplateAssociation) ToOutput(ctx context.Context) pulumix.Output[*TemplateAssociation] {
-	return pulumix.Output[*TemplateAssociation]{
-		OutputState: i.ToTemplateAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TemplateAssociationArrayInput is an input type that accepts TemplateAssociationArray and TemplateAssociationArrayOutput values.
 // You can construct a concrete instance of `TemplateAssociationArrayInput` via:
 //
@@ -164,12 +157,6 @@ func (i TemplateAssociationArray) ToTemplateAssociationArrayOutput() TemplateAss
 
 func (i TemplateAssociationArray) ToTemplateAssociationArrayOutputWithContext(ctx context.Context) TemplateAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAssociationArrayOutput)
-}
-
-func (i TemplateAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateAssociation] {
-	return pulumix.Output[[]*TemplateAssociation]{
-		OutputState: i.ToTemplateAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TemplateAssociationMapInput is an input type that accepts TemplateAssociationMap and TemplateAssociationMapOutput values.
@@ -197,12 +184,6 @@ func (i TemplateAssociationMap) ToTemplateAssociationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateAssociationMapOutput)
 }
 
-func (i TemplateAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateAssociation] {
-	return pulumix.Output[map[string]*TemplateAssociation]{
-		OutputState: i.ToTemplateAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateAssociationOutput struct{ *pulumi.OutputState }
 
 func (TemplateAssociationOutput) ElementType() reflect.Type {
@@ -215,12 +196,6 @@ func (o TemplateAssociationOutput) ToTemplateAssociationOutput() TemplateAssocia
 
 func (o TemplateAssociationOutput) ToTemplateAssociationOutputWithContext(ctx context.Context) TemplateAssociationOutput {
 	return o
-}
-
-func (o TemplateAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAssociation] {
-	return pulumix.Output[*TemplateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateAssociationOutput) SkipDestroy() pulumi.BoolPtrOutput {
@@ -246,12 +221,6 @@ func (o TemplateAssociationArrayOutput) ToTemplateAssociationArrayOutputWithCont
 	return o
 }
 
-func (o TemplateAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateAssociation] {
-	return pulumix.Output[[]*TemplateAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAssociationArrayOutput) Index(i pulumi.IntInput) TemplateAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TemplateAssociation {
 		return vs[0].([]*TemplateAssociation)[vs[1].(int)]
@@ -270,12 +239,6 @@ func (o TemplateAssociationMapOutput) ToTemplateAssociationMapOutput() TemplateA
 
 func (o TemplateAssociationMapOutput) ToTemplateAssociationMapOutputWithContext(ctx context.Context) TemplateAssociationMapOutput {
 	return o
-}
-
-func (o TemplateAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateAssociation] {
-	return pulumix.Output[map[string]*TemplateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateAssociationMapOutput) MapIndex(k pulumi.StringInput) TemplateAssociationOutput {

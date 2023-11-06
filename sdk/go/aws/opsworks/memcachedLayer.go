@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks memcached layer resource.
@@ -364,12 +363,6 @@ func (i *MemcachedLayer) ToMemcachedLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerOutput)
 }
 
-func (i *MemcachedLayer) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayer] {
-	return pulumix.Output[*MemcachedLayer]{
-		OutputState: i.ToMemcachedLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MemcachedLayerArrayInput is an input type that accepts MemcachedLayerArray and MemcachedLayerArrayOutput values.
 // You can construct a concrete instance of `MemcachedLayerArrayInput` via:
 //
@@ -393,12 +386,6 @@ func (i MemcachedLayerArray) ToMemcachedLayerArrayOutput() MemcachedLayerArrayOu
 
 func (i MemcachedLayerArray) ToMemcachedLayerArrayOutputWithContext(ctx context.Context) MemcachedLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerArrayOutput)
-}
-
-func (i MemcachedLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*MemcachedLayer] {
-	return pulumix.Output[[]*MemcachedLayer]{
-		OutputState: i.ToMemcachedLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MemcachedLayerMapInput is an input type that accepts MemcachedLayerMap and MemcachedLayerMapOutput values.
@@ -426,12 +413,6 @@ func (i MemcachedLayerMap) ToMemcachedLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerMapOutput)
 }
 
-func (i MemcachedLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemcachedLayer] {
-	return pulumix.Output[map[string]*MemcachedLayer]{
-		OutputState: i.ToMemcachedLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemcachedLayerOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerOutput) ElementType() reflect.Type {
@@ -444,12 +425,6 @@ func (o MemcachedLayerOutput) ToMemcachedLayerOutput() MemcachedLayerOutput {
 
 func (o MemcachedLayerOutput) ToMemcachedLayerOutputWithContext(ctx context.Context) MemcachedLayerOutput {
 	return o
-}
-
-func (o MemcachedLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*MemcachedLayer] {
-	return pulumix.Output[*MemcachedLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
@@ -597,12 +572,6 @@ func (o MemcachedLayerArrayOutput) ToMemcachedLayerArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o MemcachedLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MemcachedLayer] {
-	return pulumix.Output[[]*MemcachedLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemcachedLayerArrayOutput) Index(i pulumi.IntInput) MemcachedLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MemcachedLayer {
 		return vs[0].([]*MemcachedLayer)[vs[1].(int)]
@@ -621,12 +590,6 @@ func (o MemcachedLayerMapOutput) ToMemcachedLayerMapOutput() MemcachedLayerMapOu
 
 func (o MemcachedLayerMapOutput) ToMemcachedLayerMapOutputWithContext(ctx context.Context) MemcachedLayerMapOutput {
 	return o
-}
-
-func (o MemcachedLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemcachedLayer] {
-	return pulumix.Output[map[string]*MemcachedLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemcachedLayerMapOutput) MapIndex(k pulumi.StringInput) MemcachedLayerOutput {

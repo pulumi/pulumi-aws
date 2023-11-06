@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
@@ -242,12 +241,6 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
 }
 
-func (i *ConfigurationSet) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
-	return pulumix.Output[*ConfigurationSet]{
-		OutputState: i.ToConfigurationSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationSetArrayInput is an input type that accepts ConfigurationSetArray and ConfigurationSetArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetArrayInput` via:
 //
@@ -271,12 +264,6 @@ func (i ConfigurationSetArray) ToConfigurationSetArrayOutput() ConfigurationSetA
 
 func (i ConfigurationSetArray) ToConfigurationSetArrayOutputWithContext(ctx context.Context) ConfigurationSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetArrayOutput)
-}
-
-func (i ConfigurationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSet] {
-	return pulumix.Output[[]*ConfigurationSet]{
-		OutputState: i.ToConfigurationSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationSetMapInput is an input type that accepts ConfigurationSetMap and ConfigurationSetMapOutput values.
@@ -304,12 +291,6 @@ func (i ConfigurationSetMap) ToConfigurationSetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetMapOutput)
 }
 
-func (i ConfigurationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSet] {
-	return pulumix.Output[map[string]*ConfigurationSet]{
-		OutputState: i.ToConfigurationSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetOutput) ElementType() reflect.Type {
@@ -322,12 +303,6 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutpu
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return o
-}
-
-func (o ConfigurationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
-	return pulumix.Output[*ConfigurationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Configuration Set.
@@ -394,12 +369,6 @@ func (o ConfigurationSetArrayOutput) ToConfigurationSetArrayOutputWithContext(ct
 	return o
 }
 
-func (o ConfigurationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSet] {
-	return pulumix.Output[[]*ConfigurationSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetArrayOutput) Index(i pulumi.IntInput) ConfigurationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationSet {
 		return vs[0].([]*ConfigurationSet)[vs[1].(int)]
@@ -418,12 +387,6 @@ func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutput() ConfigurationSe
 
 func (o ConfigurationSetMapOutput) ToConfigurationSetMapOutputWithContext(ctx context.Context) ConfigurationSetMapOutput {
 	return o
-}
-
-func (o ConfigurationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSet] {
-	return pulumix.Output[map[string]*ConfigurationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetMapOutput) MapIndex(k pulumi.StringInput) ConfigurationSetOutput {

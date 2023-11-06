@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
@@ -109,12 +108,6 @@ func (o GetImagePipelinesResultOutput) ToGetImagePipelinesResultOutput() GetImag
 
 func (o GetImagePipelinesResultOutput) ToGetImagePipelinesResultOutputWithContext(ctx context.Context) GetImagePipelinesResultOutput {
 	return o
-}
-
-func (o GetImagePipelinesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelinesResult] {
-	return pulumix.Output[GetImagePipelinesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARNs of the matched Image Builder Image Pipelines.

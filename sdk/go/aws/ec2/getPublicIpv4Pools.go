@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for getting information about AWS EC2 Public IPv4 Pools.
@@ -142,12 +141,6 @@ func (o GetPublicIpv4PoolsResultOutput) ToGetPublicIpv4PoolsResultOutput() GetPu
 
 func (o GetPublicIpv4PoolsResultOutput) ToGetPublicIpv4PoolsResultOutputWithContext(ctx context.Context) GetPublicIpv4PoolsResultOutput {
 	return o
-}
-
-func (o GetPublicIpv4PoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublicIpv4PoolsResult] {
-	return pulumix.Output[GetPublicIpv4PoolsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPublicIpv4PoolsResultOutput) Filters() GetPublicIpv4PoolsFilterArrayOutput {

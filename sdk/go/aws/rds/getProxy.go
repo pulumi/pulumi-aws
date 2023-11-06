@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a DB Proxy.
@@ -120,12 +119,6 @@ func (o LookupProxyResultOutput) ToLookupProxyResultOutput() LookupProxyResultOu
 
 func (o LookupProxyResultOutput) ToLookupProxyResultOutputWithContext(ctx context.Context) LookupProxyResultOutput {
 	return o
-}
-
-func (o LookupProxyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProxyResult] {
-	return pulumix.Output[LookupProxyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the DB Proxy.

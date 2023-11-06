@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Distribution Configuration.
@@ -114,12 +113,6 @@ func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigu
 
 func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigurationResultOutputWithContext(ctx context.Context) LookupDistributionConfigurationResultOutput {
 	return o
-}
-
-func (o LookupDistributionConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDistributionConfigurationResult] {
-	return pulumix.Output[LookupDistributionConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDistributionConfigurationResultOutput) Arn() pulumi.StringOutput {

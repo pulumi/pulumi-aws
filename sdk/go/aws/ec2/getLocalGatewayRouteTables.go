@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
@@ -114,12 +113,6 @@ func (o GetLocalGatewayRouteTablesResultOutput) ToGetLocalGatewayRouteTablesResu
 
 func (o GetLocalGatewayRouteTablesResultOutput) ToGetLocalGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesResultOutput {
 	return o
-}
-
-func (o GetLocalGatewayRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayRouteTablesResult] {
-	return pulumix.Output[GetLocalGatewayRouteTablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLocalGatewayRouteTablesResultOutput) Filters() GetLocalGatewayRouteTablesFilterArrayOutput {

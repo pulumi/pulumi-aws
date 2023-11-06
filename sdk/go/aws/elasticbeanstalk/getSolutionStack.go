@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the name of a elastic beanstalk solution stack.
@@ -120,12 +119,6 @@ func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutput() GetSoluti
 
 func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutputWithContext(ctx context.Context) GetSolutionStackResultOutput {
 	return o
-}
-
-func (o GetSolutionStackResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSolutionStackResult] {
-	return pulumix.Output[GetSolutionStackResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

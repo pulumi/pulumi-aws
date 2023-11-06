@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Config Organization Conformance Pack. More information can be found in the [Managing Conformance Packs Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. Example conformance pack templates may be found in the [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
@@ -303,12 +302,6 @@ func (i *OrganizationConformancePack) ToOrganizationConformancePackOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackOutput)
 }
 
-func (i *OrganizationConformancePack) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConformancePack] {
-	return pulumix.Output[*OrganizationConformancePack]{
-		OutputState: i.ToOrganizationConformancePackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationConformancePackArrayInput is an input type that accepts OrganizationConformancePackArray and OrganizationConformancePackArrayOutput values.
 // You can construct a concrete instance of `OrganizationConformancePackArrayInput` via:
 //
@@ -332,12 +325,6 @@ func (i OrganizationConformancePackArray) ToOrganizationConformancePackArrayOutp
 
 func (i OrganizationConformancePackArray) ToOrganizationConformancePackArrayOutputWithContext(ctx context.Context) OrganizationConformancePackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackArrayOutput)
-}
-
-func (i OrganizationConformancePackArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConformancePack] {
-	return pulumix.Output[[]*OrganizationConformancePack]{
-		OutputState: i.ToOrganizationConformancePackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationConformancePackMapInput is an input type that accepts OrganizationConformancePackMap and OrganizationConformancePackMapOutput values.
@@ -365,12 +352,6 @@ func (i OrganizationConformancePackMap) ToOrganizationConformancePackMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackMapOutput)
 }
 
-func (i OrganizationConformancePackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConformancePack] {
-	return pulumix.Output[map[string]*OrganizationConformancePack]{
-		OutputState: i.ToOrganizationConformancePackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationConformancePackOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackOutput) ElementType() reflect.Type {
@@ -383,12 +364,6 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutput()
 
 func (o OrganizationConformancePackOutput) ToOrganizationConformancePackOutputWithContext(ctx context.Context) OrganizationConformancePackOutput {
 	return o
-}
-
-func (o OrganizationConformancePackOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConformancePack] {
-	return pulumix.Output[*OrganizationConformancePack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the organization conformance pack.
@@ -447,12 +422,6 @@ func (o OrganizationConformancePackArrayOutput) ToOrganizationConformancePackArr
 	return o
 }
 
-func (o OrganizationConformancePackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConformancePack] {
-	return pulumix.Output[[]*OrganizationConformancePack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationConformancePackArrayOutput) Index(i pulumi.IntInput) OrganizationConformancePackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationConformancePack {
 		return vs[0].([]*OrganizationConformancePack)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o OrganizationConformancePackMapOutput) ToOrganizationConformancePackMapOu
 
 func (o OrganizationConformancePackMapOutput) ToOrganizationConformancePackMapOutputWithContext(ctx context.Context) OrganizationConformancePackMapOutput {
 	return o
-}
-
-func (o OrganizationConformancePackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConformancePack] {
-	return pulumix.Output[map[string]*OrganizationConformancePack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationConformancePackMapOutput) MapIndex(k pulumi.StringInput) OrganizationConformancePackOutput {

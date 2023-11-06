@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage cross-region replication of automated backups to a different AWS Region. Documentation for cross-region automated backup replication can be found at:
@@ -255,12 +254,6 @@ func (i *InstanceAutomatedBackupsReplication) ToInstanceAutomatedBackupsReplicat
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAutomatedBackupsReplicationOutput)
 }
 
-func (i *InstanceAutomatedBackupsReplication) ToOutput(ctx context.Context) pulumix.Output[*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[*InstanceAutomatedBackupsReplication]{
-		OutputState: i.ToInstanceAutomatedBackupsReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceAutomatedBackupsReplicationArrayInput is an input type that accepts InstanceAutomatedBackupsReplicationArray and InstanceAutomatedBackupsReplicationArrayOutput values.
 // You can construct a concrete instance of `InstanceAutomatedBackupsReplicationArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i InstanceAutomatedBackupsReplicationArray) ToInstanceAutomatedBackupsRepl
 
 func (i InstanceAutomatedBackupsReplicationArray) ToInstanceAutomatedBackupsReplicationArrayOutputWithContext(ctx context.Context) InstanceAutomatedBackupsReplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAutomatedBackupsReplicationArrayOutput)
-}
-
-func (i InstanceAutomatedBackupsReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[[]*InstanceAutomatedBackupsReplication]{
-		OutputState: i.ToInstanceAutomatedBackupsReplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceAutomatedBackupsReplicationMapInput is an input type that accepts InstanceAutomatedBackupsReplicationMap and InstanceAutomatedBackupsReplicationMapOutput values.
@@ -317,12 +304,6 @@ func (i InstanceAutomatedBackupsReplicationMap) ToInstanceAutomatedBackupsReplic
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAutomatedBackupsReplicationMapOutput)
 }
 
-func (i InstanceAutomatedBackupsReplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[map[string]*InstanceAutomatedBackupsReplication]{
-		OutputState: i.ToInstanceAutomatedBackupsReplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceAutomatedBackupsReplicationOutput struct{ *pulumi.OutputState }
 
 func (InstanceAutomatedBackupsReplicationOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o InstanceAutomatedBackupsReplicationOutput) ToInstanceAutomatedBackupsRep
 
 func (o InstanceAutomatedBackupsReplicationOutput) ToInstanceAutomatedBackupsReplicationOutputWithContext(ctx context.Context) InstanceAutomatedBackupsReplicationOutput {
 	return o
-}
-
-func (o InstanceAutomatedBackupsReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[*InstanceAutomatedBackupsReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
@@ -377,12 +352,6 @@ func (o InstanceAutomatedBackupsReplicationArrayOutput) ToInstanceAutomatedBacku
 	return o
 }
 
-func (o InstanceAutomatedBackupsReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[[]*InstanceAutomatedBackupsReplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceAutomatedBackupsReplicationArrayOutput) Index(i pulumi.IntInput) InstanceAutomatedBackupsReplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceAutomatedBackupsReplication {
 		return vs[0].([]*InstanceAutomatedBackupsReplication)[vs[1].(int)]
@@ -401,12 +370,6 @@ func (o InstanceAutomatedBackupsReplicationMapOutput) ToInstanceAutomatedBackups
 
 func (o InstanceAutomatedBackupsReplicationMapOutput) ToInstanceAutomatedBackupsReplicationMapOutputWithContext(ctx context.Context) InstanceAutomatedBackupsReplicationMapOutput {
 	return o
-}
-
-func (o InstanceAutomatedBackupsReplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceAutomatedBackupsReplication] {
-	return pulumix.Output[map[string]*InstanceAutomatedBackupsReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceAutomatedBackupsReplicationMapOutput) MapIndex(k pulumi.StringInput) InstanceAutomatedBackupsReplicationOutput {

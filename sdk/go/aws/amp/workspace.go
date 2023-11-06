@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon Managed Service for Prometheus (AMP) Workspace.
@@ -220,12 +219,6 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-func (i *Workspace) ToOutput(ctx context.Context) pulumix.Output[*Workspace] {
-	return pulumix.Output[*Workspace]{
-		OutputState: i.ToWorkspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkspaceArrayInput is an input type that accepts WorkspaceArray and WorkspaceArrayOutput values.
 // You can construct a concrete instance of `WorkspaceArrayInput` via:
 //
@@ -249,12 +242,6 @@ func (i WorkspaceArray) ToWorkspaceArrayOutput() WorkspaceArrayOutput {
 
 func (i WorkspaceArray) ToWorkspaceArrayOutputWithContext(ctx context.Context) WorkspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceArrayOutput)
-}
-
-func (i WorkspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workspace] {
-	return pulumix.Output[[]*Workspace]{
-		OutputState: i.ToWorkspaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkspaceMapInput is an input type that accepts WorkspaceMap and WorkspaceMapOutput values.
@@ -282,12 +269,6 @@ func (i WorkspaceMap) ToWorkspaceMapOutputWithContext(ctx context.Context) Works
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceMapOutput)
 }
 
-func (i WorkspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workspace] {
-	return pulumix.Output[map[string]*Workspace]{
-		OutputState: i.ToWorkspaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
@@ -300,12 +281,6 @@ func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {
 
 func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceOutput {
 	return o
-}
-
-func (o WorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Workspace] {
-	return pulumix.Output[*Workspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
@@ -354,12 +329,6 @@ func (o WorkspaceArrayOutput) ToWorkspaceArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o WorkspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workspace] {
-	return pulumix.Output[[]*Workspace]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceArrayOutput) Index(i pulumi.IntInput) WorkspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workspace {
 		return vs[0].([]*Workspace)[vs[1].(int)]
@@ -378,12 +347,6 @@ func (o WorkspaceMapOutput) ToWorkspaceMapOutput() WorkspaceMapOutput {
 
 func (o WorkspaceMapOutput) ToWorkspaceMapOutputWithContext(ctx context.Context) WorkspaceMapOutput {
 	return o
-}
-
-func (o WorkspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workspace] {
-	return pulumix.Output[map[string]*Workspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceMapOutput) MapIndex(k pulumi.StringInput) WorkspaceOutput {

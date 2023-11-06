@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the active SES receipt rule set
@@ -81,12 +80,6 @@ func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResu
 
 func (o LookupActiveReceiptRuleSetResultOutput) ToLookupActiveReceiptRuleSetResultOutputWithContext(ctx context.Context) LookupActiveReceiptRuleSetResultOutput {
 	return o
-}
-
-func (o LookupActiveReceiptRuleSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActiveReceiptRuleSetResult] {
-	return pulumix.Output[LookupActiveReceiptRuleSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // SES receipt rule set ARN.

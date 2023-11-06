@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
@@ -112,12 +111,6 @@ func (o GetResolverFirewallRulesResultOutput) ToGetResolverFirewallRulesResultOu
 
 func (o GetResolverFirewallRulesResultOutput) ToGetResolverFirewallRulesResultOutputWithContext(ctx context.Context) GetResolverFirewallRulesResultOutput {
 	return o
-}
-
-func (o GetResolverFirewallRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverFirewallRulesResult] {
-	return pulumix.Output[GetResolverFirewallRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResolverFirewallRulesResultOutput) Action() pulumi.StringPtrOutput {

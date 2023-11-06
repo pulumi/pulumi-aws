@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i BucketLifecycleConfigurationRuleArgs) ToBucketLifecycleConfigurationRule
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleOutput)
 }
 
-func (i BucketLifecycleConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRule] {
-	return pulumix.Output[BucketLifecycleConfigurationRule]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketLifecycleConfigurationRuleArrayInput is an input type that accepts BucketLifecycleConfigurationRuleArray and BucketLifecycleConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationRuleArrayInput` via:
 //
@@ -94,12 +87,6 @@ func (i BucketLifecycleConfigurationRuleArray) ToBucketLifecycleConfigurationRul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleArrayOutput)
 }
 
-func (i BucketLifecycleConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationRule] {
-	return pulumix.Output[[]BucketLifecycleConfigurationRule]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationRuleOutput) ElementType() reflect.Type {
@@ -112,12 +99,6 @@ func (o BucketLifecycleConfigurationRuleOutput) ToBucketLifecycleConfigurationRu
 
 func (o BucketLifecycleConfigurationRuleOutput) ToBucketLifecycleConfigurationRuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRule] {
-	return pulumix.Output[BucketLifecycleConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block containing settings for abort incomplete multipart upload.
@@ -163,12 +144,6 @@ func (o BucketLifecycleConfigurationRuleArrayOutput) ToBucketLifecycleConfigurat
 	return o
 }
 
-func (o BucketLifecycleConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationRule] {
-	return pulumix.Output[[]BucketLifecycleConfigurationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketLifecycleConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationRule {
 		return vs[0].([]BucketLifecycleConfigurationRule)[vs[1].(int)]
@@ -206,12 +181,6 @@ func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBu
 
 func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
-}
-
-func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
@@ -255,12 +224,6 @@ func (i *bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (i *bucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) To
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) int {
@@ -310,12 +267,6 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) Elem() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
@@ -379,12 +330,6 @@ func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
-func (i BucketLifecycleConfigurationRuleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleExpiration] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleExpiration]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleExpirationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketLifecycleConfigurationRuleExpirationArgs) ToBucketLifecycleConfigurationRuleExpirationPtrOutput() BucketLifecycleConfigurationRuleExpirationPtrOutput {
 	return i.ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(context.Background())
 }
@@ -426,12 +371,6 @@ func (i *bucketLifecycleConfigurationRuleExpirationPtrType) ToBucketLifecycleCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-func (i *bucketLifecycleConfigurationRuleExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleExpiration] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleExpiration]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationRuleExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationRuleExpirationOutput) ElementType() reflect.Type {
@@ -454,12 +393,6 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleExpiration) *BucketLifecycleConfigurationRuleExpiration {
 		return &v
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
-}
-
-func (o BucketLifecycleConfigurationRuleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleExpiration] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleExpiration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
@@ -489,12 +422,6 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToBucketLifecycleCo
 
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleExpiration] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleExpiration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecycleConfigurationRuleExpirationOutput {
@@ -574,12 +501,6 @@ func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
-func (i BucketLifecycleConfigurationRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleFilter] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleFilter]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketLifecycleConfigurationRuleFilterArgs) ToBucketLifecycleConfigurationRuleFilterPtrOutput() BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return i.ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(context.Background())
 }
@@ -621,12 +542,6 @@ func (i *bucketLifecycleConfigurationRuleFilterPtrType) ToBucketLifecycleConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-func (i *bucketLifecycleConfigurationRuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleFilter] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleFilter]{
-		OutputState: i.ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationRuleFilterOutput) ElementType() reflect.Type {
@@ -651,12 +566,6 @@ func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigura
 	}).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
 
-func (o BucketLifecycleConfigurationRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationRuleFilter] {
-	return pulumix.Output[BucketLifecycleConfigurationRuleFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Object prefix for rule filtering.
 func (o BucketLifecycleConfigurationRuleFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -679,12 +588,6 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToBucketLifecycleConfig
 
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationRuleFilter] {
-	return pulumix.Output[*BucketLifecycleConfigurationRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Elem() BucketLifecycleConfigurationRuleFilterOutput {
@@ -752,12 +655,6 @@ func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsOutput)
 }
 
-func (i MultiRegionAccessPointDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetails] {
-	return pulumix.Output[MultiRegionAccessPointDetails]{
-		OutputState: i.ToMultiRegionAccessPointDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput {
 	return i.ToMultiRegionAccessPointDetailsPtrOutputWithContext(context.Background())
 }
@@ -799,12 +696,6 @@ func (i *multiRegionAccessPointDetailsPtrType) ToMultiRegionAccessPointDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPtrOutput)
 }
 
-func (i *multiRegionAccessPointDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointDetails] {
-	return pulumix.Output[*MultiRegionAccessPointDetails]{
-		OutputState: i.ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointDetailsOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointDetailsOutput) ElementType() reflect.Type {
@@ -827,12 +718,6 @@ func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointDetails) *MultiRegionAccessPointDetails {
 		return &v
 	}).(MultiRegionAccessPointDetailsPtrOutput)
-}
-
-func (o MultiRegionAccessPointDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetails] {
-	return pulumix.Output[MultiRegionAccessPointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsOutput) Name() pulumi.StringOutput {
@@ -861,12 +746,6 @@ func (o MultiRegionAccessPointDetailsPtrOutput) ToMultiRegionAccessPointDetailsP
 
 func (o MultiRegionAccessPointDetailsPtrOutput) ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPtrOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointDetails] {
-	return pulumix.Output[*MultiRegionAccessPointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsPtrOutput) Elem() MultiRegionAccessPointDetailsOutput {
@@ -943,12 +822,6 @@ func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessP
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
 }
 
-func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetailsPublicAccessBlock] {
-	return pulumix.Output[MultiRegionAccessPointDetailsPublicAccessBlock]{
-		OutputState: i.ToMultiRegionAccessPointDetailsPublicAccessBlockOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return i.ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(context.Background())
 }
@@ -990,12 +863,6 @@ func (i *multiRegionAccessPointDetailsPublicAccessBlockPtrType) ToMultiRegionAcc
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-func (i *multiRegionAccessPointDetailsPublicAccessBlockPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointDetailsPublicAccessBlock] {
-	return pulumix.Output[*MultiRegionAccessPointDetailsPublicAccessBlock]{
-		OutputState: i.ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointDetailsPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointDetailsPublicAccessBlockOutput) ElementType() reflect.Type {
@@ -1018,12 +885,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAcces
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointDetailsPublicAccessBlock) *MultiRegionAccessPointDetailsPublicAccessBlock {
 		return &v
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
-}
-
-func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetailsPublicAccessBlock] {
-	return pulumix.Output[MultiRegionAccessPointDetailsPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
@@ -1054,12 +915,6 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ToMultiRegionAc
 
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointDetailsPublicAccessBlock] {
-	return pulumix.Output[*MultiRegionAccessPointDetailsPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) Elem() MultiRegionAccessPointDetailsPublicAccessBlockOutput {
@@ -1143,12 +998,6 @@ func (i MultiRegionAccessPointDetailsRegionArgs) ToMultiRegionAccessPointDetails
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsRegionOutput)
 }
 
-func (i MultiRegionAccessPointDetailsRegionArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetailsRegion] {
-	return pulumix.Output[MultiRegionAccessPointDetailsRegion]{
-		OutputState: i.ToMultiRegionAccessPointDetailsRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiRegionAccessPointDetailsRegionArrayInput is an input type that accepts MultiRegionAccessPointDetailsRegionArray and MultiRegionAccessPointDetailsRegionArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointDetailsRegionArrayInput` via:
 //
@@ -1174,12 +1023,6 @@ func (i MultiRegionAccessPointDetailsRegionArray) ToMultiRegionAccessPointDetail
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsRegionArrayOutput)
 }
 
-func (i MultiRegionAccessPointDetailsRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]MultiRegionAccessPointDetailsRegion] {
-	return pulumix.Output[[]MultiRegionAccessPointDetailsRegion]{
-		OutputState: i.ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointDetailsRegionOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointDetailsRegionOutput) ElementType() reflect.Type {
@@ -1192,12 +1035,6 @@ func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetai
 
 func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetailsRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointDetailsRegionOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointDetailsRegion] {
-	return pulumix.Output[MultiRegionAccessPointDetailsRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsRegionOutput) Bucket() pulumi.StringOutput {
@@ -1224,12 +1061,6 @@ func (o MultiRegionAccessPointDetailsRegionArrayOutput) ToMultiRegionAccessPoint
 
 func (o MultiRegionAccessPointDetailsRegionArrayOutput) ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointDetailsRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MultiRegionAccessPointDetailsRegion] {
-	return pulumix.Output[[]MultiRegionAccessPointDetailsRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointDetailsRegionArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointDetailsRegionOutput {
@@ -1279,12 +1110,6 @@ func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyD
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyDetailsOutput)
 }
 
-func (i MultiRegionAccessPointPolicyDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointPolicyDetails] {
-	return pulumix.Output[MultiRegionAccessPointPolicyDetails]{
-		OutputState: i.ToMultiRegionAccessPointPolicyDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput {
 	return i.ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(context.Background())
 }
@@ -1326,12 +1151,6 @@ func (i *multiRegionAccessPointPolicyDetailsPtrType) ToMultiRegionAccessPointPol
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyDetailsPtrOutput)
 }
 
-func (i *multiRegionAccessPointPolicyDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPolicyDetails] {
-	return pulumix.Output[*MultiRegionAccessPointPolicyDetails]{
-		OutputState: i.ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPolicyDetailsOutput) ElementType() reflect.Type {
@@ -1354,12 +1173,6 @@ func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointPolicyDetails) *MultiRegionAccessPointPolicyDetails {
 		return &v
 	}).(MultiRegionAccessPointPolicyDetailsPtrOutput)
-}
-
-func (o MultiRegionAccessPointPolicyDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointPolicyDetails] {
-	return pulumix.Output[MultiRegionAccessPointPolicyDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Multi-Region Access Point.
@@ -1386,12 +1199,6 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) ToMultiRegionAccessPointPo
 
 func (o MultiRegionAccessPointPolicyDetailsPtrOutput) ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointPolicyDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPolicyDetails] {
-	return pulumix.Output[*MultiRegionAccessPointPolicyDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Elem() MultiRegionAccessPointPolicyDetailsOutput {
@@ -1471,12 +1278,6 @@ func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationOutput)
 }
 
-func (i ObjectLambdaAccessPointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfiguration] {
-	return pulumix.Output[ObjectLambdaAccessPointConfiguration]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput {
 	return i.ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1518,12 +1319,6 @@ func (i *objectLambdaAccessPointConfigurationPtrType) ToObjectLambdaAccessPointC
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationPtrOutput)
 }
 
-func (i *objectLambdaAccessPointConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPointConfiguration] {
-	return pulumix.Output[*ObjectLambdaAccessPointConfiguration]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectLambdaAccessPointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointConfigurationOutput) ElementType() reflect.Type {
@@ -1546,12 +1341,6 @@ func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectLambdaAccessPointConfiguration) *ObjectLambdaAccessPointConfiguration {
 		return &v
 	}).(ObjectLambdaAccessPointConfigurationPtrOutput)
-}
-
-func (o ObjectLambdaAccessPointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfiguration] {
-	return pulumix.Output[ObjectLambdaAccessPointConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
@@ -1588,12 +1377,6 @@ func (o ObjectLambdaAccessPointConfigurationPtrOutput) ToObjectLambdaAccessPoint
 
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationPtrOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPointConfiguration] {
-	return pulumix.Output[*ObjectLambdaAccessPointConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectLambdaAccessPointConfigurationPtrOutput) Elem() ObjectLambdaAccessPointConfigurationOutput {
@@ -1683,12 +1466,6 @@ func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ToO
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput)
 }
 
-func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfiguration] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfiguration]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationArray and ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput` via:
 //
@@ -1714,12 +1491,6 @@ func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput)
 }
 
-func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ObjectLambdaAccessPointConfigurationTransformationConfiguration] {
-	return pulumix.Output[[]ObjectLambdaAccessPointConfigurationTransformationConfiguration]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ElementType() reflect.Type {
@@ -1732,12 +1503,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) T
 
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfiguration] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
@@ -1764,12 +1529,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutp
 
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObjectLambdaAccessPointConfigurationTransformationConfiguration] {
-	return pulumix.Output[[]ObjectLambdaAccessPointConfigurationTransformationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) Index(i pulumi.IntInput) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
@@ -1811,12 +1570,6 @@ func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput)
 }
 
-func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ElementType() reflect.Type {
@@ -1829,12 +1582,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration for an AWS Lambda function. See AWS Lambda below for more details.
@@ -1881,12 +1628,6 @@ func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput)
 }
 
-func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda]{
-		OutputState: i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ElementType() reflect.Type {
@@ -1899,12 +1640,6 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda] {
-	return pulumix.Output[ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the AWS Lambda function.
@@ -1974,12 +1709,6 @@ func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfiguration] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfiguration]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationArgs) ToStorageLensConfigurationStorageLensConfigurationPtrOutput() StorageLensConfigurationStorageLensConfigurationPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2021,12 +1750,6 @@ func (i *storageLensConfigurationStorageLensConfigurationPtrType) ToStorageLensC
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfiguration] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfiguration]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationOutput) ElementType() reflect.Type {
@@ -2049,12 +1772,6 @@ func (o StorageLensConfigurationStorageLensConfigurationOutput) ToStorageLensCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfiguration) *StorageLensConfigurationStorageLensConfiguration {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfiguration] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
@@ -2109,12 +1826,6 @@ func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) ToStorageLens
 
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfiguration] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationOutput {
@@ -2236,12 +1947,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStor
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(context.Background())
 }
@@ -2283,12 +1988,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ElementType() reflect.Type {
@@ -2311,12 +2010,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToSt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevel {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // S3 Storage Lens activity metrics. See Activity Metrics below for more details.
@@ -2366,12 +2059,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) T
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelOutput {
@@ -2467,12 +2154,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(context.Background())
 }
@@ -2514,12 +2195,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelActivityMet
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ElementType() reflect.Type {
@@ -2544,12 +2219,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics) *bool {
@@ -2569,12 +2238,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetr
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsOutput {
@@ -2630,12 +2293,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
 }
@@ -2677,12 +2334,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCos
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput) ElementType() reflect.Type {
@@ -2707,12 +2358,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics) *bool {
@@ -2732,12 +2377,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCost
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsOutput {
@@ -2793,12 +2432,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
 }
@@ -2840,12 +2473,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDat
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput) ElementType() reflect.Type {
@@ -2870,12 +2497,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics) *bool {
@@ -2895,12 +2516,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedData
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsOutput {
@@ -2972,12 +2587,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(context.Background())
 }
@@ -3019,12 +2628,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ElementType() reflect.Type {
@@ -3047,12 +2650,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // S3 Storage Lens activity metrics. See Activity Metrics above for more details.
@@ -3102,12 +2699,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelOutput {
@@ -3203,12 +2794,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(context.Background())
 }
@@ -3250,12 +2835,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ElementType() reflect.Type {
@@ -3280,12 +2859,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether the activity metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics) *bool {
@@ -3305,12 +2878,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsOutput {
@@ -3366,12 +2933,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
 }
@@ -3413,12 +2974,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput) ElementType() reflect.Type {
@@ -3443,12 +2998,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether advanced cost-optimization metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics) *bool {
@@ -3468,12 +3017,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsOutput {
@@ -3529,12 +3072,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
 }
@@ -3576,12 +3113,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput) ElementType() reflect.Type {
@@ -3606,12 +3137,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether advanced data-protection metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics) *bool {
@@ -3631,12 +3156,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelA
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsOutput {
@@ -3692,12 +3211,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutputWithContext(context.Background())
 }
@@ -3739,12 +3252,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput) ElementType() reflect.Type {
@@ -3769,12 +3276,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics) *bool {
@@ -3794,12 +3295,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelD
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsOutput {
@@ -3855,12 +3350,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(context.Background())
 }
@@ -3902,12 +3391,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ElementType() reflect.Type {
@@ -3932,12 +3415,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput) StorageMetrics() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
@@ -3957,12 +3434,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelOutput {
@@ -4022,12 +3493,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
 }
@@ -4069,12 +3534,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ElementType() reflect.Type {
@@ -4097,12 +3556,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether prefix-level storage metrics are enabled.
@@ -4131,12 +3584,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsOutput {
@@ -4210,12 +3657,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -4257,12 +3698,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ElementType() reflect.Type {
@@ -4285,12 +3720,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria) *StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The delimiter of the selection criteria being used.
@@ -4326,12 +3755,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelP
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaOutput {
@@ -4407,12 +3830,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutputWithContext(context.Background())
 }
@@ -4454,12 +3871,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAccountLevelDetailedSta
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput) ElementType() reflect.Type {
@@ -4484,12 +3895,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 	}).(StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether detailed status code metrics are enabled.
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics) *bool {
@@ -4509,12 +3914,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsOutput {
@@ -4570,12 +3969,6 @@ func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLen
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAwsOrg] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAwsOrg]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationAwsOrgArgs) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput() StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(context.Background())
 }
@@ -4617,12 +4010,6 @@ func (i *storageLensConfigurationStorageLensConfigurationAwsOrgPtrType) ToStorag
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationAwsOrgPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAwsOrg] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAwsOrg]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationAwsOrgOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ElementType() reflect.Type {
@@ -4647,12 +4034,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageL
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationAwsOrg] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationAwsOrg]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
@@ -4670,12 +4051,6 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ToStora
 
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ToStorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAwsOrg] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationAwsOrg]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationAwsOrgOutput {
@@ -4735,12 +4110,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorag
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExport] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExport]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationDataExportArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(context.Background())
 }
@@ -4782,12 +4151,6 @@ func (i *storageLensConfigurationStorageLensConfigurationDataExportPtrType) ToSt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationDataExportPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExport] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExport]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportOutput) ElementType() reflect.Type {
@@ -4810,12 +4173,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToStor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExport) *StorageLensConfigurationStorageLensConfigurationDataExport {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExport] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
@@ -4844,12 +4201,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ToS
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExport] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportOutput {
@@ -4915,12 +4266,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(context.Background())
 }
@@ -4962,12 +4307,6 @@ func (i *storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMet
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ElementType() reflect.Type {
@@ -4992,12 +4331,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics) bool {
@@ -5017,12 +4350,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsOutput {
@@ -5098,12 +4425,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(context.Background())
 }
@@ -5145,12 +4466,6 @@ func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDesti
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ElementType() reflect.Type {
@@ -5173,12 +4488,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
@@ -5235,12 +4544,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput {
@@ -5350,12 +4653,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(context.Background())
 }
@@ -5397,12 +4694,6 @@ func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDesti
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ElementType() reflect.Type {
@@ -5425,12 +4716,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption) *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
 		return &v
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput)
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // SSE-KMS encryption. See SSE KMS below for more details.
@@ -5459,12 +4744,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionOutput {
@@ -5530,12 +4809,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(context.Background())
 }
@@ -5577,12 +4850,6 @@ func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDesti
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ElementType() reflect.Type {
@@ -5607,12 +4874,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms]{
-		OutputState: o.OutputState,
-	}
-}
-
 // KMS key ARN.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms) string {
@@ -5632,12 +4893,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsPtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsOutput {
@@ -5689,12 +4944,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput is an input type that accepts StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array and StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput values.
 // You can construct a concrete instance of `StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayInput` via:
 //
@@ -5720,12 +4969,6 @@ func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3] {
-	return pulumix.Output[[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output) ElementType() reflect.Type {
@@ -5740,12 +4983,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	return o
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ElementType() reflect.Type {
@@ -5758,12 +4995,6 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ToStorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3] {
-	return pulumix.Output[[]StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArrayOutput) Index(i pulumi.IntInput) StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Output {
@@ -5809,12 +5040,6 @@ func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLe
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationExcludeOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationExclude] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationExclude]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationExcludeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationExcludeArgs) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutput() StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(context.Background())
 }
@@ -5856,12 +5081,6 @@ func (i *storageLensConfigurationStorageLensConfigurationExcludePtrType) ToStora
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationExcludePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationExclude] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationExclude]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationExcludeOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationExcludeOutput) ElementType() reflect.Type {
@@ -5886,12 +5105,6 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToStorage
 	}).(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationExclude] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationExclude]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationExcludeOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
@@ -5914,12 +5127,6 @@ func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ToStor
 
 func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationExcludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationExcludePtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationExclude] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationExclude]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationExcludePtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationExcludeOutput {
@@ -5989,12 +5196,6 @@ func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLe
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationIncludeOutput)
 }
 
-func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationInclude] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationInclude]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationIncludeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensConfigurationStorageLensConfigurationIncludeArgs) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutput() StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
 	return i.ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(context.Background())
 }
@@ -6036,12 +5237,6 @@ func (i *storageLensConfigurationStorageLensConfigurationIncludePtrType) ToStora
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
 }
 
-func (i *storageLensConfigurationStorageLensConfigurationIncludePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationInclude] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationInclude]{
-		OutputState: i.ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensConfigurationStorageLensConfigurationIncludeOutput struct{ *pulumi.OutputState }
 
 func (StorageLensConfigurationStorageLensConfigurationIncludeOutput) ElementType() reflect.Type {
@@ -6066,12 +5261,6 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToStorage
 	}).(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput)
 }
 
-func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfigurationStorageLensConfigurationInclude] {
-	return pulumix.Output[StorageLensConfigurationStorageLensConfigurationInclude]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of S3 bucket ARNs.
 func (o StorageLensConfigurationStorageLensConfigurationIncludeOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationInclude) []string { return v.Buckets }).(pulumi.StringArrayOutput)
@@ -6094,12 +5283,6 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ToStor
 
 func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ToStorageLensConfigurationStorageLensConfigurationIncludePtrOutputWithContext(ctx context.Context) StorageLensConfigurationStorageLensConfigurationIncludePtrOutput {
 	return o
-}
-
-func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensConfigurationStorageLensConfigurationInclude] {
-	return pulumix.Output[*StorageLensConfigurationStorageLensConfigurationInclude]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Elem() StorageLensConfigurationStorageLensConfigurationIncludeOutput {
@@ -6189,12 +5372,6 @@ func (i GetMultiRegionAccessPointPublicAccessBlockArgs) ToGetMultiRegionAccessPo
 	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointPublicAccessBlockOutput)
 }
 
-func (i GetMultiRegionAccessPointPublicAccessBlockArgs) ToOutput(ctx context.Context) pulumix.Output[GetMultiRegionAccessPointPublicAccessBlock] {
-	return pulumix.Output[GetMultiRegionAccessPointPublicAccessBlock]{
-		OutputState: i.ToGetMultiRegionAccessPointPublicAccessBlockOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMultiRegionAccessPointPublicAccessBlockArrayInput is an input type that accepts GetMultiRegionAccessPointPublicAccessBlockArray and GetMultiRegionAccessPointPublicAccessBlockArrayOutput values.
 // You can construct a concrete instance of `GetMultiRegionAccessPointPublicAccessBlockArrayInput` via:
 //
@@ -6220,12 +5397,6 @@ func (i GetMultiRegionAccessPointPublicAccessBlockArray) ToGetMultiRegionAccessP
 	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointPublicAccessBlockArrayOutput)
 }
 
-func (i GetMultiRegionAccessPointPublicAccessBlockArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMultiRegionAccessPointPublicAccessBlock] {
-	return pulumix.Output[[]GetMultiRegionAccessPointPublicAccessBlock]{
-		OutputState: i.ToGetMultiRegionAccessPointPublicAccessBlockArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMultiRegionAccessPointPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (GetMultiRegionAccessPointPublicAccessBlockOutput) ElementType() reflect.Type {
@@ -6238,12 +5409,6 @@ func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccess
 
 func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccessPointPublicAccessBlockOutputWithContext(ctx context.Context) GetMultiRegionAccessPointPublicAccessBlockOutput {
 	return o
-}
-
-func (o GetMultiRegionAccessPointPublicAccessBlockOutput) ToOutput(ctx context.Context) pulumix.Output[GetMultiRegionAccessPointPublicAccessBlock] {
-	return pulumix.Output[GetMultiRegionAccessPointPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
@@ -6284,12 +5449,6 @@ func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) ToGetMultiRegionA
 
 func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) ToGetMultiRegionAccessPointPublicAccessBlockArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointPublicAccessBlockArrayOutput {
 	return o
-}
-
-func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMultiRegionAccessPointPublicAccessBlock] {
-	return pulumix.Output[[]GetMultiRegionAccessPointPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMultiRegionAccessPointPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) GetMultiRegionAccessPointPublicAccessBlockOutput {
@@ -6339,12 +5498,6 @@ func (i GetMultiRegionAccessPointRegionArgs) ToGetMultiRegionAccessPointRegionOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointRegionOutput)
 }
 
-func (i GetMultiRegionAccessPointRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetMultiRegionAccessPointRegion] {
-	return pulumix.Output[GetMultiRegionAccessPointRegion]{
-		OutputState: i.ToGetMultiRegionAccessPointRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMultiRegionAccessPointRegionArrayInput is an input type that accepts GetMultiRegionAccessPointRegionArray and GetMultiRegionAccessPointRegionArrayOutput values.
 // You can construct a concrete instance of `GetMultiRegionAccessPointRegionArrayInput` via:
 //
@@ -6370,12 +5523,6 @@ func (i GetMultiRegionAccessPointRegionArray) ToGetMultiRegionAccessPointRegionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointRegionArrayOutput)
 }
 
-func (i GetMultiRegionAccessPointRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMultiRegionAccessPointRegion] {
-	return pulumix.Output[[]GetMultiRegionAccessPointRegion]{
-		OutputState: i.ToGetMultiRegionAccessPointRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMultiRegionAccessPointRegionOutput struct{ *pulumi.OutputState }
 
 func (GetMultiRegionAccessPointRegionOutput) ElementType() reflect.Type {
@@ -6388,12 +5535,6 @@ func (o GetMultiRegionAccessPointRegionOutput) ToGetMultiRegionAccessPointRegion
 
 func (o GetMultiRegionAccessPointRegionOutput) ToGetMultiRegionAccessPointRegionOutputWithContext(ctx context.Context) GetMultiRegionAccessPointRegionOutput {
 	return o
-}
-
-func (o GetMultiRegionAccessPointRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetMultiRegionAccessPointRegion] {
-	return pulumix.Output[GetMultiRegionAccessPointRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the bucket.
@@ -6423,12 +5564,6 @@ func (o GetMultiRegionAccessPointRegionArrayOutput) ToGetMultiRegionAccessPointR
 
 func (o GetMultiRegionAccessPointRegionArrayOutput) ToGetMultiRegionAccessPointRegionArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointRegionArrayOutput {
 	return o
-}
-
-func (o GetMultiRegionAccessPointRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMultiRegionAccessPointRegion] {
-	return pulumix.Output[[]GetMultiRegionAccessPointRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) GetMultiRegionAccessPointRegionOutput {

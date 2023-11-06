@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an HTTP Method Integration for an API Gateway Integration.
@@ -492,12 +491,6 @@ func (i *Integration) ToIntegrationOutputWithContext(ctx context.Context) Integr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOutput)
 }
 
-func (i *Integration) ToOutput(ctx context.Context) pulumix.Output[*Integration] {
-	return pulumix.Output[*Integration]{
-		OutputState: i.ToIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationArrayInput is an input type that accepts IntegrationArray and IntegrationArrayOutput values.
 // You can construct a concrete instance of `IntegrationArrayInput` via:
 //
@@ -521,12 +514,6 @@ func (i IntegrationArray) ToIntegrationArrayOutput() IntegrationArrayOutput {
 
 func (i IntegrationArray) ToIntegrationArrayOutputWithContext(ctx context.Context) IntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationArrayOutput)
-}
-
-func (i IntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Integration] {
-	return pulumix.Output[[]*Integration]{
-		OutputState: i.ToIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationMapInput is an input type that accepts IntegrationMap and IntegrationMapOutput values.
@@ -554,12 +541,6 @@ func (i IntegrationMap) ToIntegrationMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationMapOutput)
 }
 
-func (i IntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Integration] {
-	return pulumix.Output[map[string]*Integration]{
-		OutputState: i.ToIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationOutput) ElementType() reflect.Type {
@@ -572,12 +553,6 @@ func (o IntegrationOutput) ToIntegrationOutput() IntegrationOutput {
 
 func (o IntegrationOutput) ToIntegrationOutputWithContext(ctx context.Context) IntegrationOutput {
 	return o
-}
-
-func (o IntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*Integration] {
-	return pulumix.Output[*Integration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of cache key parameters for the integration.
@@ -687,12 +662,6 @@ func (o IntegrationArrayOutput) ToIntegrationArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o IntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Integration] {
-	return pulumix.Output[[]*Integration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationArrayOutput) Index(i pulumi.IntInput) IntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Integration {
 		return vs[0].([]*Integration)[vs[1].(int)]
@@ -711,12 +680,6 @@ func (o IntegrationMapOutput) ToIntegrationMapOutput() IntegrationMapOutput {
 
 func (o IntegrationMapOutput) ToIntegrationMapOutputWithContext(ctx context.Context) IntegrationMapOutput {
 	return o
-}
-
-func (o IntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Integration] {
-	return pulumix.Output[map[string]*Integration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationMapOutput) MapIndex(k pulumi.StringInput) IntegrationOutput {

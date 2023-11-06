@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i GetResourceShareFilterArgs) ToGetResourceShareFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourceShareFilterOutput)
 }
 
-func (i GetResourceShareFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetResourceShareFilter] {
-	return pulumix.Output[GetResourceShareFilter]{
-		OutputState: i.ToGetResourceShareFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResourceShareFilterArrayInput is an input type that accepts GetResourceShareFilterArray and GetResourceShareFilterArrayOutput values.
 // You can construct a concrete instance of `GetResourceShareFilterArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i GetResourceShareFilterArray) ToGetResourceShareFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourceShareFilterArrayOutput)
 }
 
-func (i GetResourceShareFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResourceShareFilter] {
-	return pulumix.Output[[]GetResourceShareFilter]{
-		OutputState: i.ToGetResourceShareFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResourceShareFilterOutput struct{ *pulumi.OutputState }
 
 func (GetResourceShareFilterOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o GetResourceShareFilterOutput) ToGetResourceShareFilterOutput() GetResour
 
 func (o GetResourceShareFilterOutput) ToGetResourceShareFilterOutputWithContext(ctx context.Context) GetResourceShareFilterOutput {
 	return o
-}
-
-func (o GetResourceShareFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourceShareFilter] {
-	return pulumix.Output[GetResourceShareFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the tag key to filter on.
@@ -130,12 +111,6 @@ func (o GetResourceShareFilterArrayOutput) ToGetResourceShareFilterArrayOutput()
 
 func (o GetResourceShareFilterArrayOutput) ToGetResourceShareFilterArrayOutputWithContext(ctx context.Context) GetResourceShareFilterArrayOutput {
 	return o
-}
-
-func (o GetResourceShareFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResourceShareFilter] {
-	return pulumix.Output[[]GetResourceShareFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResourceShareFilterArrayOutput) Index(i pulumi.IntInput) GetResourceShareFilterOutput {

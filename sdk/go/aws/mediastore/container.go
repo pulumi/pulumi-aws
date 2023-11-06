@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MediaStore Container.
@@ -169,12 +168,6 @@ func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
 }
 
-func (i *Container) ToOutput(ctx context.Context) pulumix.Output[*Container] {
-	return pulumix.Output[*Container]{
-		OutputState: i.ToContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerArrayInput is an input type that accepts ContainerArray and ContainerArrayOutput values.
 // You can construct a concrete instance of `ContainerArrayInput` via:
 //
@@ -198,12 +191,6 @@ func (i ContainerArray) ToContainerArrayOutput() ContainerArrayOutput {
 
 func (i ContainerArray) ToContainerArrayOutputWithContext(ctx context.Context) ContainerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerArrayOutput)
-}
-
-func (i ContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Container] {
-	return pulumix.Output[[]*Container]{
-		OutputState: i.ToContainerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContainerMapInput is an input type that accepts ContainerMap and ContainerMapOutput values.
@@ -231,12 +218,6 @@ func (i ContainerMap) ToContainerMapOutputWithContext(ctx context.Context) Conta
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMapOutput)
 }
 
-func (i ContainerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Container] {
-	return pulumix.Output[map[string]*Container]{
-		OutputState: i.ToContainerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerOutput struct{ *pulumi.OutputState }
 
 func (ContainerOutput) ElementType() reflect.Type {
@@ -249,12 +230,6 @@ func (o ContainerOutput) ToContainerOutput() ContainerOutput {
 
 func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) ContainerOutput {
 	return o
-}
-
-func (o ContainerOutput) ToOutput(ctx context.Context) pulumix.Output[*Container] {
-	return pulumix.Output[*Container]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the container.
@@ -298,12 +273,6 @@ func (o ContainerArrayOutput) ToContainerArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Container] {
-	return pulumix.Output[[]*Container]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerArrayOutput) Index(i pulumi.IntInput) ContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Container {
 		return vs[0].([]*Container)[vs[1].(int)]
@@ -322,12 +291,6 @@ func (o ContainerMapOutput) ToContainerMapOutput() ContainerMapOutput {
 
 func (o ContainerMapOutput) ToContainerMapOutputWithContext(ctx context.Context) ContainerMapOutput {
 	return o
-}
-
-func (o ContainerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Container] {
-	return pulumix.Output[map[string]*Container]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerMapOutput) MapIndex(k pulumi.StringInput) ContainerOutput {

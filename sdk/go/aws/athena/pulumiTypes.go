@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationOutput() Databas
 
 func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationOutputWithContext(ctx context.Context) DatabaseAclConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAclConfigurationOutput)
-}
-
-func (i DatabaseAclConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseAclConfiguration] {
-	return pulumix.Output[DatabaseAclConfiguration]{
-		OutputState: i.ToDatabaseAclConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DatabaseAclConfigurationArgs) ToDatabaseAclConfigurationPtrOutput() DatabaseAclConfigurationPtrOutput {
@@ -98,12 +91,6 @@ func (i *databaseAclConfigurationPtrType) ToDatabaseAclConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAclConfigurationPtrOutput)
 }
 
-func (i *databaseAclConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseAclConfiguration] {
-	return pulumix.Output[*DatabaseAclConfiguration]{
-		OutputState: i.ToDatabaseAclConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseAclConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAclConfigurationOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o DatabaseAclConfigurationOutput) ToDatabaseAclConfigurationPtrOutputWithC
 	}).(DatabaseAclConfigurationPtrOutput)
 }
 
-func (o DatabaseAclConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseAclConfiguration] {
-	return pulumix.Output[DatabaseAclConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 //
 // > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `forceDestroy` on the bucket too in order to avoid any problems when destroying the bucket.
@@ -153,12 +134,6 @@ func (o DatabaseAclConfigurationPtrOutput) ToDatabaseAclConfigurationPtrOutput()
 
 func (o DatabaseAclConfigurationPtrOutput) ToDatabaseAclConfigurationPtrOutputWithContext(ctx context.Context) DatabaseAclConfigurationPtrOutput {
 	return o
-}
-
-func (o DatabaseAclConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseAclConfiguration] {
-	return pulumix.Output[*DatabaseAclConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseAclConfigurationPtrOutput) Elem() DatabaseAclConfigurationOutput {
@@ -220,12 +195,6 @@ func (i DatabaseEncryptionConfigurationArgs) ToDatabaseEncryptionConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseEncryptionConfigurationOutput)
 }
 
-func (i DatabaseEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseEncryptionConfiguration] {
-	return pulumix.Output[DatabaseEncryptionConfiguration]{
-		OutputState: i.ToDatabaseEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatabaseEncryptionConfigurationArgs) ToDatabaseEncryptionConfigurationPtrOutput() DatabaseEncryptionConfigurationPtrOutput {
 	return i.ToDatabaseEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -267,12 +236,6 @@ func (i *databaseEncryptionConfigurationPtrType) ToDatabaseEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseEncryptionConfigurationPtrOutput)
 }
 
-func (i *databaseEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseEncryptionConfiguration] {
-	return pulumix.Output[*DatabaseEncryptionConfiguration]{
-		OutputState: i.ToDatabaseEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DatabaseEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -297,12 +260,6 @@ func (o DatabaseEncryptionConfigurationOutput) ToDatabaseEncryptionConfiguration
 	}).(DatabaseEncryptionConfigurationPtrOutput)
 }
 
-func (o DatabaseEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseEncryptionConfiguration] {
-	return pulumix.Output[DatabaseEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
 func (o DatabaseEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
@@ -325,12 +282,6 @@ func (o DatabaseEncryptionConfigurationPtrOutput) ToDatabaseEncryptionConfigurat
 
 func (o DatabaseEncryptionConfigurationPtrOutput) ToDatabaseEncryptionConfigurationPtrOutputWithContext(ctx context.Context) DatabaseEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o DatabaseEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseEncryptionConfiguration] {
-	return pulumix.Output[*DatabaseEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseEncryptionConfigurationPtrOutput) Elem() DatabaseEncryptionConfigurationOutput {
@@ -420,12 +371,6 @@ func (i WorkgroupConfigurationArgs) ToWorkgroupConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationOutput)
 }
 
-func (i WorkgroupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfiguration] {
-	return pulumix.Output[WorkgroupConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkgroupConfigurationArgs) ToWorkgroupConfigurationPtrOutput() WorkgroupConfigurationPtrOutput {
 	return i.ToWorkgroupConfigurationPtrOutputWithContext(context.Background())
 }
@@ -467,12 +412,6 @@ func (i *workgroupConfigurationPtrType) ToWorkgroupConfigurationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationPtrOutput)
 }
 
-func (i *workgroupConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfiguration] {
-	return pulumix.Output[*WorkgroupConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationOutput) ElementType() reflect.Type {
@@ -495,12 +434,6 @@ func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfiguration) *WorkgroupConfiguration {
 		return &v
 	}).(WorkgroupConfigurationPtrOutput)
-}
-
-func (o WorkgroupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfiguration] {
-	return pulumix.Output[WorkgroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
@@ -552,12 +485,6 @@ func (o WorkgroupConfigurationPtrOutput) ToWorkgroupConfigurationPtrOutput() Wor
 
 func (o WorkgroupConfigurationPtrOutput) ToWorkgroupConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkgroupConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfiguration] {
-	return pulumix.Output[*WorkgroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigurationPtrOutput) Elem() WorkgroupConfigurationOutput {
@@ -677,12 +604,6 @@ func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineV
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationEngineVersionOutput)
 }
 
-func (i WorkgroupConfigurationEngineVersionArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationEngineVersion] {
-	return pulumix.Output[WorkgroupConfigurationEngineVersion]{
-		OutputState: i.ToWorkgroupConfigurationEngineVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput {
 	return i.ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(context.Background())
 }
@@ -724,12 +645,6 @@ func (i *workgroupConfigurationEngineVersionPtrType) ToWorkgroupConfigurationEng
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-func (i *workgroupConfigurationEngineVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationEngineVersion] {
-	return pulumix.Output[*WorkgroupConfigurationEngineVersion]{
-		OutputState: i.ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigurationEngineVersionOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationEngineVersionOutput) ElementType() reflect.Type {
@@ -754,12 +669,6 @@ func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngin
 	}).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
 
-func (o WorkgroupConfigurationEngineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationEngineVersion] {
-	return pulumix.Output[WorkgroupConfigurationEngineVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
 func (o WorkgroupConfigurationEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
@@ -782,12 +691,6 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) ToWorkgroupConfigurationEn
 
 func (o WorkgroupConfigurationEngineVersionPtrOutput) ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionPtrOutput {
 	return o
-}
-
-func (o WorkgroupConfigurationEngineVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationEngineVersion] {
-	return pulumix.Output[*WorkgroupConfigurationEngineVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigurationEngineVersionPtrOutput) Elem() WorkgroupConfigurationEngineVersionOutput {
@@ -865,12 +768,6 @@ func (i WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationR
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationOutput)
 }
 
-func (i WorkgroupConfigurationResultConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkgroupConfigurationResultConfigurationArgs) ToWorkgroupConfigurationResultConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return i.ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(context.Background())
 }
@@ -912,12 +809,6 @@ func (i *workgroupConfigurationResultConfigurationPtrType) ToWorkgroupConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
-func (i *workgroupConfigurationResultConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigurationResultConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationOutput) ElementType() reflect.Type {
@@ -940,12 +831,6 @@ func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfiguratio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfiguration {
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
-}
-
-func (o WorkgroupConfigurationResultConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -984,12 +869,6 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) ToWorkgroupConfigura
 
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkgroupConfigurationResultConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationOutput {
@@ -1075,12 +954,6 @@ func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgro
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationAclConfigurationOutput)
 }
 
-func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfigurationAclConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfigurationAclConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationAclConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
 	return i.ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1122,12 +995,6 @@ func (i *workgroupConfigurationResultConfigurationAclConfigurationPtrType) ToWor
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
 }
 
-func (i *workgroupConfigurationResultConfigurationAclConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfigurationAclConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfigurationAclConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigurationResultConfigurationAclConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ElementType() reflect.Type {
@@ -1152,12 +1019,6 @@ func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkg
 	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
 }
 
-func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfigurationAclConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfigurationAclConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
@@ -1175,12 +1036,6 @@ func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ToWo
 
 func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfigurationAclConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfigurationAclConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
@@ -1240,12 +1095,6 @@ func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
 }
 
-func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfigurationEncryptionConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfigurationEncryptionConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return i.ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1287,12 +1136,6 @@ func (i *workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
-func (i *workgroupConfigurationResultConfigurationEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfigurationEncryptionConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfigurationEncryptionConfiguration]{
-		OutputState: i.ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -1315,12 +1158,6 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
-}
-
-func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigurationResultConfigurationEncryptionConfiguration] {
-	return pulumix.Output[WorkgroupConfigurationResultConfigurationEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
@@ -1347,12 +1184,6 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkgroupConfigurationResultConfigurationEncryptionConfiguration] {
-	return pulumix.Output[*WorkgroupConfigurationResultConfigurationEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {

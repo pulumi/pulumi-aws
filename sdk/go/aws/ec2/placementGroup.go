@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 placement group. Read more about placement groups
@@ -221,12 +220,6 @@ func (i *PlacementGroup) ToPlacementGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupOutput)
 }
 
-func (i *PlacementGroup) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroup] {
-	return pulumix.Output[*PlacementGroup]{
-		OutputState: i.ToPlacementGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlacementGroupArrayInput is an input type that accepts PlacementGroupArray and PlacementGroupArrayOutput values.
 // You can construct a concrete instance of `PlacementGroupArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i PlacementGroupArray) ToPlacementGroupArrayOutput() PlacementGroupArrayOu
 
 func (i PlacementGroupArray) ToPlacementGroupArrayOutputWithContext(ctx context.Context) PlacementGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupArrayOutput)
-}
-
-func (i PlacementGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*PlacementGroup] {
-	return pulumix.Output[[]*PlacementGroup]{
-		OutputState: i.ToPlacementGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PlacementGroupMapInput is an input type that accepts PlacementGroupMap and PlacementGroupMapOutput values.
@@ -283,12 +270,6 @@ func (i PlacementGroupMap) ToPlacementGroupMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupMapOutput)
 }
 
-func (i PlacementGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlacementGroup] {
-	return pulumix.Output[map[string]*PlacementGroup]{
-		OutputState: i.ToPlacementGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (PlacementGroupOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o PlacementGroupOutput) ToPlacementGroupOutput() PlacementGroupOutput {
 
 func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Context) PlacementGroupOutput {
 	return o
-}
-
-func (o PlacementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*PlacementGroup] {
-	return pulumix.Output[*PlacementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the placement group.
@@ -368,12 +343,6 @@ func (o PlacementGroupArrayOutput) ToPlacementGroupArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o PlacementGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PlacementGroup] {
-	return pulumix.Output[[]*PlacementGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlacementGroupArrayOutput) Index(i pulumi.IntInput) PlacementGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PlacementGroup {
 		return vs[0].([]*PlacementGroup)[vs[1].(int)]
@@ -392,12 +361,6 @@ func (o PlacementGroupMapOutput) ToPlacementGroupMapOutput() PlacementGroupMapOu
 
 func (o PlacementGroupMapOutput) ToPlacementGroupMapOutputWithContext(ctx context.Context) PlacementGroupMapOutput {
 	return o
-}
-
-func (o PlacementGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlacementGroup] {
-	return pulumix.Output[map[string]*PlacementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlacementGroupMapOutput) MapIndex(k pulumi.StringInput) PlacementGroupOutput {

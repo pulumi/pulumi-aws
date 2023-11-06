@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Security Token Service Preferences resource.
@@ -127,12 +126,6 @@ func (i *SecurityTokenServicePreferences) ToSecurityTokenServicePreferencesOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityTokenServicePreferencesOutput)
 }
 
-func (i *SecurityTokenServicePreferences) ToOutput(ctx context.Context) pulumix.Output[*SecurityTokenServicePreferences] {
-	return pulumix.Output[*SecurityTokenServicePreferences]{
-		OutputState: i.ToSecurityTokenServicePreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityTokenServicePreferencesArrayInput is an input type that accepts SecurityTokenServicePreferencesArray and SecurityTokenServicePreferencesArrayOutput values.
 // You can construct a concrete instance of `SecurityTokenServicePreferencesArrayInput` via:
 //
@@ -156,12 +149,6 @@ func (i SecurityTokenServicePreferencesArray) ToSecurityTokenServicePreferencesA
 
 func (i SecurityTokenServicePreferencesArray) ToSecurityTokenServicePreferencesArrayOutputWithContext(ctx context.Context) SecurityTokenServicePreferencesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityTokenServicePreferencesArrayOutput)
-}
-
-func (i SecurityTokenServicePreferencesArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityTokenServicePreferences] {
-	return pulumix.Output[[]*SecurityTokenServicePreferences]{
-		OutputState: i.ToSecurityTokenServicePreferencesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecurityTokenServicePreferencesMapInput is an input type that accepts SecurityTokenServicePreferencesMap and SecurityTokenServicePreferencesMapOutput values.
@@ -189,12 +176,6 @@ func (i SecurityTokenServicePreferencesMap) ToSecurityTokenServicePreferencesMap
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityTokenServicePreferencesMapOutput)
 }
 
-func (i SecurityTokenServicePreferencesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityTokenServicePreferences] {
-	return pulumix.Output[map[string]*SecurityTokenServicePreferences]{
-		OutputState: i.ToSecurityTokenServicePreferencesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityTokenServicePreferencesOutput struct{ *pulumi.OutputState }
 
 func (SecurityTokenServicePreferencesOutput) ElementType() reflect.Type {
@@ -207,12 +188,6 @@ func (o SecurityTokenServicePreferencesOutput) ToSecurityTokenServicePreferences
 
 func (o SecurityTokenServicePreferencesOutput) ToSecurityTokenServicePreferencesOutputWithContext(ctx context.Context) SecurityTokenServicePreferencesOutput {
 	return o
-}
-
-func (o SecurityTokenServicePreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityTokenServicePreferences] {
-	return pulumix.Output[*SecurityTokenServicePreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
@@ -234,12 +209,6 @@ func (o SecurityTokenServicePreferencesArrayOutput) ToSecurityTokenServicePrefer
 	return o
 }
 
-func (o SecurityTokenServicePreferencesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityTokenServicePreferences] {
-	return pulumix.Output[[]*SecurityTokenServicePreferences]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityTokenServicePreferencesArrayOutput) Index(i pulumi.IntInput) SecurityTokenServicePreferencesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityTokenServicePreferences {
 		return vs[0].([]*SecurityTokenServicePreferences)[vs[1].(int)]
@@ -258,12 +227,6 @@ func (o SecurityTokenServicePreferencesMapOutput) ToSecurityTokenServicePreferen
 
 func (o SecurityTokenServicePreferencesMapOutput) ToSecurityTokenServicePreferencesMapOutputWithContext(ctx context.Context) SecurityTokenServicePreferencesMapOutput {
 	return o
-}
-
-func (o SecurityTokenServicePreferencesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityTokenServicePreferences] {
-	return pulumix.Output[map[string]*SecurityTokenServicePreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityTokenServicePreferencesMapOutput) MapIndex(k pulumi.StringInput) SecurityTokenServicePreferencesOutput {

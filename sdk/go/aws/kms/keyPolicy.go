@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a policy to a KMS Key.
@@ -208,12 +207,6 @@ func (i *KeyPolicy) ToKeyPolicyOutputWithContext(ctx context.Context) KeyPolicyO
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyOutput)
 }
 
-func (i *KeyPolicy) ToOutput(ctx context.Context) pulumix.Output[*KeyPolicy] {
-	return pulumix.Output[*KeyPolicy]{
-		OutputState: i.ToKeyPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyPolicyArrayInput is an input type that accepts KeyPolicyArray and KeyPolicyArrayOutput values.
 // You can construct a concrete instance of `KeyPolicyArrayInput` via:
 //
@@ -237,12 +230,6 @@ func (i KeyPolicyArray) ToKeyPolicyArrayOutput() KeyPolicyArrayOutput {
 
 func (i KeyPolicyArray) ToKeyPolicyArrayOutputWithContext(ctx context.Context) KeyPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyArrayOutput)
-}
-
-func (i KeyPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeyPolicy] {
-	return pulumix.Output[[]*KeyPolicy]{
-		OutputState: i.ToKeyPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KeyPolicyMapInput is an input type that accepts KeyPolicyMap and KeyPolicyMapOutput values.
@@ -270,12 +257,6 @@ func (i KeyPolicyMap) ToKeyPolicyMapOutputWithContext(ctx context.Context) KeyPo
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPolicyMapOutput)
 }
 
-func (i KeyPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyPolicy] {
-	return pulumix.Output[map[string]*KeyPolicy]{
-		OutputState: i.ToKeyPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyPolicyOutput struct{ *pulumi.OutputState }
 
 func (KeyPolicyOutput) ElementType() reflect.Type {
@@ -288,12 +269,6 @@ func (o KeyPolicyOutput) ToKeyPolicyOutput() KeyPolicyOutput {
 
 func (o KeyPolicyOutput) ToKeyPolicyOutputWithContext(ctx context.Context) KeyPolicyOutput {
 	return o
-}
-
-func (o KeyPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPolicy] {
-	return pulumix.Output[*KeyPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag to indicate whether to bypass the key policy lockout safety check.
@@ -329,12 +304,6 @@ func (o KeyPolicyArrayOutput) ToKeyPolicyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o KeyPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeyPolicy] {
-	return pulumix.Output[[]*KeyPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyPolicyArrayOutput) Index(i pulumi.IntInput) KeyPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeyPolicy {
 		return vs[0].([]*KeyPolicy)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o KeyPolicyMapOutput) ToKeyPolicyMapOutput() KeyPolicyMapOutput {
 
 func (o KeyPolicyMapOutput) ToKeyPolicyMapOutputWithContext(ctx context.Context) KeyPolicyMapOutput {
 	return o
-}
-
-func (o KeyPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyPolicy] {
-	return pulumix.Output[map[string]*KeyPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyPolicyMapOutput) MapIndex(k pulumi.StringInput) KeyPolicyOutput {

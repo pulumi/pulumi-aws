@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS MediaLive InputSecurityGroup.
@@ -187,12 +186,6 @@ func (i *InputSecurityGroup) ToInputSecurityGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupOutput)
 }
 
-func (i *InputSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
-	return pulumix.Output[*InputSecurityGroup]{
-		OutputState: i.ToInputSecurityGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InputSecurityGroupArrayInput is an input type that accepts InputSecurityGroupArray and InputSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `InputSecurityGroupArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i InputSecurityGroupArray) ToInputSecurityGroupArrayOutput() InputSecurity
 
 func (i InputSecurityGroupArray) ToInputSecurityGroupArrayOutputWithContext(ctx context.Context) InputSecurityGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupArrayOutput)
-}
-
-func (i InputSecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*InputSecurityGroup] {
-	return pulumix.Output[[]*InputSecurityGroup]{
-		OutputState: i.ToInputSecurityGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InputSecurityGroupMapInput is an input type that accepts InputSecurityGroupMap and InputSecurityGroupMapOutput values.
@@ -249,12 +236,6 @@ func (i InputSecurityGroupMap) ToInputSecurityGroupMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InputSecurityGroupMapOutput)
 }
 
-func (i InputSecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InputSecurityGroup] {
-	return pulumix.Output[map[string]*InputSecurityGroup]{
-		OutputState: i.ToInputSecurityGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (InputSecurityGroupOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o InputSecurityGroupOutput) ToInputSecurityGroupOutput() InputSecurityGrou
 
 func (o InputSecurityGroupOutput) ToInputSecurityGroupOutputWithContext(ctx context.Context) InputSecurityGroupOutput {
 	return o
-}
-
-func (o InputSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*InputSecurityGroup] {
-	return pulumix.Output[*InputSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the InputSecurityGroup.
@@ -316,12 +291,6 @@ func (o InputSecurityGroupArrayOutput) ToInputSecurityGroupArrayOutputWithContex
 	return o
 }
 
-func (o InputSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InputSecurityGroup] {
-	return pulumix.Output[[]*InputSecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InputSecurityGroupArrayOutput) Index(i pulumi.IntInput) InputSecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InputSecurityGroup {
 		return vs[0].([]*InputSecurityGroup)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o InputSecurityGroupMapOutput) ToInputSecurityGroupMapOutput() InputSecuri
 
 func (o InputSecurityGroupMapOutput) ToInputSecurityGroupMapOutputWithContext(ctx context.Context) InputSecurityGroupMapOutput {
 	return o
-}
-
-func (o InputSecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InputSecurityGroup] {
-	return pulumix.Output[map[string]*InputSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) InputSecurityGroupOutput {

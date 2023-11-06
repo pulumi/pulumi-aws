@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Hours of Operation.
@@ -155,12 +154,6 @@ func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutput
 
 func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutputWithContext(ctx context.Context) LookupHoursOfOperationResultOutput {
 	return o
-}
-
-func (o LookupHoursOfOperationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHoursOfOperationResult] {
-	return pulumix.Output[LookupHoursOfOperationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Hours of Operation.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC Endpoint Service resource.
@@ -300,12 +299,6 @@ func (i *VpcEndpointService) ToVpcEndpointServiceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceOutput)
 }
 
-func (i *VpcEndpointService) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointService] {
-	return pulumix.Output[*VpcEndpointService]{
-		OutputState: i.ToVpcEndpointServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcEndpointServiceArrayInput is an input type that accepts VpcEndpointServiceArray and VpcEndpointServiceArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointServiceArrayInput` via:
 //
@@ -329,12 +322,6 @@ func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutput() VpcEndpointSe
 
 func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutputWithContext(ctx context.Context) VpcEndpointServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceArrayOutput)
-}
-
-func (i VpcEndpointServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointService] {
-	return pulumix.Output[[]*VpcEndpointService]{
-		OutputState: i.ToVpcEndpointServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcEndpointServiceMapInput is an input type that accepts VpcEndpointServiceMap and VpcEndpointServiceMapOutput values.
@@ -362,12 +349,6 @@ func (i VpcEndpointServiceMap) ToVpcEndpointServiceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceMapOutput)
 }
 
-func (i VpcEndpointServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointService] {
-	return pulumix.Output[map[string]*VpcEndpointService]{
-		OutputState: i.ToVpcEndpointServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcEndpointServiceOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointServiceOutput) ElementType() reflect.Type {
@@ -380,12 +361,6 @@ func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutput() VpcEndpointServic
 
 func (o VpcEndpointServiceOutput) ToVpcEndpointServiceOutputWithContext(ctx context.Context) VpcEndpointServiceOutput {
 	return o
-}
-
-func (o VpcEndpointServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointService] {
-	return pulumix.Output[*VpcEndpointService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
@@ -486,12 +461,6 @@ func (o VpcEndpointServiceArrayOutput) ToVpcEndpointServiceArrayOutputWithContex
 	return o
 }
 
-func (o VpcEndpointServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointService] {
-	return pulumix.Output[[]*VpcEndpointService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcEndpointServiceArrayOutput) Index(i pulumi.IntInput) VpcEndpointServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointService {
 		return vs[0].([]*VpcEndpointService)[vs[1].(int)]
@@ -510,12 +479,6 @@ func (o VpcEndpointServiceMapOutput) ToVpcEndpointServiceMapOutput() VpcEndpoint
 
 func (o VpcEndpointServiceMapOutput) ToVpcEndpointServiceMapOutputWithContext(ctx context.Context) VpcEndpointServiceMapOutput {
 	return o
-}
-
-func (o VpcEndpointServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointService] {
-	return pulumix.Output[map[string]*VpcEndpointService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcEndpointServiceMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointServiceOutput {

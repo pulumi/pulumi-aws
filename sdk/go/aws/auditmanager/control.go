@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Control.
@@ -235,12 +234,6 @@ func (i *Control) ToControlOutputWithContext(ctx context.Context) ControlOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ControlOutput)
 }
 
-func (i *Control) ToOutput(ctx context.Context) pulumix.Output[*Control] {
-	return pulumix.Output[*Control]{
-		OutputState: i.ToControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ControlArrayInput is an input type that accepts ControlArray and ControlArrayOutput values.
 // You can construct a concrete instance of `ControlArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i ControlArray) ToControlArrayOutput() ControlArrayOutput {
 
 func (i ControlArray) ToControlArrayOutputWithContext(ctx context.Context) ControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControlArrayOutput)
-}
-
-func (i ControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*Control] {
-	return pulumix.Output[[]*Control]{
-		OutputState: i.ToControlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ControlMapInput is an input type that accepts ControlMap and ControlMapOutput values.
@@ -297,12 +284,6 @@ func (i ControlMap) ToControlMapOutputWithContext(ctx context.Context) ControlMa
 	return pulumi.ToOutputWithContext(ctx, i).(ControlMapOutput)
 }
 
-func (i ControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Control] {
-	return pulumix.Output[map[string]*Control]{
-		OutputState: i.ToControlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ControlOutput struct{ *pulumi.OutputState }
 
 func (ControlOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o ControlOutput) ToControlOutput() ControlOutput {
 
 func (o ControlOutput) ToControlOutputWithContext(ctx context.Context) ControlOutput {
 	return o
-}
-
-func (o ControlOutput) ToOutput(ctx context.Context) pulumix.Output[*Control] {
-	return pulumix.Output[*Control]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Recommended actions to carry out if the control isn't fulfilled.
@@ -390,12 +365,6 @@ func (o ControlArrayOutput) ToControlArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Control] {
-	return pulumix.Output[[]*Control]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ControlArrayOutput) Index(i pulumi.IntInput) ControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Control {
 		return vs[0].([]*Control)[vs[1].(int)]
@@ -414,12 +383,6 @@ func (o ControlMapOutput) ToControlMapOutput() ControlMapOutput {
 
 func (o ControlMapOutput) ToControlMapOutputWithContext(ctx context.Context) ControlMapOutput {
 	return o
-}
-
-func (o ControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Control] {
-	return pulumix.Output[map[string]*Control]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ControlMapOutput) MapIndex(k pulumi.StringInput) ControlOutput {

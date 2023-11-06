@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get all direct child accounts under a parent organizational unit. This provides all children.
@@ -104,12 +103,6 @@ func (o GetOrganizationalUnitDescendantAccountsResultOutput) ToGetOrganizational
 
 func (o GetOrganizationalUnitDescendantAccountsResultOutput) ToGetOrganizationalUnitDescendantAccountsResultOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsResultOutput {
 	return o
-}
-
-func (o GetOrganizationalUnitDescendantAccountsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitDescendantAccountsResult] {
-	return pulumix.Output[GetOrganizationalUnitDescendantAccountsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of child accounts, which have the following attributes:

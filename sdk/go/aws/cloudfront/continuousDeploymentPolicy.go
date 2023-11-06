@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CloudFront Continuous Deployment Policy.
@@ -275,12 +274,6 @@ func (i *ContinuousDeploymentPolicy) ToContinuousDeploymentPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyOutput)
 }
 
-func (i *ContinuousDeploymentPolicy) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicy] {
-	return pulumix.Output[*ContinuousDeploymentPolicy]{
-		OutputState: i.ToContinuousDeploymentPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContinuousDeploymentPolicyArrayInput is an input type that accepts ContinuousDeploymentPolicyArray and ContinuousDeploymentPolicyArrayOutput values.
 // You can construct a concrete instance of `ContinuousDeploymentPolicyArrayInput` via:
 //
@@ -304,12 +297,6 @@ func (i ContinuousDeploymentPolicyArray) ToContinuousDeploymentPolicyArrayOutput
 
 func (i ContinuousDeploymentPolicyArray) ToContinuousDeploymentPolicyArrayOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyArrayOutput)
-}
-
-func (i ContinuousDeploymentPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContinuousDeploymentPolicy] {
-	return pulumix.Output[[]*ContinuousDeploymentPolicy]{
-		OutputState: i.ToContinuousDeploymentPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContinuousDeploymentPolicyMapInput is an input type that accepts ContinuousDeploymentPolicyMap and ContinuousDeploymentPolicyMapOutput values.
@@ -337,12 +324,6 @@ func (i ContinuousDeploymentPolicyMap) ToContinuousDeploymentPolicyMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyMapOutput)
 }
 
-func (i ContinuousDeploymentPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContinuousDeploymentPolicy] {
-	return pulumix.Output[map[string]*ContinuousDeploymentPolicy]{
-		OutputState: i.ToContinuousDeploymentPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContinuousDeploymentPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContinuousDeploymentPolicyOutput) ElementType() reflect.Type {
@@ -355,12 +336,6 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutput() C
 
 func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyOutput {
 	return o
-}
-
-func (o ContinuousDeploymentPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicy] {
-	return pulumix.Output[*ContinuousDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether this continuous deployment policy is enabled.
@@ -406,12 +381,6 @@ func (o ContinuousDeploymentPolicyArrayOutput) ToContinuousDeploymentPolicyArray
 	return o
 }
 
-func (o ContinuousDeploymentPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContinuousDeploymentPolicy] {
-	return pulumix.Output[[]*ContinuousDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyArrayOutput) Index(i pulumi.IntInput) ContinuousDeploymentPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContinuousDeploymentPolicy {
 		return vs[0].([]*ContinuousDeploymentPolicy)[vs[1].(int)]
@@ -430,12 +399,6 @@ func (o ContinuousDeploymentPolicyMapOutput) ToContinuousDeploymentPolicyMapOutp
 
 func (o ContinuousDeploymentPolicyMapOutput) ToContinuousDeploymentPolicyMapOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyMapOutput {
 	return o
-}
-
-func (o ContinuousDeploymentPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContinuousDeploymentPolicy] {
-	return pulumix.Output[map[string]*ContinuousDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContinuousDeploymentPolicyMapOutput) MapIndex(k pulumi.StringInput) ContinuousDeploymentPolicyOutput {

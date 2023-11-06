@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
@@ -132,12 +131,6 @@ func (o LookupQuerySuggestionsBlockListResultOutput) ToLookupQuerySuggestionsBlo
 
 func (o LookupQuerySuggestionsBlockListResultOutput) ToLookupQuerySuggestionsBlockListResultOutputWithContext(ctx context.Context) LookupQuerySuggestionsBlockListResultOutput {
 	return o
-}
-
-func (o LookupQuerySuggestionsBlockListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQuerySuggestionsBlockListResult] {
-	return pulumix.Output[LookupQuerySuggestionsBlockListResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the block list.

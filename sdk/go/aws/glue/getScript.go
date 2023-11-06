@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -316,12 +315,6 @@ func (o GetScriptResultOutput) ToGetScriptResultOutput() GetScriptResultOutput {
 
 func (o GetScriptResultOutput) ToGetScriptResultOutputWithContext(ctx context.Context) GetScriptResultOutput {
 	return o
-}
-
-func (o GetScriptResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetScriptResult] {
-	return pulumix.Output[GetScriptResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScriptResultOutput) DagEdges() GetScriptDagEdgeArrayOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Connect Lambda Function Association.
@@ -104,12 +103,6 @@ func (o LookupLambdaFunctionAssociationResultOutput) ToLookupLambdaFunctionAssoc
 
 func (o LookupLambdaFunctionAssociationResultOutput) ToLookupLambdaFunctionAssociationResultOutputWithContext(ctx context.Context) LookupLambdaFunctionAssociationResultOutput {
 	return o
-}
-
-func (o LookupLambdaFunctionAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLambdaFunctionAssociationResult] {
-	return pulumix.Output[LookupLambdaFunctionAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLambdaFunctionAssociationResultOutput) FunctionArn() pulumi.StringOutput {

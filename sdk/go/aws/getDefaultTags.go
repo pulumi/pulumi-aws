@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the default tags configured on the provider.
@@ -97,12 +96,6 @@ func (o GetDefaultTagsResultOutput) ToGetDefaultTagsResultOutput() GetDefaultTag
 
 func (o GetDefaultTagsResultOutput) ToGetDefaultTagsResultOutputWithContext(ctx context.Context) GetDefaultTagsResultOutput {
 	return o
-}
-
-func (o GetDefaultTagsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDefaultTagsResult] {
-	return pulumix.Output[GetDefaultTagsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {

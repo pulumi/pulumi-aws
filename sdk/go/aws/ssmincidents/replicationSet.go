@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
@@ -316,12 +315,6 @@ func (i *ReplicationSet) ToReplicationSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetOutput)
 }
 
-func (i *ReplicationSet) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
-	return pulumix.Output[*ReplicationSet]{
-		OutputState: i.ToReplicationSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationSetArrayInput is an input type that accepts ReplicationSetArray and ReplicationSetArrayOutput values.
 // You can construct a concrete instance of `ReplicationSetArrayInput` via:
 //
@@ -345,12 +338,6 @@ func (i ReplicationSetArray) ToReplicationSetArrayOutput() ReplicationSetArrayOu
 
 func (i ReplicationSetArray) ToReplicationSetArrayOutputWithContext(ctx context.Context) ReplicationSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetArrayOutput)
-}
-
-func (i ReplicationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSet] {
-	return pulumix.Output[[]*ReplicationSet]{
-		OutputState: i.ToReplicationSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationSetMapInput is an input type that accepts ReplicationSetMap and ReplicationSetMapOutput values.
@@ -378,12 +365,6 @@ func (i ReplicationSetMap) ToReplicationSetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetMapOutput)
 }
 
-func (i ReplicationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSet] {
-	return pulumix.Output[map[string]*ReplicationSet]{
-		OutputState: i.ToReplicationSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSetOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetOutput) ElementType() reflect.Type {
@@ -396,12 +377,6 @@ func (o ReplicationSetOutput) ToReplicationSetOutput() ReplicationSetOutput {
 
 func (o ReplicationSetOutput) ToReplicationSetOutputWithContext(ctx context.Context) ReplicationSetOutput {
 	return o
-}
-
-func (o ReplicationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
-	return pulumix.Output[*ReplicationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the replication set.
@@ -462,12 +437,6 @@ func (o ReplicationSetArrayOutput) ToReplicationSetArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ReplicationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSet] {
-	return pulumix.Output[[]*ReplicationSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationSetArrayOutput) Index(i pulumi.IntInput) ReplicationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationSet {
 		return vs[0].([]*ReplicationSet)[vs[1].(int)]
@@ -486,12 +455,6 @@ func (o ReplicationSetMapOutput) ToReplicationSetMapOutput() ReplicationSetMapOu
 
 func (o ReplicationSetMapOutput) ToReplicationSetMapOutputWithContext(ctx context.Context) ReplicationSetMapOutput {
 	return o
-}
-
-func (o ReplicationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSet] {
-	return pulumix.Output[map[string]*ReplicationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSetMapOutput) MapIndex(k pulumi.StringInput) ReplicationSetOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a CloudFront distribution.
@@ -126,12 +125,6 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutput() Looku
 
 func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithContext(ctx context.Context) LookupDistributionResultOutput {
 	return o
-}
-
-func (o LookupDistributionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDistributionResult] {
-	return pulumix.Output[LookupDistributionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List that contains information about CNAMEs (alternate domain names), if any, for this distribution.

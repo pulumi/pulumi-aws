@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
@@ -177,12 +176,6 @@ func (i *ProxyProtocolPolicy) ToProxyProtocolPolicyOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyOutput)
 }
 
-func (i *ProxyProtocolPolicy) ToOutput(ctx context.Context) pulumix.Output[*ProxyProtocolPolicy] {
-	return pulumix.Output[*ProxyProtocolPolicy]{
-		OutputState: i.ToProxyProtocolPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProxyProtocolPolicyArrayInput is an input type that accepts ProxyProtocolPolicyArray and ProxyProtocolPolicyArrayOutput values.
 // You can construct a concrete instance of `ProxyProtocolPolicyArrayInput` via:
 //
@@ -206,12 +199,6 @@ func (i ProxyProtocolPolicyArray) ToProxyProtocolPolicyArrayOutput() ProxyProtoc
 
 func (i ProxyProtocolPolicyArray) ToProxyProtocolPolicyArrayOutputWithContext(ctx context.Context) ProxyProtocolPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyArrayOutput)
-}
-
-func (i ProxyProtocolPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyProtocolPolicy] {
-	return pulumix.Output[[]*ProxyProtocolPolicy]{
-		OutputState: i.ToProxyProtocolPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProxyProtocolPolicyMapInput is an input type that accepts ProxyProtocolPolicyMap and ProxyProtocolPolicyMapOutput values.
@@ -239,12 +226,6 @@ func (i ProxyProtocolPolicyMap) ToProxyProtocolPolicyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyProtocolPolicyMapOutput)
 }
 
-func (i ProxyProtocolPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyProtocolPolicy] {
-	return pulumix.Output[map[string]*ProxyProtocolPolicy]{
-		OutputState: i.ToProxyProtocolPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProxyProtocolPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProxyProtocolPolicyOutput) ElementType() reflect.Type {
@@ -257,12 +238,6 @@ func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutput() ProxyProtocolPo
 
 func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutputWithContext(ctx context.Context) ProxyProtocolPolicyOutput {
 	return o
-}
-
-func (o ProxyProtocolPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyProtocolPolicy] {
-	return pulumix.Output[*ProxyProtocolPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of instance ports to which the policy
@@ -291,12 +266,6 @@ func (o ProxyProtocolPolicyArrayOutput) ToProxyProtocolPolicyArrayOutputWithCont
 	return o
 }
 
-func (o ProxyProtocolPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyProtocolPolicy] {
-	return pulumix.Output[[]*ProxyProtocolPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProxyProtocolPolicyArrayOutput) Index(i pulumi.IntInput) ProxyProtocolPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyProtocolPolicy {
 		return vs[0].([]*ProxyProtocolPolicy)[vs[1].(int)]
@@ -315,12 +284,6 @@ func (o ProxyProtocolPolicyMapOutput) ToProxyProtocolPolicyMapOutput() ProxyProt
 
 func (o ProxyProtocolPolicyMapOutput) ToProxyProtocolPolicyMapOutputWithContext(ctx context.Context) ProxyProtocolPolicyMapOutput {
 	return o
-}
-
-func (o ProxyProtocolPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyProtocolPolicy] {
-	return pulumix.Output[map[string]*ProxyProtocolPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProxyProtocolPolicyMapOutput) MapIndex(k pulumi.StringInput) ProxyProtocolPolicyOutput {

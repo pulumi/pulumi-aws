@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver query logging configuration association resource.
@@ -153,12 +152,6 @@ func (i *ResolverQueryLogConfigAssociation) ToResolverQueryLogConfigAssociationO
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigAssociationOutput)
 }
 
-func (i *ResolverQueryLogConfigAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[*ResolverQueryLogConfigAssociation]{
-		OutputState: i.ToResolverQueryLogConfigAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverQueryLogConfigAssociationArrayInput is an input type that accepts ResolverQueryLogConfigAssociationArray and ResolverQueryLogConfigAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigAssociationArrayInput` via:
 //
@@ -182,12 +175,6 @@ func (i ResolverQueryLogConfigAssociationArray) ToResolverQueryLogConfigAssociat
 
 func (i ResolverQueryLogConfigAssociationArray) ToResolverQueryLogConfigAssociationArrayOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigAssociationArrayOutput)
-}
-
-func (i ResolverQueryLogConfigAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[[]*ResolverQueryLogConfigAssociation]{
-		OutputState: i.ToResolverQueryLogConfigAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverQueryLogConfigAssociationMapInput is an input type that accepts ResolverQueryLogConfigAssociationMap and ResolverQueryLogConfigAssociationMapOutput values.
@@ -215,12 +202,6 @@ func (i ResolverQueryLogConfigAssociationMap) ToResolverQueryLogConfigAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigAssociationMapOutput)
 }
 
-func (i ResolverQueryLogConfigAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[map[string]*ResolverQueryLogConfigAssociation]{
-		OutputState: i.ToResolverQueryLogConfigAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverQueryLogConfigAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLogConfigAssociationOutput) ElementType() reflect.Type {
@@ -233,12 +214,6 @@ func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssocia
 
 func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssociationOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationOutput {
 	return o
-}
-
-func (o ResolverQueryLogConfigAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[*ResolverQueryLogConfigAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
@@ -265,12 +240,6 @@ func (o ResolverQueryLogConfigAssociationArrayOutput) ToResolverQueryLogConfigAs
 	return o
 }
 
-func (o ResolverQueryLogConfigAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[[]*ResolverQueryLogConfigAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverQueryLogConfigAssociationArrayOutput) Index(i pulumi.IntInput) ResolverQueryLogConfigAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverQueryLogConfigAssociation {
 		return vs[0].([]*ResolverQueryLogConfigAssociation)[vs[1].(int)]
@@ -289,12 +258,6 @@ func (o ResolverQueryLogConfigAssociationMapOutput) ToResolverQueryLogConfigAsso
 
 func (o ResolverQueryLogConfigAssociationMapOutput) ToResolverQueryLogConfigAssociationMapOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationMapOutput {
 	return o
-}
-
-func (o ResolverQueryLogConfigAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverQueryLogConfigAssociation] {
-	return pulumix.Output[map[string]*ResolverQueryLogConfigAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverQueryLogConfigAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverQueryLogConfigAssociationOutput {

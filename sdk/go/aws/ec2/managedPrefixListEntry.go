@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use the `awsPrefixListEntry` resource to manage a managed prefix list entry.
@@ -178,12 +177,6 @@ func (i *ManagedPrefixListEntry) ToManagedPrefixListEntryOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryOutput)
 }
 
-func (i *ManagedPrefixListEntry) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrefixListEntry] {
-	return pulumix.Output[*ManagedPrefixListEntry]{
-		OutputState: i.ToManagedPrefixListEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedPrefixListEntryArrayInput is an input type that accepts ManagedPrefixListEntryArray and ManagedPrefixListEntryArrayOutput values.
 // You can construct a concrete instance of `ManagedPrefixListEntryArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutput() Manag
 
 func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryArrayOutput)
-}
-
-func (i ManagedPrefixListEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrefixListEntry] {
-	return pulumix.Output[[]*ManagedPrefixListEntry]{
-		OutputState: i.ToManagedPrefixListEntryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedPrefixListEntryMapInput is an input type that accepts ManagedPrefixListEntryMap and ManagedPrefixListEntryMapOutput values.
@@ -240,12 +227,6 @@ func (i ManagedPrefixListEntryMap) ToManagedPrefixListEntryMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryMapOutput)
 }
 
-func (i ManagedPrefixListEntryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrefixListEntry] {
-	return pulumix.Output[map[string]*ManagedPrefixListEntry]{
-		OutputState: i.ToManagedPrefixListEntryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListEntryOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutput() ManagedPr
 
 func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
 	return o
-}
-
-func (o ManagedPrefixListEntryOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrefixListEntry] {
-	return pulumix.Output[*ManagedPrefixListEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // CIDR block of this entry.
@@ -295,12 +270,6 @@ func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutputWi
 	return o
 }
 
-func (o ManagedPrefixListEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrefixListEntry] {
-	return pulumix.Output[[]*ManagedPrefixListEntry]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListEntryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPrefixListEntry {
 		return vs[0].([]*ManagedPrefixListEntry)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o ManagedPrefixListEntryMapOutput) ToManagedPrefixListEntryMapOutput() Man
 
 func (o ManagedPrefixListEntryMapOutput) ToManagedPrefixListEntryMapOutputWithContext(ctx context.Context) ManagedPrefixListEntryMapOutput {
 	return o
-}
-
-func (o ManagedPrefixListEntryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrefixListEntry] {
-	return pulumix.Output[map[string]*ManagedPrefixListEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedPrefixListEntryMapOutput) MapIndex(k pulumi.StringInput) ManagedPrefixListEntryOutput {

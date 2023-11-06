@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CodeCatalyst Source Repository.
@@ -182,12 +181,6 @@ func (i *SourceRepository) ToSourceRepositoryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryOutput)
 }
 
-func (i *SourceRepository) ToOutput(ctx context.Context) pulumix.Output[*SourceRepository] {
-	return pulumix.Output[*SourceRepository]{
-		OutputState: i.ToSourceRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SourceRepositoryArrayInput is an input type that accepts SourceRepositoryArray and SourceRepositoryArrayOutput values.
 // You can construct a concrete instance of `SourceRepositoryArrayInput` via:
 //
@@ -211,12 +204,6 @@ func (i SourceRepositoryArray) ToSourceRepositoryArrayOutput() SourceRepositoryA
 
 func (i SourceRepositoryArray) ToSourceRepositoryArrayOutputWithContext(ctx context.Context) SourceRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryArrayOutput)
-}
-
-func (i SourceRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceRepository] {
-	return pulumix.Output[[]*SourceRepository]{
-		OutputState: i.ToSourceRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SourceRepositoryMapInput is an input type that accepts SourceRepositoryMap and SourceRepositoryMapOutput values.
@@ -244,12 +231,6 @@ func (i SourceRepositoryMap) ToSourceRepositoryMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SourceRepositoryMapOutput)
 }
 
-func (i SourceRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceRepository] {
-	return pulumix.Output[map[string]*SourceRepository]{
-		OutputState: i.ToSourceRepositoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceRepositoryOutput struct{ *pulumi.OutputState }
 
 func (SourceRepositoryOutput) ElementType() reflect.Type {
@@ -262,12 +243,6 @@ func (o SourceRepositoryOutput) ToSourceRepositoryOutput() SourceRepositoryOutpu
 
 func (o SourceRepositoryOutput) ToSourceRepositoryOutputWithContext(ctx context.Context) SourceRepositoryOutput {
 	return o
-}
-
-func (o SourceRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceRepository] {
-	return pulumix.Output[*SourceRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
@@ -306,12 +281,6 @@ func (o SourceRepositoryArrayOutput) ToSourceRepositoryArrayOutputWithContext(ct
 	return o
 }
 
-func (o SourceRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceRepository] {
-	return pulumix.Output[[]*SourceRepository]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceRepositoryArrayOutput) Index(i pulumi.IntInput) SourceRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceRepository {
 		return vs[0].([]*SourceRepository)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o SourceRepositoryMapOutput) ToSourceRepositoryMapOutput() SourceRepositor
 
 func (o SourceRepositoryMapOutput) ToSourceRepositoryMapOutputWithContext(ctx context.Context) SourceRepositoryMapOutput {
 	return o
-}
-
-func (o SourceRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceRepository] {
-	return pulumix.Output[map[string]*SourceRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceRepositoryMapOutput) MapIndex(k pulumi.StringInput) SourceRepositoryOutput {

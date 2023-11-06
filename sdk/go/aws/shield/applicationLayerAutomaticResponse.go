@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
@@ -162,12 +161,6 @@ func (i *ApplicationLayerAutomaticResponse) ToApplicationLayerAutomaticResponseO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseOutput)
 }
 
-func (i *ApplicationLayerAutomaticResponse) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[*ApplicationLayerAutomaticResponse]{
-		OutputState: i.ToApplicationLayerAutomaticResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationLayerAutomaticResponseArrayInput is an input type that accepts ApplicationLayerAutomaticResponseArray and ApplicationLayerAutomaticResponseArrayOutput values.
 // You can construct a concrete instance of `ApplicationLayerAutomaticResponseArrayInput` via:
 //
@@ -191,12 +184,6 @@ func (i ApplicationLayerAutomaticResponseArray) ToApplicationLayerAutomaticRespo
 
 func (i ApplicationLayerAutomaticResponseArray) ToApplicationLayerAutomaticResponseArrayOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseArrayOutput)
-}
-
-func (i ApplicationLayerAutomaticResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[[]*ApplicationLayerAutomaticResponse]{
-		OutputState: i.ToApplicationLayerAutomaticResponseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApplicationLayerAutomaticResponseMapInput is an input type that accepts ApplicationLayerAutomaticResponseMap and ApplicationLayerAutomaticResponseMapOutput values.
@@ -224,12 +211,6 @@ func (i ApplicationLayerAutomaticResponseMap) ToApplicationLayerAutomaticRespons
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseMapOutput)
 }
 
-func (i ApplicationLayerAutomaticResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[map[string]*ApplicationLayerAutomaticResponse]{
-		OutputState: i.ToApplicationLayerAutomaticResponseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationLayerAutomaticResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLayerAutomaticResponseOutput) ElementType() reflect.Type {
@@ -242,12 +223,6 @@ func (o ApplicationLayerAutomaticResponseOutput) ToApplicationLayerAutomaticResp
 
 func (o ApplicationLayerAutomaticResponseOutput) ToApplicationLayerAutomaticResponseOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseOutput {
 	return o
-}
-
-func (o ApplicationLayerAutomaticResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[*ApplicationLayerAutomaticResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One of `COUNT` or `BLOCK`
@@ -280,12 +255,6 @@ func (o ApplicationLayerAutomaticResponseArrayOutput) ToApplicationLayerAutomati
 	return o
 }
 
-func (o ApplicationLayerAutomaticResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[[]*ApplicationLayerAutomaticResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationLayerAutomaticResponseArrayOutput) Index(i pulumi.IntInput) ApplicationLayerAutomaticResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationLayerAutomaticResponse {
 		return vs[0].([]*ApplicationLayerAutomaticResponse)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o ApplicationLayerAutomaticResponseMapOutput) ToApplicationLayerAutomaticR
 
 func (o ApplicationLayerAutomaticResponseMapOutput) ToApplicationLayerAutomaticResponseMapOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseMapOutput {
 	return o
-}
-
-func (o ApplicationLayerAutomaticResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationLayerAutomaticResponse] {
-	return pulumix.Output[map[string]*ApplicationLayerAutomaticResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLayerAutomaticResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationLayerAutomaticResponseOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Geo Match Set Resource
@@ -158,12 +157,6 @@ func (i *GeoMatchSet) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMat
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetOutput)
 }
 
-func (i *GeoMatchSet) ToOutput(ctx context.Context) pulumix.Output[*GeoMatchSet] {
-	return pulumix.Output[*GeoMatchSet]{
-		OutputState: i.ToGeoMatchSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GeoMatchSetArrayInput is an input type that accepts GeoMatchSetArray and GeoMatchSetArrayOutput values.
 // You can construct a concrete instance of `GeoMatchSetArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i GeoMatchSetArray) ToGeoMatchSetArrayOutput() GeoMatchSetArrayOutput {
 
 func (i GeoMatchSetArray) ToGeoMatchSetArrayOutputWithContext(ctx context.Context) GeoMatchSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetArrayOutput)
-}
-
-func (i GeoMatchSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*GeoMatchSet] {
-	return pulumix.Output[[]*GeoMatchSet]{
-		OutputState: i.ToGeoMatchSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GeoMatchSetMapInput is an input type that accepts GeoMatchSetMap and GeoMatchSetMapOutput values.
@@ -220,12 +207,6 @@ func (i GeoMatchSetMap) ToGeoMatchSetMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetMapOutput)
 }
 
-func (i GeoMatchSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeoMatchSet] {
-	return pulumix.Output[map[string]*GeoMatchSet]{
-		OutputState: i.ToGeoMatchSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GeoMatchSetOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutput() GeoMatchSetOutput {
 
 func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) GeoMatchSetOutput {
 	return o
-}
-
-func (o GeoMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*GeoMatchSet] {
-	return pulumix.Output[*GeoMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN)
@@ -275,12 +250,6 @@ func (o GeoMatchSetArrayOutput) ToGeoMatchSetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o GeoMatchSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GeoMatchSet] {
-	return pulumix.Output[[]*GeoMatchSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GeoMatchSetArrayOutput) Index(i pulumi.IntInput) GeoMatchSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GeoMatchSet {
 		return vs[0].([]*GeoMatchSet)[vs[1].(int)]
@@ -299,12 +268,6 @@ func (o GeoMatchSetMapOutput) ToGeoMatchSetMapOutput() GeoMatchSetMapOutput {
 
 func (o GeoMatchSetMapOutput) ToGeoMatchSetMapOutputWithContext(ctx context.Context) GeoMatchSetMapOutput {
 	return o
-}
-
-func (o GeoMatchSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GeoMatchSet] {
-	return pulumix.Output[map[string]*GeoMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GeoMatchSetMapOutput) MapIndex(k pulumi.StringInput) GeoMatchSetOutput {

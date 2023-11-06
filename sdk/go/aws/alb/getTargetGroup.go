@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
@@ -145,12 +144,6 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutput() LookupT
 
 func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContext(ctx context.Context) LookupTargetGroupResultOutput {
 	return o
-}
-
-func (o LookupTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetGroupResult] {
-	return pulumix.Output[LookupTargetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTargetGroupResultOutput) Arn() pulumi.StringOutput {

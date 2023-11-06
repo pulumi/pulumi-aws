@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to fetch information about a Quantum Ledger Database.
@@ -105,12 +104,6 @@ func (o LookupLedgerResultOutput) ToLookupLedgerResultOutput() LookupLedgerResul
 
 func (o LookupLedgerResultOutput) ToLookupLedgerResultOutputWithContext(ctx context.Context) LookupLedgerResultOutput {
 	return o
-}
-
-func (o LookupLedgerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLedgerResult] {
-	return pulumix.Output[LookupLedgerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLedgerResultOutput) Arn() pulumi.StringOutput {

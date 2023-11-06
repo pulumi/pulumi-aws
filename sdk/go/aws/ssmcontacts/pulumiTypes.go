@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i ContactChannelDeliveryAddressArgs) ToContactChannelDeliveryAddressOutput
 
 func (i ContactChannelDeliveryAddressArgs) ToContactChannelDeliveryAddressOutputWithContext(ctx context.Context) ContactChannelDeliveryAddressOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelDeliveryAddressOutput)
-}
-
-func (i ContactChannelDeliveryAddressArgs) ToOutput(ctx context.Context) pulumix.Output[ContactChannelDeliveryAddress] {
-	return pulumix.Output[ContactChannelDeliveryAddress]{
-		OutputState: i.ToContactChannelDeliveryAddressOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ContactChannelDeliveryAddressArgs) ToContactChannelDeliveryAddressPtrOutput() ContactChannelDeliveryAddressPtrOutput {
@@ -94,12 +87,6 @@ func (i *contactChannelDeliveryAddressPtrType) ToContactChannelDeliveryAddressPt
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelDeliveryAddressPtrOutput)
 }
 
-func (i *contactChannelDeliveryAddressPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelDeliveryAddress] {
-	return pulumix.Output[*ContactChannelDeliveryAddress]{
-		OutputState: i.ToContactChannelDeliveryAddressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactChannelDeliveryAddressOutput struct{ *pulumi.OutputState }
 
 func (ContactChannelDeliveryAddressOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o ContactChannelDeliveryAddressOutput) ToContactChannelDeliveryAddressPtrO
 	}).(ContactChannelDeliveryAddressPtrOutput)
 }
 
-func (o ContactChannelDeliveryAddressOutput) ToOutput(ctx context.Context) pulumix.Output[ContactChannelDeliveryAddress] {
-	return pulumix.Output[ContactChannelDeliveryAddress]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
 func (o ContactChannelDeliveryAddressOutput) SimpleAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactChannelDeliveryAddress) string { return v.SimpleAddress }).(pulumi.StringOutput)
@@ -147,12 +128,6 @@ func (o ContactChannelDeliveryAddressPtrOutput) ToContactChannelDeliveryAddressP
 
 func (o ContactChannelDeliveryAddressPtrOutput) ToContactChannelDeliveryAddressPtrOutputWithContext(ctx context.Context) ContactChannelDeliveryAddressPtrOutput {
 	return o
-}
-
-func (o ContactChannelDeliveryAddressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactChannelDeliveryAddress] {
-	return pulumix.Output[*ContactChannelDeliveryAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactChannelDeliveryAddressPtrOutput) Elem() ContactChannelDeliveryAddressOutput {
@@ -208,12 +183,6 @@ func (i PlanStageArgs) ToPlanStageOutputWithContext(ctx context.Context) PlanSta
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageOutput)
 }
 
-func (i PlanStageArgs) ToOutput(ctx context.Context) pulumix.Output[PlanStage] {
-	return pulumix.Output[PlanStage]{
-		OutputState: i.ToPlanStageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlanStageArrayInput is an input type that accepts PlanStageArray and PlanStageArrayOutput values.
 // You can construct a concrete instance of `PlanStageArrayInput` via:
 //
@@ -239,12 +208,6 @@ func (i PlanStageArray) ToPlanStageArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageArrayOutput)
 }
 
-func (i PlanStageArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanStage] {
-	return pulumix.Output[[]PlanStage]{
-		OutputState: i.ToPlanStageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanStageOutput struct{ *pulumi.OutputState }
 
 func (PlanStageOutput) ElementType() reflect.Type {
@@ -257,12 +220,6 @@ func (o PlanStageOutput) ToPlanStageOutput() PlanStageOutput {
 
 func (o PlanStageOutput) ToPlanStageOutputWithContext(ctx context.Context) PlanStageOutput {
 	return o
-}
-
-func (o PlanStageOutput) ToOutput(ctx context.Context) pulumix.Output[PlanStage] {
-	return pulumix.Output[PlanStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageOutput) DurationInMinutes() pulumi.IntOutput {
@@ -285,12 +242,6 @@ func (o PlanStageArrayOutput) ToPlanStageArrayOutput() PlanStageArrayOutput {
 
 func (o PlanStageArrayOutput) ToPlanStageArrayOutputWithContext(ctx context.Context) PlanStageArrayOutput {
 	return o
-}
-
-func (o PlanStageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanStage] {
-	return pulumix.Output[[]PlanStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageArrayOutput) Index(i pulumi.IntInput) PlanStageOutput {
@@ -332,12 +283,6 @@ func (i PlanStageTargetArgs) ToPlanStageTargetOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetOutput)
 }
 
-func (i PlanStageTargetArgs) ToOutput(ctx context.Context) pulumix.Output[PlanStageTarget] {
-	return pulumix.Output[PlanStageTarget]{
-		OutputState: i.ToPlanStageTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlanStageTargetArrayInput is an input type that accepts PlanStageTargetArray and PlanStageTargetArrayOutput values.
 // You can construct a concrete instance of `PlanStageTargetArrayInput` via:
 //
@@ -363,12 +308,6 @@ func (i PlanStageTargetArray) ToPlanStageTargetArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetArrayOutput)
 }
 
-func (i PlanStageTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanStageTarget] {
-	return pulumix.Output[[]PlanStageTarget]{
-		OutputState: i.ToPlanStageTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanStageTargetOutput struct{ *pulumi.OutputState }
 
 func (PlanStageTargetOutput) ElementType() reflect.Type {
@@ -381,12 +320,6 @@ func (o PlanStageTargetOutput) ToPlanStageTargetOutput() PlanStageTargetOutput {
 
 func (o PlanStageTargetOutput) ToPlanStageTargetOutputWithContext(ctx context.Context) PlanStageTargetOutput {
 	return o
-}
-
-func (o PlanStageTargetOutput) ToOutput(ctx context.Context) pulumix.Output[PlanStageTarget] {
-	return pulumix.Output[PlanStageTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageTargetOutput) ChannelTargetInfo() PlanStageTargetChannelTargetInfoPtrOutput {
@@ -409,12 +342,6 @@ func (o PlanStageTargetArrayOutput) ToPlanStageTargetArrayOutput() PlanStageTarg
 
 func (o PlanStageTargetArrayOutput) ToPlanStageTargetArrayOutputWithContext(ctx context.Context) PlanStageTargetArrayOutput {
 	return o
-}
-
-func (o PlanStageTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanStageTarget] {
-	return pulumix.Output[[]PlanStageTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageTargetArrayOutput) Index(i pulumi.IntInput) PlanStageTargetOutput {
@@ -454,12 +381,6 @@ func (i PlanStageTargetChannelTargetInfoArgs) ToPlanStageTargetChannelTargetInfo
 
 func (i PlanStageTargetChannelTargetInfoArgs) ToPlanStageTargetChannelTargetInfoOutputWithContext(ctx context.Context) PlanStageTargetChannelTargetInfoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetChannelTargetInfoOutput)
-}
-
-func (i PlanStageTargetChannelTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[PlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[PlanStageTargetChannelTargetInfo]{
-		OutputState: i.ToPlanStageTargetChannelTargetInfoOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PlanStageTargetChannelTargetInfoArgs) ToPlanStageTargetChannelTargetInfoPtrOutput() PlanStageTargetChannelTargetInfoPtrOutput {
@@ -503,12 +424,6 @@ func (i *planStageTargetChannelTargetInfoPtrType) ToPlanStageTargetChannelTarget
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetChannelTargetInfoPtrOutput)
 }
 
-func (i *planStageTargetChannelTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[*PlanStageTargetChannelTargetInfo]{
-		OutputState: i.ToPlanStageTargetChannelTargetInfoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanStageTargetChannelTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (PlanStageTargetChannelTargetInfoOutput) ElementType() reflect.Type {
@@ -533,12 +448,6 @@ func (o PlanStageTargetChannelTargetInfoOutput) ToPlanStageTargetChannelTargetIn
 	}).(PlanStageTargetChannelTargetInfoPtrOutput)
 }
 
-func (o PlanStageTargetChannelTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[PlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[PlanStageTargetChannelTargetInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanStageTargetChannelTargetInfo) string { return v.ContactChannelId }).(pulumi.StringOutput)
 }
@@ -559,12 +468,6 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) ToPlanStageTargetChannelTarge
 
 func (o PlanStageTargetChannelTargetInfoPtrOutput) ToPlanStageTargetChannelTargetInfoPtrOutputWithContext(ctx context.Context) PlanStageTargetChannelTargetInfoPtrOutput {
 	return o
-}
-
-func (o PlanStageTargetChannelTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[*PlanStageTargetChannelTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageTargetChannelTargetInfoPtrOutput) Elem() PlanStageTargetChannelTargetInfoOutput {
@@ -630,12 +533,6 @@ func (i PlanStageTargetContactTargetInfoArgs) ToPlanStageTargetContactTargetInfo
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetContactTargetInfoOutput)
 }
 
-func (i PlanStageTargetContactTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[PlanStageTargetContactTargetInfo] {
-	return pulumix.Output[PlanStageTargetContactTargetInfo]{
-		OutputState: i.ToPlanStageTargetContactTargetInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlanStageTargetContactTargetInfoArgs) ToPlanStageTargetContactTargetInfoPtrOutput() PlanStageTargetContactTargetInfoPtrOutput {
 	return i.ToPlanStageTargetContactTargetInfoPtrOutputWithContext(context.Background())
 }
@@ -677,12 +574,6 @@ func (i *planStageTargetContactTargetInfoPtrType) ToPlanStageTargetContactTarget
 	return pulumi.ToOutputWithContext(ctx, i).(PlanStageTargetContactTargetInfoPtrOutput)
 }
 
-func (i *planStageTargetContactTargetInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanStageTargetContactTargetInfo] {
-	return pulumix.Output[*PlanStageTargetContactTargetInfo]{
-		OutputState: i.ToPlanStageTargetContactTargetInfoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanStageTargetContactTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (PlanStageTargetContactTargetInfoOutput) ElementType() reflect.Type {
@@ -707,12 +598,6 @@ func (o PlanStageTargetContactTargetInfoOutput) ToPlanStageTargetContactTargetIn
 	}).(PlanStageTargetContactTargetInfoPtrOutput)
 }
 
-func (o PlanStageTargetContactTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[PlanStageTargetContactTargetInfo] {
-	return pulumix.Output[PlanStageTargetContactTargetInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o PlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanStageTargetContactTargetInfo) *string { return v.ContactId }).(pulumi.StringPtrOutput)
@@ -734,12 +619,6 @@ func (o PlanStageTargetContactTargetInfoPtrOutput) ToPlanStageTargetContactTarge
 
 func (o PlanStageTargetContactTargetInfoPtrOutput) ToPlanStageTargetContactTargetInfoPtrOutputWithContext(ctx context.Context) PlanStageTargetContactTargetInfoPtrOutput {
 	return o
-}
-
-func (o PlanStageTargetContactTargetInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanStageTargetContactTargetInfo] {
-	return pulumix.Output[*PlanStageTargetContactTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanStageTargetContactTargetInfoPtrOutput) Elem() PlanStageTargetContactTargetInfoOutput {
@@ -802,12 +681,6 @@ func (i GetContactChannelDeliveryAddressArgs) ToGetContactChannelDeliveryAddress
 	return pulumi.ToOutputWithContext(ctx, i).(GetContactChannelDeliveryAddressOutput)
 }
 
-func (i GetContactChannelDeliveryAddressArgs) ToOutput(ctx context.Context) pulumix.Output[GetContactChannelDeliveryAddress] {
-	return pulumix.Output[GetContactChannelDeliveryAddress]{
-		OutputState: i.ToGetContactChannelDeliveryAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetContactChannelDeliveryAddressArrayInput is an input type that accepts GetContactChannelDeliveryAddressArray and GetContactChannelDeliveryAddressArrayOutput values.
 // You can construct a concrete instance of `GetContactChannelDeliveryAddressArrayInput` via:
 //
@@ -833,12 +706,6 @@ func (i GetContactChannelDeliveryAddressArray) ToGetContactChannelDeliveryAddres
 	return pulumi.ToOutputWithContext(ctx, i).(GetContactChannelDeliveryAddressArrayOutput)
 }
 
-func (i GetContactChannelDeliveryAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContactChannelDeliveryAddress] {
-	return pulumix.Output[[]GetContactChannelDeliveryAddress]{
-		OutputState: i.ToGetContactChannelDeliveryAddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetContactChannelDeliveryAddressOutput struct{ *pulumi.OutputState }
 
 func (GetContactChannelDeliveryAddressOutput) ElementType() reflect.Type {
@@ -851,12 +718,6 @@ func (o GetContactChannelDeliveryAddressOutput) ToGetContactChannelDeliveryAddre
 
 func (o GetContactChannelDeliveryAddressOutput) ToGetContactChannelDeliveryAddressOutputWithContext(ctx context.Context) GetContactChannelDeliveryAddressOutput {
 	return o
-}
-
-func (o GetContactChannelDeliveryAddressOutput) ToOutput(ctx context.Context) pulumix.Output[GetContactChannelDeliveryAddress] {
-	return pulumix.Output[GetContactChannelDeliveryAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetContactChannelDeliveryAddressOutput) SimpleAddress() pulumi.StringOutput {
@@ -875,12 +736,6 @@ func (o GetContactChannelDeliveryAddressArrayOutput) ToGetContactChannelDelivery
 
 func (o GetContactChannelDeliveryAddressArrayOutput) ToGetContactChannelDeliveryAddressArrayOutputWithContext(ctx context.Context) GetContactChannelDeliveryAddressArrayOutput {
 	return o
-}
-
-func (o GetContactChannelDeliveryAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContactChannelDeliveryAddress] {
-	return pulumix.Output[[]GetContactChannelDeliveryAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetContactChannelDeliveryAddressArrayOutput) Index(i pulumi.IntInput) GetContactChannelDeliveryAddressOutput {
@@ -922,12 +777,6 @@ func (i GetPlanStageArgs) ToGetPlanStageOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageOutput)
 }
 
-func (i GetPlanStageArgs) ToOutput(ctx context.Context) pulumix.Output[GetPlanStage] {
-	return pulumix.Output[GetPlanStage]{
-		OutputState: i.ToGetPlanStageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPlanStageArrayInput is an input type that accepts GetPlanStageArray and GetPlanStageArrayOutput values.
 // You can construct a concrete instance of `GetPlanStageArrayInput` via:
 //
@@ -953,12 +802,6 @@ func (i GetPlanStageArray) ToGetPlanStageArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageArrayOutput)
 }
 
-func (i GetPlanStageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStage] {
-	return pulumix.Output[[]GetPlanStage]{
-		OutputState: i.ToGetPlanStageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPlanStageOutput struct{ *pulumi.OutputState }
 
 func (GetPlanStageOutput) ElementType() reflect.Type {
@@ -971,12 +814,6 @@ func (o GetPlanStageOutput) ToGetPlanStageOutput() GetPlanStageOutput {
 
 func (o GetPlanStageOutput) ToGetPlanStageOutputWithContext(ctx context.Context) GetPlanStageOutput {
 	return o
-}
-
-func (o GetPlanStageOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlanStage] {
-	return pulumix.Output[GetPlanStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageOutput) DurationInMinutes() pulumi.IntOutput {
@@ -999,12 +836,6 @@ func (o GetPlanStageArrayOutput) ToGetPlanStageArrayOutput() GetPlanStageArrayOu
 
 func (o GetPlanStageArrayOutput) ToGetPlanStageArrayOutputWithContext(ctx context.Context) GetPlanStageArrayOutput {
 	return o
-}
-
-func (o GetPlanStageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStage] {
-	return pulumix.Output[[]GetPlanStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageArrayOutput) Index(i pulumi.IntInput) GetPlanStageOutput {
@@ -1046,12 +877,6 @@ func (i GetPlanStageTargetArgs) ToGetPlanStageTargetOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetOutput)
 }
 
-func (i GetPlanStageTargetArgs) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTarget] {
-	return pulumix.Output[GetPlanStageTarget]{
-		OutputState: i.ToGetPlanStageTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPlanStageTargetArrayInput is an input type that accepts GetPlanStageTargetArray and GetPlanStageTargetArrayOutput values.
 // You can construct a concrete instance of `GetPlanStageTargetArrayInput` via:
 //
@@ -1077,12 +902,6 @@ func (i GetPlanStageTargetArray) ToGetPlanStageTargetArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetArrayOutput)
 }
 
-func (i GetPlanStageTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTarget] {
-	return pulumix.Output[[]GetPlanStageTarget]{
-		OutputState: i.ToGetPlanStageTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPlanStageTargetOutput struct{ *pulumi.OutputState }
 
 func (GetPlanStageTargetOutput) ElementType() reflect.Type {
@@ -1095,12 +914,6 @@ func (o GetPlanStageTargetOutput) ToGetPlanStageTargetOutput() GetPlanStageTarge
 
 func (o GetPlanStageTargetOutput) ToGetPlanStageTargetOutputWithContext(ctx context.Context) GetPlanStageTargetOutput {
 	return o
-}
-
-func (o GetPlanStageTargetOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTarget] {
-	return pulumix.Output[GetPlanStageTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageTargetOutput) ChannelTargetInfos() GetPlanStageTargetChannelTargetInfoArrayOutput {
@@ -1123,12 +936,6 @@ func (o GetPlanStageTargetArrayOutput) ToGetPlanStageTargetArrayOutput() GetPlan
 
 func (o GetPlanStageTargetArrayOutput) ToGetPlanStageTargetArrayOutputWithContext(ctx context.Context) GetPlanStageTargetArrayOutput {
 	return o
-}
-
-func (o GetPlanStageTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTarget] {
-	return pulumix.Output[[]GetPlanStageTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageTargetArrayOutput) Index(i pulumi.IntInput) GetPlanStageTargetOutput {
@@ -1170,12 +977,6 @@ func (i GetPlanStageTargetChannelTargetInfoArgs) ToGetPlanStageTargetChannelTarg
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetChannelTargetInfoOutput)
 }
 
-func (i GetPlanStageTargetChannelTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[GetPlanStageTargetChannelTargetInfo]{
-		OutputState: i.ToGetPlanStageTargetChannelTargetInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPlanStageTargetChannelTargetInfoArrayInput is an input type that accepts GetPlanStageTargetChannelTargetInfoArray and GetPlanStageTargetChannelTargetInfoArrayOutput values.
 // You can construct a concrete instance of `GetPlanStageTargetChannelTargetInfoArrayInput` via:
 //
@@ -1201,12 +1002,6 @@ func (i GetPlanStageTargetChannelTargetInfoArray) ToGetPlanStageTargetChannelTar
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetChannelTargetInfoArrayOutput)
 }
 
-func (i GetPlanStageTargetChannelTargetInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[[]GetPlanStageTargetChannelTargetInfo]{
-		OutputState: i.ToGetPlanStageTargetChannelTargetInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPlanStageTargetChannelTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (GetPlanStageTargetChannelTargetInfoOutput) ElementType() reflect.Type {
@@ -1219,12 +1014,6 @@ func (o GetPlanStageTargetChannelTargetInfoOutput) ToGetPlanStageTargetChannelTa
 
 func (o GetPlanStageTargetChannelTargetInfoOutput) ToGetPlanStageTargetChannelTargetInfoOutputWithContext(ctx context.Context) GetPlanStageTargetChannelTargetInfoOutput {
 	return o
-}
-
-func (o GetPlanStageTargetChannelTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[GetPlanStageTargetChannelTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringOutput {
@@ -1247,12 +1036,6 @@ func (o GetPlanStageTargetChannelTargetInfoArrayOutput) ToGetPlanStageTargetChan
 
 func (o GetPlanStageTargetChannelTargetInfoArrayOutput) ToGetPlanStageTargetChannelTargetInfoArrayOutputWithContext(ctx context.Context) GetPlanStageTargetChannelTargetInfoArrayOutput {
 	return o
-}
-
-func (o GetPlanStageTargetChannelTargetInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTargetChannelTargetInfo] {
-	return pulumix.Output[[]GetPlanStageTargetChannelTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageTargetChannelTargetInfoArrayOutput) Index(i pulumi.IntInput) GetPlanStageTargetChannelTargetInfoOutput {
@@ -1296,12 +1079,6 @@ func (i GetPlanStageTargetContactTargetInfoArgs) ToGetPlanStageTargetContactTarg
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetContactTargetInfoOutput)
 }
 
-func (i GetPlanStageTargetContactTargetInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTargetContactTargetInfo] {
-	return pulumix.Output[GetPlanStageTargetContactTargetInfo]{
-		OutputState: i.ToGetPlanStageTargetContactTargetInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPlanStageTargetContactTargetInfoArrayInput is an input type that accepts GetPlanStageTargetContactTargetInfoArray and GetPlanStageTargetContactTargetInfoArrayOutput values.
 // You can construct a concrete instance of `GetPlanStageTargetContactTargetInfoArrayInput` via:
 //
@@ -1327,12 +1104,6 @@ func (i GetPlanStageTargetContactTargetInfoArray) ToGetPlanStageTargetContactTar
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlanStageTargetContactTargetInfoArrayOutput)
 }
 
-func (i GetPlanStageTargetContactTargetInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTargetContactTargetInfo] {
-	return pulumix.Output[[]GetPlanStageTargetContactTargetInfo]{
-		OutputState: i.ToGetPlanStageTargetContactTargetInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPlanStageTargetContactTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (GetPlanStageTargetContactTargetInfoOutput) ElementType() reflect.Type {
@@ -1345,12 +1116,6 @@ func (o GetPlanStageTargetContactTargetInfoOutput) ToGetPlanStageTargetContactTa
 
 func (o GetPlanStageTargetContactTargetInfoOutput) ToGetPlanStageTargetContactTargetInfoOutputWithContext(ctx context.Context) GetPlanStageTargetContactTargetInfoOutput {
 	return o
-}
-
-func (o GetPlanStageTargetContactTargetInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlanStageTargetContactTargetInfo] {
-	return pulumix.Output[GetPlanStageTargetContactTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
@@ -1374,12 +1139,6 @@ func (o GetPlanStageTargetContactTargetInfoArrayOutput) ToGetPlanStageTargetCont
 
 func (o GetPlanStageTargetContactTargetInfoArrayOutput) ToGetPlanStageTargetContactTargetInfoArrayOutputWithContext(ctx context.Context) GetPlanStageTargetContactTargetInfoArrayOutput {
 	return o
-}
-
-func (o GetPlanStageTargetContactTargetInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPlanStageTargetContactTargetInfo] {
-	return pulumix.Output[[]GetPlanStageTargetContactTargetInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlanStageTargetContactTargetInfoArrayOutput) Index(i pulumi.IntInput) GetPlanStageTargetContactTargetInfoOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Device Fleet resource.
@@ -225,12 +224,6 @@ func (i *DeviceFleet) ToDeviceFleetOutputWithContext(ctx context.Context) Device
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutput)
 }
 
-func (i *DeviceFleet) ToOutput(ctx context.Context) pulumix.Output[*DeviceFleet] {
-	return pulumix.Output[*DeviceFleet]{
-		OutputState: i.ToDeviceFleetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceFleetArrayInput is an input type that accepts DeviceFleetArray and DeviceFleetArrayOutput values.
 // You can construct a concrete instance of `DeviceFleetArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i DeviceFleetArray) ToDeviceFleetArrayOutput() DeviceFleetArrayOutput {
 
 func (i DeviceFleetArray) ToDeviceFleetArrayOutputWithContext(ctx context.Context) DeviceFleetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetArrayOutput)
-}
-
-func (i DeviceFleetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceFleet] {
-	return pulumix.Output[[]*DeviceFleet]{
-		OutputState: i.ToDeviceFleetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceFleetMapInput is an input type that accepts DeviceFleetMap and DeviceFleetMapOutput values.
@@ -287,12 +274,6 @@ func (i DeviceFleetMap) ToDeviceFleetMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetMapOutput)
 }
 
-func (i DeviceFleetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceFleet] {
-	return pulumix.Output[map[string]*DeviceFleet]{
-		OutputState: i.ToDeviceFleetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceFleetOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o DeviceFleetOutput) ToDeviceFleetOutput() DeviceFleetOutput {
 
 func (o DeviceFleetOutput) ToDeviceFleetOutputWithContext(ctx context.Context) DeviceFleetOutput {
 	return o
-}
-
-func (o DeviceFleetOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceFleet] {
-	return pulumix.Output[*DeviceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
@@ -373,12 +348,6 @@ func (o DeviceFleetArrayOutput) ToDeviceFleetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o DeviceFleetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceFleet] {
-	return pulumix.Output[[]*DeviceFleet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceFleetArrayOutput) Index(i pulumi.IntInput) DeviceFleetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceFleet {
 		return vs[0].([]*DeviceFleet)[vs[1].(int)]
@@ -397,12 +366,6 @@ func (o DeviceFleetMapOutput) ToDeviceFleetMapOutput() DeviceFleetMapOutput {
 
 func (o DeviceFleetMapOutput) ToDeviceFleetMapOutputWithContext(ctx context.Context) DeviceFleetMapOutput {
 	return o
-}
-
-func (o DeviceFleetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceFleet] {
-	return pulumix.Output[map[string]*DeviceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceFleetMapOutput) MapIndex(k pulumi.StringInput) DeviceFleetOutput {

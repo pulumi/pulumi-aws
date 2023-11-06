@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i GetProductFilterArgs) ToGetProductFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetProductFilterOutput)
 }
 
-func (i GetProductFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetProductFilter] {
-	return pulumix.Output[GetProductFilter]{
-		OutputState: i.ToGetProductFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetProductFilterArrayInput is an input type that accepts GetProductFilterArray and GetProductFilterArrayOutput values.
 // You can construct a concrete instance of `GetProductFilterArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i GetProductFilterArray) ToGetProductFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetProductFilterArrayOutput)
 }
 
-func (i GetProductFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetProductFilter] {
-	return pulumix.Output[[]GetProductFilter]{
-		OutputState: i.ToGetProductFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetProductFilterOutput struct{ *pulumi.OutputState }
 
 func (GetProductFilterOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o GetProductFilterOutput) ToGetProductFilterOutput() GetProductFilterOutpu
 
 func (o GetProductFilterOutput) ToGetProductFilterOutputWithContext(ctx context.Context) GetProductFilterOutput {
 	return o
-}
-
-func (o GetProductFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetProductFilter] {
-	return pulumix.Output[GetProductFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Product attribute name that you want to filter on.
@@ -130,12 +111,6 @@ func (o GetProductFilterArrayOutput) ToGetProductFilterArrayOutput() GetProductF
 
 func (o GetProductFilterArrayOutput) ToGetProductFilterArrayOutputWithContext(ctx context.Context) GetProductFilterArrayOutput {
 	return o
-}
-
-func (o GetProductFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetProductFilter] {
-	return pulumix.Output[[]GetProductFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetProductFilterArrayOutput) Index(i pulumi.IntInput) GetProductFilterOutput {

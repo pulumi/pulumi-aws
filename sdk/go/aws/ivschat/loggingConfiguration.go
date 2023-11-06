@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
@@ -276,12 +275,6 @@ func (i *LoggingConfiguration) ToLoggingConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationOutput)
 }
 
-func (i *LoggingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfiguration] {
-	return pulumix.Output[*LoggingConfiguration]{
-		OutputState: i.ToLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoggingConfigurationArrayInput is an input type that accepts LoggingConfigurationArray and LoggingConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoggingConfigurationArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i LoggingConfigurationArray) ToLoggingConfigurationArrayOutput() LoggingCo
 
 func (i LoggingConfigurationArray) ToLoggingConfigurationArrayOutputWithContext(ctx context.Context) LoggingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationArrayOutput)
-}
-
-func (i LoggingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoggingConfiguration] {
-	return pulumix.Output[[]*LoggingConfiguration]{
-		OutputState: i.ToLoggingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoggingConfigurationMapInput is an input type that accepts LoggingConfigurationMap and LoggingConfigurationMapOutput values.
@@ -338,12 +325,6 @@ func (i LoggingConfigurationMap) ToLoggingConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationMapOutput)
 }
 
-func (i LoggingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoggingConfiguration] {
-	return pulumix.Output[map[string]*LoggingConfiguration]{
-		OutputState: i.ToLoggingConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationOutput() LoggingConfig
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationOutputWithContext(ctx context.Context) LoggingConfigurationOutput {
 	return o
-}
-
-func (o LoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfiguration] {
-	return pulumix.Output[*LoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Logging Configuration.
@@ -412,12 +387,6 @@ func (o LoggingConfigurationArrayOutput) ToLoggingConfigurationArrayOutputWithCo
 	return o
 }
 
-func (o LoggingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoggingConfiguration] {
-	return pulumix.Output[[]*LoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationArrayOutput) Index(i pulumi.IntInput) LoggingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoggingConfiguration {
 		return vs[0].([]*LoggingConfiguration)[vs[1].(int)]
@@ -436,12 +405,6 @@ func (o LoggingConfigurationMapOutput) ToLoggingConfigurationMapOutput() Logging
 
 func (o LoggingConfigurationMapOutput) ToLoggingConfigurationMapOutputWithContext(ctx context.Context) LoggingConfigurationMapOutput {
 	return o
-}
-
-func (o LoggingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoggingConfiguration] {
-	return pulumix.Output[map[string]*LoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) LoggingConfigurationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
@@ -102,12 +101,6 @@ func (o LookupPullThroughCacheRuleResultOutput) ToLookupPullThroughCacheRuleResu
 
 func (o LookupPullThroughCacheRuleResultOutput) ToLookupPullThroughCacheRuleResultOutputWithContext(ctx context.Context) LookupPullThroughCacheRuleResultOutput {
 	return o
-}
-
-func (o LookupPullThroughCacheRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPullThroughCacheRuleResult] {
-	return pulumix.Output[LookupPullThroughCacheRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPullThroughCacheRuleResultOutput) EcrRepositoryPrefix() pulumi.StringOutput {

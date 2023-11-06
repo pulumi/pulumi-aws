@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MemoryDB ACL.
@@ -110,12 +109,6 @@ func (o LookupAclResultOutput) ToLookupAclResultOutput() LookupAclResultOutput {
 
 func (o LookupAclResultOutput) ToLookupAclResultOutputWithContext(ctx context.Context) LookupAclResultOutput {
 	return o
-}
-
-func (o LookupAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAclResult] {
-	return pulumix.Output[LookupAclResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the ACL.

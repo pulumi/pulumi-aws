@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -127,12 +126,6 @@ func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutput() GetQuic
 
 func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutputWithContext(ctx context.Context) GetQuicksightUserResultOutput {
 	return o
-}
-
-func (o GetQuicksightUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQuicksightUserResult] {
-	return pulumix.Output[GetQuicksightUserResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.

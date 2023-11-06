@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
@@ -301,12 +300,6 @@ func (i *DataQualityRuleset) ToDataQualityRulesetOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetOutput)
 }
 
-func (i *DataQualityRuleset) ToOutput(ctx context.Context) pulumix.Output[*DataQualityRuleset] {
-	return pulumix.Output[*DataQualityRuleset]{
-		OutputState: i.ToDataQualityRulesetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataQualityRulesetArrayInput is an input type that accepts DataQualityRulesetArray and DataQualityRulesetArrayOutput values.
 // You can construct a concrete instance of `DataQualityRulesetArrayInput` via:
 //
@@ -330,12 +323,6 @@ func (i DataQualityRulesetArray) ToDataQualityRulesetArrayOutput() DataQualityRu
 
 func (i DataQualityRulesetArray) ToDataQualityRulesetArrayOutputWithContext(ctx context.Context) DataQualityRulesetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetArrayOutput)
-}
-
-func (i DataQualityRulesetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataQualityRuleset] {
-	return pulumix.Output[[]*DataQualityRuleset]{
-		OutputState: i.ToDataQualityRulesetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataQualityRulesetMapInput is an input type that accepts DataQualityRulesetMap and DataQualityRulesetMapOutput values.
@@ -363,12 +350,6 @@ func (i DataQualityRulesetMap) ToDataQualityRulesetMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetMapOutput)
 }
 
-func (i DataQualityRulesetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataQualityRuleset] {
-	return pulumix.Output[map[string]*DataQualityRuleset]{
-		OutputState: i.ToDataQualityRulesetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataQualityRulesetOutput struct{ *pulumi.OutputState }
 
 func (DataQualityRulesetOutput) ElementType() reflect.Type {
@@ -381,12 +362,6 @@ func (o DataQualityRulesetOutput) ToDataQualityRulesetOutput() DataQualityRulese
 
 func (o DataQualityRulesetOutput) ToDataQualityRulesetOutputWithContext(ctx context.Context) DataQualityRulesetOutput {
 	return o
-}
-
-func (o DataQualityRulesetOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityRuleset] {
-	return pulumix.Output[*DataQualityRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Glue Data Quality Ruleset.
@@ -455,12 +430,6 @@ func (o DataQualityRulesetArrayOutput) ToDataQualityRulesetArrayOutputWithContex
 	return o
 }
 
-func (o DataQualityRulesetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataQualityRuleset] {
-	return pulumix.Output[[]*DataQualityRuleset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityRulesetArrayOutput) Index(i pulumi.IntInput) DataQualityRulesetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataQualityRuleset {
 		return vs[0].([]*DataQualityRuleset)[vs[1].(int)]
@@ -479,12 +448,6 @@ func (o DataQualityRulesetMapOutput) ToDataQualityRulesetMapOutput() DataQuality
 
 func (o DataQualityRulesetMapOutput) ToDataQualityRulesetMapOutputWithContext(ctx context.Context) DataQualityRulesetMapOutput {
 	return o
-}
-
-func (o DataQualityRulesetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataQualityRuleset] {
-	return pulumix.Output[map[string]*DataQualityRuleset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityRulesetMapOutput) MapIndex(k pulumi.StringInput) DataQualityRulesetOutput {

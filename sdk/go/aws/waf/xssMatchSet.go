@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF XSS Match Set Resource
@@ -162,12 +161,6 @@ func (i *XssMatchSet) ToXssMatchSetOutputWithContext(ctx context.Context) XssMat
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetOutput)
 }
 
-func (i *XssMatchSet) ToOutput(ctx context.Context) pulumix.Output[*XssMatchSet] {
-	return pulumix.Output[*XssMatchSet]{
-		OutputState: i.ToXssMatchSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // XssMatchSetArrayInput is an input type that accepts XssMatchSetArray and XssMatchSetArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetArrayInput` via:
 //
@@ -191,12 +184,6 @@ func (i XssMatchSetArray) ToXssMatchSetArrayOutput() XssMatchSetArrayOutput {
 
 func (i XssMatchSetArray) ToXssMatchSetArrayOutputWithContext(ctx context.Context) XssMatchSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetArrayOutput)
-}
-
-func (i XssMatchSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*XssMatchSet] {
-	return pulumix.Output[[]*XssMatchSet]{
-		OutputState: i.ToXssMatchSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // XssMatchSetMapInput is an input type that accepts XssMatchSetMap and XssMatchSetMapOutput values.
@@ -224,12 +211,6 @@ func (i XssMatchSetMap) ToXssMatchSetMapOutputWithContext(ctx context.Context) X
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetMapOutput)
 }
 
-func (i XssMatchSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*XssMatchSet] {
-	return pulumix.Output[map[string]*XssMatchSet]{
-		OutputState: i.ToXssMatchSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type XssMatchSetOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetOutput) ElementType() reflect.Type {
@@ -242,12 +223,6 @@ func (o XssMatchSetOutput) ToXssMatchSetOutput() XssMatchSetOutput {
 
 func (o XssMatchSetOutput) ToXssMatchSetOutputWithContext(ctx context.Context) XssMatchSetOutput {
 	return o
-}
-
-func (o XssMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*XssMatchSet] {
-	return pulumix.Output[*XssMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN)
@@ -279,12 +254,6 @@ func (o XssMatchSetArrayOutput) ToXssMatchSetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o XssMatchSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*XssMatchSet] {
-	return pulumix.Output[[]*XssMatchSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o XssMatchSetArrayOutput) Index(i pulumi.IntInput) XssMatchSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *XssMatchSet {
 		return vs[0].([]*XssMatchSet)[vs[1].(int)]
@@ -303,12 +272,6 @@ func (o XssMatchSetMapOutput) ToXssMatchSetMapOutput() XssMatchSetMapOutput {
 
 func (o XssMatchSetMapOutput) ToXssMatchSetMapOutputWithContext(ctx context.Context) XssMatchSetMapOutput {
 	return o
-}
-
-func (o XssMatchSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*XssMatchSet] {
-	return pulumix.Output[map[string]*XssMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o XssMatchSetMapOutput) MapIndex(k pulumi.StringInput) XssMatchSetOutput {

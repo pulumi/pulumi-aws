@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput)
 }
 
-func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs) ToOutput(ctx context.Context) pulumix.Output[BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange] {
-	return pulumix.Output[BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange]{
-		OutputState: i.ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput is an input type that accepts BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray and BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput values.
 // You can construct a concrete instance of `BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput)
 }
 
-func (i BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange] {
-	return pulumix.Output[[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange]{
-		OutputState: i.ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput struct{ *pulumi.OutputState }
 
 func (BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutpu
 
 func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
 	return o
-}
-
-func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput) ToOutput(ctx context.Context) pulumix.Output[BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange] {
-	return pulumix.Output[BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The final port in the range of TCP ports.
@@ -130,12 +111,6 @@ func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArray
 
 func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) ToBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput {
 	return o
-}
-
-func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange] {
-	return pulumix.Output[[]BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrayOutput) Index(i pulumi.IntInput) BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeOutput {
@@ -175,12 +150,6 @@ func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutput()
 
 func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput)
-}
-
-func (i ClusterAutoTerminationPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAutoTerminationPolicy] {
-	return pulumix.Output[ClusterAutoTerminationPolicy]{
-		OutputState: i.ToClusterAutoTerminationPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
@@ -224,12 +193,6 @@ func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyPtrOutput)
 }
 
-func (i *clusterAutoTerminationPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAutoTerminationPolicy] {
-	return pulumix.Output[*ClusterAutoTerminationPolicy]{
-		OutputState: i.ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterAutoTerminationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ClusterAutoTerminationPolicyOutput) ElementType() reflect.Type {
@@ -254,12 +217,6 @@ func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOut
 	}).(ClusterAutoTerminationPolicyPtrOutput)
 }
 
-func (o ClusterAutoTerminationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAutoTerminationPolicy] {
-	return pulumix.Output[ClusterAutoTerminationPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
 func (o ClusterAutoTerminationPolicyOutput) IdleTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterAutoTerminationPolicy) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
@@ -277,12 +234,6 @@ func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtr
 
 func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
 	return o
-}
-
-func (o ClusterAutoTerminationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAutoTerminationPolicy] {
-	return pulumix.Output[*ClusterAutoTerminationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterAutoTerminationPolicyPtrOutput) Elem() ClusterAutoTerminationPolicyOutput {
@@ -346,12 +297,6 @@ func (i ClusterBootstrapActionArgs) ToClusterBootstrapActionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBootstrapActionOutput)
 }
 
-func (i ClusterBootstrapActionArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBootstrapAction] {
-	return pulumix.Output[ClusterBootstrapAction]{
-		OutputState: i.ToClusterBootstrapActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterBootstrapActionArrayInput is an input type that accepts ClusterBootstrapActionArray and ClusterBootstrapActionArrayOutput values.
 // You can construct a concrete instance of `ClusterBootstrapActionArrayInput` via:
 //
@@ -377,12 +322,6 @@ func (i ClusterBootstrapActionArray) ToClusterBootstrapActionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBootstrapActionArrayOutput)
 }
 
-func (i ClusterBootstrapActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterBootstrapAction] {
-	return pulumix.Output[[]ClusterBootstrapAction]{
-		OutputState: i.ToClusterBootstrapActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterBootstrapActionOutput struct{ *pulumi.OutputState }
 
 func (ClusterBootstrapActionOutput) ElementType() reflect.Type {
@@ -395,12 +334,6 @@ func (o ClusterBootstrapActionOutput) ToClusterBootstrapActionOutput() ClusterBo
 
 func (o ClusterBootstrapActionOutput) ToClusterBootstrapActionOutputWithContext(ctx context.Context) ClusterBootstrapActionOutput {
 	return o
-}
-
-func (o ClusterBootstrapActionOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBootstrapAction] {
-	return pulumix.Output[ClusterBootstrapAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of command line arguments to pass to the bootstrap action script.
@@ -430,12 +363,6 @@ func (o ClusterBootstrapActionArrayOutput) ToClusterBootstrapActionArrayOutput()
 
 func (o ClusterBootstrapActionArrayOutput) ToClusterBootstrapActionArrayOutputWithContext(ctx context.Context) ClusterBootstrapActionArrayOutput {
 	return o
-}
-
-func (o ClusterBootstrapActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterBootstrapAction] {
-	return pulumix.Output[[]ClusterBootstrapAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterBootstrapActionArrayOutput) Index(i pulumi.IntInput) ClusterBootstrapActionOutput {
@@ -501,12 +428,6 @@ func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetOutput)
 }
 
-func (i ClusterCoreInstanceFleetArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleet] {
-	return pulumix.Output[ClusterCoreInstanceFleet]{
-		OutputState: i.ToClusterCoreInstanceFleetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCoreInstanceFleetArgs) ToClusterCoreInstanceFleetPtrOutput() ClusterCoreInstanceFleetPtrOutput {
 	return i.ToClusterCoreInstanceFleetPtrOutputWithContext(context.Background())
 }
@@ -548,12 +469,6 @@ func (i *clusterCoreInstanceFleetPtrType) ToClusterCoreInstanceFleetPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetPtrOutput)
 }
 
-func (i *clusterCoreInstanceFleetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceFleet] {
-	return pulumix.Output[*ClusterCoreInstanceFleet]{
-		OutputState: i.ToClusterCoreInstanceFleetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetOutput) ElementType() reflect.Type {
@@ -576,12 +491,6 @@ func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleet {
 		return &v
 	}).(ClusterCoreInstanceFleetPtrOutput)
-}
-
-func (o ClusterCoreInstanceFleetOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleet] {
-	return pulumix.Output[ClusterCoreInstanceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the cluster.
@@ -638,12 +547,6 @@ func (o ClusterCoreInstanceFleetPtrOutput) ToClusterCoreInstanceFleetPtrOutput()
 
 func (o ClusterCoreInstanceFleetPtrOutput) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceFleet] {
-	return pulumix.Output[*ClusterCoreInstanceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetPtrOutput) Elem() ClusterCoreInstanceFleetOutput {
@@ -787,12 +690,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigArgs) ToClusterCoreInstanceFle
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigArrayInput` via:
 //
@@ -818,12 +715,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigArray) ToClusterCoreInstanceFl
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
@@ -836,12 +727,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceF
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetInstanceTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
@@ -894,12 +779,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) ToClusterCoreInst
 	return o
 }
 
-func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterCoreInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCoreInstanceFleetInstanceTypeConfig {
 		return vs[0].([]ClusterCoreInstanceFleetInstanceTypeConfig)[vs[1].(int)]
@@ -943,12 +822,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ToClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray and ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
@@ -974,12 +847,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray) ToClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
@@ -992,12 +859,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToCluster
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Classification within a configuration.
@@ -1022,12 +883,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToCl
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigConfigurationOutput {
@@ -1081,12 +936,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterCoreIn
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
@@ -1112,12 +961,6 @@ func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterCoreI
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
-func (i ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
@@ -1130,12 +973,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterCore
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of I/O operations per second (IOPS) that the volume supports.
@@ -1170,12 +1007,6 @@ func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToCluste
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigOutput {
@@ -1221,12 +1052,6 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceF
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOutput)
 }
 
-func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecifications]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCoreInstanceFleetLaunchSpecificationsArgs) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutput() ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
 	return i.ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
 }
@@ -1268,12 +1093,6 @@ func (i *clusterCoreInstanceFleetLaunchSpecificationsPtrType) ToClusterCoreInsta
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
-func (i *clusterCoreInstanceFleetLaunchSpecificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*ClusterCoreInstanceFleetLaunchSpecifications]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
@@ -1296,12 +1115,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceFleetLaunchSpecifications) *ClusterCoreInstanceFleetLaunchSpecifications {
 		return &v
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for on demand instances launch specifications.
@@ -1330,12 +1143,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToClusterCoreInst
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*ClusterCoreInstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterCoreInstanceFleetLaunchSpecificationsOutput {
@@ -1401,12 +1208,6 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
 }
 
-func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
@@ -1432,12 +1233,6 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
-func (i ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
@@ -1450,12 +1245,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
@@ -1477,12 +1266,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOu
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
@@ -1536,12 +1319,6 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToClu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
 }
 
-func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
@@ -1567,12 +1344,6 @@ func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToCl
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
 }
 
-func (i ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
@@ -1585,12 +1356,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToC
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
@@ -1631,12 +1396,6 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
@@ -1702,12 +1461,6 @@ func (i ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupOutput)
 }
 
-func (i ClusterCoreInstanceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceGroup] {
-	return pulumix.Output[ClusterCoreInstanceGroup]{
-		OutputState: i.ToClusterCoreInstanceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterCoreInstanceGroupArgs) ToClusterCoreInstanceGroupPtrOutput() ClusterCoreInstanceGroupPtrOutput {
 	return i.ToClusterCoreInstanceGroupPtrOutputWithContext(context.Background())
 }
@@ -1749,12 +1502,6 @@ func (i *clusterCoreInstanceGroupPtrType) ToClusterCoreInstanceGroupPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupPtrOutput)
 }
 
-func (i *clusterCoreInstanceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceGroup] {
-	return pulumix.Output[*ClusterCoreInstanceGroup]{
-		OutputState: i.ToClusterCoreInstanceGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceGroupOutput) ElementType() reflect.Type {
@@ -1777,12 +1524,6 @@ func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceGroup) *ClusterCoreInstanceGroup {
 		return &v
 	}).(ClusterCoreInstanceGroupPtrOutput)
-}
-
-func (o ClusterCoreInstanceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceGroup] {
-	return pulumix.Output[ClusterCoreInstanceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
@@ -1832,12 +1573,6 @@ func (o ClusterCoreInstanceGroupPtrOutput) ToClusterCoreInstanceGroupPtrOutput()
 
 func (o ClusterCoreInstanceGroupPtrOutput) ToClusterCoreInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupPtrOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCoreInstanceGroup] {
-	return pulumix.Output[*ClusterCoreInstanceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceGroupPtrOutput) Elem() ClusterCoreInstanceGroupOutput {
@@ -1969,12 +1704,6 @@ func (i ClusterCoreInstanceGroupEbsConfigArgs) ToClusterCoreInstanceGroupEbsConf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupEbsConfigOutput)
 }
 
-func (i ClusterCoreInstanceGroupEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceGroupEbsConfig] {
-	return pulumix.Output[ClusterCoreInstanceGroupEbsConfig]{
-		OutputState: i.ToClusterCoreInstanceGroupEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCoreInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterCoreInstanceGroupEbsConfigArray and ClusterCoreInstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterCoreInstanceGroupEbsConfigArrayInput` via:
 //
@@ -2000,12 +1729,6 @@ func (i ClusterCoreInstanceGroupEbsConfigArray) ToClusterCoreInstanceGroupEbsCon
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCoreInstanceGroupEbsConfigArrayOutput)
 }
 
-func (i ClusterCoreInstanceGroupEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceGroupEbsConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceGroupEbsConfig]{
-		OutputState: i.ToClusterCoreInstanceGroupEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCoreInstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterCoreInstanceGroupEbsConfigOutput) ElementType() reflect.Type {
@@ -2018,12 +1741,6 @@ func (o ClusterCoreInstanceGroupEbsConfigOutput) ToClusterCoreInstanceGroupEbsCo
 
 func (o ClusterCoreInstanceGroupEbsConfigOutput) ToClusterCoreInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceGroupEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterCoreInstanceGroupEbsConfig] {
-	return pulumix.Output[ClusterCoreInstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of I/O operations per second (IOPS) that the volume supports.
@@ -2063,12 +1780,6 @@ func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) ToClusterCoreInstanceGroup
 
 func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) ToClusterCoreInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupEbsConfigArrayOutput {
 	return o
-}
-
-func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterCoreInstanceGroupEbsConfig] {
-	return pulumix.Output[[]ClusterCoreInstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCoreInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterCoreInstanceGroupEbsConfigOutput {
@@ -2146,12 +1857,6 @@ func (i ClusterEc2AttributesArgs) ToClusterEc2AttributesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEc2AttributesOutput)
 }
 
-func (i ClusterEc2AttributesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEc2Attributes] {
-	return pulumix.Output[ClusterEc2Attributes]{
-		OutputState: i.ToClusterEc2AttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterEc2AttributesArgs) ToClusterEc2AttributesPtrOutput() ClusterEc2AttributesPtrOutput {
 	return i.ToClusterEc2AttributesPtrOutputWithContext(context.Background())
 }
@@ -2193,12 +1898,6 @@ func (i *clusterEc2AttributesPtrType) ToClusterEc2AttributesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEc2AttributesPtrOutput)
 }
 
-func (i *clusterEc2AttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterEc2Attributes] {
-	return pulumix.Output[*ClusterEc2Attributes]{
-		OutputState: i.ToClusterEc2AttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterEc2AttributesOutput struct{ *pulumi.OutputState }
 
 func (ClusterEc2AttributesOutput) ElementType() reflect.Type {
@@ -2221,12 +1920,6 @@ func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEc2Attributes) *ClusterEc2Attributes {
 		return &v
 	}).(ClusterEc2AttributesPtrOutput)
-}
-
-func (o ClusterEc2AttributesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEc2Attributes] {
-	return pulumix.Output[ClusterEc2Attributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
@@ -2288,12 +1981,6 @@ func (o ClusterEc2AttributesPtrOutput) ToClusterEc2AttributesPtrOutput() Cluster
 
 func (o ClusterEc2AttributesPtrOutput) ToClusterEc2AttributesPtrOutputWithContext(ctx context.Context) ClusterEc2AttributesPtrOutput {
 	return o
-}
-
-func (o ClusterEc2AttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEc2Attributes] {
-	return pulumix.Output[*ClusterEc2Attributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterEc2AttributesPtrOutput) Elem() ClusterEc2AttributesOutput {
@@ -2447,12 +2134,6 @@ func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesOutput)
 }
 
-func (i ClusterKerberosAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterKerberosAttributes] {
-	return pulumix.Output[ClusterKerberosAttributes]{
-		OutputState: i.ToClusterKerberosAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterKerberosAttributesArgs) ToClusterKerberosAttributesPtrOutput() ClusterKerberosAttributesPtrOutput {
 	return i.ToClusterKerberosAttributesPtrOutputWithContext(context.Background())
 }
@@ -2494,12 +2175,6 @@ func (i *clusterKerberosAttributesPtrType) ToClusterKerberosAttributesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterKerberosAttributesPtrOutput)
 }
 
-func (i *clusterKerberosAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterKerberosAttributes] {
-	return pulumix.Output[*ClusterKerberosAttributes]{
-		OutputState: i.ToClusterKerberosAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterKerberosAttributesOutput struct{ *pulumi.OutputState }
 
 func (ClusterKerberosAttributesOutput) ElementType() reflect.Type {
@@ -2522,12 +2197,6 @@ func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKerberosAttributes) *ClusterKerberosAttributes {
 		return &v
 	}).(ClusterKerberosAttributesPtrOutput)
-}
-
-func (o ClusterKerberosAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterKerberosAttributes] {
-	return pulumix.Output[ClusterKerberosAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
@@ -2567,12 +2236,6 @@ func (o ClusterKerberosAttributesPtrOutput) ToClusterKerberosAttributesPtrOutput
 
 func (o ClusterKerberosAttributesPtrOutput) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
 	return o
-}
-
-func (o ClusterKerberosAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterKerberosAttributes] {
-	return pulumix.Output[*ClusterKerberosAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterKerberosAttributesPtrOutput) Elem() ClusterKerberosAttributesOutput {
@@ -2692,12 +2355,6 @@ func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetOutput)
 }
 
-func (i ClusterMasterInstanceFleetArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleet] {
-	return pulumix.Output[ClusterMasterInstanceFleet]{
-		OutputState: i.ToClusterMasterInstanceFleetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterMasterInstanceFleetArgs) ToClusterMasterInstanceFleetPtrOutput() ClusterMasterInstanceFleetPtrOutput {
 	return i.ToClusterMasterInstanceFleetPtrOutputWithContext(context.Background())
 }
@@ -2739,12 +2396,6 @@ func (i *clusterMasterInstanceFleetPtrType) ToClusterMasterInstanceFleetPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetPtrOutput)
 }
 
-func (i *clusterMasterInstanceFleetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceFleet] {
-	return pulumix.Output[*ClusterMasterInstanceFleet]{
-		OutputState: i.ToClusterMasterInstanceFleetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetOutput) ElementType() reflect.Type {
@@ -2767,12 +2418,6 @@ func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleet {
 		return &v
 	}).(ClusterMasterInstanceFleetPtrOutput)
-}
-
-func (o ClusterMasterInstanceFleetOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleet] {
-	return pulumix.Output[ClusterMasterInstanceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the cluster.
@@ -2829,12 +2474,6 @@ func (o ClusterMasterInstanceFleetPtrOutput) ToClusterMasterInstanceFleetPtrOutp
 
 func (o ClusterMasterInstanceFleetPtrOutput) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceFleet] {
-	return pulumix.Output[*ClusterMasterInstanceFleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetPtrOutput) Elem() ClusterMasterInstanceFleetOutput {
@@ -2978,12 +2617,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigArgs) ToClusterMasterInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceFleetInstanceTypeConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigArrayInput` via:
 //
@@ -3009,12 +2642,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigArray) ToClusterMasterInstan
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
@@ -3027,12 +2654,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInsta
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetInstanceTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
@@ -3085,12 +2706,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) ToClusterMaster
 	return o
 }
 
-func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterMasterInstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterMasterInstanceFleetInstanceTypeConfig {
 		return vs[0].([]ClusterMasterInstanceFleetInstanceTypeConfig)[vs[1].(int)]
@@ -3134,12 +2749,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ToCluster
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray and ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
@@ -3165,12 +2774,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
@@ -3183,12 +2786,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToClust
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Classification within a configuration.
@@ -3215,12 +2812,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) To
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigConfigurationOutput {
@@ -3274,12 +2865,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ToClusterMast
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray and ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
@@ -3305,12 +2890,6 @@ func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray) ToClusterMas
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
-func (i ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
@@ -3323,12 +2902,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterMa
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of I/O operations per second (IOPS) that the volume supports.
@@ -3363,12 +2936,6 @@ func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClus
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigOutput {
@@ -3414,12 +2981,6 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInsta
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOutput)
 }
 
-func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecifications]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterMasterInstanceFleetLaunchSpecificationsArgs) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutput() ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
 	return i.ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
 }
@@ -3461,12 +3022,6 @@ func (i *clusterMasterInstanceFleetLaunchSpecificationsPtrType) ToClusterMasterI
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
 }
 
-func (i *clusterMasterInstanceFleetLaunchSpecificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*ClusterMasterInstanceFleetLaunchSpecifications]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
@@ -3489,12 +3044,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterIns
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceFleetLaunchSpecifications) *ClusterMasterInstanceFleetLaunchSpecifications {
 		return &v
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for on demand instances launch specifications.
@@ -3523,12 +3072,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToClusterMaster
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*ClusterMasterInstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterMasterInstanceFleetLaunchSpecificationsOutput {
@@ -3594,12 +3137,6 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
 }
 
-func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
@@ -3625,12 +3162,6 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
-func (i ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
@@ -3643,12 +3174,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutpu
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
@@ -3670,12 +3195,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArray
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
@@ -3729,12 +3248,6 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToC
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput)
 }
 
-func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray and ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
@@ -3760,12 +3273,6 @@ func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
 }
 
-func (i ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
@@ -3778,12 +3285,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) T
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
@@ -3824,12 +3325,6 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutp
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationOutput {
@@ -3891,12 +3386,6 @@ func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupOutput)
 }
 
-func (i ClusterMasterInstanceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceGroup] {
-	return pulumix.Output[ClusterMasterInstanceGroup]{
-		OutputState: i.ToClusterMasterInstanceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterMasterInstanceGroupArgs) ToClusterMasterInstanceGroupPtrOutput() ClusterMasterInstanceGroupPtrOutput {
 	return i.ToClusterMasterInstanceGroupPtrOutputWithContext(context.Background())
 }
@@ -3938,12 +3427,6 @@ func (i *clusterMasterInstanceGroupPtrType) ToClusterMasterInstanceGroupPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupPtrOutput)
 }
 
-func (i *clusterMasterInstanceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceGroup] {
-	return pulumix.Output[*ClusterMasterInstanceGroup]{
-		OutputState: i.ToClusterMasterInstanceGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceGroupOutput) ElementType() reflect.Type {
@@ -3966,12 +3449,6 @@ func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceGroup) *ClusterMasterInstanceGroup {
 		return &v
 	}).(ClusterMasterInstanceGroupPtrOutput)
-}
-
-func (o ClusterMasterInstanceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceGroup] {
-	return pulumix.Output[ClusterMasterInstanceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
@@ -4016,12 +3493,6 @@ func (o ClusterMasterInstanceGroupPtrOutput) ToClusterMasterInstanceGroupPtrOutp
 
 func (o ClusterMasterInstanceGroupPtrOutput) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterMasterInstanceGroup] {
-	return pulumix.Output[*ClusterMasterInstanceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceGroupPtrOutput) Elem() ClusterMasterInstanceGroupOutput {
@@ -4143,12 +3614,6 @@ func (i ClusterMasterInstanceGroupEbsConfigArgs) ToClusterMasterInstanceGroupEbs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupEbsConfigOutput)
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceGroupEbsConfig] {
-	return pulumix.Output[ClusterMasterInstanceGroupEbsConfig]{
-		OutputState: i.ToClusterMasterInstanceGroupEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterMasterInstanceGroupEbsConfigArrayInput is an input type that accepts ClusterMasterInstanceGroupEbsConfigArray and ClusterMasterInstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterMasterInstanceGroupEbsConfigArrayInput` via:
 //
@@ -4174,12 +3639,6 @@ func (i ClusterMasterInstanceGroupEbsConfigArray) ToClusterMasterInstanceGroupEb
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMasterInstanceGroupEbsConfigArrayOutput)
 }
 
-func (i ClusterMasterInstanceGroupEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceGroupEbsConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceGroupEbsConfig]{
-		OutputState: i.ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterMasterInstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterMasterInstanceGroupEbsConfigOutput) ElementType() reflect.Type {
@@ -4192,12 +3651,6 @@ func (o ClusterMasterInstanceGroupEbsConfigOutput) ToClusterMasterInstanceGroupE
 
 func (o ClusterMasterInstanceGroupEbsConfigOutput) ToClusterMasterInstanceGroupEbsConfigOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceGroupEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterMasterInstanceGroupEbsConfig] {
-	return pulumix.Output[ClusterMasterInstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of I/O operations per second (IOPS) that the volume supports.
@@ -4237,12 +3690,6 @@ func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) ToClusterMasterInstanceG
 
 func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) ToClusterMasterInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupEbsConfigArrayOutput {
 	return o
-}
-
-func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterMasterInstanceGroupEbsConfig] {
-	return pulumix.Output[[]ClusterMasterInstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterMasterInstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) ClusterMasterInstanceGroupEbsConfigOutput {
@@ -4288,12 +3735,6 @@ func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigOutput)
 }
 
-func (i ClusterPlacementGroupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterPlacementGroupConfig] {
-	return pulumix.Output[ClusterPlacementGroupConfig]{
-		OutputState: i.ToClusterPlacementGroupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterPlacementGroupConfigArrayInput is an input type that accepts ClusterPlacementGroupConfigArray and ClusterPlacementGroupConfigArrayOutput values.
 // You can construct a concrete instance of `ClusterPlacementGroupConfigArrayInput` via:
 //
@@ -4319,12 +3760,6 @@ func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigArrayOutput)
 }
 
-func (i ClusterPlacementGroupConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPlacementGroupConfig] {
-	return pulumix.Output[[]ClusterPlacementGroupConfig]{
-		OutputState: i.ToClusterPlacementGroupConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterPlacementGroupConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterPlacementGroupConfigOutput) ElementType() reflect.Type {
@@ -4337,12 +3772,6 @@ func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutput()
 
 func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
 	return o
-}
-
-func (o ClusterPlacementGroupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterPlacementGroupConfig] {
-	return pulumix.Output[ClusterPlacementGroupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
@@ -4367,12 +3796,6 @@ func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArr
 
 func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
 	return o
-}
-
-func (o ClusterPlacementGroupConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPlacementGroupConfig] {
-	return pulumix.Output[[]ClusterPlacementGroupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterPlacementGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterPlacementGroupConfigOutput {
@@ -4422,12 +3845,6 @@ func (i ClusterStepArgs) ToClusterStepOutputWithContext(ctx context.Context) Clu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepOutput)
 }
 
-func (i ClusterStepArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterStep] {
-	return pulumix.Output[ClusterStep]{
-		OutputState: i.ToClusterStepOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterStepArrayInput is an input type that accepts ClusterStepArray and ClusterStepArrayOutput values.
 // You can construct a concrete instance of `ClusterStepArrayInput` via:
 //
@@ -4453,12 +3870,6 @@ func (i ClusterStepArray) ToClusterStepArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepArrayOutput)
 }
 
-func (i ClusterStepArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterStep] {
-	return pulumix.Output[[]ClusterStep]{
-		OutputState: i.ToClusterStepArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterStepOutput struct{ *pulumi.OutputState }
 
 func (ClusterStepOutput) ElementType() reflect.Type {
@@ -4471,12 +3882,6 @@ func (o ClusterStepOutput) ToClusterStepOutput() ClusterStepOutput {
 
 func (o ClusterStepOutput) ToClusterStepOutputWithContext(ctx context.Context) ClusterStepOutput {
 	return o
-}
-
-func (o ClusterStepOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStep] {
-	return pulumix.Output[ClusterStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
@@ -4506,12 +3911,6 @@ func (o ClusterStepArrayOutput) ToClusterStepArrayOutput() ClusterStepArrayOutpu
 
 func (o ClusterStepArrayOutput) ToClusterStepArrayOutputWithContext(ctx context.Context) ClusterStepArrayOutput {
 	return o
-}
-
-func (o ClusterStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterStep] {
-	return pulumix.Output[[]ClusterStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterStepArrayOutput) Index(i pulumi.IntInput) ClusterStepOutput {
@@ -4565,12 +3964,6 @@ func (i ClusterStepHadoopJarStepArgs) ToClusterStepHadoopJarStepOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterStepHadoopJarStepOutput)
 }
 
-func (i ClusterStepHadoopJarStepArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterStepHadoopJarStep] {
-	return pulumix.Output[ClusterStepHadoopJarStep]{
-		OutputState: i.ToClusterStepHadoopJarStepOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterStepHadoopJarStepOutput struct{ *pulumi.OutputState }
 
 func (ClusterStepHadoopJarStepOutput) ElementType() reflect.Type {
@@ -4583,12 +3976,6 @@ func (o ClusterStepHadoopJarStepOutput) ToClusterStepHadoopJarStepOutput() Clust
 
 func (o ClusterStepHadoopJarStepOutput) ToClusterStepHadoopJarStepOutputWithContext(ctx context.Context) ClusterStepHadoopJarStepOutput {
 	return o
-}
-
-func (o ClusterStepHadoopJarStepOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStepHadoopJarStep] {
-	return pulumix.Output[ClusterStepHadoopJarStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of command line arguments passed to the JAR file's main function when executed.
@@ -4664,12 +4051,6 @@ func (i InstanceFleetInstanceTypeConfigArgs) ToInstanceFleetInstanceTypeConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceFleetInstanceTypeConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigArray and InstanceFleetInstanceTypeConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigArrayInput` via:
 //
@@ -4695,12 +4076,6 @@ func (i InstanceFleetInstanceTypeConfigArray) ToInstanceFleetInstanceTypeConfigA
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigArrayOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfig]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetInstanceTypeConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetInstanceTypeConfigOutput) ElementType() reflect.Type {
@@ -4713,12 +4088,6 @@ func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfig
 
 func (o InstanceFleetInstanceTypeConfigOutput) ToInstanceFleetInstanceTypeConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigOutput {
 	return o
-}
-
-func (o InstanceFleetInstanceTypeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
@@ -4769,12 +4138,6 @@ func (o InstanceFleetInstanceTypeConfigArrayOutput) ToInstanceFleetInstanceTypeC
 	return o
 }
 
-func (o InstanceFleetInstanceTypeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfig] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceFleetInstanceTypeConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceFleetInstanceTypeConfig {
 		return vs[0].([]InstanceFleetInstanceTypeConfig)[vs[1].(int)]
@@ -4818,12 +4181,6 @@ func (i InstanceFleetInstanceTypeConfigConfigurationArgs) ToInstanceFleetInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigConfigurationOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceFleetInstanceTypeConfigConfigurationArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigConfigurationArray and InstanceFleetInstanceTypeConfigConfigurationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigConfigurationArrayInput` via:
 //
@@ -4849,12 +4206,6 @@ func (i InstanceFleetInstanceTypeConfigConfigurationArray) ToInstanceFleetInstan
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigConfigurationArrayOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetInstanceTypeConfigConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetInstanceTypeConfigConfigurationOutput) ElementType() reflect.Type {
@@ -4867,12 +4218,6 @@ func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToInstanceFleetInsta
 
 func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToInstanceFleetInstanceTypeConfigConfigurationOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationOutput {
 	return o
-}
-
-func (o InstanceFleetInstanceTypeConfigConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The classification within a configuration.
@@ -4897,12 +4242,6 @@ func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToInstanceFleet
 
 func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToInstanceFleetInstanceTypeConfigConfigurationArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigConfigurationArrayOutput {
 	return o
-}
-
-func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfigConfiguration] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfigConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceFleetInstanceTypeConfigConfigurationArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigConfigurationOutput {
@@ -4956,12 +4295,6 @@ func (i InstanceFleetInstanceTypeConfigEbsConfigArgs) ToInstanceFleetInstanceTyp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigEbsConfigOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceFleetInstanceTypeConfigEbsConfigArrayInput is an input type that accepts InstanceFleetInstanceTypeConfigEbsConfigArray and InstanceFleetInstanceTypeConfigEbsConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetInstanceTypeConfigEbsConfigArrayInput` via:
 //
@@ -4987,12 +4320,6 @@ func (i InstanceFleetInstanceTypeConfigEbsConfigArray) ToInstanceFleetInstanceTy
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetInstanceTypeConfigEbsConfigArrayOutput)
 }
 
-func (i InstanceFleetInstanceTypeConfigEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: i.ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetInstanceTypeConfigEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetInstanceTypeConfigEbsConfigOutput) ElementType() reflect.Type {
@@ -5005,12 +4332,6 @@ func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToInstanceFleetInstanceT
 
 func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToInstanceFleetInstanceTypeConfigEbsConfigOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigOutput {
 	return o
-}
-
-func (o InstanceFleetInstanceTypeConfigEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[InstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of I/O operations per second (IOPS) that the volume supports
@@ -5045,12 +4366,6 @@ func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToInstanceFleetInst
 
 func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToInstanceFleetInstanceTypeConfigEbsConfigArrayOutputWithContext(ctx context.Context) InstanceFleetInstanceTypeConfigEbsConfigArrayOutput {
 	return o
-}
-
-func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetInstanceTypeConfigEbsConfig] {
-	return pulumix.Output[[]InstanceFleetInstanceTypeConfigEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceFleetInstanceTypeConfigEbsConfigArrayOutput) Index(i pulumi.IntInput) InstanceFleetInstanceTypeConfigEbsConfigOutput {
@@ -5096,12 +4411,6 @@ func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificatio
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOutput)
 }
 
-func (i InstanceFleetLaunchSpecificationsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecifications] {
-	return pulumix.Output[InstanceFleetLaunchSpecifications]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceFleetLaunchSpecificationsArgs) ToInstanceFleetLaunchSpecificationsPtrOutput() InstanceFleetLaunchSpecificationsPtrOutput {
 	return i.ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(context.Background())
 }
@@ -5143,12 +4452,6 @@ func (i *instanceFleetLaunchSpecificationsPtrType) ToInstanceFleetLaunchSpecific
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsPtrOutput)
 }
 
-func (i *instanceFleetLaunchSpecificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*InstanceFleetLaunchSpecifications]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetLaunchSpecificationsOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetLaunchSpecificationsOutput) ElementType() reflect.Type {
@@ -5171,12 +4474,6 @@ func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetLaunchSpecifications) *InstanceFleetLaunchSpecifications {
 		return &v
 	}).(InstanceFleetLaunchSpecificationsPtrOutput)
-}
-
-func (o InstanceFleetLaunchSpecificationsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecifications] {
-	return pulumix.Output[InstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for on demand instances launch specifications
@@ -5205,12 +4502,6 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) ToInstanceFleetLaunchSpecifi
 
 func (o InstanceFleetLaunchSpecificationsPtrOutput) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
 	return o
-}
-
-func (o InstanceFleetLaunchSpecificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleetLaunchSpecifications] {
-	return pulumix.Output[*InstanceFleetLaunchSpecifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceFleetLaunchSpecificationsPtrOutput) Elem() InstanceFleetLaunchSpecificationsOutput {
@@ -5276,12 +4567,6 @@ func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToInstanceFl
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput)
 }
 
-func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[InstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsOnDemandSpecificationArray and InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayInput` via:
 //
@@ -5307,12 +4592,6 @@ func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToInstanceF
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput)
 }
 
-func (i InstanceFleetLaunchSpecificationsOnDemandSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]InstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ElementType() reflect.Type {
@@ -5325,12 +4604,6 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstance
 
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
 	return o
-}
-
-func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[InstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
@@ -5350,12 +4623,6 @@ func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToIns
 
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput {
 	return o
-}
-
-func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetLaunchSpecificationsOnDemandSpecification] {
-	return pulumix.Output[[]InstanceFleetLaunchSpecificationsOnDemandSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceFleetLaunchSpecificationsOnDemandSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceFleetLaunchSpecificationsOnDemandSpecificationOutput {
@@ -5409,12 +4676,6 @@ func (i InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToInstanceFleetL
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsSpotSpecificationOutput)
 }
 
-func (i InstanceFleetLaunchSpecificationsSpotSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[InstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput is an input type that accepts InstanceFleetLaunchSpecificationsSpotSpecificationArray and InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetLaunchSpecificationsSpotSpecificationArrayInput` via:
 //
@@ -5440,12 +4701,6 @@ func (i InstanceFleetLaunchSpecificationsSpotSpecificationArray) ToInstanceFleet
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput)
 }
 
-func (i InstanceFleetLaunchSpecificationsSpotSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]InstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: i.ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceFleetLaunchSpecificationsSpotSpecificationOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ElementType() reflect.Type {
@@ -5458,12 +4713,6 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFlee
 
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
 	return o
-}
-
-func (o InstanceFleetLaunchSpecificationsSpotSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[InstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
@@ -5498,12 +4747,6 @@ func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToInstanc
 
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToInstanceFleetLaunchSpecificationsSpotSpecificationArrayOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput {
 	return o
-}
-
-func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceFleetLaunchSpecificationsSpotSpecification] {
-	return pulumix.Output[[]InstanceFleetLaunchSpecificationsSpotSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceFleetLaunchSpecificationsSpotSpecificationArrayOutput) Index(i pulumi.IntInput) InstanceFleetLaunchSpecificationsSpotSpecificationOutput {
@@ -5557,12 +4800,6 @@ func (i InstanceGroupEbsConfigArgs) ToInstanceGroupEbsConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupEbsConfigOutput)
 }
 
-func (i InstanceGroupEbsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceGroupEbsConfig] {
-	return pulumix.Output[InstanceGroupEbsConfig]{
-		OutputState: i.ToInstanceGroupEbsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceGroupEbsConfigArrayInput is an input type that accepts InstanceGroupEbsConfigArray and InstanceGroupEbsConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceGroupEbsConfigArrayInput` via:
 //
@@ -5588,12 +4825,6 @@ func (i InstanceGroupEbsConfigArray) ToInstanceGroupEbsConfigArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceGroupEbsConfigArrayOutput)
 }
 
-func (i InstanceGroupEbsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceGroupEbsConfig] {
-	return pulumix.Output[[]InstanceGroupEbsConfig]{
-		OutputState: i.ToInstanceGroupEbsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceGroupEbsConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceGroupEbsConfigOutput) ElementType() reflect.Type {
@@ -5606,12 +4837,6 @@ func (o InstanceGroupEbsConfigOutput) ToInstanceGroupEbsConfigOutput() InstanceG
 
 func (o InstanceGroupEbsConfigOutput) ToInstanceGroupEbsConfigOutputWithContext(ctx context.Context) InstanceGroupEbsConfigOutput {
 	return o
-}
-
-func (o InstanceGroupEbsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceGroupEbsConfig] {
-	return pulumix.Output[InstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of I/O operations per second (IOPS) that the volume supports.
@@ -5646,12 +4871,6 @@ func (o InstanceGroupEbsConfigArrayOutput) ToInstanceGroupEbsConfigArrayOutput()
 
 func (o InstanceGroupEbsConfigArrayOutput) ToInstanceGroupEbsConfigArrayOutputWithContext(ctx context.Context) InstanceGroupEbsConfigArrayOutput {
 	return o
-}
-
-func (o InstanceGroupEbsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceGroupEbsConfig] {
-	return pulumix.Output[[]InstanceGroupEbsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceGroupEbsConfigArrayOutput) Index(i pulumi.IntInput) InstanceGroupEbsConfigOutput {
@@ -5709,12 +4928,6 @@ func (i ManagedScalingPolicyComputeLimitArgs) ToManagedScalingPolicyComputeLimit
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyComputeLimitOutput)
 }
 
-func (i ManagedScalingPolicyComputeLimitArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedScalingPolicyComputeLimit] {
-	return pulumix.Output[ManagedScalingPolicyComputeLimit]{
-		OutputState: i.ToManagedScalingPolicyComputeLimitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedScalingPolicyComputeLimitArrayInput is an input type that accepts ManagedScalingPolicyComputeLimitArray and ManagedScalingPolicyComputeLimitArrayOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyComputeLimitArrayInput` via:
 //
@@ -5740,12 +4953,6 @@ func (i ManagedScalingPolicyComputeLimitArray) ToManagedScalingPolicyComputeLimi
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyComputeLimitArrayOutput)
 }
 
-func (i ManagedScalingPolicyComputeLimitArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedScalingPolicyComputeLimit] {
-	return pulumix.Output[[]ManagedScalingPolicyComputeLimit]{
-		OutputState: i.ToManagedScalingPolicyComputeLimitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedScalingPolicyComputeLimitOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyComputeLimitOutput) ElementType() reflect.Type {
@@ -5758,12 +4965,6 @@ func (o ManagedScalingPolicyComputeLimitOutput) ToManagedScalingPolicyComputeLim
 
 func (o ManagedScalingPolicyComputeLimitOutput) ToManagedScalingPolicyComputeLimitOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitOutput {
 	return o
-}
-
-func (o ManagedScalingPolicyComputeLimitOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedScalingPolicyComputeLimit] {
-	return pulumix.Output[ManagedScalingPolicyComputeLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
@@ -5803,12 +5004,6 @@ func (o ManagedScalingPolicyComputeLimitArrayOutput) ToManagedScalingPolicyCompu
 
 func (o ManagedScalingPolicyComputeLimitArrayOutput) ToManagedScalingPolicyComputeLimitArrayOutputWithContext(ctx context.Context) ManagedScalingPolicyComputeLimitArrayOutput {
 	return o
-}
-
-func (o ManagedScalingPolicyComputeLimitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedScalingPolicyComputeLimit] {
-	return pulumix.Output[[]ManagedScalingPolicyComputeLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedScalingPolicyComputeLimitArrayOutput) Index(i pulumi.IntInput) ManagedScalingPolicyComputeLimitOutput {
@@ -5854,12 +5049,6 @@ func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseLabelsFiltersOutput)
 }
 
-func (i GetReleaseLabelsFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[GetReleaseLabelsFilters] {
-	return pulumix.Output[GetReleaseLabelsFilters]{
-		OutputState: i.ToGetReleaseLabelsFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput {
 	return i.ToGetReleaseLabelsFiltersPtrOutputWithContext(context.Background())
 }
@@ -5901,12 +5090,6 @@ func (i *getReleaseLabelsFiltersPtrType) ToGetReleaseLabelsFiltersPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseLabelsFiltersPtrOutput)
 }
 
-func (i *getReleaseLabelsFiltersPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetReleaseLabelsFilters] {
-	return pulumix.Output[*GetReleaseLabelsFilters]{
-		OutputState: i.ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReleaseLabelsFiltersOutput struct{ *pulumi.OutputState }
 
 func (GetReleaseLabelsFiltersOutput) ElementType() reflect.Type {
@@ -5931,12 +5114,6 @@ func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersPtrOutputWithCon
 	}).(GetReleaseLabelsFiltersPtrOutput)
 }
 
-func (o GetReleaseLabelsFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[GetReleaseLabelsFilters] {
-	return pulumix.Output[GetReleaseLabelsFilters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
 func (o GetReleaseLabelsFiltersOutput) Application() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetReleaseLabelsFilters) *string { return v.Application }).(pulumi.StringPtrOutput)
@@ -5959,12 +5136,6 @@ func (o GetReleaseLabelsFiltersPtrOutput) ToGetReleaseLabelsFiltersPtrOutput() G
 
 func (o GetReleaseLabelsFiltersPtrOutput) ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersPtrOutput {
 	return o
-}
-
-func (o GetReleaseLabelsFiltersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetReleaseLabelsFilters] {
-	return pulumix.Output[*GetReleaseLabelsFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReleaseLabelsFiltersPtrOutput) Elem() GetReleaseLabelsFiltersOutput {

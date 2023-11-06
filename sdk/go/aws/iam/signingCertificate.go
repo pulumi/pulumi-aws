@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Signing Certificate resource to upload Signing Certificates.
@@ -207,12 +206,6 @@ func (i *SigningCertificate) ToSigningCertificateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SigningCertificateOutput)
 }
 
-func (i *SigningCertificate) ToOutput(ctx context.Context) pulumix.Output[*SigningCertificate] {
-	return pulumix.Output[*SigningCertificate]{
-		OutputState: i.ToSigningCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SigningCertificateArrayInput is an input type that accepts SigningCertificateArray and SigningCertificateArrayOutput values.
 // You can construct a concrete instance of `SigningCertificateArrayInput` via:
 //
@@ -236,12 +229,6 @@ func (i SigningCertificateArray) ToSigningCertificateArrayOutput() SigningCertif
 
 func (i SigningCertificateArray) ToSigningCertificateArrayOutputWithContext(ctx context.Context) SigningCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningCertificateArrayOutput)
-}
-
-func (i SigningCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*SigningCertificate] {
-	return pulumix.Output[[]*SigningCertificate]{
-		OutputState: i.ToSigningCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SigningCertificateMapInput is an input type that accepts SigningCertificateMap and SigningCertificateMapOutput values.
@@ -269,12 +256,6 @@ func (i SigningCertificateMap) ToSigningCertificateMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningCertificateMapOutput)
 }
 
-func (i SigningCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningCertificate] {
-	return pulumix.Output[map[string]*SigningCertificate]{
-		OutputState: i.ToSigningCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SigningCertificateOutput struct{ *pulumi.OutputState }
 
 func (SigningCertificateOutput) ElementType() reflect.Type {
@@ -287,12 +268,6 @@ func (o SigningCertificateOutput) ToSigningCertificateOutput() SigningCertificat
 
 func (o SigningCertificateOutput) ToSigningCertificateOutputWithContext(ctx context.Context) SigningCertificateOutput {
 	return o
-}
-
-func (o SigningCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningCertificate] {
-	return pulumix.Output[*SigningCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The contents of the signing certificate in PEM-encoded format.
@@ -329,12 +304,6 @@ func (o SigningCertificateArrayOutput) ToSigningCertificateArrayOutputWithContex
 	return o
 }
 
-func (o SigningCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SigningCertificate] {
-	return pulumix.Output[[]*SigningCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningCertificateArrayOutput) Index(i pulumi.IntInput) SigningCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SigningCertificate {
 		return vs[0].([]*SigningCertificate)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o SigningCertificateMapOutput) ToSigningCertificateMapOutput() SigningCert
 
 func (o SigningCertificateMapOutput) ToSigningCertificateMapOutputWithContext(ctx context.Context) SigningCertificateMapOutput {
 	return o
-}
-
-func (o SigningCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningCertificate] {
-	return pulumix.Output[map[string]*SigningCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SigningCertificateMapOutput) MapIndex(k pulumi.StringInput) SigningCertificateOutput {

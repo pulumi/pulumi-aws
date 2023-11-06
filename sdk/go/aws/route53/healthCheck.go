@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 health check.
@@ -503,12 +502,6 @@ func (i *HealthCheck) ToHealthCheckOutputWithContext(ctx context.Context) Health
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckOutput)
 }
 
-func (i *HealthCheck) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
-	return pulumix.Output[*HealthCheck]{
-		OutputState: i.ToHealthCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HealthCheckArrayInput is an input type that accepts HealthCheckArray and HealthCheckArrayOutput values.
 // You can construct a concrete instance of `HealthCheckArrayInput` via:
 //
@@ -532,12 +525,6 @@ func (i HealthCheckArray) ToHealthCheckArrayOutput() HealthCheckArrayOutput {
 
 func (i HealthCheckArray) ToHealthCheckArrayOutputWithContext(ctx context.Context) HealthCheckArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckArrayOutput)
-}
-
-func (i HealthCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]*HealthCheck] {
-	return pulumix.Output[[]*HealthCheck]{
-		OutputState: i.ToHealthCheckArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HealthCheckMapInput is an input type that accepts HealthCheckMap and HealthCheckMapOutput values.
@@ -565,12 +552,6 @@ func (i HealthCheckMap) ToHealthCheckMapOutputWithContext(ctx context.Context) H
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckMapOutput)
 }
 
-func (i HealthCheckMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HealthCheck] {
-	return pulumix.Output[map[string]*HealthCheck]{
-		OutputState: i.ToHealthCheckMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HealthCheckOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
@@ -583,12 +564,6 @@ func (o HealthCheckOutput) ToHealthCheckOutput() HealthCheckOutput {
 
 func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) HealthCheckOutput {
 	return o
-}
-
-func (o HealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*HealthCheck] {
-	return pulumix.Output[*HealthCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Health Check.
@@ -728,12 +703,6 @@ func (o HealthCheckArrayOutput) ToHealthCheckArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o HealthCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HealthCheck] {
-	return pulumix.Output[[]*HealthCheck]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HealthCheckArrayOutput) Index(i pulumi.IntInput) HealthCheckOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HealthCheck {
 		return vs[0].([]*HealthCheck)[vs[1].(int)]
@@ -752,12 +721,6 @@ func (o HealthCheckMapOutput) ToHealthCheckMapOutput() HealthCheckMapOutput {
 
 func (o HealthCheckMapOutput) ToHealthCheckMapOutputWithContext(ctx context.Context) HealthCheckMapOutput {
 	return o
-}
-
-func (o HealthCheckMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HealthCheck] {
-	return pulumix.Output[map[string]*HealthCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HealthCheckMapOutput) MapIndex(k pulumi.StringInput) HealthCheckOutput {

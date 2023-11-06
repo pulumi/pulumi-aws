@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages status (recording / stopped) of an AWS Config Configuration Recorder.
@@ -230,12 +229,6 @@ func (i *RecorderStatus) ToRecorderStatusOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusOutput)
 }
 
-func (i *RecorderStatus) ToOutput(ctx context.Context) pulumix.Output[*RecorderStatus] {
-	return pulumix.Output[*RecorderStatus]{
-		OutputState: i.ToRecorderStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecorderStatusArrayInput is an input type that accepts RecorderStatusArray and RecorderStatusArrayOutput values.
 // You can construct a concrete instance of `RecorderStatusArrayInput` via:
 //
@@ -259,12 +252,6 @@ func (i RecorderStatusArray) ToRecorderStatusArrayOutput() RecorderStatusArrayOu
 
 func (i RecorderStatusArray) ToRecorderStatusArrayOutputWithContext(ctx context.Context) RecorderStatusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusArrayOutput)
-}
-
-func (i RecorderStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]*RecorderStatus] {
-	return pulumix.Output[[]*RecorderStatus]{
-		OutputState: i.ToRecorderStatusArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RecorderStatusMapInput is an input type that accepts RecorderStatusMap and RecorderStatusMapOutput values.
@@ -292,12 +279,6 @@ func (i RecorderStatusMap) ToRecorderStatusMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderStatusMapOutput)
 }
 
-func (i RecorderStatusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecorderStatus] {
-	return pulumix.Output[map[string]*RecorderStatus]{
-		OutputState: i.ToRecorderStatusMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecorderStatusOutput struct{ *pulumi.OutputState }
 
 func (RecorderStatusOutput) ElementType() reflect.Type {
@@ -310,12 +291,6 @@ func (o RecorderStatusOutput) ToRecorderStatusOutput() RecorderStatusOutput {
 
 func (o RecorderStatusOutput) ToRecorderStatusOutputWithContext(ctx context.Context) RecorderStatusOutput {
 	return o
-}
-
-func (o RecorderStatusOutput) ToOutput(ctx context.Context) pulumix.Output[*RecorderStatus] {
-	return pulumix.Output[*RecorderStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the configuration recorder should be enabled or disabled.
@@ -342,12 +317,6 @@ func (o RecorderStatusArrayOutput) ToRecorderStatusArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o RecorderStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RecorderStatus] {
-	return pulumix.Output[[]*RecorderStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RecorderStatusArrayOutput) Index(i pulumi.IntInput) RecorderStatusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RecorderStatus {
 		return vs[0].([]*RecorderStatus)[vs[1].(int)]
@@ -366,12 +335,6 @@ func (o RecorderStatusMapOutput) ToRecorderStatusMapOutput() RecorderStatusMapOu
 
 func (o RecorderStatusMapOutput) ToRecorderStatusMapOutputWithContext(ctx context.Context) RecorderStatusMapOutput {
 	return o
-}
-
-func (o RecorderStatusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecorderStatus] {
-	return pulumix.Output[map[string]*RecorderStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecorderStatusMapOutput) MapIndex(k pulumi.StringInput) RecorderStatusOutput {

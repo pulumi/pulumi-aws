@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Global Accelerator custom routing listener.
@@ -168,12 +167,6 @@ func (i *CustomRoutingListener) ToCustomRoutingListenerOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingListenerOutput)
 }
 
-func (i *CustomRoutingListener) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingListener] {
-	return pulumix.Output[*CustomRoutingListener]{
-		OutputState: i.ToCustomRoutingListenerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomRoutingListenerArrayInput is an input type that accepts CustomRoutingListenerArray and CustomRoutingListenerArrayOutput values.
 // You can construct a concrete instance of `CustomRoutingListenerArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i CustomRoutingListenerArray) ToCustomRoutingListenerArrayOutput() CustomR
 
 func (i CustomRoutingListenerArray) ToCustomRoutingListenerArrayOutputWithContext(ctx context.Context) CustomRoutingListenerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingListenerArrayOutput)
-}
-
-func (i CustomRoutingListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRoutingListener] {
-	return pulumix.Output[[]*CustomRoutingListener]{
-		OutputState: i.ToCustomRoutingListenerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomRoutingListenerMapInput is an input type that accepts CustomRoutingListenerMap and CustomRoutingListenerMapOutput values.
@@ -230,12 +217,6 @@ func (i CustomRoutingListenerMap) ToCustomRoutingListenerMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomRoutingListenerMapOutput)
 }
 
-func (i CustomRoutingListenerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRoutingListener] {
-	return pulumix.Output[map[string]*CustomRoutingListener]{
-		OutputState: i.ToCustomRoutingListenerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomRoutingListenerOutput struct{ *pulumi.OutputState }
 
 func (CustomRoutingListenerOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o CustomRoutingListenerOutput) ToCustomRoutingListenerOutput() CustomRouti
 
 func (o CustomRoutingListenerOutput) ToCustomRoutingListenerOutputWithContext(ctx context.Context) CustomRoutingListenerOutput {
 	return o
-}
-
-func (o CustomRoutingListenerOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomRoutingListener] {
-	return pulumix.Output[*CustomRoutingListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of a custom routing accelerator.
@@ -280,12 +255,6 @@ func (o CustomRoutingListenerArrayOutput) ToCustomRoutingListenerArrayOutputWith
 	return o
 }
 
-func (o CustomRoutingListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomRoutingListener] {
-	return pulumix.Output[[]*CustomRoutingListener]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomRoutingListenerArrayOutput) Index(i pulumi.IntInput) CustomRoutingListenerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomRoutingListener {
 		return vs[0].([]*CustomRoutingListener)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o CustomRoutingListenerMapOutput) ToCustomRoutingListenerMapOutput() Custo
 
 func (o CustomRoutingListenerMapOutput) ToCustomRoutingListenerMapOutputWithContext(ctx context.Context) CustomRoutingListenerMapOutput {
 	return o
-}
-
-func (o CustomRoutingListenerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomRoutingListener] {
-	return pulumix.Output[map[string]*CustomRoutingListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomRoutingListenerMapOutput) MapIndex(k pulumi.StringInput) CustomRoutingListenerOutput {

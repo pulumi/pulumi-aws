@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an outbound (egress) rule for a security group.
@@ -269,12 +268,6 @@ func (i *SecurityGroupEgressRule) ToSecurityGroupEgressRuleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressRuleOutput)
 }
 
-func (i *SecurityGroupEgressRule) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupEgressRule] {
-	return pulumix.Output[*SecurityGroupEgressRule]{
-		OutputState: i.ToSecurityGroupEgressRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityGroupEgressRuleArrayInput is an input type that accepts SecurityGroupEgressRuleArray and SecurityGroupEgressRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupEgressRuleArrayInput` via:
 //
@@ -298,12 +291,6 @@ func (i SecurityGroupEgressRuleArray) ToSecurityGroupEgressRuleArrayOutput() Sec
 
 func (i SecurityGroupEgressRuleArray) ToSecurityGroupEgressRuleArrayOutputWithContext(ctx context.Context) SecurityGroupEgressRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressRuleArrayOutput)
-}
-
-func (i SecurityGroupEgressRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupEgressRule] {
-	return pulumix.Output[[]*SecurityGroupEgressRule]{
-		OutputState: i.ToSecurityGroupEgressRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecurityGroupEgressRuleMapInput is an input type that accepts SecurityGroupEgressRuleMap and SecurityGroupEgressRuleMapOutput values.
@@ -331,12 +318,6 @@ func (i SecurityGroupEgressRuleMap) ToSecurityGroupEgressRuleMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressRuleMapOutput)
 }
 
-func (i SecurityGroupEgressRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupEgressRule] {
-	return pulumix.Output[map[string]*SecurityGroupEgressRule]{
-		OutputState: i.ToSecurityGroupEgressRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityGroupEgressRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupEgressRuleOutput) ElementType() reflect.Type {
@@ -349,12 +330,6 @@ func (o SecurityGroupEgressRuleOutput) ToSecurityGroupEgressRuleOutput() Securit
 
 func (o SecurityGroupEgressRuleOutput) ToSecurityGroupEgressRuleOutputWithContext(ctx context.Context) SecurityGroupEgressRuleOutput {
 	return o
-}
-
-func (o SecurityGroupEgressRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupEgressRule] {
-	return pulumix.Output[*SecurityGroupEgressRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the security group rule.
@@ -438,12 +413,6 @@ func (o SecurityGroupEgressRuleArrayOutput) ToSecurityGroupEgressRuleArrayOutput
 	return o
 }
 
-func (o SecurityGroupEgressRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupEgressRule] {
-	return pulumix.Output[[]*SecurityGroupEgressRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityGroupEgressRuleArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityGroupEgressRule {
 		return vs[0].([]*SecurityGroupEgressRule)[vs[1].(int)]
@@ -462,12 +431,6 @@ func (o SecurityGroupEgressRuleMapOutput) ToSecurityGroupEgressRuleMapOutput() S
 
 func (o SecurityGroupEgressRuleMapOutput) ToSecurityGroupEgressRuleMapOutputWithContext(ctx context.Context) SecurityGroupEgressRuleMapOutput {
 	return o
-}
-
-func (o SecurityGroupEgressRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupEgressRule] {
-	return pulumix.Output[map[string]*SecurityGroupEgressRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityGroupEgressRuleMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupEgressRuleOutput {

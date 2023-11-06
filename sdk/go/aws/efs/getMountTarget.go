@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about an Elastic File System Mount Target (EFS).
@@ -134,12 +133,6 @@ func (o LookupMountTargetResultOutput) ToLookupMountTargetResultOutput() LookupM
 
 func (o LookupMountTargetResultOutput) ToLookupMountTargetResultOutputWithContext(ctx context.Context) LookupMountTargetResultOutput {
 	return o
-}
-
-func (o LookupMountTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMountTargetResult] {
-	return pulumix.Output[LookupMountTargetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupMountTargetResultOutput) AccessPointId() pulumi.StringPtrOutput {

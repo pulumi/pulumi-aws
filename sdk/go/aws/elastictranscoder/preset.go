@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Transcoder preset resource.
@@ -281,12 +280,6 @@ func (i *Preset) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
 }
 
-func (i *Preset) ToOutput(ctx context.Context) pulumix.Output[*Preset] {
-	return pulumix.Output[*Preset]{
-		OutputState: i.ToPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PresetArrayInput is an input type that accepts PresetArray and PresetArrayOutput values.
 // You can construct a concrete instance of `PresetArrayInput` via:
 //
@@ -310,12 +303,6 @@ func (i PresetArray) ToPresetArrayOutput() PresetArrayOutput {
 
 func (i PresetArray) ToPresetArrayOutputWithContext(ctx context.Context) PresetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PresetArrayOutput)
-}
-
-func (i PresetArray) ToOutput(ctx context.Context) pulumix.Output[[]*Preset] {
-	return pulumix.Output[[]*Preset]{
-		OutputState: i.ToPresetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PresetMapInput is an input type that accepts PresetMap and PresetMapOutput values.
@@ -343,12 +330,6 @@ func (i PresetMap) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PresetMapOutput)
 }
 
-func (i PresetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Preset] {
-	return pulumix.Output[map[string]*Preset]{
-		OutputState: i.ToPresetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PresetOutput struct{ *pulumi.OutputState }
 
 func (PresetOutput) ElementType() reflect.Type {
@@ -361,12 +342,6 @@ func (o PresetOutput) ToPresetOutput() PresetOutput {
 
 func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
 	return o
-}
-
-func (o PresetOutput) ToOutput(ctx context.Context) pulumix.Output[*Preset] {
-	return pulumix.Output[*Preset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
@@ -437,12 +412,6 @@ func (o PresetArrayOutput) ToPresetArrayOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o PresetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Preset] {
-	return pulumix.Output[[]*Preset]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PresetArrayOutput) Index(i pulumi.IntInput) PresetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Preset {
 		return vs[0].([]*Preset)[vs[1].(int)]
@@ -461,12 +430,6 @@ func (o PresetMapOutput) ToPresetMapOutput() PresetMapOutput {
 
 func (o PresetMapOutput) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOutput {
 	return o
-}
-
-func (o PresetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Preset] {
-	return pulumix.Output[map[string]*Preset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PresetMapOutput) MapIndex(k pulumi.StringInput) PresetOutput {

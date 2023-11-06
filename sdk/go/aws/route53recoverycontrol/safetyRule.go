@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Control Config Safety Rule
@@ -270,12 +269,6 @@ func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRu
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleOutput)
 }
 
-func (i *SafetyRule) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
-	return pulumix.Output[*SafetyRule]{
-		OutputState: i.ToSafetyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SafetyRuleArrayInput is an input type that accepts SafetyRuleArray and SafetyRuleArrayOutput values.
 // You can construct a concrete instance of `SafetyRuleArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i SafetyRuleArray) ToSafetyRuleArrayOutput() SafetyRuleArrayOutput {
 
 func (i SafetyRuleArray) ToSafetyRuleArrayOutputWithContext(ctx context.Context) SafetyRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleArrayOutput)
-}
-
-func (i SafetyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SafetyRule] {
-	return pulumix.Output[[]*SafetyRule]{
-		OutputState: i.ToSafetyRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SafetyRuleMapInput is an input type that accepts SafetyRuleMap and SafetyRuleMapOutput values.
@@ -332,12 +319,6 @@ func (i SafetyRuleMap) ToSafetyRuleMapOutputWithContext(ctx context.Context) Saf
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleMapOutput)
 }
 
-func (i SafetyRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SafetyRule] {
-	return pulumix.Output[map[string]*SafetyRule]{
-		OutputState: i.ToSafetyRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SafetyRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleOutput) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o SafetyRuleOutput) ToSafetyRuleOutput() SafetyRuleOutput {
 
 func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRuleOutput {
 	return o
-}
-
-func (o SafetyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRule] {
-	return pulumix.Output[*SafetyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the safety rule.
@@ -419,12 +394,6 @@ func (o SafetyRuleArrayOutput) ToSafetyRuleArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SafetyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SafetyRule] {
-	return pulumix.Output[[]*SafetyRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SafetyRuleArrayOutput) Index(i pulumi.IntInput) SafetyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SafetyRule {
 		return vs[0].([]*SafetyRule)[vs[1].(int)]
@@ -443,12 +412,6 @@ func (o SafetyRuleMapOutput) ToSafetyRuleMapOutput() SafetyRuleMapOutput {
 
 func (o SafetyRuleMapOutput) ToSafetyRuleMapOutputWithContext(ctx context.Context) SafetyRuleMapOutput {
 	return o
-}
-
-func (o SafetyRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SafetyRule] {
-	return pulumix.Output[map[string]*SafetyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleMapOutput) MapIndex(k pulumi.StringInput) SafetyRuleOutput {

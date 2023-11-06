@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool Client resource.
@@ -582,12 +581,6 @@ func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientOutput)
 }
 
-func (i *UserPoolClient) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClient] {
-	return pulumix.Output[*UserPoolClient]{
-		OutputState: i.ToUserPoolClientOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolClientArrayInput is an input type that accepts UserPoolClientArray and UserPoolClientArrayOutput values.
 // You can construct a concrete instance of `UserPoolClientArrayInput` via:
 //
@@ -611,12 +604,6 @@ func (i UserPoolClientArray) ToUserPoolClientArrayOutput() UserPoolClientArrayOu
 
 func (i UserPoolClientArray) ToUserPoolClientArrayOutputWithContext(ctx context.Context) UserPoolClientArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientArrayOutput)
-}
-
-func (i UserPoolClientArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolClient] {
-	return pulumix.Output[[]*UserPoolClient]{
-		OutputState: i.ToUserPoolClientArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPoolClientMapInput is an input type that accepts UserPoolClientMap and UserPoolClientMapOutput values.
@@ -644,12 +631,6 @@ func (i UserPoolClientMap) ToUserPoolClientMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientMapOutput)
 }
 
-func (i UserPoolClientMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolClient] {
-	return pulumix.Output[map[string]*UserPoolClient]{
-		OutputState: i.ToUserPoolClientMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolClientOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientOutput) ElementType() reflect.Type {
@@ -662,12 +643,6 @@ func (o UserPoolClientOutput) ToUserPoolClientOutput() UserPoolClientOutput {
 
 func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput {
 	return o
-}
-
-func (o UserPoolClientOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClient] {
-	return pulumix.Output[*UserPoolClient]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used.
@@ -807,12 +782,6 @@ func (o UserPoolClientArrayOutput) ToUserPoolClientArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o UserPoolClientArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolClient] {
-	return pulumix.Output[[]*UserPoolClient]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolClientArrayOutput) Index(i pulumi.IntInput) UserPoolClientOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolClient {
 		return vs[0].([]*UserPoolClient)[vs[1].(int)]
@@ -831,12 +800,6 @@ func (o UserPoolClientMapOutput) ToUserPoolClientMapOutput() UserPoolClientMapOu
 
 func (o UserPoolClientMapOutput) ToUserPoolClientMapOutputWithContext(ctx context.Context) UserPoolClientMapOutput {
 	return o
-}
-
-func (o UserPoolClientMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolClient] {
-	return pulumix.Output[map[string]*UserPoolClient]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientMapOutput) MapIndex(k pulumi.StringInput) UserPoolClientOutput {

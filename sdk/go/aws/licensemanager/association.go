@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a License Manager association.
@@ -184,12 +183,6 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
-func (i *Association) ToOutput(ctx context.Context) pulumix.Output[*Association] {
-	return pulumix.Output[*Association]{
-		OutputState: i.ToAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssociationArrayInput is an input type that accepts AssociationArray and AssociationArrayOutput values.
 // You can construct a concrete instance of `AssociationArrayInput` via:
 //
@@ -213,12 +206,6 @@ func (i AssociationArray) ToAssociationArrayOutput() AssociationArrayOutput {
 
 func (i AssociationArray) ToAssociationArrayOutputWithContext(ctx context.Context) AssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationArrayOutput)
-}
-
-func (i AssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Association] {
-	return pulumix.Output[[]*Association]{
-		OutputState: i.ToAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssociationMapInput is an input type that accepts AssociationMap and AssociationMapOutput values.
@@ -246,12 +233,6 @@ func (i AssociationMap) ToAssociationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationMapOutput)
 }
 
-func (i AssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Association] {
-	return pulumix.Output[map[string]*Association]{
-		OutputState: i.ToAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssociationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutput) ElementType() reflect.Type {
@@ -264,12 +245,6 @@ func (o AssociationOutput) ToAssociationOutput() AssociationOutput {
 
 func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) AssociationOutput {
 	return o
-}
-
-func (o AssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*Association] {
-	return pulumix.Output[*Association]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the license configuration.
@@ -296,12 +271,6 @@ func (o AssociationArrayOutput) ToAssociationArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o AssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Association] {
-	return pulumix.Output[[]*Association]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationArrayOutput) Index(i pulumi.IntInput) AssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Association {
 		return vs[0].([]*Association)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o AssociationMapOutput) ToAssociationMapOutput() AssociationMapOutput {
 
 func (o AssociationMapOutput) ToAssociationMapOutputWithContext(ctx context.Context) AssociationMapOutput {
 	return o
-}
-
-func (o AssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Association] {
-	return pulumix.Output[map[string]*Association]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssociationMapOutput) MapIndex(k pulumi.StringInput) AssociationOutput {

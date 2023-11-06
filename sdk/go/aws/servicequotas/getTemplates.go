@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Service Quotas Templates.
@@ -105,12 +104,6 @@ func (o GetTemplatesResultOutput) ToGetTemplatesResultOutput() GetTemplatesResul
 
 func (o GetTemplatesResultOutput) ToGetTemplatesResultOutputWithContext(ctx context.Context) GetTemplatesResultOutput {
 	return o
-}
-
-func (o GetTemplatesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTemplatesResult] {
-	return pulumix.Output[GetTemplatesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTemplatesResultOutput) Id() pulumi.StringOutput {

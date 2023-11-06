@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The IAM Account Alias data source allows access to the account alias
@@ -81,12 +80,6 @@ func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutput() Looku
 
 func (o LookupAccountAliasResultOutput) ToLookupAccountAliasResultOutputWithContext(ctx context.Context) LookupAccountAliasResultOutput {
 	return o
-}
-
-func (o LookupAccountAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountAliasResult] {
-	return pulumix.Output[LookupAccountAliasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Alias associated with the AWS account.

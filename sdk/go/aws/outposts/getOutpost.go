@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Outposts Outpost.
@@ -131,12 +130,6 @@ func (o GetOutpostResultOutput) ToGetOutpostResultOutput() GetOutpostResultOutpu
 
 func (o GetOutpostResultOutput) ToGetOutpostResultOutputWithContext(ctx context.Context) GetOutpostResultOutput {
 	return o
-}
-
-func (o GetOutpostResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostResult] {
-	return pulumix.Output[GetOutpostResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOutpostResultOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a Kinesis Stream Consumer.
@@ -169,12 +168,6 @@ func (i *StreamConsumer) ToStreamConsumerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerOutput)
 }
 
-func (i *StreamConsumer) ToOutput(ctx context.Context) pulumix.Output[*StreamConsumer] {
-	return pulumix.Output[*StreamConsumer]{
-		OutputState: i.ToStreamConsumerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamConsumerArrayInput is an input type that accepts StreamConsumerArray and StreamConsumerArrayOutput values.
 // You can construct a concrete instance of `StreamConsumerArrayInput` via:
 //
@@ -198,12 +191,6 @@ func (i StreamConsumerArray) ToStreamConsumerArrayOutput() StreamConsumerArrayOu
 
 func (i StreamConsumerArray) ToStreamConsumerArrayOutputWithContext(ctx context.Context) StreamConsumerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerArrayOutput)
-}
-
-func (i StreamConsumerArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamConsumer] {
-	return pulumix.Output[[]*StreamConsumer]{
-		OutputState: i.ToStreamConsumerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamConsumerMapInput is an input type that accepts StreamConsumerMap and StreamConsumerMapOutput values.
@@ -231,12 +218,6 @@ func (i StreamConsumerMap) ToStreamConsumerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerMapOutput)
 }
 
-func (i StreamConsumerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamConsumer] {
-	return pulumix.Output[map[string]*StreamConsumer]{
-		OutputState: i.ToStreamConsumerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamConsumerOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerOutput) ElementType() reflect.Type {
@@ -249,12 +230,6 @@ func (o StreamConsumerOutput) ToStreamConsumerOutput() StreamConsumerOutput {
 
 func (o StreamConsumerOutput) ToStreamConsumerOutputWithContext(ctx context.Context) StreamConsumerOutput {
 	return o
-}
-
-func (o StreamConsumerOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamConsumer] {
-	return pulumix.Output[*StreamConsumer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the stream consumer.
@@ -291,12 +266,6 @@ func (o StreamConsumerArrayOutput) ToStreamConsumerArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o StreamConsumerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamConsumer] {
-	return pulumix.Output[[]*StreamConsumer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamConsumerArrayOutput) Index(i pulumi.IntInput) StreamConsumerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamConsumer {
 		return vs[0].([]*StreamConsumer)[vs[1].(int)]
@@ -315,12 +284,6 @@ func (o StreamConsumerMapOutput) ToStreamConsumerMapOutput() StreamConsumerMapOu
 
 func (o StreamConsumerMapOutput) ToStreamConsumerMapOutputWithContext(ctx context.Context) StreamConsumerMapOutput {
 	return o
-}
-
-func (o StreamConsumerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamConsumer] {
-	return pulumix.Output[map[string]*StreamConsumer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamConsumerMapOutput) MapIndex(k pulumi.StringInput) StreamConsumerOutput {

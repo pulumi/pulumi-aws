@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
@@ -202,12 +201,6 @@ func (i *SdkvoiceSipRule) ToSdkvoiceSipRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleOutput)
 }
 
-func (i *SdkvoiceSipRule) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipRule] {
-	return pulumix.Output[*SdkvoiceSipRule]{
-		OutputState: i.ToSdkvoiceSipRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SdkvoiceSipRuleArrayInput is an input type that accepts SdkvoiceSipRuleArray and SdkvoiceSipRuleArrayOutput values.
 // You can construct a concrete instance of `SdkvoiceSipRuleArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i SdkvoiceSipRuleArray) ToSdkvoiceSipRuleArrayOutput() SdkvoiceSipRuleArra
 
 func (i SdkvoiceSipRuleArray) ToSdkvoiceSipRuleArrayOutputWithContext(ctx context.Context) SdkvoiceSipRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleArrayOutput)
-}
-
-func (i SdkvoiceSipRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceSipRule] {
-	return pulumix.Output[[]*SdkvoiceSipRule]{
-		OutputState: i.ToSdkvoiceSipRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SdkvoiceSipRuleMapInput is an input type that accepts SdkvoiceSipRuleMap and SdkvoiceSipRuleMapOutput values.
@@ -264,12 +251,6 @@ func (i SdkvoiceSipRuleMap) ToSdkvoiceSipRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleMapOutput)
 }
 
-func (i SdkvoiceSipRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceSipRule] {
-	return pulumix.Output[map[string]*SdkvoiceSipRule]{
-		OutputState: i.ToSdkvoiceSipRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SdkvoiceSipRuleOutput struct{ *pulumi.OutputState }
 
 func (SdkvoiceSipRuleOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o SdkvoiceSipRuleOutput) ToSdkvoiceSipRuleOutput() SdkvoiceSipRuleOutput {
 
 func (o SdkvoiceSipRuleOutput) ToSdkvoiceSipRuleOutputWithContext(ctx context.Context) SdkvoiceSipRuleOutput {
 	return o
-}
-
-func (o SdkvoiceSipRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipRule] {
-	return pulumix.Output[*SdkvoiceSipRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enables or disables a rule. You must disable rules before you can delete them.
@@ -331,12 +306,6 @@ func (o SdkvoiceSipRuleArrayOutput) ToSdkvoiceSipRuleArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o SdkvoiceSipRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceSipRule] {
-	return pulumix.Output[[]*SdkvoiceSipRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SdkvoiceSipRuleArrayOutput) Index(i pulumi.IntInput) SdkvoiceSipRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SdkvoiceSipRule {
 		return vs[0].([]*SdkvoiceSipRule)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o SdkvoiceSipRuleMapOutput) ToSdkvoiceSipRuleMapOutput() SdkvoiceSipRuleMa
 
 func (o SdkvoiceSipRuleMapOutput) ToSdkvoiceSipRuleMapOutputWithContext(ctx context.Context) SdkvoiceSipRuleMapOutput {
 	return o
-}
-
-func (o SdkvoiceSipRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceSipRule] {
-	return pulumix.Output[map[string]*SdkvoiceSipRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SdkvoiceSipRuleMapOutput) MapIndex(k pulumi.StringInput) SdkvoiceSipRuleOutput {

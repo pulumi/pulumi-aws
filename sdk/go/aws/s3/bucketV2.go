@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket resource.
@@ -646,12 +645,6 @@ func (i *BucketV2) ToBucketV2OutputWithContext(ctx context.Context) BucketV2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2Output)
 }
 
-func (i *BucketV2) ToOutput(ctx context.Context) pulumix.Output[*BucketV2] {
-	return pulumix.Output[*BucketV2]{
-		OutputState: i.ToBucketV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketV2ArrayInput is an input type that accepts BucketV2Array and BucketV2ArrayOutput values.
 // You can construct a concrete instance of `BucketV2ArrayInput` via:
 //
@@ -675,12 +668,6 @@ func (i BucketV2Array) ToBucketV2ArrayOutput() BucketV2ArrayOutput {
 
 func (i BucketV2Array) ToBucketV2ArrayOutputWithContext(ctx context.Context) BucketV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ArrayOutput)
-}
-
-func (i BucketV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketV2] {
-	return pulumix.Output[[]*BucketV2]{
-		OutputState: i.ToBucketV2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketV2MapInput is an input type that accepts BucketV2Map and BucketV2MapOutput values.
@@ -708,12 +695,6 @@ func (i BucketV2Map) ToBucketV2MapOutputWithContext(ctx context.Context) BucketV
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2MapOutput)
 }
 
-func (i BucketV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketV2] {
-	return pulumix.Output[map[string]*BucketV2]{
-		OutputState: i.ToBucketV2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketV2Output struct{ *pulumi.OutputState }
 
 func (BucketV2Output) ElementType() reflect.Type {
@@ -726,12 +707,6 @@ func (o BucketV2Output) ToBucketV2Output() BucketV2Output {
 
 func (o BucketV2Output) ToBucketV2OutputWithContext(ctx context.Context) BucketV2Output {
 	return o
-}
-
-func (o BucketV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketV2] {
-	return pulumix.Output[*BucketV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
@@ -929,12 +904,6 @@ func (o BucketV2ArrayOutput) ToBucketV2ArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o BucketV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketV2] {
-	return pulumix.Output[[]*BucketV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketV2ArrayOutput) Index(i pulumi.IntInput) BucketV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketV2 {
 		return vs[0].([]*BucketV2)[vs[1].(int)]
@@ -953,12 +922,6 @@ func (o BucketV2MapOutput) ToBucketV2MapOutput() BucketV2MapOutput {
 
 func (o BucketV2MapOutput) ToBucketV2MapOutputWithContext(ctx context.Context) BucketV2MapOutput {
 	return o
-}
-
-func (o BucketV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketV2] {
-	return pulumix.Output[map[string]*BucketV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketV2MapOutput) MapIndex(k pulumi.StringInput) BucketV2Output {

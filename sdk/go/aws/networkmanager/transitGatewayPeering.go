@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
@@ -219,12 +218,6 @@ func (i *TransitGatewayPeering) ToTransitGatewayPeeringOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringOutput)
 }
 
-func (i *TransitGatewayPeering) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeering] {
-	return pulumix.Output[*TransitGatewayPeering]{
-		OutputState: i.ToTransitGatewayPeeringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransitGatewayPeeringArrayInput is an input type that accepts TransitGatewayPeeringArray and TransitGatewayPeeringArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayPeeringArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i TransitGatewayPeeringArray) ToTransitGatewayPeeringArrayOutput() Transit
 
 func (i TransitGatewayPeeringArray) ToTransitGatewayPeeringArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringArrayOutput)
-}
-
-func (i TransitGatewayPeeringArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayPeering] {
-	return pulumix.Output[[]*TransitGatewayPeering]{
-		OutputState: i.ToTransitGatewayPeeringArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TransitGatewayPeeringMapInput is an input type that accepts TransitGatewayPeeringMap and TransitGatewayPeeringMapOutput values.
@@ -281,12 +268,6 @@ func (i TransitGatewayPeeringMap) ToTransitGatewayPeeringMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringMapOutput)
 }
 
-func (i TransitGatewayPeeringMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayPeering] {
-	return pulumix.Output[map[string]*TransitGatewayPeering]{
-		OutputState: i.ToTransitGatewayPeeringMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransitGatewayPeeringOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutput() TransitGate
 
 func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutputWithContext(ctx context.Context) TransitGatewayPeeringOutput {
 	return o
-}
-
-func (o TransitGatewayPeeringOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeering] {
-	return pulumix.Output[*TransitGatewayPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Peering Amazon Resource Name (ARN).
@@ -378,12 +353,6 @@ func (o TransitGatewayPeeringArrayOutput) ToTransitGatewayPeeringArrayOutputWith
 	return o
 }
 
-func (o TransitGatewayPeeringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayPeering] {
-	return pulumix.Output[[]*TransitGatewayPeering]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransitGatewayPeeringArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGatewayPeering {
 		return vs[0].([]*TransitGatewayPeering)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o TransitGatewayPeeringMapOutput) ToTransitGatewayPeeringMapOutput() Trans
 
 func (o TransitGatewayPeeringMapOutput) ToTransitGatewayPeeringMapOutputWithContext(ctx context.Context) TransitGatewayPeeringMapOutput {
 	return o
-}
-
-func (o TransitGatewayPeeringMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayPeering] {
-	return pulumix.Output[map[string]*TransitGatewayPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransitGatewayPeeringMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayPeeringOutput {

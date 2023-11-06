@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
@@ -98,12 +97,6 @@ func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutput() Loo
 
 func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutputWithContext(ctx context.Context) LookupRateBasedRuleResultOutput {
 	return o
-}
-
-func (o LookupRateBasedRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRateBasedRuleResult] {
-	return pulumix.Output[LookupRateBasedRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

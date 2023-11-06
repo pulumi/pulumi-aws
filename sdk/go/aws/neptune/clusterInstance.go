@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Cluster Instance Resource defines attributes that are specific to a single instance in a Neptune Cluster.
@@ -394,12 +393,6 @@ func (i *ClusterInstance) ToClusterInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceOutput)
 }
 
-func (i *ClusterInstance) ToOutput(ctx context.Context) pulumix.Output[*ClusterInstance] {
-	return pulumix.Output[*ClusterInstance]{
-		OutputState: i.ToClusterInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterInstanceArrayInput is an input type that accepts ClusterInstanceArray and ClusterInstanceArrayOutput values.
 // You can construct a concrete instance of `ClusterInstanceArrayInput` via:
 //
@@ -423,12 +416,6 @@ func (i ClusterInstanceArray) ToClusterInstanceArrayOutput() ClusterInstanceArra
 
 func (i ClusterInstanceArray) ToClusterInstanceArrayOutputWithContext(ctx context.Context) ClusterInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceArrayOutput)
-}
-
-func (i ClusterInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterInstance] {
-	return pulumix.Output[[]*ClusterInstance]{
-		OutputState: i.ToClusterInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterInstanceMapInput is an input type that accepts ClusterInstanceMap and ClusterInstanceMapOutput values.
@@ -456,12 +443,6 @@ func (i ClusterInstanceMap) ToClusterInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceMapOutput)
 }
 
-func (i ClusterInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterInstance] {
-	return pulumix.Output[map[string]*ClusterInstance]{
-		OutputState: i.ToClusterInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterInstanceOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceOutput) ElementType() reflect.Type {
@@ -474,12 +455,6 @@ func (o ClusterInstanceOutput) ToClusterInstanceOutput() ClusterInstanceOutput {
 
 func (o ClusterInstanceOutput) ToClusterInstanceOutputWithContext(ctx context.Context) ClusterInstanceOutput {
 	return o
-}
-
-func (o ClusterInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterInstance] {
-	return pulumix.Output[*ClusterInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The hostname of the instance. See also `endpoint` and `port`.
@@ -625,12 +600,6 @@ func (o ClusterInstanceArrayOutput) ToClusterInstanceArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ClusterInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterInstance] {
-	return pulumix.Output[[]*ClusterInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterInstanceArrayOutput) Index(i pulumi.IntInput) ClusterInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterInstance {
 		return vs[0].([]*ClusterInstance)[vs[1].(int)]
@@ -649,12 +618,6 @@ func (o ClusterInstanceMapOutput) ToClusterInstanceMapOutput() ClusterInstanceMa
 
 func (o ClusterInstanceMapOutput) ToClusterInstanceMapOutputWithContext(ctx context.Context) ClusterInstanceMapOutput {
 	return o
-}
-
-func (o ClusterInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterInstance] {
-	return pulumix.Output[map[string]*ClusterInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterInstanceMapOutput) MapIndex(k pulumi.StringInput) ClusterInstanceOutput {

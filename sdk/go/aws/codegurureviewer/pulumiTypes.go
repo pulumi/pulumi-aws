@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i RepositoryAssociationKmsKeyDetailsArgs) ToRepositoryAssociationKmsKeyDet
 
 func (i RepositoryAssociationKmsKeyDetailsArgs) ToRepositoryAssociationKmsKeyDetailsOutputWithContext(ctx context.Context) RepositoryAssociationKmsKeyDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationKmsKeyDetailsOutput)
-}
-
-func (i RepositoryAssociationKmsKeyDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationKmsKeyDetails] {
-	return pulumix.Output[RepositoryAssociationKmsKeyDetails]{
-		OutputState: i.ToRepositoryAssociationKmsKeyDetailsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RepositoryAssociationKmsKeyDetailsArgs) ToRepositoryAssociationKmsKeyDetailsPtrOutput() RepositoryAssociationKmsKeyDetailsPtrOutput {
@@ -98,12 +91,6 @@ func (i *repositoryAssociationKmsKeyDetailsPtrType) ToRepositoryAssociationKmsKe
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }
 
-func (i *repositoryAssociationKmsKeyDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationKmsKeyDetails] {
-	return pulumix.Output[*RepositoryAssociationKmsKeyDetails]{
-		OutputState: i.ToRepositoryAssociationKmsKeyDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationKmsKeyDetailsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationKmsKeyDetailsOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o RepositoryAssociationKmsKeyDetailsOutput) ToRepositoryAssociationKmsKeyD
 	}).(RepositoryAssociationKmsKeyDetailsPtrOutput)
 }
 
-func (o RepositoryAssociationKmsKeyDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationKmsKeyDetails] {
-	return pulumix.Output[RepositoryAssociationKmsKeyDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
 func (o RepositoryAssociationKmsKeyDetailsOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryAssociationKmsKeyDetails) *string { return v.EncryptionOption }).(pulumi.StringPtrOutput)
@@ -156,12 +137,6 @@ func (o RepositoryAssociationKmsKeyDetailsPtrOutput) ToRepositoryAssociationKmsK
 
 func (o RepositoryAssociationKmsKeyDetailsPtrOutput) ToRepositoryAssociationKmsKeyDetailsPtrOutputWithContext(ctx context.Context) RepositoryAssociationKmsKeyDetailsPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationKmsKeyDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationKmsKeyDetails] {
-	return pulumix.Output[*RepositoryAssociationKmsKeyDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationKmsKeyDetailsPtrOutput) Elem() RepositoryAssociationKmsKeyDetailsOutput {
@@ -231,12 +206,6 @@ func (i RepositoryAssociationRepositoryArgs) ToRepositoryAssociationRepositoryOu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryOutput)
 }
 
-func (i RepositoryAssociationRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepository] {
-	return pulumix.Output[RepositoryAssociationRepository]{
-		OutputState: i.ToRepositoryAssociationRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryAssociationRepositoryArgs) ToRepositoryAssociationRepositoryPtrOutput() RepositoryAssociationRepositoryPtrOutput {
 	return i.ToRepositoryAssociationRepositoryPtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *repositoryAssociationRepositoryPtrType) ToRepositoryAssociationReposito
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryPtrOutput)
 }
 
-func (i *repositoryAssociationRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepository] {
-	return pulumix.Output[*RepositoryAssociationRepository]{
-		OutputState: i.ToRepositoryAssociationRepositoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationRepositoryOutput) ElementType() reflect.Type {
@@ -306,12 +269,6 @@ func (o RepositoryAssociationRepositoryOutput) ToRepositoryAssociationRepository
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryAssociationRepository) *RepositoryAssociationRepository {
 		return &v
 	}).(RepositoryAssociationRepositoryPtrOutput)
-}
-
-func (o RepositoryAssociationRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepository] {
-	return pulumix.Output[RepositoryAssociationRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryOutput) Bitbucket() RepositoryAssociationRepositoryBitbucketPtrOutput {
@@ -346,12 +303,6 @@ func (o RepositoryAssociationRepositoryPtrOutput) ToRepositoryAssociationReposit
 
 func (o RepositoryAssociationRepositoryPtrOutput) ToRepositoryAssociationRepositoryPtrOutputWithContext(ctx context.Context) RepositoryAssociationRepositoryPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepository] {
-	return pulumix.Output[*RepositoryAssociationRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryPtrOutput) Elem() RepositoryAssociationRepositoryOutput {
@@ -441,12 +392,6 @@ func (i RepositoryAssociationRepositoryBitbucketArgs) ToRepositoryAssociationRep
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryBitbucketOutput)
 }
 
-func (i RepositoryAssociationRepositoryBitbucketArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryBitbucket] {
-	return pulumix.Output[RepositoryAssociationRepositoryBitbucket]{
-		OutputState: i.ToRepositoryAssociationRepositoryBitbucketOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryAssociationRepositoryBitbucketArgs) ToRepositoryAssociationRepositoryBitbucketPtrOutput() RepositoryAssociationRepositoryBitbucketPtrOutput {
 	return i.ToRepositoryAssociationRepositoryBitbucketPtrOutputWithContext(context.Background())
 }
@@ -488,12 +433,6 @@ func (i *repositoryAssociationRepositoryBitbucketPtrType) ToRepositoryAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryBitbucketPtrOutput)
 }
 
-func (i *repositoryAssociationRepositoryBitbucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryBitbucket] {
-	return pulumix.Output[*RepositoryAssociationRepositoryBitbucket]{
-		OutputState: i.ToRepositoryAssociationRepositoryBitbucketPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationRepositoryBitbucketOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationRepositoryBitbucketOutput) ElementType() reflect.Type {
@@ -516,12 +455,6 @@ func (o RepositoryAssociationRepositoryBitbucketOutput) ToRepositoryAssociationR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryAssociationRepositoryBitbucket) *RepositoryAssociationRepositoryBitbucket {
 		return &v
 	}).(RepositoryAssociationRepositoryBitbucketPtrOutput)
-}
-
-func (o RepositoryAssociationRepositoryBitbucketOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryBitbucket] {
-	return pulumix.Output[RepositoryAssociationRepositoryBitbucket]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
@@ -551,12 +484,6 @@ func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ToRepositoryAssociati
 
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ToRepositoryAssociationRepositoryBitbucketPtrOutputWithContext(ctx context.Context) RepositoryAssociationRepositoryBitbucketPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationRepositoryBitbucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryBitbucket] {
-	return pulumix.Output[*RepositoryAssociationRepositoryBitbucket]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryBitbucketPtrOutput) Elem() RepositoryAssociationRepositoryBitbucketOutput {
@@ -632,12 +559,6 @@ func (i RepositoryAssociationRepositoryCodecommitArgs) ToRepositoryAssociationRe
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryCodecommitOutput)
 }
 
-func (i RepositoryAssociationRepositoryCodecommitArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryCodecommit] {
-	return pulumix.Output[RepositoryAssociationRepositoryCodecommit]{
-		OutputState: i.ToRepositoryAssociationRepositoryCodecommitOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryAssociationRepositoryCodecommitArgs) ToRepositoryAssociationRepositoryCodecommitPtrOutput() RepositoryAssociationRepositoryCodecommitPtrOutput {
 	return i.ToRepositoryAssociationRepositoryCodecommitPtrOutputWithContext(context.Background())
 }
@@ -679,12 +600,6 @@ func (i *repositoryAssociationRepositoryCodecommitPtrType) ToRepositoryAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryCodecommitPtrOutput)
 }
 
-func (i *repositoryAssociationRepositoryCodecommitPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryCodecommit] {
-	return pulumix.Output[*RepositoryAssociationRepositoryCodecommit]{
-		OutputState: i.ToRepositoryAssociationRepositoryCodecommitPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationRepositoryCodecommitOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationRepositoryCodecommitOutput) ElementType() reflect.Type {
@@ -709,12 +624,6 @@ func (o RepositoryAssociationRepositoryCodecommitOutput) ToRepositoryAssociation
 	}).(RepositoryAssociationRepositoryCodecommitPtrOutput)
 }
 
-func (o RepositoryAssociationRepositoryCodecommitOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryCodecommit] {
-	return pulumix.Output[RepositoryAssociationRepositoryCodecommit]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the AWS CodeCommit repository.
 func (o RepositoryAssociationRepositoryCodecommitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryCodecommit) string { return v.Name }).(pulumi.StringOutput)
@@ -732,12 +641,6 @@ func (o RepositoryAssociationRepositoryCodecommitPtrOutput) ToRepositoryAssociat
 
 func (o RepositoryAssociationRepositoryCodecommitPtrOutput) ToRepositoryAssociationRepositoryCodecommitPtrOutputWithContext(ctx context.Context) RepositoryAssociationRepositoryCodecommitPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationRepositoryCodecommitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryCodecommit] {
-	return pulumix.Output[*RepositoryAssociationRepositoryCodecommit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryCodecommitPtrOutput) Elem() RepositoryAssociationRepositoryCodecommitOutput {
@@ -801,12 +704,6 @@ func (i RepositoryAssociationRepositoryGithubEnterpriseServerArgs) ToRepositoryA
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryGithubEnterpriseServerOutput)
 }
 
-func (i RepositoryAssociationRepositoryGithubEnterpriseServerArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryGithubEnterpriseServer] {
-	return pulumix.Output[RepositoryAssociationRepositoryGithubEnterpriseServer]{
-		OutputState: i.ToRepositoryAssociationRepositoryGithubEnterpriseServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryAssociationRepositoryGithubEnterpriseServerArgs) ToRepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput() RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput {
 	return i.ToRepositoryAssociationRepositoryGithubEnterpriseServerPtrOutputWithContext(context.Background())
 }
@@ -848,12 +745,6 @@ func (i *repositoryAssociationRepositoryGithubEnterpriseServerPtrType) ToReposit
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput)
 }
 
-func (i *repositoryAssociationRepositoryGithubEnterpriseServerPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryGithubEnterpriseServer] {
-	return pulumix.Output[*RepositoryAssociationRepositoryGithubEnterpriseServer]{
-		OutputState: i.ToRepositoryAssociationRepositoryGithubEnterpriseServerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationRepositoryGithubEnterpriseServerOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ElementType() reflect.Type {
@@ -876,12 +767,6 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ToRepositor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryAssociationRepositoryGithubEnterpriseServer) *RepositoryAssociationRepositoryGithubEnterpriseServer {
 		return &v
 	}).(RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput)
-}
-
-func (o RepositoryAssociationRepositoryGithubEnterpriseServerOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryGithubEnterpriseServer] {
-	return pulumix.Output[RepositoryAssociationRepositoryGithubEnterpriseServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
@@ -911,12 +796,6 @@ func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) ToReposi
 
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) ToRepositoryAssociationRepositoryGithubEnterpriseServerPtrOutputWithContext(ctx context.Context) RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryGithubEnterpriseServer] {
-	return pulumix.Output[*RepositoryAssociationRepositoryGithubEnterpriseServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryGithubEnterpriseServerPtrOutput) Elem() RepositoryAssociationRepositoryGithubEnterpriseServerOutput {
@@ -996,12 +875,6 @@ func (i RepositoryAssociationRepositoryS3BucketArgs) ToRepositoryAssociationRepo
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryS3BucketOutput)
 }
 
-func (i RepositoryAssociationRepositoryS3BucketArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryS3Bucket] {
-	return pulumix.Output[RepositoryAssociationRepositoryS3Bucket]{
-		OutputState: i.ToRepositoryAssociationRepositoryS3BucketOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryAssociationRepositoryS3BucketArgs) ToRepositoryAssociationRepositoryS3BucketPtrOutput() RepositoryAssociationRepositoryS3BucketPtrOutput {
 	return i.ToRepositoryAssociationRepositoryS3BucketPtrOutputWithContext(context.Background())
 }
@@ -1043,12 +916,6 @@ func (i *repositoryAssociationRepositoryS3BucketPtrType) ToRepositoryAssociation
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationRepositoryS3BucketPtrOutput)
 }
 
-func (i *repositoryAssociationRepositoryS3BucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryS3Bucket] {
-	return pulumix.Output[*RepositoryAssociationRepositoryS3Bucket]{
-		OutputState: i.ToRepositoryAssociationRepositoryS3BucketPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationRepositoryS3BucketOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationRepositoryS3BucketOutput) ElementType() reflect.Type {
@@ -1073,12 +940,6 @@ func (o RepositoryAssociationRepositoryS3BucketOutput) ToRepositoryAssociationRe
 	}).(RepositoryAssociationRepositoryS3BucketPtrOutput)
 }
 
-func (o RepositoryAssociationRepositoryS3BucketOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationRepositoryS3Bucket] {
-	return pulumix.Output[RepositoryAssociationRepositoryS3Bucket]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
 func (o RepositoryAssociationRepositoryS3BucketOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryAssociationRepositoryS3Bucket) string { return v.BucketName }).(pulumi.StringOutput)
@@ -1101,12 +962,6 @@ func (o RepositoryAssociationRepositoryS3BucketPtrOutput) ToRepositoryAssociatio
 
 func (o RepositoryAssociationRepositoryS3BucketPtrOutput) ToRepositoryAssociationRepositoryS3BucketPtrOutputWithContext(ctx context.Context) RepositoryAssociationRepositoryS3BucketPtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationRepositoryS3BucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationRepositoryS3Bucket] {
-	return pulumix.Output[*RepositoryAssociationRepositoryS3Bucket]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationRepositoryS3BucketPtrOutput) Elem() RepositoryAssociationRepositoryS3BucketOutput {
@@ -1174,12 +1029,6 @@ func (i RepositoryAssociationS3RepositoryDetailArgs) ToRepositoryAssociationS3Re
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationS3RepositoryDetailOutput)
 }
 
-func (i RepositoryAssociationS3RepositoryDetailArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationS3RepositoryDetail] {
-	return pulumix.Output[RepositoryAssociationS3RepositoryDetail]{
-		OutputState: i.ToRepositoryAssociationS3RepositoryDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryAssociationS3RepositoryDetailArrayInput is an input type that accepts RepositoryAssociationS3RepositoryDetailArray and RepositoryAssociationS3RepositoryDetailArrayOutput values.
 // You can construct a concrete instance of `RepositoryAssociationS3RepositoryDetailArrayInput` via:
 //
@@ -1205,12 +1054,6 @@ func (i RepositoryAssociationS3RepositoryDetailArray) ToRepositoryAssociationS3R
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationS3RepositoryDetailArrayOutput)
 }
 
-func (i RepositoryAssociationS3RepositoryDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationS3RepositoryDetail] {
-	return pulumix.Output[[]RepositoryAssociationS3RepositoryDetail]{
-		OutputState: i.ToRepositoryAssociationS3RepositoryDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationS3RepositoryDetailOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationS3RepositoryDetailOutput) ElementType() reflect.Type {
@@ -1223,12 +1066,6 @@ func (o RepositoryAssociationS3RepositoryDetailOutput) ToRepositoryAssociationS3
 
 func (o RepositoryAssociationS3RepositoryDetailOutput) ToRepositoryAssociationS3RepositoryDetailOutputWithContext(ctx context.Context) RepositoryAssociationS3RepositoryDetailOutput {
 	return o
-}
-
-func (o RepositoryAssociationS3RepositoryDetailOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationS3RepositoryDetail] {
-	return pulumix.Output[RepositoryAssociationS3RepositoryDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
@@ -1254,12 +1091,6 @@ func (o RepositoryAssociationS3RepositoryDetailArrayOutput) ToRepositoryAssociat
 
 func (o RepositoryAssociationS3RepositoryDetailArrayOutput) ToRepositoryAssociationS3RepositoryDetailArrayOutputWithContext(ctx context.Context) RepositoryAssociationS3RepositoryDetailArrayOutput {
 	return o
-}
-
-func (o RepositoryAssociationS3RepositoryDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationS3RepositoryDetail] {
-	return pulumix.Output[[]RepositoryAssociationS3RepositoryDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationS3RepositoryDetailArrayOutput) Index(i pulumi.IntInput) RepositoryAssociationS3RepositoryDetailOutput {
@@ -1301,12 +1132,6 @@ func (i RepositoryAssociationS3RepositoryDetailCodeArtifactArgs) ToRepositoryAss
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationS3RepositoryDetailCodeArtifactOutput)
 }
 
-func (i RepositoryAssociationS3RepositoryDetailCodeArtifactArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationS3RepositoryDetailCodeArtifact] {
-	return pulumix.Output[RepositoryAssociationS3RepositoryDetailCodeArtifact]{
-		OutputState: i.ToRepositoryAssociationS3RepositoryDetailCodeArtifactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryAssociationS3RepositoryDetailCodeArtifactArrayInput is an input type that accepts RepositoryAssociationS3RepositoryDetailCodeArtifactArray and RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput values.
 // You can construct a concrete instance of `RepositoryAssociationS3RepositoryDetailCodeArtifactArrayInput` via:
 //
@@ -1332,12 +1157,6 @@ func (i RepositoryAssociationS3RepositoryDetailCodeArtifactArray) ToRepositoryAs
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput)
 }
 
-func (i RepositoryAssociationS3RepositoryDetailCodeArtifactArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationS3RepositoryDetailCodeArtifact] {
-	return pulumix.Output[[]RepositoryAssociationS3RepositoryDetailCodeArtifact]{
-		OutputState: i.ToRepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryAssociationS3RepositoryDetailCodeArtifactOutput struct{ *pulumi.OutputState }
 
 func (RepositoryAssociationS3RepositoryDetailCodeArtifactOutput) ElementType() reflect.Type {
@@ -1350,12 +1169,6 @@ func (o RepositoryAssociationS3RepositoryDetailCodeArtifactOutput) ToRepositoryA
 
 func (o RepositoryAssociationS3RepositoryDetailCodeArtifactOutput) ToRepositoryAssociationS3RepositoryDetailCodeArtifactOutputWithContext(ctx context.Context) RepositoryAssociationS3RepositoryDetailCodeArtifactOutput {
 	return o
-}
-
-func (o RepositoryAssociationS3RepositoryDetailCodeArtifactOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationS3RepositoryDetailCodeArtifact] {
-	return pulumix.Output[RepositoryAssociationS3RepositoryDetailCodeArtifact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationS3RepositoryDetailCodeArtifactOutput) BuildArtifactsObjectKey() pulumi.StringPtrOutput {
@@ -1380,12 +1193,6 @@ func (o RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput) ToReposi
 
 func (o RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput) ToRepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutputWithContext(ctx context.Context) RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput {
 	return o
-}
-
-func (o RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationS3RepositoryDetailCodeArtifact] {
-	return pulumix.Output[[]RepositoryAssociationS3RepositoryDetailCodeArtifact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationS3RepositoryDetailCodeArtifactArrayOutput) Index(i pulumi.IntInput) RepositoryAssociationS3RepositoryDetailCodeArtifactOutput {

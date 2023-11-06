@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
@@ -257,12 +256,6 @@ func (i *BlockPublicAccessConfiguration) ToBlockPublicAccessConfigurationOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationOutput)
 }
 
-func (i *BlockPublicAccessConfiguration) ToOutput(ctx context.Context) pulumix.Output[*BlockPublicAccessConfiguration] {
-	return pulumix.Output[*BlockPublicAccessConfiguration]{
-		OutputState: i.ToBlockPublicAccessConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BlockPublicAccessConfigurationArrayInput is an input type that accepts BlockPublicAccessConfigurationArray and BlockPublicAccessConfigurationArrayOutput values.
 // You can construct a concrete instance of `BlockPublicAccessConfigurationArrayInput` via:
 //
@@ -286,12 +279,6 @@ func (i BlockPublicAccessConfigurationArray) ToBlockPublicAccessConfigurationArr
 
 func (i BlockPublicAccessConfigurationArray) ToBlockPublicAccessConfigurationArrayOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationArrayOutput)
-}
-
-func (i BlockPublicAccessConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BlockPublicAccessConfiguration] {
-	return pulumix.Output[[]*BlockPublicAccessConfiguration]{
-		OutputState: i.ToBlockPublicAccessConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BlockPublicAccessConfigurationMapInput is an input type that accepts BlockPublicAccessConfigurationMap and BlockPublicAccessConfigurationMapOutput values.
@@ -319,12 +306,6 @@ func (i BlockPublicAccessConfigurationMap) ToBlockPublicAccessConfigurationMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BlockPublicAccessConfigurationMapOutput)
 }
 
-func (i BlockPublicAccessConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlockPublicAccessConfiguration] {
-	return pulumix.Output[map[string]*BlockPublicAccessConfiguration]{
-		OutputState: i.ToBlockPublicAccessConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BlockPublicAccessConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BlockPublicAccessConfigurationOutput) ElementType() reflect.Type {
@@ -337,12 +318,6 @@ func (o BlockPublicAccessConfigurationOutput) ToBlockPublicAccessConfigurationOu
 
 func (o BlockPublicAccessConfigurationOutput) ToBlockPublicAccessConfigurationOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationOutput {
 	return o
-}
-
-func (o BlockPublicAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*BlockPublicAccessConfiguration] {
-	return pulumix.Output[*BlockPublicAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable or disable EMR Block Public Access.
@@ -373,12 +348,6 @@ func (o BlockPublicAccessConfigurationArrayOutput) ToBlockPublicAccessConfigurat
 	return o
 }
 
-func (o BlockPublicAccessConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BlockPublicAccessConfiguration] {
-	return pulumix.Output[[]*BlockPublicAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BlockPublicAccessConfigurationArrayOutput) Index(i pulumi.IntInput) BlockPublicAccessConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BlockPublicAccessConfiguration {
 		return vs[0].([]*BlockPublicAccessConfiguration)[vs[1].(int)]
@@ -397,12 +366,6 @@ func (o BlockPublicAccessConfigurationMapOutput) ToBlockPublicAccessConfiguratio
 
 func (o BlockPublicAccessConfigurationMapOutput) ToBlockPublicAccessConfigurationMapOutputWithContext(ctx context.Context) BlockPublicAccessConfigurationMapOutput {
 	return o
-}
-
-func (o BlockPublicAccessConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BlockPublicAccessConfiguration] {
-	return pulumix.Output[map[string]*BlockPublicAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BlockPublicAccessConfigurationMapOutput) MapIndex(k pulumi.StringInput) BlockPublicAccessConfigurationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -111,12 +110,6 @@ func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResou
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesOutput)
 }
 
-func (i ComputeEnvironmentComputeResourcesArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResources] {
-	return pulumix.Output[ComputeEnvironmentComputeResources]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentComputeResourcesArgs) ToComputeEnvironmentComputeResourcesPtrOutput() ComputeEnvironmentComputeResourcesPtrOutput {
 	return i.ToComputeEnvironmentComputeResourcesPtrOutputWithContext(context.Background())
 }
@@ -158,12 +151,6 @@ func (i *computeEnvironmentComputeResourcesPtrType) ToComputeEnvironmentComputeR
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
 
-func (i *computeEnvironmentComputeResourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResources] {
-	return pulumix.Output[*ComputeEnvironmentComputeResources]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentComputeResourcesOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentComputeResourcesOutput) ElementType() reflect.Type {
@@ -186,12 +173,6 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResources {
 		return &v
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
-}
-
-func (o ComputeEnvironmentComputeResourcesOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResources] {
-	return pulumix.Output[ComputeEnvironmentComputeResources]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -295,12 +276,6 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ToComputeEnvironmentCompute
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentComputeResourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResources] {
-	return pulumix.Output[*ComputeEnvironmentComputeResources]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentComputeResourcesOutput {
@@ -520,12 +495,6 @@ func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnviron
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput)
 }
 
-func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResourcesEc2Configuration] {
-	return pulumix.Output[ComputeEnvironmentComputeResourcesEc2Configuration]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArray and ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput values.
 // You can construct a concrete instance of `ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput` via:
 //
@@ -551,12 +520,6 @@ func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArray) ToComputeEnviro
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput)
 }
 
-func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ComputeEnvironmentComputeResourcesEc2Configuration] {
-	return pulumix.Output[[]ComputeEnvironmentComputeResourcesEc2Configuration]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentComputeResourcesEc2ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ElementType() reflect.Type {
@@ -569,12 +532,6 @@ func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvir
 
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
 	return o
-}
-
-func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResourcesEc2Configuration] {
-	return pulumix.Output[ComputeEnvironmentComputeResourcesEc2Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResources` block.
@@ -599,12 +556,6 @@ func (o ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput) ToCompute
 
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o
-}
-
-func (o ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComputeEnvironmentComputeResourcesEc2Configuration] {
-	return pulumix.Output[[]ComputeEnvironmentComputeResourcesEc2Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
@@ -654,12 +605,6 @@ func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironme
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
 }
 
-func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResourcesLaunchTemplate] {
-	return pulumix.Output[ComputeEnvironmentComputeResourcesLaunchTemplate]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesLaunchTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentComputeResourcesLaunchTemplateArgs) ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput() ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return i.ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -701,12 +646,6 @@ func (i *computeEnvironmentComputeResourcesLaunchTemplatePtrType) ToComputeEnvir
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
 
-func (i *computeEnvironmentComputeResourcesLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResourcesLaunchTemplate] {
-	return pulumix.Output[*ComputeEnvironmentComputeResourcesLaunchTemplate]{
-		OutputState: i.ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentComputeResourcesLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ElementType() reflect.Type {
@@ -729,12 +668,6 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnviron
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResourcesLaunchTemplate) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		return &v
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
-}
-
-func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentComputeResourcesLaunchTemplate] {
-	return pulumix.Output[ComputeEnvironmentComputeResourcesLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
@@ -764,12 +697,6 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) ToComputeEnvi
 
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentComputeResourcesLaunchTemplate] {
-	return pulumix.Output[*ComputeEnvironmentComputeResourcesLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Elem() ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
@@ -849,12 +776,6 @@ func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationOutput)
 }
 
-func (i ComputeEnvironmentEksConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[ComputeEnvironmentEksConfiguration]{
-		OutputState: i.ToComputeEnvironmentEksConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComputeEnvironmentEksConfigurationArgs) ToComputeEnvironmentEksConfigurationPtrOutput() ComputeEnvironmentEksConfigurationPtrOutput {
 	return i.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(context.Background())
 }
@@ -896,12 +817,6 @@ func (i *computeEnvironmentEksConfigurationPtrType) ToComputeEnvironmentEksConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-func (i *computeEnvironmentEksConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[*ComputeEnvironmentEksConfiguration]{
-		OutputState: i.ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComputeEnvironmentEksConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ComputeEnvironmentEksConfigurationOutput) ElementType() reflect.Type {
@@ -926,12 +841,6 @@ func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigu
 	}).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-func (o ComputeEnvironmentEksConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[ComputeEnvironmentEksConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the Amazon EKS cluster.
 func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
@@ -954,12 +863,6 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConf
 
 func (o ComputeEnvironmentEksConfigurationPtrOutput) ToComputeEnvironmentEksConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEksConfigurationPtrOutput {
 	return o
-}
-
-func (o ComputeEnvironmentEksConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnvironmentEksConfiguration] {
-	return pulumix.Output[*ComputeEnvironmentEksConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEksConfigurationOutput {
@@ -1029,12 +932,6 @@ func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyOutput)
 }
 
-func (i JobDefinitionRetryStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategy] {
-	return pulumix.Output[JobDefinitionRetryStrategy]{
-		OutputState: i.ToJobDefinitionRetryStrategyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobDefinitionRetryStrategyArgs) ToJobDefinitionRetryStrategyPtrOutput() JobDefinitionRetryStrategyPtrOutput {
 	return i.ToJobDefinitionRetryStrategyPtrOutputWithContext(context.Background())
 }
@@ -1076,12 +973,6 @@ func (i *jobDefinitionRetryStrategyPtrType) ToJobDefinitionRetryStrategyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyPtrOutput)
 }
 
-func (i *jobDefinitionRetryStrategyPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionRetryStrategy] {
-	return pulumix.Output[*JobDefinitionRetryStrategy]{
-		OutputState: i.ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionRetryStrategyOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionRetryStrategyOutput) ElementType() reflect.Type {
@@ -1104,12 +995,6 @@ func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionRetryStrategy) *JobDefinitionRetryStrategy {
 		return &v
 	}).(JobDefinitionRetryStrategyPtrOutput)
-}
-
-func (o JobDefinitionRetryStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategy] {
-	return pulumix.Output[JobDefinitionRetryStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
@@ -1136,12 +1021,6 @@ func (o JobDefinitionRetryStrategyPtrOutput) ToJobDefinitionRetryStrategyPtrOutp
 
 func (o JobDefinitionRetryStrategyPtrOutput) ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyPtrOutput {
 	return o
-}
-
-func (o JobDefinitionRetryStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionRetryStrategy] {
-	return pulumix.Output[*JobDefinitionRetryStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionRetryStrategyPtrOutput) Elem() JobDefinitionRetryStrategyOutput {
@@ -1219,12 +1098,6 @@ func (i JobDefinitionRetryStrategyEvaluateOnExitArgs) ToJobDefinitionRetryStrate
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyEvaluateOnExitOutput)
 }
 
-func (i JobDefinitionRetryStrategyEvaluateOnExitArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategyEvaluateOnExit] {
-	return pulumix.Output[JobDefinitionRetryStrategyEvaluateOnExit]{
-		OutputState: i.ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobDefinitionRetryStrategyEvaluateOnExitArrayInput is an input type that accepts JobDefinitionRetryStrategyEvaluateOnExitArray and JobDefinitionRetryStrategyEvaluateOnExitArrayOutput values.
 // You can construct a concrete instance of `JobDefinitionRetryStrategyEvaluateOnExitArrayInput` via:
 //
@@ -1250,12 +1123,6 @@ func (i JobDefinitionRetryStrategyEvaluateOnExitArray) ToJobDefinitionRetryStrat
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
 }
 
-func (i JobDefinitionRetryStrategyEvaluateOnExitArray) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionRetryStrategyEvaluateOnExit] {
-	return pulumix.Output[[]JobDefinitionRetryStrategyEvaluateOnExit]{
-		OutputState: i.ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionRetryStrategyEvaluateOnExitOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionRetryStrategyEvaluateOnExitOutput) ElementType() reflect.Type {
@@ -1268,12 +1135,6 @@ func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStra
 
 func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitOutput {
 	return o
-}
-
-func (o JobDefinitionRetryStrategyEvaluateOnExitOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionRetryStrategyEvaluateOnExit] {
-	return pulumix.Output[JobDefinitionRetryStrategyEvaluateOnExit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
@@ -1308,12 +1169,6 @@ func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToJobDefinitionRetr
 
 func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
 	return o
-}
-
-func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobDefinitionRetryStrategyEvaluateOnExit] {
-	return pulumix.Output[[]JobDefinitionRetryStrategyEvaluateOnExit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionRetryStrategyEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) JobDefinitionRetryStrategyEvaluateOnExitOutput {
@@ -1353,12 +1208,6 @@ func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutput() JobDefinitionTi
 
 func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutOutput)
-}
-
-func (i JobDefinitionTimeoutArgs) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionTimeout] {
-	return pulumix.Output[JobDefinitionTimeout]{
-		OutputState: i.ToJobDefinitionTimeoutOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput {
@@ -1402,12 +1251,6 @@ func (i *jobDefinitionTimeoutPtrType) ToJobDefinitionTimeoutPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutPtrOutput)
 }
 
-func (i *jobDefinitionTimeoutPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionTimeout] {
-	return pulumix.Output[*JobDefinitionTimeout]{
-		OutputState: i.ToJobDefinitionTimeoutPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobDefinitionTimeoutOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionTimeoutOutput) ElementType() reflect.Type {
@@ -1432,12 +1275,6 @@ func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutputWithContext(c
 	}).(JobDefinitionTimeoutPtrOutput)
 }
 
-func (o JobDefinitionTimeoutOutput) ToOutput(ctx context.Context) pulumix.Output[JobDefinitionTimeout] {
-	return pulumix.Output[JobDefinitionTimeout]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
 func (o JobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
@@ -1455,12 +1292,6 @@ func (o JobDefinitionTimeoutPtrOutput) ToJobDefinitionTimeoutPtrOutput() JobDefi
 
 func (o JobDefinitionTimeoutPtrOutput) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
 	return o
-}
-
-func (o JobDefinitionTimeoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobDefinitionTimeout] {
-	return pulumix.Output[*JobDefinitionTimeout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobDefinitionTimeoutPtrOutput) Elem() JobDefinitionTimeoutOutput {
@@ -1518,12 +1349,6 @@ func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueTimeoutsOutput)
 }
 
-func (i JobQueueTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[JobQueueTimeouts] {
-	return pulumix.Output[JobQueueTimeouts]{
-		OutputState: i.ToJobQueueTimeoutsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobQueueTimeoutsArgs) ToJobQueueTimeoutsPtrOutput() JobQueueTimeoutsPtrOutput {
 	return i.ToJobQueueTimeoutsPtrOutputWithContext(context.Background())
 }
@@ -1565,12 +1390,6 @@ func (i *jobQueueTimeoutsPtrType) ToJobQueueTimeoutsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueTimeoutsPtrOutput)
 }
 
-func (i *jobQueueTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobQueueTimeouts] {
-	return pulumix.Output[*JobQueueTimeouts]{
-		OutputState: i.ToJobQueueTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobQueueTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (JobQueueTimeoutsOutput) ElementType() reflect.Type {
@@ -1593,12 +1412,6 @@ func (o JobQueueTimeoutsOutput) ToJobQueueTimeoutsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobQueueTimeouts) *JobQueueTimeouts {
 		return &v
 	}).(JobQueueTimeoutsPtrOutput)
-}
-
-func (o JobQueueTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[JobQueueTimeouts] {
-	return pulumix.Output[JobQueueTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueTimeoutsOutput) Create() pulumi.StringPtrOutput {
@@ -1625,12 +1438,6 @@ func (o JobQueueTimeoutsPtrOutput) ToJobQueueTimeoutsPtrOutput() JobQueueTimeout
 
 func (o JobQueueTimeoutsPtrOutput) ToJobQueueTimeoutsPtrOutputWithContext(ctx context.Context) JobQueueTimeoutsPtrOutput {
 	return o
-}
-
-func (o JobQueueTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueueTimeouts] {
-	return pulumix.Output[*JobQueueTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueTimeoutsPtrOutput) Elem() JobQueueTimeoutsOutput {
@@ -1709,12 +1516,6 @@ func (i SchedulingPolicyFairSharePolicyArgs) ToSchedulingPolicyFairSharePolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairSharePolicyOutput)
 }
 
-func (i SchedulingPolicyFairSharePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[SchedulingPolicyFairSharePolicy]{
-		OutputState: i.ToSchedulingPolicyFairSharePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SchedulingPolicyFairSharePolicyArgs) ToSchedulingPolicyFairSharePolicyPtrOutput() SchedulingPolicyFairSharePolicyPtrOutput {
 	return i.ToSchedulingPolicyFairSharePolicyPtrOutputWithContext(context.Background())
 }
@@ -1756,12 +1557,6 @@ func (i *schedulingPolicyFairSharePolicyPtrType) ToSchedulingPolicyFairSharePoli
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairSharePolicyPtrOutput)
 }
 
-func (i *schedulingPolicyFairSharePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[*SchedulingPolicyFairSharePolicy]{
-		OutputState: i.ToSchedulingPolicyFairSharePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchedulingPolicyFairSharePolicyOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyFairSharePolicyOutput) ElementType() reflect.Type {
@@ -1784,12 +1579,6 @@ func (o SchedulingPolicyFairSharePolicyOutput) ToSchedulingPolicyFairSharePolicy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulingPolicyFairSharePolicy) *SchedulingPolicyFairSharePolicy {
 		return &v
 	}).(SchedulingPolicyFairSharePolicyPtrOutput)
-}
-
-func (o SchedulingPolicyFairSharePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[SchedulingPolicyFairSharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
@@ -1820,12 +1609,6 @@ func (o SchedulingPolicyFairSharePolicyPtrOutput) ToSchedulingPolicyFairSharePol
 
 func (o SchedulingPolicyFairSharePolicyPtrOutput) ToSchedulingPolicyFairSharePolicyPtrOutputWithContext(ctx context.Context) SchedulingPolicyFairSharePolicyPtrOutput {
 	return o
-}
-
-func (o SchedulingPolicyFairSharePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[*SchedulingPolicyFairSharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyFairSharePolicyPtrOutput) Elem() SchedulingPolicyFairSharePolicyOutput {
@@ -1904,12 +1687,6 @@ func (i SchedulingPolicyFairSharePolicyShareDistributionArgs) ToSchedulingPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairSharePolicyShareDistributionOutput)
 }
 
-func (i SchedulingPolicyFairSharePolicyShareDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[SchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: i.ToSchedulingPolicyFairSharePolicyShareDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SchedulingPolicyFairSharePolicyShareDistributionArrayInput is an input type that accepts SchedulingPolicyFairSharePolicyShareDistributionArray and SchedulingPolicyFairSharePolicyShareDistributionArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyFairSharePolicyShareDistributionArrayInput` via:
 //
@@ -1935,12 +1712,6 @@ func (i SchedulingPolicyFairSharePolicyShareDistributionArray) ToSchedulingPolic
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyFairSharePolicyShareDistributionArrayOutput)
 }
 
-func (i SchedulingPolicyFairSharePolicyShareDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]SchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[[]SchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: i.ToSchedulingPolicyFairSharePolicyShareDistributionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchedulingPolicyFairSharePolicyShareDistributionOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyFairSharePolicyShareDistributionOutput) ElementType() reflect.Type {
@@ -1953,12 +1724,6 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ToSchedulingPoli
 
 func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ToSchedulingPolicyFairSharePolicyShareDistributionOutputWithContext(ctx context.Context) SchedulingPolicyFairSharePolicyShareDistributionOutput {
 	return o
-}
-
-func (o SchedulingPolicyFairSharePolicyShareDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[SchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
@@ -1983,12 +1748,6 @@ func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToSchedulin
 
 func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToSchedulingPolicyFairSharePolicyShareDistributionArrayOutputWithContext(ctx context.Context) SchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o
-}
-
-func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[[]SchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyFairSharePolicyShareDistributionArrayOutput) Index(i pulumi.IntInput) SchedulingPolicyFairSharePolicyShareDistributionOutput {
@@ -2030,12 +1789,6 @@ func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentO
 	return pulumi.ToOutputWithContext(ctx, i).(GetJobQueueComputeEnvironmentOrderOutput)
 }
 
-func (i GetJobQueueComputeEnvironmentOrderArgs) ToOutput(ctx context.Context) pulumix.Output[GetJobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[GetJobQueueComputeEnvironmentOrder]{
-		OutputState: i.ToGetJobQueueComputeEnvironmentOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetJobQueueComputeEnvironmentOrderArrayInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArray and GetJobQueueComputeEnvironmentOrderArrayOutput values.
 // You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderArrayInput` via:
 //
@@ -2061,12 +1814,6 @@ func (i GetJobQueueComputeEnvironmentOrderArray) ToGetJobQueueComputeEnvironment
 	return pulumi.ToOutputWithContext(ctx, i).(GetJobQueueComputeEnvironmentOrderArrayOutput)
 }
 
-func (i GetJobQueueComputeEnvironmentOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetJobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[[]GetJobQueueComputeEnvironmentOrder]{
-		OutputState: i.ToGetJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetJobQueueComputeEnvironmentOrderOutput struct{ *pulumi.OutputState }
 
 func (GetJobQueueComputeEnvironmentOrderOutput) ElementType() reflect.Type {
@@ -2079,12 +1826,6 @@ func (o GetJobQueueComputeEnvironmentOrderOutput) ToGetJobQueueComputeEnvironmen
 
 func (o GetJobQueueComputeEnvironmentOrderOutput) ToGetJobQueueComputeEnvironmentOrderOutputWithContext(ctx context.Context) GetJobQueueComputeEnvironmentOrderOutput {
 	return o
-}
-
-func (o GetJobQueueComputeEnvironmentOrderOutput) ToOutput(ctx context.Context) pulumix.Output[GetJobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[GetJobQueueComputeEnvironmentOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetJobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
@@ -2107,12 +1848,6 @@ func (o GetJobQueueComputeEnvironmentOrderArrayOutput) ToGetJobQueueComputeEnvir
 
 func (o GetJobQueueComputeEnvironmentOrderArrayOutput) ToGetJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx context.Context) GetJobQueueComputeEnvironmentOrderArrayOutput {
 	return o
-}
-
-func (o GetJobQueueComputeEnvironmentOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetJobQueueComputeEnvironmentOrder] {
-	return pulumix.Output[[]GetJobQueueComputeEnvironmentOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetJobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) GetJobQueueComputeEnvironmentOrderOutput {
@@ -2160,12 +1895,6 @@ func (i GetSchedulingPolicyFairSharePolicyArgs) ToGetSchedulingPolicyFairSharePo
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchedulingPolicyFairSharePolicyOutput)
 }
 
-func (i GetSchedulingPolicyFairSharePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[GetSchedulingPolicyFairSharePolicy]{
-		OutputState: i.ToGetSchedulingPolicyFairSharePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSchedulingPolicyFairSharePolicyArrayInput is an input type that accepts GetSchedulingPolicyFairSharePolicyArray and GetSchedulingPolicyFairSharePolicyArrayOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyArrayInput` via:
 //
@@ -2191,12 +1920,6 @@ func (i GetSchedulingPolicyFairSharePolicyArray) ToGetSchedulingPolicyFairShareP
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchedulingPolicyFairSharePolicyArrayOutput)
 }
 
-func (i GetSchedulingPolicyFairSharePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[[]GetSchedulingPolicyFairSharePolicy]{
-		OutputState: i.ToGetSchedulingPolicyFairSharePolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSchedulingPolicyFairSharePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetSchedulingPolicyFairSharePolicyOutput) ElementType() reflect.Type {
@@ -2209,12 +1932,6 @@ func (o GetSchedulingPolicyFairSharePolicyOutput) ToGetSchedulingPolicyFairShare
 
 func (o GetSchedulingPolicyFairSharePolicyOutput) ToGetSchedulingPolicyFairSharePolicyOutputWithContext(ctx context.Context) GetSchedulingPolicyFairSharePolicyOutput {
 	return o
-}
-
-func (o GetSchedulingPolicyFairSharePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[GetSchedulingPolicyFairSharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
@@ -2245,12 +1962,6 @@ func (o GetSchedulingPolicyFairSharePolicyArrayOutput) ToGetSchedulingPolicyFair
 
 func (o GetSchedulingPolicyFairSharePolicyArrayOutput) ToGetSchedulingPolicyFairSharePolicyArrayOutputWithContext(ctx context.Context) GetSchedulingPolicyFairSharePolicyArrayOutput {
 	return o
-}
-
-func (o GetSchedulingPolicyFairSharePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchedulingPolicyFairSharePolicy] {
-	return pulumix.Output[[]GetSchedulingPolicyFairSharePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSchedulingPolicyFairSharePolicyArrayOutput) Index(i pulumi.IntInput) GetSchedulingPolicyFairSharePolicyOutput {
@@ -2296,12 +2007,6 @@ func (i GetSchedulingPolicyFairSharePolicyShareDistributionArgs) ToGetScheduling
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchedulingPolicyFairSharePolicyShareDistributionOutput)
 }
 
-func (i GetSchedulingPolicyFairSharePolicyShareDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[GetSchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[GetSchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: i.ToGetSchedulingPolicyFairSharePolicyShareDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput is an input type that accepts GetSchedulingPolicyFairSharePolicyShareDistributionArray and GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput values.
 // You can construct a concrete instance of `GetSchedulingPolicyFairSharePolicyShareDistributionArrayInput` via:
 //
@@ -2327,12 +2032,6 @@ func (i GetSchedulingPolicyFairSharePolicyShareDistributionArray) ToGetSchedulin
 	return pulumi.ToOutputWithContext(ctx, i).(GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput)
 }
 
-func (i GetSchedulingPolicyFairSharePolicyShareDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[[]GetSchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: i.ToGetSchedulingPolicyFairSharePolicyShareDistributionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSchedulingPolicyFairSharePolicyShareDistributionOutput struct{ *pulumi.OutputState }
 
 func (GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ElementType() reflect.Type {
@@ -2345,12 +2044,6 @@ func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToGetScheduli
 
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToGetSchedulingPolicyFairSharePolicyShareDistributionOutputWithContext(ctx context.Context) GetSchedulingPolicyFairSharePolicyShareDistributionOutput {
 	return o
-}
-
-func (o GetSchedulingPolicyFairSharePolicyShareDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[GetSchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[GetSchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
@@ -2375,12 +2068,6 @@ func (o GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToGetSch
 
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToGetSchedulingPolicyFairSharePolicyShareDistributionArrayOutputWithContext(ctx context.Context) GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput {
 	return o
-}
-
-func (o GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSchedulingPolicyFairSharePolicyShareDistribution] {
-	return pulumix.Output[[]GetSchedulingPolicyFairSharePolicyShareDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSchedulingPolicyFairSharePolicyShareDistributionArrayOutput) Index(i pulumi.IntInput) GetSchedulingPolicyFairSharePolicyShareDistributionOutput {

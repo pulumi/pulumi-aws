@@ -90,12 +90,6 @@ func (o MetricOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPt
 	}).(MetricPtrOutput)
 }
 
-func (o MetricOutput) ToOutput(ctx context.Context) pulumix.Output[Metric] {
-	return pulumix.Output[Metric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -129,12 +123,6 @@ func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
 
 func (o MetricPtrOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return o
-}
-
-func (o MetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Metric] {
-	return pulumix.Output[*Metric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricPtrOutput) Elem() MetricOutput {
@@ -272,12 +260,6 @@ func (o MetricsGranularityOutput) ToMetricsGranularityPtrOutputWithContext(ctx c
 	}).(MetricsGranularityPtrOutput)
 }
 
-func (o MetricsGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[MetricsGranularity] {
-	return pulumix.Output[MetricsGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricsGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -311,12 +293,6 @@ func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGran
 
 func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return o
-}
-
-func (o MetricsGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricsGranularity] {
-	return pulumix.Output[*MetricsGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
@@ -458,12 +434,6 @@ func (o NotificationTypeOutput) ToNotificationTypePtrOutputWithContext(ctx conte
 	}).(NotificationTypePtrOutput)
 }
 
-func (o NotificationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationType] {
-	return pulumix.Output[NotificationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -497,12 +467,6 @@ func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTyp
 
 func (o NotificationTypePtrOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return o
-}
-
-func (o NotificationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationType] {
-	return pulumix.Output[*NotificationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {

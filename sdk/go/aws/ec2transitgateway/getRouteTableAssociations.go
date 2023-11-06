@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
@@ -116,12 +115,6 @@ func (o GetRouteTableAssociationsResultOutput) ToGetRouteTableAssociationsResult
 
 func (o GetRouteTableAssociationsResultOutput) ToGetRouteTableAssociationsResultOutputWithContext(ctx context.Context) GetRouteTableAssociationsResultOutput {
 	return o
-}
-
-func (o GetRouteTableAssociationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableAssociationsResult] {
-	return pulumix.Output[GetRouteTableAssociationsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableAssociationsResultOutput) Filters() GetRouteTableAssociationsFilterArrayOutput {

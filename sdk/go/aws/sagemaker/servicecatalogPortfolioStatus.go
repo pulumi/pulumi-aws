@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
@@ -139,12 +138,6 @@ func (i *ServicecatalogPortfolioStatus) ToServicecatalogPortfolioStatusOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServicecatalogPortfolioStatusOutput)
 }
 
-func (i *ServicecatalogPortfolioStatus) ToOutput(ctx context.Context) pulumix.Output[*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[*ServicecatalogPortfolioStatus]{
-		OutputState: i.ToServicecatalogPortfolioStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServicecatalogPortfolioStatusArrayInput is an input type that accepts ServicecatalogPortfolioStatusArray and ServicecatalogPortfolioStatusArrayOutput values.
 // You can construct a concrete instance of `ServicecatalogPortfolioStatusArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i ServicecatalogPortfolioStatusArray) ToServicecatalogPortfolioStatusArray
 
 func (i ServicecatalogPortfolioStatusArray) ToServicecatalogPortfolioStatusArrayOutputWithContext(ctx context.Context) ServicecatalogPortfolioStatusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicecatalogPortfolioStatusArrayOutput)
-}
-
-func (i ServicecatalogPortfolioStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[[]*ServicecatalogPortfolioStatus]{
-		OutputState: i.ToServicecatalogPortfolioStatusArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServicecatalogPortfolioStatusMapInput is an input type that accepts ServicecatalogPortfolioStatusMap and ServicecatalogPortfolioStatusMapOutput values.
@@ -201,12 +188,6 @@ func (i ServicecatalogPortfolioStatusMap) ToServicecatalogPortfolioStatusMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServicecatalogPortfolioStatusMapOutput)
 }
 
-func (i ServicecatalogPortfolioStatusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[map[string]*ServicecatalogPortfolioStatus]{
-		OutputState: i.ToServicecatalogPortfolioStatusMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServicecatalogPortfolioStatusOutput struct{ *pulumi.OutputState }
 
 func (ServicecatalogPortfolioStatusOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutp
 
 func (o ServicecatalogPortfolioStatusOutput) ToServicecatalogPortfolioStatusOutputWithContext(ctx context.Context) ServicecatalogPortfolioStatusOutput {
 	return o
-}
-
-func (o ServicecatalogPortfolioStatusOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[*ServicecatalogPortfolioStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
@@ -246,12 +221,6 @@ func (o ServicecatalogPortfolioStatusArrayOutput) ToServicecatalogPortfolioStatu
 	return o
 }
 
-func (o ServicecatalogPortfolioStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[[]*ServicecatalogPortfolioStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicecatalogPortfolioStatusArrayOutput) Index(i pulumi.IntInput) ServicecatalogPortfolioStatusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServicecatalogPortfolioStatus {
 		return vs[0].([]*ServicecatalogPortfolioStatus)[vs[1].(int)]
@@ -270,12 +239,6 @@ func (o ServicecatalogPortfolioStatusMapOutput) ToServicecatalogPortfolioStatusM
 
 func (o ServicecatalogPortfolioStatusMapOutput) ToServicecatalogPortfolioStatusMapOutputWithContext(ctx context.Context) ServicecatalogPortfolioStatusMapOutput {
 	return o
-}
-
-func (o ServicecatalogPortfolioStatusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicecatalogPortfolioStatus] {
-	return pulumix.Output[map[string]*ServicecatalogPortfolioStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicecatalogPortfolioStatusMapOutput) MapIndex(k pulumi.StringInput) ServicecatalogPortfolioStatusOutput {

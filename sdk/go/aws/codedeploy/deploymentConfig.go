@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeDeploy deployment config for an application
@@ -265,12 +264,6 @@ func (i *DeploymentConfig) ToDeploymentConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigOutput)
 }
 
-func (i *DeploymentConfig) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfig] {
-	return pulumix.Output[*DeploymentConfig]{
-		OutputState: i.ToDeploymentConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeploymentConfigArrayInput is an input type that accepts DeploymentConfigArray and DeploymentConfigArrayOutput values.
 // You can construct a concrete instance of `DeploymentConfigArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i DeploymentConfigArray) ToDeploymentConfigArrayOutput() DeploymentConfigA
 
 func (i DeploymentConfigArray) ToDeploymentConfigArrayOutputWithContext(ctx context.Context) DeploymentConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigArrayOutput)
-}
-
-func (i DeploymentConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentConfig] {
-	return pulumix.Output[[]*DeploymentConfig]{
-		OutputState: i.ToDeploymentConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeploymentConfigMapInput is an input type that accepts DeploymentConfigMap and DeploymentConfigMapOutput values.
@@ -327,12 +314,6 @@ func (i DeploymentConfigMap) ToDeploymentConfigMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMapOutput)
 }
 
-func (i DeploymentConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentConfig] {
-	return pulumix.Output[map[string]*DeploymentConfig]{
-		OutputState: i.ToDeploymentConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutpu
 
 func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
 	return o
-}
-
-func (o DeploymentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfig] {
-	return pulumix.Output[*DeploymentConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
@@ -392,12 +367,6 @@ func (o DeploymentConfigArrayOutput) ToDeploymentConfigArrayOutputWithContext(ct
 	return o
 }
 
-func (o DeploymentConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeploymentConfig] {
-	return pulumix.Output[[]*DeploymentConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentConfigArrayOutput) Index(i pulumi.IntInput) DeploymentConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeploymentConfig {
 		return vs[0].([]*DeploymentConfig)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o DeploymentConfigMapOutput) ToDeploymentConfigMapOutput() DeploymentConfi
 
 func (o DeploymentConfigMapOutput) ToDeploymentConfigMapOutputWithContext(ctx context.Context) DeploymentConfigMapOutput {
 	return o
-}
-
-func (o DeploymentConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeploymentConfig] {
-	return pulumix.Output[map[string]*DeploymentConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentConfigMapOutput) MapIndex(k pulumi.StringInput) DeploymentConfigOutput {

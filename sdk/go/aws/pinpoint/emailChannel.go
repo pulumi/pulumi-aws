@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint Email Channel resource.
@@ -264,12 +263,6 @@ func (i *EmailChannel) ToEmailChannelOutputWithContext(ctx context.Context) Emai
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelOutput)
 }
 
-func (i *EmailChannel) ToOutput(ctx context.Context) pulumix.Output[*EmailChannel] {
-	return pulumix.Output[*EmailChannel]{
-		OutputState: i.ToEmailChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailChannelArrayInput is an input type that accepts EmailChannelArray and EmailChannelArrayOutput values.
 // You can construct a concrete instance of `EmailChannelArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i EmailChannelArray) ToEmailChannelArrayOutput() EmailChannelArrayOutput {
 
 func (i EmailChannelArray) ToEmailChannelArrayOutputWithContext(ctx context.Context) EmailChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelArrayOutput)
-}
-
-func (i EmailChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailChannel] {
-	return pulumix.Output[[]*EmailChannel]{
-		OutputState: i.ToEmailChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailChannelMapInput is an input type that accepts EmailChannelMap and EmailChannelMapOutput values.
@@ -326,12 +313,6 @@ func (i EmailChannelMap) ToEmailChannelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EmailChannelMapOutput)
 }
 
-func (i EmailChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailChannel] {
-	return pulumix.Output[map[string]*EmailChannel]{
-		OutputState: i.ToEmailChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailChannelOutput struct{ *pulumi.OutputState }
 
 func (EmailChannelOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o EmailChannelOutput) ToEmailChannelOutput() EmailChannelOutput {
 
 func (o EmailChannelOutput) ToEmailChannelOutputWithContext(ctx context.Context) EmailChannelOutput {
 	return o
-}
-
-func (o EmailChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailChannel] {
-	return pulumix.Output[*EmailChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The application ID.
@@ -401,12 +376,6 @@ func (o EmailChannelArrayOutput) ToEmailChannelArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o EmailChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailChannel] {
-	return pulumix.Output[[]*EmailChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailChannelArrayOutput) Index(i pulumi.IntInput) EmailChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailChannel {
 		return vs[0].([]*EmailChannel)[vs[1].(int)]
@@ -425,12 +394,6 @@ func (o EmailChannelMapOutput) ToEmailChannelMapOutput() EmailChannelMapOutput {
 
 func (o EmailChannelMapOutput) ToEmailChannelMapOutputWithContext(ctx context.Context) EmailChannelMapOutput {
 	return o
-}
-
-func (o EmailChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailChannel] {
-	return pulumix.Output[map[string]*EmailChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailChannelMapOutput) MapIndex(k pulumi.StringInput) EmailChannelOutput {

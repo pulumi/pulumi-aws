@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -395,12 +394,6 @@ func (i InsightFiltersArgs) ToInsightFiltersOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersOutput)
 }
 
-func (i InsightFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFilters] {
-	return pulumix.Output[InsightFilters]{
-		OutputState: i.ToInsightFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersArgs) ToInsightFiltersPtrOutput() InsightFiltersPtrOutput {
 	return i.ToInsightFiltersPtrOutputWithContext(context.Background())
 }
@@ -442,12 +435,6 @@ func (i *insightFiltersPtrType) ToInsightFiltersPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersPtrOutput)
 }
 
-func (i *insightFiltersPtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFilters] {
-	return pulumix.Output[*InsightFilters]{
-		OutputState: i.ToInsightFiltersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersOutput) ElementType() reflect.Type {
@@ -470,12 +457,6 @@ func (o InsightFiltersOutput) ToInsightFiltersPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFilters) *InsightFilters {
 		return &v
 	}).(InsightFiltersPtrOutput)
-}
-
-func (o InsightFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFilters] {
-	return pulumix.Output[InsightFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -982,12 +963,6 @@ func (o InsightFiltersPtrOutput) ToInsightFiltersPtrOutput() InsightFiltersPtrOu
 
 func (o InsightFiltersPtrOutput) ToInsightFiltersPtrOutputWithContext(ctx context.Context) InsightFiltersPtrOutput {
 	return o
-}
-
-func (o InsightFiltersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFilters] {
-	return pulumix.Output[*InsightFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersPtrOutput) Elem() InsightFiltersOutput {
@@ -1917,12 +1892,6 @@ func (i InsightFiltersAwsAccountIdArgs) ToInsightFiltersAwsAccountIdOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersAwsAccountIdOutput)
 }
 
-func (i InsightFiltersAwsAccountIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersAwsAccountId] {
-	return pulumix.Output[InsightFiltersAwsAccountId]{
-		OutputState: i.ToInsightFiltersAwsAccountIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersAwsAccountIdArrayInput is an input type that accepts InsightFiltersAwsAccountIdArray and InsightFiltersAwsAccountIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersAwsAccountIdArrayInput` via:
 //
@@ -1948,12 +1917,6 @@ func (i InsightFiltersAwsAccountIdArray) ToInsightFiltersAwsAccountIdArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersAwsAccountIdArrayOutput)
 }
 
-func (i InsightFiltersAwsAccountIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersAwsAccountId] {
-	return pulumix.Output[[]InsightFiltersAwsAccountId]{
-		OutputState: i.ToInsightFiltersAwsAccountIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersAwsAccountIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersAwsAccountIdOutput) ElementType() reflect.Type {
@@ -1966,12 +1929,6 @@ func (o InsightFiltersAwsAccountIdOutput) ToInsightFiltersAwsAccountIdOutput() I
 
 func (o InsightFiltersAwsAccountIdOutput) ToInsightFiltersAwsAccountIdOutputWithContext(ctx context.Context) InsightFiltersAwsAccountIdOutput {
 	return o
-}
-
-func (o InsightFiltersAwsAccountIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersAwsAccountId] {
-	return pulumix.Output[InsightFiltersAwsAccountId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -1996,12 +1953,6 @@ func (o InsightFiltersAwsAccountIdArrayOutput) ToInsightFiltersAwsAccountIdArray
 
 func (o InsightFiltersAwsAccountIdArrayOutput) ToInsightFiltersAwsAccountIdArrayOutputWithContext(ctx context.Context) InsightFiltersAwsAccountIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersAwsAccountIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersAwsAccountId] {
-	return pulumix.Output[[]InsightFiltersAwsAccountId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersAwsAccountIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersAwsAccountIdOutput {
@@ -2047,12 +1998,6 @@ func (i InsightFiltersCompanyNameArgs) ToInsightFiltersCompanyNameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCompanyNameOutput)
 }
 
-func (i InsightFiltersCompanyNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCompanyName] {
-	return pulumix.Output[InsightFiltersCompanyName]{
-		OutputState: i.ToInsightFiltersCompanyNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersCompanyNameArrayInput is an input type that accepts InsightFiltersCompanyNameArray and InsightFiltersCompanyNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCompanyNameArrayInput` via:
 //
@@ -2078,12 +2023,6 @@ func (i InsightFiltersCompanyNameArray) ToInsightFiltersCompanyNameArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCompanyNameArrayOutput)
 }
 
-func (i InsightFiltersCompanyNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCompanyName] {
-	return pulumix.Output[[]InsightFiltersCompanyName]{
-		OutputState: i.ToInsightFiltersCompanyNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersCompanyNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersCompanyNameOutput) ElementType() reflect.Type {
@@ -2096,12 +2035,6 @@ func (o InsightFiltersCompanyNameOutput) ToInsightFiltersCompanyNameOutput() Ins
 
 func (o InsightFiltersCompanyNameOutput) ToInsightFiltersCompanyNameOutputWithContext(ctx context.Context) InsightFiltersCompanyNameOutput {
 	return o
-}
-
-func (o InsightFiltersCompanyNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCompanyName] {
-	return pulumix.Output[InsightFiltersCompanyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -2126,12 +2059,6 @@ func (o InsightFiltersCompanyNameArrayOutput) ToInsightFiltersCompanyNameArrayOu
 
 func (o InsightFiltersCompanyNameArrayOutput) ToInsightFiltersCompanyNameArrayOutputWithContext(ctx context.Context) InsightFiltersCompanyNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersCompanyNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCompanyName] {
-	return pulumix.Output[[]InsightFiltersCompanyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersCompanyNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersCompanyNameOutput {
@@ -2177,12 +2104,6 @@ func (i InsightFiltersComplianceStatusArgs) ToInsightFiltersComplianceStatusOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceStatusOutput)
 }
 
-func (i InsightFiltersComplianceStatusArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersComplianceStatus] {
-	return pulumix.Output[InsightFiltersComplianceStatus]{
-		OutputState: i.ToInsightFiltersComplianceStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersComplianceStatusArrayInput is an input type that accepts InsightFiltersComplianceStatusArray and InsightFiltersComplianceStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersComplianceStatusArrayInput` via:
 //
@@ -2208,12 +2129,6 @@ func (i InsightFiltersComplianceStatusArray) ToInsightFiltersComplianceStatusArr
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersComplianceStatusArrayOutput)
 }
 
-func (i InsightFiltersComplianceStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersComplianceStatus] {
-	return pulumix.Output[[]InsightFiltersComplianceStatus]{
-		OutputState: i.ToInsightFiltersComplianceStatusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersComplianceStatusOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersComplianceStatusOutput) ElementType() reflect.Type {
@@ -2226,12 +2141,6 @@ func (o InsightFiltersComplianceStatusOutput) ToInsightFiltersComplianceStatusOu
 
 func (o InsightFiltersComplianceStatusOutput) ToInsightFiltersComplianceStatusOutputWithContext(ctx context.Context) InsightFiltersComplianceStatusOutput {
 	return o
-}
-
-func (o InsightFiltersComplianceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersComplianceStatus] {
-	return pulumix.Output[InsightFiltersComplianceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -2256,12 +2165,6 @@ func (o InsightFiltersComplianceStatusArrayOutput) ToInsightFiltersComplianceSta
 
 func (o InsightFiltersComplianceStatusArrayOutput) ToInsightFiltersComplianceStatusArrayOutputWithContext(ctx context.Context) InsightFiltersComplianceStatusArrayOutput {
 	return o
-}
-
-func (o InsightFiltersComplianceStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersComplianceStatus] {
-	return pulumix.Output[[]InsightFiltersComplianceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersComplianceStatusArrayOutput) Index(i pulumi.IntInput) InsightFiltersComplianceStatusOutput {
@@ -2311,12 +2214,6 @@ func (i InsightFiltersConfidenceArgs) ToInsightFiltersConfidenceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersConfidenceOutput)
 }
 
-func (i InsightFiltersConfidenceArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersConfidence] {
-	return pulumix.Output[InsightFiltersConfidence]{
-		OutputState: i.ToInsightFiltersConfidenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersConfidenceArrayInput is an input type that accepts InsightFiltersConfidenceArray and InsightFiltersConfidenceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersConfidenceArrayInput` via:
 //
@@ -2342,12 +2239,6 @@ func (i InsightFiltersConfidenceArray) ToInsightFiltersConfidenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersConfidenceArrayOutput)
 }
 
-func (i InsightFiltersConfidenceArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersConfidence] {
-	return pulumix.Output[[]InsightFiltersConfidence]{
-		OutputState: i.ToInsightFiltersConfidenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersConfidenceOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersConfidenceOutput) ElementType() reflect.Type {
@@ -2360,12 +2251,6 @@ func (o InsightFiltersConfidenceOutput) ToInsightFiltersConfidenceOutput() Insig
 
 func (o InsightFiltersConfidenceOutput) ToInsightFiltersConfidenceOutputWithContext(ctx context.Context) InsightFiltersConfidenceOutput {
 	return o
-}
-
-func (o InsightFiltersConfidenceOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersConfidence] {
-	return pulumix.Output[InsightFiltersConfidence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -2395,12 +2280,6 @@ func (o InsightFiltersConfidenceArrayOutput) ToInsightFiltersConfidenceArrayOutp
 
 func (o InsightFiltersConfidenceArrayOutput) ToInsightFiltersConfidenceArrayOutputWithContext(ctx context.Context) InsightFiltersConfidenceArrayOutput {
 	return o
-}
-
-func (o InsightFiltersConfidenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersConfidence] {
-	return pulumix.Output[[]InsightFiltersConfidence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersConfidenceArrayOutput) Index(i pulumi.IntInput) InsightFiltersConfidenceOutput {
@@ -2450,12 +2329,6 @@ func (i InsightFiltersCreatedAtArgs) ToInsightFiltersCreatedAtOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCreatedAtOutput)
 }
 
-func (i InsightFiltersCreatedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCreatedAt] {
-	return pulumix.Output[InsightFiltersCreatedAt]{
-		OutputState: i.ToInsightFiltersCreatedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersCreatedAtArrayInput is an input type that accepts InsightFiltersCreatedAtArray and InsightFiltersCreatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCreatedAtArrayInput` via:
 //
@@ -2481,12 +2354,6 @@ func (i InsightFiltersCreatedAtArray) ToInsightFiltersCreatedAtArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCreatedAtArrayOutput)
 }
 
-func (i InsightFiltersCreatedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCreatedAt] {
-	return pulumix.Output[[]InsightFiltersCreatedAt]{
-		OutputState: i.ToInsightFiltersCreatedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersCreatedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersCreatedAtOutput) ElementType() reflect.Type {
@@ -2499,12 +2366,6 @@ func (o InsightFiltersCreatedAtOutput) ToInsightFiltersCreatedAtOutput() Insight
 
 func (o InsightFiltersCreatedAtOutput) ToInsightFiltersCreatedAtOutputWithContext(ctx context.Context) InsightFiltersCreatedAtOutput {
 	return o
-}
-
-func (o InsightFiltersCreatedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCreatedAt] {
-	return pulumix.Output[InsightFiltersCreatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -2534,12 +2395,6 @@ func (o InsightFiltersCreatedAtArrayOutput) ToInsightFiltersCreatedAtArrayOutput
 
 func (o InsightFiltersCreatedAtArrayOutput) ToInsightFiltersCreatedAtArrayOutputWithContext(ctx context.Context) InsightFiltersCreatedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersCreatedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCreatedAt] {
-	return pulumix.Output[[]InsightFiltersCreatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersCreatedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersCreatedAtOutput {
@@ -2585,12 +2440,6 @@ func (i InsightFiltersCreatedAtDateRangeArgs) ToInsightFiltersCreatedAtDateRange
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCreatedAtDateRangeOutput)
 }
 
-func (i InsightFiltersCreatedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCreatedAtDateRange] {
-	return pulumix.Output[InsightFiltersCreatedAtDateRange]{
-		OutputState: i.ToInsightFiltersCreatedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersCreatedAtDateRangeArgs) ToInsightFiltersCreatedAtDateRangePtrOutput() InsightFiltersCreatedAtDateRangePtrOutput {
 	return i.ToInsightFiltersCreatedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -2632,12 +2481,6 @@ func (i *insightFiltersCreatedAtDateRangePtrType) ToInsightFiltersCreatedAtDateR
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCreatedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersCreatedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersCreatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersCreatedAtDateRange]{
-		OutputState: i.ToInsightFiltersCreatedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersCreatedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersCreatedAtDateRangeOutput) ElementType() reflect.Type {
@@ -2662,12 +2505,6 @@ func (o InsightFiltersCreatedAtDateRangeOutput) ToInsightFiltersCreatedAtDateRan
 	}).(InsightFiltersCreatedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersCreatedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCreatedAtDateRange] {
-	return pulumix.Output[InsightFiltersCreatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersCreatedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersCreatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -2690,12 +2527,6 @@ func (o InsightFiltersCreatedAtDateRangePtrOutput) ToInsightFiltersCreatedAtDate
 
 func (o InsightFiltersCreatedAtDateRangePtrOutput) ToInsightFiltersCreatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersCreatedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersCreatedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersCreatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersCreatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersCreatedAtDateRangePtrOutput) Elem() InsightFiltersCreatedAtDateRangeOutput {
@@ -2769,12 +2600,6 @@ func (i InsightFiltersCriticalityArgs) ToInsightFiltersCriticalityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCriticalityOutput)
 }
 
-func (i InsightFiltersCriticalityArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCriticality] {
-	return pulumix.Output[InsightFiltersCriticality]{
-		OutputState: i.ToInsightFiltersCriticalityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersCriticalityArrayInput is an input type that accepts InsightFiltersCriticalityArray and InsightFiltersCriticalityArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersCriticalityArrayInput` via:
 //
@@ -2800,12 +2625,6 @@ func (i InsightFiltersCriticalityArray) ToInsightFiltersCriticalityArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersCriticalityArrayOutput)
 }
 
-func (i InsightFiltersCriticalityArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCriticality] {
-	return pulumix.Output[[]InsightFiltersCriticality]{
-		OutputState: i.ToInsightFiltersCriticalityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersCriticalityOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersCriticalityOutput) ElementType() reflect.Type {
@@ -2818,12 +2637,6 @@ func (o InsightFiltersCriticalityOutput) ToInsightFiltersCriticalityOutput() Ins
 
 func (o InsightFiltersCriticalityOutput) ToInsightFiltersCriticalityOutputWithContext(ctx context.Context) InsightFiltersCriticalityOutput {
 	return o
-}
-
-func (o InsightFiltersCriticalityOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersCriticality] {
-	return pulumix.Output[InsightFiltersCriticality]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -2853,12 +2666,6 @@ func (o InsightFiltersCriticalityArrayOutput) ToInsightFiltersCriticalityArrayOu
 
 func (o InsightFiltersCriticalityArrayOutput) ToInsightFiltersCriticalityArrayOutputWithContext(ctx context.Context) InsightFiltersCriticalityArrayOutput {
 	return o
-}
-
-func (o InsightFiltersCriticalityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersCriticality] {
-	return pulumix.Output[[]InsightFiltersCriticality]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersCriticalityArrayOutput) Index(i pulumi.IntInput) InsightFiltersCriticalityOutput {
@@ -2904,12 +2711,6 @@ func (i InsightFiltersDescriptionArgs) ToInsightFiltersDescriptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersDescriptionOutput)
 }
 
-func (i InsightFiltersDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersDescription] {
-	return pulumix.Output[InsightFiltersDescription]{
-		OutputState: i.ToInsightFiltersDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersDescriptionArrayInput is an input type that accepts InsightFiltersDescriptionArray and InsightFiltersDescriptionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersDescriptionArrayInput` via:
 //
@@ -2935,12 +2736,6 @@ func (i InsightFiltersDescriptionArray) ToInsightFiltersDescriptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersDescriptionArrayOutput)
 }
 
-func (i InsightFiltersDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersDescription] {
-	return pulumix.Output[[]InsightFiltersDescription]{
-		OutputState: i.ToInsightFiltersDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersDescriptionOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersDescriptionOutput) ElementType() reflect.Type {
@@ -2953,12 +2748,6 @@ func (o InsightFiltersDescriptionOutput) ToInsightFiltersDescriptionOutput() Ins
 
 func (o InsightFiltersDescriptionOutput) ToInsightFiltersDescriptionOutputWithContext(ctx context.Context) InsightFiltersDescriptionOutput {
 	return o
-}
-
-func (o InsightFiltersDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersDescription] {
-	return pulumix.Output[InsightFiltersDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -2983,12 +2772,6 @@ func (o InsightFiltersDescriptionArrayOutput) ToInsightFiltersDescriptionArrayOu
 
 func (o InsightFiltersDescriptionArrayOutput) ToInsightFiltersDescriptionArrayOutputWithContext(ctx context.Context) InsightFiltersDescriptionArrayOutput {
 	return o
-}
-
-func (o InsightFiltersDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersDescription] {
-	return pulumix.Output[[]InsightFiltersDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersDescriptionArrayOutput) Index(i pulumi.IntInput) InsightFiltersDescriptionOutput {
@@ -3038,12 +2821,6 @@ func (i InsightFiltersFindingProviderFieldsConfidenceArgs) ToInsightFiltersFindi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsConfidenceOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsConfidenceArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsConfidence] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsConfidence]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsConfidenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsConfidenceArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsConfidenceArray and InsightFiltersFindingProviderFieldsConfidenceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsConfidenceArrayInput` via:
 //
@@ -3069,12 +2846,6 @@ func (i InsightFiltersFindingProviderFieldsConfidenceArray) ToInsightFiltersFind
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsConfidenceArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsConfidenceArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsConfidence] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsConfidence]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsConfidenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsConfidenceOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsConfidenceOutput) ElementType() reflect.Type {
@@ -3087,12 +2858,6 @@ func (o InsightFiltersFindingProviderFieldsConfidenceOutput) ToInsightFiltersFin
 
 func (o InsightFiltersFindingProviderFieldsConfidenceOutput) ToInsightFiltersFindingProviderFieldsConfidenceOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsConfidenceOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsConfidenceOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsConfidence] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsConfidence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -3122,12 +2887,6 @@ func (o InsightFiltersFindingProviderFieldsConfidenceArrayOutput) ToInsightFilte
 
 func (o InsightFiltersFindingProviderFieldsConfidenceArrayOutput) ToInsightFiltersFindingProviderFieldsConfidenceArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsConfidenceArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsConfidenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsConfidence] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsConfidence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsConfidenceArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsConfidenceOutput {
@@ -3177,12 +2936,6 @@ func (i InsightFiltersFindingProviderFieldsCriticalityArgs) ToInsightFiltersFind
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsCriticalityOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsCriticalityArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsCriticality] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsCriticality]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsCriticalityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsCriticalityArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsCriticalityArray and InsightFiltersFindingProviderFieldsCriticalityArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsCriticalityArrayInput` via:
 //
@@ -3208,12 +2961,6 @@ func (i InsightFiltersFindingProviderFieldsCriticalityArray) ToInsightFiltersFin
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsCriticalityArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsCriticalityArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsCriticality] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsCriticality]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsCriticalityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsCriticalityOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsCriticalityOutput) ElementType() reflect.Type {
@@ -3226,12 +2973,6 @@ func (o InsightFiltersFindingProviderFieldsCriticalityOutput) ToInsightFiltersFi
 
 func (o InsightFiltersFindingProviderFieldsCriticalityOutput) ToInsightFiltersFindingProviderFieldsCriticalityOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsCriticalityOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsCriticalityOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsCriticality] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsCriticality]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -3261,12 +3002,6 @@ func (o InsightFiltersFindingProviderFieldsCriticalityArrayOutput) ToInsightFilt
 
 func (o InsightFiltersFindingProviderFieldsCriticalityArrayOutput) ToInsightFiltersFindingProviderFieldsCriticalityArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsCriticalityArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsCriticalityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsCriticality] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsCriticality]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsCriticalityArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsCriticalityOutput {
@@ -3312,12 +3047,6 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs) ToInsightFilte
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsId] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsId]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsRelatedFindingsIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsIdArray and InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayInput` via:
 //
@@ -3343,12 +3072,6 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsIdArray) ToInsightFilt
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsRelatedFindingsIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsId] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsId]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput) ElementType() reflect.Type {
@@ -3361,12 +3084,6 @@ func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput) ToInsightFil
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput) ToInsightFiltersFindingProviderFieldsRelatedFindingsIdOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsId] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -3391,12 +3108,6 @@ func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput) ToInsig
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput) ToInsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsId] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsRelatedFindingsIdOutput {
@@ -3442,12 +3153,6 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs) ToInsi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsProductArn] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsProductArn]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray and InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayInput` via:
 //
@@ -3473,12 +3178,6 @@ func (i InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray) ToIns
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsProductArn] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsProductArn]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput) ElementType() reflect.Type {
@@ -3491,12 +3190,6 @@ func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput) ToIn
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput) ToInsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsProductArn] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsRelatedFindingsProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -3521,12 +3214,6 @@ func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput)
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput) ToInsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsProductArn] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsRelatedFindingsProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsRelatedFindingsProductArnOutput {
@@ -3572,12 +3259,6 @@ func (i InsightFiltersFindingProviderFieldsSeverityLabelArgs) ToInsightFiltersFi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsSeverityLabelOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsSeverityLabelArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsSeverityLabel] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsSeverityLabel]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsSeverityLabelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsSeverityLabelArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityLabelArray and InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityLabelArrayInput` via:
 //
@@ -3603,12 +3284,6 @@ func (i InsightFiltersFindingProviderFieldsSeverityLabelArray) ToInsightFiltersF
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsSeverityLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityLabel] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityLabel]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsSeverityLabelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsSeverityLabelOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsSeverityLabelOutput) ElementType() reflect.Type {
@@ -3621,12 +3296,6 @@ func (o InsightFiltersFindingProviderFieldsSeverityLabelOutput) ToInsightFilters
 
 func (o InsightFiltersFindingProviderFieldsSeverityLabelOutput) ToInsightFiltersFindingProviderFieldsSeverityLabelOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsSeverityLabelOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsSeverityLabelOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsSeverityLabel] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsSeverityLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -3651,12 +3320,6 @@ func (o InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput) ToInsightFi
 
 func (o InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput) ToInsightFiltersFindingProviderFieldsSeverityLabelArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityLabel] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsSeverityLabelArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsSeverityLabelOutput {
@@ -3702,12 +3365,6 @@ func (i InsightFiltersFindingProviderFieldsSeverityOriginalArgs) ToInsightFilter
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsSeverityOriginalOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsSeverityOriginalArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsSeverityOriginal] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsSeverityOriginal]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsSeverityOriginalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsSeverityOriginalArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsSeverityOriginalArray and InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsSeverityOriginalArrayInput` via:
 //
@@ -3733,12 +3390,6 @@ func (i InsightFiltersFindingProviderFieldsSeverityOriginalArray) ToInsightFilte
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsSeverityOriginalArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityOriginal] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityOriginal]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsSeverityOriginalArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsSeverityOriginalOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsSeverityOriginalOutput) ElementType() reflect.Type {
@@ -3751,12 +3402,6 @@ func (o InsightFiltersFindingProviderFieldsSeverityOriginalOutput) ToInsightFilt
 
 func (o InsightFiltersFindingProviderFieldsSeverityOriginalOutput) ToInsightFiltersFindingProviderFieldsSeverityOriginalOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsSeverityOriginalOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsSeverityOriginalOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsSeverityOriginal] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsSeverityOriginal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -3781,12 +3426,6 @@ func (o InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput) ToInsigh
 
 func (o InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput) ToInsightFiltersFindingProviderFieldsSeverityOriginalArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityOriginal] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsSeverityOriginal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsSeverityOriginalArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsSeverityOriginalOutput {
@@ -3832,12 +3471,6 @@ func (i InsightFiltersFindingProviderFieldsTypeArgs) ToInsightFiltersFindingProv
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsTypeOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsType] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsType]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFindingProviderFieldsTypeArrayInput is an input type that accepts InsightFiltersFindingProviderFieldsTypeArray and InsightFiltersFindingProviderFieldsTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFindingProviderFieldsTypeArrayInput` via:
 //
@@ -3863,12 +3496,6 @@ func (i InsightFiltersFindingProviderFieldsTypeArray) ToInsightFiltersFindingPro
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFindingProviderFieldsTypeArrayOutput)
 }
 
-func (i InsightFiltersFindingProviderFieldsTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsType] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsType]{
-		OutputState: i.ToInsightFiltersFindingProviderFieldsTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFindingProviderFieldsTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFindingProviderFieldsTypeOutput) ElementType() reflect.Type {
@@ -3881,12 +3508,6 @@ func (o InsightFiltersFindingProviderFieldsTypeOutput) ToInsightFiltersFindingPr
 
 func (o InsightFiltersFindingProviderFieldsTypeOutput) ToInsightFiltersFindingProviderFieldsTypeOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsTypeOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFindingProviderFieldsType] {
-	return pulumix.Output[InsightFiltersFindingProviderFieldsType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -3911,12 +3532,6 @@ func (o InsightFiltersFindingProviderFieldsTypeArrayOutput) ToInsightFiltersFind
 
 func (o InsightFiltersFindingProviderFieldsTypeArrayOutput) ToInsightFiltersFindingProviderFieldsTypeArrayOutputWithContext(ctx context.Context) InsightFiltersFindingProviderFieldsTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFindingProviderFieldsTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFindingProviderFieldsType] {
-	return pulumix.Output[[]InsightFiltersFindingProviderFieldsType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFindingProviderFieldsTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersFindingProviderFieldsTypeOutput {
@@ -3966,12 +3581,6 @@ func (i InsightFiltersFirstObservedAtArgs) ToInsightFiltersFirstObservedAtOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFirstObservedAtOutput)
 }
 
-func (i InsightFiltersFirstObservedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFirstObservedAt] {
-	return pulumix.Output[InsightFiltersFirstObservedAt]{
-		OutputState: i.ToInsightFiltersFirstObservedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersFirstObservedAtArrayInput is an input type that accepts InsightFiltersFirstObservedAtArray and InsightFiltersFirstObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersFirstObservedAtArrayInput` via:
 //
@@ -3997,12 +3606,6 @@ func (i InsightFiltersFirstObservedAtArray) ToInsightFiltersFirstObservedAtArray
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFirstObservedAtArrayOutput)
 }
 
-func (i InsightFiltersFirstObservedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFirstObservedAt] {
-	return pulumix.Output[[]InsightFiltersFirstObservedAt]{
-		OutputState: i.ToInsightFiltersFirstObservedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFirstObservedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFirstObservedAtOutput) ElementType() reflect.Type {
@@ -4015,12 +3618,6 @@ func (o InsightFiltersFirstObservedAtOutput) ToInsightFiltersFirstObservedAtOutp
 
 func (o InsightFiltersFirstObservedAtOutput) ToInsightFiltersFirstObservedAtOutputWithContext(ctx context.Context) InsightFiltersFirstObservedAtOutput {
 	return o
-}
-
-func (o InsightFiltersFirstObservedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFirstObservedAt] {
-	return pulumix.Output[InsightFiltersFirstObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -4050,12 +3647,6 @@ func (o InsightFiltersFirstObservedAtArrayOutput) ToInsightFiltersFirstObservedA
 
 func (o InsightFiltersFirstObservedAtArrayOutput) ToInsightFiltersFirstObservedAtArrayOutputWithContext(ctx context.Context) InsightFiltersFirstObservedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersFirstObservedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersFirstObservedAt] {
-	return pulumix.Output[[]InsightFiltersFirstObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFirstObservedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersFirstObservedAtOutput {
@@ -4101,12 +3692,6 @@ func (i InsightFiltersFirstObservedAtDateRangeArgs) ToInsightFiltersFirstObserve
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFirstObservedAtDateRangeOutput)
 }
 
-func (i InsightFiltersFirstObservedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFirstObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersFirstObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersFirstObservedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersFirstObservedAtDateRangeArgs) ToInsightFiltersFirstObservedAtDateRangePtrOutput() InsightFiltersFirstObservedAtDateRangePtrOutput {
 	return i.ToInsightFiltersFirstObservedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -4148,12 +3733,6 @@ func (i *insightFiltersFirstObservedAtDateRangePtrType) ToInsightFiltersFirstObs
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersFirstObservedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersFirstObservedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersFirstObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersFirstObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersFirstObservedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersFirstObservedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersFirstObservedAtDateRangeOutput) ElementType() reflect.Type {
@@ -4178,12 +3757,6 @@ func (o InsightFiltersFirstObservedAtDateRangeOutput) ToInsightFiltersFirstObser
 	}).(InsightFiltersFirstObservedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersFirstObservedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersFirstObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersFirstObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersFirstObservedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersFirstObservedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -4206,12 +3779,6 @@ func (o InsightFiltersFirstObservedAtDateRangePtrOutput) ToInsightFiltersFirstOb
 
 func (o InsightFiltersFirstObservedAtDateRangePtrOutput) ToInsightFiltersFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersFirstObservedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersFirstObservedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersFirstObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersFirstObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersFirstObservedAtDateRangePtrOutput) Elem() InsightFiltersFirstObservedAtDateRangeOutput {
@@ -4281,12 +3848,6 @@ func (i InsightFiltersGeneratorIdArgs) ToInsightFiltersGeneratorIdOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersGeneratorIdOutput)
 }
 
-func (i InsightFiltersGeneratorIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersGeneratorId] {
-	return pulumix.Output[InsightFiltersGeneratorId]{
-		OutputState: i.ToInsightFiltersGeneratorIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersGeneratorIdArrayInput is an input type that accepts InsightFiltersGeneratorIdArray and InsightFiltersGeneratorIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersGeneratorIdArrayInput` via:
 //
@@ -4312,12 +3873,6 @@ func (i InsightFiltersGeneratorIdArray) ToInsightFiltersGeneratorIdArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersGeneratorIdArrayOutput)
 }
 
-func (i InsightFiltersGeneratorIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersGeneratorId] {
-	return pulumix.Output[[]InsightFiltersGeneratorId]{
-		OutputState: i.ToInsightFiltersGeneratorIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersGeneratorIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersGeneratorIdOutput) ElementType() reflect.Type {
@@ -4330,12 +3885,6 @@ func (o InsightFiltersGeneratorIdOutput) ToInsightFiltersGeneratorIdOutput() Ins
 
 func (o InsightFiltersGeneratorIdOutput) ToInsightFiltersGeneratorIdOutputWithContext(ctx context.Context) InsightFiltersGeneratorIdOutput {
 	return o
-}
-
-func (o InsightFiltersGeneratorIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersGeneratorId] {
-	return pulumix.Output[InsightFiltersGeneratorId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -4360,12 +3909,6 @@ func (o InsightFiltersGeneratorIdArrayOutput) ToInsightFiltersGeneratorIdArrayOu
 
 func (o InsightFiltersGeneratorIdArrayOutput) ToInsightFiltersGeneratorIdArrayOutputWithContext(ctx context.Context) InsightFiltersGeneratorIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersGeneratorIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersGeneratorId] {
-	return pulumix.Output[[]InsightFiltersGeneratorId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersGeneratorIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersGeneratorIdOutput {
@@ -4411,12 +3954,6 @@ func (i InsightFiltersIdArgs) ToInsightFiltersIdOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersIdOutput)
 }
 
-func (i InsightFiltersIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersId] {
-	return pulumix.Output[InsightFiltersId]{
-		OutputState: i.ToInsightFiltersIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersIdArrayInput is an input type that accepts InsightFiltersIdArray and InsightFiltersIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersIdArrayInput` via:
 //
@@ -4442,12 +3979,6 @@ func (i InsightFiltersIdArray) ToInsightFiltersIdArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersIdArrayOutput)
 }
 
-func (i InsightFiltersIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersId] {
-	return pulumix.Output[[]InsightFiltersId]{
-		OutputState: i.ToInsightFiltersIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersIdOutput) ElementType() reflect.Type {
@@ -4460,12 +3991,6 @@ func (o InsightFiltersIdOutput) ToInsightFiltersIdOutput() InsightFiltersIdOutpu
 
 func (o InsightFiltersIdOutput) ToInsightFiltersIdOutputWithContext(ctx context.Context) InsightFiltersIdOutput {
 	return o
-}
-
-func (o InsightFiltersIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersId] {
-	return pulumix.Output[InsightFiltersId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -4490,12 +4015,6 @@ func (o InsightFiltersIdArrayOutput) ToInsightFiltersIdArrayOutput() InsightFilt
 
 func (o InsightFiltersIdArrayOutput) ToInsightFiltersIdArrayOutputWithContext(ctx context.Context) InsightFiltersIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersId] {
-	return pulumix.Output[[]InsightFiltersId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersIdOutput {
@@ -4537,12 +4056,6 @@ func (i InsightFiltersKeywordArgs) ToInsightFiltersKeywordOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersKeywordOutput)
 }
 
-func (i InsightFiltersKeywordArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersKeyword] {
-	return pulumix.Output[InsightFiltersKeyword]{
-		OutputState: i.ToInsightFiltersKeywordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersKeywordArrayInput is an input type that accepts InsightFiltersKeywordArray and InsightFiltersKeywordArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersKeywordArrayInput` via:
 //
@@ -4568,12 +4081,6 @@ func (i InsightFiltersKeywordArray) ToInsightFiltersKeywordArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersKeywordArrayOutput)
 }
 
-func (i InsightFiltersKeywordArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersKeyword] {
-	return pulumix.Output[[]InsightFiltersKeyword]{
-		OutputState: i.ToInsightFiltersKeywordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersKeywordOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersKeywordOutput) ElementType() reflect.Type {
@@ -4586,12 +4093,6 @@ func (o InsightFiltersKeywordOutput) ToInsightFiltersKeywordOutput() InsightFilt
 
 func (o InsightFiltersKeywordOutput) ToInsightFiltersKeywordOutputWithContext(ctx context.Context) InsightFiltersKeywordOutput {
 	return o
-}
-
-func (o InsightFiltersKeywordOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersKeyword] {
-	return pulumix.Output[InsightFiltersKeyword]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A value for the keyword.
@@ -4611,12 +4112,6 @@ func (o InsightFiltersKeywordArrayOutput) ToInsightFiltersKeywordArrayOutput() I
 
 func (o InsightFiltersKeywordArrayOutput) ToInsightFiltersKeywordArrayOutputWithContext(ctx context.Context) InsightFiltersKeywordArrayOutput {
 	return o
-}
-
-func (o InsightFiltersKeywordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersKeyword] {
-	return pulumix.Output[[]InsightFiltersKeyword]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersKeywordArrayOutput) Index(i pulumi.IntInput) InsightFiltersKeywordOutput {
@@ -4666,12 +4161,6 @@ func (i InsightFiltersLastObservedAtArgs) ToInsightFiltersLastObservedAtOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersLastObservedAtOutput)
 }
 
-func (i InsightFiltersLastObservedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersLastObservedAt] {
-	return pulumix.Output[InsightFiltersLastObservedAt]{
-		OutputState: i.ToInsightFiltersLastObservedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersLastObservedAtArrayInput is an input type that accepts InsightFiltersLastObservedAtArray and InsightFiltersLastObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersLastObservedAtArrayInput` via:
 //
@@ -4697,12 +4186,6 @@ func (i InsightFiltersLastObservedAtArray) ToInsightFiltersLastObservedAtArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersLastObservedAtArrayOutput)
 }
 
-func (i InsightFiltersLastObservedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersLastObservedAt] {
-	return pulumix.Output[[]InsightFiltersLastObservedAt]{
-		OutputState: i.ToInsightFiltersLastObservedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersLastObservedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersLastObservedAtOutput) ElementType() reflect.Type {
@@ -4715,12 +4198,6 @@ func (o InsightFiltersLastObservedAtOutput) ToInsightFiltersLastObservedAtOutput
 
 func (o InsightFiltersLastObservedAtOutput) ToInsightFiltersLastObservedAtOutputWithContext(ctx context.Context) InsightFiltersLastObservedAtOutput {
 	return o
-}
-
-func (o InsightFiltersLastObservedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersLastObservedAt] {
-	return pulumix.Output[InsightFiltersLastObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -4750,12 +4227,6 @@ func (o InsightFiltersLastObservedAtArrayOutput) ToInsightFiltersLastObservedAtA
 
 func (o InsightFiltersLastObservedAtArrayOutput) ToInsightFiltersLastObservedAtArrayOutputWithContext(ctx context.Context) InsightFiltersLastObservedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersLastObservedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersLastObservedAt] {
-	return pulumix.Output[[]InsightFiltersLastObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersLastObservedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersLastObservedAtOutput {
@@ -4801,12 +4272,6 @@ func (i InsightFiltersLastObservedAtDateRangeArgs) ToInsightFiltersLastObservedA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersLastObservedAtDateRangeOutput)
 }
 
-func (i InsightFiltersLastObservedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersLastObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersLastObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersLastObservedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersLastObservedAtDateRangeArgs) ToInsightFiltersLastObservedAtDateRangePtrOutput() InsightFiltersLastObservedAtDateRangePtrOutput {
 	return i.ToInsightFiltersLastObservedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -4848,12 +4313,6 @@ func (i *insightFiltersLastObservedAtDateRangePtrType) ToInsightFiltersLastObser
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersLastObservedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersLastObservedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersLastObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersLastObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersLastObservedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersLastObservedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersLastObservedAtDateRangeOutput) ElementType() reflect.Type {
@@ -4878,12 +4337,6 @@ func (o InsightFiltersLastObservedAtDateRangeOutput) ToInsightFiltersLastObserve
 	}).(InsightFiltersLastObservedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersLastObservedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersLastObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersLastObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersLastObservedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersLastObservedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -4906,12 +4359,6 @@ func (o InsightFiltersLastObservedAtDateRangePtrOutput) ToInsightFiltersLastObse
 
 func (o InsightFiltersLastObservedAtDateRangePtrOutput) ToInsightFiltersLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersLastObservedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersLastObservedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersLastObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersLastObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersLastObservedAtDateRangePtrOutput) Elem() InsightFiltersLastObservedAtDateRangeOutput {
@@ -4981,12 +4428,6 @@ func (i InsightFiltersMalwareNameArgs) ToInsightFiltersMalwareNameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareNameOutput)
 }
 
-func (i InsightFiltersMalwareNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareName] {
-	return pulumix.Output[InsightFiltersMalwareName]{
-		OutputState: i.ToInsightFiltersMalwareNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersMalwareNameArrayInput is an input type that accepts InsightFiltersMalwareNameArray and InsightFiltersMalwareNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareNameArrayInput` via:
 //
@@ -5012,12 +4453,6 @@ func (i InsightFiltersMalwareNameArray) ToInsightFiltersMalwareNameArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareNameArrayOutput)
 }
 
-func (i InsightFiltersMalwareNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareName] {
-	return pulumix.Output[[]InsightFiltersMalwareName]{
-		OutputState: i.ToInsightFiltersMalwareNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersMalwareNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersMalwareNameOutput) ElementType() reflect.Type {
@@ -5030,12 +4465,6 @@ func (o InsightFiltersMalwareNameOutput) ToInsightFiltersMalwareNameOutput() Ins
 
 func (o InsightFiltersMalwareNameOutput) ToInsightFiltersMalwareNameOutputWithContext(ctx context.Context) InsightFiltersMalwareNameOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareName] {
-	return pulumix.Output[InsightFiltersMalwareName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -5060,12 +4489,6 @@ func (o InsightFiltersMalwareNameArrayOutput) ToInsightFiltersMalwareNameArrayOu
 
 func (o InsightFiltersMalwareNameArrayOutput) ToInsightFiltersMalwareNameArrayOutputWithContext(ctx context.Context) InsightFiltersMalwareNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareName] {
-	return pulumix.Output[[]InsightFiltersMalwareName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersMalwareNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersMalwareNameOutput {
@@ -5111,12 +4534,6 @@ func (i InsightFiltersMalwarePathArgs) ToInsightFiltersMalwarePathOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwarePathOutput)
 }
 
-func (i InsightFiltersMalwarePathArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwarePath] {
-	return pulumix.Output[InsightFiltersMalwarePath]{
-		OutputState: i.ToInsightFiltersMalwarePathOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersMalwarePathArrayInput is an input type that accepts InsightFiltersMalwarePathArray and InsightFiltersMalwarePathArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwarePathArrayInput` via:
 //
@@ -5142,12 +4559,6 @@ func (i InsightFiltersMalwarePathArray) ToInsightFiltersMalwarePathArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwarePathArrayOutput)
 }
 
-func (i InsightFiltersMalwarePathArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwarePath] {
-	return pulumix.Output[[]InsightFiltersMalwarePath]{
-		OutputState: i.ToInsightFiltersMalwarePathArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersMalwarePathOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersMalwarePathOutput) ElementType() reflect.Type {
@@ -5160,12 +4571,6 @@ func (o InsightFiltersMalwarePathOutput) ToInsightFiltersMalwarePathOutput() Ins
 
 func (o InsightFiltersMalwarePathOutput) ToInsightFiltersMalwarePathOutputWithContext(ctx context.Context) InsightFiltersMalwarePathOutput {
 	return o
-}
-
-func (o InsightFiltersMalwarePathOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwarePath] {
-	return pulumix.Output[InsightFiltersMalwarePath]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -5190,12 +4595,6 @@ func (o InsightFiltersMalwarePathArrayOutput) ToInsightFiltersMalwarePathArrayOu
 
 func (o InsightFiltersMalwarePathArrayOutput) ToInsightFiltersMalwarePathArrayOutputWithContext(ctx context.Context) InsightFiltersMalwarePathArrayOutput {
 	return o
-}
-
-func (o InsightFiltersMalwarePathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwarePath] {
-	return pulumix.Output[[]InsightFiltersMalwarePath]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersMalwarePathArrayOutput) Index(i pulumi.IntInput) InsightFiltersMalwarePathOutput {
@@ -5241,12 +4640,6 @@ func (i InsightFiltersMalwareStateArgs) ToInsightFiltersMalwareStateOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareStateOutput)
 }
 
-func (i InsightFiltersMalwareStateArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareState] {
-	return pulumix.Output[InsightFiltersMalwareState]{
-		OutputState: i.ToInsightFiltersMalwareStateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersMalwareStateArrayInput is an input type that accepts InsightFiltersMalwareStateArray and InsightFiltersMalwareStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareStateArrayInput` via:
 //
@@ -5272,12 +4665,6 @@ func (i InsightFiltersMalwareStateArray) ToInsightFiltersMalwareStateArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareStateArrayOutput)
 }
 
-func (i InsightFiltersMalwareStateArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareState] {
-	return pulumix.Output[[]InsightFiltersMalwareState]{
-		OutputState: i.ToInsightFiltersMalwareStateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersMalwareStateOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersMalwareStateOutput) ElementType() reflect.Type {
@@ -5290,12 +4677,6 @@ func (o InsightFiltersMalwareStateOutput) ToInsightFiltersMalwareStateOutput() I
 
 func (o InsightFiltersMalwareStateOutput) ToInsightFiltersMalwareStateOutputWithContext(ctx context.Context) InsightFiltersMalwareStateOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareStateOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareState] {
-	return pulumix.Output[InsightFiltersMalwareState]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -5320,12 +4701,6 @@ func (o InsightFiltersMalwareStateArrayOutput) ToInsightFiltersMalwareStateArray
 
 func (o InsightFiltersMalwareStateArrayOutput) ToInsightFiltersMalwareStateArrayOutputWithContext(ctx context.Context) InsightFiltersMalwareStateArrayOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareState] {
-	return pulumix.Output[[]InsightFiltersMalwareState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersMalwareStateArrayOutput) Index(i pulumi.IntInput) InsightFiltersMalwareStateOutput {
@@ -5371,12 +4746,6 @@ func (i InsightFiltersMalwareTypeArgs) ToInsightFiltersMalwareTypeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareTypeOutput)
 }
 
-func (i InsightFiltersMalwareTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareType] {
-	return pulumix.Output[InsightFiltersMalwareType]{
-		OutputState: i.ToInsightFiltersMalwareTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersMalwareTypeArrayInput is an input type that accepts InsightFiltersMalwareTypeArray and InsightFiltersMalwareTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersMalwareTypeArrayInput` via:
 //
@@ -5402,12 +4771,6 @@ func (i InsightFiltersMalwareTypeArray) ToInsightFiltersMalwareTypeArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersMalwareTypeArrayOutput)
 }
 
-func (i InsightFiltersMalwareTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareType] {
-	return pulumix.Output[[]InsightFiltersMalwareType]{
-		OutputState: i.ToInsightFiltersMalwareTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersMalwareTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersMalwareTypeOutput) ElementType() reflect.Type {
@@ -5420,12 +4783,6 @@ func (o InsightFiltersMalwareTypeOutput) ToInsightFiltersMalwareTypeOutput() Ins
 
 func (o InsightFiltersMalwareTypeOutput) ToInsightFiltersMalwareTypeOutputWithContext(ctx context.Context) InsightFiltersMalwareTypeOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersMalwareType] {
-	return pulumix.Output[InsightFiltersMalwareType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -5450,12 +4807,6 @@ func (o InsightFiltersMalwareTypeArrayOutput) ToInsightFiltersMalwareTypeArrayOu
 
 func (o InsightFiltersMalwareTypeArrayOutput) ToInsightFiltersMalwareTypeArrayOutputWithContext(ctx context.Context) InsightFiltersMalwareTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersMalwareTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersMalwareType] {
-	return pulumix.Output[[]InsightFiltersMalwareType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersMalwareTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersMalwareTypeOutput {
@@ -5501,12 +4852,6 @@ func (i InsightFiltersNetworkDestinationDomainArgs) ToInsightFiltersNetworkDesti
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationDomainOutput)
 }
 
-func (i InsightFiltersNetworkDestinationDomainArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationDomain] {
-	return pulumix.Output[InsightFiltersNetworkDestinationDomain]{
-		OutputState: i.ToInsightFiltersNetworkDestinationDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkDestinationDomainArrayInput is an input type that accepts InsightFiltersNetworkDestinationDomainArray and InsightFiltersNetworkDestinationDomainArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationDomainArrayInput` via:
 //
@@ -5532,12 +4877,6 @@ func (i InsightFiltersNetworkDestinationDomainArray) ToInsightFiltersNetworkDest
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationDomainArrayOutput)
 }
 
-func (i InsightFiltersNetworkDestinationDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationDomain] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationDomain]{
-		OutputState: i.ToInsightFiltersNetworkDestinationDomainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkDestinationDomainOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkDestinationDomainOutput) ElementType() reflect.Type {
@@ -5550,12 +4889,6 @@ func (o InsightFiltersNetworkDestinationDomainOutput) ToInsightFiltersNetworkDes
 
 func (o InsightFiltersNetworkDestinationDomainOutput) ToInsightFiltersNetworkDestinationDomainOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationDomainOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationDomainOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationDomain] {
-	return pulumix.Output[InsightFiltersNetworkDestinationDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -5580,12 +4913,6 @@ func (o InsightFiltersNetworkDestinationDomainArrayOutput) ToInsightFiltersNetwo
 
 func (o InsightFiltersNetworkDestinationDomainArrayOutput) ToInsightFiltersNetworkDestinationDomainArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationDomainArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationDomain] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkDestinationDomainArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkDestinationDomainOutput {
@@ -5627,12 +4954,6 @@ func (i InsightFiltersNetworkDestinationIpv4Args) ToInsightFiltersNetworkDestina
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationIpv4Output)
 }
 
-func (i InsightFiltersNetworkDestinationIpv4Args) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationIpv4] {
-	return pulumix.Output[InsightFiltersNetworkDestinationIpv4]{
-		OutputState: i.ToInsightFiltersNetworkDestinationIpv4OutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkDestinationIpv4ArrayInput is an input type that accepts InsightFiltersNetworkDestinationIpv4Array and InsightFiltersNetworkDestinationIpv4ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv4ArrayInput` via:
 //
@@ -5658,12 +4979,6 @@ func (i InsightFiltersNetworkDestinationIpv4Array) ToInsightFiltersNetworkDestin
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationIpv4ArrayOutput)
 }
 
-func (i InsightFiltersNetworkDestinationIpv4Array) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationIpv4] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationIpv4]{
-		OutputState: i.ToInsightFiltersNetworkDestinationIpv4ArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkDestinationIpv4Output struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkDestinationIpv4Output) ElementType() reflect.Type {
@@ -5676,12 +4991,6 @@ func (o InsightFiltersNetworkDestinationIpv4Output) ToInsightFiltersNetworkDesti
 
 func (o InsightFiltersNetworkDestinationIpv4Output) ToInsightFiltersNetworkDestinationIpv4OutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationIpv4Output {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationIpv4Output) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationIpv4] {
-	return pulumix.Output[InsightFiltersNetworkDestinationIpv4]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -5701,12 +5010,6 @@ func (o InsightFiltersNetworkDestinationIpv4ArrayOutput) ToInsightFiltersNetwork
 
 func (o InsightFiltersNetworkDestinationIpv4ArrayOutput) ToInsightFiltersNetworkDestinationIpv4ArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationIpv4ArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationIpv4ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationIpv4] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationIpv4]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkDestinationIpv4ArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkDestinationIpv4Output {
@@ -5748,12 +5051,6 @@ func (i InsightFiltersNetworkDestinationIpv6Args) ToInsightFiltersNetworkDestina
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationIpv6Output)
 }
 
-func (i InsightFiltersNetworkDestinationIpv6Args) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationIpv6] {
-	return pulumix.Output[InsightFiltersNetworkDestinationIpv6]{
-		OutputState: i.ToInsightFiltersNetworkDestinationIpv6OutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkDestinationIpv6ArrayInput is an input type that accepts InsightFiltersNetworkDestinationIpv6Array and InsightFiltersNetworkDestinationIpv6ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationIpv6ArrayInput` via:
 //
@@ -5779,12 +5076,6 @@ func (i InsightFiltersNetworkDestinationIpv6Array) ToInsightFiltersNetworkDestin
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationIpv6ArrayOutput)
 }
 
-func (i InsightFiltersNetworkDestinationIpv6Array) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationIpv6] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationIpv6]{
-		OutputState: i.ToInsightFiltersNetworkDestinationIpv6ArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkDestinationIpv6Output struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkDestinationIpv6Output) ElementType() reflect.Type {
@@ -5797,12 +5088,6 @@ func (o InsightFiltersNetworkDestinationIpv6Output) ToInsightFiltersNetworkDesti
 
 func (o InsightFiltersNetworkDestinationIpv6Output) ToInsightFiltersNetworkDestinationIpv6OutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationIpv6Output {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationIpv6Output) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationIpv6] {
-	return pulumix.Output[InsightFiltersNetworkDestinationIpv6]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -5822,12 +5107,6 @@ func (o InsightFiltersNetworkDestinationIpv6ArrayOutput) ToInsightFiltersNetwork
 
 func (o InsightFiltersNetworkDestinationIpv6ArrayOutput) ToInsightFiltersNetworkDestinationIpv6ArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationIpv6ArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationIpv6ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationIpv6] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationIpv6]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkDestinationIpv6ArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkDestinationIpv6Output {
@@ -5877,12 +5156,6 @@ func (i InsightFiltersNetworkDestinationPortArgs) ToInsightFiltersNetworkDestina
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationPortOutput)
 }
 
-func (i InsightFiltersNetworkDestinationPortArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationPort] {
-	return pulumix.Output[InsightFiltersNetworkDestinationPort]{
-		OutputState: i.ToInsightFiltersNetworkDestinationPortOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkDestinationPortArrayInput is an input type that accepts InsightFiltersNetworkDestinationPortArray and InsightFiltersNetworkDestinationPortArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDestinationPortArrayInput` via:
 //
@@ -5908,12 +5181,6 @@ func (i InsightFiltersNetworkDestinationPortArray) ToInsightFiltersNetworkDestin
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDestinationPortArrayOutput)
 }
 
-func (i InsightFiltersNetworkDestinationPortArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationPort] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationPort]{
-		OutputState: i.ToInsightFiltersNetworkDestinationPortArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkDestinationPortOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkDestinationPortOutput) ElementType() reflect.Type {
@@ -5926,12 +5193,6 @@ func (o InsightFiltersNetworkDestinationPortOutput) ToInsightFiltersNetworkDesti
 
 func (o InsightFiltersNetworkDestinationPortOutput) ToInsightFiltersNetworkDestinationPortOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationPortOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationPortOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDestinationPort] {
-	return pulumix.Output[InsightFiltersNetworkDestinationPort]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -5961,12 +5222,6 @@ func (o InsightFiltersNetworkDestinationPortArrayOutput) ToInsightFiltersNetwork
 
 func (o InsightFiltersNetworkDestinationPortArrayOutput) ToInsightFiltersNetworkDestinationPortArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkDestinationPortArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDestinationPortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDestinationPort] {
-	return pulumix.Output[[]InsightFiltersNetworkDestinationPort]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkDestinationPortArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkDestinationPortOutput {
@@ -6012,12 +5267,6 @@ func (i InsightFiltersNetworkDirectionArgs) ToInsightFiltersNetworkDirectionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDirectionOutput)
 }
 
-func (i InsightFiltersNetworkDirectionArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDirection] {
-	return pulumix.Output[InsightFiltersNetworkDirection]{
-		OutputState: i.ToInsightFiltersNetworkDirectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkDirectionArrayInput is an input type that accepts InsightFiltersNetworkDirectionArray and InsightFiltersNetworkDirectionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkDirectionArrayInput` via:
 //
@@ -6043,12 +5292,6 @@ func (i InsightFiltersNetworkDirectionArray) ToInsightFiltersNetworkDirectionArr
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkDirectionArrayOutput)
 }
 
-func (i InsightFiltersNetworkDirectionArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDirection] {
-	return pulumix.Output[[]InsightFiltersNetworkDirection]{
-		OutputState: i.ToInsightFiltersNetworkDirectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkDirectionOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkDirectionOutput) ElementType() reflect.Type {
@@ -6061,12 +5304,6 @@ func (o InsightFiltersNetworkDirectionOutput) ToInsightFiltersNetworkDirectionOu
 
 func (o InsightFiltersNetworkDirectionOutput) ToInsightFiltersNetworkDirectionOutputWithContext(ctx context.Context) InsightFiltersNetworkDirectionOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkDirection] {
-	return pulumix.Output[InsightFiltersNetworkDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -6091,12 +5328,6 @@ func (o InsightFiltersNetworkDirectionArrayOutput) ToInsightFiltersNetworkDirect
 
 func (o InsightFiltersNetworkDirectionArrayOutput) ToInsightFiltersNetworkDirectionArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkDirectionArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkDirectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkDirection] {
-	return pulumix.Output[[]InsightFiltersNetworkDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkDirectionArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkDirectionOutput {
@@ -6142,12 +5373,6 @@ func (i InsightFiltersNetworkProtocolArgs) ToInsightFiltersNetworkProtocolOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkProtocolOutput)
 }
 
-func (i InsightFiltersNetworkProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkProtocol] {
-	return pulumix.Output[InsightFiltersNetworkProtocol]{
-		OutputState: i.ToInsightFiltersNetworkProtocolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkProtocolArrayInput is an input type that accepts InsightFiltersNetworkProtocolArray and InsightFiltersNetworkProtocolArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkProtocolArrayInput` via:
 //
@@ -6173,12 +5398,6 @@ func (i InsightFiltersNetworkProtocolArray) ToInsightFiltersNetworkProtocolArray
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkProtocolArrayOutput)
 }
 
-func (i InsightFiltersNetworkProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkProtocol] {
-	return pulumix.Output[[]InsightFiltersNetworkProtocol]{
-		OutputState: i.ToInsightFiltersNetworkProtocolArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkProtocolOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkProtocolOutput) ElementType() reflect.Type {
@@ -6191,12 +5410,6 @@ func (o InsightFiltersNetworkProtocolOutput) ToInsightFiltersNetworkProtocolOutp
 
 func (o InsightFiltersNetworkProtocolOutput) ToInsightFiltersNetworkProtocolOutputWithContext(ctx context.Context) InsightFiltersNetworkProtocolOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkProtocol] {
-	return pulumix.Output[InsightFiltersNetworkProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -6221,12 +5434,6 @@ func (o InsightFiltersNetworkProtocolArrayOutput) ToInsightFiltersNetworkProtoco
 
 func (o InsightFiltersNetworkProtocolArrayOutput) ToInsightFiltersNetworkProtocolArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkProtocolArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkProtocol] {
-	return pulumix.Output[[]InsightFiltersNetworkProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkProtocolArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkProtocolOutput {
@@ -6272,12 +5479,6 @@ func (i InsightFiltersNetworkSourceDomainArgs) ToInsightFiltersNetworkSourceDoma
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceDomainOutput)
 }
 
-func (i InsightFiltersNetworkSourceDomainArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceDomain] {
-	return pulumix.Output[InsightFiltersNetworkSourceDomain]{
-		OutputState: i.ToInsightFiltersNetworkSourceDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkSourceDomainArrayInput is an input type that accepts InsightFiltersNetworkSourceDomainArray and InsightFiltersNetworkSourceDomainArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceDomainArrayInput` via:
 //
@@ -6303,12 +5504,6 @@ func (i InsightFiltersNetworkSourceDomainArray) ToInsightFiltersNetworkSourceDom
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceDomainArrayOutput)
 }
 
-func (i InsightFiltersNetworkSourceDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceDomain] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceDomain]{
-		OutputState: i.ToInsightFiltersNetworkSourceDomainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkSourceDomainOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkSourceDomainOutput) ElementType() reflect.Type {
@@ -6321,12 +5516,6 @@ func (o InsightFiltersNetworkSourceDomainOutput) ToInsightFiltersNetworkSourceDo
 
 func (o InsightFiltersNetworkSourceDomainOutput) ToInsightFiltersNetworkSourceDomainOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceDomainOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceDomainOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceDomain] {
-	return pulumix.Output[InsightFiltersNetworkSourceDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -6351,12 +5540,6 @@ func (o InsightFiltersNetworkSourceDomainArrayOutput) ToInsightFiltersNetworkSou
 
 func (o InsightFiltersNetworkSourceDomainArrayOutput) ToInsightFiltersNetworkSourceDomainArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceDomainArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceDomain] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkSourceDomainArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkSourceDomainOutput {
@@ -6398,12 +5581,6 @@ func (i InsightFiltersNetworkSourceIpv4Args) ToInsightFiltersNetworkSourceIpv4Ou
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceIpv4Output)
 }
 
-func (i InsightFiltersNetworkSourceIpv4Args) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceIpv4] {
-	return pulumix.Output[InsightFiltersNetworkSourceIpv4]{
-		OutputState: i.ToInsightFiltersNetworkSourceIpv4OutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkSourceIpv4ArrayInput is an input type that accepts InsightFiltersNetworkSourceIpv4Array and InsightFiltersNetworkSourceIpv4ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv4ArrayInput` via:
 //
@@ -6429,12 +5606,6 @@ func (i InsightFiltersNetworkSourceIpv4Array) ToInsightFiltersNetworkSourceIpv4A
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceIpv4ArrayOutput)
 }
 
-func (i InsightFiltersNetworkSourceIpv4Array) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceIpv4] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceIpv4]{
-		OutputState: i.ToInsightFiltersNetworkSourceIpv4ArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkSourceIpv4Output struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkSourceIpv4Output) ElementType() reflect.Type {
@@ -6447,12 +5618,6 @@ func (o InsightFiltersNetworkSourceIpv4Output) ToInsightFiltersNetworkSourceIpv4
 
 func (o InsightFiltersNetworkSourceIpv4Output) ToInsightFiltersNetworkSourceIpv4OutputWithContext(ctx context.Context) InsightFiltersNetworkSourceIpv4Output {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceIpv4Output) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceIpv4] {
-	return pulumix.Output[InsightFiltersNetworkSourceIpv4]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -6472,12 +5637,6 @@ func (o InsightFiltersNetworkSourceIpv4ArrayOutput) ToInsightFiltersNetworkSourc
 
 func (o InsightFiltersNetworkSourceIpv4ArrayOutput) ToInsightFiltersNetworkSourceIpv4ArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceIpv4ArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceIpv4ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceIpv4] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceIpv4]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkSourceIpv4ArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkSourceIpv4Output {
@@ -6519,12 +5678,6 @@ func (i InsightFiltersNetworkSourceIpv6Args) ToInsightFiltersNetworkSourceIpv6Ou
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceIpv6Output)
 }
 
-func (i InsightFiltersNetworkSourceIpv6Args) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceIpv6] {
-	return pulumix.Output[InsightFiltersNetworkSourceIpv6]{
-		OutputState: i.ToInsightFiltersNetworkSourceIpv6OutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkSourceIpv6ArrayInput is an input type that accepts InsightFiltersNetworkSourceIpv6Array and InsightFiltersNetworkSourceIpv6ArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceIpv6ArrayInput` via:
 //
@@ -6550,12 +5703,6 @@ func (i InsightFiltersNetworkSourceIpv6Array) ToInsightFiltersNetworkSourceIpv6A
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceIpv6ArrayOutput)
 }
 
-func (i InsightFiltersNetworkSourceIpv6Array) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceIpv6] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceIpv6]{
-		OutputState: i.ToInsightFiltersNetworkSourceIpv6ArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkSourceIpv6Output struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkSourceIpv6Output) ElementType() reflect.Type {
@@ -6568,12 +5715,6 @@ func (o InsightFiltersNetworkSourceIpv6Output) ToInsightFiltersNetworkSourceIpv6
 
 func (o InsightFiltersNetworkSourceIpv6Output) ToInsightFiltersNetworkSourceIpv6OutputWithContext(ctx context.Context) InsightFiltersNetworkSourceIpv6Output {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceIpv6Output) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceIpv6] {
-	return pulumix.Output[InsightFiltersNetworkSourceIpv6]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -6593,12 +5734,6 @@ func (o InsightFiltersNetworkSourceIpv6ArrayOutput) ToInsightFiltersNetworkSourc
 
 func (o InsightFiltersNetworkSourceIpv6ArrayOutput) ToInsightFiltersNetworkSourceIpv6ArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceIpv6ArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceIpv6ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceIpv6] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceIpv6]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkSourceIpv6ArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkSourceIpv6Output {
@@ -6644,12 +5779,6 @@ func (i InsightFiltersNetworkSourceMacArgs) ToInsightFiltersNetworkSourceMacOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceMacOutput)
 }
 
-func (i InsightFiltersNetworkSourceMacArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceMac] {
-	return pulumix.Output[InsightFiltersNetworkSourceMac]{
-		OutputState: i.ToInsightFiltersNetworkSourceMacOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkSourceMacArrayInput is an input type that accepts InsightFiltersNetworkSourceMacArray and InsightFiltersNetworkSourceMacArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourceMacArrayInput` via:
 //
@@ -6675,12 +5804,6 @@ func (i InsightFiltersNetworkSourceMacArray) ToInsightFiltersNetworkSourceMacArr
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourceMacArrayOutput)
 }
 
-func (i InsightFiltersNetworkSourceMacArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceMac] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceMac]{
-		OutputState: i.ToInsightFiltersNetworkSourceMacArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkSourceMacOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkSourceMacOutput) ElementType() reflect.Type {
@@ -6693,12 +5816,6 @@ func (o InsightFiltersNetworkSourceMacOutput) ToInsightFiltersNetworkSourceMacOu
 
 func (o InsightFiltersNetworkSourceMacOutput) ToInsightFiltersNetworkSourceMacOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceMacOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceMacOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourceMac] {
-	return pulumix.Output[InsightFiltersNetworkSourceMac]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -6723,12 +5840,6 @@ func (o InsightFiltersNetworkSourceMacArrayOutput) ToInsightFiltersNetworkSource
 
 func (o InsightFiltersNetworkSourceMacArrayOutput) ToInsightFiltersNetworkSourceMacArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkSourceMacArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourceMacArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourceMac] {
-	return pulumix.Output[[]InsightFiltersNetworkSourceMac]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkSourceMacArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkSourceMacOutput {
@@ -6778,12 +5889,6 @@ func (i InsightFiltersNetworkSourcePortArgs) ToInsightFiltersNetworkSourcePortOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourcePortOutput)
 }
 
-func (i InsightFiltersNetworkSourcePortArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourcePort] {
-	return pulumix.Output[InsightFiltersNetworkSourcePort]{
-		OutputState: i.ToInsightFiltersNetworkSourcePortOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNetworkSourcePortArrayInput is an input type that accepts InsightFiltersNetworkSourcePortArray and InsightFiltersNetworkSourcePortArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNetworkSourcePortArrayInput` via:
 //
@@ -6809,12 +5914,6 @@ func (i InsightFiltersNetworkSourcePortArray) ToInsightFiltersNetworkSourcePortA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNetworkSourcePortArrayOutput)
 }
 
-func (i InsightFiltersNetworkSourcePortArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourcePort] {
-	return pulumix.Output[[]InsightFiltersNetworkSourcePort]{
-		OutputState: i.ToInsightFiltersNetworkSourcePortArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNetworkSourcePortOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNetworkSourcePortOutput) ElementType() reflect.Type {
@@ -6827,12 +5926,6 @@ func (o InsightFiltersNetworkSourcePortOutput) ToInsightFiltersNetworkSourcePort
 
 func (o InsightFiltersNetworkSourcePortOutput) ToInsightFiltersNetworkSourcePortOutputWithContext(ctx context.Context) InsightFiltersNetworkSourcePortOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourcePortOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNetworkSourcePort] {
-	return pulumix.Output[InsightFiltersNetworkSourcePort]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -6862,12 +5955,6 @@ func (o InsightFiltersNetworkSourcePortArrayOutput) ToInsightFiltersNetworkSourc
 
 func (o InsightFiltersNetworkSourcePortArrayOutput) ToInsightFiltersNetworkSourcePortArrayOutputWithContext(ctx context.Context) InsightFiltersNetworkSourcePortArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNetworkSourcePortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNetworkSourcePort] {
-	return pulumix.Output[[]InsightFiltersNetworkSourcePort]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNetworkSourcePortArrayOutput) Index(i pulumi.IntInput) InsightFiltersNetworkSourcePortOutput {
@@ -6913,12 +6000,6 @@ func (i InsightFiltersNoteTextArgs) ToInsightFiltersNoteTextOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteTextOutput)
 }
 
-func (i InsightFiltersNoteTextArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteText] {
-	return pulumix.Output[InsightFiltersNoteText]{
-		OutputState: i.ToInsightFiltersNoteTextOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNoteTextArrayInput is an input type that accepts InsightFiltersNoteTextArray and InsightFiltersNoteTextArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteTextArrayInput` via:
 //
@@ -6944,12 +6025,6 @@ func (i InsightFiltersNoteTextArray) ToInsightFiltersNoteTextArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteTextArrayOutput)
 }
 
-func (i InsightFiltersNoteTextArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteText] {
-	return pulumix.Output[[]InsightFiltersNoteText]{
-		OutputState: i.ToInsightFiltersNoteTextArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNoteTextOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNoteTextOutput) ElementType() reflect.Type {
@@ -6962,12 +6037,6 @@ func (o InsightFiltersNoteTextOutput) ToInsightFiltersNoteTextOutput() InsightFi
 
 func (o InsightFiltersNoteTextOutput) ToInsightFiltersNoteTextOutputWithContext(ctx context.Context) InsightFiltersNoteTextOutput {
 	return o
-}
-
-func (o InsightFiltersNoteTextOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteText] {
-	return pulumix.Output[InsightFiltersNoteText]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -6992,12 +6061,6 @@ func (o InsightFiltersNoteTextArrayOutput) ToInsightFiltersNoteTextArrayOutput()
 
 func (o InsightFiltersNoteTextArrayOutput) ToInsightFiltersNoteTextArrayOutputWithContext(ctx context.Context) InsightFiltersNoteTextArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNoteTextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteText] {
-	return pulumix.Output[[]InsightFiltersNoteText]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNoteTextArrayOutput) Index(i pulumi.IntInput) InsightFiltersNoteTextOutput {
@@ -7047,12 +6110,6 @@ func (i InsightFiltersNoteUpdatedAtArgs) ToInsightFiltersNoteUpdatedAtOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedAtOutput)
 }
 
-func (i InsightFiltersNoteUpdatedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedAt] {
-	return pulumix.Output[InsightFiltersNoteUpdatedAt]{
-		OutputState: i.ToInsightFiltersNoteUpdatedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNoteUpdatedAtArrayInput is an input type that accepts InsightFiltersNoteUpdatedAtArray and InsightFiltersNoteUpdatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedAtArrayInput` via:
 //
@@ -7078,12 +6135,6 @@ func (i InsightFiltersNoteUpdatedAtArray) ToInsightFiltersNoteUpdatedAtArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedAtArrayOutput)
 }
 
-func (i InsightFiltersNoteUpdatedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteUpdatedAt] {
-	return pulumix.Output[[]InsightFiltersNoteUpdatedAt]{
-		OutputState: i.ToInsightFiltersNoteUpdatedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNoteUpdatedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNoteUpdatedAtOutput) ElementType() reflect.Type {
@@ -7096,12 +6147,6 @@ func (o InsightFiltersNoteUpdatedAtOutput) ToInsightFiltersNoteUpdatedAtOutput()
 
 func (o InsightFiltersNoteUpdatedAtOutput) ToInsightFiltersNoteUpdatedAtOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedAtOutput {
 	return o
-}
-
-func (o InsightFiltersNoteUpdatedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedAt] {
-	return pulumix.Output[InsightFiltersNoteUpdatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -7131,12 +6176,6 @@ func (o InsightFiltersNoteUpdatedAtArrayOutput) ToInsightFiltersNoteUpdatedAtArr
 
 func (o InsightFiltersNoteUpdatedAtArrayOutput) ToInsightFiltersNoteUpdatedAtArrayOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNoteUpdatedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteUpdatedAt] {
-	return pulumix.Output[[]InsightFiltersNoteUpdatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNoteUpdatedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersNoteUpdatedAtOutput {
@@ -7182,12 +6221,6 @@ func (i InsightFiltersNoteUpdatedAtDateRangeArgs) ToInsightFiltersNoteUpdatedAtD
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedAtDateRangeOutput)
 }
 
-func (i InsightFiltersNoteUpdatedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedAtDateRange] {
-	return pulumix.Output[InsightFiltersNoteUpdatedAtDateRange]{
-		OutputState: i.ToInsightFiltersNoteUpdatedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersNoteUpdatedAtDateRangeArgs) ToInsightFiltersNoteUpdatedAtDateRangePtrOutput() InsightFiltersNoteUpdatedAtDateRangePtrOutput {
 	return i.ToInsightFiltersNoteUpdatedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -7229,12 +6262,6 @@ func (i *insightFiltersNoteUpdatedAtDateRangePtrType) ToInsightFiltersNoteUpdate
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersNoteUpdatedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersNoteUpdatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersNoteUpdatedAtDateRange]{
-		OutputState: i.ToInsightFiltersNoteUpdatedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNoteUpdatedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNoteUpdatedAtDateRangeOutput) ElementType() reflect.Type {
@@ -7259,12 +6286,6 @@ func (o InsightFiltersNoteUpdatedAtDateRangeOutput) ToInsightFiltersNoteUpdatedA
 	}).(InsightFiltersNoteUpdatedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersNoteUpdatedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedAtDateRange] {
-	return pulumix.Output[InsightFiltersNoteUpdatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersNoteUpdatedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersNoteUpdatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -7287,12 +6308,6 @@ func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) ToInsightFiltersNoteUpdat
 
 func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) ToInsightFiltersNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersNoteUpdatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersNoteUpdatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) Elem() InsightFiltersNoteUpdatedAtDateRangeOutput {
@@ -7362,12 +6377,6 @@ func (i InsightFiltersNoteUpdatedByArgs) ToInsightFiltersNoteUpdatedByOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedByOutput)
 }
 
-func (i InsightFiltersNoteUpdatedByArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedBy] {
-	return pulumix.Output[InsightFiltersNoteUpdatedBy]{
-		OutputState: i.ToInsightFiltersNoteUpdatedByOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersNoteUpdatedByArrayInput is an input type that accepts InsightFiltersNoteUpdatedByArray and InsightFiltersNoteUpdatedByArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersNoteUpdatedByArrayInput` via:
 //
@@ -7393,12 +6402,6 @@ func (i InsightFiltersNoteUpdatedByArray) ToInsightFiltersNoteUpdatedByArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersNoteUpdatedByArrayOutput)
 }
 
-func (i InsightFiltersNoteUpdatedByArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteUpdatedBy] {
-	return pulumix.Output[[]InsightFiltersNoteUpdatedBy]{
-		OutputState: i.ToInsightFiltersNoteUpdatedByArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersNoteUpdatedByOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersNoteUpdatedByOutput) ElementType() reflect.Type {
@@ -7411,12 +6414,6 @@ func (o InsightFiltersNoteUpdatedByOutput) ToInsightFiltersNoteUpdatedByOutput()
 
 func (o InsightFiltersNoteUpdatedByOutput) ToInsightFiltersNoteUpdatedByOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedByOutput {
 	return o
-}
-
-func (o InsightFiltersNoteUpdatedByOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersNoteUpdatedBy] {
-	return pulumix.Output[InsightFiltersNoteUpdatedBy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -7441,12 +6438,6 @@ func (o InsightFiltersNoteUpdatedByArrayOutput) ToInsightFiltersNoteUpdatedByArr
 
 func (o InsightFiltersNoteUpdatedByArrayOutput) ToInsightFiltersNoteUpdatedByArrayOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedByArrayOutput {
 	return o
-}
-
-func (o InsightFiltersNoteUpdatedByArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersNoteUpdatedBy] {
-	return pulumix.Output[[]InsightFiltersNoteUpdatedBy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersNoteUpdatedByArrayOutput) Index(i pulumi.IntInput) InsightFiltersNoteUpdatedByOutput {
@@ -7496,12 +6487,6 @@ func (i InsightFiltersProcessLaunchedAtArgs) ToInsightFiltersProcessLaunchedAtOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessLaunchedAtOutput)
 }
 
-func (i InsightFiltersProcessLaunchedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessLaunchedAt] {
-	return pulumix.Output[InsightFiltersProcessLaunchedAt]{
-		OutputState: i.ToInsightFiltersProcessLaunchedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessLaunchedAtArrayInput is an input type that accepts InsightFiltersProcessLaunchedAtArray and InsightFiltersProcessLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessLaunchedAtArrayInput` via:
 //
@@ -7527,12 +6512,6 @@ func (i InsightFiltersProcessLaunchedAtArray) ToInsightFiltersProcessLaunchedAtA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessLaunchedAtArrayOutput)
 }
 
-func (i InsightFiltersProcessLaunchedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersProcessLaunchedAt]{
-		OutputState: i.ToInsightFiltersProcessLaunchedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessLaunchedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessLaunchedAtOutput) ElementType() reflect.Type {
@@ -7545,12 +6524,6 @@ func (o InsightFiltersProcessLaunchedAtOutput) ToInsightFiltersProcessLaunchedAt
 
 func (o InsightFiltersProcessLaunchedAtOutput) ToInsightFiltersProcessLaunchedAtOutputWithContext(ctx context.Context) InsightFiltersProcessLaunchedAtOutput {
 	return o
-}
-
-func (o InsightFiltersProcessLaunchedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessLaunchedAt] {
-	return pulumix.Output[InsightFiltersProcessLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -7580,12 +6553,6 @@ func (o InsightFiltersProcessLaunchedAtArrayOutput) ToInsightFiltersProcessLaunc
 
 func (o InsightFiltersProcessLaunchedAtArrayOutput) ToInsightFiltersProcessLaunchedAtArrayOutputWithContext(ctx context.Context) InsightFiltersProcessLaunchedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessLaunchedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersProcessLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessLaunchedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessLaunchedAtOutput {
@@ -7631,12 +6598,6 @@ func (i InsightFiltersProcessLaunchedAtDateRangeArgs) ToInsightFiltersProcessLau
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessLaunchedAtDateRangeOutput)
 }
 
-func (i InsightFiltersProcessLaunchedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersProcessLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersProcessLaunchedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersProcessLaunchedAtDateRangeArgs) ToInsightFiltersProcessLaunchedAtDateRangePtrOutput() InsightFiltersProcessLaunchedAtDateRangePtrOutput {
 	return i.ToInsightFiltersProcessLaunchedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -7678,12 +6639,6 @@ func (i *insightFiltersProcessLaunchedAtDateRangePtrType) ToInsightFiltersProces
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessLaunchedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersProcessLaunchedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersProcessLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersProcessLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersProcessLaunchedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessLaunchedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessLaunchedAtDateRangeOutput) ElementType() reflect.Type {
@@ -7708,12 +6663,6 @@ func (o InsightFiltersProcessLaunchedAtDateRangeOutput) ToInsightFiltersProcessL
 	}).(InsightFiltersProcessLaunchedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersProcessLaunchedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersProcessLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersProcessLaunchedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersProcessLaunchedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -7736,12 +6685,6 @@ func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) ToInsightFiltersProce
 
 func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) ToInsightFiltersProcessLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersProcessLaunchedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersProcessLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersProcessLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) Elem() InsightFiltersProcessLaunchedAtDateRangeOutput {
@@ -7811,12 +6754,6 @@ func (i InsightFiltersProcessNameArgs) ToInsightFiltersProcessNameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessNameOutput)
 }
 
-func (i InsightFiltersProcessNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessName] {
-	return pulumix.Output[InsightFiltersProcessName]{
-		OutputState: i.ToInsightFiltersProcessNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessNameArrayInput is an input type that accepts InsightFiltersProcessNameArray and InsightFiltersProcessNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessNameArrayInput` via:
 //
@@ -7842,12 +6779,6 @@ func (i InsightFiltersProcessNameArray) ToInsightFiltersProcessNameArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessNameArrayOutput)
 }
 
-func (i InsightFiltersProcessNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessName] {
-	return pulumix.Output[[]InsightFiltersProcessName]{
-		OutputState: i.ToInsightFiltersProcessNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessNameOutput) ElementType() reflect.Type {
@@ -7860,12 +6791,6 @@ func (o InsightFiltersProcessNameOutput) ToInsightFiltersProcessNameOutput() Ins
 
 func (o InsightFiltersProcessNameOutput) ToInsightFiltersProcessNameOutputWithContext(ctx context.Context) InsightFiltersProcessNameOutput {
 	return o
-}
-
-func (o InsightFiltersProcessNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessName] {
-	return pulumix.Output[InsightFiltersProcessName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -7890,12 +6815,6 @@ func (o InsightFiltersProcessNameArrayOutput) ToInsightFiltersProcessNameArrayOu
 
 func (o InsightFiltersProcessNameArrayOutput) ToInsightFiltersProcessNameArrayOutputWithContext(ctx context.Context) InsightFiltersProcessNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessName] {
-	return pulumix.Output[[]InsightFiltersProcessName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessNameOutput {
@@ -7945,12 +6864,6 @@ func (i InsightFiltersProcessParentPidArgs) ToInsightFiltersProcessParentPidOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessParentPidOutput)
 }
 
-func (i InsightFiltersProcessParentPidArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessParentPid] {
-	return pulumix.Output[InsightFiltersProcessParentPid]{
-		OutputState: i.ToInsightFiltersProcessParentPidOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessParentPidArrayInput is an input type that accepts InsightFiltersProcessParentPidArray and InsightFiltersProcessParentPidArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessParentPidArrayInput` via:
 //
@@ -7976,12 +6889,6 @@ func (i InsightFiltersProcessParentPidArray) ToInsightFiltersProcessParentPidArr
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessParentPidArrayOutput)
 }
 
-func (i InsightFiltersProcessParentPidArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessParentPid] {
-	return pulumix.Output[[]InsightFiltersProcessParentPid]{
-		OutputState: i.ToInsightFiltersProcessParentPidArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessParentPidOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessParentPidOutput) ElementType() reflect.Type {
@@ -7994,12 +6901,6 @@ func (o InsightFiltersProcessParentPidOutput) ToInsightFiltersProcessParentPidOu
 
 func (o InsightFiltersProcessParentPidOutput) ToInsightFiltersProcessParentPidOutputWithContext(ctx context.Context) InsightFiltersProcessParentPidOutput {
 	return o
-}
-
-func (o InsightFiltersProcessParentPidOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessParentPid] {
-	return pulumix.Output[InsightFiltersProcessParentPid]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -8029,12 +6930,6 @@ func (o InsightFiltersProcessParentPidArrayOutput) ToInsightFiltersProcessParent
 
 func (o InsightFiltersProcessParentPidArrayOutput) ToInsightFiltersProcessParentPidArrayOutputWithContext(ctx context.Context) InsightFiltersProcessParentPidArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessParentPidArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessParentPid] {
-	return pulumix.Output[[]InsightFiltersProcessParentPid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessParentPidArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessParentPidOutput {
@@ -8080,12 +6975,6 @@ func (i InsightFiltersProcessPathArgs) ToInsightFiltersProcessPathOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessPathOutput)
 }
 
-func (i InsightFiltersProcessPathArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessPath] {
-	return pulumix.Output[InsightFiltersProcessPath]{
-		OutputState: i.ToInsightFiltersProcessPathOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessPathArrayInput is an input type that accepts InsightFiltersProcessPathArray and InsightFiltersProcessPathArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPathArrayInput` via:
 //
@@ -8111,12 +7000,6 @@ func (i InsightFiltersProcessPathArray) ToInsightFiltersProcessPathArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessPathArrayOutput)
 }
 
-func (i InsightFiltersProcessPathArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessPath] {
-	return pulumix.Output[[]InsightFiltersProcessPath]{
-		OutputState: i.ToInsightFiltersProcessPathArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessPathOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessPathOutput) ElementType() reflect.Type {
@@ -8129,12 +7012,6 @@ func (o InsightFiltersProcessPathOutput) ToInsightFiltersProcessPathOutput() Ins
 
 func (o InsightFiltersProcessPathOutput) ToInsightFiltersProcessPathOutputWithContext(ctx context.Context) InsightFiltersProcessPathOutput {
 	return o
-}
-
-func (o InsightFiltersProcessPathOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessPath] {
-	return pulumix.Output[InsightFiltersProcessPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -8159,12 +7036,6 @@ func (o InsightFiltersProcessPathArrayOutput) ToInsightFiltersProcessPathArrayOu
 
 func (o InsightFiltersProcessPathArrayOutput) ToInsightFiltersProcessPathArrayOutputWithContext(ctx context.Context) InsightFiltersProcessPathArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessPathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessPath] {
-	return pulumix.Output[[]InsightFiltersProcessPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessPathArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessPathOutput {
@@ -8214,12 +7085,6 @@ func (i InsightFiltersProcessPidArgs) ToInsightFiltersProcessPidOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessPidOutput)
 }
 
-func (i InsightFiltersProcessPidArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessPid] {
-	return pulumix.Output[InsightFiltersProcessPid]{
-		OutputState: i.ToInsightFiltersProcessPidOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessPidArrayInput is an input type that accepts InsightFiltersProcessPidArray and InsightFiltersProcessPidArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessPidArrayInput` via:
 //
@@ -8245,12 +7110,6 @@ func (i InsightFiltersProcessPidArray) ToInsightFiltersProcessPidArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessPidArrayOutput)
 }
 
-func (i InsightFiltersProcessPidArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessPid] {
-	return pulumix.Output[[]InsightFiltersProcessPid]{
-		OutputState: i.ToInsightFiltersProcessPidArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessPidOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessPidOutput) ElementType() reflect.Type {
@@ -8263,12 +7122,6 @@ func (o InsightFiltersProcessPidOutput) ToInsightFiltersProcessPidOutput() Insig
 
 func (o InsightFiltersProcessPidOutput) ToInsightFiltersProcessPidOutputWithContext(ctx context.Context) InsightFiltersProcessPidOutput {
 	return o
-}
-
-func (o InsightFiltersProcessPidOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessPid] {
-	return pulumix.Output[InsightFiltersProcessPid]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The equal-to condition to be applied to a single field when querying for findings, provided as a String.
@@ -8298,12 +7151,6 @@ func (o InsightFiltersProcessPidArrayOutput) ToInsightFiltersProcessPidArrayOutp
 
 func (o InsightFiltersProcessPidArrayOutput) ToInsightFiltersProcessPidArrayOutputWithContext(ctx context.Context) InsightFiltersProcessPidArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessPidArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessPid] {
-	return pulumix.Output[[]InsightFiltersProcessPid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessPidArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessPidOutput {
@@ -8353,12 +7200,6 @@ func (i InsightFiltersProcessTerminatedAtArgs) ToInsightFiltersProcessTerminated
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessTerminatedAtOutput)
 }
 
-func (i InsightFiltersProcessTerminatedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessTerminatedAt] {
-	return pulumix.Output[InsightFiltersProcessTerminatedAt]{
-		OutputState: i.ToInsightFiltersProcessTerminatedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProcessTerminatedAtArrayInput is an input type that accepts InsightFiltersProcessTerminatedAtArray and InsightFiltersProcessTerminatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProcessTerminatedAtArrayInput` via:
 //
@@ -8384,12 +7225,6 @@ func (i InsightFiltersProcessTerminatedAtArray) ToInsightFiltersProcessTerminate
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessTerminatedAtArrayOutput)
 }
 
-func (i InsightFiltersProcessTerminatedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessTerminatedAt] {
-	return pulumix.Output[[]InsightFiltersProcessTerminatedAt]{
-		OutputState: i.ToInsightFiltersProcessTerminatedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessTerminatedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessTerminatedAtOutput) ElementType() reflect.Type {
@@ -8402,12 +7237,6 @@ func (o InsightFiltersProcessTerminatedAtOutput) ToInsightFiltersProcessTerminat
 
 func (o InsightFiltersProcessTerminatedAtOutput) ToInsightFiltersProcessTerminatedAtOutputWithContext(ctx context.Context) InsightFiltersProcessTerminatedAtOutput {
 	return o
-}
-
-func (o InsightFiltersProcessTerminatedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessTerminatedAt] {
-	return pulumix.Output[InsightFiltersProcessTerminatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -8439,12 +7268,6 @@ func (o InsightFiltersProcessTerminatedAtArrayOutput) ToInsightFiltersProcessTer
 
 func (o InsightFiltersProcessTerminatedAtArrayOutput) ToInsightFiltersProcessTerminatedAtArrayOutputWithContext(ctx context.Context) InsightFiltersProcessTerminatedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProcessTerminatedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProcessTerminatedAt] {
-	return pulumix.Output[[]InsightFiltersProcessTerminatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessTerminatedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersProcessTerminatedAtOutput {
@@ -8490,12 +7313,6 @@ func (i InsightFiltersProcessTerminatedAtDateRangeArgs) ToInsightFiltersProcessT
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessTerminatedAtDateRangeOutput)
 }
 
-func (i InsightFiltersProcessTerminatedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessTerminatedAtDateRange] {
-	return pulumix.Output[InsightFiltersProcessTerminatedAtDateRange]{
-		OutputState: i.ToInsightFiltersProcessTerminatedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersProcessTerminatedAtDateRangeArgs) ToInsightFiltersProcessTerminatedAtDateRangePtrOutput() InsightFiltersProcessTerminatedAtDateRangePtrOutput {
 	return i.ToInsightFiltersProcessTerminatedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -8537,12 +7354,6 @@ func (i *insightFiltersProcessTerminatedAtDateRangePtrType) ToInsightFiltersProc
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProcessTerminatedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersProcessTerminatedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersProcessTerminatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersProcessTerminatedAtDateRange]{
-		OutputState: i.ToInsightFiltersProcessTerminatedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProcessTerminatedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProcessTerminatedAtDateRangeOutput) ElementType() reflect.Type {
@@ -8567,12 +7378,6 @@ func (o InsightFiltersProcessTerminatedAtDateRangeOutput) ToInsightFiltersProces
 	}).(InsightFiltersProcessTerminatedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersProcessTerminatedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProcessTerminatedAtDateRange] {
-	return pulumix.Output[InsightFiltersProcessTerminatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersProcessTerminatedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersProcessTerminatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -8595,12 +7400,6 @@ func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) ToInsightFiltersPro
 
 func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) ToInsightFiltersProcessTerminatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersProcessTerminatedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersProcessTerminatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersProcessTerminatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) Elem() InsightFiltersProcessTerminatedAtDateRangeOutput {
@@ -8670,12 +7469,6 @@ func (i InsightFiltersProductArnArgs) ToInsightFiltersProductArnOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductArnOutput)
 }
 
-func (i InsightFiltersProductArnArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductArn] {
-	return pulumix.Output[InsightFiltersProductArn]{
-		OutputState: i.ToInsightFiltersProductArnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProductArnArrayInput is an input type that accepts InsightFiltersProductArnArray and InsightFiltersProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductArnArrayInput` via:
 //
@@ -8701,12 +7494,6 @@ func (i InsightFiltersProductArnArray) ToInsightFiltersProductArnArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductArnArrayOutput)
 }
 
-func (i InsightFiltersProductArnArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductArn] {
-	return pulumix.Output[[]InsightFiltersProductArn]{
-		OutputState: i.ToInsightFiltersProductArnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProductArnOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProductArnOutput) ElementType() reflect.Type {
@@ -8719,12 +7506,6 @@ func (o InsightFiltersProductArnOutput) ToInsightFiltersProductArnOutput() Insig
 
 func (o InsightFiltersProductArnOutput) ToInsightFiltersProductArnOutputWithContext(ctx context.Context) InsightFiltersProductArnOutput {
 	return o
-}
-
-func (o InsightFiltersProductArnOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductArn] {
-	return pulumix.Output[InsightFiltersProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -8749,12 +7530,6 @@ func (o InsightFiltersProductArnArrayOutput) ToInsightFiltersProductArnArrayOutp
 
 func (o InsightFiltersProductArnArrayOutput) ToInsightFiltersProductArnArrayOutputWithContext(ctx context.Context) InsightFiltersProductArnArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProductArnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductArn] {
-	return pulumix.Output[[]InsightFiltersProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProductArnArrayOutput) Index(i pulumi.IntInput) InsightFiltersProductArnOutput {
@@ -8804,12 +7579,6 @@ func (i InsightFiltersProductFieldArgs) ToInsightFiltersProductFieldOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductFieldOutput)
 }
 
-func (i InsightFiltersProductFieldArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductField] {
-	return pulumix.Output[InsightFiltersProductField]{
-		OutputState: i.ToInsightFiltersProductFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProductFieldArrayInput is an input type that accepts InsightFiltersProductFieldArray and InsightFiltersProductFieldArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductFieldArrayInput` via:
 //
@@ -8835,12 +7604,6 @@ func (i InsightFiltersProductFieldArray) ToInsightFiltersProductFieldArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductFieldArrayOutput)
 }
 
-func (i InsightFiltersProductFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductField] {
-	return pulumix.Output[[]InsightFiltersProductField]{
-		OutputState: i.ToInsightFiltersProductFieldArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProductFieldOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProductFieldOutput) ElementType() reflect.Type {
@@ -8853,12 +7616,6 @@ func (o InsightFiltersProductFieldOutput) ToInsightFiltersProductFieldOutput() I
 
 func (o InsightFiltersProductFieldOutput) ToInsightFiltersProductFieldOutputWithContext(ctx context.Context) InsightFiltersProductFieldOutput {
 	return o
-}
-
-func (o InsightFiltersProductFieldOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductField] {
-	return pulumix.Output[InsightFiltersProductField]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -8888,12 +7645,6 @@ func (o InsightFiltersProductFieldArrayOutput) ToInsightFiltersProductFieldArray
 
 func (o InsightFiltersProductFieldArrayOutput) ToInsightFiltersProductFieldArrayOutputWithContext(ctx context.Context) InsightFiltersProductFieldArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProductFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductField] {
-	return pulumix.Output[[]InsightFiltersProductField]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProductFieldArrayOutput) Index(i pulumi.IntInput) InsightFiltersProductFieldOutput {
@@ -8939,12 +7690,6 @@ func (i InsightFiltersProductNameArgs) ToInsightFiltersProductNameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductNameOutput)
 }
 
-func (i InsightFiltersProductNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductName] {
-	return pulumix.Output[InsightFiltersProductName]{
-		OutputState: i.ToInsightFiltersProductNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersProductNameArrayInput is an input type that accepts InsightFiltersProductNameArray and InsightFiltersProductNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersProductNameArrayInput` via:
 //
@@ -8970,12 +7715,6 @@ func (i InsightFiltersProductNameArray) ToInsightFiltersProductNameArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersProductNameArrayOutput)
 }
 
-func (i InsightFiltersProductNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductName] {
-	return pulumix.Output[[]InsightFiltersProductName]{
-		OutputState: i.ToInsightFiltersProductNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersProductNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersProductNameOutput) ElementType() reflect.Type {
@@ -8988,12 +7727,6 @@ func (o InsightFiltersProductNameOutput) ToInsightFiltersProductNameOutput() Ins
 
 func (o InsightFiltersProductNameOutput) ToInsightFiltersProductNameOutputWithContext(ctx context.Context) InsightFiltersProductNameOutput {
 	return o
-}
-
-func (o InsightFiltersProductNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersProductName] {
-	return pulumix.Output[InsightFiltersProductName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9018,12 +7751,6 @@ func (o InsightFiltersProductNameArrayOutput) ToInsightFiltersProductNameArrayOu
 
 func (o InsightFiltersProductNameArrayOutput) ToInsightFiltersProductNameArrayOutputWithContext(ctx context.Context) InsightFiltersProductNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersProductNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersProductName] {
-	return pulumix.Output[[]InsightFiltersProductName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersProductNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersProductNameOutput {
@@ -9069,12 +7796,6 @@ func (i InsightFiltersRecommendationTextArgs) ToInsightFiltersRecommendationText
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRecommendationTextOutput)
 }
 
-func (i InsightFiltersRecommendationTextArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRecommendationText] {
-	return pulumix.Output[InsightFiltersRecommendationText]{
-		OutputState: i.ToInsightFiltersRecommendationTextOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersRecommendationTextArrayInput is an input type that accepts InsightFiltersRecommendationTextArray and InsightFiltersRecommendationTextArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRecommendationTextArrayInput` via:
 //
@@ -9100,12 +7821,6 @@ func (i InsightFiltersRecommendationTextArray) ToInsightFiltersRecommendationTex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRecommendationTextArrayOutput)
 }
 
-func (i InsightFiltersRecommendationTextArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRecommendationText] {
-	return pulumix.Output[[]InsightFiltersRecommendationText]{
-		OutputState: i.ToInsightFiltersRecommendationTextArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersRecommendationTextOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersRecommendationTextOutput) ElementType() reflect.Type {
@@ -9118,12 +7833,6 @@ func (o InsightFiltersRecommendationTextOutput) ToInsightFiltersRecommendationTe
 
 func (o InsightFiltersRecommendationTextOutput) ToInsightFiltersRecommendationTextOutputWithContext(ctx context.Context) InsightFiltersRecommendationTextOutput {
 	return o
-}
-
-func (o InsightFiltersRecommendationTextOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRecommendationText] {
-	return pulumix.Output[InsightFiltersRecommendationText]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9148,12 +7857,6 @@ func (o InsightFiltersRecommendationTextArrayOutput) ToInsightFiltersRecommendat
 
 func (o InsightFiltersRecommendationTextArrayOutput) ToInsightFiltersRecommendationTextArrayOutputWithContext(ctx context.Context) InsightFiltersRecommendationTextArrayOutput {
 	return o
-}
-
-func (o InsightFiltersRecommendationTextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRecommendationText] {
-	return pulumix.Output[[]InsightFiltersRecommendationText]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersRecommendationTextArrayOutput) Index(i pulumi.IntInput) InsightFiltersRecommendationTextOutput {
@@ -9199,12 +7902,6 @@ func (i InsightFiltersRecordStateArgs) ToInsightFiltersRecordStateOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRecordStateOutput)
 }
 
-func (i InsightFiltersRecordStateArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRecordState] {
-	return pulumix.Output[InsightFiltersRecordState]{
-		OutputState: i.ToInsightFiltersRecordStateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersRecordStateArrayInput is an input type that accepts InsightFiltersRecordStateArray and InsightFiltersRecordStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRecordStateArrayInput` via:
 //
@@ -9230,12 +7927,6 @@ func (i InsightFiltersRecordStateArray) ToInsightFiltersRecordStateArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRecordStateArrayOutput)
 }
 
-func (i InsightFiltersRecordStateArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRecordState] {
-	return pulumix.Output[[]InsightFiltersRecordState]{
-		OutputState: i.ToInsightFiltersRecordStateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersRecordStateOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersRecordStateOutput) ElementType() reflect.Type {
@@ -9248,12 +7939,6 @@ func (o InsightFiltersRecordStateOutput) ToInsightFiltersRecordStateOutput() Ins
 
 func (o InsightFiltersRecordStateOutput) ToInsightFiltersRecordStateOutputWithContext(ctx context.Context) InsightFiltersRecordStateOutput {
 	return o
-}
-
-func (o InsightFiltersRecordStateOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRecordState] {
-	return pulumix.Output[InsightFiltersRecordState]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9278,12 +7963,6 @@ func (o InsightFiltersRecordStateArrayOutput) ToInsightFiltersRecordStateArrayOu
 
 func (o InsightFiltersRecordStateArrayOutput) ToInsightFiltersRecordStateArrayOutputWithContext(ctx context.Context) InsightFiltersRecordStateArrayOutput {
 	return o
-}
-
-func (o InsightFiltersRecordStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRecordState] {
-	return pulumix.Output[[]InsightFiltersRecordState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersRecordStateArrayOutput) Index(i pulumi.IntInput) InsightFiltersRecordStateOutput {
@@ -9329,12 +8008,6 @@ func (i InsightFiltersRelatedFindingsIdArgs) ToInsightFiltersRelatedFindingsIdOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRelatedFindingsIdOutput)
 }
 
-func (i InsightFiltersRelatedFindingsIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRelatedFindingsId] {
-	return pulumix.Output[InsightFiltersRelatedFindingsId]{
-		OutputState: i.ToInsightFiltersRelatedFindingsIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersRelatedFindingsIdArrayInput is an input type that accepts InsightFiltersRelatedFindingsIdArray and InsightFiltersRelatedFindingsIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsIdArrayInput` via:
 //
@@ -9360,12 +8033,6 @@ func (i InsightFiltersRelatedFindingsIdArray) ToInsightFiltersRelatedFindingsIdA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRelatedFindingsIdArrayOutput)
 }
 
-func (i InsightFiltersRelatedFindingsIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRelatedFindingsId] {
-	return pulumix.Output[[]InsightFiltersRelatedFindingsId]{
-		OutputState: i.ToInsightFiltersRelatedFindingsIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersRelatedFindingsIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersRelatedFindingsIdOutput) ElementType() reflect.Type {
@@ -9378,12 +8045,6 @@ func (o InsightFiltersRelatedFindingsIdOutput) ToInsightFiltersRelatedFindingsId
 
 func (o InsightFiltersRelatedFindingsIdOutput) ToInsightFiltersRelatedFindingsIdOutputWithContext(ctx context.Context) InsightFiltersRelatedFindingsIdOutput {
 	return o
-}
-
-func (o InsightFiltersRelatedFindingsIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRelatedFindingsId] {
-	return pulumix.Output[InsightFiltersRelatedFindingsId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9408,12 +8069,6 @@ func (o InsightFiltersRelatedFindingsIdArrayOutput) ToInsightFiltersRelatedFindi
 
 func (o InsightFiltersRelatedFindingsIdArrayOutput) ToInsightFiltersRelatedFindingsIdArrayOutputWithContext(ctx context.Context) InsightFiltersRelatedFindingsIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersRelatedFindingsIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRelatedFindingsId] {
-	return pulumix.Output[[]InsightFiltersRelatedFindingsId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersRelatedFindingsIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersRelatedFindingsIdOutput {
@@ -9459,12 +8114,6 @@ func (i InsightFiltersRelatedFindingsProductArnArgs) ToInsightFiltersRelatedFind
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRelatedFindingsProductArnOutput)
 }
 
-func (i InsightFiltersRelatedFindingsProductArnArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRelatedFindingsProductArn] {
-	return pulumix.Output[InsightFiltersRelatedFindingsProductArn]{
-		OutputState: i.ToInsightFiltersRelatedFindingsProductArnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersRelatedFindingsProductArnArrayInput is an input type that accepts InsightFiltersRelatedFindingsProductArnArray and InsightFiltersRelatedFindingsProductArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersRelatedFindingsProductArnArrayInput` via:
 //
@@ -9490,12 +8139,6 @@ func (i InsightFiltersRelatedFindingsProductArnArray) ToInsightFiltersRelatedFin
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersRelatedFindingsProductArnArrayOutput)
 }
 
-func (i InsightFiltersRelatedFindingsProductArnArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRelatedFindingsProductArn] {
-	return pulumix.Output[[]InsightFiltersRelatedFindingsProductArn]{
-		OutputState: i.ToInsightFiltersRelatedFindingsProductArnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersRelatedFindingsProductArnOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersRelatedFindingsProductArnOutput) ElementType() reflect.Type {
@@ -9508,12 +8151,6 @@ func (o InsightFiltersRelatedFindingsProductArnOutput) ToInsightFiltersRelatedFi
 
 func (o InsightFiltersRelatedFindingsProductArnOutput) ToInsightFiltersRelatedFindingsProductArnOutputWithContext(ctx context.Context) InsightFiltersRelatedFindingsProductArnOutput {
 	return o
-}
-
-func (o InsightFiltersRelatedFindingsProductArnOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersRelatedFindingsProductArn] {
-	return pulumix.Output[InsightFiltersRelatedFindingsProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9538,12 +8175,6 @@ func (o InsightFiltersRelatedFindingsProductArnArrayOutput) ToInsightFiltersRela
 
 func (o InsightFiltersRelatedFindingsProductArnArrayOutput) ToInsightFiltersRelatedFindingsProductArnArrayOutputWithContext(ctx context.Context) InsightFiltersRelatedFindingsProductArnArrayOutput {
 	return o
-}
-
-func (o InsightFiltersRelatedFindingsProductArnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersRelatedFindingsProductArn] {
-	return pulumix.Output[[]InsightFiltersRelatedFindingsProductArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersRelatedFindingsProductArnArrayOutput) Index(i pulumi.IntInput) InsightFiltersRelatedFindingsProductArnOutput {
@@ -9589,12 +8220,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs) ToInsight
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray and InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayInput` via:
 //
@@ -9620,12 +8245,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray) ToInsigh
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput) ElementType() reflect.Type {
@@ -9638,12 +8257,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput) ToInsig
 
 func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput) ToInsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9668,12 +8281,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput) To
 
 func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput) ToInsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnOutput {
@@ -9719,12 +8326,6 @@ func (i InsightFiltersResourceAwsEc2InstanceImageIdArgs) ToInsightFiltersResourc
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceImageIdOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceImageIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceImageId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceImageId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceImageIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceImageIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceImageIdArray and InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceImageIdArrayInput` via:
 //
@@ -9750,12 +8351,6 @@ func (i InsightFiltersResourceAwsEc2InstanceImageIdArray) ToInsightFiltersResour
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceImageIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceImageId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceImageId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceImageIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceImageIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceImageIdOutput) ElementType() reflect.Type {
@@ -9768,12 +8363,6 @@ func (o InsightFiltersResourceAwsEc2InstanceImageIdOutput) ToInsightFiltersResou
 
 func (o InsightFiltersResourceAwsEc2InstanceImageIdOutput) ToInsightFiltersResourceAwsEc2InstanceImageIdOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceImageIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceImageIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceImageId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceImageId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -9798,12 +8387,6 @@ func (o InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput) ToInsightFilters
 
 func (o InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput) ToInsightFiltersResourceAwsEc2InstanceImageIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceImageId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceImageId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceImageIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceImageIdOutput {
@@ -9845,12 +8428,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs) ToInsightFiltersRes
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv4Address] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv4Address]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIpv4AddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv4AddressArray and InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayInput` via:
 //
@@ -9876,12 +8453,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv4AddressArray) ToInsightFiltersRe
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIpv4AddressArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv4Address] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv4Address]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) ElementType() reflect.Type {
@@ -9894,12 +8465,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) ToInsightFiltersR
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) ToInsightFiltersResourceAwsEc2InstanceIpv4AddressOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv4Address] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv4Address]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -9919,12 +8484,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput) ToInsightFil
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput) ToInsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv4Address] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv4Address]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv4AddressArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceIpv4AddressOutput {
@@ -9966,12 +8525,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs) ToInsightFiltersRes
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv6Address] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv6Address]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIpv6AddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceIpv6AddressArray and InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayInput` via:
 //
@@ -9997,12 +8550,6 @@ func (i InsightFiltersResourceAwsEc2InstanceIpv6AddressArray) ToInsightFiltersRe
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceIpv6AddressArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv6Address] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv6Address]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) ElementType() reflect.Type {
@@ -10015,12 +8562,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) ToInsightFiltersR
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) ToInsightFiltersResourceAwsEc2InstanceIpv6AddressOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv6Address] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceIpv6Address]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A finding's CIDR value.
@@ -10040,12 +8581,6 @@ func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput) ToInsightFil
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput) ToInsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv6Address] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceIpv6Address]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceIpv6AddressArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceIpv6AddressOutput {
@@ -10091,12 +8626,6 @@ func (i InsightFiltersResourceAwsEc2InstanceKeyNameArgs) ToInsightFiltersResourc
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceKeyNameOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceKeyNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceKeyName] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceKeyName]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceKeyNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceKeyNameArray and InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceKeyNameArrayInput` via:
 //
@@ -10122,12 +8651,6 @@ func (i InsightFiltersResourceAwsEc2InstanceKeyNameArray) ToInsightFiltersResour
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceKeyNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceKeyName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceKeyName]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceKeyNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceKeyNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceKeyNameOutput) ElementType() reflect.Type {
@@ -10140,12 +8663,6 @@ func (o InsightFiltersResourceAwsEc2InstanceKeyNameOutput) ToInsightFiltersResou
 
 func (o InsightFiltersResourceAwsEc2InstanceKeyNameOutput) ToInsightFiltersResourceAwsEc2InstanceKeyNameOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceKeyNameOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceKeyNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceKeyName] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceKeyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -10170,12 +8687,6 @@ func (o InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput) ToInsightFilters
 
 func (o InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput) ToInsightFiltersResourceAwsEc2InstanceKeyNameArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceKeyName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceKeyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceKeyNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceKeyNameOutput {
@@ -10225,12 +8736,6 @@ func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs) ToInsightFiltersReso
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAt] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAt]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceLaunchedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceLaunchedAtArray and InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayInput` via:
 //
@@ -10256,12 +8761,6 @@ func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtArray) ToInsightFiltersRes
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceLaunchedAt]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) ElementType() reflect.Type {
@@ -10274,12 +8773,6 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) ToInsightFiltersRe
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) ToInsightFiltersResourceAwsEc2InstanceLaunchedAtOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAt] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -10311,12 +8804,6 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput) ToInsightFilt
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput) ToInsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceLaunchedAtOutput {
@@ -10362,12 +8849,6 @@ func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs) ToInsightFi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs) ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput() InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput {
 	return i.ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -10409,12 +8890,6 @@ func (i *insightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrType) ToInsig
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) ElementType() reflect.Type {
@@ -10439,12 +8914,6 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) ToInsight
 	}).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -10467,12 +8936,6 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) ToInsi
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) Elem() InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput {
@@ -10542,12 +9005,6 @@ func (i InsightFiltersResourceAwsEc2InstanceSubnetIdArgs) ToInsightFiltersResour
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceSubnetIdOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceSubnetIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceSubnetId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceSubnetId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceSubnetIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceSubnetIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceSubnetIdArray and InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceSubnetIdArrayInput` via:
 //
@@ -10573,12 +9030,6 @@ func (i InsightFiltersResourceAwsEc2InstanceSubnetIdArray) ToInsightFiltersResou
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceSubnetIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceSubnetId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceSubnetId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceSubnetIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceSubnetIdOutput) ElementType() reflect.Type {
@@ -10591,12 +9042,6 @@ func (o InsightFiltersResourceAwsEc2InstanceSubnetIdOutput) ToInsightFiltersReso
 
 func (o InsightFiltersResourceAwsEc2InstanceSubnetIdOutput) ToInsightFiltersResourceAwsEc2InstanceSubnetIdOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceSubnetIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceSubnetIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceSubnetId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceSubnetId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -10621,12 +9066,6 @@ func (o InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput) ToInsightFilter
 
 func (o InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput) ToInsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceSubnetId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceSubnetId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceSubnetIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceSubnetIdOutput {
@@ -10672,12 +9111,6 @@ func (i InsightFiltersResourceAwsEc2InstanceTypeArgs) ToInsightFiltersResourceAw
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceTypeOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceType] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceType]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceTypeArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceTypeArray and InsightFiltersResourceAwsEc2InstanceTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceTypeArrayInput` via:
 //
@@ -10703,12 +9136,6 @@ func (i InsightFiltersResourceAwsEc2InstanceTypeArray) ToInsightFiltersResourceA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceTypeArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceType] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceType]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceTypeOutput) ElementType() reflect.Type {
@@ -10721,12 +9148,6 @@ func (o InsightFiltersResourceAwsEc2InstanceTypeOutput) ToInsightFiltersResource
 
 func (o InsightFiltersResourceAwsEc2InstanceTypeOutput) ToInsightFiltersResourceAwsEc2InstanceTypeOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceTypeOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceType] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -10751,12 +9172,6 @@ func (o InsightFiltersResourceAwsEc2InstanceTypeArrayOutput) ToInsightFiltersRes
 
 func (o InsightFiltersResourceAwsEc2InstanceTypeArrayOutput) ToInsightFiltersResourceAwsEc2InstanceTypeArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceType] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceTypeOutput {
@@ -10802,12 +9217,6 @@ func (i InsightFiltersResourceAwsEc2InstanceVpcIdArgs) ToInsightFiltersResourceA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceVpcIdOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceVpcIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceVpcId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceVpcId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceVpcIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsEc2InstanceVpcIdArrayInput is an input type that accepts InsightFiltersResourceAwsEc2InstanceVpcIdArray and InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsEc2InstanceVpcIdArrayInput` via:
 //
@@ -10833,12 +9242,6 @@ func (i InsightFiltersResourceAwsEc2InstanceVpcIdArray) ToInsightFiltersResource
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsEc2InstanceVpcIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceVpcId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceVpcId]{
-		OutputState: i.ToInsightFiltersResourceAwsEc2InstanceVpcIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsEc2InstanceVpcIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsEc2InstanceVpcIdOutput) ElementType() reflect.Type {
@@ -10851,12 +9254,6 @@ func (o InsightFiltersResourceAwsEc2InstanceVpcIdOutput) ToInsightFiltersResourc
 
 func (o InsightFiltersResourceAwsEc2InstanceVpcIdOutput) ToInsightFiltersResourceAwsEc2InstanceVpcIdOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceVpcIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceVpcIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsEc2InstanceVpcId] {
-	return pulumix.Output[InsightFiltersResourceAwsEc2InstanceVpcId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -10881,12 +9278,6 @@ func (o InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput) ToInsightFiltersRe
 
 func (o InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput) ToInsightFiltersResourceAwsEc2InstanceVpcIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceVpcId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsEc2InstanceVpcId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceVpcIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsEc2InstanceVpcIdOutput {
@@ -10936,12 +9327,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs) ToInsightFiltersReso
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAt] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAt]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyCreatedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyCreatedAtArray and InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayInput` via:
 //
@@ -10967,12 +9352,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtArray) ToInsightFiltersRes
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyCreatedAt] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyCreatedAt]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) ElementType() reflect.Type {
@@ -10985,12 +9364,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) ToInsightFiltersRe
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) ToInsightFiltersResourceAwsIamAccessKeyCreatedAtOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAt] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -11022,12 +9395,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput) ToInsightFilt
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput) ToInsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyCreatedAt] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyCreatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsIamAccessKeyCreatedAtOutput {
@@ -11073,12 +9440,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs) ToInsightFi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs) ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput() InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput {
 	return i.ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -11120,12 +9481,6 @@ func (i *insightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrType) ToInsig
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) ElementType() reflect.Type {
@@ -11150,12 +9505,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) ToInsight
 	}).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -11178,12 +9527,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) ToInsi
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) Elem() InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput {
@@ -11253,12 +9596,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyStatusArgs) ToInsightFiltersResourc
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyStatusOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyStatusArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyStatus] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyStatus]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsIamAccessKeyStatusArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyStatusArray and InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyStatusArrayInput` via:
 //
@@ -11284,12 +9621,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyStatusArray) ToInsightFiltersResour
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyStatus] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyStatus]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyStatusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsIamAccessKeyStatusOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsIamAccessKeyStatusOutput) ElementType() reflect.Type {
@@ -11302,12 +9633,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyStatusOutput) ToInsightFiltersResou
 
 func (o InsightFiltersResourceAwsIamAccessKeyStatusOutput) ToInsightFiltersResourceAwsIamAccessKeyStatusOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyStatusOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyStatus] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11332,12 +9657,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput) ToInsightFilters
 
 func (o InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput) ToInsightFiltersResourceAwsIamAccessKeyStatusArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyStatus] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsIamAccessKeyStatusArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsIamAccessKeyStatusOutput {
@@ -11383,12 +9702,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyUserNameArgs) ToInsightFiltersResou
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyUserNameOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyUserNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyUserName] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyUserName]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyUserNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsIamAccessKeyUserNameArrayInput is an input type that accepts InsightFiltersResourceAwsIamAccessKeyUserNameArray and InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsIamAccessKeyUserNameArrayInput` via:
 //
@@ -11414,12 +9727,6 @@ func (i InsightFiltersResourceAwsIamAccessKeyUserNameArray) ToInsightFiltersReso
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsIamAccessKeyUserNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyUserName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyUserName]{
-		OutputState: i.ToInsightFiltersResourceAwsIamAccessKeyUserNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsIamAccessKeyUserNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsIamAccessKeyUserNameOutput) ElementType() reflect.Type {
@@ -11432,12 +9739,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyUserNameOutput) ToInsightFiltersRes
 
 func (o InsightFiltersResourceAwsIamAccessKeyUserNameOutput) ToInsightFiltersResourceAwsIamAccessKeyUserNameOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyUserNameOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyUserNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsIamAccessKeyUserName] {
-	return pulumix.Output[InsightFiltersResourceAwsIamAccessKeyUserName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11462,12 +9763,6 @@ func (o InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput) ToInsightFilte
 
 func (o InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput) ToInsightFiltersResourceAwsIamAccessKeyUserNameArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyUserName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsIamAccessKeyUserName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsIamAccessKeyUserNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsIamAccessKeyUserNameOutput {
@@ -11513,12 +9808,6 @@ func (i InsightFiltersResourceAwsS3BucketOwnerIdArgs) ToInsightFiltersResourceAw
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsS3BucketOwnerIdOutput)
 }
 
-func (i InsightFiltersResourceAwsS3BucketOwnerIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerId] {
-	return pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerId]{
-		OutputState: i.ToInsightFiltersResourceAwsS3BucketOwnerIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsS3BucketOwnerIdArrayInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerIdArray and InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerIdArrayInput` via:
 //
@@ -11544,12 +9833,6 @@ func (i InsightFiltersResourceAwsS3BucketOwnerIdArray) ToInsightFiltersResourceA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsS3BucketOwnerIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerId]{
-		OutputState: i.ToInsightFiltersResourceAwsS3BucketOwnerIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsS3BucketOwnerIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsS3BucketOwnerIdOutput) ElementType() reflect.Type {
@@ -11562,12 +9845,6 @@ func (o InsightFiltersResourceAwsS3BucketOwnerIdOutput) ToInsightFiltersResource
 
 func (o InsightFiltersResourceAwsS3BucketOwnerIdOutput) ToInsightFiltersResourceAwsS3BucketOwnerIdOutputWithContext(ctx context.Context) InsightFiltersResourceAwsS3BucketOwnerIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsS3BucketOwnerIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerId] {
-	return pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11592,12 +9869,6 @@ func (o InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput) ToInsightFiltersRes
 
 func (o InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput) ToInsightFiltersResourceAwsS3BucketOwnerIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerId] {
-	return pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsS3BucketOwnerIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsS3BucketOwnerIdOutput {
@@ -11643,12 +9914,6 @@ func (i InsightFiltersResourceAwsS3BucketOwnerNameArgs) ToInsightFiltersResource
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsS3BucketOwnerNameOutput)
 }
 
-func (i InsightFiltersResourceAwsS3BucketOwnerNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerName] {
-	return pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerName]{
-		OutputState: i.ToInsightFiltersResourceAwsS3BucketOwnerNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceAwsS3BucketOwnerNameArrayInput is an input type that accepts InsightFiltersResourceAwsS3BucketOwnerNameArray and InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceAwsS3BucketOwnerNameArrayInput` via:
 //
@@ -11674,12 +9939,6 @@ func (i InsightFiltersResourceAwsS3BucketOwnerNameArray) ToInsightFiltersResourc
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput)
 }
 
-func (i InsightFiltersResourceAwsS3BucketOwnerNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerName]{
-		OutputState: i.ToInsightFiltersResourceAwsS3BucketOwnerNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceAwsS3BucketOwnerNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceAwsS3BucketOwnerNameOutput) ElementType() reflect.Type {
@@ -11692,12 +9951,6 @@ func (o InsightFiltersResourceAwsS3BucketOwnerNameOutput) ToInsightFiltersResour
 
 func (o InsightFiltersResourceAwsS3BucketOwnerNameOutput) ToInsightFiltersResourceAwsS3BucketOwnerNameOutputWithContext(ctx context.Context) InsightFiltersResourceAwsS3BucketOwnerNameOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsS3BucketOwnerNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerName] {
-	return pulumix.Output[InsightFiltersResourceAwsS3BucketOwnerName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11722,12 +9975,6 @@ func (o InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput) ToInsightFiltersR
 
 func (o InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput) ToInsightFiltersResourceAwsS3BucketOwnerNameArrayOutputWithContext(ctx context.Context) InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerName] {
-	return pulumix.Output[[]InsightFiltersResourceAwsS3BucketOwnerName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceAwsS3BucketOwnerNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceAwsS3BucketOwnerNameOutput {
@@ -11773,12 +10020,6 @@ func (i InsightFiltersResourceContainerImageIdArgs) ToInsightFiltersResourceCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerImageIdOutput)
 }
 
-func (i InsightFiltersResourceContainerImageIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerImageId] {
-	return pulumix.Output[InsightFiltersResourceContainerImageId]{
-		OutputState: i.ToInsightFiltersResourceContainerImageIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceContainerImageIdArrayInput is an input type that accepts InsightFiltersResourceContainerImageIdArray and InsightFiltersResourceContainerImageIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageIdArrayInput` via:
 //
@@ -11804,12 +10045,6 @@ func (i InsightFiltersResourceContainerImageIdArray) ToInsightFiltersResourceCon
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerImageIdArrayOutput)
 }
 
-func (i InsightFiltersResourceContainerImageIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerImageId] {
-	return pulumix.Output[[]InsightFiltersResourceContainerImageId]{
-		OutputState: i.ToInsightFiltersResourceContainerImageIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceContainerImageIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceContainerImageIdOutput) ElementType() reflect.Type {
@@ -11822,12 +10057,6 @@ func (o InsightFiltersResourceContainerImageIdOutput) ToInsightFiltersResourceCo
 
 func (o InsightFiltersResourceContainerImageIdOutput) ToInsightFiltersResourceContainerImageIdOutputWithContext(ctx context.Context) InsightFiltersResourceContainerImageIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerImageIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerImageId] {
-	return pulumix.Output[InsightFiltersResourceContainerImageId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11852,12 +10081,6 @@ func (o InsightFiltersResourceContainerImageIdArrayOutput) ToInsightFiltersResou
 
 func (o InsightFiltersResourceContainerImageIdArrayOutput) ToInsightFiltersResourceContainerImageIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceContainerImageIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerImageIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerImageId] {
-	return pulumix.Output[[]InsightFiltersResourceContainerImageId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceContainerImageIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceContainerImageIdOutput {
@@ -11903,12 +10126,6 @@ func (i InsightFiltersResourceContainerImageNameArgs) ToInsightFiltersResourceCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerImageNameOutput)
 }
 
-func (i InsightFiltersResourceContainerImageNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerImageName] {
-	return pulumix.Output[InsightFiltersResourceContainerImageName]{
-		OutputState: i.ToInsightFiltersResourceContainerImageNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceContainerImageNameArrayInput is an input type that accepts InsightFiltersResourceContainerImageNameArray and InsightFiltersResourceContainerImageNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerImageNameArrayInput` via:
 //
@@ -11934,12 +10151,6 @@ func (i InsightFiltersResourceContainerImageNameArray) ToInsightFiltersResourceC
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerImageNameArrayOutput)
 }
 
-func (i InsightFiltersResourceContainerImageNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerImageName] {
-	return pulumix.Output[[]InsightFiltersResourceContainerImageName]{
-		OutputState: i.ToInsightFiltersResourceContainerImageNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceContainerImageNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceContainerImageNameOutput) ElementType() reflect.Type {
@@ -11952,12 +10163,6 @@ func (o InsightFiltersResourceContainerImageNameOutput) ToInsightFiltersResource
 
 func (o InsightFiltersResourceContainerImageNameOutput) ToInsightFiltersResourceContainerImageNameOutputWithContext(ctx context.Context) InsightFiltersResourceContainerImageNameOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerImageNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerImageName] {
-	return pulumix.Output[InsightFiltersResourceContainerImageName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -11982,12 +10187,6 @@ func (o InsightFiltersResourceContainerImageNameArrayOutput) ToInsightFiltersRes
 
 func (o InsightFiltersResourceContainerImageNameArrayOutput) ToInsightFiltersResourceContainerImageNameArrayOutputWithContext(ctx context.Context) InsightFiltersResourceContainerImageNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerImageNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerImageName] {
-	return pulumix.Output[[]InsightFiltersResourceContainerImageName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceContainerImageNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceContainerImageNameOutput {
@@ -12037,12 +10236,6 @@ func (i InsightFiltersResourceContainerLaunchedAtArgs) ToInsightFiltersResourceC
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerLaunchedAtOutput)
 }
 
-func (i InsightFiltersResourceContainerLaunchedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerLaunchedAt] {
-	return pulumix.Output[InsightFiltersResourceContainerLaunchedAt]{
-		OutputState: i.ToInsightFiltersResourceContainerLaunchedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceContainerLaunchedAtArrayInput is an input type that accepts InsightFiltersResourceContainerLaunchedAtArray and InsightFiltersResourceContainerLaunchedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerLaunchedAtArrayInput` via:
 //
@@ -12068,12 +10261,6 @@ func (i InsightFiltersResourceContainerLaunchedAtArray) ToInsightFiltersResource
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerLaunchedAtArrayOutput)
 }
 
-func (i InsightFiltersResourceContainerLaunchedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersResourceContainerLaunchedAt]{
-		OutputState: i.ToInsightFiltersResourceContainerLaunchedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceContainerLaunchedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceContainerLaunchedAtOutput) ElementType() reflect.Type {
@@ -12086,12 +10273,6 @@ func (o InsightFiltersResourceContainerLaunchedAtOutput) ToInsightFiltersResourc
 
 func (o InsightFiltersResourceContainerLaunchedAtOutput) ToInsightFiltersResourceContainerLaunchedAtOutputWithContext(ctx context.Context) InsightFiltersResourceContainerLaunchedAtOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerLaunchedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerLaunchedAt] {
-	return pulumix.Output[InsightFiltersResourceContainerLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -12123,12 +10304,6 @@ func (o InsightFiltersResourceContainerLaunchedAtArrayOutput) ToInsightFiltersRe
 
 func (o InsightFiltersResourceContainerLaunchedAtArrayOutput) ToInsightFiltersResourceContainerLaunchedAtArrayOutputWithContext(ctx context.Context) InsightFiltersResourceContainerLaunchedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerLaunchedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerLaunchedAt] {
-	return pulumix.Output[[]InsightFiltersResourceContainerLaunchedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceContainerLaunchedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceContainerLaunchedAtOutput {
@@ -12174,12 +10349,6 @@ func (i InsightFiltersResourceContainerLaunchedAtDateRangeArgs) ToInsightFilters
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerLaunchedAtDateRangeOutput)
 }
 
-func (i InsightFiltersResourceContainerLaunchedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceContainerLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceContainerLaunchedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersResourceContainerLaunchedAtDateRangeArgs) ToInsightFiltersResourceContainerLaunchedAtDateRangePtrOutput() InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput {
 	return i.ToInsightFiltersResourceContainerLaunchedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -12221,12 +10390,6 @@ func (i *insightFiltersResourceContainerLaunchedAtDateRangePtrType) ToInsightFil
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersResourceContainerLaunchedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceContainerLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceContainerLaunchedAtDateRange]{
-		OutputState: i.ToInsightFiltersResourceContainerLaunchedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceContainerLaunchedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceContainerLaunchedAtDateRangeOutput) ElementType() reflect.Type {
@@ -12251,12 +10414,6 @@ func (o InsightFiltersResourceContainerLaunchedAtDateRangeOutput) ToInsightFilte
 	}).(InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersResourceContainerLaunchedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerLaunchedAtDateRange] {
-	return pulumix.Output[InsightFiltersResourceContainerLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersResourceContainerLaunchedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersResourceContainerLaunchedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -12279,12 +10436,6 @@ func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) ToInsightFi
 
 func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) ToInsightFiltersResourceContainerLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersResourceContainerLaunchedAtDateRange] {
-	return pulumix.Output[*InsightFiltersResourceContainerLaunchedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) Elem() InsightFiltersResourceContainerLaunchedAtDateRangeOutput {
@@ -12354,12 +10505,6 @@ func (i InsightFiltersResourceContainerNameArgs) ToInsightFiltersResourceContain
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerNameOutput)
 }
 
-func (i InsightFiltersResourceContainerNameArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerName] {
-	return pulumix.Output[InsightFiltersResourceContainerName]{
-		OutputState: i.ToInsightFiltersResourceContainerNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceContainerNameArrayInput is an input type that accepts InsightFiltersResourceContainerNameArray and InsightFiltersResourceContainerNameArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceContainerNameArrayInput` via:
 //
@@ -12385,12 +10530,6 @@ func (i InsightFiltersResourceContainerNameArray) ToInsightFiltersResourceContai
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceContainerNameArrayOutput)
 }
 
-func (i InsightFiltersResourceContainerNameArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerName] {
-	return pulumix.Output[[]InsightFiltersResourceContainerName]{
-		OutputState: i.ToInsightFiltersResourceContainerNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceContainerNameOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceContainerNameOutput) ElementType() reflect.Type {
@@ -12403,12 +10542,6 @@ func (o InsightFiltersResourceContainerNameOutput) ToInsightFiltersResourceConta
 
 func (o InsightFiltersResourceContainerNameOutput) ToInsightFiltersResourceContainerNameOutputWithContext(ctx context.Context) InsightFiltersResourceContainerNameOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerNameOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceContainerName] {
-	return pulumix.Output[InsightFiltersResourceContainerName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -12433,12 +10566,6 @@ func (o InsightFiltersResourceContainerNameArrayOutput) ToInsightFiltersResource
 
 func (o InsightFiltersResourceContainerNameArrayOutput) ToInsightFiltersResourceContainerNameArrayOutputWithContext(ctx context.Context) InsightFiltersResourceContainerNameArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceContainerNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceContainerName] {
-	return pulumix.Output[[]InsightFiltersResourceContainerName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceContainerNameArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceContainerNameOutput {
@@ -12488,12 +10615,6 @@ func (i InsightFiltersResourceDetailsOtherArgs) ToInsightFiltersResourceDetailsO
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceDetailsOtherOutput)
 }
 
-func (i InsightFiltersResourceDetailsOtherArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceDetailsOther] {
-	return pulumix.Output[InsightFiltersResourceDetailsOther]{
-		OutputState: i.ToInsightFiltersResourceDetailsOtherOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceDetailsOtherArrayInput is an input type that accepts InsightFiltersResourceDetailsOtherArray and InsightFiltersResourceDetailsOtherArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceDetailsOtherArrayInput` via:
 //
@@ -12519,12 +10640,6 @@ func (i InsightFiltersResourceDetailsOtherArray) ToInsightFiltersResourceDetails
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceDetailsOtherArrayOutput)
 }
 
-func (i InsightFiltersResourceDetailsOtherArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceDetailsOther] {
-	return pulumix.Output[[]InsightFiltersResourceDetailsOther]{
-		OutputState: i.ToInsightFiltersResourceDetailsOtherArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceDetailsOtherOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceDetailsOtherOutput) ElementType() reflect.Type {
@@ -12537,12 +10652,6 @@ func (o InsightFiltersResourceDetailsOtherOutput) ToInsightFiltersResourceDetail
 
 func (o InsightFiltersResourceDetailsOtherOutput) ToInsightFiltersResourceDetailsOtherOutputWithContext(ctx context.Context) InsightFiltersResourceDetailsOtherOutput {
 	return o
-}
-
-func (o InsightFiltersResourceDetailsOtherOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceDetailsOther] {
-	return pulumix.Output[InsightFiltersResourceDetailsOther]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -12572,12 +10681,6 @@ func (o InsightFiltersResourceDetailsOtherArrayOutput) ToInsightFiltersResourceD
 
 func (o InsightFiltersResourceDetailsOtherArrayOutput) ToInsightFiltersResourceDetailsOtherArrayOutputWithContext(ctx context.Context) InsightFiltersResourceDetailsOtherArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceDetailsOtherArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceDetailsOther] {
-	return pulumix.Output[[]InsightFiltersResourceDetailsOther]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceDetailsOtherArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceDetailsOtherOutput {
@@ -12623,12 +10726,6 @@ func (i InsightFiltersResourceIdArgs) ToInsightFiltersResourceIdOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceIdOutput)
 }
 
-func (i InsightFiltersResourceIdArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceId] {
-	return pulumix.Output[InsightFiltersResourceId]{
-		OutputState: i.ToInsightFiltersResourceIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceIdArrayInput is an input type that accepts InsightFiltersResourceIdArray and InsightFiltersResourceIdArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceIdArrayInput` via:
 //
@@ -12654,12 +10751,6 @@ func (i InsightFiltersResourceIdArray) ToInsightFiltersResourceIdArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceIdArrayOutput)
 }
 
-func (i InsightFiltersResourceIdArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceId] {
-	return pulumix.Output[[]InsightFiltersResourceId]{
-		OutputState: i.ToInsightFiltersResourceIdArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceIdOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceIdOutput) ElementType() reflect.Type {
@@ -12672,12 +10763,6 @@ func (o InsightFiltersResourceIdOutput) ToInsightFiltersResourceIdOutput() Insig
 
 func (o InsightFiltersResourceIdOutput) ToInsightFiltersResourceIdOutputWithContext(ctx context.Context) InsightFiltersResourceIdOutput {
 	return o
-}
-
-func (o InsightFiltersResourceIdOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceId] {
-	return pulumix.Output[InsightFiltersResourceId]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -12702,12 +10787,6 @@ func (o InsightFiltersResourceIdArrayOutput) ToInsightFiltersResourceIdArrayOutp
 
 func (o InsightFiltersResourceIdArrayOutput) ToInsightFiltersResourceIdArrayOutputWithContext(ctx context.Context) InsightFiltersResourceIdArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceId] {
-	return pulumix.Output[[]InsightFiltersResourceId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceIdArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceIdOutput {
@@ -12753,12 +10832,6 @@ func (i InsightFiltersResourcePartitionArgs) ToInsightFiltersResourcePartitionOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourcePartitionOutput)
 }
 
-func (i InsightFiltersResourcePartitionArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourcePartition] {
-	return pulumix.Output[InsightFiltersResourcePartition]{
-		OutputState: i.ToInsightFiltersResourcePartitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourcePartitionArrayInput is an input type that accepts InsightFiltersResourcePartitionArray and InsightFiltersResourcePartitionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourcePartitionArrayInput` via:
 //
@@ -12784,12 +10857,6 @@ func (i InsightFiltersResourcePartitionArray) ToInsightFiltersResourcePartitionA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourcePartitionArrayOutput)
 }
 
-func (i InsightFiltersResourcePartitionArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourcePartition] {
-	return pulumix.Output[[]InsightFiltersResourcePartition]{
-		OutputState: i.ToInsightFiltersResourcePartitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourcePartitionOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourcePartitionOutput) ElementType() reflect.Type {
@@ -12802,12 +10869,6 @@ func (o InsightFiltersResourcePartitionOutput) ToInsightFiltersResourcePartition
 
 func (o InsightFiltersResourcePartitionOutput) ToInsightFiltersResourcePartitionOutputWithContext(ctx context.Context) InsightFiltersResourcePartitionOutput {
 	return o
-}
-
-func (o InsightFiltersResourcePartitionOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourcePartition] {
-	return pulumix.Output[InsightFiltersResourcePartition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -12832,12 +10893,6 @@ func (o InsightFiltersResourcePartitionArrayOutput) ToInsightFiltersResourcePart
 
 func (o InsightFiltersResourcePartitionArrayOutput) ToInsightFiltersResourcePartitionArrayOutputWithContext(ctx context.Context) InsightFiltersResourcePartitionArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourcePartitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourcePartition] {
-	return pulumix.Output[[]InsightFiltersResourcePartition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourcePartitionArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourcePartitionOutput {
@@ -12883,12 +10938,6 @@ func (i InsightFiltersResourceRegionArgs) ToInsightFiltersResourceRegionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceRegionOutput)
 }
 
-func (i InsightFiltersResourceRegionArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceRegion] {
-	return pulumix.Output[InsightFiltersResourceRegion]{
-		OutputState: i.ToInsightFiltersResourceRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceRegionArrayInput is an input type that accepts InsightFiltersResourceRegionArray and InsightFiltersResourceRegionArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceRegionArrayInput` via:
 //
@@ -12914,12 +10963,6 @@ func (i InsightFiltersResourceRegionArray) ToInsightFiltersResourceRegionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceRegionArrayOutput)
 }
 
-func (i InsightFiltersResourceRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceRegion] {
-	return pulumix.Output[[]InsightFiltersResourceRegion]{
-		OutputState: i.ToInsightFiltersResourceRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceRegionOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceRegionOutput) ElementType() reflect.Type {
@@ -12932,12 +10975,6 @@ func (o InsightFiltersResourceRegionOutput) ToInsightFiltersResourceRegionOutput
 
 func (o InsightFiltersResourceRegionOutput) ToInsightFiltersResourceRegionOutputWithContext(ctx context.Context) InsightFiltersResourceRegionOutput {
 	return o
-}
-
-func (o InsightFiltersResourceRegionOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceRegion] {
-	return pulumix.Output[InsightFiltersResourceRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -12962,12 +10999,6 @@ func (o InsightFiltersResourceRegionArrayOutput) ToInsightFiltersResourceRegionA
 
 func (o InsightFiltersResourceRegionArrayOutput) ToInsightFiltersResourceRegionArrayOutputWithContext(ctx context.Context) InsightFiltersResourceRegionArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceRegion] {
-	return pulumix.Output[[]InsightFiltersResourceRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceRegionArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceRegionOutput {
@@ -13017,12 +11048,6 @@ func (i InsightFiltersResourceTagArgs) ToInsightFiltersResourceTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceTagOutput)
 }
 
-func (i InsightFiltersResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceTag] {
-	return pulumix.Output[InsightFiltersResourceTag]{
-		OutputState: i.ToInsightFiltersResourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceTagArrayInput is an input type that accepts InsightFiltersResourceTagArray and InsightFiltersResourceTagArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTagArrayInput` via:
 //
@@ -13048,12 +11073,6 @@ func (i InsightFiltersResourceTagArray) ToInsightFiltersResourceTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceTagArrayOutput)
 }
 
-func (i InsightFiltersResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceTag] {
-	return pulumix.Output[[]InsightFiltersResourceTag]{
-		OutputState: i.ToInsightFiltersResourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceTagOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceTagOutput) ElementType() reflect.Type {
@@ -13066,12 +11085,6 @@ func (o InsightFiltersResourceTagOutput) ToInsightFiltersResourceTagOutput() Ins
 
 func (o InsightFiltersResourceTagOutput) ToInsightFiltersResourceTagOutputWithContext(ctx context.Context) InsightFiltersResourceTagOutput {
 	return o
-}
-
-func (o InsightFiltersResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceTag] {
-	return pulumix.Output[InsightFiltersResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -13101,12 +11114,6 @@ func (o InsightFiltersResourceTagArrayOutput) ToInsightFiltersResourceTagArrayOu
 
 func (o InsightFiltersResourceTagArrayOutput) ToInsightFiltersResourceTagArrayOutputWithContext(ctx context.Context) InsightFiltersResourceTagArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceTag] {
-	return pulumix.Output[[]InsightFiltersResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceTagArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceTagOutput {
@@ -13152,12 +11159,6 @@ func (i InsightFiltersResourceTypeArgs) ToInsightFiltersResourceTypeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceTypeOutput)
 }
 
-func (i InsightFiltersResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceType] {
-	return pulumix.Output[InsightFiltersResourceType]{
-		OutputState: i.ToInsightFiltersResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersResourceTypeArrayInput is an input type that accepts InsightFiltersResourceTypeArray and InsightFiltersResourceTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersResourceTypeArrayInput` via:
 //
@@ -13183,12 +11184,6 @@ func (i InsightFiltersResourceTypeArray) ToInsightFiltersResourceTypeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersResourceTypeArrayOutput)
 }
 
-func (i InsightFiltersResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceType] {
-	return pulumix.Output[[]InsightFiltersResourceType]{
-		OutputState: i.ToInsightFiltersResourceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersResourceTypeOutput) ElementType() reflect.Type {
@@ -13201,12 +11196,6 @@ func (o InsightFiltersResourceTypeOutput) ToInsightFiltersResourceTypeOutput() I
 
 func (o InsightFiltersResourceTypeOutput) ToInsightFiltersResourceTypeOutputWithContext(ctx context.Context) InsightFiltersResourceTypeOutput {
 	return o
-}
-
-func (o InsightFiltersResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersResourceType] {
-	return pulumix.Output[InsightFiltersResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -13231,12 +11220,6 @@ func (o InsightFiltersResourceTypeArrayOutput) ToInsightFiltersResourceTypeArray
 
 func (o InsightFiltersResourceTypeArrayOutput) ToInsightFiltersResourceTypeArrayOutputWithContext(ctx context.Context) InsightFiltersResourceTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersResourceType] {
-	return pulumix.Output[[]InsightFiltersResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersResourceTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersResourceTypeOutput {
@@ -13282,12 +11265,6 @@ func (i InsightFiltersSeverityLabelArgs) ToInsightFiltersSeverityLabelOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersSeverityLabelOutput)
 }
 
-func (i InsightFiltersSeverityLabelArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersSeverityLabel] {
-	return pulumix.Output[InsightFiltersSeverityLabel]{
-		OutputState: i.ToInsightFiltersSeverityLabelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersSeverityLabelArrayInput is an input type that accepts InsightFiltersSeverityLabelArray and InsightFiltersSeverityLabelArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersSeverityLabelArrayInput` via:
 //
@@ -13313,12 +11290,6 @@ func (i InsightFiltersSeverityLabelArray) ToInsightFiltersSeverityLabelArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersSeverityLabelArrayOutput)
 }
 
-func (i InsightFiltersSeverityLabelArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersSeverityLabel] {
-	return pulumix.Output[[]InsightFiltersSeverityLabel]{
-		OutputState: i.ToInsightFiltersSeverityLabelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersSeverityLabelOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersSeverityLabelOutput) ElementType() reflect.Type {
@@ -13331,12 +11302,6 @@ func (o InsightFiltersSeverityLabelOutput) ToInsightFiltersSeverityLabelOutput()
 
 func (o InsightFiltersSeverityLabelOutput) ToInsightFiltersSeverityLabelOutputWithContext(ctx context.Context) InsightFiltersSeverityLabelOutput {
 	return o
-}
-
-func (o InsightFiltersSeverityLabelOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersSeverityLabel] {
-	return pulumix.Output[InsightFiltersSeverityLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -13361,12 +11326,6 @@ func (o InsightFiltersSeverityLabelArrayOutput) ToInsightFiltersSeverityLabelArr
 
 func (o InsightFiltersSeverityLabelArrayOutput) ToInsightFiltersSeverityLabelArrayOutputWithContext(ctx context.Context) InsightFiltersSeverityLabelArrayOutput {
 	return o
-}
-
-func (o InsightFiltersSeverityLabelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersSeverityLabel] {
-	return pulumix.Output[[]InsightFiltersSeverityLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersSeverityLabelArrayOutput) Index(i pulumi.IntInput) InsightFiltersSeverityLabelOutput {
@@ -13412,12 +11371,6 @@ func (i InsightFiltersSourceUrlArgs) ToInsightFiltersSourceUrlOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersSourceUrlOutput)
 }
 
-func (i InsightFiltersSourceUrlArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersSourceUrl] {
-	return pulumix.Output[InsightFiltersSourceUrl]{
-		OutputState: i.ToInsightFiltersSourceUrlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersSourceUrlArrayInput is an input type that accepts InsightFiltersSourceUrlArray and InsightFiltersSourceUrlArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersSourceUrlArrayInput` via:
 //
@@ -13443,12 +11396,6 @@ func (i InsightFiltersSourceUrlArray) ToInsightFiltersSourceUrlArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersSourceUrlArrayOutput)
 }
 
-func (i InsightFiltersSourceUrlArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersSourceUrl] {
-	return pulumix.Output[[]InsightFiltersSourceUrl]{
-		OutputState: i.ToInsightFiltersSourceUrlArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersSourceUrlOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersSourceUrlOutput) ElementType() reflect.Type {
@@ -13461,12 +11408,6 @@ func (o InsightFiltersSourceUrlOutput) ToInsightFiltersSourceUrlOutput() Insight
 
 func (o InsightFiltersSourceUrlOutput) ToInsightFiltersSourceUrlOutputWithContext(ctx context.Context) InsightFiltersSourceUrlOutput {
 	return o
-}
-
-func (o InsightFiltersSourceUrlOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersSourceUrl] {
-	return pulumix.Output[InsightFiltersSourceUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -13491,12 +11432,6 @@ func (o InsightFiltersSourceUrlArrayOutput) ToInsightFiltersSourceUrlArrayOutput
 
 func (o InsightFiltersSourceUrlArrayOutput) ToInsightFiltersSourceUrlArrayOutputWithContext(ctx context.Context) InsightFiltersSourceUrlArrayOutput {
 	return o
-}
-
-func (o InsightFiltersSourceUrlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersSourceUrl] {
-	return pulumix.Output[[]InsightFiltersSourceUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersSourceUrlArrayOutput) Index(i pulumi.IntInput) InsightFiltersSourceUrlOutput {
@@ -13542,12 +11477,6 @@ func (i InsightFiltersThreatIntelIndicatorCategoryArgs) ToInsightFiltersThreatIn
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorCategoryOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorCategory] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorCategory]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorCategoryArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorCategoryArray and InsightFiltersThreatIntelIndicatorCategoryArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorCategoryArrayInput` via:
 //
@@ -13573,12 +11502,6 @@ func (i InsightFiltersThreatIntelIndicatorCategoryArray) ToInsightFiltersThreatI
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorCategoryArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorCategory] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorCategory]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorCategoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorCategoryOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorCategoryOutput) ElementType() reflect.Type {
@@ -13591,12 +11514,6 @@ func (o InsightFiltersThreatIntelIndicatorCategoryOutput) ToInsightFiltersThreat
 
 func (o InsightFiltersThreatIntelIndicatorCategoryOutput) ToInsightFiltersThreatIntelIndicatorCategoryOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorCategoryOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorCategory] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -13621,12 +11538,6 @@ func (o InsightFiltersThreatIntelIndicatorCategoryArrayOutput) ToInsightFiltersT
 
 func (o InsightFiltersThreatIntelIndicatorCategoryArrayOutput) ToInsightFiltersThreatIntelIndicatorCategoryArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorCategoryArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorCategory] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorCategoryArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorCategoryOutput {
@@ -13676,12 +11587,6 @@ func (i InsightFiltersThreatIntelIndicatorLastObservedAtArgs) ToInsightFiltersTh
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorLastObservedAtOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorLastObservedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAt] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAt]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorLastObservedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorLastObservedAtArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorLastObservedAtArray and InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorLastObservedAtArrayInput` via:
 //
@@ -13707,12 +11612,6 @@ func (i InsightFiltersThreatIntelIndicatorLastObservedAtArray) ToInsightFiltersT
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorLastObservedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorLastObservedAt] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorLastObservedAt]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorLastObservedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorLastObservedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorLastObservedAtOutput) ElementType() reflect.Type {
@@ -13725,12 +11624,6 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) ToInsightFilters
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) ToInsightFiltersThreatIntelIndicatorLastObservedAtOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorLastObservedAtOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorLastObservedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAt] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -13762,12 +11655,6 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput) ToInsightFi
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput) ToInsightFiltersThreatIntelIndicatorLastObservedAtArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorLastObservedAt] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorLastObservedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorLastObservedAtOutput {
@@ -13813,12 +11700,6 @@ func (i InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs) ToInsight
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs) ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput() InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput {
 	return i.ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -13860,12 +11741,6 @@ func (i *insightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrType) ToIns
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersThreatIntelIndicatorLastObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersThreatIntelIndicatorLastObservedAtDateRange]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) ElementType() reflect.Type {
@@ -13890,12 +11765,6 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) ToInsig
 	}).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAtDateRange] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorLastObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersThreatIntelIndicatorLastObservedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -13918,12 +11787,6 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) ToIn
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersThreatIntelIndicatorLastObservedAtDateRange] {
-	return pulumix.Output[*InsightFiltersThreatIntelIndicatorLastObservedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) Elem() InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput {
@@ -13993,12 +11856,6 @@ func (i InsightFiltersThreatIntelIndicatorSourceArgs) ToInsightFiltersThreatInte
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorSourceOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorSourceArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorSource] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorSource]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorSourceArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceArray and InsightFiltersThreatIntelIndicatorSourceArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceArrayInput` via:
 //
@@ -14024,12 +11881,6 @@ func (i InsightFiltersThreatIntelIndicatorSourceArray) ToInsightFiltersThreatInt
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorSourceArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorSource] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorSource]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorSourceOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorSourceOutput) ElementType() reflect.Type {
@@ -14042,12 +11893,6 @@ func (o InsightFiltersThreatIntelIndicatorSourceOutput) ToInsightFiltersThreatIn
 
 func (o InsightFiltersThreatIntelIndicatorSourceOutput) ToInsightFiltersThreatIntelIndicatorSourceOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorSourceOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorSourceOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorSource] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14072,12 +11917,6 @@ func (o InsightFiltersThreatIntelIndicatorSourceArrayOutput) ToInsightFiltersThr
 
 func (o InsightFiltersThreatIntelIndicatorSourceArrayOutput) ToInsightFiltersThreatIntelIndicatorSourceArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorSourceArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorSource] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorSourceArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorSourceOutput {
@@ -14123,12 +11962,6 @@ func (i InsightFiltersThreatIntelIndicatorSourceUrlArgs) ToInsightFiltersThreatI
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorSourceUrlOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorSourceUrlArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorSourceUrl] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorSourceUrl]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorSourceUrlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorSourceUrlArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorSourceUrlArray and InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorSourceUrlArrayInput` via:
 //
@@ -14154,12 +11987,6 @@ func (i InsightFiltersThreatIntelIndicatorSourceUrlArray) ToInsightFiltersThreat
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorSourceUrlArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorSourceUrl] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorSourceUrl]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorSourceUrlArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorSourceUrlOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorSourceUrlOutput) ElementType() reflect.Type {
@@ -14172,12 +11999,6 @@ func (o InsightFiltersThreatIntelIndicatorSourceUrlOutput) ToInsightFiltersThrea
 
 func (o InsightFiltersThreatIntelIndicatorSourceUrlOutput) ToInsightFiltersThreatIntelIndicatorSourceUrlOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorSourceUrlOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorSourceUrlOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorSourceUrl] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorSourceUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14202,12 +12023,6 @@ func (o InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput) ToInsightFilters
 
 func (o InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput) ToInsightFiltersThreatIntelIndicatorSourceUrlArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorSourceUrl] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorSourceUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorSourceUrlArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorSourceUrlOutput {
@@ -14253,12 +12068,6 @@ func (i InsightFiltersThreatIntelIndicatorTypeArgs) ToInsightFiltersThreatIntelI
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorTypeOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorType] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorType]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorTypeArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorTypeArray and InsightFiltersThreatIntelIndicatorTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorTypeArrayInput` via:
 //
@@ -14284,12 +12093,6 @@ func (i InsightFiltersThreatIntelIndicatorTypeArray) ToInsightFiltersThreatIntel
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorTypeArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorType] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorType]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorTypeOutput) ElementType() reflect.Type {
@@ -14302,12 +12105,6 @@ func (o InsightFiltersThreatIntelIndicatorTypeOutput) ToInsightFiltersThreatInte
 
 func (o InsightFiltersThreatIntelIndicatorTypeOutput) ToInsightFiltersThreatIntelIndicatorTypeOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorTypeOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorType] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14332,12 +12129,6 @@ func (o InsightFiltersThreatIntelIndicatorTypeArrayOutput) ToInsightFiltersThrea
 
 func (o InsightFiltersThreatIntelIndicatorTypeArrayOutput) ToInsightFiltersThreatIntelIndicatorTypeArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorType] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorTypeOutput {
@@ -14383,12 +12174,6 @@ func (i InsightFiltersThreatIntelIndicatorValueArgs) ToInsightFiltersThreatIntel
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorValueOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorValueArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorValue] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorValue]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersThreatIntelIndicatorValueArrayInput is an input type that accepts InsightFiltersThreatIntelIndicatorValueArray and InsightFiltersThreatIntelIndicatorValueArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersThreatIntelIndicatorValueArrayInput` via:
 //
@@ -14414,12 +12199,6 @@ func (i InsightFiltersThreatIntelIndicatorValueArray) ToInsightFiltersThreatInte
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersThreatIntelIndicatorValueArrayOutput)
 }
 
-func (i InsightFiltersThreatIntelIndicatorValueArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorValue] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorValue]{
-		OutputState: i.ToInsightFiltersThreatIntelIndicatorValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersThreatIntelIndicatorValueOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersThreatIntelIndicatorValueOutput) ElementType() reflect.Type {
@@ -14432,12 +12211,6 @@ func (o InsightFiltersThreatIntelIndicatorValueOutput) ToInsightFiltersThreatInt
 
 func (o InsightFiltersThreatIntelIndicatorValueOutput) ToInsightFiltersThreatIntelIndicatorValueOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorValueOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorValueOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersThreatIntelIndicatorValue] {
-	return pulumix.Output[InsightFiltersThreatIntelIndicatorValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14462,12 +12235,6 @@ func (o InsightFiltersThreatIntelIndicatorValueArrayOutput) ToInsightFiltersThre
 
 func (o InsightFiltersThreatIntelIndicatorValueArrayOutput) ToInsightFiltersThreatIntelIndicatorValueArrayOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorValueArrayOutput {
 	return o
-}
-
-func (o InsightFiltersThreatIntelIndicatorValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersThreatIntelIndicatorValue] {
-	return pulumix.Output[[]InsightFiltersThreatIntelIndicatorValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersThreatIntelIndicatorValueArrayOutput) Index(i pulumi.IntInput) InsightFiltersThreatIntelIndicatorValueOutput {
@@ -14513,12 +12280,6 @@ func (i InsightFiltersTitleArgs) ToInsightFiltersTitleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersTitleOutput)
 }
 
-func (i InsightFiltersTitleArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersTitle] {
-	return pulumix.Output[InsightFiltersTitle]{
-		OutputState: i.ToInsightFiltersTitleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersTitleArrayInput is an input type that accepts InsightFiltersTitleArray and InsightFiltersTitleArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersTitleArrayInput` via:
 //
@@ -14544,12 +12305,6 @@ func (i InsightFiltersTitleArray) ToInsightFiltersTitleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersTitleArrayOutput)
 }
 
-func (i InsightFiltersTitleArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersTitle] {
-	return pulumix.Output[[]InsightFiltersTitle]{
-		OutputState: i.ToInsightFiltersTitleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersTitleOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersTitleOutput) ElementType() reflect.Type {
@@ -14562,12 +12317,6 @@ func (o InsightFiltersTitleOutput) ToInsightFiltersTitleOutput() InsightFiltersT
 
 func (o InsightFiltersTitleOutput) ToInsightFiltersTitleOutputWithContext(ctx context.Context) InsightFiltersTitleOutput {
 	return o
-}
-
-func (o InsightFiltersTitleOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersTitle] {
-	return pulumix.Output[InsightFiltersTitle]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14592,12 +12341,6 @@ func (o InsightFiltersTitleArrayOutput) ToInsightFiltersTitleArrayOutput() Insig
 
 func (o InsightFiltersTitleArrayOutput) ToInsightFiltersTitleArrayOutputWithContext(ctx context.Context) InsightFiltersTitleArrayOutput {
 	return o
-}
-
-func (o InsightFiltersTitleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersTitle] {
-	return pulumix.Output[[]InsightFiltersTitle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersTitleArrayOutput) Index(i pulumi.IntInput) InsightFiltersTitleOutput {
@@ -14643,12 +12386,6 @@ func (i InsightFiltersTypeArgs) ToInsightFiltersTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersTypeOutput)
 }
 
-func (i InsightFiltersTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersType] {
-	return pulumix.Output[InsightFiltersType]{
-		OutputState: i.ToInsightFiltersTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersTypeArrayInput is an input type that accepts InsightFiltersTypeArray and InsightFiltersTypeArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersTypeArrayInput` via:
 //
@@ -14674,12 +12411,6 @@ func (i InsightFiltersTypeArray) ToInsightFiltersTypeArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersTypeArrayOutput)
 }
 
-func (i InsightFiltersTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersType] {
-	return pulumix.Output[[]InsightFiltersType]{
-		OutputState: i.ToInsightFiltersTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersTypeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersTypeOutput) ElementType() reflect.Type {
@@ -14692,12 +12423,6 @@ func (o InsightFiltersTypeOutput) ToInsightFiltersTypeOutput() InsightFiltersTyp
 
 func (o InsightFiltersTypeOutput) ToInsightFiltersTypeOutputWithContext(ctx context.Context) InsightFiltersTypeOutput {
 	return o
-}
-
-func (o InsightFiltersTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersType] {
-	return pulumix.Output[InsightFiltersType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -14722,12 +12447,6 @@ func (o InsightFiltersTypeArrayOutput) ToInsightFiltersTypeArrayOutput() Insight
 
 func (o InsightFiltersTypeArrayOutput) ToInsightFiltersTypeArrayOutputWithContext(ctx context.Context) InsightFiltersTypeArrayOutput {
 	return o
-}
-
-func (o InsightFiltersTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersType] {
-	return pulumix.Output[[]InsightFiltersType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersTypeArrayOutput) Index(i pulumi.IntInput) InsightFiltersTypeOutput {
@@ -14777,12 +12496,6 @@ func (i InsightFiltersUpdatedAtArgs) ToInsightFiltersUpdatedAtOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUpdatedAtOutput)
 }
 
-func (i InsightFiltersUpdatedAtArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUpdatedAt] {
-	return pulumix.Output[InsightFiltersUpdatedAt]{
-		OutputState: i.ToInsightFiltersUpdatedAtOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersUpdatedAtArrayInput is an input type that accepts InsightFiltersUpdatedAtArray and InsightFiltersUpdatedAtArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersUpdatedAtArrayInput` via:
 //
@@ -14808,12 +12521,6 @@ func (i InsightFiltersUpdatedAtArray) ToInsightFiltersUpdatedAtArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUpdatedAtArrayOutput)
 }
 
-func (i InsightFiltersUpdatedAtArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersUpdatedAt] {
-	return pulumix.Output[[]InsightFiltersUpdatedAt]{
-		OutputState: i.ToInsightFiltersUpdatedAtArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersUpdatedAtOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersUpdatedAtOutput) ElementType() reflect.Type {
@@ -14826,12 +12533,6 @@ func (o InsightFiltersUpdatedAtOutput) ToInsightFiltersUpdatedAtOutput() Insight
 
 func (o InsightFiltersUpdatedAtOutput) ToInsightFiltersUpdatedAtOutputWithContext(ctx context.Context) InsightFiltersUpdatedAtOutput {
 	return o
-}
-
-func (o InsightFiltersUpdatedAtOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUpdatedAt] {
-	return pulumix.Output[InsightFiltersUpdatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A configuration block of the date range for the date filter. See dateRange below for more details.
@@ -14861,12 +12562,6 @@ func (o InsightFiltersUpdatedAtArrayOutput) ToInsightFiltersUpdatedAtArrayOutput
 
 func (o InsightFiltersUpdatedAtArrayOutput) ToInsightFiltersUpdatedAtArrayOutputWithContext(ctx context.Context) InsightFiltersUpdatedAtArrayOutput {
 	return o
-}
-
-func (o InsightFiltersUpdatedAtArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersUpdatedAt] {
-	return pulumix.Output[[]InsightFiltersUpdatedAt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersUpdatedAtArrayOutput) Index(i pulumi.IntInput) InsightFiltersUpdatedAtOutput {
@@ -14912,12 +12607,6 @@ func (i InsightFiltersUpdatedAtDateRangeArgs) ToInsightFiltersUpdatedAtDateRange
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUpdatedAtDateRangeOutput)
 }
 
-func (i InsightFiltersUpdatedAtDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUpdatedAtDateRange] {
-	return pulumix.Output[InsightFiltersUpdatedAtDateRange]{
-		OutputState: i.ToInsightFiltersUpdatedAtDateRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightFiltersUpdatedAtDateRangeArgs) ToInsightFiltersUpdatedAtDateRangePtrOutput() InsightFiltersUpdatedAtDateRangePtrOutput {
 	return i.ToInsightFiltersUpdatedAtDateRangePtrOutputWithContext(context.Background())
 }
@@ -14959,12 +12648,6 @@ func (i *insightFiltersUpdatedAtDateRangePtrType) ToInsightFiltersUpdatedAtDateR
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUpdatedAtDateRangePtrOutput)
 }
 
-func (i *insightFiltersUpdatedAtDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersUpdatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersUpdatedAtDateRange]{
-		OutputState: i.ToInsightFiltersUpdatedAtDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersUpdatedAtDateRangeOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersUpdatedAtDateRangeOutput) ElementType() reflect.Type {
@@ -14989,12 +12672,6 @@ func (o InsightFiltersUpdatedAtDateRangeOutput) ToInsightFiltersUpdatedAtDateRan
 	}).(InsightFiltersUpdatedAtDateRangePtrOutput)
 }
 
-func (o InsightFiltersUpdatedAtDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUpdatedAtDateRange] {
-	return pulumix.Output[InsightFiltersUpdatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A date range unit for the date filter. Valid values: `DAYS`.
 func (o InsightFiltersUpdatedAtDateRangeOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightFiltersUpdatedAtDateRange) string { return v.Unit }).(pulumi.StringOutput)
@@ -15017,12 +12694,6 @@ func (o InsightFiltersUpdatedAtDateRangePtrOutput) ToInsightFiltersUpdatedAtDate
 
 func (o InsightFiltersUpdatedAtDateRangePtrOutput) ToInsightFiltersUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersUpdatedAtDateRangePtrOutput {
 	return o
-}
-
-func (o InsightFiltersUpdatedAtDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightFiltersUpdatedAtDateRange] {
-	return pulumix.Output[*InsightFiltersUpdatedAtDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersUpdatedAtDateRangePtrOutput) Elem() InsightFiltersUpdatedAtDateRangeOutput {
@@ -15096,12 +12767,6 @@ func (i InsightFiltersUserDefinedValueArgs) ToInsightFiltersUserDefinedValueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUserDefinedValueOutput)
 }
 
-func (i InsightFiltersUserDefinedValueArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUserDefinedValue] {
-	return pulumix.Output[InsightFiltersUserDefinedValue]{
-		OutputState: i.ToInsightFiltersUserDefinedValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersUserDefinedValueArrayInput is an input type that accepts InsightFiltersUserDefinedValueArray and InsightFiltersUserDefinedValueArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersUserDefinedValueArrayInput` via:
 //
@@ -15127,12 +12792,6 @@ func (i InsightFiltersUserDefinedValueArray) ToInsightFiltersUserDefinedValueArr
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersUserDefinedValueArrayOutput)
 }
 
-func (i InsightFiltersUserDefinedValueArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersUserDefinedValue] {
-	return pulumix.Output[[]InsightFiltersUserDefinedValue]{
-		OutputState: i.ToInsightFiltersUserDefinedValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersUserDefinedValueOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersUserDefinedValueOutput) ElementType() reflect.Type {
@@ -15145,12 +12804,6 @@ func (o InsightFiltersUserDefinedValueOutput) ToInsightFiltersUserDefinedValueOu
 
 func (o InsightFiltersUserDefinedValueOutput) ToInsightFiltersUserDefinedValueOutputWithContext(ctx context.Context) InsightFiltersUserDefinedValueOutput {
 	return o
-}
-
-func (o InsightFiltersUserDefinedValueOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersUserDefinedValue] {
-	return pulumix.Output[InsightFiltersUserDefinedValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -15180,12 +12833,6 @@ func (o InsightFiltersUserDefinedValueArrayOutput) ToInsightFiltersUserDefinedVa
 
 func (o InsightFiltersUserDefinedValueArrayOutput) ToInsightFiltersUserDefinedValueArrayOutputWithContext(ctx context.Context) InsightFiltersUserDefinedValueArrayOutput {
 	return o
-}
-
-func (o InsightFiltersUserDefinedValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersUserDefinedValue] {
-	return pulumix.Output[[]InsightFiltersUserDefinedValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersUserDefinedValueArrayOutput) Index(i pulumi.IntInput) InsightFiltersUserDefinedValueOutput {
@@ -15231,12 +12878,6 @@ func (i InsightFiltersVerificationStateArgs) ToInsightFiltersVerificationStateOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersVerificationStateOutput)
 }
 
-func (i InsightFiltersVerificationStateArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersVerificationState] {
-	return pulumix.Output[InsightFiltersVerificationState]{
-		OutputState: i.ToInsightFiltersVerificationStateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersVerificationStateArrayInput is an input type that accepts InsightFiltersVerificationStateArray and InsightFiltersVerificationStateArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersVerificationStateArrayInput` via:
 //
@@ -15262,12 +12903,6 @@ func (i InsightFiltersVerificationStateArray) ToInsightFiltersVerificationStateA
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersVerificationStateArrayOutput)
 }
 
-func (i InsightFiltersVerificationStateArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersVerificationState] {
-	return pulumix.Output[[]InsightFiltersVerificationState]{
-		OutputState: i.ToInsightFiltersVerificationStateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersVerificationStateOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersVerificationStateOutput) ElementType() reflect.Type {
@@ -15280,12 +12915,6 @@ func (o InsightFiltersVerificationStateOutput) ToInsightFiltersVerificationState
 
 func (o InsightFiltersVerificationStateOutput) ToInsightFiltersVerificationStateOutputWithContext(ctx context.Context) InsightFiltersVerificationStateOutput {
 	return o
-}
-
-func (o InsightFiltersVerificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersVerificationState] {
-	return pulumix.Output[InsightFiltersVerificationState]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -15310,12 +12939,6 @@ func (o InsightFiltersVerificationStateArrayOutput) ToInsightFiltersVerification
 
 func (o InsightFiltersVerificationStateArrayOutput) ToInsightFiltersVerificationStateArrayOutputWithContext(ctx context.Context) InsightFiltersVerificationStateArrayOutput {
 	return o
-}
-
-func (o InsightFiltersVerificationStateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersVerificationState] {
-	return pulumix.Output[[]InsightFiltersVerificationState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersVerificationStateArrayOutput) Index(i pulumi.IntInput) InsightFiltersVerificationStateOutput {
@@ -15361,12 +12984,6 @@ func (i InsightFiltersWorkflowStatusArgs) ToInsightFiltersWorkflowStatusOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersWorkflowStatusOutput)
 }
 
-func (i InsightFiltersWorkflowStatusArgs) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersWorkflowStatus] {
-	return pulumix.Output[InsightFiltersWorkflowStatus]{
-		OutputState: i.ToInsightFiltersWorkflowStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InsightFiltersWorkflowStatusArrayInput is an input type that accepts InsightFiltersWorkflowStatusArray and InsightFiltersWorkflowStatusArrayOutput values.
 // You can construct a concrete instance of `InsightFiltersWorkflowStatusArrayInput` via:
 //
@@ -15392,12 +13009,6 @@ func (i InsightFiltersWorkflowStatusArray) ToInsightFiltersWorkflowStatusArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(InsightFiltersWorkflowStatusArrayOutput)
 }
 
-func (i InsightFiltersWorkflowStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersWorkflowStatus] {
-	return pulumix.Output[[]InsightFiltersWorkflowStatus]{
-		OutputState: i.ToInsightFiltersWorkflowStatusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightFiltersWorkflowStatusOutput struct{ *pulumi.OutputState }
 
 func (InsightFiltersWorkflowStatusOutput) ElementType() reflect.Type {
@@ -15410,12 +13021,6 @@ func (o InsightFiltersWorkflowStatusOutput) ToInsightFiltersWorkflowStatusOutput
 
 func (o InsightFiltersWorkflowStatusOutput) ToInsightFiltersWorkflowStatusOutputWithContext(ctx context.Context) InsightFiltersWorkflowStatusOutput {
 	return o
-}
-
-func (o InsightFiltersWorkflowStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InsightFiltersWorkflowStatus] {
-	return pulumix.Output[InsightFiltersWorkflowStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
@@ -15440,12 +13045,6 @@ func (o InsightFiltersWorkflowStatusArrayOutput) ToInsightFiltersWorkflowStatusA
 
 func (o InsightFiltersWorkflowStatusArrayOutput) ToInsightFiltersWorkflowStatusArrayOutputWithContext(ctx context.Context) InsightFiltersWorkflowStatusArrayOutput {
 	return o
-}
-
-func (o InsightFiltersWorkflowStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InsightFiltersWorkflowStatus] {
-	return pulumix.Output[[]InsightFiltersWorkflowStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightFiltersWorkflowStatusArrayOutput) Index(i pulumi.IntInput) InsightFiltersWorkflowStatusOutput {

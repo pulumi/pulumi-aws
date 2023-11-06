@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
@@ -437,12 +436,6 @@ func (i *CustomDbEngineVersion) ToCustomDbEngineVersionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionOutput)
 }
 
-func (i *CustomDbEngineVersion) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersion] {
-	return pulumix.Output[*CustomDbEngineVersion]{
-		OutputState: i.ToCustomDbEngineVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomDbEngineVersionArrayInput is an input type that accepts CustomDbEngineVersionArray and CustomDbEngineVersionArrayOutput values.
 // You can construct a concrete instance of `CustomDbEngineVersionArrayInput` via:
 //
@@ -466,12 +459,6 @@ func (i CustomDbEngineVersionArray) ToCustomDbEngineVersionArrayOutput() CustomD
 
 func (i CustomDbEngineVersionArray) ToCustomDbEngineVersionArrayOutputWithContext(ctx context.Context) CustomDbEngineVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionArrayOutput)
-}
-
-func (i CustomDbEngineVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDbEngineVersion] {
-	return pulumix.Output[[]*CustomDbEngineVersion]{
-		OutputState: i.ToCustomDbEngineVersionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomDbEngineVersionMapInput is an input type that accepts CustomDbEngineVersionMap and CustomDbEngineVersionMapOutput values.
@@ -499,12 +486,6 @@ func (i CustomDbEngineVersionMap) ToCustomDbEngineVersionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDbEngineVersionMapOutput)
 }
 
-func (i CustomDbEngineVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDbEngineVersion] {
-	return pulumix.Output[map[string]*CustomDbEngineVersion]{
-		OutputState: i.ToCustomDbEngineVersionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomDbEngineVersionOutput struct{ *pulumi.OutputState }
 
 func (CustomDbEngineVersionOutput) ElementType() reflect.Type {
@@ -517,12 +498,6 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutput() CustomDbEng
 
 func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ctx context.Context) CustomDbEngineVersionOutput {
 	return o
-}
-
-func (o CustomDbEngineVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDbEngineVersion] {
-	return pulumix.Output[*CustomDbEngineVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the custom engine version.
@@ -636,12 +611,6 @@ func (o CustomDbEngineVersionArrayOutput) ToCustomDbEngineVersionArrayOutputWith
 	return o
 }
 
-func (o CustomDbEngineVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDbEngineVersion] {
-	return pulumix.Output[[]*CustomDbEngineVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomDbEngineVersionArrayOutput) Index(i pulumi.IntInput) CustomDbEngineVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDbEngineVersion {
 		return vs[0].([]*CustomDbEngineVersion)[vs[1].(int)]
@@ -660,12 +629,6 @@ func (o CustomDbEngineVersionMapOutput) ToCustomDbEngineVersionMapOutput() Custo
 
 func (o CustomDbEngineVersionMapOutput) ToCustomDbEngineVersionMapOutputWithContext(ctx context.Context) CustomDbEngineVersionMapOutput {
 	return o
-}
-
-func (o CustomDbEngineVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDbEngineVersion] {
-	return pulumix.Output[map[string]*CustomDbEngineVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomDbEngineVersionMapOutput) MapIndex(k pulumi.StringInput) CustomDbEngineVersionOutput {

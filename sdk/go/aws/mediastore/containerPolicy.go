@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MediaStore Container Policy.
@@ -202,12 +201,6 @@ func (i *ContainerPolicy) ToContainerPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyOutput)
 }
 
-func (i *ContainerPolicy) ToOutput(ctx context.Context) pulumix.Output[*ContainerPolicy] {
-	return pulumix.Output[*ContainerPolicy]{
-		OutputState: i.ToContainerPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerPolicyArrayInput is an input type that accepts ContainerPolicyArray and ContainerPolicyArrayOutput values.
 // You can construct a concrete instance of `ContainerPolicyArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i ContainerPolicyArray) ToContainerPolicyArrayOutput() ContainerPolicyArra
 
 func (i ContainerPolicyArray) ToContainerPolicyArrayOutputWithContext(ctx context.Context) ContainerPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyArrayOutput)
-}
-
-func (i ContainerPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerPolicy] {
-	return pulumix.Output[[]*ContainerPolicy]{
-		OutputState: i.ToContainerPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContainerPolicyMapInput is an input type that accepts ContainerPolicyMap and ContainerPolicyMapOutput values.
@@ -264,12 +251,6 @@ func (i ContainerPolicyMap) ToContainerPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyMapOutput)
 }
 
-func (i ContainerPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerPolicy] {
-	return pulumix.Output[map[string]*ContainerPolicy]{
-		OutputState: i.ToContainerPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContainerPolicyOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o ContainerPolicyOutput) ToContainerPolicyOutput() ContainerPolicyOutput {
 
 func (o ContainerPolicyOutput) ToContainerPolicyOutputWithContext(ctx context.Context) ContainerPolicyOutput {
 	return o
-}
-
-func (o ContainerPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPolicy] {
-	return pulumix.Output[*ContainerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the container.
@@ -314,12 +289,6 @@ func (o ContainerPolicyArrayOutput) ToContainerPolicyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ContainerPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerPolicy] {
-	return pulumix.Output[[]*ContainerPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerPolicyArrayOutput) Index(i pulumi.IntInput) ContainerPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerPolicy {
 		return vs[0].([]*ContainerPolicy)[vs[1].(int)]
@@ -338,12 +307,6 @@ func (o ContainerPolicyMapOutput) ToContainerPolicyMapOutput() ContainerPolicyMa
 
 func (o ContainerPolicyMapOutput) ToContainerPolicyMapOutputWithContext(ctx context.Context) ContainerPolicyMapOutput {
 	return o
-}
-
-func (o ContainerPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerPolicy] {
-	return pulumix.Output[map[string]*ContainerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPolicyMapOutput) MapIndex(k pulumi.StringInput) ContainerPolicyOutput {

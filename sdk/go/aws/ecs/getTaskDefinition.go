@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECS task definition data source allows access to details of
@@ -150,12 +149,6 @@ func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutput() L
 
 func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWithContext(ctx context.Context) LookupTaskDefinitionResultOutput {
 	return o
-}
-
-func (o LookupTaskDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskDefinitionResult] {
-	return pulumix.Output[LookupTaskDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the task definition.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Service Discovery Public DNS Namespace resource.
@@ -181,12 +180,6 @@ func (i *PublicDnsNamespace) ToPublicDnsNamespaceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceOutput)
 }
 
-func (i *PublicDnsNamespace) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespace] {
-	return pulumix.Output[*PublicDnsNamespace]{
-		OutputState: i.ToPublicDnsNamespaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PublicDnsNamespaceArrayInput is an input type that accepts PublicDnsNamespaceArray and PublicDnsNamespaceArrayOutput values.
 // You can construct a concrete instance of `PublicDnsNamespaceArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i PublicDnsNamespaceArray) ToPublicDnsNamespaceArrayOutput() PublicDnsName
 
 func (i PublicDnsNamespaceArray) ToPublicDnsNamespaceArrayOutputWithContext(ctx context.Context) PublicDnsNamespaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceArrayOutput)
-}
-
-func (i PublicDnsNamespaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublicDnsNamespace] {
-	return pulumix.Output[[]*PublicDnsNamespace]{
-		OutputState: i.ToPublicDnsNamespaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PublicDnsNamespaceMapInput is an input type that accepts PublicDnsNamespaceMap and PublicDnsNamespaceMapOutput values.
@@ -243,12 +230,6 @@ func (i PublicDnsNamespaceMap) ToPublicDnsNamespaceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PublicDnsNamespaceMapOutput)
 }
 
-func (i PublicDnsNamespaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicDnsNamespace] {
-	return pulumix.Output[map[string]*PublicDnsNamespace]{
-		OutputState: i.ToPublicDnsNamespaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PublicDnsNamespaceOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutput() PublicDnsNamespac
 
 func (o PublicDnsNamespaceOutput) ToPublicDnsNamespaceOutputWithContext(ctx context.Context) PublicDnsNamespaceOutput {
 	return o
-}
-
-func (o PublicDnsNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicDnsNamespace] {
-	return pulumix.Output[*PublicDnsNamespace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN that Amazon Route 53 assigns to the namespace when you create it.
@@ -315,12 +290,6 @@ func (o PublicDnsNamespaceArrayOutput) ToPublicDnsNamespaceArrayOutputWithContex
 	return o
 }
 
-func (o PublicDnsNamespaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublicDnsNamespace] {
-	return pulumix.Output[[]*PublicDnsNamespace]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicDnsNamespaceArrayOutput) Index(i pulumi.IntInput) PublicDnsNamespaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicDnsNamespace {
 		return vs[0].([]*PublicDnsNamespace)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutput() PublicDnsNa
 
 func (o PublicDnsNamespaceMapOutput) ToPublicDnsNamespaceMapOutputWithContext(ctx context.Context) PublicDnsNamespaceMapOutput {
 	return o
-}
-
-func (o PublicDnsNamespaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicDnsNamespace] {
-	return pulumix.Output[map[string]*PublicDnsNamespace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PublicDnsNamespaceOutput {

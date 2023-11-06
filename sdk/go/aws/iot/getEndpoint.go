@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
@@ -130,12 +129,6 @@ func (o GetEndpointResultOutput) ToGetEndpointResultOutput() GetEndpointResultOu
 
 func (o GetEndpointResultOutput) ToGetEndpointResultOutputWithContext(ctx context.Context) GetEndpointResultOutput {
 	return o
-}
-
-func (o GetEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointResult] {
-	return pulumix.Output[GetEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Endpoint based on `endpointType`:

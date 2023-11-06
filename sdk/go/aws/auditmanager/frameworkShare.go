@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Framework Share.
@@ -192,12 +191,6 @@ func (i *FrameworkShare) ToFrameworkShareOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkShareOutput)
 }
 
-func (i *FrameworkShare) ToOutput(ctx context.Context) pulumix.Output[*FrameworkShare] {
-	return pulumix.Output[*FrameworkShare]{
-		OutputState: i.ToFrameworkShareOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrameworkShareArrayInput is an input type that accepts FrameworkShareArray and FrameworkShareArrayOutput values.
 // You can construct a concrete instance of `FrameworkShareArrayInput` via:
 //
@@ -221,12 +214,6 @@ func (i FrameworkShareArray) ToFrameworkShareArrayOutput() FrameworkShareArrayOu
 
 func (i FrameworkShareArray) ToFrameworkShareArrayOutputWithContext(ctx context.Context) FrameworkShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkShareArrayOutput)
-}
-
-func (i FrameworkShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrameworkShare] {
-	return pulumix.Output[[]*FrameworkShare]{
-		OutputState: i.ToFrameworkShareArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrameworkShareMapInput is an input type that accepts FrameworkShareMap and FrameworkShareMapOutput values.
@@ -254,12 +241,6 @@ func (i FrameworkShareMap) ToFrameworkShareMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkShareMapOutput)
 }
 
-func (i FrameworkShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrameworkShare] {
-	return pulumix.Output[map[string]*FrameworkShare]{
-		OutputState: i.ToFrameworkShareMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrameworkShareOutput struct{ *pulumi.OutputState }
 
 func (FrameworkShareOutput) ElementType() reflect.Type {
@@ -272,12 +253,6 @@ func (o FrameworkShareOutput) ToFrameworkShareOutput() FrameworkShareOutput {
 
 func (o FrameworkShareOutput) ToFrameworkShareOutputWithContext(ctx context.Context) FrameworkShareOutput {
 	return o
-}
-
-func (o FrameworkShareOutput) ToOutput(ctx context.Context) pulumix.Output[*FrameworkShare] {
-	return pulumix.Output[*FrameworkShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Comment from the sender about the share request.
@@ -321,12 +296,6 @@ func (o FrameworkShareArrayOutput) ToFrameworkShareArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o FrameworkShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrameworkShare] {
-	return pulumix.Output[[]*FrameworkShare]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrameworkShareArrayOutput) Index(i pulumi.IntInput) FrameworkShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrameworkShare {
 		return vs[0].([]*FrameworkShare)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o FrameworkShareMapOutput) ToFrameworkShareMapOutput() FrameworkShareMapOu
 
 func (o FrameworkShareMapOutput) ToFrameworkShareMapOutputWithContext(ctx context.Context) FrameworkShareMapOutput {
 	return o
-}
-
-func (o FrameworkShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrameworkShare] {
-	return pulumix.Output[map[string]*FrameworkShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrameworkShareMapOutput) MapIndex(k pulumi.StringInput) FrameworkShareOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SNS platform application resource
@@ -345,12 +344,6 @@ func (i *PlatformApplication) ToPlatformApplicationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationOutput)
 }
 
-func (i *PlatformApplication) ToOutput(ctx context.Context) pulumix.Output[*PlatformApplication] {
-	return pulumix.Output[*PlatformApplication]{
-		OutputState: i.ToPlatformApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlatformApplicationArrayInput is an input type that accepts PlatformApplicationArray and PlatformApplicationArrayOutput values.
 // You can construct a concrete instance of `PlatformApplicationArrayInput` via:
 //
@@ -374,12 +367,6 @@ func (i PlatformApplicationArray) ToPlatformApplicationArrayOutput() PlatformApp
 
 func (i PlatformApplicationArray) ToPlatformApplicationArrayOutputWithContext(ctx context.Context) PlatformApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationArrayOutput)
-}
-
-func (i PlatformApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PlatformApplication] {
-	return pulumix.Output[[]*PlatformApplication]{
-		OutputState: i.ToPlatformApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PlatformApplicationMapInput is an input type that accepts PlatformApplicationMap and PlatformApplicationMapOutput values.
@@ -407,12 +394,6 @@ func (i PlatformApplicationMap) ToPlatformApplicationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationMapOutput)
 }
 
-func (i PlatformApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlatformApplication] {
-	return pulumix.Output[map[string]*PlatformApplication]{
-		OutputState: i.ToPlatformApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlatformApplicationOutput struct{ *pulumi.OutputState }
 
 func (PlatformApplicationOutput) ElementType() reflect.Type {
@@ -425,12 +406,6 @@ func (o PlatformApplicationOutput) ToPlatformApplicationOutput() PlatformApplica
 
 func (o PlatformApplicationOutput) ToPlatformApplicationOutputWithContext(ctx context.Context) PlatformApplicationOutput {
 	return o
-}
-
-func (o PlatformApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*PlatformApplication] {
-	return pulumix.Output[*PlatformApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
@@ -519,12 +494,6 @@ func (o PlatformApplicationArrayOutput) ToPlatformApplicationArrayOutputWithCont
 	return o
 }
 
-func (o PlatformApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PlatformApplication] {
-	return pulumix.Output[[]*PlatformApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlatformApplicationArrayOutput) Index(i pulumi.IntInput) PlatformApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PlatformApplication {
 		return vs[0].([]*PlatformApplication)[vs[1].(int)]
@@ -543,12 +512,6 @@ func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutput() PlatformA
 
 func (o PlatformApplicationMapOutput) ToPlatformApplicationMapOutputWithContext(ctx context.Context) PlatformApplicationMapOutput {
 	return o
-}
-
-func (o PlatformApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlatformApplication] {
-	return pulumix.Output[map[string]*PlatformApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlatformApplicationMapOutput) MapIndex(k pulumi.StringInput) PlatformApplicationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
@@ -193,12 +192,6 @@ func (i *PeeringAttachmentAccepter) ToPeeringAttachmentAccepterOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentAccepterOutput)
 }
 
-func (i *PeeringAttachmentAccepter) ToOutput(ctx context.Context) pulumix.Output[*PeeringAttachmentAccepter] {
-	return pulumix.Output[*PeeringAttachmentAccepter]{
-		OutputState: i.ToPeeringAttachmentAccepterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PeeringAttachmentAccepterArrayInput is an input type that accepts PeeringAttachmentAccepterArray and PeeringAttachmentAccepterArrayOutput values.
 // You can construct a concrete instance of `PeeringAttachmentAccepterArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i PeeringAttachmentAccepterArray) ToPeeringAttachmentAccepterArrayOutput()
 
 func (i PeeringAttachmentAccepterArray) ToPeeringAttachmentAccepterArrayOutputWithContext(ctx context.Context) PeeringAttachmentAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentAccepterArrayOutput)
-}
-
-func (i PeeringAttachmentAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringAttachmentAccepter] {
-	return pulumix.Output[[]*PeeringAttachmentAccepter]{
-		OutputState: i.ToPeeringAttachmentAccepterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PeeringAttachmentAccepterMapInput is an input type that accepts PeeringAttachmentAccepterMap and PeeringAttachmentAccepterMapOutput values.
@@ -255,12 +242,6 @@ func (i PeeringAttachmentAccepterMap) ToPeeringAttachmentAccepterMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentAccepterMapOutput)
 }
 
-func (i PeeringAttachmentAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringAttachmentAccepter] {
-	return pulumix.Output[map[string]*PeeringAttachmentAccepter]{
-		OutputState: i.ToPeeringAttachmentAccepterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PeeringAttachmentAccepterOutput struct{ *pulumi.OutputState }
 
 func (PeeringAttachmentAccepterOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o PeeringAttachmentAccepterOutput) ToPeeringAttachmentAccepterOutput() Pee
 
 func (o PeeringAttachmentAccepterOutput) ToPeeringAttachmentAccepterOutputWithContext(ctx context.Context) PeeringAttachmentAccepterOutput {
 	return o
-}
-
-func (o PeeringAttachmentAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringAttachmentAccepter] {
-	return pulumix.Output[*PeeringAttachmentAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier of the AWS account that owns the EC2 TGW peering.
@@ -331,12 +306,6 @@ func (o PeeringAttachmentAccepterArrayOutput) ToPeeringAttachmentAccepterArrayOu
 	return o
 }
 
-func (o PeeringAttachmentAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringAttachmentAccepter] {
-	return pulumix.Output[[]*PeeringAttachmentAccepter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PeeringAttachmentAccepterArrayOutput) Index(i pulumi.IntInput) PeeringAttachmentAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PeeringAttachmentAccepter {
 		return vs[0].([]*PeeringAttachmentAccepter)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o PeeringAttachmentAccepterMapOutput) ToPeeringAttachmentAccepterMapOutput
 
 func (o PeeringAttachmentAccepterMapOutput) ToPeeringAttachmentAccepterMapOutputWithContext(ctx context.Context) PeeringAttachmentAccepterMapOutput {
 	return o
-}
-
-func (o PeeringAttachmentAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringAttachmentAccepter] {
-	return pulumix.Output[map[string]*PeeringAttachmentAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PeeringAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) PeeringAttachmentAccepterOutput {

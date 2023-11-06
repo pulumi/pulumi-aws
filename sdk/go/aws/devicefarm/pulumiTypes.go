@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i DevicePoolRuleArgs) ToDevicePoolRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolRuleOutput)
 }
 
-func (i DevicePoolRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRule] {
-	return pulumix.Output[DevicePoolRule]{
-		OutputState: i.ToDevicePoolRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevicePoolRuleArrayInput is an input type that accepts DevicePoolRuleArray and DevicePoolRuleArrayOutput values.
 // You can construct a concrete instance of `DevicePoolRuleArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i DevicePoolRuleArray) ToDevicePoolRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolRuleArrayOutput)
 }
 
-func (i DevicePoolRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolRule] {
-	return pulumix.Output[[]DevicePoolRule]{
-		OutputState: i.ToDevicePoolRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevicePoolRuleOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolRuleOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o DevicePoolRuleOutput) ToDevicePoolRuleOutput() DevicePoolRuleOutput {
 
 func (o DevicePoolRuleOutput) ToDevicePoolRuleOutputWithContext(ctx context.Context) DevicePoolRuleOutput {
 	return o
-}
-
-func (o DevicePoolRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRule] {
-	return pulumix.Output[DevicePoolRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
@@ -139,12 +120,6 @@ func (o DevicePoolRuleArrayOutput) ToDevicePoolRuleArrayOutput() DevicePoolRuleA
 
 func (o DevicePoolRuleArrayOutput) ToDevicePoolRuleArrayOutputWithContext(ctx context.Context) DevicePoolRuleArrayOutput {
 	return o
-}
-
-func (o DevicePoolRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DevicePoolRule] {
-	return pulumix.Output[[]DevicePoolRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolRuleArrayOutput) Index(i pulumi.IntInput) DevicePoolRuleOutput {
@@ -194,12 +169,6 @@ func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigOutput)
 }
 
-func (i TestGridProjectVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectVpcConfig] {
-	return pulumix.Output[TestGridProjectVpcConfig]{
-		OutputState: i.ToTestGridProjectVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TestGridProjectVpcConfigArgs) ToTestGridProjectVpcConfigPtrOutput() TestGridProjectVpcConfigPtrOutput {
 	return i.ToTestGridProjectVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -241,12 +210,6 @@ func (i *testGridProjectVpcConfigPtrType) ToTestGridProjectVpcConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TestGridProjectVpcConfigPtrOutput)
 }
 
-func (i *testGridProjectVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TestGridProjectVpcConfig] {
-	return pulumix.Output[*TestGridProjectVpcConfig]{
-		OutputState: i.ToTestGridProjectVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TestGridProjectVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (TestGridProjectVpcConfigOutput) ElementType() reflect.Type {
@@ -269,12 +232,6 @@ func (o TestGridProjectVpcConfigOutput) ToTestGridProjectVpcConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestGridProjectVpcConfig) *TestGridProjectVpcConfig {
 		return &v
 	}).(TestGridProjectVpcConfigPtrOutput)
-}
-
-func (o TestGridProjectVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TestGridProjectVpcConfig] {
-	return pulumix.Output[TestGridProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of VPC security group IDs in your Amazon VPC.
@@ -304,12 +261,6 @@ func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutput()
 
 func (o TestGridProjectVpcConfigPtrOutput) ToTestGridProjectVpcConfigPtrOutputWithContext(ctx context.Context) TestGridProjectVpcConfigPtrOutput {
 	return o
-}
-
-func (o TestGridProjectVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TestGridProjectVpcConfig] {
-	return pulumix.Output[*TestGridProjectVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TestGridProjectVpcConfigPtrOutput) Elem() TestGridProjectVpcConfigOutput {

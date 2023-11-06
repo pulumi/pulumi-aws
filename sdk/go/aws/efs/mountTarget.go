@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic File System (EFS) mount target.
@@ -238,12 +237,6 @@ func (i *MountTarget) ToMountTargetOutputWithContext(ctx context.Context) MountT
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetOutput)
 }
 
-func (i *MountTarget) ToOutput(ctx context.Context) pulumix.Output[*MountTarget] {
-	return pulumix.Output[*MountTarget]{
-		OutputState: i.ToMountTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MountTargetArrayInput is an input type that accepts MountTargetArray and MountTargetArrayOutput values.
 // You can construct a concrete instance of `MountTargetArrayInput` via:
 //
@@ -267,12 +260,6 @@ func (i MountTargetArray) ToMountTargetArrayOutput() MountTargetArrayOutput {
 
 func (i MountTargetArray) ToMountTargetArrayOutputWithContext(ctx context.Context) MountTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetArrayOutput)
-}
-
-func (i MountTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*MountTarget] {
-	return pulumix.Output[[]*MountTarget]{
-		OutputState: i.ToMountTargetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MountTargetMapInput is an input type that accepts MountTargetMap and MountTargetMapOutput values.
@@ -300,12 +287,6 @@ func (i MountTargetMap) ToMountTargetMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetMapOutput)
 }
 
-func (i MountTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MountTarget] {
-	return pulumix.Output[map[string]*MountTarget]{
-		OutputState: i.ToMountTargetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MountTargetOutput struct{ *pulumi.OutputState }
 
 func (MountTargetOutput) ElementType() reflect.Type {
@@ -318,12 +299,6 @@ func (o MountTargetOutput) ToMountTargetOutput() MountTargetOutput {
 
 func (o MountTargetOutput) ToMountTargetOutputWithContext(ctx context.Context) MountTargetOutput {
 	return o
-}
-
-func (o MountTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*MountTarget] {
-	return pulumix.Output[*MountTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
@@ -397,12 +372,6 @@ func (o MountTargetArrayOutput) ToMountTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o MountTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MountTarget] {
-	return pulumix.Output[[]*MountTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MountTargetArrayOutput) Index(i pulumi.IntInput) MountTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MountTarget {
 		return vs[0].([]*MountTarget)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o MountTargetMapOutput) ToMountTargetMapOutput() MountTargetMapOutput {
 
 func (o MountTargetMapOutput) ToMountTargetMapOutputWithContext(ctx context.Context) MountTargetMapOutput {
 	return o
-}
-
-func (o MountTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MountTarget] {
-	return pulumix.Output[map[string]*MountTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MountTargetMapOutput) MapIndex(k pulumi.StringInput) MountTargetOutput {

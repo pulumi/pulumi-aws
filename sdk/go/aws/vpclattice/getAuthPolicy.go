@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS VPC Lattice Auth Policy.
@@ -111,12 +110,6 @@ func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutput() LookupAut
 
 func (o LookupAuthPolicyResultOutput) ToLookupAuthPolicyResultOutputWithContext(ctx context.Context) LookupAuthPolicyResultOutput {
 	return o
-}
-
-func (o LookupAuthPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthPolicyResult] {
-	return pulumix.Output[LookupAuthPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

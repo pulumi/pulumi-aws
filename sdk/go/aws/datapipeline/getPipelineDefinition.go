@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific DataPipeline Pipeline Definition.
@@ -108,12 +107,6 @@ func (o LookupPipelineDefinitionResultOutput) ToLookupPipelineDefinitionResultOu
 
 func (o LookupPipelineDefinitionResultOutput) ToLookupPipelineDefinitionResultOutputWithContext(ctx context.Context) LookupPipelineDefinitionResultOutput {
 	return o
-}
-
-func (o LookupPipelineDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPipelineDefinitionResult] {
-	return pulumix.Output[LookupPipelineDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

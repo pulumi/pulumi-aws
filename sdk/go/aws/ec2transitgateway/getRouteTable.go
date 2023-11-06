@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway Route Table.
@@ -155,12 +154,6 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRou
 
 func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
 	return o
-}
-
-func (o LookupRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteTableResult] {
-	return pulumix.Output[LookupRouteTableResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // EC2 Transit Gateway Route Table ARN.

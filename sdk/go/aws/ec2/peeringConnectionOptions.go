@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage VPC peering connection options.
@@ -278,12 +277,6 @@ func (i *PeeringConnectionOptions) ToPeeringConnectionOptionsOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsOutput)
 }
 
-func (i *PeeringConnectionOptions) ToOutput(ctx context.Context) pulumix.Output[*PeeringConnectionOptions] {
-	return pulumix.Output[*PeeringConnectionOptions]{
-		OutputState: i.ToPeeringConnectionOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PeeringConnectionOptionsArrayInput is an input type that accepts PeeringConnectionOptionsArray and PeeringConnectionOptionsArrayOutput values.
 // You can construct a concrete instance of `PeeringConnectionOptionsArrayInput` via:
 //
@@ -307,12 +300,6 @@ func (i PeeringConnectionOptionsArray) ToPeeringConnectionOptionsArrayOutput() P
 
 func (i PeeringConnectionOptionsArray) ToPeeringConnectionOptionsArrayOutputWithContext(ctx context.Context) PeeringConnectionOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsArrayOutput)
-}
-
-func (i PeeringConnectionOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringConnectionOptions] {
-	return pulumix.Output[[]*PeeringConnectionOptions]{
-		OutputState: i.ToPeeringConnectionOptionsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PeeringConnectionOptionsMapInput is an input type that accepts PeeringConnectionOptionsMap and PeeringConnectionOptionsMapOutput values.
@@ -340,12 +327,6 @@ func (i PeeringConnectionOptionsMap) ToPeeringConnectionOptionsMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringConnectionOptionsMapOutput)
 }
 
-func (i PeeringConnectionOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringConnectionOptions] {
-	return pulumix.Output[map[string]*PeeringConnectionOptions]{
-		OutputState: i.ToPeeringConnectionOptionsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PeeringConnectionOptionsOutput struct{ *pulumi.OutputState }
 
 func (PeeringConnectionOptionsOutput) ElementType() reflect.Type {
@@ -358,12 +339,6 @@ func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutput() Peeri
 
 func (o PeeringConnectionOptionsOutput) ToPeeringConnectionOptionsOutputWithContext(ctx context.Context) PeeringConnectionOptionsOutput {
 	return o
-}
-
-func (o PeeringConnectionOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringConnectionOptions] {
-	return pulumix.Output[*PeeringConnectionOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that acceptsthe peering connection (a maximum of one).
@@ -395,12 +370,6 @@ func (o PeeringConnectionOptionsArrayOutput) ToPeeringConnectionOptionsArrayOutp
 	return o
 }
 
-func (o PeeringConnectionOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringConnectionOptions] {
-	return pulumix.Output[[]*PeeringConnectionOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PeeringConnectionOptionsArrayOutput) Index(i pulumi.IntInput) PeeringConnectionOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PeeringConnectionOptions {
 		return vs[0].([]*PeeringConnectionOptions)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o PeeringConnectionOptionsMapOutput) ToPeeringConnectionOptionsMapOutput()
 
 func (o PeeringConnectionOptionsMapOutput) ToPeeringConnectionOptionsMapOutputWithContext(ctx context.Context) PeeringConnectionOptionsMapOutput {
 	return o
-}
-
-func (o PeeringConnectionOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringConnectionOptions] {
-	return pulumix.Output[map[string]*PeeringConnectionOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PeeringConnectionOptionsMapOutput) MapIndex(k pulumi.StringInput) PeeringConnectionOptionsOutput {

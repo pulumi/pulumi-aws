@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge connection resource.
@@ -223,12 +222,6 @@ func (i *EventConnection) ToEventConnectionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionOutput)
 }
 
-func (i *EventConnection) ToOutput(ctx context.Context) pulumix.Output[*EventConnection] {
-	return pulumix.Output[*EventConnection]{
-		OutputState: i.ToEventConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventConnectionArrayInput is an input type that accepts EventConnectionArray and EventConnectionArrayOutput values.
 // You can construct a concrete instance of `EventConnectionArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i EventConnectionArray) ToEventConnectionArrayOutput() EventConnectionArra
 
 func (i EventConnectionArray) ToEventConnectionArrayOutputWithContext(ctx context.Context) EventConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionArrayOutput)
-}
-
-func (i EventConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventConnection] {
-	return pulumix.Output[[]*EventConnection]{
-		OutputState: i.ToEventConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventConnectionMapInput is an input type that accepts EventConnectionMap and EventConnectionMapOutput values.
@@ -285,12 +272,6 @@ func (i EventConnectionMap) ToEventConnectionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionMapOutput)
 }
 
-func (i EventConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventConnection] {
-	return pulumix.Output[map[string]*EventConnection]{
-		OutputState: i.ToEventConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionOutput) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o EventConnectionOutput) ToEventConnectionOutput() EventConnectionOutput {
 
 func (o EventConnectionOutput) ToEventConnectionOutputWithContext(ctx context.Context) EventConnectionOutput {
 	return o
-}
-
-func (o EventConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventConnection] {
-	return pulumix.Output[*EventConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the connection.
@@ -355,12 +330,6 @@ func (o EventConnectionArrayOutput) ToEventConnectionArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o EventConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventConnection] {
-	return pulumix.Output[[]*EventConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventConnectionArrayOutput) Index(i pulumi.IntInput) EventConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventConnection {
 		return vs[0].([]*EventConnection)[vs[1].(int)]
@@ -379,12 +348,6 @@ func (o EventConnectionMapOutput) ToEventConnectionMapOutput() EventConnectionMa
 
 func (o EventConnectionMapOutput) ToEventConnectionMapOutputWithContext(ctx context.Context) EventConnectionMapOutput {
 	return o
-}
-
-func (o EventConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventConnection] {
-	return pulumix.Output[map[string]*EventConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventConnectionMapOutput) MapIndex(k pulumi.StringInput) EventConnectionOutput {

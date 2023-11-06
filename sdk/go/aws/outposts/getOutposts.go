@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Outposts.
@@ -117,12 +116,6 @@ func (o GetOutpostsResultOutput) ToGetOutpostsResultOutput() GetOutpostsResultOu
 
 func (o GetOutpostsResultOutput) ToGetOutpostsResultOutputWithContext(ctx context.Context) GetOutpostsResultOutput {
 	return o
-}
-
-func (o GetOutpostsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostsResult] {
-	return pulumix.Output[GetOutpostsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of Amazon Resource Names (ARNs).

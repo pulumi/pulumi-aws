@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon API Gateway Version 2 API.
@@ -371,12 +370,6 @@ func (i *Api) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOutput)
 }
 
-func (i *Api) ToOutput(ctx context.Context) pulumix.Output[*Api] {
-	return pulumix.Output[*Api]{
-		OutputState: i.ToApiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiArrayInput is an input type that accepts ApiArray and ApiArrayOutput values.
 // You can construct a concrete instance of `ApiArrayInput` via:
 //
@@ -400,12 +393,6 @@ func (i ApiArray) ToApiArrayOutput() ApiArrayOutput {
 
 func (i ApiArray) ToApiArrayOutputWithContext(ctx context.Context) ApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiArrayOutput)
-}
-
-func (i ApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*Api] {
-	return pulumix.Output[[]*Api]{
-		OutputState: i.ToApiArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiMapInput is an input type that accepts ApiMap and ApiMapOutput values.
@@ -433,12 +420,6 @@ func (i ApiMap) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMapOutput)
 }
 
-func (i ApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Api] {
-	return pulumix.Output[map[string]*Api]{
-		OutputState: i.ToApiMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiOutput struct{ *pulumi.OutputState }
 
 func (ApiOutput) ElementType() reflect.Type {
@@ -451,12 +432,6 @@ func (o ApiOutput) ToApiOutput() ApiOutput {
 
 func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 	return o
-}
-
-func (o ApiOutput) ToOutput(ctx context.Context) pulumix.Output[*Api] {
-	return pulumix.Output[*Api]{
-		OutputState: o.OutputState,
-	}
 }
 
 // URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
@@ -574,12 +549,6 @@ func (o ApiArrayOutput) ToApiArrayOutputWithContext(ctx context.Context) ApiArra
 	return o
 }
 
-func (o ApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Api] {
-	return pulumix.Output[[]*Api]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiArrayOutput) Index(i pulumi.IntInput) ApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Api {
 		return vs[0].([]*Api)[vs[1].(int)]
@@ -598,12 +567,6 @@ func (o ApiMapOutput) ToApiMapOutput() ApiMapOutput {
 
 func (o ApiMapOutput) ToApiMapOutputWithContext(ctx context.Context) ApiMapOutput {
 	return o
-}
-
-func (o ApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Api] {
-	return pulumix.Output[map[string]*Api]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiMapOutput) MapIndex(k pulumi.StringInput) ApiOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a traffic source to an Auto Scaling group.
@@ -144,12 +143,6 @@ func (i *TrafficSourceAttachment) ToTrafficSourceAttachmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSourceAttachmentOutput)
 }
 
-func (i *TrafficSourceAttachment) ToOutput(ctx context.Context) pulumix.Output[*TrafficSourceAttachment] {
-	return pulumix.Output[*TrafficSourceAttachment]{
-		OutputState: i.ToTrafficSourceAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficSourceAttachmentArrayInput is an input type that accepts TrafficSourceAttachmentArray and TrafficSourceAttachmentArrayOutput values.
 // You can construct a concrete instance of `TrafficSourceAttachmentArrayInput` via:
 //
@@ -173,12 +166,6 @@ func (i TrafficSourceAttachmentArray) ToTrafficSourceAttachmentArrayOutput() Tra
 
 func (i TrafficSourceAttachmentArray) ToTrafficSourceAttachmentArrayOutputWithContext(ctx context.Context) TrafficSourceAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSourceAttachmentArrayOutput)
-}
-
-func (i TrafficSourceAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficSourceAttachment] {
-	return pulumix.Output[[]*TrafficSourceAttachment]{
-		OutputState: i.ToTrafficSourceAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficSourceAttachmentMapInput is an input type that accepts TrafficSourceAttachmentMap and TrafficSourceAttachmentMapOutput values.
@@ -206,12 +193,6 @@ func (i TrafficSourceAttachmentMap) ToTrafficSourceAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSourceAttachmentMapOutput)
 }
 
-func (i TrafficSourceAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficSourceAttachment] {
-	return pulumix.Output[map[string]*TrafficSourceAttachment]{
-		OutputState: i.ToTrafficSourceAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficSourceAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TrafficSourceAttachmentOutput) ElementType() reflect.Type {
@@ -224,12 +205,6 @@ func (o TrafficSourceAttachmentOutput) ToTrafficSourceAttachmentOutput() Traffic
 
 func (o TrafficSourceAttachmentOutput) ToTrafficSourceAttachmentOutputWithContext(ctx context.Context) TrafficSourceAttachmentOutput {
 	return o
-}
-
-func (o TrafficSourceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficSourceAttachment] {
-	return pulumix.Output[*TrafficSourceAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Auto Scaling group.
@@ -256,12 +231,6 @@ func (o TrafficSourceAttachmentArrayOutput) ToTrafficSourceAttachmentArrayOutput
 	return o
 }
 
-func (o TrafficSourceAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficSourceAttachment] {
-	return pulumix.Output[[]*TrafficSourceAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficSourceAttachmentArrayOutput) Index(i pulumi.IntInput) TrafficSourceAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficSourceAttachment {
 		return vs[0].([]*TrafficSourceAttachment)[vs[1].(int)]
@@ -280,12 +249,6 @@ func (o TrafficSourceAttachmentMapOutput) ToTrafficSourceAttachmentMapOutput() T
 
 func (o TrafficSourceAttachmentMapOutput) ToTrafficSourceAttachmentMapOutputWithContext(ctx context.Context) TrafficSourceAttachmentMapOutput {
 	return o
-}
-
-func (o TrafficSourceAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficSourceAttachment] {
-	return pulumix.Output[map[string]*TrafficSourceAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficSourceAttachmentMapOutput) MapIndex(k pulumi.StringInput) TrafficSourceAttachmentOutput {

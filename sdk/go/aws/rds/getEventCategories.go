@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -126,12 +125,6 @@ func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutput() GetEv
 
 func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutputWithContext(ctx context.Context) GetEventCategoriesResultOutput {
 	return o
-}
-
-func (o GetEventCategoriesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventCategoriesResult] {
-	return pulumix.Output[GetEventCategoriesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the event categories.

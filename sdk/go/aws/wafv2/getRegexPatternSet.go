@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 Regex Pattern Set.
@@ -110,12 +109,6 @@ func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutput()
 
 func (o LookupRegexPatternSetResultOutput) ToLookupRegexPatternSetResultOutputWithContext(ctx context.Context) LookupRegexPatternSetResultOutput {
 	return o
-}
-
-func (o LookupRegexPatternSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegexPatternSetResult] {
-	return pulumix.Output[LookupRegexPatternSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the entity.

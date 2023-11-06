@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
@@ -87,12 +86,6 @@ func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutput()
 
 func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWithContext(ctx context.Context) GetAuthorizationTokenResultOutput {
 	return o
-}
-
-func (o GetAuthorizationTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAuthorizationTokenResult] {
-	return pulumix.Output[GetAuthorizationTokenResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.

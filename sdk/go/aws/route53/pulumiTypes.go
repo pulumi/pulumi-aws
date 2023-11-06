@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i RecordAliasArgs) ToRecordAliasOutputWithContext(ctx context.Context) Rec
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasOutput)
 }
 
-func (i RecordAliasArgs) ToOutput(ctx context.Context) pulumix.Output[RecordAlias] {
-	return pulumix.Output[RecordAlias]{
-		OutputState: i.ToRecordAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordAliasArrayInput is an input type that accepts RecordAliasArray and RecordAliasArrayOutput values.
 // You can construct a concrete instance of `RecordAliasArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i RecordAliasArray) ToRecordAliasArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasArrayOutput)
 }
 
-func (i RecordAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordAlias] {
-	return pulumix.Output[[]RecordAlias]{
-		OutputState: i.ToRecordAliasArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordAliasOutput struct{ *pulumi.OutputState }
 
 func (RecordAliasOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o RecordAliasOutput) ToRecordAliasOutput() RecordAliasOutput {
 
 func (o RecordAliasOutput) ToRecordAliasOutputWithContext(ctx context.Context) RecordAliasOutput {
 	return o
-}
-
-func (o RecordAliasOutput) ToOutput(ctx context.Context) pulumix.Output[RecordAlias] {
-	return pulumix.Output[RecordAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -139,12 +120,6 @@ func (o RecordAliasArrayOutput) ToRecordAliasArrayOutput() RecordAliasArrayOutpu
 
 func (o RecordAliasArrayOutput) ToRecordAliasArrayOutputWithContext(ctx context.Context) RecordAliasArrayOutput {
 	return o
-}
-
-func (o RecordAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordAlias] {
-	return pulumix.Output[[]RecordAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordAliasArrayOutput) Index(i pulumi.IntInput) RecordAliasOutput {
@@ -190,12 +165,6 @@ func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RecordCidrRoutingPolicyOutput)
 }
 
-func (i RecordCidrRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RecordCidrRoutingPolicy] {
-	return pulumix.Output[RecordCidrRoutingPolicy]{
-		OutputState: i.ToRecordCidrRoutingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordCidrRoutingPolicyArgs) ToRecordCidrRoutingPolicyPtrOutput() RecordCidrRoutingPolicyPtrOutput {
 	return i.ToRecordCidrRoutingPolicyPtrOutputWithContext(context.Background())
 }
@@ -237,12 +206,6 @@ func (i *recordCidrRoutingPolicyPtrType) ToRecordCidrRoutingPolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RecordCidrRoutingPolicyPtrOutput)
 }
 
-func (i *recordCidrRoutingPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordCidrRoutingPolicy] {
-	return pulumix.Output[*RecordCidrRoutingPolicy]{
-		OutputState: i.ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordCidrRoutingPolicyOutput struct{ *pulumi.OutputState }
 
 func (RecordCidrRoutingPolicyOutput) ElementType() reflect.Type {
@@ -267,12 +230,6 @@ func (o RecordCidrRoutingPolicyOutput) ToRecordCidrRoutingPolicyPtrOutputWithCon
 	}).(RecordCidrRoutingPolicyPtrOutput)
 }
 
-func (o RecordCidrRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RecordCidrRoutingPolicy] {
-	return pulumix.Output[RecordCidrRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
 func (o RecordCidrRoutingPolicyOutput) CollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordCidrRoutingPolicy) string { return v.CollectionId }).(pulumi.StringOutput)
@@ -295,12 +252,6 @@ func (o RecordCidrRoutingPolicyPtrOutput) ToRecordCidrRoutingPolicyPtrOutput() R
 
 func (o RecordCidrRoutingPolicyPtrOutput) ToRecordCidrRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordCidrRoutingPolicyPtrOutput {
 	return o
-}
-
-func (o RecordCidrRoutingPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordCidrRoutingPolicy] {
-	return pulumix.Output[*RecordCidrRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordCidrRoutingPolicyPtrOutput) Elem() RecordCidrRoutingPolicyOutput {
@@ -366,12 +317,6 @@ func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyOutput)
 }
 
-func (i RecordFailoverRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RecordFailoverRoutingPolicy] {
-	return pulumix.Output[RecordFailoverRoutingPolicy]{
-		OutputState: i.ToRecordFailoverRoutingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordFailoverRoutingPolicyArrayInput is an input type that accepts RecordFailoverRoutingPolicyArray and RecordFailoverRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordFailoverRoutingPolicyArrayInput` via:
 //
@@ -397,12 +342,6 @@ func (i RecordFailoverRoutingPolicyArray) ToRecordFailoverRoutingPolicyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyArrayOutput)
 }
 
-func (i RecordFailoverRoutingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordFailoverRoutingPolicy] {
-	return pulumix.Output[[]RecordFailoverRoutingPolicy]{
-		OutputState: i.ToRecordFailoverRoutingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordFailoverRoutingPolicyOutput struct{ *pulumi.OutputState }
 
 func (RecordFailoverRoutingPolicyOutput) ElementType() reflect.Type {
@@ -415,12 +354,6 @@ func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyOutput()
 
 func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyOutput {
 	return o
-}
-
-func (o RecordFailoverRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RecordFailoverRoutingPolicy] {
-	return pulumix.Output[RecordFailoverRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
@@ -440,12 +373,6 @@ func (o RecordFailoverRoutingPolicyArrayOutput) ToRecordFailoverRoutingPolicyArr
 
 func (o RecordFailoverRoutingPolicyArrayOutput) ToRecordFailoverRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyArrayOutput {
 	return o
-}
-
-func (o RecordFailoverRoutingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordFailoverRoutingPolicy] {
-	return pulumix.Output[[]RecordFailoverRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordFailoverRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordFailoverRoutingPolicyOutput {
@@ -495,12 +422,6 @@ func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyOutput)
 }
 
-func (i RecordGeolocationRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RecordGeolocationRoutingPolicy] {
-	return pulumix.Output[RecordGeolocationRoutingPolicy]{
-		OutputState: i.ToRecordGeolocationRoutingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordGeolocationRoutingPolicyArrayInput is an input type that accepts RecordGeolocationRoutingPolicyArray and RecordGeolocationRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordGeolocationRoutingPolicyArrayInput` via:
 //
@@ -526,12 +447,6 @@ func (i RecordGeolocationRoutingPolicyArray) ToRecordGeolocationRoutingPolicyArr
 	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyArrayOutput)
 }
 
-func (i RecordGeolocationRoutingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordGeolocationRoutingPolicy] {
-	return pulumix.Output[[]RecordGeolocationRoutingPolicy]{
-		OutputState: i.ToRecordGeolocationRoutingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordGeolocationRoutingPolicyOutput struct{ *pulumi.OutputState }
 
 func (RecordGeolocationRoutingPolicyOutput) ElementType() reflect.Type {
@@ -544,12 +459,6 @@ func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyOu
 
 func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyOutput {
 	return o
-}
-
-func (o RecordGeolocationRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RecordGeolocationRoutingPolicy] {
-	return pulumix.Output[RecordGeolocationRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
@@ -579,12 +488,6 @@ func (o RecordGeolocationRoutingPolicyArrayOutput) ToRecordGeolocationRoutingPol
 
 func (o RecordGeolocationRoutingPolicyArrayOutput) ToRecordGeolocationRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyArrayOutput {
 	return o
-}
-
-func (o RecordGeolocationRoutingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordGeolocationRoutingPolicy] {
-	return pulumix.Output[[]RecordGeolocationRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordGeolocationRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordGeolocationRoutingPolicyOutput {
@@ -626,12 +529,6 @@ func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyOutput)
 }
 
-func (i RecordLatencyRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RecordLatencyRoutingPolicy] {
-	return pulumix.Output[RecordLatencyRoutingPolicy]{
-		OutputState: i.ToRecordLatencyRoutingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordLatencyRoutingPolicyArrayInput is an input type that accepts RecordLatencyRoutingPolicyArray and RecordLatencyRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordLatencyRoutingPolicyArrayInput` via:
 //
@@ -657,12 +554,6 @@ func (i RecordLatencyRoutingPolicyArray) ToRecordLatencyRoutingPolicyArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyArrayOutput)
 }
 
-func (i RecordLatencyRoutingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordLatencyRoutingPolicy] {
-	return pulumix.Output[[]RecordLatencyRoutingPolicy]{
-		OutputState: i.ToRecordLatencyRoutingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordLatencyRoutingPolicyOutput struct{ *pulumi.OutputState }
 
 func (RecordLatencyRoutingPolicyOutput) ElementType() reflect.Type {
@@ -675,12 +566,6 @@ func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyOutput() R
 
 func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyOutput {
 	return o
-}
-
-func (o RecordLatencyRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RecordLatencyRoutingPolicy] {
-	return pulumix.Output[RecordLatencyRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
@@ -700,12 +585,6 @@ func (o RecordLatencyRoutingPolicyArrayOutput) ToRecordLatencyRoutingPolicyArray
 
 func (o RecordLatencyRoutingPolicyArrayOutput) ToRecordLatencyRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyArrayOutput {
 	return o
-}
-
-func (o RecordLatencyRoutingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordLatencyRoutingPolicy] {
-	return pulumix.Output[[]RecordLatencyRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordLatencyRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordLatencyRoutingPolicyOutput {
@@ -747,12 +626,6 @@ func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyOutput)
 }
 
-func (i RecordWeightedRoutingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[RecordWeightedRoutingPolicy] {
-	return pulumix.Output[RecordWeightedRoutingPolicy]{
-		OutputState: i.ToRecordWeightedRoutingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RecordWeightedRoutingPolicyArrayInput is an input type that accepts RecordWeightedRoutingPolicyArray and RecordWeightedRoutingPolicyArrayOutput values.
 // You can construct a concrete instance of `RecordWeightedRoutingPolicyArrayInput` via:
 //
@@ -778,12 +651,6 @@ func (i RecordWeightedRoutingPolicyArray) ToRecordWeightedRoutingPolicyArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyArrayOutput)
 }
 
-func (i RecordWeightedRoutingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]RecordWeightedRoutingPolicy] {
-	return pulumix.Output[[]RecordWeightedRoutingPolicy]{
-		OutputState: i.ToRecordWeightedRoutingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordWeightedRoutingPolicyOutput struct{ *pulumi.OutputState }
 
 func (RecordWeightedRoutingPolicyOutput) ElementType() reflect.Type {
@@ -796,12 +663,6 @@ func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyOutput()
 
 func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyOutput {
 	return o
-}
-
-func (o RecordWeightedRoutingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[RecordWeightedRoutingPolicy] {
-	return pulumix.Output[RecordWeightedRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
@@ -821,12 +682,6 @@ func (o RecordWeightedRoutingPolicyArrayOutput) ToRecordWeightedRoutingPolicyArr
 
 func (o RecordWeightedRoutingPolicyArrayOutput) ToRecordWeightedRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyArrayOutput {
 	return o
-}
-
-func (o RecordWeightedRoutingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RecordWeightedRoutingPolicy] {
-	return pulumix.Output[[]RecordWeightedRoutingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordWeightedRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordWeightedRoutingPolicyOutput {
@@ -874,12 +729,6 @@ func (i ResolverEndpointIpAddressArgs) ToResolverEndpointIpAddressOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressOutput)
 }
 
-func (i ResolverEndpointIpAddressArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointIpAddress] {
-	return pulumix.Output[ResolverEndpointIpAddress]{
-		OutputState: i.ToResolverEndpointIpAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverEndpointIpAddressArrayInput is an input type that accepts ResolverEndpointIpAddressArray and ResolverEndpointIpAddressArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressArrayInput` via:
 //
@@ -905,12 +754,6 @@ func (i ResolverEndpointIpAddressArray) ToResolverEndpointIpAddressArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressArrayOutput)
 }
 
-func (i ResolverEndpointIpAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointIpAddress] {
-	return pulumix.Output[[]ResolverEndpointIpAddress]{
-		OutputState: i.ToResolverEndpointIpAddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverEndpointIpAddressOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointIpAddressOutput) ElementType() reflect.Type {
@@ -923,12 +766,6 @@ func (o ResolverEndpointIpAddressOutput) ToResolverEndpointIpAddressOutput() Res
 
 func (o ResolverEndpointIpAddressOutput) ToResolverEndpointIpAddressOutputWithContext(ctx context.Context) ResolverEndpointIpAddressOutput {
 	return o
-}
-
-func (o ResolverEndpointIpAddressOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointIpAddress] {
-	return pulumix.Output[ResolverEndpointIpAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address in the subnet that you want to use for DNS queries.
@@ -957,12 +794,6 @@ func (o ResolverEndpointIpAddressArrayOutput) ToResolverEndpointIpAddressArrayOu
 
 func (o ResolverEndpointIpAddressArrayOutput) ToResolverEndpointIpAddressArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressArrayOutput {
 	return o
-}
-
-func (o ResolverEndpointIpAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointIpAddress] {
-	return pulumix.Output[[]ResolverEndpointIpAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverEndpointIpAddressArrayOutput) Index(i pulumi.IntInput) ResolverEndpointIpAddressOutput {
@@ -1008,12 +839,6 @@ func (i ResolverRuleTargetIpArgs) ToResolverRuleTargetIpOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetIpOutput)
 }
 
-func (i ResolverRuleTargetIpArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetIp] {
-	return pulumix.Output[ResolverRuleTargetIp]{
-		OutputState: i.ToResolverRuleTargetIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverRuleTargetIpArrayInput is an input type that accepts ResolverRuleTargetIpArray and ResolverRuleTargetIpArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetIpArrayInput` via:
 //
@@ -1039,12 +864,6 @@ func (i ResolverRuleTargetIpArray) ToResolverRuleTargetIpArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetIpArrayOutput)
 }
 
-func (i ResolverRuleTargetIpArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTargetIp] {
-	return pulumix.Output[[]ResolverRuleTargetIp]{
-		OutputState: i.ToResolverRuleTargetIpArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverRuleTargetIpOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleTargetIpOutput) ElementType() reflect.Type {
@@ -1057,12 +876,6 @@ func (o ResolverRuleTargetIpOutput) ToResolverRuleTargetIpOutput() ResolverRuleT
 
 func (o ResolverRuleTargetIpOutput) ToResolverRuleTargetIpOutputWithContext(ctx context.Context) ResolverRuleTargetIpOutput {
 	return o
-}
-
-func (o ResolverRuleTargetIpOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetIp] {
-	return pulumix.Output[ResolverRuleTargetIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
@@ -1087,12 +900,6 @@ func (o ResolverRuleTargetIpArrayOutput) ToResolverRuleTargetIpArrayOutput() Res
 
 func (o ResolverRuleTargetIpArrayOutput) ToResolverRuleTargetIpArrayOutputWithContext(ctx context.Context) ResolverRuleTargetIpArrayOutput {
 	return o
-}
-
-func (o ResolverRuleTargetIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTargetIp] {
-	return pulumix.Output[[]ResolverRuleTargetIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverRuleTargetIpArrayOutput) Index(i pulumi.IntInput) ResolverRuleTargetIpOutput {
@@ -1138,12 +945,6 @@ func (i ZoneVpcArgs) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVpcOutput)
 }
 
-func (i ZoneVpcArgs) ToOutput(ctx context.Context) pulumix.Output[ZoneVpc] {
-	return pulumix.Output[ZoneVpc]{
-		OutputState: i.ToZoneVpcOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ZoneVpcArrayInput is an input type that accepts ZoneVpcArray and ZoneVpcArrayOutput values.
 // You can construct a concrete instance of `ZoneVpcArrayInput` via:
 //
@@ -1169,12 +970,6 @@ func (i ZoneVpcArray) ToZoneVpcArrayOutputWithContext(ctx context.Context) ZoneV
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVpcArrayOutput)
 }
 
-func (i ZoneVpcArray) ToOutput(ctx context.Context) pulumix.Output[[]ZoneVpc] {
-	return pulumix.Output[[]ZoneVpc]{
-		OutputState: i.ToZoneVpcArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZoneVpcOutput struct{ *pulumi.OutputState }
 
 func (ZoneVpcOutput) ElementType() reflect.Type {
@@ -1187,12 +982,6 @@ func (o ZoneVpcOutput) ToZoneVpcOutput() ZoneVpcOutput {
 
 func (o ZoneVpcOutput) ToZoneVpcOutputWithContext(ctx context.Context) ZoneVpcOutput {
 	return o
-}
-
-func (o ZoneVpcOutput) ToOutput(ctx context.Context) pulumix.Output[ZoneVpc] {
-	return pulumix.Output[ZoneVpc]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the VPC to associate.
@@ -1217,12 +1006,6 @@ func (o ZoneVpcArrayOutput) ToZoneVpcArrayOutput() ZoneVpcArrayOutput {
 
 func (o ZoneVpcArrayOutput) ToZoneVpcArrayOutputWithContext(ctx context.Context) ZoneVpcArrayOutput {
 	return o
-}
-
-func (o ZoneVpcArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ZoneVpc] {
-	return pulumix.Output[[]ZoneVpc]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZoneVpcArrayOutput) Index(i pulumi.IntInput) ZoneVpcOutput {
@@ -1266,12 +1049,6 @@ func (i GetQueryLogConfigFilterArgs) ToGetQueryLogConfigFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetQueryLogConfigFilterOutput)
 }
 
-func (i GetQueryLogConfigFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetQueryLogConfigFilter] {
-	return pulumix.Output[GetQueryLogConfigFilter]{
-		OutputState: i.ToGetQueryLogConfigFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetQueryLogConfigFilterArrayInput is an input type that accepts GetQueryLogConfigFilterArray and GetQueryLogConfigFilterArrayOutput values.
 // You can construct a concrete instance of `GetQueryLogConfigFilterArrayInput` via:
 //
@@ -1297,12 +1074,6 @@ func (i GetQueryLogConfigFilterArray) ToGetQueryLogConfigFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetQueryLogConfigFilterArrayOutput)
 }
 
-func (i GetQueryLogConfigFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetQueryLogConfigFilter] {
-	return pulumix.Output[[]GetQueryLogConfigFilter]{
-		OutputState: i.ToGetQueryLogConfigFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetQueryLogConfigFilterOutput struct{ *pulumi.OutputState }
 
 func (GetQueryLogConfigFilterOutput) ElementType() reflect.Type {
@@ -1315,12 +1086,6 @@ func (o GetQueryLogConfigFilterOutput) ToGetQueryLogConfigFilterOutput() GetQuer
 
 func (o GetQueryLogConfigFilterOutput) ToGetQueryLogConfigFilterOutputWithContext(ctx context.Context) GetQueryLogConfigFilterOutput {
 	return o
-}
-
-func (o GetQueryLogConfigFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetQueryLogConfigFilter] {
-	return pulumix.Output[GetQueryLogConfigFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the query logging configuration.
@@ -1344,12 +1109,6 @@ func (o GetQueryLogConfigFilterArrayOutput) ToGetQueryLogConfigFilterArrayOutput
 
 func (o GetQueryLogConfigFilterArrayOutput) ToGetQueryLogConfigFilterArrayOutputWithContext(ctx context.Context) GetQueryLogConfigFilterArrayOutput {
 	return o
-}
-
-func (o GetQueryLogConfigFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetQueryLogConfigFilter] {
-	return pulumix.Output[[]GetQueryLogConfigFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetQueryLogConfigFilterArrayOutput) Index(i pulumi.IntInput) GetQueryLogConfigFilterOutput {
@@ -1391,12 +1150,6 @@ func (i GetResolverEndpointFilterArgs) ToGetResolverEndpointFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterOutput)
 }
 
-func (i GetResolverEndpointFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetResolverEndpointFilter] {
-	return pulumix.Output[GetResolverEndpointFilter]{
-		OutputState: i.ToGetResolverEndpointFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResolverEndpointFilterArrayInput is an input type that accepts GetResolverEndpointFilterArray and GetResolverEndpointFilterArrayOutput values.
 // You can construct a concrete instance of `GetResolverEndpointFilterArrayInput` via:
 //
@@ -1422,12 +1175,6 @@ func (i GetResolverEndpointFilterArray) ToGetResolverEndpointFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverEndpointFilterArrayOutput)
 }
 
-func (i GetResolverEndpointFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverEndpointFilter] {
-	return pulumix.Output[[]GetResolverEndpointFilter]{
-		OutputState: i.ToGetResolverEndpointFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResolverEndpointFilterOutput struct{ *pulumi.OutputState }
 
 func (GetResolverEndpointFilterOutput) ElementType() reflect.Type {
@@ -1440,12 +1187,6 @@ func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutput() Get
 
 func (o GetResolverEndpointFilterOutput) ToGetResolverEndpointFilterOutputWithContext(ctx context.Context) GetResolverEndpointFilterOutput {
 	return o
-}
-
-func (o GetResolverEndpointFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverEndpointFilter] {
-	return pulumix.Output[GetResolverEndpointFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResolverEndpointFilterOutput) Name() pulumi.StringOutput {
@@ -1468,12 +1209,6 @@ func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOu
 
 func (o GetResolverEndpointFilterArrayOutput) ToGetResolverEndpointFilterArrayOutputWithContext(ctx context.Context) GetResolverEndpointFilterArrayOutput {
 	return o
-}
-
-func (o GetResolverEndpointFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverEndpointFilter] {
-	return pulumix.Output[[]GetResolverEndpointFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolverEndpointFilterOutput {
@@ -1559,12 +1294,6 @@ func (i GetResolverFirewallRulesFirewallRuleArgs) ToGetResolverFirewallRulesFire
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverFirewallRulesFirewallRuleOutput)
 }
 
-func (i GetResolverFirewallRulesFirewallRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetResolverFirewallRulesFirewallRule] {
-	return pulumix.Output[GetResolverFirewallRulesFirewallRule]{
-		OutputState: i.ToGetResolverFirewallRulesFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResolverFirewallRulesFirewallRuleArrayInput is an input type that accepts GetResolverFirewallRulesFirewallRuleArray and GetResolverFirewallRulesFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `GetResolverFirewallRulesFirewallRuleArrayInput` via:
 //
@@ -1590,12 +1319,6 @@ func (i GetResolverFirewallRulesFirewallRuleArray) ToGetResolverFirewallRulesFir
 	return pulumi.ToOutputWithContext(ctx, i).(GetResolverFirewallRulesFirewallRuleArrayOutput)
 }
 
-func (i GetResolverFirewallRulesFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverFirewallRulesFirewallRule] {
-	return pulumix.Output[[]GetResolverFirewallRulesFirewallRule]{
-		OutputState: i.ToGetResolverFirewallRulesFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResolverFirewallRulesFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (GetResolverFirewallRulesFirewallRuleOutput) ElementType() reflect.Type {
@@ -1608,12 +1331,6 @@ func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFi
 
 func (o GetResolverFirewallRulesFirewallRuleOutput) ToGetResolverFirewallRulesFirewallRuleOutputWithContext(ctx context.Context) GetResolverFirewallRulesFirewallRuleOutput {
 	return o
-}
-
-func (o GetResolverFirewallRulesFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverFirewallRulesFirewallRule] {
-	return pulumix.Output[GetResolverFirewallRulesFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
@@ -1690,12 +1407,6 @@ func (o GetResolverFirewallRulesFirewallRuleArrayOutput) ToGetResolverFirewallRu
 	return o
 }
 
-func (o GetResolverFirewallRulesFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResolverFirewallRulesFirewallRule] {
-	return pulumix.Output[[]GetResolverFirewallRulesFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetResolverFirewallRulesFirewallRuleArrayOutput) Index(i pulumi.IntInput) GetResolverFirewallRulesFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResolverFirewallRulesFirewallRule {
 		return vs[0].([]GetResolverFirewallRulesFirewallRule)[vs[1].(int)]
@@ -1747,12 +1458,6 @@ func (i GetTrafficPolicyDocumentEndpointArgs) ToGetTrafficPolicyDocumentEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentEndpointOutput)
 }
 
-func (i GetTrafficPolicyDocumentEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentEndpoint] {
-	return pulumix.Output[GetTrafficPolicyDocumentEndpoint]{
-		OutputState: i.ToGetTrafficPolicyDocumentEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentEndpointArrayInput is an input type that accepts GetTrafficPolicyDocumentEndpointArray and GetTrafficPolicyDocumentEndpointArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentEndpointArrayInput` via:
 //
@@ -1778,12 +1483,6 @@ func (i GetTrafficPolicyDocumentEndpointArray) ToGetTrafficPolicyDocumentEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentEndpointArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentEndpoint] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentEndpoint]{
-		OutputState: i.ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentEndpointOutput) ElementType() reflect.Type {
@@ -1796,12 +1495,6 @@ func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpoi
 
 func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpointOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentEndpoint] {
-	return pulumix.Output[GetTrafficPolicyDocumentEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of an endpoint you want to assign.
@@ -1836,12 +1529,6 @@ func (o GetTrafficPolicyDocumentEndpointArrayOutput) ToGetTrafficPolicyDocumentE
 
 func (o GetTrafficPolicyDocumentEndpointArrayOutput) ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointArrayOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentEndpoint] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentEndpointArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentEndpointOutput {
@@ -1911,12 +1598,6 @@ func (i GetTrafficPolicyDocumentRuleArgs) ToGetTrafficPolicyDocumentRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRule] {
-	return pulumix.Output[GetTrafficPolicyDocumentRule]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentRuleArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleArray and GetTrafficPolicyDocumentRuleArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleArrayInput` via:
 //
@@ -1942,12 +1623,6 @@ func (i GetTrafficPolicyDocumentRuleArray) ToGetTrafficPolicyDocumentRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRule] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRule]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleOutput) ElementType() reflect.Type {
@@ -1960,12 +1635,6 @@ func (o GetTrafficPolicyDocumentRuleOutput) ToGetTrafficPolicyDocumentRuleOutput
 
 func (o GetTrafficPolicyDocumentRuleOutput) ToGetTrafficPolicyDocumentRuleOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRule] {
-	return pulumix.Output[GetTrafficPolicyDocumentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
@@ -2022,12 +1691,6 @@ func (o GetTrafficPolicyDocumentRuleArrayOutput) ToGetTrafficPolicyDocumentRuleA
 
 func (o GetTrafficPolicyDocumentRuleArrayOutput) ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleArrayOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRule] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleOutput {
@@ -2097,12 +1760,6 @@ func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ToGetTrafficPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleGeoProximityLocationOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleGeoProximityLocation] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleGeoProximityLocation]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArray and GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput` via:
 //
@@ -2128,12 +1785,6 @@ func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArray) ToGetTrafficPolic
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleGeoProximityLocation] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleGeoProximityLocation]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleGeoProximityLocationOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ElementType() reflect.Type {
@@ -2146,12 +1797,6 @@ func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToGetTrafficPoli
 
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleGeoProximityLocation] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleGeoProximityLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
@@ -2208,12 +1853,6 @@ func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) ToGetTraffi
 	return o
 }
 
-func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleGeoProximityLocation] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleGeoProximityLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleGeoProximityLocation {
 		return vs[0].([]GetTrafficPolicyDocumentRuleGeoProximityLocation)[vs[1].(int)]
@@ -2257,12 +1896,6 @@ func (i GetTrafficPolicyDocumentRuleItemArgs) ToGetTrafficPolicyDocumentRuleItem
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleItemOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleItemArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleItem] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleItem]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentRuleItemArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArray and GetTrafficPolicyDocumentRuleItemArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleItemArrayInput` via:
 //
@@ -2288,12 +1921,6 @@ func (i GetTrafficPolicyDocumentRuleItemArray) ToGetTrafficPolicyDocumentRuleIte
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleItemArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleItem] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleItem]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleItemOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleItemOutput) ElementType() reflect.Type {
@@ -2306,12 +1933,6 @@ func (o GetTrafficPolicyDocumentRuleItemOutput) ToGetTrafficPolicyDocumentRuleIt
 
 func (o GetTrafficPolicyDocumentRuleItemOutput) ToGetTrafficPolicyDocumentRuleItemOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleItemOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleItem] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // References to an endpoint.
@@ -2336,12 +1957,6 @@ func (o GetTrafficPolicyDocumentRuleItemArrayOutput) ToGetTrafficPolicyDocumentR
 
 func (o GetTrafficPolicyDocumentRuleItemArrayOutput) ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemArrayOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleItem] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentRuleItemArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleItemOutput {
@@ -2411,12 +2026,6 @@ func (i GetTrafficPolicyDocumentRuleLocationArgs) ToGetTrafficPolicyDocumentRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleLocationOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleLocation] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleLocation]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentRuleLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArray and GetTrafficPolicyDocumentRuleLocationArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleLocationArrayInput` via:
 //
@@ -2442,12 +2051,6 @@ func (i GetTrafficPolicyDocumentRuleLocationArray) ToGetTrafficPolicyDocumentRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleLocationArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleLocation] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleLocation]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleLocationOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleLocationOutput) ElementType() reflect.Type {
@@ -2460,12 +2063,6 @@ func (o GetTrafficPolicyDocumentRuleLocationOutput) ToGetTrafficPolicyDocumentRu
 
 func (o GetTrafficPolicyDocumentRuleLocationOutput) ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleLocationOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleLocation] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Value of a continent.
@@ -2522,12 +2119,6 @@ func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) ToGetTrafficPolicyDocum
 	return o
 }
 
-func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleLocation] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleLocation {
 		return vs[0].([]GetTrafficPolicyDocumentRuleLocation)[vs[1].(int)]
@@ -2579,12 +2170,6 @@ func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRuleP
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRulePrimaryOutput)
 }
 
-func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRulePrimary] {
-	return pulumix.Output[GetTrafficPolicyDocumentRulePrimary]{
-		OutputState: i.ToGetTrafficPolicyDocumentRulePrimaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
 	return i.ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(context.Background())
 }
@@ -2626,12 +2211,6 @@ func (i *getTrafficPolicyDocumentRulePrimaryPtrType) ToGetTrafficPolicyDocumentR
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
 }
 
-func (i *getTrafficPolicyDocumentRulePrimaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTrafficPolicyDocumentRulePrimary] {
-	return pulumix.Output[*GetTrafficPolicyDocumentRulePrimary]{
-		OutputState: i.ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRulePrimaryOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRulePrimaryOutput) ElementType() reflect.Type {
@@ -2654,12 +2233,6 @@ func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTrafficPolicyDocumentRulePrimary) *GetTrafficPolicyDocumentRulePrimary {
 		return &v
 	}).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
-}
-
-func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRulePrimary] {
-	return pulumix.Output[GetTrafficPolicyDocumentRulePrimary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // References to an endpoint.
@@ -2694,12 +2267,6 @@ func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) ToGetTrafficPolicyDocument
 
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTrafficPolicyDocumentRulePrimary] {
-	return pulumix.Output[*GetTrafficPolicyDocumentRulePrimary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) Elem() GetTrafficPolicyDocumentRulePrimaryOutput {
@@ -2801,12 +2368,6 @@ func (i GetTrafficPolicyDocumentRuleRegionArgs) ToGetTrafficPolicyDocumentRuleRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleRegionOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleRegion] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleRegion]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTrafficPolicyDocumentRuleRegionArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArray and GetTrafficPolicyDocumentRuleRegionArrayOutput values.
 // You can construct a concrete instance of `GetTrafficPolicyDocumentRuleRegionArrayInput` via:
 //
@@ -2832,12 +2393,6 @@ func (i GetTrafficPolicyDocumentRuleRegionArray) ToGetTrafficPolicyDocumentRuleR
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleRegionArrayOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleRegion] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleRegion]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleRegionOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleRegionOutput) ElementType() reflect.Type {
@@ -2850,12 +2405,6 @@ func (o GetTrafficPolicyDocumentRuleRegionOutput) ToGetTrafficPolicyDocumentRule
 
 func (o GetTrafficPolicyDocumentRuleRegionOutput) ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleRegion] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // References to an endpoint.
@@ -2895,12 +2444,6 @@ func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) ToGetTrafficPolicyDocumen
 
 func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionArrayOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTrafficPolicyDocumentRuleRegion] {
-	return pulumix.Output[[]GetTrafficPolicyDocumentRuleRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleRegionOutput {
@@ -2954,12 +2497,6 @@ func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleSecondaryOutput)
 }
 
-func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleSecondary] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleSecondary]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleSecondaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
 	return i.ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(context.Background())
 }
@@ -3001,12 +2538,6 @@ func (i *getTrafficPolicyDocumentRuleSecondaryPtrType) ToGetTrafficPolicyDocumen
 	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
 }
 
-func (i *getTrafficPolicyDocumentRuleSecondaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTrafficPolicyDocumentRuleSecondary] {
-	return pulumix.Output[*GetTrafficPolicyDocumentRuleSecondary]{
-		OutputState: i.ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTrafficPolicyDocumentRuleSecondaryOutput struct{ *pulumi.OutputState }
 
 func (GetTrafficPolicyDocumentRuleSecondaryOutput) ElementType() reflect.Type {
@@ -3029,12 +2560,6 @@ func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTrafficPolicyDocumentRuleSecondary) *GetTrafficPolicyDocumentRuleSecondary {
 		return &v
 	}).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
-}
-
-func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrafficPolicyDocumentRuleSecondary] {
-	return pulumix.Output[GetTrafficPolicyDocumentRuleSecondary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // References to an endpoint.
@@ -3069,12 +2594,6 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ToGetTrafficPolicyDocume
 
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
 	return o
-}
-
-func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTrafficPolicyDocumentRuleSecondary] {
-	return pulumix.Output[*GetTrafficPolicyDocumentRuleSecondary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) Elem() GetTrafficPolicyDocumentRuleSecondaryOutput {

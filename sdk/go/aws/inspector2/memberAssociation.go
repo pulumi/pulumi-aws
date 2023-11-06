@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for associating accounts to existing Inspector instances.
@@ -156,12 +155,6 @@ func (i *MemberAssociation) ToMemberAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAssociationOutput)
 }
 
-func (i *MemberAssociation) ToOutput(ctx context.Context) pulumix.Output[*MemberAssociation] {
-	return pulumix.Output[*MemberAssociation]{
-		OutputState: i.ToMemberAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MemberAssociationArrayInput is an input type that accepts MemberAssociationArray and MemberAssociationArrayOutput values.
 // You can construct a concrete instance of `MemberAssociationArrayInput` via:
 //
@@ -185,12 +178,6 @@ func (i MemberAssociationArray) ToMemberAssociationArrayOutput() MemberAssociati
 
 func (i MemberAssociationArray) ToMemberAssociationArrayOutputWithContext(ctx context.Context) MemberAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAssociationArrayOutput)
-}
-
-func (i MemberAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MemberAssociation] {
-	return pulumix.Output[[]*MemberAssociation]{
-		OutputState: i.ToMemberAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MemberAssociationMapInput is an input type that accepts MemberAssociationMap and MemberAssociationMapOutput values.
@@ -218,12 +205,6 @@ func (i MemberAssociationMap) ToMemberAssociationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAssociationMapOutput)
 }
 
-func (i MemberAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemberAssociation] {
-	return pulumix.Output[map[string]*MemberAssociation]{
-		OutputState: i.ToMemberAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberAssociationOutput struct{ *pulumi.OutputState }
 
 func (MemberAssociationOutput) ElementType() reflect.Type {
@@ -236,12 +217,6 @@ func (o MemberAssociationOutput) ToMemberAssociationOutput() MemberAssociationOu
 
 func (o MemberAssociationOutput) ToMemberAssociationOutputWithContext(ctx context.Context) MemberAssociationOutput {
 	return o
-}
-
-func (o MemberAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberAssociation] {
-	return pulumix.Output[*MemberAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the account to associate
@@ -278,12 +253,6 @@ func (o MemberAssociationArrayOutput) ToMemberAssociationArrayOutputWithContext(
 	return o
 }
 
-func (o MemberAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MemberAssociation] {
-	return pulumix.Output[[]*MemberAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberAssociationArrayOutput) Index(i pulumi.IntInput) MemberAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MemberAssociation {
 		return vs[0].([]*MemberAssociation)[vs[1].(int)]
@@ -302,12 +271,6 @@ func (o MemberAssociationMapOutput) ToMemberAssociationMapOutput() MemberAssocia
 
 func (o MemberAssociationMapOutput) ToMemberAssociationMapOutputWithContext(ctx context.Context) MemberAssociationMapOutput {
 	return o
-}
-
-func (o MemberAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemberAssociation] {
-	return pulumix.Output[map[string]*MemberAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberAssociationMapOutput) MapIndex(k pulumi.StringInput) MemberAssociationOutput {

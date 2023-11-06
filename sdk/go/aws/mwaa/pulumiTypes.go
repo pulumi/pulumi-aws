@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i EnvironmentLastUpdatedArgs) ToEnvironmentLastUpdatedOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedOutput)
 }
 
-func (i EnvironmentLastUpdatedArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLastUpdated] {
-	return pulumix.Output[EnvironmentLastUpdated]{
-		OutputState: i.ToEnvironmentLastUpdatedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentLastUpdatedArrayInput is an input type that accepts EnvironmentLastUpdatedArray and EnvironmentLastUpdatedArrayOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i EnvironmentLastUpdatedArray) ToEnvironmentLastUpdatedArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedArrayOutput)
 }
 
-func (i EnvironmentLastUpdatedArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentLastUpdated] {
-	return pulumix.Output[[]EnvironmentLastUpdated]{
-		OutputState: i.ToEnvironmentLastUpdatedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLastUpdatedOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLastUpdatedOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o EnvironmentLastUpdatedOutput) ToEnvironmentLastUpdatedOutput() Environme
 
 func (o EnvironmentLastUpdatedOutput) ToEnvironmentLastUpdatedOutputWithContext(ctx context.Context) EnvironmentLastUpdatedOutput {
 	return o
-}
-
-func (o EnvironmentLastUpdatedOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLastUpdated] {
-	return pulumix.Output[EnvironmentLastUpdated]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Created At date of the MWAA Environment
@@ -139,12 +120,6 @@ func (o EnvironmentLastUpdatedArrayOutput) ToEnvironmentLastUpdatedArrayOutput()
 
 func (o EnvironmentLastUpdatedArrayOutput) ToEnvironmentLastUpdatedArrayOutputWithContext(ctx context.Context) EnvironmentLastUpdatedArrayOutput {
 	return o
-}
-
-func (o EnvironmentLastUpdatedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentLastUpdated] {
-	return pulumix.Output[[]EnvironmentLastUpdated]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLastUpdatedArrayOutput) Index(i pulumi.IntInput) EnvironmentLastUpdatedOutput {
@@ -186,12 +161,6 @@ func (i EnvironmentLastUpdatedErrorArgs) ToEnvironmentLastUpdatedErrorOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedErrorOutput)
 }
 
-func (i EnvironmentLastUpdatedErrorArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLastUpdatedError] {
-	return pulumix.Output[EnvironmentLastUpdatedError]{
-		OutputState: i.ToEnvironmentLastUpdatedErrorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentLastUpdatedErrorArrayInput is an input type that accepts EnvironmentLastUpdatedErrorArray and EnvironmentLastUpdatedErrorArrayOutput values.
 // You can construct a concrete instance of `EnvironmentLastUpdatedErrorArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i EnvironmentLastUpdatedErrorArray) ToEnvironmentLastUpdatedErrorArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedErrorArrayOutput)
 }
 
-func (i EnvironmentLastUpdatedErrorArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentLastUpdatedError] {
-	return pulumix.Output[[]EnvironmentLastUpdatedError]{
-		OutputState: i.ToEnvironmentLastUpdatedErrorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLastUpdatedErrorOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLastUpdatedErrorOutput) ElementType() reflect.Type {
@@ -235,12 +198,6 @@ func (o EnvironmentLastUpdatedErrorOutput) ToEnvironmentLastUpdatedErrorOutput()
 
 func (o EnvironmentLastUpdatedErrorOutput) ToEnvironmentLastUpdatedErrorOutputWithContext(ctx context.Context) EnvironmentLastUpdatedErrorOutput {
 	return o
-}
-
-func (o EnvironmentLastUpdatedErrorOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLastUpdatedError] {
-	return pulumix.Output[EnvironmentLastUpdatedError]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLastUpdatedErrorOutput) ErrorCode() pulumi.StringPtrOutput {
@@ -263,12 +220,6 @@ func (o EnvironmentLastUpdatedErrorArrayOutput) ToEnvironmentLastUpdatedErrorArr
 
 func (o EnvironmentLastUpdatedErrorArrayOutput) ToEnvironmentLastUpdatedErrorArrayOutputWithContext(ctx context.Context) EnvironmentLastUpdatedErrorArrayOutput {
 	return o
-}
-
-func (o EnvironmentLastUpdatedErrorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentLastUpdatedError] {
-	return pulumix.Output[[]EnvironmentLastUpdatedError]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLastUpdatedErrorArrayOutput) Index(i pulumi.IntInput) EnvironmentLastUpdatedErrorOutput {
@@ -326,12 +277,6 @@ func (i EnvironmentLoggingConfigurationArgs) ToEnvironmentLoggingConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationOutput)
 }
 
-func (i EnvironmentLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfiguration] {
-	return pulumix.Output[EnvironmentLoggingConfiguration]{
-		OutputState: i.ToEnvironmentLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationArgs) ToEnvironmentLoggingConfigurationPtrOutput() EnvironmentLoggingConfigurationPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -373,12 +318,6 @@ func (i *environmentLoggingConfigurationPtrType) ToEnvironmentLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfiguration] {
-	return pulumix.Output[*EnvironmentLoggingConfiguration]{
-		OutputState: i.ToEnvironmentLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -401,12 +340,6 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfiguration {
 		return &v
 	}).(EnvironmentLoggingConfigurationPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfiguration] {
-	return pulumix.Output[EnvironmentLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
@@ -454,12 +387,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) ToEnvironmentLoggingConfigurat
 
 func (o EnvironmentLoggingConfigurationPtrOutput) ToEnvironmentLoggingConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfiguration] {
-	return pulumix.Output[*EnvironmentLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfigurationOutput {
@@ -561,12 +488,6 @@ func (i EnvironmentLoggingConfigurationDagProcessingLogsArgs) ToEnvironmentLoggi
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationDagProcessingLogsOutput)
 }
 
-func (i EnvironmentLoggingConfigurationDagProcessingLogsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationDagProcessingLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationDagProcessingLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationDagProcessingLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationDagProcessingLogsArgs) ToEnvironmentLoggingConfigurationDagProcessingLogsPtrOutput() EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationDagProcessingLogsPtrOutputWithContext(context.Background())
 }
@@ -608,12 +529,6 @@ func (i *environmentLoggingConfigurationDagProcessingLogsPtrType) ToEnvironmentL
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationDagProcessingLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationDagProcessingLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationDagProcessingLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationDagProcessingLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationDagProcessingLogsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationDagProcessingLogsOutput) ElementType() reflect.Type {
@@ -636,12 +551,6 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) ToEnvironmentLog
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationDagProcessingLogs) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationDagProcessingLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationDagProcessingLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -670,12 +579,6 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) ToEnvironment
 
 func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) ToEnvironmentLoggingConfigurationDagProcessingLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationDagProcessingLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationDagProcessingLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) Elem() EnvironmentLoggingConfigurationDagProcessingLogsOutput {
@@ -756,12 +659,6 @@ func (i EnvironmentLoggingConfigurationSchedulerLogsArgs) ToEnvironmentLoggingCo
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationSchedulerLogsOutput)
 }
 
-func (i EnvironmentLoggingConfigurationSchedulerLogsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationSchedulerLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationSchedulerLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationSchedulerLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationSchedulerLogsArgs) ToEnvironmentLoggingConfigurationSchedulerLogsPtrOutput() EnvironmentLoggingConfigurationSchedulerLogsPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationSchedulerLogsPtrOutputWithContext(context.Background())
 }
@@ -803,12 +700,6 @@ func (i *environmentLoggingConfigurationSchedulerLogsPtrType) ToEnvironmentLoggi
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationSchedulerLogsPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationSchedulerLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationSchedulerLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationSchedulerLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationSchedulerLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationSchedulerLogsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationSchedulerLogsOutput) ElementType() reflect.Type {
@@ -831,12 +722,6 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) ToEnvironmentLogging
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationSchedulerLogs) *EnvironmentLoggingConfigurationSchedulerLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationSchedulerLogsPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationSchedulerLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationSchedulerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -865,12 +750,6 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) ToEnvironmentLogg
 
 func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) ToEnvironmentLoggingConfigurationSchedulerLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationSchedulerLogsPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationSchedulerLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationSchedulerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) Elem() EnvironmentLoggingConfigurationSchedulerLogsOutput {
@@ -951,12 +830,6 @@ func (i EnvironmentLoggingConfigurationTaskLogsArgs) ToEnvironmentLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationTaskLogsOutput)
 }
 
-func (i EnvironmentLoggingConfigurationTaskLogsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationTaskLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationTaskLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationTaskLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationTaskLogsArgs) ToEnvironmentLoggingConfigurationTaskLogsPtrOutput() EnvironmentLoggingConfigurationTaskLogsPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationTaskLogsPtrOutputWithContext(context.Background())
 }
@@ -998,12 +871,6 @@ func (i *environmentLoggingConfigurationTaskLogsPtrType) ToEnvironmentLoggingCon
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationTaskLogsPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationTaskLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationTaskLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationTaskLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationTaskLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationTaskLogsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationTaskLogsOutput) ElementType() reflect.Type {
@@ -1026,12 +893,6 @@ func (o EnvironmentLoggingConfigurationTaskLogsOutput) ToEnvironmentLoggingConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationTaskLogs) *EnvironmentLoggingConfigurationTaskLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationTaskLogsPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationTaskLogsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationTaskLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationTaskLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationTaskLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -1060,12 +921,6 @@ func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) ToEnvironmentLoggingCo
 
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) ToEnvironmentLoggingConfigurationTaskLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationTaskLogsPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationTaskLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationTaskLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) Elem() EnvironmentLoggingConfigurationTaskLogsOutput {
@@ -1146,12 +1001,6 @@ func (i EnvironmentLoggingConfigurationWebserverLogsArgs) ToEnvironmentLoggingCo
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationWebserverLogsOutput)
 }
 
-func (i EnvironmentLoggingConfigurationWebserverLogsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationWebserverLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationWebserverLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationWebserverLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationWebserverLogsArgs) ToEnvironmentLoggingConfigurationWebserverLogsPtrOutput() EnvironmentLoggingConfigurationWebserverLogsPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationWebserverLogsPtrOutputWithContext(context.Background())
 }
@@ -1193,12 +1042,6 @@ func (i *environmentLoggingConfigurationWebserverLogsPtrType) ToEnvironmentLoggi
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationWebserverLogsPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationWebserverLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationWebserverLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationWebserverLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationWebserverLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationWebserverLogsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationWebserverLogsOutput) ElementType() reflect.Type {
@@ -1221,12 +1064,6 @@ func (o EnvironmentLoggingConfigurationWebserverLogsOutput) ToEnvironmentLogging
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationWebserverLogs) *EnvironmentLoggingConfigurationWebserverLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationWebserverLogsPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationWebserverLogsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationWebserverLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationWebserverLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationWebserverLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -1255,12 +1092,6 @@ func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) ToEnvironmentLogg
 
 func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) ToEnvironmentLoggingConfigurationWebserverLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationWebserverLogsPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationWebserverLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationWebserverLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) Elem() EnvironmentLoggingConfigurationWebserverLogsOutput {
@@ -1341,12 +1172,6 @@ func (i EnvironmentLoggingConfigurationWorkerLogsArgs) ToEnvironmentLoggingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationWorkerLogsOutput)
 }
 
-func (i EnvironmentLoggingConfigurationWorkerLogsArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationWorkerLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationWorkerLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationWorkerLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentLoggingConfigurationWorkerLogsArgs) ToEnvironmentLoggingConfigurationWorkerLogsPtrOutput() EnvironmentLoggingConfigurationWorkerLogsPtrOutput {
 	return i.ToEnvironmentLoggingConfigurationWorkerLogsPtrOutputWithContext(context.Background())
 }
@@ -1388,12 +1213,6 @@ func (i *environmentLoggingConfigurationWorkerLogsPtrType) ToEnvironmentLoggingC
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationWorkerLogsPtrOutput)
 }
 
-func (i *environmentLoggingConfigurationWorkerLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationWorkerLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationWorkerLogs]{
-		OutputState: i.ToEnvironmentLoggingConfigurationWorkerLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentLoggingConfigurationWorkerLogsOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationWorkerLogsOutput) ElementType() reflect.Type {
@@ -1416,12 +1235,6 @@ func (o EnvironmentLoggingConfigurationWorkerLogsOutput) ToEnvironmentLoggingCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationWorkerLogs) *EnvironmentLoggingConfigurationWorkerLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationWorkerLogsPtrOutput)
-}
-
-func (o EnvironmentLoggingConfigurationWorkerLogsOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentLoggingConfigurationWorkerLogs] {
-	return pulumix.Output[EnvironmentLoggingConfigurationWorkerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationWorkerLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -1450,12 +1263,6 @@ func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) ToEnvironmentLogging
 
 func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) ToEnvironmentLoggingConfigurationWorkerLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationWorkerLogsPtrOutput {
 	return o
-}
-
-func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentLoggingConfigurationWorkerLogs] {
-	return pulumix.Output[*EnvironmentLoggingConfigurationWorkerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) Elem() EnvironmentLoggingConfigurationWorkerLogsOutput {
@@ -1534,12 +1341,6 @@ func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationOutput)
 }
 
-func (i EnvironmentNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkConfiguration] {
-	return pulumix.Output[EnvironmentNetworkConfiguration]{
-		OutputState: i.ToEnvironmentNetworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
 	return i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1581,12 +1382,6 @@ func (i *environmentNetworkConfigurationPtrType) ToEnvironmentNetworkConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
-func (i *environmentNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkConfiguration] {
-	return pulumix.Output[*EnvironmentNetworkConfiguration]{
-		OutputState: i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -1611,12 +1406,6 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 	}).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
-func (o EnvironmentNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentNetworkConfiguration] {
-	return pulumix.Output[EnvironmentNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 func (o EnvironmentNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -1639,12 +1428,6 @@ func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurat
 
 func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
 	return o
-}
-
-func (o EnvironmentNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentNetworkConfiguration] {
-	return pulumix.Output[*EnvironmentNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfigurationOutput {

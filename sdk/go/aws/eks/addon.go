@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS add-on.
@@ -450,12 +449,6 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-func (i *Addon) ToOutput(ctx context.Context) pulumix.Output[*Addon] {
-	return pulumix.Output[*Addon]{
-		OutputState: i.ToAddonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AddonArrayInput is an input type that accepts AddonArray and AddonArrayOutput values.
 // You can construct a concrete instance of `AddonArrayInput` via:
 //
@@ -479,12 +472,6 @@ func (i AddonArray) ToAddonArrayOutput() AddonArrayOutput {
 
 func (i AddonArray) ToAddonArrayOutputWithContext(ctx context.Context) AddonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonArrayOutput)
-}
-
-func (i AddonArray) ToOutput(ctx context.Context) pulumix.Output[[]*Addon] {
-	return pulumix.Output[[]*Addon]{
-		OutputState: i.ToAddonArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AddonMapInput is an input type that accepts AddonMap and AddonMapOutput values.
@@ -512,12 +499,6 @@ func (i AddonMap) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AddonMapOutput)
 }
 
-func (i AddonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Addon] {
-	return pulumix.Output[map[string]*Addon]{
-		OutputState: i.ToAddonMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
@@ -530,12 +511,6 @@ func (o AddonOutput) ToAddonOutput() AddonOutput {
 
 func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
-}
-
-func (o AddonOutput) ToOutput(ctx context.Context) pulumix.Output[*Addon] {
-	return pulumix.Output[*Addon]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the EKS add-on. The name must match one of
@@ -640,12 +615,6 @@ func (o AddonArrayOutput) ToAddonArrayOutputWithContext(ctx context.Context) Add
 	return o
 }
 
-func (o AddonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Addon] {
-	return pulumix.Output[[]*Addon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AddonArrayOutput) Index(i pulumi.IntInput) AddonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Addon {
 		return vs[0].([]*Addon)[vs[1].(int)]
@@ -664,12 +633,6 @@ func (o AddonMapOutput) ToAddonMapOutput() AddonMapOutput {
 
 func (o AddonMapOutput) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutput {
 	return o
-}
-
-func (o AddonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Addon] {
-	return pulumix.Output[map[string]*Addon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AddonMapOutput) MapIndex(k pulumi.StringInput) AddonOutput {

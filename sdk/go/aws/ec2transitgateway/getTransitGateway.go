@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway.
@@ -167,12 +166,6 @@ func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutput() L
 
 func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutputWithContext(ctx context.Context) LookupTransitGatewayResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayResult] {
-	return pulumix.Output[LookupTransitGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Private Autonomous System Number (ASN) for the Amazon side of a BGP session

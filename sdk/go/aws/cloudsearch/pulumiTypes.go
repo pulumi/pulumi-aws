@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsOutput() DomainEndpoin
 
 func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsOutputWithContext(ctx context.Context) DomainEndpointOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsOutput)
-}
-
-func (i DomainEndpointOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainEndpointOptions] {
-	return pulumix.Output[DomainEndpointOptions]{
-		OutputState: i.ToDomainEndpointOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DomainEndpointOptionsArgs) ToDomainEndpointOptionsPtrOutput() DomainEndpointOptionsPtrOutput {
@@ -98,12 +91,6 @@ func (i *domainEndpointOptionsPtrType) ToDomainEndpointOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainEndpointOptionsPtrOutput)
 }
 
-func (i *domainEndpointOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainEndpointOptions] {
-	return pulumix.Output[*DomainEndpointOptions]{
-		OutputState: i.ToDomainEndpointOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainEndpointOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainEndpointOptionsOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o DomainEndpointOptionsOutput) ToDomainEndpointOptionsPtrOutputWithContext
 	}).(DomainEndpointOptionsPtrOutput)
 }
 
-func (o DomainEndpointOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainEndpointOptions] {
-	return pulumix.Output[DomainEndpointOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Enables or disables the requirement that all requests to the domain arrive over HTTPS.
 func (o DomainEndpointOptionsOutput) EnforceHttps() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainEndpointOptions) *bool { return v.EnforceHttps }).(pulumi.BoolPtrOutput)
@@ -156,12 +137,6 @@ func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutput() Domai
 
 func (o DomainEndpointOptionsPtrOutput) ToDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainEndpointOptionsPtrOutput {
 	return o
-}
-
-func (o DomainEndpointOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainEndpointOptions] {
-	return pulumix.Output[*DomainEndpointOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainEndpointOptionsPtrOutput) Elem() DomainEndpointOptionsOutput {
@@ -263,12 +238,6 @@ func (i DomainIndexFieldArgs) ToDomainIndexFieldOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIndexFieldOutput)
 }
 
-func (i DomainIndexFieldArgs) ToOutput(ctx context.Context) pulumix.Output[DomainIndexField] {
-	return pulumix.Output[DomainIndexField]{
-		OutputState: i.ToDomainIndexFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainIndexFieldArrayInput is an input type that accepts DomainIndexFieldArray and DomainIndexFieldArrayOutput values.
 // You can construct a concrete instance of `DomainIndexFieldArrayInput` via:
 //
@@ -294,12 +263,6 @@ func (i DomainIndexFieldArray) ToDomainIndexFieldArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIndexFieldArrayOutput)
 }
 
-func (i DomainIndexFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainIndexField] {
-	return pulumix.Output[[]DomainIndexField]{
-		OutputState: i.ToDomainIndexFieldArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainIndexFieldOutput struct{ *pulumi.OutputState }
 
 func (DomainIndexFieldOutput) ElementType() reflect.Type {
@@ -312,12 +275,6 @@ func (o DomainIndexFieldOutput) ToDomainIndexFieldOutput() DomainIndexFieldOutpu
 
 func (o DomainIndexFieldOutput) ToDomainIndexFieldOutputWithContext(ctx context.Context) DomainIndexFieldOutput {
 	return o
-}
-
-func (o DomainIndexFieldOutput) ToOutput(ctx context.Context) pulumix.Output[DomainIndexField] {
-	return pulumix.Output[DomainIndexField]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
@@ -384,12 +341,6 @@ func (o DomainIndexFieldArrayOutput) ToDomainIndexFieldArrayOutputWithContext(ct
 	return o
 }
 
-func (o DomainIndexFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainIndexField] {
-	return pulumix.Output[[]DomainIndexField]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainIndexFieldArrayOutput) Index(i pulumi.IntInput) DomainIndexFieldOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainIndexField {
 		return vs[0].([]DomainIndexField)[vs[1].(int)]
@@ -437,12 +388,6 @@ func (i DomainScalingParametersArgs) ToDomainScalingParametersOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DomainScalingParametersOutput)
 }
 
-func (i DomainScalingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[DomainScalingParameters] {
-	return pulumix.Output[DomainScalingParameters]{
-		OutputState: i.ToDomainScalingParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainScalingParametersArgs) ToDomainScalingParametersPtrOutput() DomainScalingParametersPtrOutput {
 	return i.ToDomainScalingParametersPtrOutputWithContext(context.Background())
 }
@@ -484,12 +429,6 @@ func (i *domainScalingParametersPtrType) ToDomainScalingParametersPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DomainScalingParametersPtrOutput)
 }
 
-func (i *domainScalingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainScalingParameters] {
-	return pulumix.Output[*DomainScalingParameters]{
-		OutputState: i.ToDomainScalingParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainScalingParametersOutput struct{ *pulumi.OutputState }
 
 func (DomainScalingParametersOutput) ElementType() reflect.Type {
@@ -512,12 +451,6 @@ func (o DomainScalingParametersOutput) ToDomainScalingParametersPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainScalingParameters) *DomainScalingParameters {
 		return &v
 	}).(DomainScalingParametersPtrOutput)
-}
-
-func (o DomainScalingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[DomainScalingParameters] {
-	return pulumix.Output[DomainScalingParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
@@ -547,12 +480,6 @@ func (o DomainScalingParametersPtrOutput) ToDomainScalingParametersPtrOutput() D
 
 func (o DomainScalingParametersPtrOutput) ToDomainScalingParametersPtrOutputWithContext(ctx context.Context) DomainScalingParametersPtrOutput {
 	return o
-}
-
-func (o DomainScalingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainScalingParameters] {
-	return pulumix.Output[*DomainScalingParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainScalingParametersPtrOutput) Elem() DomainScalingParametersOutput {

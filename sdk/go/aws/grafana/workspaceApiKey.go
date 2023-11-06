@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace API Key resource.
@@ -176,12 +175,6 @@ func (i *WorkspaceApiKey) ToWorkspaceApiKeyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApiKeyOutput)
 }
 
-func (i *WorkspaceApiKey) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceApiKey] {
-	return pulumix.Output[*WorkspaceApiKey]{
-		OutputState: i.ToWorkspaceApiKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkspaceApiKeyArrayInput is an input type that accepts WorkspaceApiKeyArray and WorkspaceApiKeyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceApiKeyArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i WorkspaceApiKeyArray) ToWorkspaceApiKeyArrayOutput() WorkspaceApiKeyArra
 
 func (i WorkspaceApiKeyArray) ToWorkspaceApiKeyArrayOutputWithContext(ctx context.Context) WorkspaceApiKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApiKeyArrayOutput)
-}
-
-func (i WorkspaceApiKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceApiKey] {
-	return pulumix.Output[[]*WorkspaceApiKey]{
-		OutputState: i.ToWorkspaceApiKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkspaceApiKeyMapInput is an input type that accepts WorkspaceApiKeyMap and WorkspaceApiKeyMapOutput values.
@@ -238,12 +225,6 @@ func (i WorkspaceApiKeyMap) ToWorkspaceApiKeyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceApiKeyMapOutput)
 }
 
-func (i WorkspaceApiKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceApiKey] {
-	return pulumix.Output[map[string]*WorkspaceApiKey]{
-		OutputState: i.ToWorkspaceApiKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceApiKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceApiKeyOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o WorkspaceApiKeyOutput) ToWorkspaceApiKeyOutput() WorkspaceApiKeyOutput {
 
 func (o WorkspaceApiKeyOutput) ToWorkspaceApiKeyOutputWithContext(ctx context.Context) WorkspaceApiKeyOutput {
 	return o
-}
-
-func (o WorkspaceApiKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceApiKey] {
-	return pulumix.Output[*WorkspaceApiKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
@@ -303,12 +278,6 @@ func (o WorkspaceApiKeyArrayOutput) ToWorkspaceApiKeyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o WorkspaceApiKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceApiKey] {
-	return pulumix.Output[[]*WorkspaceApiKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceApiKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceApiKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceApiKey {
 		return vs[0].([]*WorkspaceApiKey)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o WorkspaceApiKeyMapOutput) ToWorkspaceApiKeyMapOutput() WorkspaceApiKeyMa
 
 func (o WorkspaceApiKeyMapOutput) ToWorkspaceApiKeyMapOutputWithContext(ctx context.Context) WorkspaceApiKeyMapOutput {
 	return o
-}
-
-func (o WorkspaceApiKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceApiKey] {
-	return pulumix.Output[map[string]*WorkspaceApiKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceApiKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceApiKeyOutput {

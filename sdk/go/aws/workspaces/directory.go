@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WorkSpaces directory in AWS WorkSpaces Service.
@@ -425,12 +424,6 @@ func (i *Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryO
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryOutput)
 }
 
-func (i *Directory) ToOutput(ctx context.Context) pulumix.Output[*Directory] {
-	return pulumix.Output[*Directory]{
-		OutputState: i.ToDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DirectoryArrayInput is an input type that accepts DirectoryArray and DirectoryArrayOutput values.
 // You can construct a concrete instance of `DirectoryArrayInput` via:
 //
@@ -454,12 +447,6 @@ func (i DirectoryArray) ToDirectoryArrayOutput() DirectoryArrayOutput {
 
 func (i DirectoryArray) ToDirectoryArrayOutputWithContext(ctx context.Context) DirectoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryArrayOutput)
-}
-
-func (i DirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*Directory] {
-	return pulumix.Output[[]*Directory]{
-		OutputState: i.ToDirectoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DirectoryMapInput is an input type that accepts DirectoryMap and DirectoryMapOutput values.
@@ -487,12 +474,6 @@ func (i DirectoryMap) ToDirectoryMapOutputWithContext(ctx context.Context) Direc
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryMapOutput)
 }
 
-func (i DirectoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Directory] {
-	return pulumix.Output[map[string]*Directory]{
-		OutputState: i.ToDirectoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DirectoryOutput struct{ *pulumi.OutputState }
 
 func (DirectoryOutput) ElementType() reflect.Type {
@@ -505,12 +486,6 @@ func (o DirectoryOutput) ToDirectoryOutput() DirectoryOutput {
 
 func (o DirectoryOutput) ToDirectoryOutputWithContext(ctx context.Context) DirectoryOutput {
 	return o
-}
-
-func (o DirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[*Directory] {
-	return pulumix.Output[*Directory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The directory alias.
@@ -609,12 +584,6 @@ func (o DirectoryArrayOutput) ToDirectoryArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Directory] {
-	return pulumix.Output[[]*Directory]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DirectoryArrayOutput) Index(i pulumi.IntInput) DirectoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Directory {
 		return vs[0].([]*Directory)[vs[1].(int)]
@@ -633,12 +602,6 @@ func (o DirectoryMapOutput) ToDirectoryMapOutput() DirectoryMapOutput {
 
 func (o DirectoryMapOutput) ToDirectoryMapOutputWithContext(ctx context.Context) DirectoryMapOutput {
 	return o
-}
-
-func (o DirectoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Directory] {
-	return pulumix.Output[map[string]*Directory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DirectoryMapOutput) MapIndex(k pulumi.StringInput) DirectoryOutput {

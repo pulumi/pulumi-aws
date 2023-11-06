@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a Lightsail disk to a Lightsail Instance
@@ -195,12 +194,6 @@ func (i *Disk_attachment) ToDisk_attachmentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(Disk_attachmentOutput)
 }
 
-func (i *Disk_attachment) ToOutput(ctx context.Context) pulumix.Output[*Disk_attachment] {
-	return pulumix.Output[*Disk_attachment]{
-		OutputState: i.ToDisk_attachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Disk_attachmentArrayInput is an input type that accepts Disk_attachmentArray and Disk_attachmentArrayOutput values.
 // You can construct a concrete instance of `Disk_attachmentArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i Disk_attachmentArray) ToDisk_attachmentArrayOutput() Disk_attachmentArra
 
 func (i Disk_attachmentArray) ToDisk_attachmentArrayOutputWithContext(ctx context.Context) Disk_attachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(Disk_attachmentArrayOutput)
-}
-
-func (i Disk_attachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Disk_attachment] {
-	return pulumix.Output[[]*Disk_attachment]{
-		OutputState: i.ToDisk_attachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Disk_attachmentMapInput is an input type that accepts Disk_attachmentMap and Disk_attachmentMapOutput values.
@@ -257,12 +244,6 @@ func (i Disk_attachmentMap) ToDisk_attachmentMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(Disk_attachmentMapOutput)
 }
 
-func (i Disk_attachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Disk_attachment] {
-	return pulumix.Output[map[string]*Disk_attachment]{
-		OutputState: i.ToDisk_attachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type Disk_attachmentOutput struct{ *pulumi.OutputState }
 
 func (Disk_attachmentOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o Disk_attachmentOutput) ToDisk_attachmentOutput() Disk_attachmentOutput {
 
 func (o Disk_attachmentOutput) ToDisk_attachmentOutputWithContext(ctx context.Context) Disk_attachmentOutput {
 	return o
-}
-
-func (o Disk_attachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Disk_attachment] {
-	return pulumix.Output[*Disk_attachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Lightsail Disk.
@@ -312,12 +287,6 @@ func (o Disk_attachmentArrayOutput) ToDisk_attachmentArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o Disk_attachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Disk_attachment] {
-	return pulumix.Output[[]*Disk_attachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o Disk_attachmentArrayOutput) Index(i pulumi.IntInput) Disk_attachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Disk_attachment {
 		return vs[0].([]*Disk_attachment)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o Disk_attachmentMapOutput) ToDisk_attachmentMapOutput() Disk_attachmentMa
 
 func (o Disk_attachmentMapOutput) ToDisk_attachmentMapOutputWithContext(ctx context.Context) Disk_attachmentMapOutput {
 	return o
-}
-
-func (o Disk_attachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Disk_attachment] {
-	return pulumix.Output[map[string]*Disk_attachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o Disk_attachmentMapOutput) MapIndex(k pulumi.StringInput) Disk_attachmentOutput {

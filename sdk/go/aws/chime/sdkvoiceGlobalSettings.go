@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing Amazon Chime SDK Voice Global Settings.
@@ -140,12 +139,6 @@ func (i *SdkvoiceGlobalSettings) ToSdkvoiceGlobalSettingsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsOutput)
 }
 
-func (i *SdkvoiceGlobalSettings) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceGlobalSettings] {
-	return pulumix.Output[*SdkvoiceGlobalSettings]{
-		OutputState: i.ToSdkvoiceGlobalSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SdkvoiceGlobalSettingsArrayInput is an input type that accepts SdkvoiceGlobalSettingsArray and SdkvoiceGlobalSettingsArrayOutput values.
 // You can construct a concrete instance of `SdkvoiceGlobalSettingsArrayInput` via:
 //
@@ -169,12 +162,6 @@ func (i SdkvoiceGlobalSettingsArray) ToSdkvoiceGlobalSettingsArrayOutput() Sdkvo
 
 func (i SdkvoiceGlobalSettingsArray) ToSdkvoiceGlobalSettingsArrayOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsArrayOutput)
-}
-
-func (i SdkvoiceGlobalSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceGlobalSettings] {
-	return pulumix.Output[[]*SdkvoiceGlobalSettings]{
-		OutputState: i.ToSdkvoiceGlobalSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SdkvoiceGlobalSettingsMapInput is an input type that accepts SdkvoiceGlobalSettingsMap and SdkvoiceGlobalSettingsMapOutput values.
@@ -202,12 +189,6 @@ func (i SdkvoiceGlobalSettingsMap) ToSdkvoiceGlobalSettingsMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsMapOutput)
 }
 
-func (i SdkvoiceGlobalSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceGlobalSettings] {
-	return pulumix.Output[map[string]*SdkvoiceGlobalSettings]{
-		OutputState: i.ToSdkvoiceGlobalSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SdkvoiceGlobalSettingsOutput struct{ *pulumi.OutputState }
 
 func (SdkvoiceGlobalSettingsOutput) ElementType() reflect.Type {
@@ -220,12 +201,6 @@ func (o SdkvoiceGlobalSettingsOutput) ToSdkvoiceGlobalSettingsOutput() SdkvoiceG
 
 func (o SdkvoiceGlobalSettingsOutput) ToSdkvoiceGlobalSettingsOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsOutput {
 	return o
-}
-
-func (o SdkvoiceGlobalSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceGlobalSettings] {
-	return pulumix.Output[*SdkvoiceGlobalSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Voice Connector settings. See voice_connector.
@@ -247,12 +222,6 @@ func (o SdkvoiceGlobalSettingsArrayOutput) ToSdkvoiceGlobalSettingsArrayOutputWi
 	return o
 }
 
-func (o SdkvoiceGlobalSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceGlobalSettings] {
-	return pulumix.Output[[]*SdkvoiceGlobalSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SdkvoiceGlobalSettingsArrayOutput) Index(i pulumi.IntInput) SdkvoiceGlobalSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SdkvoiceGlobalSettings {
 		return vs[0].([]*SdkvoiceGlobalSettings)[vs[1].(int)]
@@ -271,12 +240,6 @@ func (o SdkvoiceGlobalSettingsMapOutput) ToSdkvoiceGlobalSettingsMapOutput() Sdk
 
 func (o SdkvoiceGlobalSettingsMapOutput) ToSdkvoiceGlobalSettingsMapOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsMapOutput {
 	return o
-}
-
-func (o SdkvoiceGlobalSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceGlobalSettings] {
-	return pulumix.Output[map[string]*SdkvoiceGlobalSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SdkvoiceGlobalSettingsMapOutput) MapIndex(k pulumi.StringInput) SdkvoiceGlobalSettingsOutput {

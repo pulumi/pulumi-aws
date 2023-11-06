@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i EventDataStoreAdvancedEventSelectorArgs) ToEventDataStoreAdvancedEventSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorOutput)
 }
 
-func (i EventDataStoreAdvancedEventSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreAdvancedEventSelector] {
-	return pulumix.Output[EventDataStoreAdvancedEventSelector]{
-		OutputState: i.ToEventDataStoreAdvancedEventSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventDataStoreAdvancedEventSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorArray and EventDataStoreAdvancedEventSelectorArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i EventDataStoreAdvancedEventSelectorArray) ToEventDataStoreAdvancedEventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorArrayOutput)
 }
 
-func (i EventDataStoreAdvancedEventSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreAdvancedEventSelector] {
-	return pulumix.Output[[]EventDataStoreAdvancedEventSelector]{
-		OutputState: i.ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventDataStoreAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
 
 func (EventDataStoreAdvancedEventSelectorOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o EventDataStoreAdvancedEventSelectorOutput) ToEventDataStoreAdvancedEvent
 
 func (o EventDataStoreAdvancedEventSelectorOutput) ToEventDataStoreAdvancedEventSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorOutput {
 	return o
-}
-
-func (o EventDataStoreAdvancedEventSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreAdvancedEventSelector] {
-	return pulumix.Output[EventDataStoreAdvancedEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the selector statements in an advanced event selector. Fields documented below.
@@ -132,12 +113,6 @@ func (o EventDataStoreAdvancedEventSelectorArrayOutput) ToEventDataStoreAdvanced
 
 func (o EventDataStoreAdvancedEventSelectorArrayOutput) ToEventDataStoreAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorArrayOutput {
 	return o
-}
-
-func (o EventDataStoreAdvancedEventSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreAdvancedEventSelector] {
-	return pulumix.Output[[]EventDataStoreAdvancedEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventDataStoreAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreAdvancedEventSelectorOutput {
@@ -203,12 +178,6 @@ func (i EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ToEventDataStoreAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorFieldSelectorOutput)
 }
 
-func (i EventDataStoreAdvancedEventSelectorFieldSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[EventDataStoreAdvancedEventSelectorFieldSelector]{
-		OutputState: i.ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts EventDataStoreAdvancedEventSelectorFieldSelectorArray and EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreAdvancedEventSelectorFieldSelectorArrayInput` via:
 //
@@ -234,12 +203,6 @@ func (i EventDataStoreAdvancedEventSelectorFieldSelectorArray) ToEventDataStoreA
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-func (i EventDataStoreAdvancedEventSelectorFieldSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[[]EventDataStoreAdvancedEventSelectorFieldSelector]{
-		OutputState: i.ToEventDataStoreAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventDataStoreAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
 
 func (EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
@@ -252,12 +215,6 @@ func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ToEventDataStore
 
 func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ToEventDataStoreAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
 	return o
-}
-
-func (o EventDataStoreAdvancedEventSelectorFieldSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[EventDataStoreAdvancedEventSelectorFieldSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
@@ -309,12 +266,6 @@ func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) ToEventData
 	return o
 }
 
-func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[[]EventDataStoreAdvancedEventSelectorFieldSelector]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventDataStoreAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreAdvancedEventSelectorFieldSelectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreAdvancedEventSelectorFieldSelector {
 		return vs[0].([]EventDataStoreAdvancedEventSelectorFieldSelector)[vs[1].(int)]
@@ -358,12 +309,6 @@ func (i TrailAdvancedEventSelectorArgs) ToTrailAdvancedEventSelectorOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorOutput)
 }
 
-func (i TrailAdvancedEventSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[TrailAdvancedEventSelector] {
-	return pulumix.Output[TrailAdvancedEventSelector]{
-		OutputState: i.ToTrailAdvancedEventSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailAdvancedEventSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorArray and TrailAdvancedEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorArrayInput` via:
 //
@@ -389,12 +334,6 @@ func (i TrailAdvancedEventSelectorArray) ToTrailAdvancedEventSelectorArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorArrayOutput)
 }
 
-func (i TrailAdvancedEventSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]TrailAdvancedEventSelector] {
-	return pulumix.Output[[]TrailAdvancedEventSelector]{
-		OutputState: i.ToTrailAdvancedEventSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailAdvancedEventSelectorOutput) ElementType() reflect.Type {
@@ -407,12 +346,6 @@ func (o TrailAdvancedEventSelectorOutput) ToTrailAdvancedEventSelectorOutput() T
 
 func (o TrailAdvancedEventSelectorOutput) ToTrailAdvancedEventSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorOutput {
 	return o
-}
-
-func (o TrailAdvancedEventSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[TrailAdvancedEventSelector] {
-	return pulumix.Output[TrailAdvancedEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the selector statements in an advanced event selector. Fields documented below.
@@ -437,12 +370,6 @@ func (o TrailAdvancedEventSelectorArrayOutput) ToTrailAdvancedEventSelectorArray
 
 func (o TrailAdvancedEventSelectorArrayOutput) ToTrailAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorArrayOutput {
 	return o
-}
-
-func (o TrailAdvancedEventSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrailAdvancedEventSelector] {
-	return pulumix.Output[[]TrailAdvancedEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdvancedEventSelectorOutput {
@@ -508,12 +435,6 @@ func (i TrailAdvancedEventSelectorFieldSelectorArgs) ToTrailAdvancedEventSelecto
 	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorFieldSelectorOutput)
 }
 
-func (i TrailAdvancedEventSelectorFieldSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[TrailAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[TrailAdvancedEventSelectorFieldSelector]{
-		OutputState: i.ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArray and TrailAdvancedEventSelectorFieldSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailAdvancedEventSelectorFieldSelectorArrayInput` via:
 //
@@ -539,12 +460,6 @@ func (i TrailAdvancedEventSelectorFieldSelectorArray) ToTrailAdvancedEventSelect
 	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
 }
 
-func (i TrailAdvancedEventSelectorFieldSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]TrailAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[[]TrailAdvancedEventSelectorFieldSelector]{
-		OutputState: i.ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
@@ -557,12 +472,6 @@ func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToTrailAdvancedEventSelec
 
 func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorOutput {
 	return o
-}
-
-func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[TrailAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[TrailAdvancedEventSelectorFieldSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
@@ -612,12 +521,6 @@ func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) ToTrailAdvancedEvent
 
 func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorArrayOutput {
 	return o
-}
-
-func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrailAdvancedEventSelectorFieldSelector] {
-	return pulumix.Output[[]TrailAdvancedEventSelectorFieldSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdvancedEventSelectorFieldSelectorOutput {
@@ -671,12 +574,6 @@ func (i TrailEventSelectorArgs) ToTrailEventSelectorOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorOutput)
 }
 
-func (i TrailEventSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelector] {
-	return pulumix.Output[TrailEventSelector]{
-		OutputState: i.ToTrailEventSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailEventSelectorArrayInput is an input type that accepts TrailEventSelectorArray and TrailEventSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorArrayInput` via:
 //
@@ -702,12 +599,6 @@ func (i TrailEventSelectorArray) ToTrailEventSelectorArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorArrayOutput)
 }
 
-func (i TrailEventSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]TrailEventSelector] {
-	return pulumix.Output[[]TrailEventSelector]{
-		OutputState: i.ToTrailEventSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailEventSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailEventSelectorOutput) ElementType() reflect.Type {
@@ -720,12 +611,6 @@ func (o TrailEventSelectorOutput) ToTrailEventSelectorOutput() TrailEventSelecto
 
 func (o TrailEventSelectorOutput) ToTrailEventSelectorOutputWithContext(ctx context.Context) TrailEventSelectorOutput {
 	return o
-}
-
-func (o TrailEventSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelector] {
-	return pulumix.Output[TrailEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for data events. See details below.
@@ -760,12 +645,6 @@ func (o TrailEventSelectorArrayOutput) ToTrailEventSelectorArrayOutput() TrailEv
 
 func (o TrailEventSelectorArrayOutput) ToTrailEventSelectorArrayOutputWithContext(ctx context.Context) TrailEventSelectorArrayOutput {
 	return o
-}
-
-func (o TrailEventSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrailEventSelector] {
-	return pulumix.Output[[]TrailEventSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailEventSelectorOutput {
@@ -811,12 +690,6 @@ func (i TrailEventSelectorDataResourceArgs) ToTrailEventSelectorDataResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorDataResourceOutput)
 }
 
-func (i TrailEventSelectorDataResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelectorDataResource] {
-	return pulumix.Output[TrailEventSelectorDataResource]{
-		OutputState: i.ToTrailEventSelectorDataResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailEventSelectorDataResourceArrayInput is an input type that accepts TrailEventSelectorDataResourceArray and TrailEventSelectorDataResourceArrayOutput values.
 // You can construct a concrete instance of `TrailEventSelectorDataResourceArrayInput` via:
 //
@@ -842,12 +715,6 @@ func (i TrailEventSelectorDataResourceArray) ToTrailEventSelectorDataResourceArr
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorDataResourceArrayOutput)
 }
 
-func (i TrailEventSelectorDataResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]TrailEventSelectorDataResource] {
-	return pulumix.Output[[]TrailEventSelectorDataResource]{
-		OutputState: i.ToTrailEventSelectorDataResourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailEventSelectorDataResourceOutput struct{ *pulumi.OutputState }
 
 func (TrailEventSelectorDataResourceOutput) ElementType() reflect.Type {
@@ -860,12 +727,6 @@ func (o TrailEventSelectorDataResourceOutput) ToTrailEventSelectorDataResourceOu
 
 func (o TrailEventSelectorDataResourceOutput) ToTrailEventSelectorDataResourceOutputWithContext(ctx context.Context) TrailEventSelectorDataResourceOutput {
 	return o
-}
-
-func (o TrailEventSelectorDataResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelectorDataResource] {
-	return pulumix.Output[TrailEventSelectorDataResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
@@ -890,12 +751,6 @@ func (o TrailEventSelectorDataResourceArrayOutput) ToTrailEventSelectorDataResou
 
 func (o TrailEventSelectorDataResourceArrayOutput) ToTrailEventSelectorDataResourceArrayOutputWithContext(ctx context.Context) TrailEventSelectorDataResourceArrayOutput {
 	return o
-}
-
-func (o TrailEventSelectorDataResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrailEventSelectorDataResource] {
-	return pulumix.Output[[]TrailEventSelectorDataResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailEventSelectorDataResourceArrayOutput) Index(i pulumi.IntInput) TrailEventSelectorDataResourceOutput {
@@ -937,12 +792,6 @@ func (i TrailInsightSelectorArgs) ToTrailInsightSelectorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TrailInsightSelectorOutput)
 }
 
-func (i TrailInsightSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[TrailInsightSelector] {
-	return pulumix.Output[TrailInsightSelector]{
-		OutputState: i.ToTrailInsightSelectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrailInsightSelectorArrayInput is an input type that accepts TrailInsightSelectorArray and TrailInsightSelectorArrayOutput values.
 // You can construct a concrete instance of `TrailInsightSelectorArrayInput` via:
 //
@@ -968,12 +817,6 @@ func (i TrailInsightSelectorArray) ToTrailInsightSelectorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TrailInsightSelectorArrayOutput)
 }
 
-func (i TrailInsightSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]TrailInsightSelector] {
-	return pulumix.Output[[]TrailInsightSelector]{
-		OutputState: i.ToTrailInsightSelectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrailInsightSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailInsightSelectorOutput) ElementType() reflect.Type {
@@ -986,12 +829,6 @@ func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutput() TrailInsightS
 
 func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx context.Context) TrailInsightSelectorOutput {
 	return o
-}
-
-func (o TrailInsightSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[TrailInsightSelector] {
-	return pulumix.Output[TrailInsightSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
@@ -1011,12 +848,6 @@ func (o TrailInsightSelectorArrayOutput) ToTrailInsightSelectorArrayOutput() Tra
 
 func (o TrailInsightSelectorArrayOutput) ToTrailInsightSelectorArrayOutputWithContext(ctx context.Context) TrailInsightSelectorArrayOutput {
 	return o
-}
-
-func (o TrailInsightSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrailInsightSelector] {
-	return pulumix.Output[[]TrailInsightSelector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSelectorOutput {

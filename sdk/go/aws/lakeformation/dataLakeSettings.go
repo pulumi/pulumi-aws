@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -319,12 +318,6 @@ func (i *DataLakeSettings) ToDataLakeSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsOutput)
 }
 
-func (i *DataLakeSettings) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
-	return pulumix.Output[*DataLakeSettings]{
-		OutputState: i.ToDataLakeSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataLakeSettingsArrayInput is an input type that accepts DataLakeSettingsArray and DataLakeSettingsArrayOutput values.
 // You can construct a concrete instance of `DataLakeSettingsArrayInput` via:
 //
@@ -348,12 +341,6 @@ func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutput() DataLakeSettingsA
 
 func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutputWithContext(ctx context.Context) DataLakeSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsArrayOutput)
-}
-
-func (i DataLakeSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeSettings] {
-	return pulumix.Output[[]*DataLakeSettings]{
-		OutputState: i.ToDataLakeSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataLakeSettingsMapInput is an input type that accepts DataLakeSettingsMap and DataLakeSettingsMapOutput values.
@@ -381,12 +368,6 @@ func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsMapOutput)
 }
 
-func (i DataLakeSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeSettings] {
-	return pulumix.Output[map[string]*DataLakeSettings]{
-		OutputState: i.ToDataLakeSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
@@ -399,12 +380,6 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsOutput() DataLakeSettingsOutpu
 
 func (o DataLakeSettingsOutput) ToDataLakeSettingsOutputWithContext(ctx context.Context) DataLakeSettingsOutput {
 	return o
-}
-
-func (o DataLakeSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettings] {
-	return pulumix.Output[*DataLakeSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARNs of AWS Lake Formation principals (IAM users or roles).
@@ -472,12 +447,6 @@ func (o DataLakeSettingsArrayOutput) ToDataLakeSettingsArrayOutputWithContext(ct
 	return o
 }
 
-func (o DataLakeSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeSettings] {
-	return pulumix.Output[[]*DataLakeSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataLakeSettingsArrayOutput) Index(i pulumi.IntInput) DataLakeSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataLakeSettings {
 		return vs[0].([]*DataLakeSettings)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutput() DataLakeSetting
 
 func (o DataLakeSettingsMapOutput) ToDataLakeSettingsMapOutputWithContext(ctx context.Context) DataLakeSettingsMapOutput {
 	return o
-}
-
-func (o DataLakeSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeSettings] {
-	return pulumix.Output[map[string]*DataLakeSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsMapOutput) MapIndex(k pulumi.StringInput) DataLakeSettingsOutput {

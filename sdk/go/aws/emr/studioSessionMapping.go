@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Studio Session Mapping.
@@ -186,12 +185,6 @@ func (i *StudioSessionMapping) ToStudioSessionMappingOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingOutput)
 }
 
-func (i *StudioSessionMapping) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMapping] {
-	return pulumix.Output[*StudioSessionMapping]{
-		OutputState: i.ToStudioSessionMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StudioSessionMappingArrayInput is an input type that accepts StudioSessionMappingArray and StudioSessionMappingArrayOutput values.
 // You can construct a concrete instance of `StudioSessionMappingArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i StudioSessionMappingArray) ToStudioSessionMappingArrayOutput() StudioSes
 
 func (i StudioSessionMappingArray) ToStudioSessionMappingArrayOutputWithContext(ctx context.Context) StudioSessionMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingArrayOutput)
-}
-
-func (i StudioSessionMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*StudioSessionMapping] {
-	return pulumix.Output[[]*StudioSessionMapping]{
-		OutputState: i.ToStudioSessionMappingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StudioSessionMappingMapInput is an input type that accepts StudioSessionMappingMap and StudioSessionMappingMapOutput values.
@@ -248,12 +235,6 @@ func (i StudioSessionMappingMap) ToStudioSessionMappingMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingMapOutput)
 }
 
-func (i StudioSessionMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StudioSessionMapping] {
-	return pulumix.Output[map[string]*StudioSessionMapping]{
-		OutputState: i.ToStudioSessionMappingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioSessionMappingOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutput() StudioSession
 
 func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx context.Context) StudioSessionMappingOutput {
 	return o
-}
-
-func (o StudioSessionMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMapping] {
-	return pulumix.Output[*StudioSessionMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
@@ -313,12 +288,6 @@ func (o StudioSessionMappingArrayOutput) ToStudioSessionMappingArrayOutputWithCo
 	return o
 }
 
-func (o StudioSessionMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StudioSessionMapping] {
-	return pulumix.Output[[]*StudioSessionMapping]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioSessionMappingArrayOutput) Index(i pulumi.IntInput) StudioSessionMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StudioSessionMapping {
 		return vs[0].([]*StudioSessionMapping)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o StudioSessionMappingMapOutput) ToStudioSessionMappingMapOutput() StudioS
 
 func (o StudioSessionMappingMapOutput) ToStudioSessionMappingMapOutputWithContext(ctx context.Context) StudioSessionMappingMapOutput {
 	return o
-}
-
-func (o StudioSessionMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StudioSessionMapping] {
-	return pulumix.Output[map[string]*StudioSessionMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioSessionMappingMapOutput) MapIndex(k pulumi.StringInput) StudioSessionMappingOutput {

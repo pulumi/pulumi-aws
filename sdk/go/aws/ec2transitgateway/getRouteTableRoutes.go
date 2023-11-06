@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides informations for routes of a specific transit gateway, such as state, type, cidr
@@ -119,12 +118,6 @@ func (o GetRouteTableRoutesResultOutput) ToGetRouteTableRoutesResultOutput() Get
 
 func (o GetRouteTableRoutesResultOutput) ToGetRouteTableRoutesResultOutputWithContext(ctx context.Context) GetRouteTableRoutesResultOutput {
 	return o
-}
-
-func (o GetRouteTableRoutesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableRoutesResult] {
-	return pulumix.Output[GetRouteTableRoutesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableRoutesResultOutput) Filters() GetRouteTableRoutesFilterArrayOutput {

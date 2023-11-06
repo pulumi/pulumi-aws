@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about a single RDS Reserved Instance Offering.
@@ -128,12 +127,6 @@ func (o GetReservedInstanceOfferingResultOutput) ToGetReservedInstanceOfferingRe
 
 func (o GetReservedInstanceOfferingResultOutput) ToGetReservedInstanceOfferingResultOutputWithContext(ctx context.Context) GetReservedInstanceOfferingResultOutput {
 	return o
-}
-
-func (o GetReservedInstanceOfferingResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReservedInstanceOfferingResult] {
-	return pulumix.Output[GetReservedInstanceOfferingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Currency code for the reserved DB instance.

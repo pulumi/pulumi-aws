@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -139,12 +138,6 @@ func (o LookupOpenIdConnectProviderResultOutput) ToLookupOpenIdConnectProviderRe
 
 func (o LookupOpenIdConnectProviderResultOutput) ToLookupOpenIdConnectProviderResultOutputWithContext(ctx context.Context) LookupOpenIdConnectProviderResultOutput {
 	return o
-}
-
-func (o LookupOpenIdConnectProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOpenIdConnectProviderResult] {
-	return pulumix.Output[LookupOpenIdConnectProviderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupOpenIdConnectProviderResultOutput) Arn() pulumi.StringOutput {

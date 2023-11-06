@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
@@ -727,12 +726,6 @@ func (i *TaskDefinition) ToTaskDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionOutput)
 }
 
-func (i *TaskDefinition) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinition] {
-	return pulumix.Output[*TaskDefinition]{
-		OutputState: i.ToTaskDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TaskDefinitionArrayInput is an input type that accepts TaskDefinitionArray and TaskDefinitionArrayOutput values.
 // You can construct a concrete instance of `TaskDefinitionArrayInput` via:
 //
@@ -756,12 +749,6 @@ func (i TaskDefinitionArray) ToTaskDefinitionArrayOutput() TaskDefinitionArrayOu
 
 func (i TaskDefinitionArray) ToTaskDefinitionArrayOutputWithContext(ctx context.Context) TaskDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionArrayOutput)
-}
-
-func (i TaskDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*TaskDefinition] {
-	return pulumix.Output[[]*TaskDefinition]{
-		OutputState: i.ToTaskDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TaskDefinitionMapInput is an input type that accepts TaskDefinitionMap and TaskDefinitionMapOutput values.
@@ -789,12 +776,6 @@ func (i TaskDefinitionMap) ToTaskDefinitionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionMapOutput)
 }
 
-func (i TaskDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskDefinition] {
-	return pulumix.Output[map[string]*TaskDefinition]{
-		OutputState: i.ToTaskDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionOutput) ElementType() reflect.Type {
@@ -807,12 +788,6 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutput() TaskDefinitionOutput {
 
 func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Context) TaskDefinitionOutput {
 	return o
-}
-
-func (o TaskDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinition] {
-	return pulumix.Output[*TaskDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Full ARN of the Task Definition (including both `family` and `revision`).
@@ -943,12 +918,6 @@ func (o TaskDefinitionArrayOutput) ToTaskDefinitionArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o TaskDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TaskDefinition] {
-	return pulumix.Output[[]*TaskDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionArrayOutput) Index(i pulumi.IntInput) TaskDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskDefinition {
 		return vs[0].([]*TaskDefinition)[vs[1].(int)]
@@ -967,12 +936,6 @@ func (o TaskDefinitionMapOutput) ToTaskDefinitionMapOutput() TaskDefinitionMapOu
 
 func (o TaskDefinitionMapOutput) ToTaskDefinitionMapOutputWithContext(ctx context.Context) TaskDefinitionMapOutput {
 	return o
-}
-
-func (o TaskDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskDefinition] {
-	return pulumix.Output[map[string]*TaskDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskDefinitionMapOutput) MapIndex(k pulumi.StringInput) TaskDefinitionOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -109,12 +108,6 @@ func (o GetSecretsResultOutput) ToGetSecretsResultOutput() GetSecretsResultOutpu
 
 func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.Context) GetSecretsResultOutput {
 	return o
-}
-
-func (o GetSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsResult] {
-	return pulumix.Output[GetSecretsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARNs of the matched Secrets Manager secrets.

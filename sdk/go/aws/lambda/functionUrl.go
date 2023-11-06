@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
@@ -227,12 +226,6 @@ func (i *FunctionUrl) ToFunctionUrlOutputWithContext(ctx context.Context) Functi
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlOutput)
 }
 
-func (i *FunctionUrl) ToOutput(ctx context.Context) pulumix.Output[*FunctionUrl] {
-	return pulumix.Output[*FunctionUrl]{
-		OutputState: i.ToFunctionUrlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionUrlArrayInput is an input type that accepts FunctionUrlArray and FunctionUrlArrayOutput values.
 // You can construct a concrete instance of `FunctionUrlArrayInput` via:
 //
@@ -256,12 +249,6 @@ func (i FunctionUrlArray) ToFunctionUrlArrayOutput() FunctionUrlArrayOutput {
 
 func (i FunctionUrlArray) ToFunctionUrlArrayOutputWithContext(ctx context.Context) FunctionUrlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlArrayOutput)
-}
-
-func (i FunctionUrlArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionUrl] {
-	return pulumix.Output[[]*FunctionUrl]{
-		OutputState: i.ToFunctionUrlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FunctionUrlMapInput is an input type that accepts FunctionUrlMap and FunctionUrlMapOutput values.
@@ -289,12 +276,6 @@ func (i FunctionUrlMap) ToFunctionUrlMapOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlMapOutput)
 }
 
-func (i FunctionUrlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionUrl] {
-	return pulumix.Output[map[string]*FunctionUrl]{
-		OutputState: i.ToFunctionUrlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionUrlOutput struct{ *pulumi.OutputState }
 
 func (FunctionUrlOutput) ElementType() reflect.Type {
@@ -307,12 +288,6 @@ func (o FunctionUrlOutput) ToFunctionUrlOutput() FunctionUrlOutput {
 
 func (o FunctionUrlOutput) ToFunctionUrlOutputWithContext(ctx context.Context) FunctionUrlOutput {
 	return o
-}
-
-func (o FunctionUrlOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionUrl] {
-	return pulumix.Output[*FunctionUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
@@ -369,12 +344,6 @@ func (o FunctionUrlArrayOutput) ToFunctionUrlArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o FunctionUrlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionUrl] {
-	return pulumix.Output[[]*FunctionUrl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionUrlArrayOutput) Index(i pulumi.IntInput) FunctionUrlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionUrl {
 		return vs[0].([]*FunctionUrl)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o FunctionUrlMapOutput) ToFunctionUrlMapOutput() FunctionUrlMapOutput {
 
 func (o FunctionUrlMapOutput) ToFunctionUrlMapOutputWithContext(ctx context.Context) FunctionUrlMapOutput {
 	return o
-}
-
-func (o FunctionUrlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionUrl] {
-	return pulumix.Output[map[string]*FunctionUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionUrlMapOutput) MapIndex(k pulumi.StringInput) FunctionUrlOutput {

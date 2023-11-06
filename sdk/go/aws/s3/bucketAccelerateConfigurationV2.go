@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
@@ -177,12 +176,6 @@ func (i *BucketAccelerateConfigurationV2) ToBucketAccelerateConfigurationV2Outpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationV2Output)
 }
 
-func (i *BucketAccelerateConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[*BucketAccelerateConfigurationV2]{
-		OutputState: i.ToBucketAccelerateConfigurationV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketAccelerateConfigurationV2ArrayInput is an input type that accepts BucketAccelerateConfigurationV2Array and BucketAccelerateConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketAccelerateConfigurationV2ArrayInput` via:
 //
@@ -206,12 +199,6 @@ func (i BucketAccelerateConfigurationV2Array) ToBucketAccelerateConfigurationV2A
 
 func (i BucketAccelerateConfigurationV2Array) ToBucketAccelerateConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketAccelerateConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationV2ArrayOutput)
-}
-
-func (i BucketAccelerateConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[[]*BucketAccelerateConfigurationV2]{
-		OutputState: i.ToBucketAccelerateConfigurationV2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketAccelerateConfigurationV2MapInput is an input type that accepts BucketAccelerateConfigurationV2Map and BucketAccelerateConfigurationV2MapOutput values.
@@ -239,12 +226,6 @@ func (i BucketAccelerateConfigurationV2Map) ToBucketAccelerateConfigurationV2Map
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationV2MapOutput)
 }
 
-func (i BucketAccelerateConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[map[string]*BucketAccelerateConfigurationV2]{
-		OutputState: i.ToBucketAccelerateConfigurationV2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketAccelerateConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketAccelerateConfigurationV2Output) ElementType() reflect.Type {
@@ -257,12 +238,6 @@ func (o BucketAccelerateConfigurationV2Output) ToBucketAccelerateConfigurationV2
 
 func (o BucketAccelerateConfigurationV2Output) ToBucketAccelerateConfigurationV2OutputWithContext(ctx context.Context) BucketAccelerateConfigurationV2Output {
 	return o
-}
-
-func (o BucketAccelerateConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[*BucketAccelerateConfigurationV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket.
@@ -294,12 +269,6 @@ func (o BucketAccelerateConfigurationV2ArrayOutput) ToBucketAccelerateConfigurat
 	return o
 }
 
-func (o BucketAccelerateConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[[]*BucketAccelerateConfigurationV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccelerateConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketAccelerateConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketAccelerateConfigurationV2 {
 		return vs[0].([]*BucketAccelerateConfigurationV2)[vs[1].(int)]
@@ -318,12 +287,6 @@ func (o BucketAccelerateConfigurationV2MapOutput) ToBucketAccelerateConfiguratio
 
 func (o BucketAccelerateConfigurationV2MapOutput) ToBucketAccelerateConfigurationV2MapOutputWithContext(ctx context.Context) BucketAccelerateConfigurationV2MapOutput {
 	return o
-}
-
-func (o BucketAccelerateConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAccelerateConfigurationV2] {
-	return pulumix.Output[map[string]*BucketAccelerateConfigurationV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAccelerateConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketAccelerateConfigurationV2Output {

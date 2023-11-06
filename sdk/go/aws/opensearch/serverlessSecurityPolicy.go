@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
@@ -475,12 +474,6 @@ func (i *ServerlessSecurityPolicy) ToServerlessSecurityPolicyOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityPolicyOutput)
 }
 
-func (i *ServerlessSecurityPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityPolicy] {
-	return pulumix.Output[*ServerlessSecurityPolicy]{
-		OutputState: i.ToServerlessSecurityPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessSecurityPolicyArrayInput is an input type that accepts ServerlessSecurityPolicyArray and ServerlessSecurityPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerlessSecurityPolicyArrayInput` via:
 //
@@ -504,12 +497,6 @@ func (i ServerlessSecurityPolicyArray) ToServerlessSecurityPolicyArrayOutput() S
 
 func (i ServerlessSecurityPolicyArray) ToServerlessSecurityPolicyArrayOutputWithContext(ctx context.Context) ServerlessSecurityPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityPolicyArrayOutput)
-}
-
-func (i ServerlessSecurityPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessSecurityPolicy] {
-	return pulumix.Output[[]*ServerlessSecurityPolicy]{
-		OutputState: i.ToServerlessSecurityPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerlessSecurityPolicyMapInput is an input type that accepts ServerlessSecurityPolicyMap and ServerlessSecurityPolicyMapOutput values.
@@ -537,12 +524,6 @@ func (i ServerlessSecurityPolicyMap) ToServerlessSecurityPolicyMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityPolicyMapOutput)
 }
 
-func (i ServerlessSecurityPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessSecurityPolicy] {
-	return pulumix.Output[map[string]*ServerlessSecurityPolicy]{
-		OutputState: i.ToServerlessSecurityPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerlessSecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerlessSecurityPolicyOutput) ElementType() reflect.Type {
@@ -555,12 +536,6 @@ func (o ServerlessSecurityPolicyOutput) ToServerlessSecurityPolicyOutput() Serve
 
 func (o ServerlessSecurityPolicyOutput) ToServerlessSecurityPolicyOutputWithContext(ctx context.Context) ServerlessSecurityPolicyOutput {
 	return o
-}
-
-func (o ServerlessSecurityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessSecurityPolicy] {
-	return pulumix.Output[*ServerlessSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the policy. Typically used to store information about the permissions defined in the policy.
@@ -604,12 +579,6 @@ func (o ServerlessSecurityPolicyArrayOutput) ToServerlessSecurityPolicyArrayOutp
 	return o
 }
 
-func (o ServerlessSecurityPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessSecurityPolicy] {
-	return pulumix.Output[[]*ServerlessSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessSecurityPolicyArrayOutput) Index(i pulumi.IntInput) ServerlessSecurityPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessSecurityPolicy {
 		return vs[0].([]*ServerlessSecurityPolicy)[vs[1].(int)]
@@ -628,12 +597,6 @@ func (o ServerlessSecurityPolicyMapOutput) ToServerlessSecurityPolicyMapOutput()
 
 func (o ServerlessSecurityPolicyMapOutput) ToServerlessSecurityPolicyMapOutputWithContext(ctx context.Context) ServerlessSecurityPolicyMapOutput {
 	return o
-}
-
-func (o ServerlessSecurityPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessSecurityPolicy] {
-	return pulumix.Output[map[string]*ServerlessSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessSecurityPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerlessSecurityPolicyOutput {

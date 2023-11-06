@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup Region Settings resource.
@@ -163,12 +162,6 @@ func (i *RegionSettings) ToRegionSettingsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsOutput)
 }
 
-func (i *RegionSettings) ToOutput(ctx context.Context) pulumix.Output[*RegionSettings] {
-	return pulumix.Output[*RegionSettings]{
-		OutputState: i.ToRegionSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegionSettingsArrayInput is an input type that accepts RegionSettingsArray and RegionSettingsArrayOutput values.
 // You can construct a concrete instance of `RegionSettingsArrayInput` via:
 //
@@ -192,12 +185,6 @@ func (i RegionSettingsArray) ToRegionSettingsArrayOutput() RegionSettingsArrayOu
 
 func (i RegionSettingsArray) ToRegionSettingsArrayOutputWithContext(ctx context.Context) RegionSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsArrayOutput)
-}
-
-func (i RegionSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegionSettings] {
-	return pulumix.Output[[]*RegionSettings]{
-		OutputState: i.ToRegionSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegionSettingsMapInput is an input type that accepts RegionSettingsMap and RegionSettingsMapOutput values.
@@ -225,12 +212,6 @@ func (i RegionSettingsMap) ToRegionSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsMapOutput)
 }
 
-func (i RegionSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegionSettings] {
-	return pulumix.Output[map[string]*RegionSettings]{
-		OutputState: i.ToRegionSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegionSettingsOutput struct{ *pulumi.OutputState }
 
 func (RegionSettingsOutput) ElementType() reflect.Type {
@@ -243,12 +224,6 @@ func (o RegionSettingsOutput) ToRegionSettingsOutput() RegionSettingsOutput {
 
 func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Context) RegionSettingsOutput {
 	return o
-}
-
-func (o RegionSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*RegionSettings] {
-	return pulumix.Output[*RegionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
@@ -275,12 +250,6 @@ func (o RegionSettingsArrayOutput) ToRegionSettingsArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o RegionSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegionSettings] {
-	return pulumix.Output[[]*RegionSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegionSettingsArrayOutput) Index(i pulumi.IntInput) RegionSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegionSettings {
 		return vs[0].([]*RegionSettings)[vs[1].(int)]
@@ -299,12 +268,6 @@ func (o RegionSettingsMapOutput) ToRegionSettingsMapOutput() RegionSettingsMapOu
 
 func (o RegionSettingsMapOutput) ToRegionSettingsMapOutputWithContext(ctx context.Context) RegionSettingsMapOutput {
 	return o
-}
-
-func (o RegionSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegionSettings] {
-	return pulumix.Output[map[string]*RegionSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegionSettingsMapOutput) MapIndex(k pulumi.StringInput) RegionSettingsOutput {

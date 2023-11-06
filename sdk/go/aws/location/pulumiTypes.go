@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i MapConfigurationArgs) ToMapConfigurationOutput() MapConfigurationOutput 
 
 func (i MapConfigurationArgs) ToMapConfigurationOutputWithContext(ctx context.Context) MapConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationOutput)
-}
-
-func (i MapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
-	return pulumix.Output[MapConfiguration]{
-		OutputState: i.ToMapConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i MapConfigurationArgs) ToMapConfigurationPtrOutput() MapConfigurationPtrOutput {
@@ -94,12 +87,6 @@ func (i *mapConfigurationPtrType) ToMapConfigurationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MapConfigurationPtrOutput)
 }
 
-func (i *mapConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MapConfiguration] {
-	return pulumix.Output[*MapConfiguration]{
-		OutputState: i.ToMapConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MapConfigurationOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o MapConfigurationOutput) ToMapConfigurationPtrOutputWithContext(ctx conte
 	}).(MapConfigurationPtrOutput)
 }
 
-func (o MapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MapConfiguration] {
-	return pulumix.Output[MapConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
 func (o MapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapConfiguration) string { return v.Style }).(pulumi.StringOutput)
@@ -147,12 +128,6 @@ func (o MapConfigurationPtrOutput) ToMapConfigurationPtrOutput() MapConfiguratio
 
 func (o MapConfigurationPtrOutput) ToMapConfigurationPtrOutputWithContext(ctx context.Context) MapConfigurationPtrOutput {
 	return o
-}
-
-func (o MapConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MapConfiguration] {
-	return pulumix.Output[*MapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MapConfigurationPtrOutput) Elem() MapConfigurationOutput {
@@ -208,12 +183,6 @@ func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationOutput)
 }
 
-func (i PlaceIndexDataSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
 	return i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -255,12 +224,6 @@ func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-func (i *placeIndexDataSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-func (o PlaceIndexDataSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[PlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
@@ -308,12 +265,6 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfig
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
 	return o
-}
-
-func (o PlaceIndexDataSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[*PlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceConfigurationOutput {
@@ -369,12 +320,6 @@ func (i GetMapConfigurationArgs) ToGetMapConfigurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetMapConfigurationOutput)
 }
 
-func (i GetMapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetMapConfiguration] {
-	return pulumix.Output[GetMapConfiguration]{
-		OutputState: i.ToGetMapConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMapConfigurationArrayInput is an input type that accepts GetMapConfigurationArray and GetMapConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetMapConfigurationArrayInput` via:
 //
@@ -400,12 +345,6 @@ func (i GetMapConfigurationArray) ToGetMapConfigurationArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetMapConfigurationArrayOutput)
 }
 
-func (i GetMapConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMapConfiguration] {
-	return pulumix.Output[[]GetMapConfiguration]{
-		OutputState: i.ToGetMapConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetMapConfigurationOutput) ElementType() reflect.Type {
@@ -418,12 +357,6 @@ func (o GetMapConfigurationOutput) ToGetMapConfigurationOutput() GetMapConfigura
 
 func (o GetMapConfigurationOutput) ToGetMapConfigurationOutputWithContext(ctx context.Context) GetMapConfigurationOutput {
 	return o
-}
-
-func (o GetMapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetMapConfiguration] {
-	return pulumix.Output[GetMapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The map style selected from an available data provider.
@@ -443,12 +376,6 @@ func (o GetMapConfigurationArrayOutput) ToGetMapConfigurationArrayOutput() GetMa
 
 func (o GetMapConfigurationArrayOutput) ToGetMapConfigurationArrayOutputWithContext(ctx context.Context) GetMapConfigurationArrayOutput {
 	return o
-}
-
-func (o GetMapConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMapConfiguration] {
-	return pulumix.Output[[]GetMapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMapConfigurationArrayOutput) Index(i pulumi.IntInput) GetMapConfigurationOutput {
@@ -488,12 +415,6 @@ func (i GetPlaceIndexDataSourceConfigurationArgs) ToGetPlaceIndexDataSourceConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlaceIndexDataSourceConfigurationOutput)
 }
 
-func (i GetPlaceIndexDataSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetPlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[GetPlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToGetPlaceIndexDataSourceConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPlaceIndexDataSourceConfigurationArrayInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArray and GetPlaceIndexDataSourceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetPlaceIndexDataSourceConfigurationArrayInput` via:
 //
@@ -519,12 +440,6 @@ func (i GetPlaceIndexDataSourceConfigurationArray) ToGetPlaceIndexDataSourceConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetPlaceIndexDataSourceConfigurationArrayOutput)
 }
 
-func (i GetPlaceIndexDataSourceConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[[]GetPlaceIndexDataSourceConfiguration]{
-		OutputState: i.ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetPlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -537,12 +452,6 @@ func (o GetPlaceIndexDataSourceConfigurationOutput) ToGetPlaceIndexDataSourceCon
 
 func (o GetPlaceIndexDataSourceConfigurationOutput) ToGetPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationOutput {
 	return o
-}
-
-func (o GetPlaceIndexDataSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetPlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[GetPlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringOutput {
@@ -561,12 +470,6 @@ func (o GetPlaceIndexDataSourceConfigurationArrayOutput) ToGetPlaceIndexDataSour
 
 func (o GetPlaceIndexDataSourceConfigurationArrayOutput) ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationArrayOutput {
 	return o
-}
-
-func (o GetPlaceIndexDataSourceConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPlaceIndexDataSourceConfiguration] {
-	return pulumix.Output[[]GetPlaceIndexDataSourceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPlaceIndexDataSourceConfigurationArrayOutput) Index(i pulumi.IntInput) GetPlaceIndexDataSourceConfigurationOutput {

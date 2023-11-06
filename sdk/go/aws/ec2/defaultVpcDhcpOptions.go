@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
@@ -193,12 +192,6 @@ func (i *DefaultVpcDhcpOptions) ToDefaultVpcDhcpOptionsOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsOutput)
 }
 
-func (i *DefaultVpcDhcpOptions) ToOutput(ctx context.Context) pulumix.Output[*DefaultVpcDhcpOptions] {
-	return pulumix.Output[*DefaultVpcDhcpOptions]{
-		OutputState: i.ToDefaultVpcDhcpOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefaultVpcDhcpOptionsArrayInput is an input type that accepts DefaultVpcDhcpOptionsArray and DefaultVpcDhcpOptionsArrayOutput values.
 // You can construct a concrete instance of `DefaultVpcDhcpOptionsArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i DefaultVpcDhcpOptionsArray) ToDefaultVpcDhcpOptionsArrayOutput() Default
 
 func (i DefaultVpcDhcpOptionsArray) ToDefaultVpcDhcpOptionsArrayOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsArrayOutput)
-}
-
-func (i DefaultVpcDhcpOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultVpcDhcpOptions] {
-	return pulumix.Output[[]*DefaultVpcDhcpOptions]{
-		OutputState: i.ToDefaultVpcDhcpOptionsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DefaultVpcDhcpOptionsMapInput is an input type that accepts DefaultVpcDhcpOptionsMap and DefaultVpcDhcpOptionsMapOutput values.
@@ -255,12 +242,6 @@ func (i DefaultVpcDhcpOptionsMap) ToDefaultVpcDhcpOptionsMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsMapOutput)
 }
 
-func (i DefaultVpcDhcpOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultVpcDhcpOptions] {
-	return pulumix.Output[map[string]*DefaultVpcDhcpOptions]{
-		OutputState: i.ToDefaultVpcDhcpOptionsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefaultVpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutput() DefaultVpcD
 
 func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsOutput {
 	return o
-}
-
-func (o DefaultVpcDhcpOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultVpcDhcpOptions] {
-	return pulumix.Output[*DefaultVpcDhcpOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the DHCP Options Set.
@@ -337,12 +312,6 @@ func (o DefaultVpcDhcpOptionsArrayOutput) ToDefaultVpcDhcpOptionsArrayOutputWith
 	return o
 }
 
-func (o DefaultVpcDhcpOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultVpcDhcpOptions] {
-	return pulumix.Output[[]*DefaultVpcDhcpOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DefaultVpcDhcpOptionsArrayOutput) Index(i pulumi.IntInput) DefaultVpcDhcpOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultVpcDhcpOptions {
 		return vs[0].([]*DefaultVpcDhcpOptions)[vs[1].(int)]
@@ -361,12 +330,6 @@ func (o DefaultVpcDhcpOptionsMapOutput) ToDefaultVpcDhcpOptionsMapOutput() Defau
 
 func (o DefaultVpcDhcpOptionsMapOutput) ToDefaultVpcDhcpOptionsMapOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsMapOutput {
 	return o
-}
-
-func (o DefaultVpcDhcpOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultVpcDhcpOptions] {
-	return pulumix.Output[map[string]*DefaultVpcDhcpOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefaultVpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) DefaultVpcDhcpOptionsOutput {

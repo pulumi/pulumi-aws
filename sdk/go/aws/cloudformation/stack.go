@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFormation Stack resource.
@@ -334,12 +333,6 @@ func (i *Stack) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackOutput)
 }
 
-func (i *Stack) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
-	return pulumix.Output[*Stack]{
-		OutputState: i.ToStackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackArrayInput is an input type that accepts StackArray and StackArrayOutput values.
 // You can construct a concrete instance of `StackArrayInput` via:
 //
@@ -363,12 +356,6 @@ func (i StackArray) ToStackArrayOutput() StackArrayOutput {
 
 func (i StackArray) ToStackArrayOutputWithContext(ctx context.Context) StackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackArrayOutput)
-}
-
-func (i StackArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stack] {
-	return pulumix.Output[[]*Stack]{
-		OutputState: i.ToStackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StackMapInput is an input type that accepts StackMap and StackMapOutput values.
@@ -396,12 +383,6 @@ func (i StackMap) ToStackMapOutputWithContext(ctx context.Context) StackMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StackMapOutput)
 }
 
-func (i StackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stack] {
-	return pulumix.Output[map[string]*Stack]{
-		OutputState: i.ToStackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
@@ -414,12 +395,6 @@ func (o StackOutput) ToStackOutput() StackOutput {
 
 func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 	return o
-}
-
-func (o StackOutput) ToOutput(ctx context.Context) pulumix.Output[*Stack] {
-	return pulumix.Output[*Stack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of capabilities.
@@ -518,12 +493,6 @@ func (o StackArrayOutput) ToStackArrayOutputWithContext(ctx context.Context) Sta
 	return o
 }
 
-func (o StackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stack] {
-	return pulumix.Output[[]*Stack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackArrayOutput) Index(i pulumi.IntInput) StackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stack {
 		return vs[0].([]*Stack)[vs[1].(int)]
@@ -542,12 +511,6 @@ func (o StackMapOutput) ToStackMapOutput() StackMapOutput {
 
 func (o StackMapOutput) ToStackMapOutputWithContext(ctx context.Context) StackMapOutput {
 	return o
-}
-
-func (o StackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stack] {
-	return pulumix.Output[map[string]*Stack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackMapOutput) MapIndex(k pulumi.StringInput) StackOutput {

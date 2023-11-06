@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect User Hierarchy Structure resource. For more information see
@@ -199,12 +198,6 @@ func (i *UserHierarchyStructure) ToUserHierarchyStructureOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureOutput)
 }
 
-func (i *UserHierarchyStructure) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyStructure] {
-	return pulumix.Output[*UserHierarchyStructure]{
-		OutputState: i.ToUserHierarchyStructureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserHierarchyStructureArrayInput is an input type that accepts UserHierarchyStructureArray and UserHierarchyStructureArrayOutput values.
 // You can construct a concrete instance of `UserHierarchyStructureArrayInput` via:
 //
@@ -228,12 +221,6 @@ func (i UserHierarchyStructureArray) ToUserHierarchyStructureArrayOutput() UserH
 
 func (i UserHierarchyStructureArray) ToUserHierarchyStructureArrayOutputWithContext(ctx context.Context) UserHierarchyStructureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureArrayOutput)
-}
-
-func (i UserHierarchyStructureArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserHierarchyStructure] {
-	return pulumix.Output[[]*UserHierarchyStructure]{
-		OutputState: i.ToUserHierarchyStructureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserHierarchyStructureMapInput is an input type that accepts UserHierarchyStructureMap and UserHierarchyStructureMapOutput values.
@@ -261,12 +248,6 @@ func (i UserHierarchyStructureMap) ToUserHierarchyStructureMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyStructureMapOutput)
 }
 
-func (i UserHierarchyStructureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserHierarchyStructure] {
-	return pulumix.Output[map[string]*UserHierarchyStructure]{
-		OutputState: i.ToUserHierarchyStructureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserHierarchyStructureOutput struct{ *pulumi.OutputState }
 
 func (UserHierarchyStructureOutput) ElementType() reflect.Type {
@@ -279,12 +260,6 @@ func (o UserHierarchyStructureOutput) ToUserHierarchyStructureOutput() UserHiera
 
 func (o UserHierarchyStructureOutput) ToUserHierarchyStructureOutputWithContext(ctx context.Context) UserHierarchyStructureOutput {
 	return o
-}
-
-func (o UserHierarchyStructureOutput) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyStructure] {
-	return pulumix.Output[*UserHierarchyStructure]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.
@@ -313,12 +288,6 @@ func (o UserHierarchyStructureArrayOutput) ToUserHierarchyStructureArrayOutputWi
 	return o
 }
 
-func (o UserHierarchyStructureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserHierarchyStructure] {
-	return pulumix.Output[[]*UserHierarchyStructure]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserHierarchyStructureArrayOutput) Index(i pulumi.IntInput) UserHierarchyStructureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserHierarchyStructure {
 		return vs[0].([]*UserHierarchyStructure)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o UserHierarchyStructureMapOutput) ToUserHierarchyStructureMapOutput() Use
 
 func (o UserHierarchyStructureMapOutput) ToUserHierarchyStructureMapOutputWithContext(ctx context.Context) UserHierarchyStructureMapOutput {
 	return o
-}
-
-func (o UserHierarchyStructureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserHierarchyStructure] {
-	return pulumix.Output[map[string]*UserHierarchyStructure]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserHierarchyStructureMapOutput) MapIndex(k pulumi.StringInput) UserHierarchyStructureOutput {

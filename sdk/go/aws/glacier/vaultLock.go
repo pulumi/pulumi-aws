@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
@@ -236,12 +235,6 @@ func (i *VaultLock) ToVaultLockOutputWithContext(ctx context.Context) VaultLockO
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockOutput)
 }
 
-func (i *VaultLock) ToOutput(ctx context.Context) pulumix.Output[*VaultLock] {
-	return pulumix.Output[*VaultLock]{
-		OutputState: i.ToVaultLockOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VaultLockArrayInput is an input type that accepts VaultLockArray and VaultLockArrayOutput values.
 // You can construct a concrete instance of `VaultLockArrayInput` via:
 //
@@ -265,12 +258,6 @@ func (i VaultLockArray) ToVaultLockArrayOutput() VaultLockArrayOutput {
 
 func (i VaultLockArray) ToVaultLockArrayOutputWithContext(ctx context.Context) VaultLockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockArrayOutput)
-}
-
-func (i VaultLockArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultLock] {
-	return pulumix.Output[[]*VaultLock]{
-		OutputState: i.ToVaultLockArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VaultLockMapInput is an input type that accepts VaultLockMap and VaultLockMapOutput values.
@@ -298,12 +285,6 @@ func (i VaultLockMap) ToVaultLockMapOutputWithContext(ctx context.Context) Vault
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockMapOutput)
 }
 
-func (i VaultLockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultLock] {
-	return pulumix.Output[map[string]*VaultLock]{
-		OutputState: i.ToVaultLockMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultLockOutput struct{ *pulumi.OutputState }
 
 func (VaultLockOutput) ElementType() reflect.Type {
@@ -316,12 +297,6 @@ func (o VaultLockOutput) ToVaultLockOutput() VaultLockOutput {
 
 func (o VaultLockOutput) ToVaultLockOutputWithContext(ctx context.Context) VaultLockOutput {
 	return o
-}
-
-func (o VaultLockOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultLock] {
-	return pulumix.Output[*VaultLock]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
@@ -358,12 +333,6 @@ func (o VaultLockArrayOutput) ToVaultLockArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VaultLockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultLock] {
-	return pulumix.Output[[]*VaultLock]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VaultLockArrayOutput) Index(i pulumi.IntInput) VaultLockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultLock {
 		return vs[0].([]*VaultLock)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o VaultLockMapOutput) ToVaultLockMapOutput() VaultLockMapOutput {
 
 func (o VaultLockMapOutput) ToVaultLockMapOutputWithContext(ctx context.Context) VaultLockMapOutput {
 	return o
-}
-
-func (o VaultLockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultLock] {
-	return pulumix.Output[map[string]*VaultLock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultLockMapOutput) MapIndex(k pulumi.StringInput) VaultLockOutput {

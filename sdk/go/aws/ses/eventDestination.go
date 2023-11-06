@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES event destination
@@ -296,12 +295,6 @@ func (i *EventDestination) ToEventDestinationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationOutput)
 }
 
-func (i *EventDestination) ToOutput(ctx context.Context) pulumix.Output[*EventDestination] {
-	return pulumix.Output[*EventDestination]{
-		OutputState: i.ToEventDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventDestinationArrayInput is an input type that accepts EventDestinationArray and EventDestinationArrayOutput values.
 // You can construct a concrete instance of `EventDestinationArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i EventDestinationArray) ToEventDestinationArrayOutput() EventDestinationA
 
 func (i EventDestinationArray) ToEventDestinationArrayOutputWithContext(ctx context.Context) EventDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationArrayOutput)
-}
-
-func (i EventDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventDestination] {
-	return pulumix.Output[[]*EventDestination]{
-		OutputState: i.ToEventDestinationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventDestinationMapInput is an input type that accepts EventDestinationMap and EventDestinationMapOutput values.
@@ -358,12 +345,6 @@ func (i EventDestinationMap) ToEventDestinationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationMapOutput)
 }
 
-func (i EventDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDestination] {
-	return pulumix.Output[map[string]*EventDestination]{
-		OutputState: i.ToEventDestinationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o EventDestinationOutput) ToEventDestinationOutput() EventDestinationOutpu
 
 func (o EventDestinationOutput) ToEventDestinationOutputWithContext(ctx context.Context) EventDestinationOutput {
 	return o
-}
-
-func (o EventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventDestination] {
-	return pulumix.Output[*EventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The SES event destination ARN.
@@ -442,12 +417,6 @@ func (o EventDestinationArrayOutput) ToEventDestinationArrayOutputWithContext(ct
 	return o
 }
 
-func (o EventDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventDestination] {
-	return pulumix.Output[[]*EventDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventDestinationArrayOutput) Index(i pulumi.IntInput) EventDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventDestination {
 		return vs[0].([]*EventDestination)[vs[1].(int)]
@@ -466,12 +435,6 @@ func (o EventDestinationMapOutput) ToEventDestinationMapOutput() EventDestinatio
 
 func (o EventDestinationMapOutput) ToEventDestinationMapOutputWithContext(ctx context.Context) EventDestinationMapOutput {
 	return o
-}
-
-func (o EventDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDestination] {
-	return pulumix.Output[map[string]*EventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventDestinationMapOutput) MapIndex(k pulumi.StringInput) EventDestinationOutput {

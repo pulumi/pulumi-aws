@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
@@ -150,12 +149,6 @@ func (i *SqlInjectionMatchSet) ToSqlInjectionMatchSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetOutput)
 }
 
-func (i *SqlInjectionMatchSet) ToOutput(ctx context.Context) pulumix.Output[*SqlInjectionMatchSet] {
-	return pulumix.Output[*SqlInjectionMatchSet]{
-		OutputState: i.ToSqlInjectionMatchSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlInjectionMatchSetArrayInput is an input type that accepts SqlInjectionMatchSetArray and SqlInjectionMatchSetArrayOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetArrayInput` via:
 //
@@ -179,12 +172,6 @@ func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutput() SqlInject
 
 func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetArrayOutput)
-}
-
-func (i SqlInjectionMatchSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlInjectionMatchSet] {
-	return pulumix.Output[[]*SqlInjectionMatchSet]{
-		OutputState: i.ToSqlInjectionMatchSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlInjectionMatchSetMapInput is an input type that accepts SqlInjectionMatchSetMap and SqlInjectionMatchSetMapOutput values.
@@ -212,12 +199,6 @@ func (i SqlInjectionMatchSetMap) ToSqlInjectionMatchSetMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetMapOutput)
 }
 
-func (i SqlInjectionMatchSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlInjectionMatchSet] {
-	return pulumix.Output[map[string]*SqlInjectionMatchSet]{
-		OutputState: i.ToSqlInjectionMatchSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlInjectionMatchSetOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
@@ -230,12 +211,6 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutput() SqlInjectionM
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx context.Context) SqlInjectionMatchSetOutput {
 	return o
-}
-
-func (o SqlInjectionMatchSetOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlInjectionMatchSet] {
-	return pulumix.Output[*SqlInjectionMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name or description of the SizeConstraintSet.
@@ -264,12 +239,6 @@ func (o SqlInjectionMatchSetArrayOutput) ToSqlInjectionMatchSetArrayOutputWithCo
 	return o
 }
 
-func (o SqlInjectionMatchSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlInjectionMatchSet] {
-	return pulumix.Output[[]*SqlInjectionMatchSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlInjectionMatchSetArrayOutput) Index(i pulumi.IntInput) SqlInjectionMatchSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlInjectionMatchSet {
 		return vs[0].([]*SqlInjectionMatchSet)[vs[1].(int)]
@@ -288,12 +257,6 @@ func (o SqlInjectionMatchSetMapOutput) ToSqlInjectionMatchSetMapOutput() SqlInje
 
 func (o SqlInjectionMatchSetMapOutput) ToSqlInjectionMatchSetMapOutputWithContext(ctx context.Context) SqlInjectionMatchSetMapOutput {
 	return o
-}
-
-func (o SqlInjectionMatchSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlInjectionMatchSet] {
-	return pulumix.Output[map[string]*SqlInjectionMatchSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlInjectionMatchSetMapOutput) MapIndex(k pulumi.StringInput) SqlInjectionMatchSetOutput {

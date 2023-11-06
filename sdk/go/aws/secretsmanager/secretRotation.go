@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Secrets Manager secret rotation. To manage a secret, see the `secretsmanager.Secret` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
@@ -178,12 +177,6 @@ func (i *SecretRotation) ToSecretRotationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationOutput)
 }
 
-func (i *SecretRotation) ToOutput(ctx context.Context) pulumix.Output[*SecretRotation] {
-	return pulumix.Output[*SecretRotation]{
-		OutputState: i.ToSecretRotationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecretRotationArrayInput is an input type that accepts SecretRotationArray and SecretRotationArrayOutput values.
 // You can construct a concrete instance of `SecretRotationArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i SecretRotationArray) ToSecretRotationArrayOutput() SecretRotationArrayOu
 
 func (i SecretRotationArray) ToSecretRotationArrayOutputWithContext(ctx context.Context) SecretRotationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationArrayOutput)
-}
-
-func (i SecretRotationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecretRotation] {
-	return pulumix.Output[[]*SecretRotation]{
-		OutputState: i.ToSecretRotationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecretRotationMapInput is an input type that accepts SecretRotationMap and SecretRotationMapOutput values.
@@ -240,12 +227,6 @@ func (i SecretRotationMap) ToSecretRotationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationMapOutput)
 }
 
-func (i SecretRotationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretRotation] {
-	return pulumix.Output[map[string]*SecretRotation]{
-		OutputState: i.ToSecretRotationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecretRotationOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o SecretRotationOutput) ToSecretRotationOutput() SecretRotationOutput {
 
 func (o SecretRotationOutput) ToSecretRotationOutputWithContext(ctx context.Context) SecretRotationOutput {
 	return o
-}
-
-func (o SecretRotationOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretRotation] {
-	return pulumix.Output[*SecretRotation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether automatic rotation is enabled for this secret.
@@ -300,12 +275,6 @@ func (o SecretRotationArrayOutput) ToSecretRotationArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o SecretRotationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecretRotation] {
-	return pulumix.Output[[]*SecretRotation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecretRotationArrayOutput) Index(i pulumi.IntInput) SecretRotationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecretRotation {
 		return vs[0].([]*SecretRotation)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o SecretRotationMapOutput) ToSecretRotationMapOutput() SecretRotationMapOu
 
 func (o SecretRotationMapOutput) ToSecretRotationMapOutputWithContext(ctx context.Context) SecretRotationMapOutput {
 	return o
-}
-
-func (o SecretRotationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretRotation] {
-	return pulumix.Output[map[string]*SecretRotation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretRotationMapOutput) MapIndex(k pulumi.StringInput) SecretRotationOutput {

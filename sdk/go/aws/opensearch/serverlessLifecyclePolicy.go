@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Lifecycle Policy. See AWS documentation for [lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html).
@@ -212,12 +211,6 @@ func (i *ServerlessLifecyclePolicy) ToServerlessLifecyclePolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessLifecyclePolicyOutput)
 }
 
-func (i *ServerlessLifecyclePolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerlessLifecyclePolicy] {
-	return pulumix.Output[*ServerlessLifecyclePolicy]{
-		OutputState: i.ToServerlessLifecyclePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessLifecyclePolicyArrayInput is an input type that accepts ServerlessLifecyclePolicyArray and ServerlessLifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `ServerlessLifecyclePolicyArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i ServerlessLifecyclePolicyArray) ToServerlessLifecyclePolicyArrayOutput()
 
 func (i ServerlessLifecyclePolicyArray) ToServerlessLifecyclePolicyArrayOutputWithContext(ctx context.Context) ServerlessLifecyclePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessLifecyclePolicyArrayOutput)
-}
-
-func (i ServerlessLifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessLifecyclePolicy] {
-	return pulumix.Output[[]*ServerlessLifecyclePolicy]{
-		OutputState: i.ToServerlessLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerlessLifecyclePolicyMapInput is an input type that accepts ServerlessLifecyclePolicyMap and ServerlessLifecyclePolicyMapOutput values.
@@ -274,12 +261,6 @@ func (i ServerlessLifecyclePolicyMap) ToServerlessLifecyclePolicyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessLifecyclePolicyMapOutput)
 }
 
-func (i ServerlessLifecyclePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessLifecyclePolicy] {
-	return pulumix.Output[map[string]*ServerlessLifecyclePolicy]{
-		OutputState: i.ToServerlessLifecyclePolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerlessLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerlessLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o ServerlessLifecyclePolicyOutput) ToServerlessLifecyclePolicyOutput() Ser
 
 func (o ServerlessLifecyclePolicyOutput) ToServerlessLifecyclePolicyOutputWithContext(ctx context.Context) ServerlessLifecyclePolicyOutput {
 	return o
-}
-
-func (o ServerlessLifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessLifecyclePolicy] {
-	return pulumix.Output[*ServerlessLifecyclePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the policy.
@@ -341,12 +316,6 @@ func (o ServerlessLifecyclePolicyArrayOutput) ToServerlessLifecyclePolicyArrayOu
 	return o
 }
 
-func (o ServerlessLifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessLifecyclePolicy] {
-	return pulumix.Output[[]*ServerlessLifecyclePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) ServerlessLifecyclePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessLifecyclePolicy {
 		return vs[0].([]*ServerlessLifecyclePolicy)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o ServerlessLifecyclePolicyMapOutput) ToServerlessLifecyclePolicyMapOutput
 
 func (o ServerlessLifecyclePolicyMapOutput) ToServerlessLifecyclePolicyMapOutputWithContext(ctx context.Context) ServerlessLifecyclePolicyMapOutput {
 	return o
-}
-
-func (o ServerlessLifecyclePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessLifecyclePolicy] {
-	return pulumix.Output[map[string]*ServerlessLifecyclePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessLifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) ServerlessLifecyclePolicyOutput {

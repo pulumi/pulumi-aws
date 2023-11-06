@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks Java application layer resource.
@@ -404,12 +403,6 @@ func (i *JavaAppLayer) ToJavaAppLayerOutputWithContext(ctx context.Context) Java
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerOutput)
 }
 
-func (i *JavaAppLayer) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayer] {
-	return pulumix.Output[*JavaAppLayer]{
-		OutputState: i.ToJavaAppLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JavaAppLayerArrayInput is an input type that accepts JavaAppLayerArray and JavaAppLayerArrayOutput values.
 // You can construct a concrete instance of `JavaAppLayerArrayInput` via:
 //
@@ -433,12 +426,6 @@ func (i JavaAppLayerArray) ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput {
 
 func (i JavaAppLayerArray) ToJavaAppLayerArrayOutputWithContext(ctx context.Context) JavaAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerArrayOutput)
-}
-
-func (i JavaAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*JavaAppLayer] {
-	return pulumix.Output[[]*JavaAppLayer]{
-		OutputState: i.ToJavaAppLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JavaAppLayerMapInput is an input type that accepts JavaAppLayerMap and JavaAppLayerMapOutput values.
@@ -466,12 +453,6 @@ func (i JavaAppLayerMap) ToJavaAppLayerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerMapOutput)
 }
 
-func (i JavaAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JavaAppLayer] {
-	return pulumix.Output[map[string]*JavaAppLayer]{
-		OutputState: i.ToJavaAppLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JavaAppLayerOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerOutput) ElementType() reflect.Type {
@@ -484,12 +465,6 @@ func (o JavaAppLayerOutput) ToJavaAppLayerOutput() JavaAppLayerOutput {
 
 func (o JavaAppLayerOutput) ToJavaAppLayerOutputWithContext(ctx context.Context) JavaAppLayerOutput {
 	return o
-}
-
-func (o JavaAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*JavaAppLayer] {
-	return pulumix.Output[*JavaAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Keyword for the application container to use. Defaults to "tomcat".
@@ -655,12 +630,6 @@ func (o JavaAppLayerArrayOutput) ToJavaAppLayerArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o JavaAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JavaAppLayer] {
-	return pulumix.Output[[]*JavaAppLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JavaAppLayerArrayOutput) Index(i pulumi.IntInput) JavaAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JavaAppLayer {
 		return vs[0].([]*JavaAppLayer)[vs[1].(int)]
@@ -679,12 +648,6 @@ func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutput() JavaAppLayerMapOutput {
 
 func (o JavaAppLayerMapOutput) ToJavaAppLayerMapOutputWithContext(ctx context.Context) JavaAppLayerMapOutput {
 	return o
-}
-
-func (o JavaAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JavaAppLayer] {
-	return pulumix.Output[map[string]*JavaAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JavaAppLayerMapOutput) MapIndex(k pulumi.StringInput) JavaAppLayerOutput {

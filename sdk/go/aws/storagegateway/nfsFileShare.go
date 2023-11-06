@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway NFS File Share.
@@ -375,12 +374,6 @@ func (i *NfsFileShare) ToNfsFileShareOutputWithContext(ctx context.Context) NfsF
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareOutput)
 }
 
-func (i *NfsFileShare) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShare] {
-	return pulumix.Output[*NfsFileShare]{
-		OutputState: i.ToNfsFileShareOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NfsFileShareArrayInput is an input type that accepts NfsFileShareArray and NfsFileShareArrayOutput values.
 // You can construct a concrete instance of `NfsFileShareArrayInput` via:
 //
@@ -404,12 +397,6 @@ func (i NfsFileShareArray) ToNfsFileShareArrayOutput() NfsFileShareArrayOutput {
 
 func (i NfsFileShareArray) ToNfsFileShareArrayOutputWithContext(ctx context.Context) NfsFileShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareArrayOutput)
-}
-
-func (i NfsFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*NfsFileShare] {
-	return pulumix.Output[[]*NfsFileShare]{
-		OutputState: i.ToNfsFileShareArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NfsFileShareMapInput is an input type that accepts NfsFileShareMap and NfsFileShareMapOutput values.
@@ -437,12 +424,6 @@ func (i NfsFileShareMap) ToNfsFileShareMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareMapOutput)
 }
 
-func (i NfsFileShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NfsFileShare] {
-	return pulumix.Output[map[string]*NfsFileShare]{
-		OutputState: i.ToNfsFileShareMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NfsFileShareOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareOutput) ElementType() reflect.Type {
@@ -455,12 +436,6 @@ func (o NfsFileShareOutput) ToNfsFileShareOutput() NfsFileShareOutput {
 
 func (o NfsFileShareOutput) ToNfsFileShareOutputWithContext(ctx context.Context) NfsFileShareOutput {
 	return o
-}
-
-func (o NfsFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShare] {
-	return pulumix.Output[*NfsFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the NFS File Share.
@@ -599,12 +574,6 @@ func (o NfsFileShareArrayOutput) ToNfsFileShareArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o NfsFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NfsFileShare] {
-	return pulumix.Output[[]*NfsFileShare]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NfsFileShareArrayOutput) Index(i pulumi.IntInput) NfsFileShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NfsFileShare {
 		return vs[0].([]*NfsFileShare)[vs[1].(int)]
@@ -623,12 +592,6 @@ func (o NfsFileShareMapOutput) ToNfsFileShareMapOutput() NfsFileShareMapOutput {
 
 func (o NfsFileShareMapOutput) ToNfsFileShareMapOutputWithContext(ctx context.Context) NfsFileShareMapOutput {
 	return o
-}
-
-func (o NfsFileShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NfsFileShare] {
-	return pulumix.Output[map[string]*NfsFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NfsFileShareMapOutput) MapIndex(k pulumi.StringInput) NfsFileShareOutput {

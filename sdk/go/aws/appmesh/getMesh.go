@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
@@ -149,12 +148,6 @@ func (o LookupMeshResultOutput) ToLookupMeshResultOutput() LookupMeshResultOutpu
 
 func (o LookupMeshResultOutput) ToLookupMeshResultOutputWithContext(ctx context.Context) LookupMeshResultOutput {
 	return o
-}
-
-func (o LookupMeshResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMeshResult] {
-	return pulumix.Output[LookupMeshResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the service mesh.

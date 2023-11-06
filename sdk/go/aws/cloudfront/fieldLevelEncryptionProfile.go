@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront Field-level Encryption Profile resource.
@@ -199,12 +198,6 @@ func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfileOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileOutput)
 }
 
-func (i *FieldLevelEncryptionProfile) ToOutput(ctx context.Context) pulumix.Output[*FieldLevelEncryptionProfile] {
-	return pulumix.Output[*FieldLevelEncryptionProfile]{
-		OutputState: i.ToFieldLevelEncryptionProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FieldLevelEncryptionProfileArrayInput is an input type that accepts FieldLevelEncryptionProfileArray and FieldLevelEncryptionProfileArrayOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionProfileArrayInput` via:
 //
@@ -228,12 +221,6 @@ func (i FieldLevelEncryptionProfileArray) ToFieldLevelEncryptionProfileArrayOutp
 
 func (i FieldLevelEncryptionProfileArray) ToFieldLevelEncryptionProfileArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileArrayOutput)
-}
-
-func (i FieldLevelEncryptionProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*FieldLevelEncryptionProfile] {
-	return pulumix.Output[[]*FieldLevelEncryptionProfile]{
-		OutputState: i.ToFieldLevelEncryptionProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FieldLevelEncryptionProfileMapInput is an input type that accepts FieldLevelEncryptionProfileMap and FieldLevelEncryptionProfileMapOutput values.
@@ -261,12 +248,6 @@ func (i FieldLevelEncryptionProfileMap) ToFieldLevelEncryptionProfileMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileMapOutput)
 }
 
-func (i FieldLevelEncryptionProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FieldLevelEncryptionProfile] {
-	return pulumix.Output[map[string]*FieldLevelEncryptionProfile]{
-		OutputState: i.ToFieldLevelEncryptionProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FieldLevelEncryptionProfileOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionProfileOutput) ElementType() reflect.Type {
@@ -279,12 +260,6 @@ func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutput()
 
 func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileOutput {
 	return o
-}
-
-func (o FieldLevelEncryptionProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*FieldLevelEncryptionProfile] {
-	return pulumix.Output[*FieldLevelEncryptionProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
@@ -328,12 +303,6 @@ func (o FieldLevelEncryptionProfileArrayOutput) ToFieldLevelEncryptionProfileArr
 	return o
 }
 
-func (o FieldLevelEncryptionProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FieldLevelEncryptionProfile] {
-	return pulumix.Output[[]*FieldLevelEncryptionProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FieldLevelEncryptionProfileArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FieldLevelEncryptionProfile {
 		return vs[0].([]*FieldLevelEncryptionProfile)[vs[1].(int)]
@@ -352,12 +321,6 @@ func (o FieldLevelEncryptionProfileMapOutput) ToFieldLevelEncryptionProfileMapOu
 
 func (o FieldLevelEncryptionProfileMapOutput) ToFieldLevelEncryptionProfileMapOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileMapOutput {
 	return o
-}
-
-func (o FieldLevelEncryptionProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FieldLevelEncryptionProfile] {
-	return pulumix.Output[map[string]*FieldLevelEncryptionProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FieldLevelEncryptionProfileMapOutput) MapIndex(k pulumi.StringInput) FieldLevelEncryptionProfileOutput {

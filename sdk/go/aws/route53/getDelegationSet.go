@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
@@ -107,12 +106,6 @@ func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutput() Loo
 
 func (o LookupDelegationSetResultOutput) ToLookupDelegationSetResultOutputWithContext(ctx context.Context) LookupDelegationSetResultOutput {
 	return o
-}
-
-func (o LookupDelegationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDelegationSetResult] {
-	return pulumix.Output[LookupDelegationSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDelegationSetResultOutput) Arn() pulumi.StringOutput {

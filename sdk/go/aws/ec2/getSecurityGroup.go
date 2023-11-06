@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.SecurityGroup` provides details about a specific Security Group.
@@ -147,12 +146,6 @@ func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutput() Loo
 
 func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithContext(ctx context.Context) LookupSecurityGroupResultOutput {
 	return o
-}
-
-func (o LookupSecurityGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityGroupResult] {
-	return pulumix.Output[LookupSecurityGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Computed ARN of the security group.

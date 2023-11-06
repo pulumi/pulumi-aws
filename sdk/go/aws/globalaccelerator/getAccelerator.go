@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Global Accelerator accelerator.
@@ -127,12 +126,6 @@ func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutput() LookupA
 
 func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutputWithContext(ctx context.Context) LookupAcceleratorResultOutput {
 	return o
-}
-
-func (o LookupAcceleratorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAcceleratorResult] {
-	return pulumix.Output[LookupAcceleratorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAcceleratorResultOutput) Arn() pulumi.StringOutput {

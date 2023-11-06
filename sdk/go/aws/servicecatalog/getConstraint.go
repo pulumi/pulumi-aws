@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information on a Service Catalog Constraint.
@@ -125,12 +124,6 @@ func (o LookupConstraintResultOutput) ToLookupConstraintResultOutput() LookupCon
 
 func (o LookupConstraintResultOutput) ToLookupConstraintResultOutputWithContext(ctx context.Context) LookupConstraintResultOutput {
 	return o
-}
-
-func (o LookupConstraintResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConstraintResult] {
-	return pulumix.Output[LookupConstraintResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConstraintResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a list the AWS services for which the specified account is a delegated administrator
@@ -100,12 +99,6 @@ func (o GetDelegatedServicesResultOutput) ToGetDelegatedServicesResultOutput() G
 
 func (o GetDelegatedServicesResultOutput) ToGetDelegatedServicesResultOutputWithContext(ctx context.Context) GetDelegatedServicesResultOutput {
 	return o
-}
-
-func (o GetDelegatedServicesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedServicesResult] {
-	return pulumix.Output[GetDelegatedServicesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDelegatedServicesResultOutput) AccountId() pulumi.StringOutput {

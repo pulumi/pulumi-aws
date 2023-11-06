@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an Amazon Inspector Delegated Admin Account.
@@ -149,12 +148,6 @@ func (i *DelegatedAdminAccount) ToDelegatedAdminAccountOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdminAccountOutput)
 }
 
-func (i *DelegatedAdminAccount) ToOutput(ctx context.Context) pulumix.Output[*DelegatedAdminAccount] {
-	return pulumix.Output[*DelegatedAdminAccount]{
-		OutputState: i.ToDelegatedAdminAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DelegatedAdminAccountArrayInput is an input type that accepts DelegatedAdminAccountArray and DelegatedAdminAccountArrayOutput values.
 // You can construct a concrete instance of `DelegatedAdminAccountArrayInput` via:
 //
@@ -178,12 +171,6 @@ func (i DelegatedAdminAccountArray) ToDelegatedAdminAccountArrayOutput() Delegat
 
 func (i DelegatedAdminAccountArray) ToDelegatedAdminAccountArrayOutputWithContext(ctx context.Context) DelegatedAdminAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdminAccountArrayOutput)
-}
-
-func (i DelegatedAdminAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*DelegatedAdminAccount] {
-	return pulumix.Output[[]*DelegatedAdminAccount]{
-		OutputState: i.ToDelegatedAdminAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DelegatedAdminAccountMapInput is an input type that accepts DelegatedAdminAccountMap and DelegatedAdminAccountMapOutput values.
@@ -211,12 +198,6 @@ func (i DelegatedAdminAccountMap) ToDelegatedAdminAccountMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DelegatedAdminAccountMapOutput)
 }
 
-func (i DelegatedAdminAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegatedAdminAccount] {
-	return pulumix.Output[map[string]*DelegatedAdminAccount]{
-		OutputState: i.ToDelegatedAdminAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DelegatedAdminAccountOutput struct{ *pulumi.OutputState }
 
 func (DelegatedAdminAccountOutput) ElementType() reflect.Type {
@@ -229,12 +210,6 @@ func (o DelegatedAdminAccountOutput) ToDelegatedAdminAccountOutput() DelegatedAd
 
 func (o DelegatedAdminAccountOutput) ToDelegatedAdminAccountOutputWithContext(ctx context.Context) DelegatedAdminAccountOutput {
 	return o
-}
-
-func (o DelegatedAdminAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*DelegatedAdminAccount] {
-	return pulumix.Output[*DelegatedAdminAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account to enable as delegated admin account.
@@ -261,12 +236,6 @@ func (o DelegatedAdminAccountArrayOutput) ToDelegatedAdminAccountArrayOutputWith
 	return o
 }
 
-func (o DelegatedAdminAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DelegatedAdminAccount] {
-	return pulumix.Output[[]*DelegatedAdminAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DelegatedAdminAccountArrayOutput) Index(i pulumi.IntInput) DelegatedAdminAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DelegatedAdminAccount {
 		return vs[0].([]*DelegatedAdminAccount)[vs[1].(int)]
@@ -285,12 +254,6 @@ func (o DelegatedAdminAccountMapOutput) ToDelegatedAdminAccountMapOutput() Deleg
 
 func (o DelegatedAdminAccountMapOutput) ToDelegatedAdminAccountMapOutputWithContext(ctx context.Context) DelegatedAdminAccountMapOutput {
 	return o
-}
-
-func (o DelegatedAdminAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegatedAdminAccount] {
-	return pulumix.Output[map[string]*DelegatedAdminAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DelegatedAdminAccountMapOutput) MapIndex(k pulumi.StringInput) DelegatedAdminAccountOutput {

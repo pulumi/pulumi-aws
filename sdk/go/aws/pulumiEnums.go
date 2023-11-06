@@ -108,12 +108,6 @@ func (o RegionOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPt
 	}).(RegionPtrOutput)
 }
 
-func (o RegionOutput) ToOutput(ctx context.Context) pulumix.Output[Region] {
-	return pulumix.Output[Region]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -147,12 +141,6 @@ func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
 
 func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return o
-}
-
-func (o RegionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Region] {
-	return pulumix.Output[*Region]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegionPtrOutput) Elem() RegionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES receipt filter resource
@@ -167,12 +166,6 @@ func (i *ReceiptFilter) ToReceiptFilterOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterOutput)
 }
 
-func (i *ReceiptFilter) ToOutput(ctx context.Context) pulumix.Output[*ReceiptFilter] {
-	return pulumix.Output[*ReceiptFilter]{
-		OutputState: i.ToReceiptFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReceiptFilterArrayInput is an input type that accepts ReceiptFilterArray and ReceiptFilterArrayOutput values.
 // You can construct a concrete instance of `ReceiptFilterArrayInput` via:
 //
@@ -196,12 +189,6 @@ func (i ReceiptFilterArray) ToReceiptFilterArrayOutput() ReceiptFilterArrayOutpu
 
 func (i ReceiptFilterArray) ToReceiptFilterArrayOutputWithContext(ctx context.Context) ReceiptFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterArrayOutput)
-}
-
-func (i ReceiptFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptFilter] {
-	return pulumix.Output[[]*ReceiptFilter]{
-		OutputState: i.ToReceiptFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReceiptFilterMapInput is an input type that accepts ReceiptFilterMap and ReceiptFilterMapOutput values.
@@ -229,12 +216,6 @@ func (i ReceiptFilterMap) ToReceiptFilterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptFilterMapOutput)
 }
 
-func (i ReceiptFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptFilter] {
-	return pulumix.Output[map[string]*ReceiptFilter]{
-		OutputState: i.ToReceiptFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReceiptFilterOutput struct{ *pulumi.OutputState }
 
 func (ReceiptFilterOutput) ElementType() reflect.Type {
@@ -247,12 +228,6 @@ func (o ReceiptFilterOutput) ToReceiptFilterOutput() ReceiptFilterOutput {
 
 func (o ReceiptFilterOutput) ToReceiptFilterOutputWithContext(ctx context.Context) ReceiptFilterOutput {
 	return o
-}
-
-func (o ReceiptFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*ReceiptFilter] {
-	return pulumix.Output[*ReceiptFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The SES receipt filter ARN.
@@ -289,12 +264,6 @@ func (o ReceiptFilterArrayOutput) ToReceiptFilterArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ReceiptFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptFilter] {
-	return pulumix.Output[[]*ReceiptFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReceiptFilterArrayOutput) Index(i pulumi.IntInput) ReceiptFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReceiptFilter {
 		return vs[0].([]*ReceiptFilter)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o ReceiptFilterMapOutput) ToReceiptFilterMapOutput() ReceiptFilterMapOutpu
 
 func (o ReceiptFilterMapOutput) ToReceiptFilterMapOutputWithContext(ctx context.Context) ReceiptFilterMapOutput {
 	return o
-}
-
-func (o ReceiptFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptFilter] {
-	return pulumix.Output[map[string]*ReceiptFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReceiptFilterMapOutput) MapIndex(k pulumi.StringInput) ReceiptFilterOutput {

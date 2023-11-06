@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
@@ -154,12 +153,6 @@ func (i *AccountSettingDefault) ToAccountSettingDefaultOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultOutput)
 }
 
-func (i *AccountSettingDefault) ToOutput(ctx context.Context) pulumix.Output[*AccountSettingDefault] {
-	return pulumix.Output[*AccountSettingDefault]{
-		OutputState: i.ToAccountSettingDefaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountSettingDefaultArrayInput is an input type that accepts AccountSettingDefaultArray and AccountSettingDefaultArrayOutput values.
 // You can construct a concrete instance of `AccountSettingDefaultArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i AccountSettingDefaultArray) ToAccountSettingDefaultArrayOutput() Account
 
 func (i AccountSettingDefaultArray) ToAccountSettingDefaultArrayOutputWithContext(ctx context.Context) AccountSettingDefaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultArrayOutput)
-}
-
-func (i AccountSettingDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountSettingDefault] {
-	return pulumix.Output[[]*AccountSettingDefault]{
-		OutputState: i.ToAccountSettingDefaultArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountSettingDefaultMapInput is an input type that accepts AccountSettingDefaultMap and AccountSettingDefaultMapOutput values.
@@ -216,12 +203,6 @@ func (i AccountSettingDefaultMap) ToAccountSettingDefaultMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingDefaultMapOutput)
 }
 
-func (i AccountSettingDefaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountSettingDefault] {
-	return pulumix.Output[map[string]*AccountSettingDefault]{
-		OutputState: i.ToAccountSettingDefaultMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSettingDefaultOutput struct{ *pulumi.OutputState }
 
 func (AccountSettingDefaultOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutput() AccountSett
 
 func (o AccountSettingDefaultOutput) ToAccountSettingDefaultOutputWithContext(ctx context.Context) AccountSettingDefaultOutput {
 	return o
-}
-
-func (o AccountSettingDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountSettingDefault] {
-	return pulumix.Output[*AccountSettingDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the account setting to set. Valid values are `serviceLongArnFormat`, `taskLongArnFormat`, `containerInstanceLongArnFormat`, `awsvpcTrunking` and `containerInsights`.
@@ -270,12 +245,6 @@ func (o AccountSettingDefaultArrayOutput) ToAccountSettingDefaultArrayOutputWith
 	return o
 }
 
-func (o AccountSettingDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountSettingDefault] {
-	return pulumix.Output[[]*AccountSettingDefault]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountSettingDefaultArrayOutput) Index(i pulumi.IntInput) AccountSettingDefaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountSettingDefault {
 		return vs[0].([]*AccountSettingDefault)[vs[1].(int)]
@@ -294,12 +263,6 @@ func (o AccountSettingDefaultMapOutput) ToAccountSettingDefaultMapOutput() Accou
 
 func (o AccountSettingDefaultMapOutput) ToAccountSettingDefaultMapOutputWithContext(ctx context.Context) AccountSettingDefaultMapOutput {
 	return o
-}
-
-func (o AccountSettingDefaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountSettingDefault] {
-	return pulumix.Output[map[string]*AccountSettingDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountSettingDefaultMapOutput) MapIndex(k pulumi.StringInput) AccountSettingDefaultOutput {

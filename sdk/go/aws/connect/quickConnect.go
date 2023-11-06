@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Quick Connect resource. For more information see
@@ -221,12 +220,6 @@ func (i *QuickConnect) ToQuickConnectOutputWithContext(ctx context.Context) Quic
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectOutput)
 }
 
-func (i *QuickConnect) ToOutput(ctx context.Context) pulumix.Output[*QuickConnect] {
-	return pulumix.Output[*QuickConnect]{
-		OutputState: i.ToQuickConnectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // QuickConnectArrayInput is an input type that accepts QuickConnectArray and QuickConnectArrayOutput values.
 // You can construct a concrete instance of `QuickConnectArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i QuickConnectArray) ToQuickConnectArrayOutput() QuickConnectArrayOutput {
 
 func (i QuickConnectArray) ToQuickConnectArrayOutputWithContext(ctx context.Context) QuickConnectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectArrayOutput)
-}
-
-func (i QuickConnectArray) ToOutput(ctx context.Context) pulumix.Output[[]*QuickConnect] {
-	return pulumix.Output[[]*QuickConnect]{
-		OutputState: i.ToQuickConnectArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // QuickConnectMapInput is an input type that accepts QuickConnectMap and QuickConnectMapOutput values.
@@ -283,12 +270,6 @@ func (i QuickConnectMap) ToQuickConnectMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectMapOutput)
 }
 
-func (i QuickConnectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QuickConnect] {
-	return pulumix.Output[map[string]*QuickConnect]{
-		OutputState: i.ToQuickConnectMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QuickConnectOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o QuickConnectOutput) ToQuickConnectOutput() QuickConnectOutput {
 
 func (o QuickConnectOutput) ToQuickConnectOutputWithContext(ctx context.Context) QuickConnectOutput {
 	return o
-}
-
-func (o QuickConnectOutput) ToOutput(ctx context.Context) pulumix.Output[*QuickConnect] {
-	return pulumix.Output[*QuickConnect]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Quick Connect.
@@ -365,12 +340,6 @@ func (o QuickConnectArrayOutput) ToQuickConnectArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o QuickConnectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QuickConnect] {
-	return pulumix.Output[[]*QuickConnect]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QuickConnectArrayOutput) Index(i pulumi.IntInput) QuickConnectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QuickConnect {
 		return vs[0].([]*QuickConnect)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o QuickConnectMapOutput) ToQuickConnectMapOutput() QuickConnectMapOutput {
 
 func (o QuickConnectMapOutput) ToQuickConnectMapOutputWithContext(ctx context.Context) QuickConnectMapOutput {
 	return o
-}
-
-func (o QuickConnectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QuickConnect] {
-	return pulumix.Output[map[string]*QuickConnect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o QuickConnectMapOutput) MapIndex(k pulumi.StringInput) QuickConnectOutput {

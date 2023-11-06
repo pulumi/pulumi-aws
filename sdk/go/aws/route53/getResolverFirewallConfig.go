@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
@@ -108,12 +107,6 @@ func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfig
 
 func (o LookupResolverFirewallConfigResultOutput) ToLookupResolverFirewallConfigResultOutputWithContext(ctx context.Context) LookupResolverFirewallConfigResultOutput {
 	return o
-}
-
-func (o LookupResolverFirewallConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverFirewallConfigResult] {
-	return pulumix.Output[LookupResolverFirewallConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResolverFirewallConfigResultOutput) FirewallFailOpen() pulumi.StringOutput {

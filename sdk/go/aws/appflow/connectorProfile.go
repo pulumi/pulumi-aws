@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppFlow connector profile resource.
@@ -178,12 +177,6 @@ func (i *ConnectorProfile) ToConnectorProfileOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileOutput)
 }
 
-func (i *ConnectorProfile) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfile] {
-	return pulumix.Output[*ConnectorProfile]{
-		OutputState: i.ToConnectorProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectorProfileArrayInput is an input type that accepts ConnectorProfileArray and ConnectorProfileArrayOutput values.
 // You can construct a concrete instance of `ConnectorProfileArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i ConnectorProfileArray) ToConnectorProfileArrayOutput() ConnectorProfileA
 
 func (i ConnectorProfileArray) ToConnectorProfileArrayOutputWithContext(ctx context.Context) ConnectorProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileArrayOutput)
-}
-
-func (i ConnectorProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectorProfile] {
-	return pulumix.Output[[]*ConnectorProfile]{
-		OutputState: i.ToConnectorProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectorProfileMapInput is an input type that accepts ConnectorProfileMap and ConnectorProfileMapOutput values.
@@ -240,12 +227,6 @@ func (i ConnectorProfileMap) ToConnectorProfileMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileMapOutput)
 }
 
-func (i ConnectorProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectorProfile] {
-	return pulumix.Output[map[string]*ConnectorProfile]{
-		OutputState: i.ToConnectorProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorProfileOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o ConnectorProfileOutput) ToConnectorProfileOutput() ConnectorProfileOutpu
 
 func (o ConnectorProfileOutput) ToConnectorProfileOutputWithContext(ctx context.Context) ConnectorProfileOutput {
 	return o
-}
-
-func (o ConnectorProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProfile] {
-	return pulumix.Output[*ConnectorProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the connector profile.
@@ -321,12 +296,6 @@ func (o ConnectorProfileArrayOutput) ToConnectorProfileArrayOutputWithContext(ct
 	return o
 }
 
-func (o ConnectorProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectorProfile] {
-	return pulumix.Output[[]*ConnectorProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorProfileArrayOutput) Index(i pulumi.IntInput) ConnectorProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectorProfile {
 		return vs[0].([]*ConnectorProfile)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o ConnectorProfileMapOutput) ToConnectorProfileMapOutput() ConnectorProfil
 
 func (o ConnectorProfileMapOutput) ToConnectorProfileMapOutputWithContext(ctx context.Context) ConnectorProfileMapOutput {
 	return o
-}
-
-func (o ConnectorProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectorProfile] {
-	return pulumix.Output[map[string]*ConnectorProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProfileMapOutput) MapIndex(k pulumi.StringInput) ConnectorProfileOutput {

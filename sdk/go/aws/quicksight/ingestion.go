@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS QuickSight Ingestion.
@@ -198,12 +197,6 @@ func (i *Ingestion) ToIngestionOutputWithContext(ctx context.Context) IngestionO
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionOutput)
 }
 
-func (i *Ingestion) ToOutput(ctx context.Context) pulumix.Output[*Ingestion] {
-	return pulumix.Output[*Ingestion]{
-		OutputState: i.ToIngestionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IngestionArrayInput is an input type that accepts IngestionArray and IngestionArrayOutput values.
 // You can construct a concrete instance of `IngestionArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i IngestionArray) ToIngestionArrayOutput() IngestionArrayOutput {
 
 func (i IngestionArray) ToIngestionArrayOutputWithContext(ctx context.Context) IngestionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionArrayOutput)
-}
-
-func (i IngestionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ingestion] {
-	return pulumix.Output[[]*Ingestion]{
-		OutputState: i.ToIngestionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IngestionMapInput is an input type that accepts IngestionMap and IngestionMapOutput values.
@@ -260,12 +247,6 @@ func (i IngestionMap) ToIngestionMapOutputWithContext(ctx context.Context) Inges
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionMapOutput)
 }
 
-func (i IngestionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ingestion] {
-	return pulumix.Output[map[string]*Ingestion]{
-		OutputState: i.ToIngestionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IngestionOutput struct{ *pulumi.OutputState }
 
 func (IngestionOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o IngestionOutput) ToIngestionOutput() IngestionOutput {
 
 func (o IngestionOutput) ToIngestionOutputWithContext(ctx context.Context) IngestionOutput {
 	return o
-}
-
-func (o IngestionOutput) ToOutput(ctx context.Context) pulumix.Output[*Ingestion] {
-	return pulumix.Output[*Ingestion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Ingestion.
@@ -332,12 +307,6 @@ func (o IngestionArrayOutput) ToIngestionArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o IngestionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ingestion] {
-	return pulumix.Output[[]*Ingestion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IngestionArrayOutput) Index(i pulumi.IntInput) IngestionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ingestion {
 		return vs[0].([]*Ingestion)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o IngestionMapOutput) ToIngestionMapOutput() IngestionMapOutput {
 
 func (o IngestionMapOutput) ToIngestionMapOutputWithContext(ctx context.Context) IngestionMapOutput {
 	return o
-}
-
-func (o IngestionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ingestion] {
-	return pulumix.Output[map[string]*Ingestion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IngestionMapOutput) MapIndex(k pulumi.StringInput) IngestionOutput {

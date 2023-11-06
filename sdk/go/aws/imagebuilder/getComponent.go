@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Component.
@@ -128,12 +127,6 @@ func (o LookupComponentResultOutput) ToLookupComponentResultOutput() LookupCompo
 
 func (o LookupComponentResultOutput) ToLookupComponentResultOutputWithContext(ctx context.Context) LookupComponentResultOutput {
 	return o
-}
-
-func (o LookupComponentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupComponentResult] {
-	return pulumix.Output[LookupComponentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupComponentResultOutput) Arn() pulumi.StringOutput {

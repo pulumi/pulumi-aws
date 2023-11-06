@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 IP Set.
@@ -112,12 +111,6 @@ func (o LookupIpSetResultOutput) ToLookupIpSetResultOutput() LookupIpSetResultOu
 
 func (o LookupIpSetResultOutput) ToLookupIpSetResultOutputWithContext(ctx context.Context) LookupIpSetResultOutput {
 	return o
-}
-
-func (o LookupIpSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpSetResult] {
-	return pulumix.Output[LookupIpSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.

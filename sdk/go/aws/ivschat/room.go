@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Chat Room.
@@ -274,12 +273,6 @@ func (i *Room) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoomOutput)
 }
 
-func (i *Room) ToOutput(ctx context.Context) pulumix.Output[*Room] {
-	return pulumix.Output[*Room]{
-		OutputState: i.ToRoomOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoomArrayInput is an input type that accepts RoomArray and RoomArrayOutput values.
 // You can construct a concrete instance of `RoomArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i RoomArray) ToRoomArrayOutput() RoomArrayOutput {
 
 func (i RoomArray) ToRoomArrayOutputWithContext(ctx context.Context) RoomArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoomArrayOutput)
-}
-
-func (i RoomArray) ToOutput(ctx context.Context) pulumix.Output[[]*Room] {
-	return pulumix.Output[[]*Room]{
-		OutputState: i.ToRoomArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoomMapInput is an input type that accepts RoomMap and RoomMapOutput values.
@@ -336,12 +323,6 @@ func (i RoomMap) ToRoomMapOutputWithContext(ctx context.Context) RoomMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoomMapOutput)
 }
 
-func (i RoomMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Room] {
-	return pulumix.Output[map[string]*Room]{
-		OutputState: i.ToRoomMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoomOutput struct{ *pulumi.OutputState }
 
 func (RoomOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o RoomOutput) ToRoomOutput() RoomOutput {
 
 func (o RoomOutput) ToRoomOutputWithContext(ctx context.Context) RoomOutput {
 	return o
-}
-
-func (o RoomOutput) ToOutput(ctx context.Context) pulumix.Output[*Room] {
-	return pulumix.Output[*Room]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Room.
@@ -423,12 +398,6 @@ func (o RoomArrayOutput) ToRoomArrayOutputWithContext(ctx context.Context) RoomA
 	return o
 }
 
-func (o RoomArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Room] {
-	return pulumix.Output[[]*Room]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoomArrayOutput) Index(i pulumi.IntInput) RoomOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Room {
 		return vs[0].([]*Room)[vs[1].(int)]
@@ -447,12 +416,6 @@ func (o RoomMapOutput) ToRoomMapOutput() RoomMapOutput {
 
 func (o RoomMapOutput) ToRoomMapOutputWithContext(ctx context.Context) RoomMapOutput {
 	return o
-}
-
-func (o RoomMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Room] {
-	return pulumix.Output[map[string]*Room]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoomMapOutput) MapIndex(k pulumi.StringInput) RoomOutput {

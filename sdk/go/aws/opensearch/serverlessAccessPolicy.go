@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
@@ -354,12 +353,6 @@ func (i *ServerlessAccessPolicy) ToServerlessAccessPolicyOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessAccessPolicyOutput)
 }
 
-func (i *ServerlessAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerlessAccessPolicy] {
-	return pulumix.Output[*ServerlessAccessPolicy]{
-		OutputState: i.ToServerlessAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessAccessPolicyArrayInput is an input type that accepts ServerlessAccessPolicyArray and ServerlessAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerlessAccessPolicyArrayInput` via:
 //
@@ -383,12 +376,6 @@ func (i ServerlessAccessPolicyArray) ToServerlessAccessPolicyArrayOutput() Serve
 
 func (i ServerlessAccessPolicyArray) ToServerlessAccessPolicyArrayOutputWithContext(ctx context.Context) ServerlessAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessAccessPolicyArrayOutput)
-}
-
-func (i ServerlessAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessAccessPolicy] {
-	return pulumix.Output[[]*ServerlessAccessPolicy]{
-		OutputState: i.ToServerlessAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerlessAccessPolicyMapInput is an input type that accepts ServerlessAccessPolicyMap and ServerlessAccessPolicyMapOutput values.
@@ -416,12 +403,6 @@ func (i ServerlessAccessPolicyMap) ToServerlessAccessPolicyMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessAccessPolicyMapOutput)
 }
 
-func (i ServerlessAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessAccessPolicy] {
-	return pulumix.Output[map[string]*ServerlessAccessPolicy]{
-		OutputState: i.ToServerlessAccessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerlessAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerlessAccessPolicyOutput) ElementType() reflect.Type {
@@ -434,12 +415,6 @@ func (o ServerlessAccessPolicyOutput) ToServerlessAccessPolicyOutput() Serverles
 
 func (o ServerlessAccessPolicyOutput) ToServerlessAccessPolicyOutputWithContext(ctx context.Context) ServerlessAccessPolicyOutput {
 	return o
-}
-
-func (o ServerlessAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessAccessPolicy] {
-	return pulumix.Output[*ServerlessAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the policy. Typically used to store information about the permissions defined in the policy.
@@ -483,12 +458,6 @@ func (o ServerlessAccessPolicyArrayOutput) ToServerlessAccessPolicyArrayOutputWi
 	return o
 }
 
-func (o ServerlessAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessAccessPolicy] {
-	return pulumix.Output[[]*ServerlessAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessAccessPolicyArrayOutput) Index(i pulumi.IntInput) ServerlessAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessAccessPolicy {
 		return vs[0].([]*ServerlessAccessPolicy)[vs[1].(int)]
@@ -507,12 +476,6 @@ func (o ServerlessAccessPolicyMapOutput) ToServerlessAccessPolicyMapOutput() Ser
 
 func (o ServerlessAccessPolicyMapOutput) ToServerlessAccessPolicyMapOutputWithContext(ctx context.Context) ServerlessAccessPolicyMapOutput {
 	return o
-}
-
-func (o ServerlessAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessAccessPolicy] {
-	return pulumix.Output[map[string]*ServerlessAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerlessAccessPolicyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
@@ -145,12 +144,6 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutput() Loo
 
 func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithContext(ctx context.Context) LookupSecretVersionResultOutput {
 	return o
-}
-
-func (o LookupSecretVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecretVersionResult] {
-	return pulumix.Output[LookupSecretVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the secret.

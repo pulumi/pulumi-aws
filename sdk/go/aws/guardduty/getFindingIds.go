@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS GuardDuty Finding Ids.
@@ -102,12 +101,6 @@ func (o GetFindingIdsResultOutput) ToGetFindingIdsResultOutput() GetFindingIdsRe
 
 func (o GetFindingIdsResultOutput) ToGetFindingIdsResultOutputWithContext(ctx context.Context) GetFindingIdsResultOutput {
 	return o
-}
-
-func (o GetFindingIdsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFindingIdsResult] {
-	return pulumix.Output[GetFindingIdsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFindingIdsResultOutput) DetectorId() pulumi.StringOutput {

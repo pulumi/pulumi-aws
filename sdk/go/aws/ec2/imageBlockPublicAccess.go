@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a regional public access block for AMIs. This prevents AMIs from being made publicly accessible.
@@ -134,12 +133,6 @@ func (i *ImageBlockPublicAccess) ToImageBlockPublicAccessOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBlockPublicAccessOutput)
 }
 
-func (i *ImageBlockPublicAccess) ToOutput(ctx context.Context) pulumix.Output[*ImageBlockPublicAccess] {
-	return pulumix.Output[*ImageBlockPublicAccess]{
-		OutputState: i.ToImageBlockPublicAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageBlockPublicAccessArrayInput is an input type that accepts ImageBlockPublicAccessArray and ImageBlockPublicAccessArrayOutput values.
 // You can construct a concrete instance of `ImageBlockPublicAccessArrayInput` via:
 //
@@ -163,12 +156,6 @@ func (i ImageBlockPublicAccessArray) ToImageBlockPublicAccessArrayOutput() Image
 
 func (i ImageBlockPublicAccessArray) ToImageBlockPublicAccessArrayOutputWithContext(ctx context.Context) ImageBlockPublicAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBlockPublicAccessArrayOutput)
-}
-
-func (i ImageBlockPublicAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBlockPublicAccess] {
-	return pulumix.Output[[]*ImageBlockPublicAccess]{
-		OutputState: i.ToImageBlockPublicAccessArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ImageBlockPublicAccessMapInput is an input type that accepts ImageBlockPublicAccessMap and ImageBlockPublicAccessMapOutput values.
@@ -196,12 +183,6 @@ func (i ImageBlockPublicAccessMap) ToImageBlockPublicAccessMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBlockPublicAccessMapOutput)
 }
 
-func (i ImageBlockPublicAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBlockPublicAccess] {
-	return pulumix.Output[map[string]*ImageBlockPublicAccess]{
-		OutputState: i.ToImageBlockPublicAccessMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImageBlockPublicAccessOutput struct{ *pulumi.OutputState }
 
 func (ImageBlockPublicAccessOutput) ElementType() reflect.Type {
@@ -214,12 +195,6 @@ func (o ImageBlockPublicAccessOutput) ToImageBlockPublicAccessOutput() ImageBloc
 
 func (o ImageBlockPublicAccessOutput) ToImageBlockPublicAccessOutputWithContext(ctx context.Context) ImageBlockPublicAccessOutput {
 	return o
-}
-
-func (o ImageBlockPublicAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBlockPublicAccess] {
-	return pulumix.Output[*ImageBlockPublicAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The state of block public access for AMIs at the account level in the configured AWS Region. Valid values: `unblocked` and `block-new-sharing`.
@@ -241,12 +216,6 @@ func (o ImageBlockPublicAccessArrayOutput) ToImageBlockPublicAccessArrayOutputWi
 	return o
 }
 
-func (o ImageBlockPublicAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBlockPublicAccess] {
-	return pulumix.Output[[]*ImageBlockPublicAccess]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageBlockPublicAccessArrayOutput) Index(i pulumi.IntInput) ImageBlockPublicAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageBlockPublicAccess {
 		return vs[0].([]*ImageBlockPublicAccess)[vs[1].(int)]
@@ -265,12 +234,6 @@ func (o ImageBlockPublicAccessMapOutput) ToImageBlockPublicAccessMapOutput() Ima
 
 func (o ImageBlockPublicAccessMapOutput) ToImageBlockPublicAccessMapOutputWithContext(ctx context.Context) ImageBlockPublicAccessMapOutput {
 	return o
-}
-
-func (o ImageBlockPublicAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBlockPublicAccess] {
-	return pulumix.Output[map[string]*ImageBlockPublicAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageBlockPublicAccessMapOutput) MapIndex(k pulumi.StringInput) ImageBlockPublicAccessOutput {

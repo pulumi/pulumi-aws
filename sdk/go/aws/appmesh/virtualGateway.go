@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS App Mesh virtual gateway resource.
@@ -284,12 +283,6 @@ func (i *VirtualGateway) ToVirtualGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayOutput)
 }
 
-func (i *VirtualGateway) ToOutput(ctx context.Context) pulumix.Output[*VirtualGateway] {
-	return pulumix.Output[*VirtualGateway]{
-		OutputState: i.ToVirtualGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualGatewayArrayInput is an input type that accepts VirtualGatewayArray and VirtualGatewayArrayOutput values.
 // You can construct a concrete instance of `VirtualGatewayArrayInput` via:
 //
@@ -313,12 +306,6 @@ func (i VirtualGatewayArray) ToVirtualGatewayArrayOutput() VirtualGatewayArrayOu
 
 func (i VirtualGatewayArray) ToVirtualGatewayArrayOutputWithContext(ctx context.Context) VirtualGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayArrayOutput)
-}
-
-func (i VirtualGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGateway] {
-	return pulumix.Output[[]*VirtualGateway]{
-		OutputState: i.ToVirtualGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualGatewayMapInput is an input type that accepts VirtualGatewayMap and VirtualGatewayMapOutput values.
@@ -346,12 +333,6 @@ func (i VirtualGatewayMap) ToVirtualGatewayMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayMapOutput)
 }
 
-func (i VirtualGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGateway] {
-	return pulumix.Output[map[string]*VirtualGateway]{
-		OutputState: i.ToVirtualGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayOutput) ElementType() reflect.Type {
@@ -364,12 +345,6 @@ func (o VirtualGatewayOutput) ToVirtualGatewayOutput() VirtualGatewayOutput {
 
 func (o VirtualGatewayOutput) ToVirtualGatewayOutputWithContext(ctx context.Context) VirtualGatewayOutput {
 	return o
-}
-
-func (o VirtualGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualGateway] {
-	return pulumix.Output[*VirtualGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the virtual gateway.
@@ -438,12 +413,6 @@ func (o VirtualGatewayArrayOutput) ToVirtualGatewayArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o VirtualGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualGateway] {
-	return pulumix.Output[[]*VirtualGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualGatewayArrayOutput) Index(i pulumi.IntInput) VirtualGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGateway {
 		return vs[0].([]*VirtualGateway)[vs[1].(int)]
@@ -462,12 +431,6 @@ func (o VirtualGatewayMapOutput) ToVirtualGatewayMapOutput() VirtualGatewayMapOu
 
 func (o VirtualGatewayMapOutput) ToVirtualGatewayMapOutputWithContext(ctx context.Context) VirtualGatewayMapOutput {
 	return o
-}
-
-func (o VirtualGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualGateway] {
-	return pulumix.Output[map[string]*VirtualGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualGatewayMapOutput) MapIndex(k pulumi.StringInput) VirtualGatewayOutput {

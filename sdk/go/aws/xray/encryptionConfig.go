@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates and manages an AWS XRay Encryption Config.
@@ -217,12 +216,6 @@ func (i *EncryptionConfig) ToEncryptionConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigOutput)
 }
 
-func (i *EncryptionConfig) ToOutput(ctx context.Context) pulumix.Output[*EncryptionConfig] {
-	return pulumix.Output[*EncryptionConfig]{
-		OutputState: i.ToEncryptionConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EncryptionConfigArrayInput is an input type that accepts EncryptionConfigArray and EncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `EncryptionConfigArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i EncryptionConfigArray) ToEncryptionConfigArrayOutput() EncryptionConfigA
 
 func (i EncryptionConfigArray) ToEncryptionConfigArrayOutputWithContext(ctx context.Context) EncryptionConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigArrayOutput)
-}
-
-func (i EncryptionConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionConfig] {
-	return pulumix.Output[[]*EncryptionConfig]{
-		OutputState: i.ToEncryptionConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EncryptionConfigMapInput is an input type that accepts EncryptionConfigMap and EncryptionConfigMapOutput values.
@@ -279,12 +266,6 @@ func (i EncryptionConfigMap) ToEncryptionConfigMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigMapOutput)
 }
 
-func (i EncryptionConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionConfig] {
-	return pulumix.Output[map[string]*EncryptionConfig]{
-		OutputState: i.ToEncryptionConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o EncryptionConfigOutput) ToEncryptionConfigOutput() EncryptionConfigOutpu
 
 func (o EncryptionConfigOutput) ToEncryptionConfigOutputWithContext(ctx context.Context) EncryptionConfigOutput {
 	return o
-}
-
-func (o EncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*EncryptionConfig] {
-	return pulumix.Output[*EncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An AWS KMS customer master key (CMK) ARN.
@@ -329,12 +304,6 @@ func (o EncryptionConfigArrayOutput) ToEncryptionConfigArrayOutputWithContext(ct
 	return o
 }
 
-func (o EncryptionConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionConfig] {
-	return pulumix.Output[[]*EncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EncryptionConfigArrayOutput) Index(i pulumi.IntInput) EncryptionConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EncryptionConfig {
 		return vs[0].([]*EncryptionConfig)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o EncryptionConfigMapOutput) ToEncryptionConfigMapOutput() EncryptionConfi
 
 func (o EncryptionConfigMapOutput) ToEncryptionConfigMapOutputWithContext(ctx context.Context) EncryptionConfigMapOutput {
 	return o
-}
-
-func (o EncryptionConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionConfig] {
-	return pulumix.Output[map[string]*EncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EncryptionConfigMapOutput) MapIndex(k pulumi.StringInput) EncryptionConfigOutput {

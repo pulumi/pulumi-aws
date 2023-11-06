@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -169,12 +168,6 @@ func (i *SnapshotScheduleAssociation) ToSnapshotScheduleAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationOutput)
 }
 
-func (i *SnapshotScheduleAssociation) ToOutput(ctx context.Context) pulumix.Output[*SnapshotScheduleAssociation] {
-	return pulumix.Output[*SnapshotScheduleAssociation]{
-		OutputState: i.ToSnapshotScheduleAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnapshotScheduleAssociationArrayInput is an input type that accepts SnapshotScheduleAssociationArray and SnapshotScheduleAssociationArrayOutput values.
 // You can construct a concrete instance of `SnapshotScheduleAssociationArrayInput` via:
 //
@@ -198,12 +191,6 @@ func (i SnapshotScheduleAssociationArray) ToSnapshotScheduleAssociationArrayOutp
 
 func (i SnapshotScheduleAssociationArray) ToSnapshotScheduleAssociationArrayOutputWithContext(ctx context.Context) SnapshotScheduleAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationArrayOutput)
-}
-
-func (i SnapshotScheduleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotScheduleAssociation] {
-	return pulumix.Output[[]*SnapshotScheduleAssociation]{
-		OutputState: i.ToSnapshotScheduleAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SnapshotScheduleAssociationMapInput is an input type that accepts SnapshotScheduleAssociationMap and SnapshotScheduleAssociationMapOutput values.
@@ -231,12 +218,6 @@ func (i SnapshotScheduleAssociationMap) ToSnapshotScheduleAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationMapOutput)
 }
 
-func (i SnapshotScheduleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotScheduleAssociation] {
-	return pulumix.Output[map[string]*SnapshotScheduleAssociation]{
-		OutputState: i.ToSnapshotScheduleAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotScheduleAssociationOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationOutput) ElementType() reflect.Type {
@@ -249,12 +230,6 @@ func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutput()
 
 func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationOutputWithContext(ctx context.Context) SnapshotScheduleAssociationOutput {
 	return o
-}
-
-func (o SnapshotScheduleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotScheduleAssociation] {
-	return pulumix.Output[*SnapshotScheduleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The cluster identifier.
@@ -281,12 +256,6 @@ func (o SnapshotScheduleAssociationArrayOutput) ToSnapshotScheduleAssociationArr
 	return o
 }
 
-func (o SnapshotScheduleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotScheduleAssociation] {
-	return pulumix.Output[[]*SnapshotScheduleAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SnapshotScheduleAssociationArrayOutput) Index(i pulumi.IntInput) SnapshotScheduleAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotScheduleAssociation {
 		return vs[0].([]*SnapshotScheduleAssociation)[vs[1].(int)]
@@ -305,12 +274,6 @@ func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOu
 
 func (o SnapshotScheduleAssociationMapOutput) ToSnapshotScheduleAssociationMapOutputWithContext(ctx context.Context) SnapshotScheduleAssociationMapOutput {
 	return o
-}
-
-func (o SnapshotScheduleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotScheduleAssociation] {
-	return pulumix.Output[map[string]*SnapshotScheduleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotScheduleAssociationMapOutput) MapIndex(k pulumi.StringInput) SnapshotScheduleAssociationOutput {

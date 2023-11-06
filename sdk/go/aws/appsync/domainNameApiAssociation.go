@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync API Association.
@@ -151,12 +150,6 @@ func (i *DomainNameApiAssociation) ToDomainNameApiAssociationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameApiAssociationOutput)
 }
 
-func (i *DomainNameApiAssociation) ToOutput(ctx context.Context) pulumix.Output[*DomainNameApiAssociation] {
-	return pulumix.Output[*DomainNameApiAssociation]{
-		OutputState: i.ToDomainNameApiAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainNameApiAssociationArrayInput is an input type that accepts DomainNameApiAssociationArray and DomainNameApiAssociationArrayOutput values.
 // You can construct a concrete instance of `DomainNameApiAssociationArrayInput` via:
 //
@@ -180,12 +173,6 @@ func (i DomainNameApiAssociationArray) ToDomainNameApiAssociationArrayOutput() D
 
 func (i DomainNameApiAssociationArray) ToDomainNameApiAssociationArrayOutputWithContext(ctx context.Context) DomainNameApiAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameApiAssociationArrayOutput)
-}
-
-func (i DomainNameApiAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainNameApiAssociation] {
-	return pulumix.Output[[]*DomainNameApiAssociation]{
-		OutputState: i.ToDomainNameApiAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DomainNameApiAssociationMapInput is an input type that accepts DomainNameApiAssociationMap and DomainNameApiAssociationMapOutput values.
@@ -213,12 +200,6 @@ func (i DomainNameApiAssociationMap) ToDomainNameApiAssociationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameApiAssociationMapOutput)
 }
 
-func (i DomainNameApiAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainNameApiAssociation] {
-	return pulumix.Output[map[string]*DomainNameApiAssociation]{
-		OutputState: i.ToDomainNameApiAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainNameApiAssociationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameApiAssociationOutput) ElementType() reflect.Type {
@@ -231,12 +212,6 @@ func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutput() Domai
 
 func (o DomainNameApiAssociationOutput) ToDomainNameApiAssociationOutputWithContext(ctx context.Context) DomainNameApiAssociationOutput {
 	return o
-}
-
-func (o DomainNameApiAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNameApiAssociation] {
-	return pulumix.Output[*DomainNameApiAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // API ID.
@@ -263,12 +238,6 @@ func (o DomainNameApiAssociationArrayOutput) ToDomainNameApiAssociationArrayOutp
 	return o
 }
 
-func (o DomainNameApiAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainNameApiAssociation] {
-	return pulumix.Output[[]*DomainNameApiAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainNameApiAssociationArrayOutput) Index(i pulumi.IntInput) DomainNameApiAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainNameApiAssociation {
 		return vs[0].([]*DomainNameApiAssociation)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o DomainNameApiAssociationMapOutput) ToDomainNameApiAssociationMapOutput()
 
 func (o DomainNameApiAssociationMapOutput) ToDomainNameApiAssociationMapOutputWithContext(ctx context.Context) DomainNameApiAssociationMapOutput {
 	return o
-}
-
-func (o DomainNameApiAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainNameApiAssociation] {
-	return pulumix.Output[map[string]*DomainNameApiAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainNameApiAssociationMapOutput) MapIndex(k pulumi.StringInput) DomainNameApiAssociationOutput {

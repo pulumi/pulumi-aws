@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to an AppConfig Configuration Profile.
@@ -125,12 +124,6 @@ func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResu
 
 func (o LookupConfigurationProfileResultOutput) ToLookupConfigurationProfileResultOutputWithContext(ctx context.Context) LookupConfigurationProfileResultOutput {
 	return o
-}
-
-func (o LookupConfigurationProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationProfileResult] {
-	return pulumix.Output[LookupConfigurationProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfigurationProfileResultOutput) ApplicationId() pulumi.StringOutput {

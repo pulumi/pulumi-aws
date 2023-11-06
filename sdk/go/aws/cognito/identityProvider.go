@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Identity Provider resource.
@@ -215,12 +214,6 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderOutput)
 }
 
-func (i *IdentityProvider) ToOutput(ctx context.Context) pulumix.Output[*IdentityProvider] {
-	return pulumix.Output[*IdentityProvider]{
-		OutputState: i.ToIdentityProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderArrayInput is an input type that accepts IdentityProviderArray and IdentityProviderArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i IdentityProviderArray) ToIdentityProviderArrayOutput() IdentityProviderA
 
 func (i IdentityProviderArray) ToIdentityProviderArrayOutputWithContext(ctx context.Context) IdentityProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderArrayOutput)
-}
-
-func (i IdentityProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProvider] {
-	return pulumix.Output[[]*IdentityProvider]{
-		OutputState: i.ToIdentityProviderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderMapInput is an input type that accepts IdentityProviderMap and IdentityProviderMapOutput values.
@@ -277,12 +264,6 @@ func (i IdentityProviderMap) ToIdentityProviderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderMapOutput)
 }
 
-func (i IdentityProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProvider] {
-	return pulumix.Output[map[string]*IdentityProvider]{
-		OutputState: i.ToIdentityProviderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o IdentityProviderOutput) ToIdentityProviderOutput() IdentityProviderOutpu
 
 func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.Context) IdentityProviderOutput {
 	return o
-}
-
-func (o IdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProvider] {
-	return pulumix.Output[*IdentityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
@@ -347,12 +322,6 @@ func (o IdentityProviderArrayOutput) ToIdentityProviderArrayOutputWithContext(ct
 	return o
 }
 
-func (o IdentityProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProvider] {
-	return pulumix.Output[[]*IdentityProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderArrayOutput) Index(i pulumi.IntInput) IdentityProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProvider {
 		return vs[0].([]*IdentityProvider)[vs[1].(int)]
@@ -371,12 +340,6 @@ func (o IdentityProviderMapOutput) ToIdentityProviderMapOutput() IdentityProvide
 
 func (o IdentityProviderMapOutput) ToIdentityProviderMapOutputWithContext(ctx context.Context) IdentityProviderMapOutput {
 	return o
-}
-
-func (o IdentityProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProvider] {
-	return pulumix.Output[map[string]*IdentityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderOutput {

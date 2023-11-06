@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationOutput
 
 func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationOutput)
-}
-
-func (i WorkspaceLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceLoggingConfiguration] {
-	return pulumix.Output[WorkspaceLoggingConfiguration]{
-		OutputState: i.ToWorkspaceLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i WorkspaceLoggingConfigurationArgs) ToWorkspaceLoggingConfigurationPtrOutput() WorkspaceLoggingConfigurationPtrOutput {
@@ -94,12 +87,6 @@ func (i *workspaceLoggingConfigurationPtrType) ToWorkspaceLoggingConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-func (i *workspaceLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceLoggingConfiguration] {
-	return pulumix.Output[*WorkspaceLoggingConfiguration]{
-		OutputState: i.ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o WorkspaceLoggingConfigurationOutput) ToWorkspaceLoggingConfigurationPtrO
 	}).(WorkspaceLoggingConfigurationPtrOutput)
 }
 
-func (o WorkspaceLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceLoggingConfiguration] {
-	return pulumix.Output[WorkspaceLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
 func (o WorkspaceLoggingConfigurationOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceLoggingConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
@@ -147,12 +128,6 @@ func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationP
 
 func (o WorkspaceLoggingConfigurationPtrOutput) ToWorkspaceLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceLoggingConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkspaceLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceLoggingConfiguration] {
-	return pulumix.Output[*WorkspaceLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceLoggingConfigurationPtrOutput) Elem() WorkspaceLoggingConfigurationOutput {

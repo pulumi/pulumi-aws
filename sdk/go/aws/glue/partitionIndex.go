@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -262,12 +261,6 @@ func (i *PartitionIndex) ToPartitionIndexOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexOutput)
 }
 
-func (i *PartitionIndex) ToOutput(ctx context.Context) pulumix.Output[*PartitionIndex] {
-	return pulumix.Output[*PartitionIndex]{
-		OutputState: i.ToPartitionIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PartitionIndexArrayInput is an input type that accepts PartitionIndexArray and PartitionIndexArrayOutput values.
 // You can construct a concrete instance of `PartitionIndexArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i PartitionIndexArray) ToPartitionIndexArrayOutput() PartitionIndexArrayOu
 
 func (i PartitionIndexArray) ToPartitionIndexArrayOutputWithContext(ctx context.Context) PartitionIndexArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexArrayOutput)
-}
-
-func (i PartitionIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]*PartitionIndex] {
-	return pulumix.Output[[]*PartitionIndex]{
-		OutputState: i.ToPartitionIndexArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PartitionIndexMapInput is an input type that accepts PartitionIndexMap and PartitionIndexMapOutput values.
@@ -324,12 +311,6 @@ func (i PartitionIndexMap) ToPartitionIndexMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexMapOutput)
 }
 
-func (i PartitionIndexMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PartitionIndex] {
-	return pulumix.Output[map[string]*PartitionIndex]{
-		OutputState: i.ToPartitionIndexMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PartitionIndexOutput struct{ *pulumi.OutputState }
 
 func (PartitionIndexOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o PartitionIndexOutput) ToPartitionIndexOutput() PartitionIndexOutput {
 
 func (o PartitionIndexOutput) ToPartitionIndexOutputWithContext(ctx context.Context) PartitionIndexOutput {
 	return o
-}
-
-func (o PartitionIndexOutput) ToOutput(ctx context.Context) pulumix.Output[*PartitionIndex] {
-	return pulumix.Output[*PartitionIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The catalog ID where the table resides.
@@ -384,12 +359,6 @@ func (o PartitionIndexArrayOutput) ToPartitionIndexArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o PartitionIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PartitionIndex] {
-	return pulumix.Output[[]*PartitionIndex]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PartitionIndexArrayOutput) Index(i pulumi.IntInput) PartitionIndexOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PartitionIndex {
 		return vs[0].([]*PartitionIndex)[vs[1].(int)]
@@ -408,12 +377,6 @@ func (o PartitionIndexMapOutput) ToPartitionIndexMapOutput() PartitionIndexMapOu
 
 func (o PartitionIndexMapOutput) ToPartitionIndexMapOutputWithContext(ctx context.Context) PartitionIndexMapOutput {
 	return o
-}
-
-func (o PartitionIndexMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PartitionIndex] {
-	return pulumix.Output[map[string]*PartitionIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PartitionIndexMapOutput) MapIndex(k pulumi.StringInput) PartitionIndexOutput {

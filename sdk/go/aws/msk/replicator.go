@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Managed Streaming for Kafka Replicator.
@@ -186,12 +185,6 @@ func (i *Replicator) ToReplicatorOutputWithContext(ctx context.Context) Replicat
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorOutput)
 }
 
-func (i *Replicator) ToOutput(ctx context.Context) pulumix.Output[*Replicator] {
-	return pulumix.Output[*Replicator]{
-		OutputState: i.ToReplicatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicatorArrayInput is an input type that accepts ReplicatorArray and ReplicatorArrayOutput values.
 // You can construct a concrete instance of `ReplicatorArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i ReplicatorArray) ToReplicatorArrayOutput() ReplicatorArrayOutput {
 
 func (i ReplicatorArray) ToReplicatorArrayOutputWithContext(ctx context.Context) ReplicatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorArrayOutput)
-}
-
-func (i ReplicatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Replicator] {
-	return pulumix.Output[[]*Replicator]{
-		OutputState: i.ToReplicatorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicatorMapInput is an input type that accepts ReplicatorMap and ReplicatorMapOutput values.
@@ -248,12 +235,6 @@ func (i ReplicatorMap) ToReplicatorMapOutputWithContext(ctx context.Context) Rep
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorMapOutput)
 }
 
-func (i ReplicatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Replicator] {
-	return pulumix.Output[map[string]*Replicator]{
-		OutputState: i.ToReplicatorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatorOutput struct{ *pulumi.OutputState }
 
 func (ReplicatorOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o ReplicatorOutput) ToReplicatorOutput() ReplicatorOutput {
 
 func (o ReplicatorOutput) ToReplicatorOutputWithContext(ctx context.Context) ReplicatorOutput {
 	return o
-}
-
-func (o ReplicatorOutput) ToOutput(ctx context.Context) pulumix.Output[*Replicator] {
-	return pulumix.Output[*Replicator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
@@ -331,12 +306,6 @@ func (o ReplicatorArrayOutput) ToReplicatorArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ReplicatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Replicator] {
-	return pulumix.Output[[]*Replicator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatorArrayOutput) Index(i pulumi.IntInput) ReplicatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Replicator {
 		return vs[0].([]*Replicator)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o ReplicatorMapOutput) ToReplicatorMapOutput() ReplicatorMapOutput {
 
 func (o ReplicatorMapOutput) ToReplicatorMapOutputWithContext(ctx context.Context) ReplicatorMapOutput {
 	return o
-}
-
-func (o ReplicatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Replicator] {
-	return pulumix.Output[map[string]*Replicator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatorMapOutput) MapIndex(k pulumi.StringInput) ReplicatorOutput {

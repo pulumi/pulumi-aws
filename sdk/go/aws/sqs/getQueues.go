@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -101,12 +100,6 @@ func (o GetQueuesResultOutput) ToGetQueuesResultOutput() GetQueuesResultOutput {
 
 func (o GetQueuesResultOutput) ToGetQueuesResultOutputWithContext(ctx context.Context) GetQueuesResultOutput {
 	return o
-}
-
-func (o GetQueuesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQueuesResult] {
-	return pulumix.Output[GetQueuesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

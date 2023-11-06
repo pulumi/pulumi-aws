@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for getting an AWS Organizations Organizational Unit.
@@ -111,12 +110,6 @@ func (o LookupOrganizationalUnitResultOutput) ToLookupOrganizationalUnitResultOu
 
 func (o LookupOrganizationalUnitResultOutput) ToLookupOrganizationalUnitResultOutputWithContext(ctx context.Context) LookupOrganizationalUnitResultOutput {
 	return o
-}
-
-func (o LookupOrganizationalUnitResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationalUnitResult] {
-	return pulumix.Output[LookupOrganizationalUnitResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the organizational unit

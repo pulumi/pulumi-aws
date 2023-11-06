@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CloudFormation Export data source allows access to stack
@@ -114,12 +113,6 @@ func (o GetExportResultOutput) ToGetExportResultOutput() GetExportResultOutput {
 
 func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Context) GetExportResultOutput {
 	return o
-}
-
-func (o GetExportResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExportResult] {
-	return pulumix.Output[GetExportResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of stack that contains the exported output name and value.

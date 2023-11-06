@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
@@ -162,12 +161,6 @@ func (i *StaticIpAttachment) ToStaticIpAttachmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentOutput)
 }
 
-func (i *StaticIpAttachment) ToOutput(ctx context.Context) pulumix.Output[*StaticIpAttachment] {
-	return pulumix.Output[*StaticIpAttachment]{
-		OutputState: i.ToStaticIpAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StaticIpAttachmentArrayInput is an input type that accepts StaticIpAttachmentArray and StaticIpAttachmentArrayOutput values.
 // You can construct a concrete instance of `StaticIpAttachmentArrayInput` via:
 //
@@ -191,12 +184,6 @@ func (i StaticIpAttachmentArray) ToStaticIpAttachmentArrayOutput() StaticIpAttac
 
 func (i StaticIpAttachmentArray) ToStaticIpAttachmentArrayOutputWithContext(ctx context.Context) StaticIpAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentArrayOutput)
-}
-
-func (i StaticIpAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*StaticIpAttachment] {
-	return pulumix.Output[[]*StaticIpAttachment]{
-		OutputState: i.ToStaticIpAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StaticIpAttachmentMapInput is an input type that accepts StaticIpAttachmentMap and StaticIpAttachmentMapOutput values.
@@ -224,12 +211,6 @@ func (i StaticIpAttachmentMap) ToStaticIpAttachmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentMapOutput)
 }
 
-func (i StaticIpAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticIpAttachment] {
-	return pulumix.Output[map[string]*StaticIpAttachment]{
-		OutputState: i.ToStaticIpAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StaticIpAttachmentOutput struct{ *pulumi.OutputState }
 
 func (StaticIpAttachmentOutput) ElementType() reflect.Type {
@@ -242,12 +223,6 @@ func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutput() StaticIpAttachmen
 
 func (o StaticIpAttachmentOutput) ToStaticIpAttachmentOutputWithContext(ctx context.Context) StaticIpAttachmentOutput {
 	return o
-}
-
-func (o StaticIpAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticIpAttachment] {
-	return pulumix.Output[*StaticIpAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Lightsail instance to attach the IP to
@@ -279,12 +254,6 @@ func (o StaticIpAttachmentArrayOutput) ToStaticIpAttachmentArrayOutputWithContex
 	return o
 }
 
-func (o StaticIpAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StaticIpAttachment] {
-	return pulumix.Output[[]*StaticIpAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StaticIpAttachmentArrayOutput) Index(i pulumi.IntInput) StaticIpAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticIpAttachment {
 		return vs[0].([]*StaticIpAttachment)[vs[1].(int)]
@@ -303,12 +272,6 @@ func (o StaticIpAttachmentMapOutput) ToStaticIpAttachmentMapOutput() StaticIpAtt
 
 func (o StaticIpAttachmentMapOutput) ToStaticIpAttachmentMapOutputWithContext(ctx context.Context) StaticIpAttachmentMapOutput {
 	return o
-}
-
-func (o StaticIpAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticIpAttachment] {
-	return pulumix.Output[map[string]*StaticIpAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StaticIpAttachmentMapOutput) MapIndex(k pulumi.StringInput) StaticIpAttachmentOutput {

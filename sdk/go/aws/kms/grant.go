@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource-based access control mechanism for a KMS customer master key.
@@ -204,12 +203,6 @@ func (i *Grant) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrantOutput)
 }
 
-func (i *Grant) ToOutput(ctx context.Context) pulumix.Output[*Grant] {
-	return pulumix.Output[*Grant]{
-		OutputState: i.ToGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GrantArrayInput is an input type that accepts GrantArray and GrantArrayOutput values.
 // You can construct a concrete instance of `GrantArrayInput` via:
 //
@@ -233,12 +226,6 @@ func (i GrantArray) ToGrantArrayOutput() GrantArrayOutput {
 
 func (i GrantArray) ToGrantArrayOutputWithContext(ctx context.Context) GrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GrantArrayOutput)
-}
-
-func (i GrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*Grant] {
-	return pulumix.Output[[]*Grant]{
-		OutputState: i.ToGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GrantMapInput is an input type that accepts GrantMap and GrantMapOutput values.
@@ -266,12 +253,6 @@ func (i GrantMap) ToGrantMapOutputWithContext(ctx context.Context) GrantMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GrantMapOutput)
 }
 
-func (i GrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Grant] {
-	return pulumix.Output[map[string]*Grant]{
-		OutputState: i.ToGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GrantOutput struct{ *pulumi.OutputState }
 
 func (GrantOutput) ElementType() reflect.Type {
@@ -284,12 +265,6 @@ func (o GrantOutput) ToGrantOutput() GrantOutput {
 
 func (o GrantOutput) ToGrantOutputWithContext(ctx context.Context) GrantOutput {
 	return o
-}
-
-func (o GrantOutput) ToOutput(ctx context.Context) pulumix.Output[*Grant] {
-	return pulumix.Output[*Grant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
@@ -357,12 +332,6 @@ func (o GrantArrayOutput) ToGrantArrayOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-func (o GrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Grant] {
-	return pulumix.Output[[]*Grant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GrantArrayOutput) Index(i pulumi.IntInput) GrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Grant {
 		return vs[0].([]*Grant)[vs[1].(int)]
@@ -381,12 +350,6 @@ func (o GrantMapOutput) ToGrantMapOutput() GrantMapOutput {
 
 func (o GrantMapOutput) ToGrantMapOutputWithContext(ctx context.Context) GrantMapOutput {
 	return o
-}
-
-func (o GrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Grant] {
-	return pulumix.Output[map[string]*Grant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GrantMapOutput) MapIndex(k pulumi.StringInput) GrantOutput {

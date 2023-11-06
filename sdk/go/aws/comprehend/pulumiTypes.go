@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -73,12 +72,6 @@ func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConf
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigOutput)
 }
 
-func (i DocumentClassifierInputDataConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfig] {
-	return pulumix.Output[DocumentClassifierInputDataConfig]{
-		OutputState: i.ToDocumentClassifierInputDataConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DocumentClassifierInputDataConfigArgs) ToDocumentClassifierInputDataConfigPtrOutput() DocumentClassifierInputDataConfigPtrOutput {
 	return i.ToDocumentClassifierInputDataConfigPtrOutputWithContext(context.Background())
 }
@@ -120,12 +113,6 @@ func (i *documentClassifierInputDataConfigPtrType) ToDocumentClassifierInputData
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigPtrOutput)
 }
 
-func (i *documentClassifierInputDataConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfig] {
-	return pulumix.Output[*DocumentClassifierInputDataConfig]{
-		OutputState: i.ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierInputDataConfigOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierInputDataConfigOutput) ElementType() reflect.Type {
@@ -148,12 +135,6 @@ func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierInputDataConfig) *DocumentClassifierInputDataConfig {
 		return &v
 	}).(DocumentClassifierInputDataConfigPtrOutput)
-}
-
-func (o DocumentClassifierInputDataConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfig] {
-	return pulumix.Output[DocumentClassifierInputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of training datasets produced by Amazon SageMaker Ground Truth.
@@ -200,12 +181,6 @@ func (o DocumentClassifierInputDataConfigPtrOutput) ToDocumentClassifierInputDat
 
 func (o DocumentClassifierInputDataConfigPtrOutput) ToDocumentClassifierInputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierInputDataConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfig] {
-	return pulumix.Output[*DocumentClassifierInputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierInputDataConfigPtrOutput) Elem() DocumentClassifierInputDataConfigOutput {
@@ -330,12 +305,6 @@ func (i DocumentClassifierInputDataConfigAugmentedManifestArgs) ToDocumentClassi
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigAugmentedManifestOutput)
 }
 
-func (i DocumentClassifierInputDataConfigAugmentedManifestArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigAugmentedManifest] {
-	return pulumix.Output[DocumentClassifierInputDataConfigAugmentedManifest]{
-		OutputState: i.ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentClassifierInputDataConfigAugmentedManifestArrayInput is an input type that accepts DocumentClassifierInputDataConfigAugmentedManifestArray and DocumentClassifierInputDataConfigAugmentedManifestArrayOutput values.
 // You can construct a concrete instance of `DocumentClassifierInputDataConfigAugmentedManifestArrayInput` via:
 //
@@ -361,12 +330,6 @@ func (i DocumentClassifierInputDataConfigAugmentedManifestArray) ToDocumentClass
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierInputDataConfigAugmentedManifestArrayOutput)
 }
 
-func (i DocumentClassifierInputDataConfigAugmentedManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierInputDataConfigAugmentedManifest] {
-	return pulumix.Output[[]DocumentClassifierInputDataConfigAugmentedManifest]{
-		OutputState: i.ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierInputDataConfigAugmentedManifestOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierInputDataConfigAugmentedManifestOutput) ElementType() reflect.Type {
@@ -379,12 +342,6 @@ func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToDocumentClas
 
 func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToDocumentClassifierInputDataConfigAugmentedManifestOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestOutput {
 	return o
-}
-
-func (o DocumentClassifierInputDataConfigAugmentedManifestOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigAugmentedManifest] {
-	return pulumix.Output[DocumentClassifierInputDataConfigAugmentedManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Location of annotation files.
@@ -431,12 +388,6 @@ func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ToDocumen
 
 func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ToDocumentClassifierInputDataConfigAugmentedManifestArrayOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigAugmentedManifestArrayOutput {
 	return o
-}
-
-func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierInputDataConfigAugmentedManifest] {
-	return pulumix.Output[[]DocumentClassifierInputDataConfigAugmentedManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierInputDataConfigAugmentedManifestArrayOutput) Index(i pulumi.IntInput) DocumentClassifierInputDataConfigAugmentedManifestOutput {
@@ -490,12 +441,6 @@ func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataCo
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutputDataConfigOutput)
 }
 
-func (i DocumentClassifierOutputDataConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierOutputDataConfig] {
-	return pulumix.Output[DocumentClassifierOutputDataConfig]{
-		OutputState: i.ToDocumentClassifierOutputDataConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DocumentClassifierOutputDataConfigArgs) ToDocumentClassifierOutputDataConfigPtrOutput() DocumentClassifierOutputDataConfigPtrOutput {
 	return i.ToDocumentClassifierOutputDataConfigPtrOutputWithContext(context.Background())
 }
@@ -537,12 +482,6 @@ func (i *documentClassifierOutputDataConfigPtrType) ToDocumentClassifierOutputDa
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
-func (i *documentClassifierOutputDataConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierOutputDataConfig] {
-	return pulumix.Output[*DocumentClassifierOutputDataConfig]{
-		OutputState: i.ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierOutputDataConfigOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierOutputDataConfigOutput) ElementType() reflect.Type {
@@ -565,12 +504,6 @@ func (o DocumentClassifierOutputDataConfigOutput) ToDocumentClassifierOutputData
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentClassifierOutputDataConfig) *DocumentClassifierOutputDataConfig {
 		return &v
 	}).(DocumentClassifierOutputDataConfigPtrOutput)
-}
-
-func (o DocumentClassifierOutputDataConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierOutputDataConfig] {
-	return pulumix.Output[DocumentClassifierOutputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // KMS Key used to encrypt the output documents.
@@ -602,12 +535,6 @@ func (o DocumentClassifierOutputDataConfigPtrOutput) ToDocumentClassifierOutputD
 
 func (o DocumentClassifierOutputDataConfigPtrOutput) ToDocumentClassifierOutputDataConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierOutputDataConfigPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierOutputDataConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierOutputDataConfig] {
-	return pulumix.Output[*DocumentClassifierOutputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierOutputDataConfigPtrOutput) Elem() DocumentClassifierOutputDataConfigOutput {
@@ -689,12 +616,6 @@ func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierVpcConfigOutput)
 }
 
-func (i DocumentClassifierVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierVpcConfig] {
-	return pulumix.Output[DocumentClassifierVpcConfig]{
-		OutputState: i.ToDocumentClassifierVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DocumentClassifierVpcConfigArgs) ToDocumentClassifierVpcConfigPtrOutput() DocumentClassifierVpcConfigPtrOutput {
 	return i.ToDocumentClassifierVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -736,12 +657,6 @@ func (i *documentClassifierVpcConfigPtrType) ToDocumentClassifierVpcConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierVpcConfigPtrOutput)
 }
 
-func (i *documentClassifierVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierVpcConfig] {
-	return pulumix.Output[*DocumentClassifierVpcConfig]{
-		OutputState: i.ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierVpcConfigOutput) ElementType() reflect.Type {
@@ -766,12 +681,6 @@ func (o DocumentClassifierVpcConfigOutput) ToDocumentClassifierVpcConfigPtrOutpu
 	}).(DocumentClassifierVpcConfigPtrOutput)
 }
 
-func (o DocumentClassifierVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierVpcConfig] {
-	return pulumix.Output[DocumentClassifierVpcConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of security group IDs.
 func (o DocumentClassifierVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -794,12 +703,6 @@ func (o DocumentClassifierVpcConfigPtrOutput) ToDocumentClassifierVpcConfigPtrOu
 
 func (o DocumentClassifierVpcConfigPtrOutput) ToDocumentClassifierVpcConfigPtrOutputWithContext(ctx context.Context) DocumentClassifierVpcConfigPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierVpcConfig] {
-	return pulumix.Output[*DocumentClassifierVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierVpcConfigPtrOutput) Elem() DocumentClassifierVpcConfigOutput {
@@ -907,12 +810,6 @@ func (i EntityRecognizerInputDataConfigArgs) ToEntityRecognizerInputDataConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigOutput)
 }
 
-func (i EntityRecognizerInputDataConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfig] {
-	return pulumix.Output[EntityRecognizerInputDataConfig]{
-		OutputState: i.ToEntityRecognizerInputDataConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EntityRecognizerInputDataConfigArgs) ToEntityRecognizerInputDataConfigPtrOutput() EntityRecognizerInputDataConfigPtrOutput {
 	return i.ToEntityRecognizerInputDataConfigPtrOutputWithContext(context.Background())
 }
@@ -954,12 +851,6 @@ func (i *entityRecognizerInputDataConfigPtrType) ToEntityRecognizerInputDataConf
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigPtrOutput)
 }
 
-func (i *entityRecognizerInputDataConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfig] {
-	return pulumix.Output[*EntityRecognizerInputDataConfig]{
-		OutputState: i.ToEntityRecognizerInputDataConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigOutput) ElementType() reflect.Type {
@@ -982,12 +873,6 @@ func (o EntityRecognizerInputDataConfigOutput) ToEntityRecognizerInputDataConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerInputDataConfig) *EntityRecognizerInputDataConfig {
 		return &v
 	}).(EntityRecognizerInputDataConfigPtrOutput)
-}
-
-func (o EntityRecognizerInputDataConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfig] {
-	return pulumix.Output[EntityRecognizerInputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies location of the document annotation data.
@@ -1051,12 +936,6 @@ func (o EntityRecognizerInputDataConfigPtrOutput) ToEntityRecognizerInputDataCon
 
 func (o EntityRecognizerInputDataConfigPtrOutput) ToEntityRecognizerInputDataConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigPtrOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfig] {
-	return pulumix.Output[*EntityRecognizerInputDataConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigPtrOutput) Elem() EntityRecognizerInputDataConfigOutput {
@@ -1175,12 +1054,6 @@ func (i EntityRecognizerInputDataConfigAnnotationsArgs) ToEntityRecognizerInputD
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigAnnotationsOutput)
 }
 
-func (i EntityRecognizerInputDataConfigAnnotationsArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigAnnotations] {
-	return pulumix.Output[EntityRecognizerInputDataConfigAnnotations]{
-		OutputState: i.ToEntityRecognizerInputDataConfigAnnotationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EntityRecognizerInputDataConfigAnnotationsArgs) ToEntityRecognizerInputDataConfigAnnotationsPtrOutput() EntityRecognizerInputDataConfigAnnotationsPtrOutput {
 	return i.ToEntityRecognizerInputDataConfigAnnotationsPtrOutputWithContext(context.Background())
 }
@@ -1222,12 +1095,6 @@ func (i *entityRecognizerInputDataConfigAnnotationsPtrType) ToEntityRecognizerIn
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-func (i *entityRecognizerInputDataConfigAnnotationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigAnnotations] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigAnnotations]{
-		OutputState: i.ToEntityRecognizerInputDataConfigAnnotationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigAnnotationsOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigAnnotationsOutput) ElementType() reflect.Type {
@@ -1252,12 +1119,6 @@ func (o EntityRecognizerInputDataConfigAnnotationsOutput) ToEntityRecognizerInpu
 	}).(EntityRecognizerInputDataConfigAnnotationsPtrOutput)
 }
 
-func (o EntityRecognizerInputDataConfigAnnotationsOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigAnnotations] {
-	return pulumix.Output[EntityRecognizerInputDataConfigAnnotations]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Location of training annotations.
 func (o EntityRecognizerInputDataConfigAnnotationsOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigAnnotations) string { return v.S3Uri }).(pulumi.StringOutput)
@@ -1279,12 +1140,6 @@ func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) ToEntityRecognizerI
 
 func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) ToEntityRecognizerInputDataConfigAnnotationsPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigAnnotationsPtrOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigAnnotations] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigAnnotations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigAnnotationsPtrOutput) Elem() EntityRecognizerInputDataConfigAnnotationsOutput {
@@ -1373,12 +1228,6 @@ func (i EntityRecognizerInputDataConfigAugmentedManifestArgs) ToEntityRecognizer
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigAugmentedManifestOutput)
 }
 
-func (i EntityRecognizerInputDataConfigAugmentedManifestArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigAugmentedManifest] {
-	return pulumix.Output[EntityRecognizerInputDataConfigAugmentedManifest]{
-		OutputState: i.ToEntityRecognizerInputDataConfigAugmentedManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EntityRecognizerInputDataConfigAugmentedManifestArrayInput is an input type that accepts EntityRecognizerInputDataConfigAugmentedManifestArray and EntityRecognizerInputDataConfigAugmentedManifestArrayOutput values.
 // You can construct a concrete instance of `EntityRecognizerInputDataConfigAugmentedManifestArrayInput` via:
 //
@@ -1404,12 +1253,6 @@ func (i EntityRecognizerInputDataConfigAugmentedManifestArray) ToEntityRecognize
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigAugmentedManifestArrayOutput)
 }
 
-func (i EntityRecognizerInputDataConfigAugmentedManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]EntityRecognizerInputDataConfigAugmentedManifest] {
-	return pulumix.Output[[]EntityRecognizerInputDataConfigAugmentedManifest]{
-		OutputState: i.ToEntityRecognizerInputDataConfigAugmentedManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigAugmentedManifestOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigAugmentedManifestOutput) ElementType() reflect.Type {
@@ -1422,12 +1265,6 @@ func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) ToEntityRecogniz
 
 func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) ToEntityRecognizerInputDataConfigAugmentedManifestOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigAugmentedManifestOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigAugmentedManifestOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigAugmentedManifest] {
-	return pulumix.Output[EntityRecognizerInputDataConfigAugmentedManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Location of annotation files.
@@ -1474,12 +1311,6 @@ func (o EntityRecognizerInputDataConfigAugmentedManifestArrayOutput) ToEntityRec
 
 func (o EntityRecognizerInputDataConfigAugmentedManifestArrayOutput) ToEntityRecognizerInputDataConfigAugmentedManifestArrayOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigAugmentedManifestArrayOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigAugmentedManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EntityRecognizerInputDataConfigAugmentedManifest] {
-	return pulumix.Output[[]EntityRecognizerInputDataConfigAugmentedManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigAugmentedManifestArrayOutput) Index(i pulumi.IntInput) EntityRecognizerInputDataConfigAugmentedManifestOutput {
@@ -1529,12 +1360,6 @@ func (i EntityRecognizerInputDataConfigDocumentsArgs) ToEntityRecognizerInputDat
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigDocumentsOutput)
 }
 
-func (i EntityRecognizerInputDataConfigDocumentsArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigDocuments] {
-	return pulumix.Output[EntityRecognizerInputDataConfigDocuments]{
-		OutputState: i.ToEntityRecognizerInputDataConfigDocumentsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EntityRecognizerInputDataConfigDocumentsArgs) ToEntityRecognizerInputDataConfigDocumentsPtrOutput() EntityRecognizerInputDataConfigDocumentsPtrOutput {
 	return i.ToEntityRecognizerInputDataConfigDocumentsPtrOutputWithContext(context.Background())
 }
@@ -1576,12 +1401,6 @@ func (i *entityRecognizerInputDataConfigDocumentsPtrType) ToEntityRecognizerInpu
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigDocumentsPtrOutput)
 }
 
-func (i *entityRecognizerInputDataConfigDocumentsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigDocuments] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigDocuments]{
-		OutputState: i.ToEntityRecognizerInputDataConfigDocumentsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigDocumentsOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigDocumentsOutput) ElementType() reflect.Type {
@@ -1604,12 +1423,6 @@ func (o EntityRecognizerInputDataConfigDocumentsOutput) ToEntityRecognizerInputD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EntityRecognizerInputDataConfigDocuments) *EntityRecognizerInputDataConfigDocuments {
 		return &v
 	}).(EntityRecognizerInputDataConfigDocumentsPtrOutput)
-}
-
-func (o EntityRecognizerInputDataConfigDocumentsOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigDocuments] {
-	return pulumix.Output[EntityRecognizerInputDataConfigDocuments]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies how the input files should be processed.
@@ -1639,12 +1452,6 @@ func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) ToEntityRecognizerInp
 
 func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) ToEntityRecognizerInputDataConfigDocumentsPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigDocumentsPtrOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigDocuments] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigDocuments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigDocumentsPtrOutput) Elem() EntityRecognizerInputDataConfigDocumentsOutput {
@@ -1720,12 +1527,6 @@ func (i EntityRecognizerInputDataConfigEntityListArgs) ToEntityRecognizerInputDa
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigEntityListOutput)
 }
 
-func (i EntityRecognizerInputDataConfigEntityListArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigEntityList] {
-	return pulumix.Output[EntityRecognizerInputDataConfigEntityList]{
-		OutputState: i.ToEntityRecognizerInputDataConfigEntityListOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EntityRecognizerInputDataConfigEntityListArgs) ToEntityRecognizerInputDataConfigEntityListPtrOutput() EntityRecognizerInputDataConfigEntityListPtrOutput {
 	return i.ToEntityRecognizerInputDataConfigEntityListPtrOutputWithContext(context.Background())
 }
@@ -1767,12 +1568,6 @@ func (i *entityRecognizerInputDataConfigEntityListPtrType) ToEntityRecognizerInp
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigEntityListPtrOutput)
 }
 
-func (i *entityRecognizerInputDataConfigEntityListPtrType) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigEntityList] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigEntityList]{
-		OutputState: i.ToEntityRecognizerInputDataConfigEntityListPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigEntityListOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigEntityListOutput) ElementType() reflect.Type {
@@ -1797,12 +1592,6 @@ func (o EntityRecognizerInputDataConfigEntityListOutput) ToEntityRecognizerInput
 	}).(EntityRecognizerInputDataConfigEntityListPtrOutput)
 }
 
-func (o EntityRecognizerInputDataConfigEntityListOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigEntityList] {
-	return pulumix.Output[EntityRecognizerInputDataConfigEntityList]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Location of entity list.
 func (o EntityRecognizerInputDataConfigEntityListOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EntityRecognizerInputDataConfigEntityList) string { return v.S3Uri }).(pulumi.StringOutput)
@@ -1820,12 +1609,6 @@ func (o EntityRecognizerInputDataConfigEntityListPtrOutput) ToEntityRecognizerIn
 
 func (o EntityRecognizerInputDataConfigEntityListPtrOutput) ToEntityRecognizerInputDataConfigEntityListPtrOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigEntityListPtrOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigEntityListPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerInputDataConfigEntityList] {
-	return pulumix.Output[*EntityRecognizerInputDataConfigEntityList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigEntityListPtrOutput) Elem() EntityRecognizerInputDataConfigEntityListOutput {
@@ -1883,12 +1666,6 @@ func (i EntityRecognizerInputDataConfigEntityTypeArgs) ToEntityRecognizerInputDa
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigEntityTypeOutput)
 }
 
-func (i EntityRecognizerInputDataConfigEntityTypeArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigEntityType] {
-	return pulumix.Output[EntityRecognizerInputDataConfigEntityType]{
-		OutputState: i.ToEntityRecognizerInputDataConfigEntityTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EntityRecognizerInputDataConfigEntityTypeArrayInput is an input type that accepts EntityRecognizerInputDataConfigEntityTypeArray and EntityRecognizerInputDataConfigEntityTypeArrayOutput values.
 // You can construct a concrete instance of `EntityRecognizerInputDataConfigEntityTypeArrayInput` via:
 //
@@ -1914,12 +1691,6 @@ func (i EntityRecognizerInputDataConfigEntityTypeArray) ToEntityRecognizerInputD
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerInputDataConfigEntityTypeArrayOutput)
 }
 
-func (i EntityRecognizerInputDataConfigEntityTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]EntityRecognizerInputDataConfigEntityType] {
-	return pulumix.Output[[]EntityRecognizerInputDataConfigEntityType]{
-		OutputState: i.ToEntityRecognizerInputDataConfigEntityTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerInputDataConfigEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerInputDataConfigEntityTypeOutput) ElementType() reflect.Type {
@@ -1932,12 +1703,6 @@ func (o EntityRecognizerInputDataConfigEntityTypeOutput) ToEntityRecognizerInput
 
 func (o EntityRecognizerInputDataConfigEntityTypeOutput) ToEntityRecognizerInputDataConfigEntityTypeOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigEntityTypeOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigEntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerInputDataConfigEntityType] {
-	return pulumix.Output[EntityRecognizerInputDataConfigEntityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An entity type to be matched by the Entity Recognizer.
@@ -1958,12 +1723,6 @@ func (o EntityRecognizerInputDataConfigEntityTypeArrayOutput) ToEntityRecognizer
 
 func (o EntityRecognizerInputDataConfigEntityTypeArrayOutput) ToEntityRecognizerInputDataConfigEntityTypeArrayOutputWithContext(ctx context.Context) EntityRecognizerInputDataConfigEntityTypeArrayOutput {
 	return o
-}
-
-func (o EntityRecognizerInputDataConfigEntityTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EntityRecognizerInputDataConfigEntityType] {
-	return pulumix.Output[[]EntityRecognizerInputDataConfigEntityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerInputDataConfigEntityTypeArrayOutput) Index(i pulumi.IntInput) EntityRecognizerInputDataConfigEntityTypeOutput {
@@ -2009,12 +1768,6 @@ func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerVpcConfigOutput)
 }
 
-func (i EntityRecognizerVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerVpcConfig] {
-	return pulumix.Output[EntityRecognizerVpcConfig]{
-		OutputState: i.ToEntityRecognizerVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EntityRecognizerVpcConfigArgs) ToEntityRecognizerVpcConfigPtrOutput() EntityRecognizerVpcConfigPtrOutput {
 	return i.ToEntityRecognizerVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -2056,12 +1809,6 @@ func (i *entityRecognizerVpcConfigPtrType) ToEntityRecognizerVpcConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerVpcConfigPtrOutput)
 }
 
-func (i *entityRecognizerVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerVpcConfig] {
-	return pulumix.Output[*EntityRecognizerVpcConfig]{
-		OutputState: i.ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerVpcConfigOutput) ElementType() reflect.Type {
@@ -2086,12 +1833,6 @@ func (o EntityRecognizerVpcConfigOutput) ToEntityRecognizerVpcConfigPtrOutputWit
 	}).(EntityRecognizerVpcConfigPtrOutput)
 }
 
-func (o EntityRecognizerVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EntityRecognizerVpcConfig] {
-	return pulumix.Output[EntityRecognizerVpcConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of security group IDs.
 func (o EntityRecognizerVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EntityRecognizerVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -2114,12 +1855,6 @@ func (o EntityRecognizerVpcConfigPtrOutput) ToEntityRecognizerVpcConfigPtrOutput
 
 func (o EntityRecognizerVpcConfigPtrOutput) ToEntityRecognizerVpcConfigPtrOutputWithContext(ctx context.Context) EntityRecognizerVpcConfigPtrOutput {
 	return o
-}
-
-func (o EntityRecognizerVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizerVpcConfig] {
-	return pulumix.Output[*EntityRecognizerVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerVpcConfigPtrOutput) Elem() EntityRecognizerVpcConfigOutput {

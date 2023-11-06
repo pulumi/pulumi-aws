@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The CloudFormation Stack data source allows access to stack
@@ -135,12 +134,6 @@ func (o LookupStackResultOutput) ToLookupStackResultOutput() LookupStackResultOu
 
 func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx context.Context) LookupStackResultOutput {
 	return o
-}
-
-func (o LookupStackResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStackResult] {
-	return pulumix.Output[LookupStackResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of capabilities

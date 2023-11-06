@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a policy to an S3 bucket resource.
@@ -185,12 +184,6 @@ func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) Buck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyOutput)
 }
 
-func (i *BucketPolicy) ToOutput(ctx context.Context) pulumix.Output[*BucketPolicy] {
-	return pulumix.Output[*BucketPolicy]{
-		OutputState: i.ToBucketPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketPolicyArrayInput is an input type that accepts BucketPolicyArray and BucketPolicyArrayOutput values.
 // You can construct a concrete instance of `BucketPolicyArrayInput` via:
 //
@@ -214,12 +207,6 @@ func (i BucketPolicyArray) ToBucketPolicyArrayOutput() BucketPolicyArrayOutput {
 
 func (i BucketPolicyArray) ToBucketPolicyArrayOutputWithContext(ctx context.Context) BucketPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyArrayOutput)
-}
-
-func (i BucketPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketPolicy] {
-	return pulumix.Output[[]*BucketPolicy]{
-		OutputState: i.ToBucketPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketPolicyMapInput is an input type that accepts BucketPolicyMap and BucketPolicyMapOutput values.
@@ -247,12 +234,6 @@ func (i BucketPolicyMap) ToBucketPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyMapOutput)
 }
 
-func (i BucketPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketPolicy] {
-	return pulumix.Output[map[string]*BucketPolicy]{
-		OutputState: i.ToBucketPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
@@ -265,12 +246,6 @@ func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {
 
 func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
 	return o
-}
-
-func (o BucketPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketPolicy] {
-	return pulumix.Output[*BucketPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket to which to apply the policy.
@@ -297,12 +272,6 @@ func (o BucketPolicyArrayOutput) ToBucketPolicyArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o BucketPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketPolicy] {
-	return pulumix.Output[[]*BucketPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketPolicyArrayOutput) Index(i pulumi.IntInput) BucketPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketPolicy {
 		return vs[0].([]*BucketPolicy)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o BucketPolicyMapOutput) ToBucketPolicyMapOutput() BucketPolicyMapOutput {
 
 func (o BucketPolicyMapOutput) ToBucketPolicyMapOutputWithContext(ctx context.Context) BucketPolicyMapOutput {
 	return o
-}
-
-func (o BucketPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketPolicy] {
-	return pulumix.Output[map[string]*BucketPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketPolicyMapOutput) MapIndex(k pulumi.StringInput) BucketPolicyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
@@ -253,12 +252,6 @@ func (i *Member) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberOutput)
 }
 
-func (i *Member) ToOutput(ctx context.Context) pulumix.Output[*Member] {
-	return pulumix.Output[*Member]{
-		OutputState: i.ToMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MemberArrayInput is an input type that accepts MemberArray and MemberArrayOutput values.
 // You can construct a concrete instance of `MemberArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i MemberArray) ToMemberArrayOutput() MemberArrayOutput {
 
 func (i MemberArray) ToMemberArrayOutputWithContext(ctx context.Context) MemberArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberArrayOutput)
-}
-
-func (i MemberArray) ToOutput(ctx context.Context) pulumix.Output[[]*Member] {
-	return pulumix.Output[[]*Member]{
-		OutputState: i.ToMemberArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MemberMapInput is an input type that accepts MemberMap and MemberMapOutput values.
@@ -315,12 +302,6 @@ func (i MemberMap) ToMemberMapOutputWithContext(ctx context.Context) MemberMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(MemberMapOutput)
 }
 
-func (i MemberMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Member] {
-	return pulumix.Output[map[string]*Member]{
-		OutputState: i.ToMemberMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MemberOutput struct{ *pulumi.OutputState }
 
 func (MemberOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o MemberOutput) ToMemberOutput() MemberOutput {
 
 func (o MemberOutput) ToMemberOutputWithContext(ctx context.Context) MemberOutput {
 	return o
-}
-
-func (o MemberOutput) ToOutput(ctx context.Context) pulumix.Output[*Member] {
-	return pulumix.Output[*Member]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID for the account.
@@ -424,12 +399,6 @@ func (o MemberArrayOutput) ToMemberArrayOutputWithContext(ctx context.Context) M
 	return o
 }
 
-func (o MemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Member] {
-	return pulumix.Output[[]*Member]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MemberArrayOutput) Index(i pulumi.IntInput) MemberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Member {
 		return vs[0].([]*Member)[vs[1].(int)]
@@ -448,12 +417,6 @@ func (o MemberMapOutput) ToMemberMapOutput() MemberMapOutput {
 
 func (o MemberMapOutput) ToMemberMapOutputWithContext(ctx context.Context) MemberMapOutput {
 	return o
-}
-
-func (o MemberMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Member] {
-	return pulumix.Output[map[string]*Member]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MemberMapOutput) MapIndex(k pulumi.StringInput) MemberOutput {

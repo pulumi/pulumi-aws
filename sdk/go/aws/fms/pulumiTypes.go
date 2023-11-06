@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i PolicyExcludeMapArgs) ToPolicyExcludeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapOutput)
 }
 
-func (i PolicyExcludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
-	return pulumix.Output[PolicyExcludeMap]{
-		OutputState: i.ToPolicyExcludeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyExcludeMapArgs) ToPolicyExcludeMapPtrOutput() PolicyExcludeMapPtrOutput {
 	return i.ToPolicyExcludeMapPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *policyExcludeMapPtrType) ToPolicyExcludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapPtrOutput)
 }
 
-func (i *policyExcludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
-	return pulumix.Output[*PolicyExcludeMap]{
-		OutputState: i.ToPolicyExcludeMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyExcludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyExcludeMapOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyExcludeMap) *PolicyExcludeMap {
 		return &v
 	}).(PolicyExcludeMapPtrOutput)
-}
-
-func (o PolicyExcludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
-	return pulumix.Output[PolicyExcludeMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -162,12 +143,6 @@ func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutput() PolicyExcludeMa
 
 func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx context.Context) PolicyExcludeMapPtrOutput {
 	return o
-}
-
-func (o PolicyExcludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
-	return pulumix.Output[*PolicyExcludeMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
@@ -243,12 +218,6 @@ func (i PolicyIncludeMapArgs) ToPolicyIncludeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapOutput)
 }
 
-func (i PolicyIncludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
-	return pulumix.Output[PolicyIncludeMap]{
-		OutputState: i.ToPolicyIncludeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyIncludeMapArgs) ToPolicyIncludeMapPtrOutput() PolicyIncludeMapPtrOutput {
 	return i.ToPolicyIncludeMapPtrOutputWithContext(context.Background())
 }
@@ -290,12 +259,6 @@ func (i *policyIncludeMapPtrType) ToPolicyIncludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapPtrOutput)
 }
 
-func (i *policyIncludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
-	return pulumix.Output[*PolicyIncludeMap]{
-		OutputState: i.ToPolicyIncludeMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyIncludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyIncludeMapOutput) ElementType() reflect.Type {
@@ -318,12 +281,6 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIncludeMap) *PolicyIncludeMap {
 		return &v
 	}).(PolicyIncludeMapPtrOutput)
-}
-
-func (o PolicyIncludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
-	return pulumix.Output[PolicyIncludeMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -350,12 +307,6 @@ func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutput() PolicyIncludeMa
 
 func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx context.Context) PolicyIncludeMapPtrOutput {
 	return o
-}
-
-func (o PolicyIncludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
-	return pulumix.Output[*PolicyIncludeMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
@@ -431,12 +382,6 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput)
 }
 
-func (i PolicySecurityServicePolicyDataArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
-	return pulumix.Output[PolicySecurityServicePolicyData]{
-		OutputState: i.ToPolicySecurityServicePolicyDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
 	return i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Background())
 }
@@ -478,12 +423,6 @@ func (i *policySecurityServicePolicyDataPtrType) ToPolicySecurityServicePolicyDa
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
-func (i *policySecurityServicePolicyDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
-	return pulumix.Output[*PolicySecurityServicePolicyData]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySecurityServicePolicyDataOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataOutput) ElementType() reflect.Type {
@@ -506,12 +445,6 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyData {
 		return &v
 	}).(PolicySecurityServicePolicyDataPtrOutput)
-}
-
-func (o PolicySecurityServicePolicyDataOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
-	return pulumix.Output[PolicySecurityServicePolicyData]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
@@ -543,12 +476,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyD
 
 func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
-	return pulumix.Output[*PolicySecurityServicePolicyData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {
@@ -626,12 +553,6 @@ func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityService
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionOutput)
 }
 
-func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOption] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOption]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicySecurityServicePolicyDataPolicyOptionArgs) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutput() PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return i.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(context.Background())
 }
@@ -673,12 +594,6 @@ func (i *policySecurityServicePolicyDataPolicyOptionPtrType) ToPolicySecuritySer
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-func (i *policySecurityServicePolicyDataPolicyOptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySecurityServicePolicyDataPolicyOptionOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataPolicyOptionOutput) ElementType() reflect.Type {
@@ -701,12 +616,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToPolicySecurityServi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyDataPolicyOption) *PolicySecurityServicePolicyDataPolicyOption {
 		return &v
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
-}
-
-func (o PolicySecurityServicePolicyDataPolicyOptionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOption] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines the deployment model to use for the firewall policy. Documented below.
@@ -734,12 +643,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToPolicySecuritySe
 
 func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionPtrOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataPolicyOptionPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionOutput {
@@ -804,12 +707,6 @@ func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput)
 }
 
-func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(context.Background())
 }
@@ -851,12 +748,6 @@ func (i *policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
 }
 
-func (i *policySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ElementType() reflect.Type {
@@ -881,12 +772,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) 
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
 }
 
-func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
@@ -906,12 +791,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutpu
 
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput {
@@ -967,12 +846,6 @@ func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput)
 }
 
-func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
 	return i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(context.Background())
 }
@@ -1014,12 +887,6 @@ func (i *policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
 }
 
-func (i *policySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
-		OutputState: i.ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ElementType() reflect.Type {
@@ -1044,12 +911,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutpu
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
 }
 
-func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
-	return pulumix.Output[PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
@@ -1069,12 +930,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOu
 
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ToPolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy] {
-	return pulumix.Output[*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) Elem() PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput {

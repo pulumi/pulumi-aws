@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates and manages an AWS IoT domain configuration.
@@ -240,12 +239,6 @@ func (i *DomainConfiguration) ToDomainConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationOutput)
 }
 
-func (i *DomainConfiguration) ToOutput(ctx context.Context) pulumix.Output[*DomainConfiguration] {
-	return pulumix.Output[*DomainConfiguration]{
-		OutputState: i.ToDomainConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainConfigurationArrayInput is an input type that accepts DomainConfigurationArray and DomainConfigurationArrayOutput values.
 // You can construct a concrete instance of `DomainConfigurationArrayInput` via:
 //
@@ -269,12 +262,6 @@ func (i DomainConfigurationArray) ToDomainConfigurationArrayOutput() DomainConfi
 
 func (i DomainConfigurationArray) ToDomainConfigurationArrayOutputWithContext(ctx context.Context) DomainConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationArrayOutput)
-}
-
-func (i DomainConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainConfiguration] {
-	return pulumix.Output[[]*DomainConfiguration]{
-		OutputState: i.ToDomainConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DomainConfigurationMapInput is an input type that accepts DomainConfigurationMap and DomainConfigurationMapOutput values.
@@ -302,12 +289,6 @@ func (i DomainConfigurationMap) ToDomainConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationMapOutput)
 }
 
-func (i DomainConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainConfiguration] {
-	return pulumix.Output[map[string]*DomainConfiguration]{
-		OutputState: i.ToDomainConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationOutput) ElementType() reflect.Type {
@@ -320,12 +301,6 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutput() DomainConfigura
 
 func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx context.Context) DomainConfigurationOutput {
 	return o
-}
-
-func (o DomainConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConfiguration] {
-	return pulumix.Output[*DomainConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the domain configuration.
@@ -403,12 +378,6 @@ func (o DomainConfigurationArrayOutput) ToDomainConfigurationArrayOutputWithCont
 	return o
 }
 
-func (o DomainConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainConfiguration] {
-	return pulumix.Output[[]*DomainConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainConfigurationArrayOutput) Index(i pulumi.IntInput) DomainConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainConfiguration {
 		return vs[0].([]*DomainConfiguration)[vs[1].(int)]
@@ -427,12 +396,6 @@ func (o DomainConfigurationMapOutput) ToDomainConfigurationMapOutput() DomainCon
 
 func (o DomainConfigurationMapOutput) ToDomainConfigurationMapOutputWithContext(ctx context.Context) DomainConfigurationMapOutput {
 	return o
-}
-
-func (o DomainConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainConfiguration] {
-	return pulumix.Output[map[string]*DomainConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainConfigurationMapOutput) MapIndex(k pulumi.StringInput) DomainConfigurationOutput {

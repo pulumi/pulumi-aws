@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a settings of an API Gateway Documentation Part.
@@ -173,12 +172,6 @@ func (i *DocumentationPart) ToDocumentationPartOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartOutput)
 }
 
-func (i *DocumentationPart) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
-	return pulumix.Output[*DocumentationPart]{
-		OutputState: i.ToDocumentationPartOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentationPartArrayInput is an input type that accepts DocumentationPartArray and DocumentationPartArrayOutput values.
 // You can construct a concrete instance of `DocumentationPartArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i DocumentationPartArray) ToDocumentationPartArrayOutput() DocumentationPa
 
 func (i DocumentationPartArray) ToDocumentationPartArrayOutputWithContext(ctx context.Context) DocumentationPartArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartArrayOutput)
-}
-
-func (i DocumentationPartArray) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentationPart] {
-	return pulumix.Output[[]*DocumentationPart]{
-		OutputState: i.ToDocumentationPartArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DocumentationPartMapInput is an input type that accepts DocumentationPartMap and DocumentationPartMapOutput values.
@@ -235,12 +222,6 @@ func (i DocumentationPartMap) ToDocumentationPartMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartMapOutput)
 }
 
-func (i DocumentationPartMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentationPart] {
-	return pulumix.Output[map[string]*DocumentationPart]{
-		OutputState: i.ToDocumentationPartMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentationPartOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o DocumentationPartOutput) ToDocumentationPartOutput() DocumentationPartOu
 
 func (o DocumentationPartOutput) ToDocumentationPartOutputWithContext(ctx context.Context) DocumentationPartOutput {
 	return o
-}
-
-func (o DocumentationPartOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationPart] {
-	return pulumix.Output[*DocumentationPart]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Location of the targeted API entity of the to-be-created documentation part. See below.
@@ -290,12 +265,6 @@ func (o DocumentationPartArrayOutput) ToDocumentationPartArrayOutputWithContext(
 	return o
 }
 
-func (o DocumentationPartArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentationPart] {
-	return pulumix.Output[[]*DocumentationPart]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentationPartArrayOutput) Index(i pulumi.IntInput) DocumentationPartOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DocumentationPart {
 		return vs[0].([]*DocumentationPart)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o DocumentationPartMapOutput) ToDocumentationPartMapOutput() Documentation
 
 func (o DocumentationPartMapOutput) ToDocumentationPartMapOutputWithContext(ctx context.Context) DocumentationPartMapOutput {
 	return o
-}
-
-func (o DocumentationPartMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentationPart] {
-	return pulumix.Output[map[string]*DocumentationPart]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentationPartMapOutput) MapIndex(k pulumi.StringInput) DocumentationPartOutput {

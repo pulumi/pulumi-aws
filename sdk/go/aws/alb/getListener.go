@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
@@ -136,12 +135,6 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutput() LookupListene
 
 func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx context.Context) LookupListenerResultOutput {
 	return o
-}
-
-func (o LookupListenerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListenerResult] {
-	return pulumix.Output[LookupListenerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupListenerResultOutput) AlpnPolicy() pulumi.StringOutput {
