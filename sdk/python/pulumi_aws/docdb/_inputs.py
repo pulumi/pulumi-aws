@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -25,10 +25,31 @@ class ClusterParameterGroupParameterArgs:
         :param pulumi.Input[str] value: The value of the DocumentDB parameter.
         :param pulumi.Input[str] apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ClusterParameterGroupParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+            apply_method=apply_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             apply_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if apply_method is None and 'applyMethod' in kwargs:
+            apply_method = kwargs['applyMethod']
+
+        _setter("name", name)
+        _setter("value", value)
         if apply_method is not None:
-            pulumi.set(__self__, "apply_method", apply_method)
+            _setter("apply_method", apply_method)
 
     @property
     @pulumi.getter
@@ -76,10 +97,27 @@ class GlobalClusterGlobalClusterMemberArgs:
         :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
         :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster.
         """
+        GlobalClusterGlobalClusterMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db_cluster_arn=db_cluster_arn,
+            is_writer=is_writer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db_cluster_arn: Optional[pulumi.Input[str]] = None,
+             is_writer: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if db_cluster_arn is None and 'dbClusterArn' in kwargs:
+            db_cluster_arn = kwargs['dbClusterArn']
+        if is_writer is None and 'isWriter' in kwargs:
+            is_writer = kwargs['isWriter']
+
         if db_cluster_arn is not None:
-            pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+            _setter("db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
-            pulumi.set(__self__, "is_writer", is_writer)
+            _setter("is_writer", is_writer)
 
     @property
     @pulumi.getter(name="dbClusterArn")

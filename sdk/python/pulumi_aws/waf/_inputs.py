@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -58,11 +58,42 @@ class ByteMatchSetByteMatchTupleArgs:
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
                for all supported values.
         """
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "positional_constraint", positional_constraint)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        ByteMatchSetByteMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            positional_constraint=positional_constraint,
+            text_transformation=text_transformation,
+            target_string=target_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: Optional[pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs']] = None,
+             positional_constraint: Optional[pulumi.Input[str]] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             target_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if positional_constraint is None and 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if positional_constraint is None:
+            raise TypeError("Missing 'positional_constraint' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+        if target_string is None and 'targetString' in kwargs:
+            target_string = kwargs['targetString']
+
+        _setter("field_to_match", field_to_match)
+        _setter("positional_constraint", positional_constraint)
+        _setter("text_transformation", text_transformation)
         if target_string is not None:
-            pulumi.set(__self__, "target_string", target_string)
+            _setter("target_string", target_string)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -136,9 +167,24 @@ class ByteMatchSetByteMatchTupleFieldToMatchArgs:
         :param pulumi.Input[str] data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
-        pulumi.set(__self__, "type", type)
+        ByteMatchSetByteMatchTupleFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -180,8 +226,25 @@ class GeoMatchSetGeoMatchConstraintArgs:
                This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        GeoMatchSetGeoMatchConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -219,8 +282,25 @@ class IpSetIpSetDescriptorArgs:
         :param pulumi.Input[str] type: Type of the IP address - `IPV4` or `IPV6`.
         :param pulumi.Input[str] value: An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        IpSetIpSetDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -261,9 +341,32 @@ class RateBasedRulePredicateArgs:
                If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
         :param pulumi.Input[str] type: The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
         """
-        pulumi.set(__self__, "data_id", data_id)
-        pulumi.set(__self__, "negated", negated)
-        pulumi.set(__self__, "type", type)
+        RateBasedRulePredicateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_id=data_id,
+            negated=negated,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_id: Optional[pulumi.Input[str]] = None,
+             negated: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_id is None and 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+        if data_id is None:
+            raise TypeError("Missing 'data_id' argument")
+        if negated is None:
+            raise TypeError("Missing 'negated' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("data_id", data_id)
+        _setter("negated", negated)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="dataId")
@@ -319,9 +422,36 @@ class RegexMatchSetRegexMatchTupleArgs:
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
                for all supported values.
         """
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "regex_pattern_set_id", regex_pattern_set_id)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        RegexMatchSetRegexMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            regex_pattern_set_id=regex_pattern_set_id,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: Optional[pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs']] = None,
+             regex_pattern_set_id: Optional[pulumi.Input[str]] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if regex_pattern_set_id is None and 'regexPatternSetId' in kwargs:
+            regex_pattern_set_id = kwargs['regexPatternSetId']
+        if regex_pattern_set_id is None:
+            raise TypeError("Missing 'regex_pattern_set_id' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
+        _setter("field_to_match", field_to_match)
+        _setter("regex_pattern_set_id", regex_pattern_set_id)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -376,9 +506,24 @@ class RegexMatchSetRegexMatchTupleFieldToMatchArgs:
         :param pulumi.Input[str] data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
-        pulumi.set(__self__, "type", type)
+        RegexMatchSetRegexMatchTupleFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -422,11 +567,36 @@ class RuleGroupActivatedRuleArgs:
         :param pulumi.Input[str] rule_id: The ID of a rule
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_id", rule_id)
+        RuleGroupActivatedRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            priority=priority,
+            rule_id=rule_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['RuleGroupActivatedRuleActionArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
+
+        _setter("action", action)
+        _setter("priority", priority)
+        _setter("rule_id", rule_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -484,7 +654,20 @@ class RuleGroupActivatedRuleActionArgs:
         """
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
         """
-        pulumi.set(__self__, "type", type)
+        RuleGroupActivatedRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -513,9 +696,32 @@ class RulePredicateArgs:
                If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses except `192.0.2.44`.
         :param pulumi.Input[str] type: The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
         """
-        pulumi.set(__self__, "data_id", data_id)
-        pulumi.set(__self__, "negated", negated)
-        pulumi.set(__self__, "type", type)
+        RulePredicateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_id=data_id,
+            negated=negated,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_id: Optional[pulumi.Input[str]] = None,
+             negated: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_id is None and 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+        if data_id is None:
+            raise TypeError("Missing 'data_id' argument")
+        if negated is None:
+            raise TypeError("Missing 'negated' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("data_id", data_id)
+        _setter("negated", negated)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="dataId")
@@ -578,10 +784,41 @@ class SizeConstraintSetSizeConstraintArgs:
                for all supported values.
                **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
         """
-        pulumi.set(__self__, "comparison_operator", comparison_operator)
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        SizeConstraintSetSizeConstraintArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comparison_operator=comparison_operator,
+            field_to_match=field_to_match,
+            size=size,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             field_to_match: Optional[pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs']] = None,
+             size: Optional[pulumi.Input[int]] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
+        _setter("comparison_operator", comparison_operator)
+        _setter("field_to_match", field_to_match)
+        _setter("size", size)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -653,9 +890,24 @@ class SizeConstraintSetSizeConstraintFieldToMatchArgs:
         :param pulumi.Input[str] data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
-        pulumi.set(__self__, "type", type)
+        SizeConstraintSetSizeConstraintFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -699,8 +951,29 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
                for all supported values.
         """
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        SqlInjectionMatchSetSqlInjectionMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: Optional[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs']] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
+        _setter("field_to_match", field_to_match)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -744,9 +1017,24 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs:
         :param pulumi.Input[str] data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
-        pulumi.set(__self__, "type", type)
+        SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -785,7 +1073,20 @@ class WebAclDefaultActionArgs:
         :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
                e.g., `ALLOW` or `BLOCK`
         """
-        pulumi.set(__self__, "type", type)
+        WebAclDefaultActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -810,9 +1111,28 @@ class WebAclLoggingConfigurationArgs:
         :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
         :param pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs'] redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         """
-        pulumi.set(__self__, "log_destination", log_destination)
+        WebAclLoggingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_destination=log_destination,
+            redacted_fields=redacted_fields,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_destination: Optional[pulumi.Input[str]] = None,
+             redacted_fields: Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if log_destination is None:
+            raise TypeError("Missing 'log_destination' argument")
+        if redacted_fields is None and 'redactedFields' in kwargs:
+            redacted_fields = kwargs['redactedFields']
+
+        _setter("log_destination", log_destination)
         if redacted_fields is not None:
-            pulumi.set(__self__, "redacted_fields", redacted_fields)
+            _setter("redacted_fields", redacted_fields)
 
     @property
     @pulumi.getter(name="logDestination")
@@ -846,7 +1166,22 @@ class WebAclLoggingConfigurationRedactedFieldsArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
         """
-        pulumi.set(__self__, "field_to_matches", field_to_matches)
+        WebAclLoggingConfigurationRedactedFieldsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_matches=field_to_matches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if field_to_matches is None and 'fieldToMatches' in kwargs:
+            field_to_matches = kwargs['fieldToMatches']
+        if field_to_matches is None:
+            raise TypeError("Missing 'field_to_matches' argument")
+
+        _setter("field_to_matches", field_to_matches)
 
     @property
     @pulumi.getter(name="fieldToMatches")
@@ -870,9 +1205,24 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
         :param pulumi.Input[str] type: The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         :param pulumi.Input[str] data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
-        pulumi.set(__self__, "type", type)
+        WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter
@@ -915,14 +1265,41 @@ class WebAclRuleArgs:
         :param pulumi.Input['WebAclRuleOverrideActionArgs'] override_action: Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "rule_id", rule_id)
+        WebAclRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            priority=priority,
+            rule_id=rule_id,
+            action=action,
+            override_action=override_action,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
+             override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
+        if override_action is None and 'overrideAction' in kwargs:
+            override_action = kwargs['overrideAction']
+
+        _setter("priority", priority)
+        _setter("rule_id", rule_id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if override_action is not None:
-            pulumi.set(__self__, "override_action", override_action)
+            _setter("override_action", override_action)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -994,7 +1371,20 @@ class WebAclRuleActionArgs:
         :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
                e.g., `ALLOW` or `BLOCK`
         """
-        pulumi.set(__self__, "type", type)
+        WebAclRuleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1018,7 +1408,20 @@ class WebAclRuleOverrideActionArgs:
         :param pulumi.Input[str] type: Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
                e.g., `ALLOW` or `BLOCK`
         """
-        pulumi.set(__self__, "type", type)
+        WebAclRuleOverrideActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1047,8 +1450,29 @@ class XssMatchSetXssMatchTupleArgs:
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
                for all supported values.
         """
-        pulumi.set(__self__, "field_to_match", field_to_match)
-        pulumi.set(__self__, "text_transformation", text_transformation)
+        XssMatchSetXssMatchTupleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_to_match=field_to_match,
+            text_transformation=text_transformation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_to_match: Optional[pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArgs']] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
+        _setter("field_to_match", field_to_match)
+        _setter("text_transformation", text_transformation)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -1092,9 +1516,24 @@ class XssMatchSetXssMatchTupleFieldToMatchArgs:
         :param pulumi.Input[str] data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
-        pulumi.set(__self__, "type", type)
+        XssMatchSetXssMatchTupleFieldToMatchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter

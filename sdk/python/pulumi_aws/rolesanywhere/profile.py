@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileArgs', 'Profile']
@@ -33,21 +33,58 @@ class ProfileArgs:
         :param pulumi.Input[str] session_policy: A session policy that applies to the trust boundary of the vended session credentials.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "role_arns", role_arns)
+        ProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role_arns=role_arns,
+            duration_seconds=duration_seconds,
+            enabled=enabled,
+            managed_policy_arns=managed_policy_arns,
+            name=name,
+            require_instance_properties=require_instance_properties,
+            session_policy=session_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             duration_seconds: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             require_instance_properties: Optional[pulumi.Input[bool]] = None,
+             session_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if role_arns is None and 'roleArns' in kwargs:
+            role_arns = kwargs['roleArns']
+        if role_arns is None:
+            raise TypeError("Missing 'role_arns' argument")
+        if duration_seconds is None and 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if require_instance_properties is None and 'requireInstanceProperties' in kwargs:
+            require_instance_properties = kwargs['requireInstanceProperties']
+        if session_policy is None and 'sessionPolicy' in kwargs:
+            session_policy = kwargs['sessionPolicy']
+
+        _setter("role_arns", role_arns)
         if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
+            _setter("duration_seconds", duration_seconds)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if require_instance_properties is not None:
-            pulumi.set(__self__, "require_instance_properties", require_instance_properties)
+            _setter("require_instance_properties", require_instance_properties)
         if session_policy is not None:
-            pulumi.set(__self__, "session_policy", session_policy)
+            _setter("session_policy", session_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="roleArns")
@@ -172,29 +209,70 @@ class _ProfileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            duration_seconds=duration_seconds,
+            enabled=enabled,
+            managed_policy_arns=managed_policy_arns,
+            name=name,
+            require_instance_properties=require_instance_properties,
+            role_arns=role_arns,
+            session_policy=session_policy,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             duration_seconds: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             require_instance_properties: Optional[pulumi.Input[bool]] = None,
+             role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             session_policy: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if duration_seconds is None and 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if require_instance_properties is None and 'requireInstanceProperties' in kwargs:
+            require_instance_properties = kwargs['requireInstanceProperties']
+        if role_arns is None and 'roleArns' in kwargs:
+            role_arns = kwargs['roleArns']
+        if session_policy is None and 'sessionPolicy' in kwargs:
+            session_policy = kwargs['sessionPolicy']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if duration_seconds is not None:
-            pulumi.set(__self__, "duration_seconds", duration_seconds)
+            _setter("duration_seconds", duration_seconds)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_policy_arns is not None:
-            pulumi.set(__self__, "managed_policy_arns", managed_policy_arns)
+            _setter("managed_policy_arns", managed_policy_arns)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if require_instance_properties is not None:
-            pulumi.set(__self__, "require_instance_properties", require_instance_properties)
+            _setter("require_instance_properties", require_instance_properties)
         if role_arns is not None:
-            pulumi.set(__self__, "role_arns", role_arns)
+            _setter("role_arns", role_arns)
         if session_policy is not None:
-            pulumi.set(__self__, "session_policy", session_policy)
+            _setter("session_policy", session_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -437,6 +515,10 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

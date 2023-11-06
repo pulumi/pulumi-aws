@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,22 +41,85 @@ class ReplicationConfigArgs:
         :param pulumi.Input[str] supplemental_settings: JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "compute_config", compute_config)
-        pulumi.set(__self__, "replication_config_identifier", replication_config_identifier)
-        pulumi.set(__self__, "replication_type", replication_type)
-        pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
-        pulumi.set(__self__, "table_mappings", table_mappings)
-        pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
+        ReplicationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_config=compute_config,
+            replication_config_identifier=replication_config_identifier,
+            replication_type=replication_type,
+            source_endpoint_arn=source_endpoint_arn,
+            table_mappings=table_mappings,
+            target_endpoint_arn=target_endpoint_arn,
+            replication_settings=replication_settings,
+            resource_identifier=resource_identifier,
+            start_replication=start_replication,
+            supplemental_settings=supplemental_settings,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_config: Optional[pulumi.Input['ReplicationConfigComputeConfigArgs']] = None,
+             replication_config_identifier: Optional[pulumi.Input[str]] = None,
+             replication_type: Optional[pulumi.Input[str]] = None,
+             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+             table_mappings: Optional[pulumi.Input[str]] = None,
+             target_endpoint_arn: Optional[pulumi.Input[str]] = None,
+             replication_settings: Optional[pulumi.Input[str]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             start_replication: Optional[pulumi.Input[bool]] = None,
+             supplemental_settings: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compute_config is None and 'computeConfig' in kwargs:
+            compute_config = kwargs['computeConfig']
+        if compute_config is None:
+            raise TypeError("Missing 'compute_config' argument")
+        if replication_config_identifier is None and 'replicationConfigIdentifier' in kwargs:
+            replication_config_identifier = kwargs['replicationConfigIdentifier']
+        if replication_config_identifier is None:
+            raise TypeError("Missing 'replication_config_identifier' argument")
+        if replication_type is None and 'replicationType' in kwargs:
+            replication_type = kwargs['replicationType']
+        if replication_type is None:
+            raise TypeError("Missing 'replication_type' argument")
+        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if source_endpoint_arn is None:
+            raise TypeError("Missing 'source_endpoint_arn' argument")
+        if table_mappings is None and 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if table_mappings is None:
+            raise TypeError("Missing 'table_mappings' argument")
+        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+        if target_endpoint_arn is None:
+            raise TypeError("Missing 'target_endpoint_arn' argument")
+        if replication_settings is None and 'replicationSettings' in kwargs:
+            replication_settings = kwargs['replicationSettings']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if start_replication is None and 'startReplication' in kwargs:
+            start_replication = kwargs['startReplication']
+        if supplemental_settings is None and 'supplementalSettings' in kwargs:
+            supplemental_settings = kwargs['supplementalSettings']
+
+        _setter("compute_config", compute_config)
+        _setter("replication_config_identifier", replication_config_identifier)
+        _setter("replication_type", replication_type)
+        _setter("source_endpoint_arn", source_endpoint_arn)
+        _setter("table_mappings", table_mappings)
+        _setter("target_endpoint_arn", target_endpoint_arn)
         if replication_settings is not None:
-            pulumi.set(__self__, "replication_settings", replication_settings)
+            _setter("replication_settings", replication_settings)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if start_replication is not None:
-            pulumi.set(__self__, "start_replication", start_replication)
+            _setter("start_replication", start_replication)
         if supplemental_settings is not None:
-            pulumi.set(__self__, "supplemental_settings", supplemental_settings)
+            _setter("supplemental_settings", supplemental_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="computeConfig")
@@ -223,35 +286,92 @@ class _ReplicationConfigState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """
+        _ReplicationConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            compute_config=compute_config,
+            replication_config_identifier=replication_config_identifier,
+            replication_settings=replication_settings,
+            replication_type=replication_type,
+            resource_identifier=resource_identifier,
+            source_endpoint_arn=source_endpoint_arn,
+            start_replication=start_replication,
+            supplemental_settings=supplemental_settings,
+            table_mappings=table_mappings,
+            tags=tags,
+            tags_all=tags_all,
+            target_endpoint_arn=target_endpoint_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             compute_config: Optional[pulumi.Input['ReplicationConfigComputeConfigArgs']] = None,
+             replication_config_identifier: Optional[pulumi.Input[str]] = None,
+             replication_settings: Optional[pulumi.Input[str]] = None,
+             replication_type: Optional[pulumi.Input[str]] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+             start_replication: Optional[pulumi.Input[bool]] = None,
+             supplemental_settings: Optional[pulumi.Input[str]] = None,
+             table_mappings: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_endpoint_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compute_config is None and 'computeConfig' in kwargs:
+            compute_config = kwargs['computeConfig']
+        if replication_config_identifier is None and 'replicationConfigIdentifier' in kwargs:
+            replication_config_identifier = kwargs['replicationConfigIdentifier']
+        if replication_settings is None and 'replicationSettings' in kwargs:
+            replication_settings = kwargs['replicationSettings']
+        if replication_type is None and 'replicationType' in kwargs:
+            replication_type = kwargs['replicationType']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if start_replication is None and 'startReplication' in kwargs:
+            start_replication = kwargs['startReplication']
+        if supplemental_settings is None and 'supplementalSettings' in kwargs:
+            supplemental_settings = kwargs['supplementalSettings']
+        if table_mappings is None and 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if compute_config is not None:
-            pulumi.set(__self__, "compute_config", compute_config)
+            _setter("compute_config", compute_config)
         if replication_config_identifier is not None:
-            pulumi.set(__self__, "replication_config_identifier", replication_config_identifier)
+            _setter("replication_config_identifier", replication_config_identifier)
         if replication_settings is not None:
-            pulumi.set(__self__, "replication_settings", replication_settings)
+            _setter("replication_settings", replication_settings)
         if replication_type is not None:
-            pulumi.set(__self__, "replication_type", replication_type)
+            _setter("replication_type", replication_type)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
         if source_endpoint_arn is not None:
-            pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
+            _setter("source_endpoint_arn", source_endpoint_arn)
         if start_replication is not None:
-            pulumi.set(__self__, "start_replication", start_replication)
+            _setter("start_replication", start_replication)
         if supplemental_settings is not None:
-            pulumi.set(__self__, "supplemental_settings", supplemental_settings)
+            _setter("supplemental_settings", supplemental_settings)
         if table_mappings is not None:
-            pulumi.set(__self__, "table_mappings", table_mappings)
+            _setter("table_mappings", table_mappings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if target_endpoint_arn is not None:
-            pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
+            _setter("target_endpoint_arn", target_endpoint_arn)
 
     @property
     @pulumi.getter
@@ -536,6 +656,10 @@ class ReplicationConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -561,6 +685,11 @@ class ReplicationConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigArgs.__new__(ReplicationConfigArgs)
 
+            if compute_config is not None and not isinstance(compute_config, ReplicationConfigComputeConfigArgs):
+                compute_config = compute_config or {}
+                def _setter(key, value):
+                    compute_config[key] = value
+                ReplicationConfigComputeConfigArgs._configure(_setter, **compute_config)
             if compute_config is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_config'")
             __props__.__dict__["compute_config"] = compute_config

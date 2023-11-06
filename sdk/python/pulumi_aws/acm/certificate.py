@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -50,30 +50,83 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_body=certificate_body,
+            certificate_chain=certificate_chain,
+            domain_name=domain_name,
+            early_renewal_duration=early_renewal_duration,
+            key_algorithm=key_algorithm,
+            options=options,
+            private_key=private_key,
+            subject_alternative_names=subject_alternative_names,
+            tags=tags,
+            validation_method=validation_method,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             early_renewal_duration: Optional[pulumi.Input[str]] = None,
+             key_algorithm: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validation_method: Optional[pulumi.Input[str]] = None,
+             validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_body is None and 'certificateBody' in kwargs:
+            certificate_body = kwargs['certificateBody']
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if early_renewal_duration is None and 'earlyRenewalDuration' in kwargs:
+            early_renewal_duration = kwargs['earlyRenewalDuration']
+        if key_algorithm is None and 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if validation_method is None and 'validationMethod' in kwargs:
+            validation_method = kwargs['validationMethod']
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
         if certificate_authority_arn is not None:
-            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+            _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if early_renewal_duration is not None:
-            pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
+            _setter("early_renewal_duration", early_renewal_duration)
         if key_algorithm is not None:
-            pulumi.set(__self__, "key_algorithm", key_algorithm)
+            _setter("key_algorithm", key_algorithm)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validation_method is not None:
-            pulumi.set(__self__, "validation_method", validation_method)
+            _setter("validation_method", validation_method)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -288,55 +341,146 @@ class _CertificateState:
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
         """
+        _CertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            certificate_authority_arn=certificate_authority_arn,
+            certificate_body=certificate_body,
+            certificate_chain=certificate_chain,
+            domain_name=domain_name,
+            domain_validation_options=domain_validation_options,
+            early_renewal_duration=early_renewal_duration,
+            key_algorithm=key_algorithm,
+            not_after=not_after,
+            not_before=not_before,
+            options=options,
+            pending_renewal=pending_renewal,
+            private_key=private_key,
+            renewal_eligibility=renewal_eligibility,
+            renewal_summaries=renewal_summaries,
+            status=status,
+            subject_alternative_names=subject_alternative_names,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            validation_emails=validation_emails,
+            validation_method=validation_method,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             certificate_body: Optional[pulumi.Input[str]] = None,
+             certificate_chain: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
+             early_renewal_duration: Optional[pulumi.Input[str]] = None,
+             key_algorithm: Optional[pulumi.Input[str]] = None,
+             not_after: Optional[pulumi.Input[str]] = None,
+             not_before: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
+             pending_renewal: Optional[pulumi.Input[bool]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             renewal_eligibility: Optional[pulumi.Input[str]] = None,
+             renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             validation_method: Optional[pulumi.Input[str]] = None,
+             validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_body is None and 'certificateBody' in kwargs:
+            certificate_body = kwargs['certificateBody']
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_validation_options is None and 'domainValidationOptions' in kwargs:
+            domain_validation_options = kwargs['domainValidationOptions']
+        if early_renewal_duration is None and 'earlyRenewalDuration' in kwargs:
+            early_renewal_duration = kwargs['earlyRenewalDuration']
+        if key_algorithm is None and 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if not_after is None and 'notAfter' in kwargs:
+            not_after = kwargs['notAfter']
+        if not_before is None and 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if pending_renewal is None and 'pendingRenewal' in kwargs:
+            pending_renewal = kwargs['pendingRenewal']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if renewal_eligibility is None and 'renewalEligibility' in kwargs:
+            renewal_eligibility = kwargs['renewalEligibility']
+        if renewal_summaries is None and 'renewalSummaries' in kwargs:
+            renewal_summaries = kwargs['renewalSummaries']
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if validation_emails is None and 'validationEmails' in kwargs:
+            validation_emails = kwargs['validationEmails']
+        if validation_method is None and 'validationMethod' in kwargs:
+            validation_method = kwargs['validationMethod']
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if certificate_authority_arn is not None:
-            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+            _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_body is not None:
-            pulumi.set(__self__, "certificate_body", certificate_body)
+            _setter("certificate_body", certificate_body)
         if certificate_chain is not None:
-            pulumi.set(__self__, "certificate_chain", certificate_chain)
+            _setter("certificate_chain", certificate_chain)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if domain_validation_options is not None:
-            pulumi.set(__self__, "domain_validation_options", domain_validation_options)
+            _setter("domain_validation_options", domain_validation_options)
         if early_renewal_duration is not None:
-            pulumi.set(__self__, "early_renewal_duration", early_renewal_duration)
+            _setter("early_renewal_duration", early_renewal_duration)
         if key_algorithm is not None:
-            pulumi.set(__self__, "key_algorithm", key_algorithm)
+            _setter("key_algorithm", key_algorithm)
         if not_after is not None:
-            pulumi.set(__self__, "not_after", not_after)
+            _setter("not_after", not_after)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if pending_renewal is not None:
-            pulumi.set(__self__, "pending_renewal", pending_renewal)
+            _setter("pending_renewal", pending_renewal)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if renewal_eligibility is not None:
-            pulumi.set(__self__, "renewal_eligibility", renewal_eligibility)
+            _setter("renewal_eligibility", renewal_eligibility)
         if renewal_summaries is not None:
-            pulumi.set(__self__, "renewal_summaries", renewal_summaries)
+            _setter("renewal_summaries", renewal_summaries)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if validation_emails is not None:
-            pulumi.set(__self__, "validation_emails", validation_emails)
+            _setter("validation_emails", validation_emails)
         if validation_method is not None:
-            pulumi.set(__self__, "validation_method", validation_method)
+            _setter("validation_method", validation_method)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter
@@ -929,6 +1073,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -961,6 +1109,11 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["early_renewal_duration"] = early_renewal_duration
             __props__.__dict__["key_algorithm"] = key_algorithm
+            if options is not None and not isinstance(options, CertificateOptionsArgs):
+                options = options or {}
+                def _setter(key, value):
+                    options[key] = value
+                CertificateOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names

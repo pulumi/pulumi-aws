@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InstanceAutomatedBackupsReplicationArgs', 'InstanceAutomatedBackupsReplication']
@@ -25,13 +25,40 @@ class InstanceAutomatedBackupsReplicationArgs:
         :param pulumi.Input[str] pre_signed_url: A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         :param pulumi.Input[int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
         """
-        pulumi.set(__self__, "source_db_instance_arn", source_db_instance_arn)
+        InstanceAutomatedBackupsReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_db_instance_arn=source_db_instance_arn,
+            kms_key_id=kms_key_id,
+            pre_signed_url=pre_signed_url,
+            retention_period=retention_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_db_instance_arn: Optional[pulumi.Input[str]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             pre_signed_url: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_db_instance_arn is None and 'sourceDbInstanceArn' in kwargs:
+            source_db_instance_arn = kwargs['sourceDbInstanceArn']
+        if source_db_instance_arn is None:
+            raise TypeError("Missing 'source_db_instance_arn' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if pre_signed_url is None and 'preSignedUrl' in kwargs:
+            pre_signed_url = kwargs['preSignedUrl']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
+        _setter("source_db_instance_arn", source_db_instance_arn)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if pre_signed_url is not None:
-            pulumi.set(__self__, "pre_signed_url", pre_signed_url)
+            _setter("pre_signed_url", pre_signed_url)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
 
     @property
     @pulumi.getter(name="sourceDbInstanceArn")
@@ -96,14 +123,39 @@ class _InstanceAutomatedBackupsReplicationState:
         :param pulumi.Input[int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
         :param pulumi.Input[str] source_db_instance_arn: The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         """
+        _InstanceAutomatedBackupsReplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key_id=kms_key_id,
+            pre_signed_url=pre_signed_url,
+            retention_period=retention_period,
+            source_db_instance_arn=source_db_instance_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             pre_signed_url: Optional[pulumi.Input[str]] = None,
+             retention_period: Optional[pulumi.Input[int]] = None,
+             source_db_instance_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if pre_signed_url is None and 'preSignedUrl' in kwargs:
+            pre_signed_url = kwargs['preSignedUrl']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if source_db_instance_arn is None and 'sourceDbInstanceArn' in kwargs:
+            source_db_instance_arn = kwargs['sourceDbInstanceArn']
+
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if pre_signed_url is not None:
-            pulumi.set(__self__, "pre_signed_url", pre_signed_url)
+            _setter("pre_signed_url", pre_signed_url)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if source_db_instance_arn is not None:
-            pulumi.set(__self__, "source_db_instance_arn", source_db_instance_arn)
+            _setter("source_db_instance_arn", source_db_instance_arn)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -313,6 +365,10 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceAutomatedBackupsReplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

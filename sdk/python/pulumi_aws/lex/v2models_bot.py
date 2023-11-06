@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,24 +38,65 @@ class V2modelsBotArgs:
         :param pulumi.Input[str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         """
-        pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
-        pulumi.set(__self__, "role_arn", role_arn)
+        V2modelsBotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            idle_session_ttl_in_seconds=idle_session_ttl_in_seconds,
+            role_arn=role_arn,
+            data_privacies=data_privacies,
+            description=description,
+            members=members,
+            name=name,
+            tags=tags,
+            test_bot_alias_tags=test_bot_alias_tags,
+            timeouts=timeouts,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if idle_session_ttl_in_seconds is None and 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if idle_session_ttl_in_seconds is None:
+            raise TypeError("Missing 'idle_session_ttl_in_seconds' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if data_privacies is None and 'dataPrivacies' in kwargs:
+            data_privacies = kwargs['dataPrivacies']
+        if test_bot_alias_tags is None and 'testBotAliasTags' in kwargs:
+            test_bot_alias_tags = kwargs['testBotAliasTags']
+
+        _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
+        _setter("role_arn", role_arn)
         if data_privacies is not None:
-            pulumi.set(__self__, "data_privacies", data_privacies)
+            _setter("data_privacies", data_privacies)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if test_bot_alias_tags is not None:
-            pulumi.set(__self__, "test_bot_alias_tags", test_bot_alias_tags)
+            _setter("test_bot_alias_tags", test_bot_alias_tags)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
@@ -198,33 +239,76 @@ class _V2modelsBotState:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         """
+        _V2modelsBotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            data_privacies=data_privacies,
+            description=description,
+            idle_session_ttl_in_seconds=idle_session_ttl_in_seconds,
+            members=members,
+            name=name,
+            role_arn=role_arn,
+            tags=tags,
+            tags_all=tags_all,
+            test_bot_alias_tags=test_bot_alias_tags,
+            timeouts=timeouts,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotDataPrivacyArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeouts: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_privacies is None and 'dataPrivacies' in kwargs:
+            data_privacies = kwargs['dataPrivacies']
+        if idle_session_ttl_in_seconds is None and 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if test_bot_alias_tags is None and 'testBotAliasTags' in kwargs:
+            test_bot_alias_tags = kwargs['testBotAliasTags']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if data_privacies is not None:
-            pulumi.set(__self__, "data_privacies", data_privacies)
+            _setter("data_privacies", data_privacies)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if idle_session_ttl_in_seconds is not None:
-            pulumi.set(__self__, "idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
+            _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if test_bot_alias_tags is not None:
-            pulumi.set(__self__, "test_bot_alias_tags", test_bot_alias_tags)
+            _setter("test_bot_alias_tags", test_bot_alias_tags)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -457,6 +541,10 @@ class V2modelsBot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            V2modelsBotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -493,6 +581,11 @@ class V2modelsBot(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
+            if timeouts is not None and not isinstance(timeouts, V2modelsBotTimeoutsArgs):
+                timeouts = timeouts or {}
+                def _setter(key, value):
+                    timeouts[key] = value
+                V2modelsBotTimeoutsArgs._configure(_setter, **timeouts)
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None

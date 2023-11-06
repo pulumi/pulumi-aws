@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,30 +45,79 @@ class DirectoryArgs:
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
+        DirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            password=password,
+            alias=alias,
+            connect_settings=connect_settings,
+            description=description,
+            desired_number_of_domain_controllers=desired_number_of_domain_controllers,
+            edition=edition,
+            enable_sso=enable_sso,
+            short_name=short_name,
+            size=size,
+            tags=tags,
+            type=type,
+            vpc_settings=vpc_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             enable_sso: Optional[pulumi.Input[bool]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if connect_settings is None and 'connectSettings' in kwargs:
+            connect_settings = kwargs['connectSettings']
+        if desired_number_of_domain_controllers is None and 'desiredNumberOfDomainControllers' in kwargs:
+            desired_number_of_domain_controllers = kwargs['desiredNumberOfDomainControllers']
+        if enable_sso is None and 'enableSso' in kwargs:
+            enable_sso = kwargs['enableSso']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if vpc_settings is None and 'vpcSettings' in kwargs:
+            vpc_settings = kwargs['vpcSettings']
+
+        _setter("name", name)
+        _setter("password", password)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if connect_settings is not None:
-            pulumi.set(__self__, "connect_settings", connect_settings)
+            _setter("connect_settings", connect_settings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if desired_number_of_domain_controllers is not None:
-            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
+            _setter("desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if enable_sso is not None:
-            pulumi.set(__self__, "enable_sso", enable_sso)
+            _setter("enable_sso", enable_sso)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpc_settings is not None:
-            pulumi.set(__self__, "vpc_settings", vpc_settings)
+            _setter("vpc_settings", vpc_settings)
 
     @property
     @pulumi.getter
@@ -267,43 +316,104 @@ class _DirectoryState:
         :param pulumi.Input[str] type: The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         :param pulumi.Input['DirectoryVpcSettingsArgs'] vpc_settings: VPC related information about the directory. Fields documented below.
         """
+        _DirectoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_url=access_url,
+            alias=alias,
+            connect_settings=connect_settings,
+            description=description,
+            desired_number_of_domain_controllers=desired_number_of_domain_controllers,
+            dns_ip_addresses=dns_ip_addresses,
+            edition=edition,
+            enable_sso=enable_sso,
+            name=name,
+            password=password,
+            security_group_id=security_group_id,
+            short_name=short_name,
+            size=size,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+            vpc_settings=vpc_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_url: Optional[pulumi.Input[str]] = None,
+             alias: Optional[pulumi.Input[str]] = None,
+             connect_settings: Optional[pulumi.Input['DirectoryConnectSettingsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             desired_number_of_domain_controllers: Optional[pulumi.Input[int]] = None,
+             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             enable_sso: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             short_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vpc_settings: Optional[pulumi.Input['DirectoryVpcSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_url is None and 'accessUrl' in kwargs:
+            access_url = kwargs['accessUrl']
+        if connect_settings is None and 'connectSettings' in kwargs:
+            connect_settings = kwargs['connectSettings']
+        if desired_number_of_domain_controllers is None and 'desiredNumberOfDomainControllers' in kwargs:
+            desired_number_of_domain_controllers = kwargs['desiredNumberOfDomainControllers']
+        if dns_ip_addresses is None and 'dnsIpAddresses' in kwargs:
+            dns_ip_addresses = kwargs['dnsIpAddresses']
+        if enable_sso is None and 'enableSso' in kwargs:
+            enable_sso = kwargs['enableSso']
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_settings is None and 'vpcSettings' in kwargs:
+            vpc_settings = kwargs['vpcSettings']
+
         if access_url is not None:
-            pulumi.set(__self__, "access_url", access_url)
+            _setter("access_url", access_url)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if connect_settings is not None:
-            pulumi.set(__self__, "connect_settings", connect_settings)
+            _setter("connect_settings", connect_settings)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if desired_number_of_domain_controllers is not None:
-            pulumi.set(__self__, "desired_number_of_domain_controllers", desired_number_of_domain_controllers)
+            _setter("desired_number_of_domain_controllers", desired_number_of_domain_controllers)
         if dns_ip_addresses is not None:
-            pulumi.set(__self__, "dns_ip_addresses", dns_ip_addresses)
+            _setter("dns_ip_addresses", dns_ip_addresses)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if enable_sso is not None:
-            pulumi.set(__self__, "enable_sso", enable_sso)
+            _setter("enable_sso", enable_sso)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if short_name is not None:
-            pulumi.set(__self__, "short_name", short_name)
+            _setter("short_name", short_name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpc_settings is not None:
-            pulumi.set(__self__, "vpc_settings", vpc_settings)
+            _setter("vpc_settings", vpc_settings)
 
     @property
     @pulumi.getter(name="accessUrl")
@@ -772,6 +882,10 @@ class Directory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -800,6 +914,11 @@ class Directory(pulumi.CustomResource):
             __props__ = DirectoryArgs.__new__(DirectoryArgs)
 
             __props__.__dict__["alias"] = alias
+            if connect_settings is not None and not isinstance(connect_settings, DirectoryConnectSettingsArgs):
+                connect_settings = connect_settings or {}
+                def _setter(key, value):
+                    connect_settings[key] = value
+                DirectoryConnectSettingsArgs._configure(_setter, **connect_settings)
             __props__.__dict__["connect_settings"] = connect_settings
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_number_of_domain_controllers"] = desired_number_of_domain_controllers
@@ -815,6 +934,11 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
+            if vpc_settings is not None and not isinstance(vpc_settings, DirectoryVpcSettingsArgs):
+                vpc_settings = vpc_settings or {}
+                def _setter(key, value):
+                    vpc_settings[key] = value
+                DirectoryVpcSettingsArgs._configure(_setter, **vpc_settings)
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["access_url"] = None
             __props__.__dict__["dns_ip_addresses"] = None

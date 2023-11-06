@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrefixListReferenceArgs', 'PrefixListReference']
@@ -27,12 +27,39 @@ class PrefixListReferenceArgs:
         :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         """
-        pulumi.set(__self__, "prefix_list_id", prefix_list_id)
-        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        PrefixListReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefix_list_id=prefix_list_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+            blackhole=blackhole,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             blackhole: Optional[pulumi.Input[bool]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if prefix_list_id is None and 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+        if prefix_list_id is None:
+            raise TypeError("Missing 'prefix_list_id' argument")
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if transit_gateway_route_table_id is None:
+            raise TypeError("Missing 'transit_gateway_route_table_id' argument")
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+
+        _setter("prefix_list_id", prefix_list_id)
+        _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
         if blackhole is not None:
-            pulumi.set(__self__, "blackhole", blackhole)
+            _setter("blackhole", blackhole)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
 
     @property
     @pulumi.getter(name="prefixListId")
@@ -102,16 +129,43 @@ class _PrefixListReferenceState:
                
                The following arguments are optional:
         """
+        _PrefixListReferenceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blackhole=blackhole,
+            prefix_list_id=prefix_list_id,
+            prefix_list_owner_id=prefix_list_owner_id,
+            transit_gateway_attachment_id=transit_gateway_attachment_id,
+            transit_gateway_route_table_id=transit_gateway_route_table_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blackhole: Optional[pulumi.Input[bool]] = None,
+             prefix_list_id: Optional[pulumi.Input[str]] = None,
+             prefix_list_owner_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if prefix_list_id is None and 'prefixListId' in kwargs:
+            prefix_list_id = kwargs['prefixListId']
+        if prefix_list_owner_id is None and 'prefixListOwnerId' in kwargs:
+            prefix_list_owner_id = kwargs['prefixListOwnerId']
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+
         if blackhole is not None:
-            pulumi.set(__self__, "blackhole", blackhole)
+            _setter("blackhole", blackhole)
         if prefix_list_id is not None:
-            pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+            _setter("prefix_list_id", prefix_list_id)
         if prefix_list_owner_id is not None:
-            pulumi.set(__self__, "prefix_list_owner_id", prefix_list_owner_id)
+            _setter("prefix_list_owner_id", prefix_list_owner_id)
         if transit_gateway_attachment_id is not None:
-            pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+            _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
-            pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+            _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter
@@ -278,6 +332,10 @@ class PrefixListReference(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrefixListReferenceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

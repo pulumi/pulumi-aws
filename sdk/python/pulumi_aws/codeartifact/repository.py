@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,49 @@ class RepositoryArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "repository", repository)
+        RepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            repository=repository,
+            description=description,
+            domain_owner=domain_owner,
+            external_connections=external_connections,
+            tags=tags,
+            upstreams=upstreams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             domain_owner: Optional[pulumi.Input[str]] = None,
+             external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if domain_owner is None and 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if external_connections is None and 'externalConnections' in kwargs:
+            external_connections = kwargs['externalConnections']
+
+        _setter("domain", domain)
+        _setter("repository", repository)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if domain_owner is not None:
-            pulumi.set(__self__, "domain_owner", domain_owner)
+            _setter("domain_owner", domain_owner)
         if external_connections is not None:
-            pulumi.set(__self__, "external_connections", external_connections)
+            _setter("external_connections", external_connections)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upstreams is not None:
-            pulumi.set(__self__, "upstreams", upstreams)
+            _setter("upstreams", upstreams)
 
     @property
     @pulumi.getter
@@ -157,29 +188,66 @@ class _RepositoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]] upstreams: A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
         """
+        _RepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_account=administrator_account,
+            arn=arn,
+            description=description,
+            domain=domain,
+            domain_owner=domain_owner,
+            external_connections=external_connections,
+            repository=repository,
+            tags=tags,
+            tags_all=tags_all,
+            upstreams=upstreams,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_account: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             domain_owner: Optional[pulumi.Input[str]] = None,
+             external_connections: Optional[pulumi.Input['RepositoryExternalConnectionsArgs']] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upstreams: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryUpstreamArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_account is None and 'administratorAccount' in kwargs:
+            administrator_account = kwargs['administratorAccount']
+        if domain_owner is None and 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if external_connections is None and 'externalConnections' in kwargs:
+            external_connections = kwargs['externalConnections']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
+            _setter("administrator_account", administrator_account)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if domain_owner is not None:
-            pulumi.set(__self__, "domain_owner", domain_owner)
+            _setter("domain_owner", domain_owner)
         if external_connections is not None:
-            pulumi.set(__self__, "external_connections", external_connections)
+            _setter("external_connections", external_connections)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if upstreams is not None:
-            pulumi.set(__self__, "upstreams", upstreams)
+            _setter("upstreams", upstreams)
 
     @property
     @pulumi.getter(name="administratorAccount")
@@ -460,6 +528,10 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -486,6 +558,11 @@ class Repository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_owner"] = domain_owner
+            if external_connections is not None and not isinstance(external_connections, RepositoryExternalConnectionsArgs):
+                external_connections = external_connections or {}
+                def _setter(key, value):
+                    external_connections[key] = value
+                RepositoryExternalConnectionsArgs._configure(_setter, **external_connections)
             __props__.__dict__["external_connections"] = external_connections
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")

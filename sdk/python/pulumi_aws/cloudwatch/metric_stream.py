@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,74 @@ class MetricStreamArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "firehose_arn", firehose_arn)
-        pulumi.set(__self__, "output_format", output_format)
-        pulumi.set(__self__, "role_arn", role_arn)
+        MetricStreamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firehose_arn=firehose_arn,
+            output_format=output_format,
+            role_arn=role_arn,
+            exclude_filters=exclude_filters,
+            include_filters=include_filters,
+            include_linked_accounts_metrics=include_linked_accounts_metrics,
+            name=name,
+            name_prefix=name_prefix,
+            statistics_configurations=statistics_configurations,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firehose_arn: Optional[pulumi.Input[str]] = None,
+             output_format: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
+             include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+             include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if firehose_arn is None and 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+        if firehose_arn is None:
+            raise TypeError("Missing 'firehose_arn' argument")
+        if output_format is None and 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if output_format is None:
+            raise TypeError("Missing 'output_format' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if exclude_filters is None and 'excludeFilters' in kwargs:
+            exclude_filters = kwargs['excludeFilters']
+        if include_filters is None and 'includeFilters' in kwargs:
+            include_filters = kwargs['includeFilters']
+        if include_linked_accounts_metrics is None and 'includeLinkedAccountsMetrics' in kwargs:
+            include_linked_accounts_metrics = kwargs['includeLinkedAccountsMetrics']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if statistics_configurations is None and 'statisticsConfigurations' in kwargs:
+            statistics_configurations = kwargs['statisticsConfigurations']
+
+        _setter("firehose_arn", firehose_arn)
+        _setter("output_format", output_format)
+        _setter("role_arn", role_arn)
         if exclude_filters is not None:
-            pulumi.set(__self__, "exclude_filters", exclude_filters)
+            _setter("exclude_filters", exclude_filters)
         if include_filters is not None:
-            pulumi.set(__self__, "include_filters", include_filters)
+            _setter("include_filters", include_filters)
         if include_linked_accounts_metrics is not None:
-            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
+            _setter("include_linked_accounts_metrics", include_linked_accounts_metrics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if statistics_configurations is not None:
-            pulumi.set(__self__, "statistics_configurations", statistics_configurations)
+            _setter("statistics_configurations", statistics_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="firehoseArn")
@@ -220,39 +271,100 @@ class _MetricStreamState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _MetricStreamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            creation_date=creation_date,
+            exclude_filters=exclude_filters,
+            firehose_arn=firehose_arn,
+            include_filters=include_filters,
+            include_linked_accounts_metrics=include_linked_accounts_metrics,
+            last_update_date=last_update_date,
+            name=name,
+            name_prefix=name_prefix,
+            output_format=output_format,
+            role_arn=role_arn,
+            state=state,
+            statistics_configurations=statistics_configurations,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             creation_date: Optional[pulumi.Input[str]] = None,
+             exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamExcludeFilterArgs']]]] = None,
+             firehose_arn: Optional[pulumi.Input[str]] = None,
+             include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamIncludeFilterArgs']]]] = None,
+             include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
+             last_update_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             output_format: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if creation_date is None and 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if exclude_filters is None and 'excludeFilters' in kwargs:
+            exclude_filters = kwargs['excludeFilters']
+        if firehose_arn is None and 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+        if include_filters is None and 'includeFilters' in kwargs:
+            include_filters = kwargs['includeFilters']
+        if include_linked_accounts_metrics is None and 'includeLinkedAccountsMetrics' in kwargs:
+            include_linked_accounts_metrics = kwargs['includeLinkedAccountsMetrics']
+        if last_update_date is None and 'lastUpdateDate' in kwargs:
+            last_update_date = kwargs['lastUpdateDate']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if output_format is None and 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if statistics_configurations is None and 'statisticsConfigurations' in kwargs:
+            statistics_configurations = kwargs['statisticsConfigurations']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if creation_date is not None:
-            pulumi.set(__self__, "creation_date", creation_date)
+            _setter("creation_date", creation_date)
         if exclude_filters is not None:
-            pulumi.set(__self__, "exclude_filters", exclude_filters)
+            _setter("exclude_filters", exclude_filters)
         if firehose_arn is not None:
-            pulumi.set(__self__, "firehose_arn", firehose_arn)
+            _setter("firehose_arn", firehose_arn)
         if include_filters is not None:
-            pulumi.set(__self__, "include_filters", include_filters)
+            _setter("include_filters", include_filters)
         if include_linked_accounts_metrics is not None:
-            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
+            _setter("include_linked_accounts_metrics", include_linked_accounts_metrics)
         if last_update_date is not None:
-            pulumi.set(__self__, "last_update_date", last_update_date)
+            _setter("last_update_date", last_update_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if output_format is not None:
-            pulumi.set(__self__, "output_format", output_format)
+            _setter("output_format", output_format)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if statistics_configurations is not None:
-            pulumi.set(__self__, "statistics_configurations", statistics_configurations)
+            _setter("statistics_configurations", statistics_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -735,6 +847,10 @@ class MetricStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

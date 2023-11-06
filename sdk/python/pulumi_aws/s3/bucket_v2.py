@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,81 +72,146 @@ class BucketV2Args:
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
+        BucketV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            bucket=bucket,
+            bucket_prefix=bucket_prefix,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            object_lock_enabled=object_lock_enabled,
+            policy=policy,
+            replication_configurations=replication_configurations,
+            request_payer=request_payer,
+            server_side_encryption_configurations=server_side_encryption_configurations,
+            tags=tags,
+            versionings=versionings,
+            websites=websites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']] = None,
+             object_lock_enabled: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             replication_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versionings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]] = None,
+             websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if acceleration_status is None and 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if cors_rules is None and 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if lifecycle_rules is None and 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if object_lock_configuration is None and 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+        if replication_configurations is None and 'replicationConfigurations' in kwargs:
+            replication_configurations = kwargs['replicationConfigurations']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption_configurations is None and 'serverSideEncryptionConfigurations' in kwargs:
+            server_side_encryption_configurations = kwargs['serverSideEncryptionConfigurations']
+
         if acceleration_status is not None:
             warnings.warn("""Use the aws_s3_bucket_accelerate_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""acceleration_status is deprecated: Use the aws_s3_bucket_accelerate_configuration resource instead""")
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
             warnings.warn("""Use the aws_s3_bucket_acl resource instead""", DeprecationWarning)
             pulumi.log.warn("""acl is deprecated: Use the aws_s3_bucket_acl resource instead""")
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if cors_rules is not None:
             warnings.warn("""Use the aws_s3_bucket_cors_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""cors_rules is deprecated: Use the aws_s3_bucket_cors_configuration resource instead""")
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
             warnings.warn("""Use the aws_s3_bucket_acl resource instead""", DeprecationWarning)
             pulumi.log.warn("""grants is deprecated: Use the aws_s3_bucket_acl resource instead""")
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if lifecycle_rules is not None:
             warnings.warn("""Use the aws_s3_bucket_lifecycle_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""lifecycle_rules is deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead""")
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
             warnings.warn("""Use the aws_s3_bucket_logging resource instead""", DeprecationWarning)
             pulumi.log.warn("""loggings is deprecated: Use the aws_s3_bucket_logging resource instead""")
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
             warnings.warn("""Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""object_lock_configuration is deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead""")
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if object_lock_enabled is not None:
-            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+            _setter("object_lock_enabled", object_lock_enabled)
         if policy is not None:
             warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
             pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if replication_configurations is not None:
             warnings.warn("""Use the aws_s3_bucket_replication_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""replication_configurations is deprecated: Use the aws_s3_bucket_replication_configuration resource instead""")
         if replication_configurations is not None:
-            pulumi.set(__self__, "replication_configurations", replication_configurations)
+            _setter("replication_configurations", replication_configurations)
         if request_payer is not None:
             warnings.warn("""Use the aws_s3_bucket_request_payment_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""request_payer is deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead""")
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configurations is not None:
             warnings.warn("""Use the aws_s3_bucket_server_side_encryption_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead""")
         if server_side_encryption_configurations is not None:
-            pulumi.set(__self__, "server_side_encryption_configurations", server_side_encryption_configurations)
+            _setter("server_side_encryption_configurations", server_side_encryption_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if versionings is not None:
             warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
             pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
         if versionings is not None:
-            pulumi.set(__self__, "versionings", versionings)
+            _setter("versionings", versionings)
         if websites is not None:
             warnings.warn("""Use the aws_s3_bucket_website_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""websites is deprecated: Use the aws_s3_bucket_website_configuration resource instead""")
         if websites is not None:
-            pulumi.set(__self__, "websites", websites)
+            _setter("websites", websites)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -496,106 +561,199 @@ class _BucketV2State:
         :param pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]] websites: Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
                Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
+        _BucketV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acceleration_status=acceleration_status,
+            acl=acl,
+            arn=arn,
+            bucket=bucket,
+            bucket_domain_name=bucket_domain_name,
+            bucket_prefix=bucket_prefix,
+            bucket_regional_domain_name=bucket_regional_domain_name,
+            cors_rules=cors_rules,
+            force_destroy=force_destroy,
+            grants=grants,
+            hosted_zone_id=hosted_zone_id,
+            lifecycle_rules=lifecycle_rules,
+            loggings=loggings,
+            object_lock_configuration=object_lock_configuration,
+            object_lock_enabled=object_lock_enabled,
+            policy=policy,
+            region=region,
+            replication_configurations=replication_configurations,
+            request_payer=request_payer,
+            server_side_encryption_configurations=server_side_encryption_configurations,
+            tags=tags,
+            tags_all=tags_all,
+            versionings=versionings,
+            website_domain=website_domain,
+            website_endpoint=website_endpoint,
+            websites=websites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acceleration_status: Optional[pulumi.Input[str]] = None,
+             acl: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             bucket: Optional[pulumi.Input[str]] = None,
+             bucket_domain_name: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
+             bucket_regional_domain_name: Optional[pulumi.Input[str]] = None,
+             cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]] = None,
+             force_destroy: Optional[pulumi.Input[bool]] = None,
+             grants: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]] = None,
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             lifecycle_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]] = None,
+             loggings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]] = None,
+             object_lock_configuration: Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']] = None,
+             object_lock_enabled: Optional[pulumi.Input[bool]] = None,
+             policy: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             replication_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]] = None,
+             request_payer: Optional[pulumi.Input[str]] = None,
+             server_side_encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             versionings: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]] = None,
+             website_domain: Optional[pulumi.Input[str]] = None,
+             website_endpoint: Optional[pulumi.Input[str]] = None,
+             websites: Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if acceleration_status is None and 'accelerationStatus' in kwargs:
+            acceleration_status = kwargs['accelerationStatus']
+        if bucket_domain_name is None and 'bucketDomainName' in kwargs:
+            bucket_domain_name = kwargs['bucketDomainName']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if bucket_regional_domain_name is None and 'bucketRegionalDomainName' in kwargs:
+            bucket_regional_domain_name = kwargs['bucketRegionalDomainName']
+        if cors_rules is None and 'corsRules' in kwargs:
+            cors_rules = kwargs['corsRules']
+        if force_destroy is None and 'forceDestroy' in kwargs:
+            force_destroy = kwargs['forceDestroy']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if lifecycle_rules is None and 'lifecycleRules' in kwargs:
+            lifecycle_rules = kwargs['lifecycleRules']
+        if object_lock_configuration is None and 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+        if replication_configurations is None and 'replicationConfigurations' in kwargs:
+            replication_configurations = kwargs['replicationConfigurations']
+        if request_payer is None and 'requestPayer' in kwargs:
+            request_payer = kwargs['requestPayer']
+        if server_side_encryption_configurations is None and 'serverSideEncryptionConfigurations' in kwargs:
+            server_side_encryption_configurations = kwargs['serverSideEncryptionConfigurations']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if website_domain is None and 'websiteDomain' in kwargs:
+            website_domain = kwargs['websiteDomain']
+        if website_endpoint is None and 'websiteEndpoint' in kwargs:
+            website_endpoint = kwargs['websiteEndpoint']
+
         if acceleration_status is not None:
             warnings.warn("""Use the aws_s3_bucket_accelerate_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""acceleration_status is deprecated: Use the aws_s3_bucket_accelerate_configuration resource instead""")
         if acceleration_status is not None:
-            pulumi.set(__self__, "acceleration_status", acceleration_status)
+            _setter("acceleration_status", acceleration_status)
         if acl is not None:
             warnings.warn("""Use the aws_s3_bucket_acl resource instead""", DeprecationWarning)
             pulumi.log.warn("""acl is deprecated: Use the aws_s3_bucket_acl resource instead""")
         if acl is not None:
-            pulumi.set(__self__, "acl", acl)
+            _setter("acl", acl)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if bucket_domain_name is not None:
-            pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
+            _setter("bucket_domain_name", bucket_domain_name)
         if bucket_prefix is not None:
-            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+            _setter("bucket_prefix", bucket_prefix)
         if bucket_regional_domain_name is not None:
-            pulumi.set(__self__, "bucket_regional_domain_name", bucket_regional_domain_name)
+            _setter("bucket_regional_domain_name", bucket_regional_domain_name)
         if cors_rules is not None:
             warnings.warn("""Use the aws_s3_bucket_cors_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""cors_rules is deprecated: Use the aws_s3_bucket_cors_configuration resource instead""")
         if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
+            _setter("cors_rules", cors_rules)
         if force_destroy is not None:
-            pulumi.set(__self__, "force_destroy", force_destroy)
+            _setter("force_destroy", force_destroy)
         if grants is not None:
             warnings.warn("""Use the aws_s3_bucket_acl resource instead""", DeprecationWarning)
             pulumi.log.warn("""grants is deprecated: Use the aws_s3_bucket_acl resource instead""")
         if grants is not None:
-            pulumi.set(__self__, "grants", grants)
+            _setter("grants", grants)
         if hosted_zone_id is not None:
-            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+            _setter("hosted_zone_id", hosted_zone_id)
         if lifecycle_rules is not None:
             warnings.warn("""Use the aws_s3_bucket_lifecycle_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""lifecycle_rules is deprecated: Use the aws_s3_bucket_lifecycle_configuration resource instead""")
         if lifecycle_rules is not None:
-            pulumi.set(__self__, "lifecycle_rules", lifecycle_rules)
+            _setter("lifecycle_rules", lifecycle_rules)
         if loggings is not None:
             warnings.warn("""Use the aws_s3_bucket_logging resource instead""", DeprecationWarning)
             pulumi.log.warn("""loggings is deprecated: Use the aws_s3_bucket_logging resource instead""")
         if loggings is not None:
-            pulumi.set(__self__, "loggings", loggings)
+            _setter("loggings", loggings)
         if object_lock_configuration is not None:
             warnings.warn("""Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""object_lock_configuration is deprecated: Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead""")
         if object_lock_configuration is not None:
-            pulumi.set(__self__, "object_lock_configuration", object_lock_configuration)
+            _setter("object_lock_configuration", object_lock_configuration)
         if object_lock_enabled is not None:
-            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
+            _setter("object_lock_enabled", object_lock_enabled)
         if policy is not None:
             warnings.warn("""Use the aws_s3_bucket_policy resource instead""", DeprecationWarning)
             pulumi.log.warn("""policy is deprecated: Use the aws_s3_bucket_policy resource instead""")
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if replication_configurations is not None:
             warnings.warn("""Use the aws_s3_bucket_replication_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""replication_configurations is deprecated: Use the aws_s3_bucket_replication_configuration resource instead""")
         if replication_configurations is not None:
-            pulumi.set(__self__, "replication_configurations", replication_configurations)
+            _setter("replication_configurations", replication_configurations)
         if request_payer is not None:
             warnings.warn("""Use the aws_s3_bucket_request_payment_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""request_payer is deprecated: Use the aws_s3_bucket_request_payment_configuration resource instead""")
         if request_payer is not None:
-            pulumi.set(__self__, "request_payer", request_payer)
+            _setter("request_payer", request_payer)
         if server_side_encryption_configurations is not None:
             warnings.warn("""Use the aws_s3_bucket_server_side_encryption_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the aws_s3_bucket_server_side_encryption_configuration resource instead""")
         if server_side_encryption_configurations is not None:
-            pulumi.set(__self__, "server_side_encryption_configurations", server_side_encryption_configurations)
+            _setter("server_side_encryption_configurations", server_side_encryption_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if versionings is not None:
             warnings.warn("""Use the aws_s3_bucket_versioning resource instead""", DeprecationWarning)
             pulumi.log.warn("""versionings is deprecated: Use the aws_s3_bucket_versioning resource instead""")
         if versionings is not None:
-            pulumi.set(__self__, "versionings", versionings)
+            _setter("versionings", versionings)
         if website_domain is not None:
             warnings.warn("""Use the aws_s3_bucket_website_configuration resource""", DeprecationWarning)
             pulumi.log.warn("""website_domain is deprecated: Use the aws_s3_bucket_website_configuration resource""")
         if website_domain is not None:
-            pulumi.set(__self__, "website_domain", website_domain)
+            _setter("website_domain", website_domain)
         if website_endpoint is not None:
             warnings.warn("""Use the aws_s3_bucket_website_configuration resource""", DeprecationWarning)
             pulumi.log.warn("""website_endpoint is deprecated: Use the aws_s3_bucket_website_configuration resource""")
         if website_endpoint is not None:
-            pulumi.set(__self__, "website_endpoint", website_endpoint)
+            _setter("website_endpoint", website_endpoint)
         if websites is not None:
             warnings.warn("""Use the aws_s3_bucket_website_configuration resource instead""", DeprecationWarning)
             pulumi.log.warn("""websites is deprecated: Use the aws_s3_bucket_website_configuration resource instead""")
         if websites is not None:
-            pulumi.set(__self__, "websites", websites)
+            _setter("websites", websites)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -1197,6 +1355,10 @@ class BucketV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BucketV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1238,6 +1400,11 @@ class BucketV2(pulumi.CustomResource):
             __props__.__dict__["grants"] = grants
             __props__.__dict__["lifecycle_rules"] = lifecycle_rules
             __props__.__dict__["loggings"] = loggings
+            if object_lock_configuration is not None and not isinstance(object_lock_configuration, BucketV2ObjectLockConfigurationArgs):
+                object_lock_configuration = object_lock_configuration or {}
+                def _setter(key, value):
+                    object_lock_configuration[key] = value
+                BucketV2ObjectLockConfigurationArgs._configure(_setter, **object_lock_configuration)
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
             __props__.__dict__["policy"] = policy

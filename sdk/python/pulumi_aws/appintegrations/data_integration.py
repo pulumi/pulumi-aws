@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,48 @@ class DataIntegrationArgs:
         :param pulumi.Input[str] name: Specifies the name of the Data Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "kms_key", kms_key)
-        pulumi.set(__self__, "schedule_config", schedule_config)
-        pulumi.set(__self__, "source_uri", source_uri)
+        DataIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kms_key=kms_key,
+            schedule_config=schedule_config,
+            source_uri=source_uri,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kms_key: Optional[pulumi.Input[str]] = None,
+             schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if kms_key is None:
+            raise TypeError("Missing 'kms_key' argument")
+        if schedule_config is None and 'scheduleConfig' in kwargs:
+            schedule_config = kwargs['scheduleConfig']
+        if schedule_config is None:
+            raise TypeError("Missing 'schedule_config' argument")
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if source_uri is None:
+            raise TypeError("Missing 'source_uri' argument")
+
+        _setter("kms_key", kms_key)
+        _setter("schedule_config", schedule_config)
+        _setter("source_uri", source_uri)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="kmsKey")
@@ -136,25 +169,58 @@ class _DataIntegrationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _DataIntegrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            description=description,
+            kms_key=kms_key,
+            name=name,
+            schedule_config=schedule_config,
+            source_uri=source_uri,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kms_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if schedule_config is None and 'scheduleConfig' in kwargs:
+            schedule_config = kwargs['scheduleConfig']
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key is not None:
-            pulumi.set(__self__, "kms_key", kms_key)
+            _setter("kms_key", kms_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schedule_config is not None:
-            pulumi.set(__self__, "schedule_config", schedule_config)
+            _setter("schedule_config", schedule_config)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -355,6 +421,10 @@ class DataIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -380,6 +450,11 @@ class DataIntegration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kms_key'")
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["name"] = name
+            if schedule_config is not None and not isinstance(schedule_config, DataIntegrationScheduleConfigArgs):
+                schedule_config = schedule_config or {}
+                def _setter(key, value):
+                    schedule_config[key] = value
+                DataIntegrationScheduleConfigArgs._configure(_setter, **schedule_config)
             if schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_config'")
             __props__.__dict__["schedule_config"] = schedule_config

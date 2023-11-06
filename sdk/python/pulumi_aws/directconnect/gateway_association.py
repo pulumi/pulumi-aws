@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayAssociationArgs', 'GatewayAssociation']
@@ -31,20 +31,55 @@ class GatewayAssociationArgs:
         :param pulumi.Input[str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
         """
-        pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+        GatewayAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dx_gateway_id=dx_gateway_id,
+            allowed_prefixes=allowed_prefixes,
+            associated_gateway_id=associated_gateway_id,
+            associated_gateway_owner_account_id=associated_gateway_owner_account_id,
+            proposal_id=proposal_id,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             associated_gateway_id: Optional[pulumi.Input[str]] = None,
+             associated_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
+             proposal_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if dx_gateway_id is None:
+            raise TypeError("Missing 'dx_gateway_id' argument")
+        if allowed_prefixes is None and 'allowedPrefixes' in kwargs:
+            allowed_prefixes = kwargs['allowedPrefixes']
+        if associated_gateway_id is None and 'associatedGatewayId' in kwargs:
+            associated_gateway_id = kwargs['associatedGatewayId']
+        if associated_gateway_owner_account_id is None and 'associatedGatewayOwnerAccountId' in kwargs:
+            associated_gateway_owner_account_id = kwargs['associatedGatewayOwnerAccountId']
+        if proposal_id is None and 'proposalId' in kwargs:
+            proposal_id = kwargs['proposalId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
+        _setter("dx_gateway_id", dx_gateway_id)
         if allowed_prefixes is not None:
-            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+            _setter("allowed_prefixes", allowed_prefixes)
         if associated_gateway_id is not None:
-            pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
+            _setter("associated_gateway_id", associated_gateway_id)
         if associated_gateway_owner_account_id is not None:
-            pulumi.set(__self__, "associated_gateway_owner_account_id", associated_gateway_owner_account_id)
+            _setter("associated_gateway_owner_account_id", associated_gateway_owner_account_id)
         if proposal_id is not None:
-            pulumi.set(__self__, "proposal_id", proposal_id)
+            _setter("proposal_id", proposal_id)
         if vpn_gateway_id is not None:
             warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
             pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="dxGatewayId")
@@ -148,27 +183,72 @@ class _GatewayAssociationState:
         :param pulumi.Input[str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
         """
+        _GatewayAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_prefixes=allowed_prefixes,
+            associated_gateway_id=associated_gateway_id,
+            associated_gateway_owner_account_id=associated_gateway_owner_account_id,
+            associated_gateway_type=associated_gateway_type,
+            dx_gateway_association_id=dx_gateway_association_id,
+            dx_gateway_id=dx_gateway_id,
+            dx_gateway_owner_account_id=dx_gateway_owner_account_id,
+            proposal_id=proposal_id,
+            vpn_gateway_id=vpn_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             associated_gateway_id: Optional[pulumi.Input[str]] = None,
+             associated_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
+             associated_gateway_type: Optional[pulumi.Input[str]] = None,
+             dx_gateway_association_id: Optional[pulumi.Input[str]] = None,
+             dx_gateway_id: Optional[pulumi.Input[str]] = None,
+             dx_gateway_owner_account_id: Optional[pulumi.Input[str]] = None,
+             proposal_id: Optional[pulumi.Input[str]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_prefixes is None and 'allowedPrefixes' in kwargs:
+            allowed_prefixes = kwargs['allowedPrefixes']
+        if associated_gateway_id is None and 'associatedGatewayId' in kwargs:
+            associated_gateway_id = kwargs['associatedGatewayId']
+        if associated_gateway_owner_account_id is None and 'associatedGatewayOwnerAccountId' in kwargs:
+            associated_gateway_owner_account_id = kwargs['associatedGatewayOwnerAccountId']
+        if associated_gateway_type is None and 'associatedGatewayType' in kwargs:
+            associated_gateway_type = kwargs['associatedGatewayType']
+        if dx_gateway_association_id is None and 'dxGatewayAssociationId' in kwargs:
+            dx_gateway_association_id = kwargs['dxGatewayAssociationId']
+        if dx_gateway_id is None and 'dxGatewayId' in kwargs:
+            dx_gateway_id = kwargs['dxGatewayId']
+        if dx_gateway_owner_account_id is None and 'dxGatewayOwnerAccountId' in kwargs:
+            dx_gateway_owner_account_id = kwargs['dxGatewayOwnerAccountId']
+        if proposal_id is None and 'proposalId' in kwargs:
+            proposal_id = kwargs['proposalId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         if allowed_prefixes is not None:
-            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+            _setter("allowed_prefixes", allowed_prefixes)
         if associated_gateway_id is not None:
-            pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
+            _setter("associated_gateway_id", associated_gateway_id)
         if associated_gateway_owner_account_id is not None:
-            pulumi.set(__self__, "associated_gateway_owner_account_id", associated_gateway_owner_account_id)
+            _setter("associated_gateway_owner_account_id", associated_gateway_owner_account_id)
         if associated_gateway_type is not None:
-            pulumi.set(__self__, "associated_gateway_type", associated_gateway_type)
+            _setter("associated_gateway_type", associated_gateway_type)
         if dx_gateway_association_id is not None:
-            pulumi.set(__self__, "dx_gateway_association_id", dx_gateway_association_id)
+            _setter("dx_gateway_association_id", dx_gateway_association_id)
         if dx_gateway_id is not None:
-            pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
+            _setter("dx_gateway_id", dx_gateway_id)
         if dx_gateway_owner_account_id is not None:
-            pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
+            _setter("dx_gateway_owner_account_id", dx_gateway_owner_account_id)
         if proposal_id is not None:
-            pulumi.set(__self__, "proposal_id", proposal_id)
+            _setter("proposal_id", proposal_id)
         if vpn_gateway_id is not None:
             warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
             pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
         if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+            _setter("vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="allowedPrefixes")
@@ -447,6 +527,10 @@ class GatewayAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

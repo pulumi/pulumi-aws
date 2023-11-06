@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StaticIpAttachmentArgs', 'StaticIpAttachment']
@@ -21,8 +21,29 @@ class StaticIpAttachmentArgs:
         :param pulumi.Input[str] instance_name: The name of the Lightsail instance to attach the IP to
         :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
         """
-        pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "static_ip_name", static_ip_name)
+        StaticIpAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            static_ip_name=static_ip_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: Optional[pulumi.Input[str]] = None,
+             static_ip_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if instance_name is None:
+            raise TypeError("Missing 'instance_name' argument")
+        if static_ip_name is None and 'staticIpName' in kwargs:
+            static_ip_name = kwargs['staticIpName']
+        if static_ip_name is None:
+            raise TypeError("Missing 'static_ip_name' argument")
+
+        _setter("instance_name", instance_name)
+        _setter("static_ip_name", static_ip_name)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -61,12 +82,33 @@ class _StaticIpAttachmentState:
         :param pulumi.Input[str] ip_address: The allocated static IP address
         :param pulumi.Input[str] static_ip_name: The name of the allocated static IP
         """
+        _StaticIpAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_name=instance_name,
+            ip_address=ip_address,
+            static_ip_name=static_ip_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             static_ip_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if static_ip_name is None and 'staticIpName' in kwargs:
+            static_ip_name = kwargs['staticIpName']
+
         if instance_name is not None:
-            pulumi.set(__self__, "instance_name", instance_name)
+            _setter("instance_name", instance_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if static_ip_name is not None:
-            pulumi.set(__self__, "static_ip_name", static_ip_name)
+            _setter("static_ip_name", static_ip_name)
 
     @property
     @pulumi.getter(name="instanceName")
@@ -178,6 +220,10 @@ class StaticIpAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticIpAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

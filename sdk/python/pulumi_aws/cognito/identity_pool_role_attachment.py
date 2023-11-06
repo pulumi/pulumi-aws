@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,33 @@ class IdentityPoolRoleAttachmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
         """
-        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
-        pulumi.set(__self__, "roles", roles)
+        IdentityPoolRoleAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_pool_id=identity_pool_id,
+            roles=roles,
+            role_mappings=role_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if identity_pool_id is None:
+            raise TypeError("Missing 'identity_pool_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if role_mappings is None and 'roleMappings' in kwargs:
+            role_mappings = kwargs['roleMappings']
+
+        _setter("identity_pool_id", identity_pool_id)
+        _setter("roles", roles)
         if role_mappings is not None:
-            pulumi.set(__self__, "role_mappings", role_mappings)
+            _setter("role_mappings", role_mappings)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -79,12 +102,31 @@ class _IdentityPoolRoleAttachmentState:
         :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
+        _IdentityPoolRoleAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_pool_id=identity_pool_id,
+            role_mappings=role_mappings,
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None,
+             roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if role_mappings is None and 'roleMappings' in kwargs:
+            role_mappings = kwargs['roleMappings']
+
         if identity_pool_id is not None:
-            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+            _setter("identity_pool_id", identity_pool_id)
         if role_mappings is not None:
-            pulumi.set(__self__, "role_mappings", role_mappings)
+            _setter("role_mappings", role_mappings)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -176,6 +218,10 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityPoolRoleAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

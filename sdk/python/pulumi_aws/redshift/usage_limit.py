@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UsageLimitArgs', 'UsageLimit']
@@ -31,16 +31,55 @@ class UsageLimitArgs:
         :param pulumi.Input[str] period: The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "feature_type", feature_type)
-        pulumi.set(__self__, "limit_type", limit_type)
+        UsageLimitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            cluster_identifier=cluster_identifier,
+            feature_type=feature_type,
+            limit_type=limit_type,
+            breach_action=breach_action,
+            period=period,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[pulumi.Input[int]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             feature_type: Optional[pulumi.Input[str]] = None,
+             limit_type: Optional[pulumi.Input[str]] = None,
+             breach_action: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if feature_type is None and 'featureType' in kwargs:
+            feature_type = kwargs['featureType']
+        if feature_type is None:
+            raise TypeError("Missing 'feature_type' argument")
+        if limit_type is None and 'limitType' in kwargs:
+            limit_type = kwargs['limitType']
+        if limit_type is None:
+            raise TypeError("Missing 'limit_type' argument")
+        if breach_action is None and 'breachAction' in kwargs:
+            breach_action = kwargs['breachAction']
+
+        _setter("amount", amount)
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("feature_type", feature_type)
+        _setter("limit_type", limit_type)
         if breach_action is not None:
-            pulumi.set(__self__, "breach_action", breach_action)
+            _setter("breach_action", breach_action)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -151,27 +190,64 @@ class _UsageLimitState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _UsageLimitState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            arn=arn,
+            breach_action=breach_action,
+            cluster_identifier=cluster_identifier,
+            feature_type=feature_type,
+            limit_type=limit_type,
+            period=period,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[pulumi.Input[int]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             breach_action: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             feature_type: Optional[pulumi.Input[str]] = None,
+             limit_type: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if breach_action is None and 'breachAction' in kwargs:
+            breach_action = kwargs['breachAction']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if feature_type is None and 'featureType' in kwargs:
+            feature_type = kwargs['featureType']
+        if limit_type is None and 'limitType' in kwargs:
+            limit_type = kwargs['limitType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if amount is not None:
-            pulumi.set(__self__, "amount", amount)
+            _setter("amount", amount)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if breach_action is not None:
-            pulumi.set(__self__, "breach_action", breach_action)
+            _setter("breach_action", breach_action)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if feature_type is not None:
-            pulumi.set(__self__, "feature_type", feature_type)
+            _setter("feature_type", feature_type)
         if limit_type is not None:
-            pulumi.set(__self__, "limit_type", limit_type)
+            _setter("limit_type", limit_type)
         if period is not None:
-            pulumi.set(__self__, "period", period)
+            _setter("period", period)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -372,6 +448,10 @@ class UsageLimit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UsageLimitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,38 @@ class VpcIpamPoolCidrArgs:
         :param pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs'] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        VpcIpamPoolCidrArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipam_pool_id=ipam_pool_id,
+            cidr=cidr,
+            cidr_authorization_context=cidr_authorization_context,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             cidr: Optional[pulumi.Input[str]] = None,
+             cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if ipam_pool_id is None:
+            raise TypeError("Missing 'ipam_pool_id' argument")
+        if cidr_authorization_context is None and 'cidrAuthorizationContext' in kwargs:
+            cidr_authorization_context = kwargs['cidrAuthorizationContext']
+        if netmask_length is None and 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
+        _setter("ipam_pool_id", ipam_pool_id)
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if cidr_authorization_context is not None:
-            pulumi.set(__self__, "cidr_authorization_context", cidr_authorization_context)
+            _setter("cidr_authorization_context", cidr_authorization_context)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter(name="ipamPoolId")
@@ -100,16 +125,43 @@ class _VpcIpamPoolCidrState:
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
+        _VpcIpamPoolCidrState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            cidr_authorization_context=cidr_authorization_context,
+            ipam_pool_cidr_id=ipam_pool_cidr_id,
+            ipam_pool_id=ipam_pool_id,
+            netmask_length=netmask_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None,
+             ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
+             netmask_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cidr_authorization_context is None and 'cidrAuthorizationContext' in kwargs:
+            cidr_authorization_context = kwargs['cidrAuthorizationContext']
+        if ipam_pool_cidr_id is None and 'ipamPoolCidrId' in kwargs:
+            ipam_pool_cidr_id = kwargs['ipamPoolCidrId']
+        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if netmask_length is None and 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if cidr_authorization_context is not None:
-            pulumi.set(__self__, "cidr_authorization_context", cidr_authorization_context)
+            _setter("cidr_authorization_context", cidr_authorization_context)
         if ipam_pool_cidr_id is not None:
-            pulumi.set(__self__, "ipam_pool_cidr_id", ipam_pool_cidr_id)
+            _setter("ipam_pool_cidr_id", ipam_pool_cidr_id)
         if ipam_pool_id is not None:
-            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+            _setter("ipam_pool_id", ipam_pool_id)
         if netmask_length is not None:
-            pulumi.set(__self__, "netmask_length", netmask_length)
+            _setter("netmask_length", netmask_length)
 
     @property
     @pulumi.getter
@@ -329,6 +381,10 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpcIpamPoolCidrArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -348,6 +404,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             __props__ = VpcIpamPoolCidrArgs.__new__(VpcIpamPoolCidrArgs)
 
             __props__.__dict__["cidr"] = cidr
+            if cidr_authorization_context is not None and not isinstance(cidr_authorization_context, VpcIpamPoolCidrCidrAuthorizationContextArgs):
+                cidr_authorization_context = cidr_authorization_context or {}
+                def _setter(key, value):
+                    cidr_authorization_context[key] = value
+                VpcIpamPoolCidrCidrAuthorizationContextArgs._configure(_setter, **cidr_authorization_context)
             __props__.__dict__["cidr_authorization_context"] = cidr_authorization_context
             if ipam_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_pool_id'")

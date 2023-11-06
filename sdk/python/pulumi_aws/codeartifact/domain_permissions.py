@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainPermissionsArgs', 'DomainPermissions']
@@ -25,12 +25,39 @@ class DomainPermissionsArgs:
         :param pulumi.Input[str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "policy_document", policy_document)
+        DomainPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            policy_document=policy_document,
+            domain_owner=domain_owner,
+            policy_revision=policy_revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             policy_document: Optional[pulumi.Input[str]] = None,
+             domain_owner: Optional[pulumi.Input[str]] = None,
+             policy_revision: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if domain_owner is None and 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if policy_revision is None and 'policyRevision' in kwargs:
+            policy_revision = kwargs['policyRevision']
+
+        _setter("domain", domain)
+        _setter("policy_document", policy_document)
         if domain_owner is not None:
-            pulumi.set(__self__, "domain_owner", domain_owner)
+            _setter("domain_owner", domain_owner)
         if policy_revision is not None:
-            pulumi.set(__self__, "policy_revision", policy_revision)
+            _setter("policy_revision", policy_revision)
 
     @property
     @pulumi.getter
@@ -97,16 +124,43 @@ class _DomainPermissionsState:
         :param pulumi.Input[str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         :param pulumi.Input[str] resource_arn: The ARN of the resource associated with the resource policy.
         """
+        _DomainPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            domain_owner=domain_owner,
+            policy_document=policy_document,
+            policy_revision=policy_revision,
+            resource_arn=resource_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[pulumi.Input[str]] = None,
+             domain_owner: Optional[pulumi.Input[str]] = None,
+             policy_document: Optional[pulumi.Input[str]] = None,
+             policy_revision: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_owner is None and 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_revision is None and 'policyRevision' in kwargs:
+            policy_revision = kwargs['policyRevision']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if domain_owner is not None:
-            pulumi.set(__self__, "domain_owner", domain_owner)
+            _setter("domain_owner", domain_owner)
         if policy_document is not None:
-            pulumi.set(__self__, "policy_document", policy_document)
+            _setter("policy_document", policy_document)
         if policy_revision is not None:
-            pulumi.set(__self__, "policy_revision", policy_revision)
+            _setter("policy_revision", policy_revision)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -272,6 +326,10 @@ class DomainPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

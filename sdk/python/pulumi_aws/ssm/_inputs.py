@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -48,11 +48,34 @@ class AssociationOutputLocationArgs:
                
                Targets specify what instance IDs or tags to apply the document to and has these keys:
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        AssociationOutputLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            s3_key_prefix=s3_key_prefix,
+            s3_region=s3_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             s3_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if s3_region is None and 's3Region' in kwargs:
+            s3_region = kwargs['s3Region']
+
+        _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
         if s3_region is not None:
-            pulumi.set(__self__, "s3_region", s3_region)
+            _setter("s3_region", s3_region)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -102,8 +125,25 @@ class AssociationTargetArgs:
         :param pulumi.Input[str] key: Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of instance IDs or tag values. AWS currently limits this list size to one value.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        AssociationTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -141,10 +181,29 @@ class DocumentAttachmentsSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value describing the location of an attachment to a document
         :param pulumi.Input[str] name: The name of the document attachment file
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        DocumentAttachmentsSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -194,14 +253,33 @@ class DocumentParameterArgs:
         :param pulumi.Input[str] description: The description of the document.
         :param pulumi.Input[str] name: The name of the document.
         """
+        DocumentParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_value=default_value,
+            description=description,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_value: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -251,8 +329,25 @@ class MaintenanceWindowTargetTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        MaintenanceWindowTargetTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -281,8 +376,25 @@ class MaintenanceWindowTaskTargetArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The array of strings.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        MaintenanceWindowTaskTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -319,14 +431,39 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs'] run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs'] step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
         """
+        MaintenanceWindowTaskTaskInvocationParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_parameters=automation_parameters,
+            lambda_parameters=lambda_parameters,
+            run_command_parameters=run_command_parameters,
+            step_functions_parameters=step_functions_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']] = None,
+             lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']] = None,
+             run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']] = None,
+             step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_parameters is None and 'automationParameters' in kwargs:
+            automation_parameters = kwargs['automationParameters']
+        if lambda_parameters is None and 'lambdaParameters' in kwargs:
+            lambda_parameters = kwargs['lambdaParameters']
+        if run_command_parameters is None and 'runCommandParameters' in kwargs:
+            run_command_parameters = kwargs['runCommandParameters']
+        if step_functions_parameters is None and 'stepFunctionsParameters' in kwargs:
+            step_functions_parameters = kwargs['stepFunctionsParameters']
+
         if automation_parameters is not None:
-            pulumi.set(__self__, "automation_parameters", automation_parameters)
+            _setter("automation_parameters", automation_parameters)
         if lambda_parameters is not None:
-            pulumi.set(__self__, "lambda_parameters", lambda_parameters)
+            _setter("lambda_parameters", lambda_parameters)
         if run_command_parameters is not None:
-            pulumi.set(__self__, "run_command_parameters", run_command_parameters)
+            _setter("run_command_parameters", run_command_parameters)
         if step_functions_parameters is not None:
-            pulumi.set(__self__, "step_functions_parameters", step_functions_parameters)
+            _setter("step_functions_parameters", step_functions_parameters)
 
     @property
     @pulumi.getter(name="automationParameters")
@@ -386,10 +523,25 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
         :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         """
+        MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            document_version=document_version,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             document_version: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="documentVersion")
@@ -425,8 +577,25 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
         :param pulumi.Input[str] name: The parameter name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The array of strings.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -464,12 +633,29 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
         :param pulumi.Input[str] payload: JSON to provide to your Lambda function as input.
         :param pulumi.Input[str] qualifier: Specify a Lambda function version or alias name.
         """
+        MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_context=client_context,
+            payload=payload,
+            qualifier=qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_context: Optional[pulumi.Input[str]] = None,
+             payload: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_context is None and 'clientContext' in kwargs:
+            client_context = kwargs['clientContext']
+
         if client_context is not None:
-            pulumi.set(__self__, "client_context", client_context)
+            _setter("client_context", client_context)
         if payload is not None:
-            pulumi.set(__self__, "payload", payload)
+            _setter("payload", payload)
         if qualifier is not None:
-            pulumi.set(__self__, "qualifier", qualifier)
+            _setter("qualifier", qualifier)
 
     @property
     @pulumi.getter(name="clientContext")
@@ -535,28 +721,77 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
         :param pulumi.Input[str] service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param pulumi.Input[int] timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_config=cloudwatch_config,
+            comment=comment,
+            document_hash=document_hash,
+            document_hash_type=document_hash_type,
+            document_version=document_version,
+            notification_config=notification_config,
+            output_s3_bucket=output_s3_bucket,
+            output_s3_key_prefix=output_s3_key_prefix,
+            parameters=parameters,
+            service_role_arn=service_role_arn,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             document_hash: Optional[pulumi.Input[str]] = None,
+             document_hash_type: Optional[pulumi.Input[str]] = None,
+             document_version: Optional[pulumi.Input[str]] = None,
+             notification_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']] = None,
+             output_s3_bucket: Optional[pulumi.Input[str]] = None,
+             output_s3_key_prefix: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
+             timeout_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_config is None and 'cloudwatchConfig' in kwargs:
+            cloudwatch_config = kwargs['cloudwatchConfig']
+        if document_hash is None and 'documentHash' in kwargs:
+            document_hash = kwargs['documentHash']
+        if document_hash_type is None and 'documentHashType' in kwargs:
+            document_hash_type = kwargs['documentHashType']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if notification_config is None and 'notificationConfig' in kwargs:
+            notification_config = kwargs['notificationConfig']
+        if output_s3_bucket is None and 'outputS3Bucket' in kwargs:
+            output_s3_bucket = kwargs['outputS3Bucket']
+        if output_s3_key_prefix is None and 'outputS3KeyPrefix' in kwargs:
+            output_s3_key_prefix = kwargs['outputS3KeyPrefix']
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if cloudwatch_config is not None:
-            pulumi.set(__self__, "cloudwatch_config", cloudwatch_config)
+            _setter("cloudwatch_config", cloudwatch_config)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if document_hash is not None:
-            pulumi.set(__self__, "document_hash", document_hash)
+            _setter("document_hash", document_hash)
         if document_hash_type is not None:
-            pulumi.set(__self__, "document_hash_type", document_hash_type)
+            _setter("document_hash_type", document_hash_type)
         if document_version is not None:
-            pulumi.set(__self__, "document_version", document_version)
+            _setter("document_version", document_version)
         if notification_config is not None:
-            pulumi.set(__self__, "notification_config", notification_config)
+            _setter("notification_config", notification_config)
         if output_s3_bucket is not None:
-            pulumi.set(__self__, "output_s3_bucket", output_s3_bucket)
+            _setter("output_s3_bucket", output_s3_bucket)
         if output_s3_key_prefix is not None:
-            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
+            _setter("output_s3_key_prefix", output_s3_key_prefix)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if service_role_arn is not None:
-            pulumi.set(__self__, "service_role_arn", service_role_arn)
+            _setter("service_role_arn", service_role_arn)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="cloudwatchConfig")
@@ -700,10 +935,27 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
         :param pulumi.Input[str] cloudwatch_log_group_name: The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
         :param pulumi.Input[bool] cloudwatch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
         """
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_log_group_name=cloudwatch_log_group_name,
+            cloudwatch_output_enabled=cloudwatch_output_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_log_group_name: Optional[pulumi.Input[str]] = None,
+             cloudwatch_output_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_log_group_name is None and 'cloudwatchLogGroupName' in kwargs:
+            cloudwatch_log_group_name = kwargs['cloudwatchLogGroupName']
+        if cloudwatch_output_enabled is None and 'cloudwatchOutputEnabled' in kwargs:
+            cloudwatch_output_enabled = kwargs['cloudwatchOutputEnabled']
+
         if cloudwatch_log_group_name is not None:
-            pulumi.set(__self__, "cloudwatch_log_group_name", cloudwatch_log_group_name)
+            _setter("cloudwatch_log_group_name", cloudwatch_log_group_name)
         if cloudwatch_output_enabled is not None:
-            pulumi.set(__self__, "cloudwatch_output_enabled", cloudwatch_output_enabled)
+            _setter("cloudwatch_output_enabled", cloudwatch_output_enabled)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupName")
@@ -741,12 +993,33 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_events: The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
         :param pulumi.Input[str] notification_type: When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
         """
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_arn=notification_arn,
+            notification_events=notification_events,
+            notification_type=notification_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_arn: Optional[pulumi.Input[str]] = None,
+             notification_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if notification_arn is None and 'notificationArn' in kwargs:
+            notification_arn = kwargs['notificationArn']
+        if notification_events is None and 'notificationEvents' in kwargs:
+            notification_events = kwargs['notificationEvents']
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+
         if notification_arn is not None:
-            pulumi.set(__self__, "notification_arn", notification_arn)
+            _setter("notification_arn", notification_arn)
         if notification_events is not None:
-            pulumi.set(__self__, "notification_events", notification_events)
+            _setter("notification_events", notification_events)
         if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
+            _setter("notification_type", notification_type)
 
     @property
     @pulumi.getter(name="notificationArn")
@@ -794,8 +1067,25 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
         :param pulumi.Input[str] name: The parameter name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The array of strings.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -831,10 +1121,23 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
         :param pulumi.Input[str] input: The inputs for the STEP_FUNCTION task.
         :param pulumi.Input[str] name: The name of the STEP_FUNCTION task.
         """
+        MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input=input,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -888,15 +1191,46 @@ class PatchBaselineApprovalRuleArgs:
                The default value is `false`.
                Valid for Linux instances only.
         """
-        pulumi.set(__self__, "patch_filters", patch_filters)
+        PatchBaselineApprovalRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            patch_filters=patch_filters,
+            approve_after_days=approve_after_days,
+            approve_until_date=approve_until_date,
+            compliance_level=compliance_level,
+            enable_non_security=enable_non_security,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             patch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]] = None,
+             approve_after_days: Optional[pulumi.Input[int]] = None,
+             approve_until_date: Optional[pulumi.Input[str]] = None,
+             compliance_level: Optional[pulumi.Input[str]] = None,
+             enable_non_security: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if patch_filters is None and 'patchFilters' in kwargs:
+            patch_filters = kwargs['patchFilters']
+        if patch_filters is None:
+            raise TypeError("Missing 'patch_filters' argument")
+        if approve_after_days is None and 'approveAfterDays' in kwargs:
+            approve_after_days = kwargs['approveAfterDays']
+        if approve_until_date is None and 'approveUntilDate' in kwargs:
+            approve_until_date = kwargs['approveUntilDate']
+        if compliance_level is None and 'complianceLevel' in kwargs:
+            compliance_level = kwargs['complianceLevel']
+        if enable_non_security is None and 'enableNonSecurity' in kwargs:
+            enable_non_security = kwargs['enableNonSecurity']
+
+        _setter("patch_filters", patch_filters)
         if approve_after_days is not None:
-            pulumi.set(__self__, "approve_after_days", approve_after_days)
+            _setter("approve_after_days", approve_after_days)
         if approve_until_date is not None:
-            pulumi.set(__self__, "approve_until_date", approve_until_date)
+            _setter("approve_until_date", approve_until_date)
         if compliance_level is not None:
-            pulumi.set(__self__, "compliance_level", compliance_level)
+            _setter("compliance_level", compliance_level)
         if enable_non_security is not None:
-            pulumi.set(__self__, "enable_non_security", enable_non_security)
+            _setter("enable_non_security", enable_non_security)
 
     @property
     @pulumi.getter(name="patchFilters")
@@ -976,8 +1310,25 @@ class PatchBaselineApprovalRulePatchFilterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        PatchBaselineApprovalRulePatchFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1003,8 +1354,25 @@ class PatchBaselineGlobalFilterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "values", values)
+        PatchBaselineGlobalFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("key", key)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1038,9 +1406,30 @@ class PatchBaselineSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] products: The specific operating system versions a patch repository applies to, such as `"Ubuntu16.04"`, `"AmazonLinux2016.09"`, `"RedhatEnterpriseLinux7.2"` or `"Suse12.7"`.
                For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "products", products)
+        PatchBaselineSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            name=name,
+            products=products,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             products: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if products is None:
+            raise TypeError("Missing 'products' argument")
+
+        _setter("configuration", configuration)
+        _setter("name", name)
+        _setter("products", products)
 
     @property
     @pulumi.getter
@@ -1096,14 +1485,43 @@ class ResourceDataSyncS3DestinationArgs:
         :param pulumi.Input[str] prefix: Prefix for the bucket.
         :param pulumi.Input[str] sync_format: A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "region", region)
+        ResourceDataSyncS3DestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+            region=region,
+            kms_key_arn=kms_key_arn,
+            prefix=prefix,
+            sync_format=sync_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             kms_key_arn: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             sync_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if sync_format is None and 'syncFormat' in kwargs:
+            sync_format = kwargs['syncFormat']
+
+        _setter("bucket_name", bucket_name)
+        _setter("region", region)
         if kms_key_arn is not None:
-            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+            _setter("kms_key_arn", kms_key_arn)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if sync_format is not None:
-            pulumi.set(__self__, "sync_format", sync_format)
+            _setter("sync_format", sync_format)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1175,8 +1593,25 @@ class GetInstancesFilterArgs:
         :param str name: Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetInstancesFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1212,8 +1647,25 @@ class GetMaintenanceWindowsFilterArgs:
         :param str name: Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetMaintenanceWindowsFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

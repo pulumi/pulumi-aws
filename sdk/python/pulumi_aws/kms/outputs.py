@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -48,10 +48,27 @@ class GrantConstraint(dict):
         :param Mapping[str, str] encryption_context_equals: A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         :param Mapping[str, str] encryption_context_subset: A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
+        GrantConstraint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_context_equals=encryption_context_equals,
+            encryption_context_subset=encryption_context_subset,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_context_equals: Optional[Mapping[str, str]] = None,
+             encryption_context_subset: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if encryption_context_equals is None and 'encryptionContextEquals' in kwargs:
+            encryption_context_equals = kwargs['encryptionContextEquals']
+        if encryption_context_subset is None and 'encryptionContextSubset' in kwargs:
+            encryption_context_subset = kwargs['encryptionContextSubset']
+
         if encryption_context_equals is not None:
-            pulumi.set(__self__, "encryption_context_equals", encryption_context_equals)
+            _setter("encryption_context_equals", encryption_context_equals)
         if encryption_context_subset is not None:
-            pulumi.set(__self__, "encryption_context_subset", encryption_context_subset)
+            _setter("encryption_context_subset", encryption_context_subset)
 
     @property
     @pulumi.getter(name="encryptionContextEquals")
@@ -81,9 +98,36 @@ class GetKeyMultiRegionConfigurationResult(dict):
         :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArgs'] primary_keys: The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
         :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArgs'] replica_keys: The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
         """
-        pulumi.set(__self__, "multi_region_key_type", multi_region_key_type)
-        pulumi.set(__self__, "primary_keys", primary_keys)
-        pulumi.set(__self__, "replica_keys", replica_keys)
+        GetKeyMultiRegionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multi_region_key_type=multi_region_key_type,
+            primary_keys=primary_keys,
+            replica_keys=replica_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multi_region_key_type: Optional[str] = None,
+             primary_keys: Optional[Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult']] = None,
+             replica_keys: Optional[Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if multi_region_key_type is None and 'multiRegionKeyType' in kwargs:
+            multi_region_key_type = kwargs['multiRegionKeyType']
+        if multi_region_key_type is None:
+            raise TypeError("Missing 'multi_region_key_type' argument")
+        if primary_keys is None and 'primaryKeys' in kwargs:
+            primary_keys = kwargs['primaryKeys']
+        if primary_keys is None:
+            raise TypeError("Missing 'primary_keys' argument")
+        if replica_keys is None and 'replicaKeys' in kwargs:
+            replica_keys = kwargs['replicaKeys']
+        if replica_keys is None:
+            raise TypeError("Missing 'replica_keys' argument")
+
+        _setter("multi_region_key_type", multi_region_key_type)
+        _setter("primary_keys", primary_keys)
+        _setter("replica_keys", replica_keys)
 
     @property
     @pulumi.getter(name="multiRegionKeyType")
@@ -119,8 +163,25 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
         :param str arn: The key ARN of a primary or replica key of a multi-Region key.
         :param str region: The AWS Region of a primary or replica key in a multi-Region key.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "region", region)
+        GetKeyMultiRegionConfigurationPrimaryKeyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("arn", arn)
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -148,8 +209,25 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
         :param str arn: The key ARN of a primary or replica key of a multi-Region key.
         :param str region: The AWS Region of a primary or replica key in a multi-Region key.
         """
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "region", region)
+        GetKeyMultiRegionConfigurationReplicaKeyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("arn", arn)
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -175,7 +253,20 @@ class GetKeyXksKeyConfigurationResult(dict):
         """
         :param str id: The globally unique identifier for the key
         """
-        pulumi.set(__self__, "id", id)
+        GetKeyXksKeyConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -193,12 +284,35 @@ class GetSecretSecretResult(dict):
                  payload: str,
                  context: Optional[Mapping[str, str]] = None,
                  grant_tokens: Optional[Sequence[str]] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "payload", payload)
+        GetSecretSecretResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            payload=payload,
+            context=context,
+            grant_tokens=grant_tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             payload: Optional[str] = None,
+             context: Optional[Mapping[str, str]] = None,
+             grant_tokens: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if payload is None:
+            raise TypeError("Missing 'payload' argument")
+        if grant_tokens is None and 'grantTokens' in kwargs:
+            grant_tokens = kwargs['grantTokens']
+
+        _setter("name", name)
+        _setter("payload", payload)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if grant_tokens is not None:
-            pulumi.set(__self__, "grant_tokens", grant_tokens)
+            _setter("grant_tokens", grant_tokens)
 
     @property
     @pulumi.getter
@@ -241,16 +355,47 @@ class GetSecretsSecretResult(dict):
                For more information on `context` and `grant_tokens` see the [KMS
                Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "payload", payload)
+        GetSecretsSecretResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            payload=payload,
+            context=context,
+            encryption_algorithm=encryption_algorithm,
+            grant_tokens=grant_tokens,
+            key_id=key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             payload: Optional[str] = None,
+             context: Optional[Mapping[str, str]] = None,
+             encryption_algorithm: Optional[str] = None,
+             grant_tokens: Optional[Sequence[str]] = None,
+             key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if payload is None:
+            raise TypeError("Missing 'payload' argument")
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if grant_tokens is None and 'grantTokens' in kwargs:
+            grant_tokens = kwargs['grantTokens']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("name", name)
+        _setter("payload", payload)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if grant_tokens is not None:
-            pulumi.set(__self__, "grant_tokens", grant_tokens)
+            _setter("grant_tokens", grant_tokens)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
 
     @property
     @pulumi.getter

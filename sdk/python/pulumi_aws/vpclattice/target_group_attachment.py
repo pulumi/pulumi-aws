@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,8 +23,27 @@ class TargetGroupAttachmentArgs:
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+        TargetGroupAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            target_group_identifier=target_group_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']] = None,
+             target_group_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if target_group_identifier is None and 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+        if target_group_identifier is None:
+            raise TypeError("Missing 'target_group_identifier' argument")
+
+        _setter("target", target)
+        _setter("target_group_identifier", target_group_identifier)
 
     @property
     @pulumi.getter
@@ -61,10 +80,25 @@ class _TargetGroupAttachmentState:
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
+        _TargetGroupAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target=target,
+            target_group_identifier=target_group_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target: Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']] = None,
+             target_group_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target_group_identifier is None and 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if target_group_identifier is not None:
-            pulumi.set(__self__, "target_group_identifier", target_group_identifier)
+            _setter("target_group_identifier", target_group_identifier)
 
     @property
     @pulumi.getter
@@ -156,6 +190,10 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TargetGroupAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,6 +210,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetGroupAttachmentArgs.__new__(TargetGroupAttachmentArgs)
 
+            if target is not None and not isinstance(target, TargetGroupAttachmentTargetArgs):
+                target = target or {}
+                def _setter(key, value):
+                    target[key] = value
+                TargetGroupAttachmentTargetArgs._configure(_setter, **target)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

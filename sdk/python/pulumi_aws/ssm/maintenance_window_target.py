@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,15 +32,48 @@ class MaintenanceWindowTargetArgs:
         :param pulumi.Input[str] name: The name of the maintenance window target.
         :param pulumi.Input[str] owner_information: User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         """
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "targets", targets)
-        pulumi.set(__self__, "window_id", window_id)
+        MaintenanceWindowTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_type=resource_type,
+            targets=targets,
+            window_id=window_id,
+            description=description,
+            name=name,
+            owner_information=owner_information,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_type: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]] = None,
+             window_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_information: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+        if window_id is None and 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if window_id is None:
+            raise TypeError("Missing 'window_id' argument")
+        if owner_information is None and 'ownerInformation' in kwargs:
+            owner_information = kwargs['ownerInformation']
+
+        _setter("resource_type", resource_type)
+        _setter("targets", targets)
+        _setter("window_id", window_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_information is not None:
-            pulumi.set(__self__, "owner_information", owner_information)
+            _setter("owner_information", owner_information)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -135,18 +168,45 @@ class _MaintenanceWindowTargetState:
                (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the target with.
         """
+        _MaintenanceWindowTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            owner_information=owner_information,
+            resource_type=resource_type,
+            targets=targets,
+            window_id=window_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner_information: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetArgs']]]] = None,
+             window_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if owner_information is None and 'ownerInformation' in kwargs:
+            owner_information = kwargs['ownerInformation']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if window_id is None and 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner_information is not None:
-            pulumi.set(__self__, "owner_information", owner_information)
+            _setter("owner_information", owner_information)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if targets is not None:
-            pulumi.set(__self__, "targets", targets)
+            _setter("targets", targets)
         if window_id is not None:
-            pulumi.set(__self__, "window_id", window_id)
+            _setter("window_id", window_id)
 
     @property
     @pulumi.getter
@@ -362,6 +422,10 @@ class MaintenanceWindowTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceWindowTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,21 +39,68 @@ class InstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "blueprint_id", blueprint_id)
-        pulumi.set(__self__, "bundle_id", bundle_id)
+        InstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            blueprint_id=blueprint_id,
+            bundle_id=bundle_id,
+            add_on=add_on,
+            ip_address_type=ip_address_type,
+            key_pair_name=key_pair_name,
+            name=name,
+            tags=tags,
+            user_data=user_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             add_on: Optional[pulumi.Input['InstanceAddOnArgs']] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             key_pair_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if blueprint_id is None and 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if blueprint_id is None:
+            raise TypeError("Missing 'blueprint_id' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if add_on is None and 'addOn' in kwargs:
+            add_on = kwargs['addOn']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if key_pair_name is None and 'keyPairName' in kwargs:
+            key_pair_name = kwargs['keyPairName']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
+        _setter("availability_zone", availability_zone)
+        _setter("blueprint_id", blueprint_id)
+        _setter("bundle_id", bundle_id)
         if add_on is not None:
-            pulumi.set(__self__, "add_on", add_on)
+            _setter("add_on", add_on)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if key_pair_name is not None:
-            pulumi.set(__self__, "key_pair_name", key_pair_name)
+            _setter("key_pair_name", key_pair_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -212,47 +259,124 @@ class _InstanceState:
         :param pulumi.Input[str] user_data: Single lined launch script as a string to configure server with additional user data
         :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
+        _InstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            add_on=add_on,
+            arn=arn,
+            availability_zone=availability_zone,
+            blueprint_id=blueprint_id,
+            bundle_id=bundle_id,
+            cpu_count=cpu_count,
+            created_at=created_at,
+            ip_address_type=ip_address_type,
+            ipv6_addresses=ipv6_addresses,
+            is_static_ip=is_static_ip,
+            key_pair_name=key_pair_name,
+            name=name,
+            private_ip_address=private_ip_address,
+            public_ip_address=public_ip_address,
+            ram_size=ram_size,
+            tags=tags,
+            tags_all=tags_all,
+            user_data=user_data,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             add_on: Optional[pulumi.Input['InstanceAddOnArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             cpu_count: Optional[pulumi.Input[int]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_static_ip: Optional[pulumi.Input[bool]] = None,
+             key_pair_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             ram_size: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if add_on is None and 'addOn' in kwargs:
+            add_on = kwargs['addOn']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if blueprint_id is None and 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if cpu_count is None and 'cpuCount' in kwargs:
+            cpu_count = kwargs['cpuCount']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if is_static_ip is None and 'isStaticIp' in kwargs:
+            is_static_ip = kwargs['isStaticIp']
+        if key_pair_name is None and 'keyPairName' in kwargs:
+            key_pair_name = kwargs['keyPairName']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if ram_size is None and 'ramSize' in kwargs:
+            ram_size = kwargs['ramSize']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if add_on is not None:
-            pulumi.set(__self__, "add_on", add_on)
+            _setter("add_on", add_on)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if blueprint_id is not None:
-            pulumi.set(__self__, "blueprint_id", blueprint_id)
+            _setter("blueprint_id", blueprint_id)
         if bundle_id is not None:
-            pulumi.set(__self__, "bundle_id", bundle_id)
+            _setter("bundle_id", bundle_id)
         if cpu_count is not None:
-            pulumi.set(__self__, "cpu_count", cpu_count)
+            _setter("cpu_count", cpu_count)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if ipv6_addresses is not None:
-            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+            _setter("ipv6_addresses", ipv6_addresses)
         if is_static_ip is not None:
-            pulumi.set(__self__, "is_static_ip", is_static_ip)
+            _setter("is_static_ip", is_static_ip)
         if key_pair_name is not None:
-            pulumi.set(__self__, "key_pair_name", key_pair_name)
+            _setter("key_pair_name", key_pair_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if ram_size is not None:
-            pulumi.set(__self__, "ram_size", ram_size)
+            _setter("ram_size", ram_size)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="addOn")
@@ -767,6 +891,10 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -790,6 +918,11 @@ class Instance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
+            if add_on is not None and not isinstance(add_on, InstanceAddOnArgs):
+                add_on = add_on or {}
+                def _setter(key, value):
+                    add_on[key] = value
+                InstanceAddOnArgs._configure(_setter, **add_on)
             __props__.__dict__["add_on"] = add_on
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")

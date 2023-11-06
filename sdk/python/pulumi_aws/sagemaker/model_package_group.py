@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ModelPackageGroupArgs', 'ModelPackageGroup']
@@ -23,11 +23,32 @@ class ModelPackageGroupArgs:
         :param pulumi.Input[str] model_package_group_description: A description for the model group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        ModelPackageGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_package_group_name=model_package_group_name,
+            model_package_group_description=model_package_group_description,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_package_group_name: Optional[pulumi.Input[str]] = None,
+             model_package_group_description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if model_package_group_name is None and 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if model_package_group_name is None:
+            raise TypeError("Missing 'model_package_group_name' argument")
+        if model_package_group_description is None and 'modelPackageGroupDescription' in kwargs:
+            model_package_group_description = kwargs['modelPackageGroupDescription']
+
+        _setter("model_package_group_name", model_package_group_name)
         if model_package_group_description is not None:
-            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+            _setter("model_package_group_description", model_package_group_description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
@@ -82,19 +103,44 @@ class _ModelPackageGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ModelPackageGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            model_package_group_description=model_package_group_description,
+            model_package_group_name=model_package_group_name,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             model_package_group_description: Optional[pulumi.Input[str]] = None,
+             model_package_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if model_package_group_description is None and 'modelPackageGroupDescription' in kwargs:
+            model_package_group_description = kwargs['modelPackageGroupDescription']
+        if model_package_group_name is None and 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if model_package_group_description is not None:
-            pulumi.set(__self__, "model_package_group_description", model_package_group_description)
+            _setter("model_package_group_description", model_package_group_description)
         if model_package_group_name is not None:
-            pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+            _setter("model_package_group_name", model_package_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -233,6 +279,10 @@ class ModelPackageGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ModelPackageGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

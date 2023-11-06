@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceShareAccepterArgs', 'ResourceShareAccepter']
@@ -19,7 +19,22 @@ class ResourceShareAccepterArgs:
         The set of arguments for constructing a ResourceShareAccepter resource.
         :param pulumi.Input[str] share_arn: The ARN of the resource share.
         """
-        pulumi.set(__self__, "share_arn", share_arn)
+        ResourceShareAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            share_arn=share_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             share_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if share_arn is None and 'shareArn' in kwargs:
+            share_arn = kwargs['shareArn']
+        if share_arn is None:
+            raise TypeError("Missing 'share_arn' argument")
+
+        _setter("share_arn", share_arn)
 
     @property
     @pulumi.getter(name="shareArn")
@@ -56,22 +71,59 @@ class _ResourceShareAccepterState:
         :param pulumi.Input[str] share_name: The name of the resource share.
         :param pulumi.Input[str] status: The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
         """
+        _ResourceShareAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            invitation_arn=invitation_arn,
+            receiver_account_id=receiver_account_id,
+            resources=resources,
+            sender_account_id=sender_account_id,
+            share_arn=share_arn,
+            share_id=share_id,
+            share_name=share_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             invitation_arn: Optional[pulumi.Input[str]] = None,
+             receiver_account_id: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sender_account_id: Optional[pulumi.Input[str]] = None,
+             share_arn: Optional[pulumi.Input[str]] = None,
+             share_id: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if invitation_arn is None and 'invitationArn' in kwargs:
+            invitation_arn = kwargs['invitationArn']
+        if receiver_account_id is None and 'receiverAccountId' in kwargs:
+            receiver_account_id = kwargs['receiverAccountId']
+        if sender_account_id is None and 'senderAccountId' in kwargs:
+            sender_account_id = kwargs['senderAccountId']
+        if share_arn is None and 'shareArn' in kwargs:
+            share_arn = kwargs['shareArn']
+        if share_id is None and 'shareId' in kwargs:
+            share_id = kwargs['shareId']
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         if invitation_arn is not None:
-            pulumi.set(__self__, "invitation_arn", invitation_arn)
+            _setter("invitation_arn", invitation_arn)
         if receiver_account_id is not None:
-            pulumi.set(__self__, "receiver_account_id", receiver_account_id)
+            _setter("receiver_account_id", receiver_account_id)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if sender_account_id is not None:
-            pulumi.set(__self__, "sender_account_id", sender_account_id)
+            _setter("sender_account_id", sender_account_id)
         if share_arn is not None:
-            pulumi.set(__self__, "share_arn", share_arn)
+            _setter("share_arn", share_arn)
         if share_id is not None:
-            pulumi.set(__self__, "share_id", share_id)
+            _setter("share_id", share_id)
         if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
+            _setter("share_name", share_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="invitationArn")
@@ -269,6 +321,10 @@ class ResourceShareAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceShareAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

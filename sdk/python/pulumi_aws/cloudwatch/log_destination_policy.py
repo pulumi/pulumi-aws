@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LogDestinationPolicyArgs', 'LogDestinationPolicy']
@@ -23,10 +23,35 @@ class LogDestinationPolicyArgs:
         :param pulumi.Input[str] destination_name: A name for the subscription filter
         :param pulumi.Input[bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         """
-        pulumi.set(__self__, "access_policy", access_policy)
-        pulumi.set(__self__, "destination_name", destination_name)
+        LogDestinationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            destination_name=destination_name,
+            force_update=force_update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[pulumi.Input[str]] = None,
+             destination_name: Optional[pulumi.Input[str]] = None,
+             force_update: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_policy is None and 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+        if access_policy is None:
+            raise TypeError("Missing 'access_policy' argument")
+        if destination_name is None and 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if destination_name is None:
+            raise TypeError("Missing 'destination_name' argument")
+        if force_update is None and 'forceUpdate' in kwargs:
+            force_update = kwargs['forceUpdate']
+
+        _setter("access_policy", access_policy)
+        _setter("destination_name", destination_name)
         if force_update is not None:
-            pulumi.set(__self__, "force_update", force_update)
+            _setter("force_update", force_update)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -77,12 +102,33 @@ class _LogDestinationPolicyState:
         :param pulumi.Input[str] destination_name: A name for the subscription filter
         :param pulumi.Input[bool] force_update: Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         """
+        _LogDestinationPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy=access_policy,
+            destination_name=destination_name,
+            force_update=force_update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy: Optional[pulumi.Input[str]] = None,
+             destination_name: Optional[pulumi.Input[str]] = None,
+             force_update: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_policy is None and 'accessPolicy' in kwargs:
+            access_policy = kwargs['accessPolicy']
+        if destination_name is None and 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if force_update is None and 'forceUpdate' in kwargs:
+            force_update = kwargs['forceUpdate']
+
         if access_policy is not None:
-            pulumi.set(__self__, "access_policy", access_policy)
+            _setter("access_policy", access_policy)
         if destination_name is not None:
-            pulumi.set(__self__, "destination_name", destination_name)
+            _setter("destination_name", destination_name)
         if force_update is not None:
-            pulumi.set(__self__, "force_update", force_update)
+            _setter("force_update", force_update)
 
     @property
     @pulumi.getter(name="accessPolicy")
@@ -220,6 +266,10 @@ class LogDestinationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogDestinationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

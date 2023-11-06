@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
@@ -21,9 +21,28 @@ class OrganizationConfigurationArgs:
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
-        pulumi.set(__self__, "auto_enable", auto_enable)
+        OrganizationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+            auto_enable_standards=auto_enable_standards,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: Optional[pulumi.Input[bool]] = None,
+             auto_enable_standards: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if auto_enable is None:
+            raise TypeError("Missing 'auto_enable' argument")
+        if auto_enable_standards is None and 'autoEnableStandards' in kwargs:
+            auto_enable_standards = kwargs['autoEnableStandards']
+
+        _setter("auto_enable", auto_enable)
         if auto_enable_standards is not None:
-            pulumi.set(__self__, "auto_enable_standards", auto_enable_standards)
+            _setter("auto_enable_standards", auto_enable_standards)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -60,10 +79,27 @@ class _OrganizationConfigurationState:
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         """
+        _OrganizationConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_enable=auto_enable,
+            auto_enable_standards=auto_enable_standards,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_enable: Optional[pulumi.Input[bool]] = None,
+             auto_enable_standards: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_enable is None and 'autoEnable' in kwargs:
+            auto_enable = kwargs['autoEnable']
+        if auto_enable_standards is None and 'autoEnableStandards' in kwargs:
+            auto_enable_standards = kwargs['autoEnableStandards']
+
         if auto_enable is not None:
-            pulumi.set(__self__, "auto_enable", auto_enable)
+            _setter("auto_enable", auto_enable)
         if auto_enable_standards is not None:
-            pulumi.set(__self__, "auto_enable_standards", auto_enable_standards)
+            _setter("auto_enable_standards", auto_enable_standards)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -177,6 +213,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrganizationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

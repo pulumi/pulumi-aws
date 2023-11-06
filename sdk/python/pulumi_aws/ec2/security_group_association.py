@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityGroupAssociationArgs', 'SecurityGroupAssociation']
@@ -23,10 +23,35 @@ class SecurityGroupAssociationArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         :param pulumi.Input[bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
         """
-        pulumi.set(__self__, "security_group_id", security_group_id)
-        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        SecurityGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_id=security_group_id,
+            vpc_endpoint_id=vpc_endpoint_id,
+            replace_default_association=replace_default_association,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             replace_default_association: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_endpoint_id is None:
+            raise TypeError("Missing 'vpc_endpoint_id' argument")
+        if replace_default_association is None and 'replaceDefaultAssociation' in kwargs:
+            replace_default_association = kwargs['replaceDefaultAssociation']
+
+        _setter("security_group_id", security_group_id)
+        _setter("vpc_endpoint_id", vpc_endpoint_id)
         if replace_default_association is not None:
-            pulumi.set(__self__, "replace_default_association", replace_default_association)
+            _setter("replace_default_association", replace_default_association)
 
     @property
     @pulumi.getter(name="securityGroupId")
@@ -77,12 +102,33 @@ class _SecurityGroupAssociationState:
         :param pulumi.Input[str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
+        _SecurityGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replace_default_association=replace_default_association,
+            security_group_id=security_group_id,
+            vpc_endpoint_id=vpc_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replace_default_association: Optional[pulumi.Input[bool]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if replace_default_association is None and 'replaceDefaultAssociation' in kwargs:
+            replace_default_association = kwargs['replaceDefaultAssociation']
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         if replace_default_association is not None:
-            pulumi.set(__self__, "replace_default_association", replace_default_association)
+            _setter("replace_default_association", replace_default_association)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if vpc_endpoint_id is not None:
-            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+            _setter("vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="replaceDefaultAssociation")
@@ -196,6 +242,10 @@ class SecurityGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

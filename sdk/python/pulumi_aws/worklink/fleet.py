@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,53 @@ class FleetArgs:
                
                > **NOTE:** `network` is cannot removed without force recreating.
         """
+        FleetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_stream_arn=audit_stream_arn,
+            device_ca_certificate=device_ca_certificate,
+            display_name=display_name,
+            identity_provider=identity_provider,
+            name=name,
+            network=network,
+            optimize_for_end_user_location=optimize_for_end_user_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_stream_arn: Optional[pulumi.Input[str]] = None,
+             device_ca_certificate: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity_provider: Optional[pulumi.Input['FleetIdentityProviderArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input['FleetNetworkArgs']] = None,
+             optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if audit_stream_arn is None and 'auditStreamArn' in kwargs:
+            audit_stream_arn = kwargs['auditStreamArn']
+        if device_ca_certificate is None and 'deviceCaCertificate' in kwargs:
+            device_ca_certificate = kwargs['deviceCaCertificate']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if optimize_for_end_user_location is None and 'optimizeForEndUserLocation' in kwargs:
+            optimize_for_end_user_location = kwargs['optimizeForEndUserLocation']
+
         if audit_stream_arn is not None:
-            pulumi.set(__self__, "audit_stream_arn", audit_stream_arn)
+            _setter("audit_stream_arn", audit_stream_arn)
         if device_ca_certificate is not None:
-            pulumi.set(__self__, "device_ca_certificate", device_ca_certificate)
+            _setter("device_ca_certificate", device_ca_certificate)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if optimize_for_end_user_location is not None:
-            pulumi.set(__self__, "optimize_for_end_user_location", optimize_for_end_user_location)
+            _setter("optimize_for_end_user_location", optimize_for_end_user_location)
 
     @property
     @pulumi.getter(name="auditStreamArn")
@@ -173,28 +206,75 @@ class _FleetState:
                
                > **NOTE:** `network` is cannot removed without force recreating.
         """
+        _FleetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            audit_stream_arn=audit_stream_arn,
+            company_code=company_code,
+            created_time=created_time,
+            device_ca_certificate=device_ca_certificate,
+            display_name=display_name,
+            identity_provider=identity_provider,
+            last_updated_time=last_updated_time,
+            name=name,
+            network=network,
+            optimize_for_end_user_location=optimize_for_end_user_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             audit_stream_arn: Optional[pulumi.Input[str]] = None,
+             company_code: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             device_ca_certificate: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity_provider: Optional[pulumi.Input['FleetIdentityProviderArgs']] = None,
+             last_updated_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input['FleetNetworkArgs']] = None,
+             optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if audit_stream_arn is None and 'auditStreamArn' in kwargs:
+            audit_stream_arn = kwargs['auditStreamArn']
+        if company_code is None and 'companyCode' in kwargs:
+            company_code = kwargs['companyCode']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if device_ca_certificate is None and 'deviceCaCertificate' in kwargs:
+            device_ca_certificate = kwargs['deviceCaCertificate']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if optimize_for_end_user_location is None and 'optimizeForEndUserLocation' in kwargs:
+            optimize_for_end_user_location = kwargs['optimizeForEndUserLocation']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if audit_stream_arn is not None:
-            pulumi.set(__self__, "audit_stream_arn", audit_stream_arn)
+            _setter("audit_stream_arn", audit_stream_arn)
         if company_code is not None:
-            pulumi.set(__self__, "company_code", company_code)
+            _setter("company_code", company_code)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if device_ca_certificate is not None:
-            pulumi.set(__self__, "device_ca_certificate", device_ca_certificate)
+            _setter("device_ca_certificate", device_ca_certificate)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if optimize_for_end_user_location is not None:
-            pulumi.set(__self__, "optimize_for_end_user_location", optimize_for_end_user_location)
+            _setter("optimize_for_end_user_location", optimize_for_end_user_location)
 
     @property
     @pulumi.getter
@@ -466,6 +546,10 @@ class Fleet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -490,8 +574,18 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["audit_stream_arn"] = audit_stream_arn
             __props__.__dict__["device_ca_certificate"] = device_ca_certificate
             __props__.__dict__["display_name"] = display_name
+            if identity_provider is not None and not isinstance(identity_provider, FleetIdentityProviderArgs):
+                identity_provider = identity_provider or {}
+                def _setter(key, value):
+                    identity_provider[key] = value
+                FleetIdentityProviderArgs._configure(_setter, **identity_provider)
             __props__.__dict__["identity_provider"] = identity_provider
             __props__.__dict__["name"] = name
+            if network is not None and not isinstance(network, FleetNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                FleetNetworkArgs._configure(_setter, **network)
             __props__.__dict__["network"] = network
             __props__.__dict__["optimize_for_end_user_location"] = optimize_for_end_user_location
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -48,8 +48,29 @@ class CloudFormationTypeLoggingConfig(dict):
         :param str log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "log_role_arn", log_role_arn)
+        CloudFormationTypeLoggingConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_role_arn=log_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+        if log_role_arn is None:
+            raise TypeError("Missing 'log_role_arn' argument")
+
+        _setter("log_group_name", log_group_name)
+        _setter("log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -94,10 +115,25 @@ class StackSetAutoDeployment(dict):
         :param bool enabled: Whether or not auto-deployment is enabled.
         :param bool retain_stacks_on_account_removal: Whether or not to retain stacks when the account is removed.
         """
+        StackSetAutoDeployment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            retain_stacks_on_account_removal=retain_stacks_on_account_removal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             retain_stacks_on_account_removal: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if retain_stacks_on_account_removal is None and 'retainStacksOnAccountRemoval' in kwargs:
+            retain_stacks_on_account_removal = kwargs['retainStacksOnAccountRemoval']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retain_stacks_on_account_removal is not None:
-            pulumi.set(__self__, "retain_stacks_on_account_removal", retain_stacks_on_account_removal)
+            _setter("retain_stacks_on_account_removal", retain_stacks_on_account_removal)
 
     @property
     @pulumi.getter
@@ -140,8 +176,21 @@ class StackSetInstanceDeploymentTargets(dict):
         """
         :param Sequence[str] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         """
+        StackSetInstanceDeploymentTargets._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            organizational_unit_ids=organizational_unit_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             organizational_unit_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if organizational_unit_ids is None and 'organizationalUnitIds' in kwargs:
+            organizational_unit_ids = kwargs['organizationalUnitIds']
+
         if organizational_unit_ids is not None:
-            pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
+            _setter("organizational_unit_ids", organizational_unit_ids)
 
     @property
     @pulumi.getter(name="organizationalUnitIds")
@@ -196,18 +245,51 @@ class StackSetInstanceOperationPreferences(dict):
         :param str region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
         :param Sequence[str] region_orders: The order of the Regions in where you want to perform the stack operation.
         """
+        StackSetInstanceOperationPreferences._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_tolerance_count=failure_tolerance_count,
+            failure_tolerance_percentage=failure_tolerance_percentage,
+            max_concurrent_count=max_concurrent_count,
+            max_concurrent_percentage=max_concurrent_percentage,
+            region_concurrency_type=region_concurrency_type,
+            region_orders=region_orders,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_tolerance_count: Optional[int] = None,
+             failure_tolerance_percentage: Optional[int] = None,
+             max_concurrent_count: Optional[int] = None,
+             max_concurrent_percentage: Optional[int] = None,
+             region_concurrency_type: Optional[str] = None,
+             region_orders: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if failure_tolerance_count is None and 'failureToleranceCount' in kwargs:
+            failure_tolerance_count = kwargs['failureToleranceCount']
+        if failure_tolerance_percentage is None and 'failureTolerancePercentage' in kwargs:
+            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
+        if max_concurrent_count is None and 'maxConcurrentCount' in kwargs:
+            max_concurrent_count = kwargs['maxConcurrentCount']
+        if max_concurrent_percentage is None and 'maxConcurrentPercentage' in kwargs:
+            max_concurrent_percentage = kwargs['maxConcurrentPercentage']
+        if region_concurrency_type is None and 'regionConcurrencyType' in kwargs:
+            region_concurrency_type = kwargs['regionConcurrencyType']
+        if region_orders is None and 'regionOrders' in kwargs:
+            region_orders = kwargs['regionOrders']
+
         if failure_tolerance_count is not None:
-            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+            _setter("failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
-            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+            _setter("failure_tolerance_percentage", failure_tolerance_percentage)
         if max_concurrent_count is not None:
-            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+            _setter("max_concurrent_count", max_concurrent_count)
         if max_concurrent_percentage is not None:
-            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+            _setter("max_concurrent_percentage", max_concurrent_percentage)
         if region_concurrency_type is not None:
-            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+            _setter("region_concurrency_type", region_concurrency_type)
         if region_orders is not None:
-            pulumi.set(__self__, "region_orders", region_orders)
+            _setter("region_orders", region_orders)
 
     @property
     @pulumi.getter(name="failureToleranceCount")
@@ -290,12 +372,33 @@ class StackSetInstanceStackInstanceSummary(dict):
         :param str organizational_unit_id: Organizational unit ID in which the stack is deployed.
         :param str stack_id: Stack identifier.
         """
+        StackSetInstanceStackInstanceSummary._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            organizational_unit_id=organizational_unit_id,
+            stack_id=stack_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             organizational_unit_id: Optional[str] = None,
+             stack_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if organizational_unit_id is None and 'organizationalUnitId' in kwargs:
+            organizational_unit_id = kwargs['organizationalUnitId']
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if organizational_unit_id is not None:
-            pulumi.set(__self__, "organizational_unit_id", organizational_unit_id)
+            _setter("organizational_unit_id", organizational_unit_id)
         if stack_id is not None:
-            pulumi.set(__self__, "stack_id", stack_id)
+            _setter("stack_id", stack_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -329,8 +432,19 @@ class StackSetManagedExecution(dict):
         """
         :param bool active: When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
         """
+        StackSetManagedExecution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active=active,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if active is not None:
-            pulumi.set(__self__, "active", active)
+            _setter("active", active)
 
     @property
     @pulumi.getter
@@ -385,18 +499,51 @@ class StackSetOperationPreferences(dict):
         :param str region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
         :param Sequence[str] region_orders: The order of the Regions in where you want to perform the stack operation.
         """
+        StackSetOperationPreferences._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_tolerance_count=failure_tolerance_count,
+            failure_tolerance_percentage=failure_tolerance_percentage,
+            max_concurrent_count=max_concurrent_count,
+            max_concurrent_percentage=max_concurrent_percentage,
+            region_concurrency_type=region_concurrency_type,
+            region_orders=region_orders,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_tolerance_count: Optional[int] = None,
+             failure_tolerance_percentage: Optional[int] = None,
+             max_concurrent_count: Optional[int] = None,
+             max_concurrent_percentage: Optional[int] = None,
+             region_concurrency_type: Optional[str] = None,
+             region_orders: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if failure_tolerance_count is None and 'failureToleranceCount' in kwargs:
+            failure_tolerance_count = kwargs['failureToleranceCount']
+        if failure_tolerance_percentage is None and 'failureTolerancePercentage' in kwargs:
+            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
+        if max_concurrent_count is None and 'maxConcurrentCount' in kwargs:
+            max_concurrent_count = kwargs['maxConcurrentCount']
+        if max_concurrent_percentage is None and 'maxConcurrentPercentage' in kwargs:
+            max_concurrent_percentage = kwargs['maxConcurrentPercentage']
+        if region_concurrency_type is None and 'regionConcurrencyType' in kwargs:
+            region_concurrency_type = kwargs['regionConcurrencyType']
+        if region_orders is None and 'regionOrders' in kwargs:
+            region_orders = kwargs['regionOrders']
+
         if failure_tolerance_count is not None:
-            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+            _setter("failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
-            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+            _setter("failure_tolerance_percentage", failure_tolerance_percentage)
         if max_concurrent_count is not None:
-            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+            _setter("max_concurrent_count", max_concurrent_count)
         if max_concurrent_percentage is not None:
-            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+            _setter("max_concurrent_percentage", max_concurrent_percentage)
         if region_concurrency_type is not None:
-            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+            _setter("region_concurrency_type", region_concurrency_type)
         if region_orders is not None:
-            pulumi.set(__self__, "region_orders", region_orders)
+            _setter("region_orders", region_orders)
 
     @property
     @pulumi.getter(name="failureToleranceCount")
@@ -456,8 +603,29 @@ class GetCloudFormationTypeLoggingConfigResult(dict):
         :param str log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
         :param str log_role_arn: ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
-        pulumi.set(__self__, "log_role_arn", log_role_arn)
+        GetCloudFormationTypeLoggingConfigResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_role_arn=log_role_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+        if log_role_arn is None:
+            raise TypeError("Missing 'log_role_arn' argument")
+
+        _setter("log_group_name", log_group_name)
+        _setter("log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,48 @@ class DomainAssociationArgs:
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "sub_domains", sub_domains)
+        DomainAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            domain_name=domain_name,
+            sub_domains=sub_domains,
+            enable_auto_sub_domain=enable_auto_sub_domain,
+            wait_for_verification=wait_for_verification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
+             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
+             wait_for_verification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if sub_domains is None and 'subDomains' in kwargs:
+            sub_domains = kwargs['subDomains']
+        if sub_domains is None:
+            raise TypeError("Missing 'sub_domains' argument")
+        if enable_auto_sub_domain is None and 'enableAutoSubDomain' in kwargs:
+            enable_auto_sub_domain = kwargs['enableAutoSubDomain']
+        if wait_for_verification is None and 'waitForVerification' in kwargs:
+            wait_for_verification = kwargs['waitForVerification']
+
+        _setter("app_id", app_id)
+        _setter("domain_name", domain_name)
+        _setter("sub_domains", sub_domains)
         if enable_auto_sub_domain is not None:
-            pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
+            _setter("enable_auto_sub_domain", enable_auto_sub_domain)
         if wait_for_verification is not None:
-            pulumi.set(__self__, "wait_for_verification", wait_for_verification)
+            _setter("wait_for_verification", wait_for_verification)
 
     @property
     @pulumi.getter(name="appId")
@@ -118,20 +153,55 @@ class _DomainAssociationState:
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
+        _DomainAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            arn=arn,
+            certificate_verification_dns_record=certificate_verification_dns_record,
+            domain_name=domain_name,
+            enable_auto_sub_domain=enable_auto_sub_domain,
+            sub_domains=sub_domains,
+            wait_for_verification=wait_for_verification,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
+             sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
+             wait_for_verification: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if certificate_verification_dns_record is None and 'certificateVerificationDnsRecord' in kwargs:
+            certificate_verification_dns_record = kwargs['certificateVerificationDnsRecord']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if enable_auto_sub_domain is None and 'enableAutoSubDomain' in kwargs:
+            enable_auto_sub_domain = kwargs['enableAutoSubDomain']
+        if sub_domains is None and 'subDomains' in kwargs:
+            sub_domains = kwargs['subDomains']
+        if wait_for_verification is None and 'waitForVerification' in kwargs:
+            wait_for_verification = kwargs['waitForVerification']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if certificate_verification_dns_record is not None:
-            pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
+            _setter("certificate_verification_dns_record", certificate_verification_dns_record)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if enable_auto_sub_domain is not None:
-            pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
+            _setter("enable_auto_sub_domain", enable_auto_sub_domain)
         if sub_domains is not None:
-            pulumi.set(__self__, "sub_domains", sub_domains)
+            _setter("sub_domains", sub_domains)
         if wait_for_verification is not None:
-            pulumi.set(__self__, "wait_for_verification", wait_for_verification)
+            _setter("wait_for_verification", wait_for_verification)
 
     @property
     @pulumi.getter(name="appId")
@@ -333,6 +403,10 @@ class DomainAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

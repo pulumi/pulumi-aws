@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,24 +40,57 @@ class AnalyticsApplicationArgs:
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        AnalyticsApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            code=code,
+            description=description,
+            inputs=inputs,
+            name=name,
+            outputs=outputs,
+            reference_data_sources=reference_data_sources,
+            start_application=start_application,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] = None,
+             code: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
+             reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_logging_options is None and 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if reference_data_sources is None and 'referenceDataSources' in kwargs:
+            reference_data_sources = kwargs['referenceDataSources']
+        if start_application is None and 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if reference_data_sources is not None:
-            pulumi.set(__self__, "reference_data_sources", reference_data_sources)
+            _setter("reference_data_sources", reference_data_sources)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
@@ -210,39 +243,90 @@ class _AnalyticsApplicationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: The Version of the application.
         """
+        _AnalyticsApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cloudwatch_logging_options=cloudwatch_logging_options,
+            code=code,
+            create_timestamp=create_timestamp,
+            description=description,
+            inputs=inputs,
+            last_update_timestamp=last_update_timestamp,
+            name=name,
+            outputs=outputs,
+            reference_data_sources=reference_data_sources,
+            start_application=start_application,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] = None,
+             code: Optional[pulumi.Input[str]] = None,
+             create_timestamp: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']] = None,
+             last_update_timestamp: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
+             reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
+             start_application: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_logging_options is None and 'cloudwatchLoggingOptions' in kwargs:
+            cloudwatch_logging_options = kwargs['cloudwatchLoggingOptions']
+        if create_timestamp is None and 'createTimestamp' in kwargs:
+            create_timestamp = kwargs['createTimestamp']
+        if last_update_timestamp is None and 'lastUpdateTimestamp' in kwargs:
+            last_update_timestamp = kwargs['lastUpdateTimestamp']
+        if reference_data_sources is None and 'referenceDataSources' in kwargs:
+            reference_data_sources = kwargs['referenceDataSources']
+        if start_application is None and 'startApplication' in kwargs:
+            start_application = kwargs['startApplication']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cloudwatch_logging_options is not None:
-            pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
+            _setter("cloudwatch_logging_options", cloudwatch_logging_options)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if create_timestamp is not None:
-            pulumi.set(__self__, "create_timestamp", create_timestamp)
+            _setter("create_timestamp", create_timestamp)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if last_update_timestamp is not None:
-            pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
+            _setter("last_update_timestamp", last_update_timestamp)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if reference_data_sources is not None:
-            pulumi.set(__self__, "reference_data_sources", reference_data_sources)
+            _setter("reference_data_sources", reference_data_sources)
         if start_application is not None:
-            pulumi.set(__self__, "start_application", start_application)
+            _setter("start_application", start_application)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -691,6 +775,10 @@ class AnalyticsApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalyticsApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -714,12 +802,27 @@ class AnalyticsApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnalyticsApplicationArgs.__new__(AnalyticsApplicationArgs)
 
+            if cloudwatch_logging_options is not None and not isinstance(cloudwatch_logging_options, AnalyticsApplicationCloudwatchLoggingOptionsArgs):
+                cloudwatch_logging_options = cloudwatch_logging_options or {}
+                def _setter(key, value):
+                    cloudwatch_logging_options[key] = value
+                AnalyticsApplicationCloudwatchLoggingOptionsArgs._configure(_setter, **cloudwatch_logging_options)
             __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
             __props__.__dict__["code"] = code
             __props__.__dict__["description"] = description
+            if inputs is not None and not isinstance(inputs, AnalyticsApplicationInputsArgs):
+                inputs = inputs or {}
+                def _setter(key, value):
+                    inputs[key] = value
+                AnalyticsApplicationInputsArgs._configure(_setter, **inputs)
             __props__.__dict__["inputs"] = inputs
             __props__.__dict__["name"] = name
             __props__.__dict__["outputs"] = outputs
+            if reference_data_sources is not None and not isinstance(reference_data_sources, AnalyticsApplicationReferenceDataSourcesArgs):
+                reference_data_sources = reference_data_sources or {}
+                def _setter(key, value):
+                    reference_data_sources[key] = value
+                AnalyticsApplicationReferenceDataSourcesArgs._configure(_setter, **reference_data_sources)
             __props__.__dict__["reference_data_sources"] = reference_data_sources
             __props__.__dict__["start_application"] = start_application
             __props__.__dict__["tags"] = tags

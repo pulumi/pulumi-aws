@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LicenseGrantAccepterArgs', 'LicenseGrantAccepter']
@@ -19,7 +19,22 @@ class LicenseGrantAccepterArgs:
         The set of arguments for constructing a LicenseGrantAccepter resource.
         :param pulumi.Input[str] grant_arn: The ARN of the grant to accept.
         """
-        pulumi.set(__self__, "grant_arn", grant_arn)
+        LicenseGrantAccepterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grant_arn=grant_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grant_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if grant_arn is None and 'grantArn' in kwargs:
+            grant_arn = kwargs['grantArn']
+        if grant_arn is None:
+            raise TypeError("Missing 'grant_arn' argument")
+
+        _setter("grant_arn", grant_arn)
 
     @property
     @pulumi.getter(name="grantArn")
@@ -58,24 +73,61 @@ class _LicenseGrantAccepterState:
         :param pulumi.Input[str] status: The grant status.
         :param pulumi.Input[str] version: The grant version.
         """
+        _LicenseGrantAccepterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            grant_arn=grant_arn,
+            home_region=home_region,
+            license_arn=license_arn,
+            name=name,
+            parent_arn=parent_arn,
+            principal=principal,
+            status=status,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             grant_arn: Optional[pulumi.Input[str]] = None,
+             home_region: Optional[pulumi.Input[str]] = None,
+             license_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_arn: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_operations is None and 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if grant_arn is None and 'grantArn' in kwargs:
+            grant_arn = kwargs['grantArn']
+        if home_region is None and 'homeRegion' in kwargs:
+            home_region = kwargs['homeRegion']
+        if license_arn is None and 'licenseArn' in kwargs:
+            license_arn = kwargs['licenseArn']
+        if parent_arn is None and 'parentArn' in kwargs:
+            parent_arn = kwargs['parentArn']
+
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if grant_arn is not None:
-            pulumi.set(__self__, "grant_arn", grant_arn)
+            _setter("grant_arn", grant_arn)
         if home_region is not None:
-            pulumi.set(__self__, "home_region", home_region)
+            _setter("home_region", home_region)
         if license_arn is not None:
-            pulumi.set(__self__, "license_arn", license_arn)
+            _setter("license_arn", license_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_arn is not None:
-            pulumi.set(__self__, "parent_arn", parent_arn)
+            _setter("parent_arn", parent_arn)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -253,6 +305,10 @@ class LicenseGrantAccepter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LicenseGrantAccepterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

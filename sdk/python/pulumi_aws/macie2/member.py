@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberArgs', 'Member']
@@ -31,18 +31,51 @@ class MemberArgs:
         :param pulumi.Input[str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "email", email)
+        MemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            email=email,
+            invitation_disable_email_notification=invitation_disable_email_notification,
+            invitation_message=invitation_message,
+            invite=invite,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
+             invitation_message: Optional[pulumi.Input[str]] = None,
+             invite: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if invitation_disable_email_notification is None and 'invitationDisableEmailNotification' in kwargs:
+            invitation_disable_email_notification = kwargs['invitationDisableEmailNotification']
+        if invitation_message is None and 'invitationMessage' in kwargs:
+            invitation_message = kwargs['invitationMessage']
+
+        _setter("account_id", account_id)
+        _setter("email", email)
         if invitation_disable_email_notification is not None:
-            pulumi.set(__self__, "invitation_disable_email_notification", invitation_disable_email_notification)
+            _setter("invitation_disable_email_notification", invitation_disable_email_notification)
         if invitation_message is not None:
-            pulumi.set(__self__, "invitation_message", invitation_message)
+            _setter("invitation_message", invitation_message)
         if invite is not None:
-            pulumi.set(__self__, "invite", invite)
+            _setter("invite", invite)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountId")
@@ -161,37 +194,92 @@ class _MemberState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
         :param pulumi.Input[str] updated_at: The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
         """
+        _MemberState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            administrator_account_id=administrator_account_id,
+            arn=arn,
+            email=email,
+            invitation_disable_email_notification=invitation_disable_email_notification,
+            invitation_message=invitation_message,
+            invite=invite,
+            invited_at=invited_at,
+            master_account_id=master_account_id,
+            relationship_status=relationship_status,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[pulumi.Input[str]] = None,
+             administrator_account_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
+             invitation_message: Optional[pulumi.Input[str]] = None,
+             invite: Optional[pulumi.Input[bool]] = None,
+             invited_at: Optional[pulumi.Input[str]] = None,
+             master_account_id: Optional[pulumi.Input[str]] = None,
+             relationship_status: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if administrator_account_id is None and 'administratorAccountId' in kwargs:
+            administrator_account_id = kwargs['administratorAccountId']
+        if invitation_disable_email_notification is None and 'invitationDisableEmailNotification' in kwargs:
+            invitation_disable_email_notification = kwargs['invitationDisableEmailNotification']
+        if invitation_message is None and 'invitationMessage' in kwargs:
+            invitation_message = kwargs['invitationMessage']
+        if invited_at is None and 'invitedAt' in kwargs:
+            invited_at = kwargs['invitedAt']
+        if master_account_id is None and 'masterAccountId' in kwargs:
+            master_account_id = kwargs['masterAccountId']
+        if relationship_status is None and 'relationshipStatus' in kwargs:
+            relationship_status = kwargs['relationshipStatus']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if administrator_account_id is not None:
-            pulumi.set(__self__, "administrator_account_id", administrator_account_id)
+            _setter("administrator_account_id", administrator_account_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if invitation_disable_email_notification is not None:
-            pulumi.set(__self__, "invitation_disable_email_notification", invitation_disable_email_notification)
+            _setter("invitation_disable_email_notification", invitation_disable_email_notification)
         if invitation_message is not None:
-            pulumi.set(__self__, "invitation_message", invitation_message)
+            _setter("invitation_message", invitation_message)
         if invite is not None:
-            pulumi.set(__self__, "invite", invite)
+            _setter("invite", invite)
         if invited_at is not None:
-            pulumi.set(__self__, "invited_at", invited_at)
+            _setter("invited_at", invited_at)
         if master_account_id is not None:
-            pulumi.set(__self__, "master_account_id", master_account_id)
+            _setter("master_account_id", master_account_id)
         if relationship_status is not None:
-            pulumi.set(__self__, "relationship_status", relationship_status)
+            _setter("relationship_status", relationship_status)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="accountId")
@@ -452,6 +540,10 @@ class Member(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,52 +69,145 @@ class LoadBalancerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         """
+        LoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            desync_mitigation_mode=desync_mitigation_mode,
+            dns_record_client_routing_policy=dns_record_client_routing_policy,
+            drop_invalid_header_fields=drop_invalid_header_fields,
+            enable_cross_zone_load_balancing=enable_cross_zone_load_balancing,
+            enable_deletion_protection=enable_deletion_protection,
+            enable_http2=enable_http2,
+            enable_tls_version_and_cipher_suite_headers=enable_tls_version_and_cipher_suite_headers,
+            enable_waf_fail_open=enable_waf_fail_open,
+            enable_xff_client_port=enable_xff_client_port,
+            idle_timeout=idle_timeout,
+            internal=internal,
+            ip_address_type=ip_address_type,
+            load_balancer_type=load_balancer_type,
+            name=name,
+            name_prefix=name_prefix,
+            preserve_host_header=preserve_host_header,
+            security_groups=security_groups,
+            subnet_mappings=subnet_mappings,
+            subnets=subnets,
+            tags=tags,
+            xff_header_processing_mode=xff_header_processing_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+             dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
+             drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
+             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+             enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enable_http2: Optional[pulumi.Input[bool]] = None,
+             enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
+             enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+             enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             internal: Optional[pulumi.Input[bool]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             load_balancer_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             preserve_host_header: Optional[pulumi.Input[bool]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if desync_mitigation_mode is None and 'desyncMitigationMode' in kwargs:
+            desync_mitigation_mode = kwargs['desyncMitigationMode']
+        if dns_record_client_routing_policy is None and 'dnsRecordClientRoutingPolicy' in kwargs:
+            dns_record_client_routing_policy = kwargs['dnsRecordClientRoutingPolicy']
+        if drop_invalid_header_fields is None and 'dropInvalidHeaderFields' in kwargs:
+            drop_invalid_header_fields = kwargs['dropInvalidHeaderFields']
+        if enable_cross_zone_load_balancing is None and 'enableCrossZoneLoadBalancing' in kwargs:
+            enable_cross_zone_load_balancing = kwargs['enableCrossZoneLoadBalancing']
+        if enable_deletion_protection is None and 'enableDeletionProtection' in kwargs:
+            enable_deletion_protection = kwargs['enableDeletionProtection']
+        if enable_http2 is None and 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if enable_tls_version_and_cipher_suite_headers is None and 'enableTlsVersionAndCipherSuiteHeaders' in kwargs:
+            enable_tls_version_and_cipher_suite_headers = kwargs['enableTlsVersionAndCipherSuiteHeaders']
+        if enable_waf_fail_open is None and 'enableWafFailOpen' in kwargs:
+            enable_waf_fail_open = kwargs['enableWafFailOpen']
+        if enable_xff_client_port is None and 'enableXffClientPort' in kwargs:
+            enable_xff_client_port = kwargs['enableXffClientPort']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if preserve_host_header is None and 'preserveHostHeader' in kwargs:
+            preserve_host_header = kwargs['preserveHostHeader']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if xff_header_processing_mode is None and 'xffHeaderProcessingMode' in kwargs:
+            xff_header_processing_mode = kwargs['xffHeaderProcessingMode']
+
         if access_logs is not None:
-            pulumi.set(__self__, "access_logs", access_logs)
+            _setter("access_logs", access_logs)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if desync_mitigation_mode is not None:
-            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
+            _setter("desync_mitigation_mode", desync_mitigation_mode)
         if dns_record_client_routing_policy is not None:
-            pulumi.set(__self__, "dns_record_client_routing_policy", dns_record_client_routing_policy)
+            _setter("dns_record_client_routing_policy", dns_record_client_routing_policy)
         if drop_invalid_header_fields is not None:
-            pulumi.set(__self__, "drop_invalid_header_fields", drop_invalid_header_fields)
+            _setter("drop_invalid_header_fields", drop_invalid_header_fields)
         if enable_cross_zone_load_balancing is not None:
-            pulumi.set(__self__, "enable_cross_zone_load_balancing", enable_cross_zone_load_balancing)
+            _setter("enable_cross_zone_load_balancing", enable_cross_zone_load_balancing)
         if enable_deletion_protection is not None:
-            pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
+            _setter("enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
-            pulumi.set(__self__, "enable_http2", enable_http2)
+            _setter("enable_http2", enable_http2)
         if enable_tls_version_and_cipher_suite_headers is not None:
-            pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
+            _setter("enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
-            pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
+            _setter("enable_waf_fail_open", enable_waf_fail_open)
         if enable_xff_client_port is not None:
-            pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+            _setter("enable_xff_client_port", enable_xff_client_port)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if load_balancer_type is not None:
-            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+            _setter("load_balancer_type", load_balancer_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if preserve_host_header is not None:
-            pulumi.set(__self__, "preserve_host_header", preserve_host_header)
+            _setter("preserve_host_header", preserve_host_header)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnet_mappings is not None:
-            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
+            _setter("subnet_mappings", subnet_mappings)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if xff_header_processing_mode is not None:
-            pulumi.set(__self__, "xff_header_processing_mode", xff_header_processing_mode)
+            _setter("xff_header_processing_mode", xff_header_processing_mode)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -464,67 +557,182 @@ class _LoadBalancerState:
         :param pulumi.Input[str] xff_header_processing_mode: Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
+        _LoadBalancerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_logs=access_logs,
+            arn=arn,
+            arn_suffix=arn_suffix,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            desync_mitigation_mode=desync_mitigation_mode,
+            dns_name=dns_name,
+            dns_record_client_routing_policy=dns_record_client_routing_policy,
+            drop_invalid_header_fields=drop_invalid_header_fields,
+            enable_cross_zone_load_balancing=enable_cross_zone_load_balancing,
+            enable_deletion_protection=enable_deletion_protection,
+            enable_http2=enable_http2,
+            enable_tls_version_and_cipher_suite_headers=enable_tls_version_and_cipher_suite_headers,
+            enable_waf_fail_open=enable_waf_fail_open,
+            enable_xff_client_port=enable_xff_client_port,
+            idle_timeout=idle_timeout,
+            internal=internal,
+            ip_address_type=ip_address_type,
+            load_balancer_type=load_balancer_type,
+            name=name,
+            name_prefix=name_prefix,
+            preserve_host_header=preserve_host_header,
+            security_groups=security_groups,
+            subnet_mappings=subnet_mappings,
+            subnets=subnets,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+            xff_header_processing_mode=xff_header_processing_mode,
+            zone_id=zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             arn_suffix: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             dns_record_client_routing_policy: Optional[pulumi.Input[str]] = None,
+             drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
+             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+             enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
+             enable_http2: Optional[pulumi.Input[bool]] = None,
+             enable_tls_version_and_cipher_suite_headers: Optional[pulumi.Input[bool]] = None,
+             enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
+             enable_xff_client_port: Optional[pulumi.Input[bool]] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             internal: Optional[pulumi.Input[bool]] = None,
+             ip_address_type: Optional[pulumi.Input[str]] = None,
+             load_balancer_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             preserve_host_header: Optional[pulumi.Input[bool]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             xff_header_processing_mode: Optional[pulumi.Input[str]] = None,
+             zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_logs is None and 'accessLogs' in kwargs:
+            access_logs = kwargs['accessLogs']
+        if arn_suffix is None and 'arnSuffix' in kwargs:
+            arn_suffix = kwargs['arnSuffix']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if desync_mitigation_mode is None and 'desyncMitigationMode' in kwargs:
+            desync_mitigation_mode = kwargs['desyncMitigationMode']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_record_client_routing_policy is None and 'dnsRecordClientRoutingPolicy' in kwargs:
+            dns_record_client_routing_policy = kwargs['dnsRecordClientRoutingPolicy']
+        if drop_invalid_header_fields is None and 'dropInvalidHeaderFields' in kwargs:
+            drop_invalid_header_fields = kwargs['dropInvalidHeaderFields']
+        if enable_cross_zone_load_balancing is None and 'enableCrossZoneLoadBalancing' in kwargs:
+            enable_cross_zone_load_balancing = kwargs['enableCrossZoneLoadBalancing']
+        if enable_deletion_protection is None and 'enableDeletionProtection' in kwargs:
+            enable_deletion_protection = kwargs['enableDeletionProtection']
+        if enable_http2 is None and 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if enable_tls_version_and_cipher_suite_headers is None and 'enableTlsVersionAndCipherSuiteHeaders' in kwargs:
+            enable_tls_version_and_cipher_suite_headers = kwargs['enableTlsVersionAndCipherSuiteHeaders']
+        if enable_waf_fail_open is None and 'enableWafFailOpen' in kwargs:
+            enable_waf_fail_open = kwargs['enableWafFailOpen']
+        if enable_xff_client_port is None and 'enableXffClientPort' in kwargs:
+            enable_xff_client_port = kwargs['enableXffClientPort']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if preserve_host_header is None and 'preserveHostHeader' in kwargs:
+            preserve_host_header = kwargs['preserveHostHeader']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if xff_header_processing_mode is None and 'xffHeaderProcessingMode' in kwargs:
+            xff_header_processing_mode = kwargs['xffHeaderProcessingMode']
+        if zone_id is None and 'zoneId' in kwargs:
+            zone_id = kwargs['zoneId']
+
         if access_logs is not None:
-            pulumi.set(__self__, "access_logs", access_logs)
+            _setter("access_logs", access_logs)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if arn_suffix is not None:
-            pulumi.set(__self__, "arn_suffix", arn_suffix)
+            _setter("arn_suffix", arn_suffix)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if desync_mitigation_mode is not None:
-            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
+            _setter("desync_mitigation_mode", desync_mitigation_mode)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if dns_record_client_routing_policy is not None:
-            pulumi.set(__self__, "dns_record_client_routing_policy", dns_record_client_routing_policy)
+            _setter("dns_record_client_routing_policy", dns_record_client_routing_policy)
         if drop_invalid_header_fields is not None:
-            pulumi.set(__self__, "drop_invalid_header_fields", drop_invalid_header_fields)
+            _setter("drop_invalid_header_fields", drop_invalid_header_fields)
         if enable_cross_zone_load_balancing is not None:
-            pulumi.set(__self__, "enable_cross_zone_load_balancing", enable_cross_zone_load_balancing)
+            _setter("enable_cross_zone_load_balancing", enable_cross_zone_load_balancing)
         if enable_deletion_protection is not None:
-            pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
+            _setter("enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
-            pulumi.set(__self__, "enable_http2", enable_http2)
+            _setter("enable_http2", enable_http2)
         if enable_tls_version_and_cipher_suite_headers is not None:
-            pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
+            _setter("enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
-            pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
+            _setter("enable_waf_fail_open", enable_waf_fail_open)
         if enable_xff_client_port is not None:
-            pulumi.set(__self__, "enable_xff_client_port", enable_xff_client_port)
+            _setter("enable_xff_client_port", enable_xff_client_port)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if load_balancer_type is not None:
-            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+            _setter("load_balancer_type", load_balancer_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if preserve_host_header is not None:
-            pulumi.set(__self__, "preserve_host_header", preserve_host_header)
+            _setter("preserve_host_header", preserve_host_header)
         if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+            _setter("security_groups", security_groups)
         if subnet_mappings is not None:
-            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
+            _setter("subnet_mappings", subnet_mappings)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if xff_header_processing_mode is not None:
-            pulumi.set(__self__, "xff_header_processing_mode", xff_header_processing_mode)
+            _setter("xff_header_processing_mode", xff_header_processing_mode)
         if zone_id is not None:
-            pulumi.set(__self__, "zone_id", zone_id)
+            _setter("zone_id", zone_id)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -1132,6 +1340,10 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1169,6 +1381,11 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
+            if access_logs is not None and not isinstance(access_logs, LoadBalancerAccessLogsArgs):
+                access_logs = access_logs or {}
+                def _setter(key, value):
+                    access_logs[key] = value
+                LoadBalancerAccessLogsArgs._configure(_setter, **access_logs)
             __props__.__dict__["access_logs"] = access_logs
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
             __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode

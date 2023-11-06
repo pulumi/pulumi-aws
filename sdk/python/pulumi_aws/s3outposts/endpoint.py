@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,48 @@ class EndpointArgs:
         :param pulumi.Input[str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         """
-        pulumi.set(__self__, "outpost_id", outpost_id)
-        pulumi.set(__self__, "security_group_id", security_group_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            outpost_id=outpost_id,
+            security_group_id=security_group_id,
+            subnet_id=subnet_id,
+            access_type=access_type,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             outpost_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             access_type: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if outpost_id is None and 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if outpost_id is None:
+            raise TypeError("Missing 'outpost_id' argument")
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if access_type is None and 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+
+        _setter("outpost_id", outpost_id)
+        _setter("security_group_id", security_group_id)
+        _setter("subnet_id", subnet_id)
         if access_type is not None:
-            pulumi.set(__self__, "access_type", access_type)
+            _setter("access_type", access_type)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -122,24 +157,67 @@ class _EndpointState:
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
         """
+        _EndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_type=access_type,
+            arn=arn,
+            cidr_block=cidr_block,
+            creation_time=creation_time,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            network_interfaces=network_interfaces,
+            outpost_id=outpost_id,
+            security_group_id=security_group_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_type: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cidr_block: Optional[pulumi.Input[str]] = None,
+             creation_time: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
+             outpost_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_type is None and 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if outpost_id is None and 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if access_type is not None:
-            pulumi.set(__self__, "access_type", access_type)
+            _setter("access_type", access_type)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cidr_block is not None:
-            pulumi.set(__self__, "cidr_block", cidr_block)
+            _setter("cidr_block", cidr_block)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if outpost_id is not None:
-            pulumi.set(__self__, "outpost_id", outpost_id)
+            _setter("outpost_id", outpost_id)
         if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
+            _setter("security_group_id", security_group_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="accessType")
@@ -331,6 +409,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

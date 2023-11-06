@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,29 +45,88 @@ class StageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
-        pulumi.set(__self__, "deployment", deployment)
-        pulumi.set(__self__, "rest_api", rest_api)
-        pulumi.set(__self__, "stage_name", stage_name)
+        StageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment=deployment,
+            rest_api=rest_api,
+            stage_name=stage_name,
+            access_log_settings=access_log_settings,
+            cache_cluster_enabled=cache_cluster_enabled,
+            cache_cluster_size=cache_cluster_size,
+            canary_settings=canary_settings,
+            client_certificate_id=client_certificate_id,
+            description=description,
+            documentation_version=documentation_version,
+            tags=tags,
+            variables=variables,
+            xray_tracing_enabled=xray_tracing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
+             cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_cluster_size: Optional[pulumi.Input[str]] = None,
+             canary_settings: Optional[pulumi.Input['StageCanarySettingsArgs']] = None,
+             client_certificate_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             documentation_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if deployment is None:
+            raise TypeError("Missing 'deployment' argument")
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if rest_api is None:
+            raise TypeError("Missing 'rest_api' argument")
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+        if access_log_settings is None and 'accessLogSettings' in kwargs:
+            access_log_settings = kwargs['accessLogSettings']
+        if cache_cluster_enabled is None and 'cacheClusterEnabled' in kwargs:
+            cache_cluster_enabled = kwargs['cacheClusterEnabled']
+        if cache_cluster_size is None and 'cacheClusterSize' in kwargs:
+            cache_cluster_size = kwargs['cacheClusterSize']
+        if canary_settings is None and 'canarySettings' in kwargs:
+            canary_settings = kwargs['canarySettings']
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if documentation_version is None and 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if xray_tracing_enabled is None and 'xrayTracingEnabled' in kwargs:
+            xray_tracing_enabled = kwargs['xrayTracingEnabled']
+
+        _setter("deployment", deployment)
+        _setter("rest_api", rest_api)
+        _setter("stage_name", stage_name)
         if access_log_settings is not None:
-            pulumi.set(__self__, "access_log_settings", access_log_settings)
+            _setter("access_log_settings", access_log_settings)
         if cache_cluster_enabled is not None:
-            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+            _setter("cache_cluster_enabled", cache_cluster_enabled)
         if cache_cluster_size is not None:
-            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+            _setter("cache_cluster_size", cache_cluster_size)
         if canary_settings is not None:
-            pulumi.set(__self__, "canary_settings", canary_settings)
+            _setter("canary_settings", canary_settings)
         if client_certificate_id is not None:
-            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+            _setter("client_certificate_id", client_certificate_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_version is not None:
-            pulumi.set(__self__, "documentation_version", documentation_version)
+            _setter("documentation_version", documentation_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
         if xray_tracing_enabled is not None:
-            pulumi.set(__self__, "xray_tracing_enabled", xray_tracing_enabled)
+            _setter("xray_tracing_enabled", xray_tracing_enabled)
 
     @property
     @pulumi.getter
@@ -271,45 +330,116 @@ class _StageState:
         :param pulumi.Input[str] web_acl_arn: ARN of the WebAcl associated with the Stage.
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
+        _StageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_log_settings=access_log_settings,
+            arn=arn,
+            cache_cluster_enabled=cache_cluster_enabled,
+            cache_cluster_size=cache_cluster_size,
+            canary_settings=canary_settings,
+            client_certificate_id=client_certificate_id,
+            deployment=deployment,
+            description=description,
+            documentation_version=documentation_version,
+            execution_arn=execution_arn,
+            invoke_url=invoke_url,
+            rest_api=rest_api,
+            stage_name=stage_name,
+            tags=tags,
+            tags_all=tags_all,
+            variables=variables,
+            web_acl_arn=web_acl_arn,
+            xray_tracing_enabled=xray_tracing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             cache_cluster_size: Optional[pulumi.Input[str]] = None,
+             canary_settings: Optional[pulumi.Input['StageCanarySettingsArgs']] = None,
+             client_certificate_id: Optional[pulumi.Input[str]] = None,
+             deployment: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             documentation_version: Optional[pulumi.Input[str]] = None,
+             execution_arn: Optional[pulumi.Input[str]] = None,
+             invoke_url: Optional[pulumi.Input[str]] = None,
+             rest_api: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             web_acl_arn: Optional[pulumi.Input[str]] = None,
+             xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_log_settings is None and 'accessLogSettings' in kwargs:
+            access_log_settings = kwargs['accessLogSettings']
+        if cache_cluster_enabled is None and 'cacheClusterEnabled' in kwargs:
+            cache_cluster_enabled = kwargs['cacheClusterEnabled']
+        if cache_cluster_size is None and 'cacheClusterSize' in kwargs:
+            cache_cluster_size = kwargs['cacheClusterSize']
+        if canary_settings is None and 'canarySettings' in kwargs:
+            canary_settings = kwargs['canarySettings']
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if documentation_version is None and 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if execution_arn is None and 'executionArn' in kwargs:
+            execution_arn = kwargs['executionArn']
+        if invoke_url is None and 'invokeUrl' in kwargs:
+            invoke_url = kwargs['invokeUrl']
+        if rest_api is None and 'restApi' in kwargs:
+            rest_api = kwargs['restApi']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if web_acl_arn is None and 'webAclArn' in kwargs:
+            web_acl_arn = kwargs['webAclArn']
+        if xray_tracing_enabled is None and 'xrayTracingEnabled' in kwargs:
+            xray_tracing_enabled = kwargs['xrayTracingEnabled']
+
         if access_log_settings is not None:
-            pulumi.set(__self__, "access_log_settings", access_log_settings)
+            _setter("access_log_settings", access_log_settings)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cache_cluster_enabled is not None:
-            pulumi.set(__self__, "cache_cluster_enabled", cache_cluster_enabled)
+            _setter("cache_cluster_enabled", cache_cluster_enabled)
         if cache_cluster_size is not None:
-            pulumi.set(__self__, "cache_cluster_size", cache_cluster_size)
+            _setter("cache_cluster_size", cache_cluster_size)
         if canary_settings is not None:
-            pulumi.set(__self__, "canary_settings", canary_settings)
+            _setter("canary_settings", canary_settings)
         if client_certificate_id is not None:
-            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+            _setter("client_certificate_id", client_certificate_id)
         if deployment is not None:
-            pulumi.set(__self__, "deployment", deployment)
+            _setter("deployment", deployment)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_version is not None:
-            pulumi.set(__self__, "documentation_version", documentation_version)
+            _setter("documentation_version", documentation_version)
         if execution_arn is not None:
-            pulumi.set(__self__, "execution_arn", execution_arn)
+            _setter("execution_arn", execution_arn)
         if invoke_url is not None:
-            pulumi.set(__self__, "invoke_url", invoke_url)
+            _setter("invoke_url", invoke_url)
         if rest_api is not None:
-            pulumi.set(__self__, "rest_api", rest_api)
+            _setter("rest_api", rest_api)
         if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+            _setter("stage_name", stage_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
         if web_acl_arn is not None:
-            pulumi.set(__self__, "web_acl_arn", web_acl_arn)
+            _setter("web_acl_arn", web_acl_arn)
         if xray_tracing_enabled is not None:
-            pulumi.set(__self__, "xray_tracing_enabled", xray_tracing_enabled)
+            _setter("xray_tracing_enabled", xray_tracing_enabled)
 
     @property
     @pulumi.getter(name="accessLogSettings")
@@ -739,6 +869,10 @@ class Stage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -766,9 +900,19 @@ class Stage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StageArgs.__new__(StageArgs)
 
+            if access_log_settings is not None and not isinstance(access_log_settings, StageAccessLogSettingsArgs):
+                access_log_settings = access_log_settings or {}
+                def _setter(key, value):
+                    access_log_settings[key] = value
+                StageAccessLogSettingsArgs._configure(_setter, **access_log_settings)
             __props__.__dict__["access_log_settings"] = access_log_settings
             __props__.__dict__["cache_cluster_enabled"] = cache_cluster_enabled
             __props__.__dict__["cache_cluster_size"] = cache_cluster_size
+            if canary_settings is not None and not isinstance(canary_settings, StageCanarySettingsArgs):
+                canary_settings = canary_settings or {}
+                def _setter(key, value):
+                    canary_settings[key] = value
+                StageCanarySettingsArgs._configure(_setter, **canary_settings)
             __props__.__dict__["canary_settings"] = canary_settings
             __props__.__dict__["client_certificate_id"] = client_certificate_id
             if deployment is None and not opts.urn:

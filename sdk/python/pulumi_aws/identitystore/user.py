@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,31 +49,88 @@ class UserArgs:
         :param pulumi.Input[str] title: The user's title.
         :param pulumi.Input[str] user_type: The user type.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "identity_store_id", identity_store_id)
-        pulumi.set(__self__, "user_name", user_name)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            identity_store_id=identity_store_id,
+            user_name=user_name,
+            addresses=addresses,
+            emails=emails,
+            locale=locale,
+            name=name,
+            nickname=nickname,
+            phone_numbers=phone_numbers,
+            preferred_language=preferred_language,
+            profile_url=profile_url,
+            timezone=timezone,
+            title=title,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity_store_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
+             emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input['UserNameArgs']] = None,
+             nickname: Optional[pulumi.Input[str]] = None,
+             phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
+             preferred_language: Optional[pulumi.Input[str]] = None,
+             profile_url: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if identity_store_id is None and 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+        if identity_store_id is None:
+            raise TypeError("Missing 'identity_store_id' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if phone_numbers is None and 'phoneNumbers' in kwargs:
+            phone_numbers = kwargs['phoneNumbers']
+        if preferred_language is None and 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if profile_url is None and 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
+        _setter("display_name", display_name)
+        _setter("identity_store_id", identity_store_id)
+        _setter("user_name", user_name)
         if addresses is not None:
-            pulumi.set(__self__, "addresses", addresses)
+            _setter("addresses", addresses)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nickname is not None:
-            pulumi.set(__self__, "nickname", nickname)
+            _setter("nickname", nickname)
         if phone_numbers is not None:
-            pulumi.set(__self__, "phone_numbers", phone_numbers)
+            _setter("phone_numbers", phone_numbers)
         if preferred_language is not None:
-            pulumi.set(__self__, "preferred_language", preferred_language)
+            _setter("preferred_language", preferred_language)
         if profile_url is not None:
-            pulumi.set(__self__, "profile_url", profile_url)
+            _setter("profile_url", profile_url)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -286,38 +343,97 @@ class _UserState:
                The following arguments are optional:
         :param pulumi.Input[str] user_type: The user type.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addresses=addresses,
+            display_name=display_name,
+            emails=emails,
+            external_ids=external_ids,
+            identity_store_id=identity_store_id,
+            locale=locale,
+            name=name,
+            nickname=nickname,
+            phone_numbers=phone_numbers,
+            preferred_language=preferred_language,
+            profile_url=profile_url,
+            timezone=timezone,
+            title=title,
+            user_id=user_id,
+            user_name=user_name,
+            user_type=user_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
+             external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]] = None,
+             identity_store_id: Optional[pulumi.Input[str]] = None,
+             locale: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input['UserNameArgs']] = None,
+             nickname: Optional[pulumi.Input[str]] = None,
+             phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
+             preferred_language: Optional[pulumi.Input[str]] = None,
+             profile_url: Optional[pulumi.Input[str]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             user_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if external_ids is None and 'externalIds' in kwargs:
+            external_ids = kwargs['externalIds']
+        if identity_store_id is None and 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+        if phone_numbers is None and 'phoneNumbers' in kwargs:
+            phone_numbers = kwargs['phoneNumbers']
+        if preferred_language is None and 'preferredLanguage' in kwargs:
+            preferred_language = kwargs['preferredLanguage']
+        if profile_url is None and 'profileUrl' in kwargs:
+            profile_url = kwargs['profileUrl']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_type is None and 'userType' in kwargs:
+            user_type = kwargs['userType']
+
         if addresses is not None:
-            pulumi.set(__self__, "addresses", addresses)
+            _setter("addresses", addresses)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if external_ids is not None:
-            pulumi.set(__self__, "external_ids", external_ids)
+            _setter("external_ids", external_ids)
         if identity_store_id is not None:
-            pulumi.set(__self__, "identity_store_id", identity_store_id)
+            _setter("identity_store_id", identity_store_id)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nickname is not None:
-            pulumi.set(__self__, "nickname", nickname)
+            _setter("nickname", nickname)
         if phone_numbers is not None:
-            pulumi.set(__self__, "phone_numbers", phone_numbers)
+            _setter("phone_numbers", phone_numbers)
         if preferred_language is not None:
-            pulumi.set(__self__, "preferred_language", preferred_language)
+            _setter("preferred_language", preferred_language)
         if profile_url is not None:
-            pulumi.set(__self__, "profile_url", profile_url)
+            _setter("profile_url", profile_url)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if user_type is not None:
-            pulumi.set(__self__, "user_type", user_type)
+            _setter("user_type", user_type)
 
     @property
     @pulumi.getter
@@ -605,6 +721,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -633,17 +753,37 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserArgs.__new__(UserArgs)
 
+            if addresses is not None and not isinstance(addresses, UserAddressesArgs):
+                addresses = addresses or {}
+                def _setter(key, value):
+                    addresses[key] = value
+                UserAddressesArgs._configure(_setter, **addresses)
             __props__.__dict__["addresses"] = addresses
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            if emails is not None and not isinstance(emails, UserEmailsArgs):
+                emails = emails or {}
+                def _setter(key, value):
+                    emails[key] = value
+                UserEmailsArgs._configure(_setter, **emails)
             __props__.__dict__["emails"] = emails
             if identity_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_store_id'")
             __props__.__dict__["identity_store_id"] = identity_store_id
             __props__.__dict__["locale"] = locale
+            if name is not None and not isinstance(name, UserNameArgs):
+                name = name or {}
+                def _setter(key, value):
+                    name[key] = value
+                UserNameArgs._configure(_setter, **name)
             __props__.__dict__["name"] = name
             __props__.__dict__["nickname"] = nickname
+            if phone_numbers is not None and not isinstance(phone_numbers, UserPhoneNumbersArgs):
+                phone_numbers = phone_numbers or {}
+                def _setter(key, value):
+                    phone_numbers[key] = value
+                UserPhoneNumbersArgs._configure(_setter, **phone_numbers)
             __props__.__dict__["phone_numbers"] = phone_numbers
             __props__.__dict__["preferred_language"] = preferred_language
             __props__.__dict__["profile_url"] = profile_url

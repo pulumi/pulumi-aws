@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointAuthorizationArgs', 'EndpointAuthorization']
@@ -25,12 +25,39 @@ class EndpointAuthorizationArgs:
         :param pulumi.Input[bool] force_delete: Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_ids: The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         """
-        pulumi.set(__self__, "account", account)
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        EndpointAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            cluster_identifier=cluster_identifier,
+            force_delete=force_delete,
+            vpc_ids=vpc_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account is None:
+            raise TypeError("Missing 'account' argument")
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if vpc_ids is None and 'vpcIds' in kwargs:
+            vpc_ids = kwargs['vpcIds']
+
+        _setter("account", account)
+        _setter("cluster_identifier", cluster_identifier)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if vpc_ids is not None:
-            pulumi.set(__self__, "vpc_ids", vpc_ids)
+            _setter("vpc_ids", vpc_ids)
 
     @property
     @pulumi.getter
@@ -103,22 +130,57 @@ class _EndpointAuthorizationState:
         :param pulumi.Input[str] grantor: The Amazon Web Services account ID of the cluster owner.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_ids: The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         """
+        _EndpointAuthorizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account=account,
+            allowed_all_vpcs=allowed_all_vpcs,
+            cluster_identifier=cluster_identifier,
+            endpoint_count=endpoint_count,
+            force_delete=force_delete,
+            grantee=grantee,
+            grantor=grantor,
+            vpc_ids=vpc_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account: Optional[pulumi.Input[str]] = None,
+             allowed_all_vpcs: Optional[pulumi.Input[bool]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             endpoint_count: Optional[pulumi.Input[int]] = None,
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             grantee: Optional[pulumi.Input[str]] = None,
+             grantor: Optional[pulumi.Input[str]] = None,
+             vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_all_vpcs is None and 'allowedAllVpcs' in kwargs:
+            allowed_all_vpcs = kwargs['allowedAllVpcs']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if endpoint_count is None and 'endpointCount' in kwargs:
+            endpoint_count = kwargs['endpointCount']
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if vpc_ids is None and 'vpcIds' in kwargs:
+            vpc_ids = kwargs['vpcIds']
+
         if account is not None:
-            pulumi.set(__self__, "account", account)
+            _setter("account", account)
         if allowed_all_vpcs is not None:
-            pulumi.set(__self__, "allowed_all_vpcs", allowed_all_vpcs)
+            _setter("allowed_all_vpcs", allowed_all_vpcs)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if endpoint_count is not None:
-            pulumi.set(__self__, "endpoint_count", endpoint_count)
+            _setter("endpoint_count", endpoint_count)
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if grantee is not None:
-            pulumi.set(__self__, "grantee", grantee)
+            _setter("grantee", grantee)
         if grantor is not None:
-            pulumi.set(__self__, "grantor", grantor)
+            _setter("grantor", grantor)
         if vpc_ids is not None:
-            pulumi.set(__self__, "vpc_ids", vpc_ids)
+            _setter("vpc_ids", vpc_ids)
 
     @property
     @pulumi.getter
@@ -294,6 +356,10 @@ class EndpointAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

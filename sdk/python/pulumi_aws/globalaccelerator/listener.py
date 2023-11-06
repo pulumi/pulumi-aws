@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,40 @@ class ListenerArgs:
         :param pulumi.Input[str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         :param pulumi.Input[str] client_affinity: Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
         """
-        pulumi.set(__self__, "accelerator_arn", accelerator_arn)
-        pulumi.set(__self__, "port_ranges", port_ranges)
-        pulumi.set(__self__, "protocol", protocol)
+        ListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_arn=accelerator_arn,
+            port_ranges=port_ranges,
+            protocol=protocol,
+            client_affinity=client_affinity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_arn: Optional[pulumi.Input[str]] = None,
+             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             client_affinity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accelerator_arn is None and 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if accelerator_arn is None:
+            raise TypeError("Missing 'accelerator_arn' argument")
+        if port_ranges is None and 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+        if port_ranges is None:
+            raise TypeError("Missing 'port_ranges' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if client_affinity is None and 'clientAffinity' in kwargs:
+            client_affinity = kwargs['clientAffinity']
+
+        _setter("accelerator_arn", accelerator_arn)
+        _setter("port_ranges", port_ranges)
+        _setter("protocol", protocol)
         if client_affinity is not None:
-            pulumi.set(__self__, "client_affinity", client_affinity)
+            _setter("client_affinity", client_affinity)
 
     @property
     @pulumi.getter(name="acceleratorArn")
@@ -96,14 +125,37 @@ class _ListenerState:
         :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         :param pulumi.Input[str] protocol: The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
         """
+        _ListenerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerator_arn=accelerator_arn,
+            client_affinity=client_affinity,
+            port_ranges=port_ranges,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerator_arn: Optional[pulumi.Input[str]] = None,
+             client_affinity: Optional[pulumi.Input[str]] = None,
+             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accelerator_arn is None and 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if client_affinity is None and 'clientAffinity' in kwargs:
+            client_affinity = kwargs['clientAffinity']
+        if port_ranges is None and 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+
         if accelerator_arn is not None:
-            pulumi.set(__self__, "accelerator_arn", accelerator_arn)
+            _setter("accelerator_arn", accelerator_arn)
         if client_affinity is not None:
-            pulumi.set(__self__, "client_affinity", client_affinity)
+            _setter("client_affinity", client_affinity)
         if port_ranges is not None:
-            pulumi.set(__self__, "port_ranges", port_ranges)
+            _setter("port_ranges", port_ranges)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="acceleratorArn")
@@ -257,6 +309,10 @@ class Listener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

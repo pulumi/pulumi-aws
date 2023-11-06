@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,49 +63,146 @@ class LustreFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        LustreFileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_ids=subnet_ids,
+            auto_import_policy=auto_import_policy,
+            automatic_backup_retention_days=automatic_backup_retention_days,
+            backup_id=backup_id,
+            copy_tags_to_backups=copy_tags_to_backups,
+            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
+            data_compression_type=data_compression_type,
+            deployment_type=deployment_type,
+            drive_cache_type=drive_cache_type,
+            export_path=export_path,
+            file_system_type_version=file_system_type_version,
+            import_path=import_path,
+            imported_file_chunk_size=imported_file_chunk_size,
+            kms_key_id=kms_key_id,
+            log_configuration=log_configuration,
+            per_unit_storage_throughput=per_unit_storage_throughput,
+            root_squash_configuration=root_squash_configuration,
+            security_group_ids=security_group_ids,
+            storage_capacity=storage_capacity,
+            storage_type=storage_type,
+            tags=tags,
+            weekly_maintenance_start_time=weekly_maintenance_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_ids: Optional[pulumi.Input[str]] = None,
+             auto_import_policy: Optional[pulumi.Input[str]] = None,
+             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+             backup_id: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+             data_compression_type: Optional[pulumi.Input[str]] = None,
+             deployment_type: Optional[pulumi.Input[str]] = None,
+             drive_cache_type: Optional[pulumi.Input[str]] = None,
+             export_path: Optional[pulumi.Input[str]] = None,
+             file_system_type_version: Optional[pulumi.Input[str]] = None,
+             import_path: Optional[pulumi.Input[str]] = None,
+             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_configuration: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']] = None,
+             per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
+             root_squash_configuration: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if auto_import_policy is None and 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if backup_id is None and 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if data_compression_type is None and 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if drive_cache_type is None and 'driveCacheType' in kwargs:
+            drive_cache_type = kwargs['driveCacheType']
+        if export_path is None and 'exportPath' in kwargs:
+            export_path = kwargs['exportPath']
+        if file_system_type_version is None and 'fileSystemTypeVersion' in kwargs:
+            file_system_type_version = kwargs['fileSystemTypeVersion']
+        if import_path is None and 'importPath' in kwargs:
+            import_path = kwargs['importPath']
+        if imported_file_chunk_size is None and 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_configuration is None and 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+        if per_unit_storage_throughput is None and 'perUnitStorageThroughput' in kwargs:
+            per_unit_storage_throughput = kwargs['perUnitStorageThroughput']
+        if root_squash_configuration is None and 'rootSquashConfiguration' in kwargs:
+            root_squash_configuration = kwargs['rootSquashConfiguration']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
+        _setter("subnet_ids", subnet_ids)
         if auto_import_policy is not None:
-            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+            _setter("auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
-            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if copy_tags_to_backups is not None:
-            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+            _setter("copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if data_compression_type is not None:
-            pulumi.set(__self__, "data_compression_type", data_compression_type)
+            _setter("data_compression_type", data_compression_type)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if drive_cache_type is not None:
-            pulumi.set(__self__, "drive_cache_type", drive_cache_type)
+            _setter("drive_cache_type", drive_cache_type)
         if export_path is not None:
-            pulumi.set(__self__, "export_path", export_path)
+            _setter("export_path", export_path)
         if file_system_type_version is not None:
-            pulumi.set(__self__, "file_system_type_version", file_system_type_version)
+            _setter("file_system_type_version", file_system_type_version)
         if import_path is not None:
-            pulumi.set(__self__, "import_path", import_path)
+            _setter("import_path", import_path)
         if imported_file_chunk_size is not None:
-            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+            _setter("imported_file_chunk_size", imported_file_chunk_size)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_configuration is not None:
-            pulumi.set(__self__, "log_configuration", log_configuration)
+            _setter("log_configuration", log_configuration)
         if per_unit_storage_throughput is not None:
-            pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+            _setter("per_unit_storage_throughput", per_unit_storage_throughput)
         if root_squash_configuration is not None:
-            pulumi.set(__self__, "root_squash_configuration", root_squash_configuration)
+            _setter("root_squash_configuration", root_squash_configuration)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if weekly_maintenance_start_time is not None:
-            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -436,67 +533,188 @@ class _LustreFileSystemState:
         :param pulumi.Input[str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
+        _LustreFileSystemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            auto_import_policy=auto_import_policy,
+            automatic_backup_retention_days=automatic_backup_retention_days,
+            backup_id=backup_id,
+            copy_tags_to_backups=copy_tags_to_backups,
+            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
+            data_compression_type=data_compression_type,
+            deployment_type=deployment_type,
+            dns_name=dns_name,
+            drive_cache_type=drive_cache_type,
+            export_path=export_path,
+            file_system_type_version=file_system_type_version,
+            import_path=import_path,
+            imported_file_chunk_size=imported_file_chunk_size,
+            kms_key_id=kms_key_id,
+            log_configuration=log_configuration,
+            mount_name=mount_name,
+            network_interface_ids=network_interface_ids,
+            owner_id=owner_id,
+            per_unit_storage_throughput=per_unit_storage_throughput,
+            root_squash_configuration=root_squash_configuration,
+            security_group_ids=security_group_ids,
+            storage_capacity=storage_capacity,
+            storage_type=storage_type,
+            subnet_ids=subnet_ids,
+            tags=tags,
+            tags_all=tags_all,
+            vpc_id=vpc_id,
+            weekly_maintenance_start_time=weekly_maintenance_start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             auto_import_policy: Optional[pulumi.Input[str]] = None,
+             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+             backup_id: Optional[pulumi.Input[str]] = None,
+             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
+             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+             data_compression_type: Optional[pulumi.Input[str]] = None,
+             deployment_type: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             drive_cache_type: Optional[pulumi.Input[str]] = None,
+             export_path: Optional[pulumi.Input[str]] = None,
+             file_system_type_version: Optional[pulumi.Input[str]] = None,
+             import_path: Optional[pulumi.Input[str]] = None,
+             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
+             kms_key_id: Optional[pulumi.Input[str]] = None,
+             log_configuration: Optional[pulumi.Input['LustreFileSystemLogConfigurationArgs']] = None,
+             mount_name: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             owner_id: Optional[pulumi.Input[str]] = None,
+             per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
+             root_squash_configuration: Optional[pulumi.Input['LustreFileSystemRootSquashConfigurationArgs']] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_capacity: Optional[pulumi.Input[int]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_import_policy is None and 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if backup_id is None and 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if data_compression_type is None and 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if drive_cache_type is None and 'driveCacheType' in kwargs:
+            drive_cache_type = kwargs['driveCacheType']
+        if export_path is None and 'exportPath' in kwargs:
+            export_path = kwargs['exportPath']
+        if file_system_type_version is None and 'fileSystemTypeVersion' in kwargs:
+            file_system_type_version = kwargs['fileSystemTypeVersion']
+        if import_path is None and 'importPath' in kwargs:
+            import_path = kwargs['importPath']
+        if imported_file_chunk_size is None and 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_configuration is None and 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+        if mount_name is None and 'mountName' in kwargs:
+            mount_name = kwargs['mountName']
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if owner_id is None and 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+        if per_unit_storage_throughput is None and 'perUnitStorageThroughput' in kwargs:
+            per_unit_storage_throughput = kwargs['perUnitStorageThroughput']
+        if root_squash_configuration is None and 'rootSquashConfiguration' in kwargs:
+            root_squash_configuration = kwargs['rootSquashConfiguration']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if auto_import_policy is not None:
-            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+            _setter("auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
-            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
         if backup_id is not None:
-            pulumi.set(__self__, "backup_id", backup_id)
+            _setter("backup_id", backup_id)
         if copy_tags_to_backups is not None:
-            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+            _setter("copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if data_compression_type is not None:
-            pulumi.set(__self__, "data_compression_type", data_compression_type)
+            _setter("data_compression_type", data_compression_type)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if drive_cache_type is not None:
-            pulumi.set(__self__, "drive_cache_type", drive_cache_type)
+            _setter("drive_cache_type", drive_cache_type)
         if export_path is not None:
-            pulumi.set(__self__, "export_path", export_path)
+            _setter("export_path", export_path)
         if file_system_type_version is not None:
-            pulumi.set(__self__, "file_system_type_version", file_system_type_version)
+            _setter("file_system_type_version", file_system_type_version)
         if import_path is not None:
-            pulumi.set(__self__, "import_path", import_path)
+            _setter("import_path", import_path)
         if imported_file_chunk_size is not None:
-            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
+            _setter("imported_file_chunk_size", imported_file_chunk_size)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if log_configuration is not None:
-            pulumi.set(__self__, "log_configuration", log_configuration)
+            _setter("log_configuration", log_configuration)
         if mount_name is not None:
-            pulumi.set(__self__, "mount_name", mount_name)
+            _setter("mount_name", mount_name)
         if network_interface_ids is not None:
-            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+            _setter("network_interface_ids", network_interface_ids)
         if owner_id is not None:
-            pulumi.set(__self__, "owner_id", owner_id)
+            _setter("owner_id", owner_id)
         if per_unit_storage_throughput is not None:
-            pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+            _setter("per_unit_storage_throughput", per_unit_storage_throughput)
         if root_squash_configuration is not None:
-            pulumi.set(__self__, "root_squash_configuration", root_squash_configuration)
+            _setter("root_squash_configuration", root_squash_configuration)
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            pulumi.set(__self__, "storage_capacity", storage_capacity)
+            _setter("storage_capacity", storage_capacity)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc_id is not None:
-            pulumi.set(__self__, "vpc_id", vpc_id)
+            _setter("vpc_id", vpc_id)
         if weekly_maintenance_start_time is not None:
-            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter
@@ -971,6 +1189,10 @@ class LustreFileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LustreFileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1020,8 +1242,18 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["import_path"] = import_path
             __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
             __props__.__dict__["kms_key_id"] = kms_key_id
+            if log_configuration is not None and not isinstance(log_configuration, LustreFileSystemLogConfigurationArgs):
+                log_configuration = log_configuration or {}
+                def _setter(key, value):
+                    log_configuration[key] = value
+                LustreFileSystemLogConfigurationArgs._configure(_setter, **log_configuration)
             __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["per_unit_storage_throughput"] = per_unit_storage_throughput
+            if root_squash_configuration is not None and not isinstance(root_squash_configuration, LustreFileSystemRootSquashConfigurationArgs):
+                root_squash_configuration = root_squash_configuration or {}
+                def _setter(key, value):
+                    root_squash_configuration[key] = value
+                LustreFileSystemRootSquashConfigurationArgs._configure(_setter, **root_squash_configuration)
             __props__.__dict__["root_squash_configuration"] = root_squash_configuration
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["storage_capacity"] = storage_capacity

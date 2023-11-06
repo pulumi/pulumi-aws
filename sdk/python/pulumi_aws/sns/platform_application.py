@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PlatformApplicationArgs', 'PlatformApplication']
@@ -45,30 +45,91 @@ class PlatformApplicationArgs:
                
                The following attributes are needed only when using APNS token credentials:
         """
-        pulumi.set(__self__, "platform", platform)
-        pulumi.set(__self__, "platform_credential", platform_credential)
+        PlatformApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform=platform,
+            platform_credential=platform_credential,
+            apple_platform_bundle_id=apple_platform_bundle_id,
+            apple_platform_team_id=apple_platform_team_id,
+            event_delivery_failure_topic_arn=event_delivery_failure_topic_arn,
+            event_endpoint_created_topic_arn=event_endpoint_created_topic_arn,
+            event_endpoint_deleted_topic_arn=event_endpoint_deleted_topic_arn,
+            event_endpoint_updated_topic_arn=event_endpoint_updated_topic_arn,
+            failure_feedback_role_arn=failure_feedback_role_arn,
+            name=name,
+            platform_principal=platform_principal,
+            success_feedback_role_arn=success_feedback_role_arn,
+            success_feedback_sample_rate=success_feedback_sample_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform: Optional[pulumi.Input[str]] = None,
+             platform_credential: Optional[pulumi.Input[str]] = None,
+             apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+             apple_platform_team_id: Optional[pulumi.Input[str]] = None,
+             event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_updated_topic_arn: Optional[pulumi.Input[str]] = None,
+             failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_principal: Optional[pulumi.Input[str]] = None,
+             success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             success_feedback_sample_rate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if platform is None:
+            raise TypeError("Missing 'platform' argument")
+        if platform_credential is None and 'platformCredential' in kwargs:
+            platform_credential = kwargs['platformCredential']
+        if platform_credential is None:
+            raise TypeError("Missing 'platform_credential' argument")
+        if apple_platform_bundle_id is None and 'applePlatformBundleId' in kwargs:
+            apple_platform_bundle_id = kwargs['applePlatformBundleId']
+        if apple_platform_team_id is None and 'applePlatformTeamId' in kwargs:
+            apple_platform_team_id = kwargs['applePlatformTeamId']
+        if event_delivery_failure_topic_arn is None and 'eventDeliveryFailureTopicArn' in kwargs:
+            event_delivery_failure_topic_arn = kwargs['eventDeliveryFailureTopicArn']
+        if event_endpoint_created_topic_arn is None and 'eventEndpointCreatedTopicArn' in kwargs:
+            event_endpoint_created_topic_arn = kwargs['eventEndpointCreatedTopicArn']
+        if event_endpoint_deleted_topic_arn is None and 'eventEndpointDeletedTopicArn' in kwargs:
+            event_endpoint_deleted_topic_arn = kwargs['eventEndpointDeletedTopicArn']
+        if event_endpoint_updated_topic_arn is None and 'eventEndpointUpdatedTopicArn' in kwargs:
+            event_endpoint_updated_topic_arn = kwargs['eventEndpointUpdatedTopicArn']
+        if failure_feedback_role_arn is None and 'failureFeedbackRoleArn' in kwargs:
+            failure_feedback_role_arn = kwargs['failureFeedbackRoleArn']
+        if platform_principal is None and 'platformPrincipal' in kwargs:
+            platform_principal = kwargs['platformPrincipal']
+        if success_feedback_role_arn is None and 'successFeedbackRoleArn' in kwargs:
+            success_feedback_role_arn = kwargs['successFeedbackRoleArn']
+        if success_feedback_sample_rate is None and 'successFeedbackSampleRate' in kwargs:
+            success_feedback_sample_rate = kwargs['successFeedbackSampleRate']
+
+        _setter("platform", platform)
+        _setter("platform_credential", platform_credential)
         if apple_platform_bundle_id is not None:
-            pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
+            _setter("apple_platform_bundle_id", apple_platform_bundle_id)
         if apple_platform_team_id is not None:
-            pulumi.set(__self__, "apple_platform_team_id", apple_platform_team_id)
+            _setter("apple_platform_team_id", apple_platform_team_id)
         if event_delivery_failure_topic_arn is not None:
-            pulumi.set(__self__, "event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
+            _setter("event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
         if event_endpoint_created_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_created_topic_arn", event_endpoint_created_topic_arn)
+            _setter("event_endpoint_created_topic_arn", event_endpoint_created_topic_arn)
         if event_endpoint_deleted_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_deleted_topic_arn", event_endpoint_deleted_topic_arn)
+            _setter("event_endpoint_deleted_topic_arn", event_endpoint_deleted_topic_arn)
         if event_endpoint_updated_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_updated_topic_arn", event_endpoint_updated_topic_arn)
+            _setter("event_endpoint_updated_topic_arn", event_endpoint_updated_topic_arn)
         if failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "failure_feedback_role_arn", failure_feedback_role_arn)
+            _setter("failure_feedback_role_arn", failure_feedback_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_principal is not None:
-            pulumi.set(__self__, "platform_principal", platform_principal)
+            _setter("platform_principal", platform_principal)
         if success_feedback_role_arn is not None:
-            pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
+            _setter("success_feedback_role_arn", success_feedback_role_arn)
         if success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "success_feedback_sample_rate", success_feedback_sample_rate)
+            _setter("success_feedback_sample_rate", success_feedback_sample_rate)
 
     @property
     @pulumi.getter
@@ -265,34 +326,93 @@ class _PlatformApplicationState:
                
                The following attributes are needed only when using APNS token credentials:
         """
+        _PlatformApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apple_platform_bundle_id=apple_platform_bundle_id,
+            apple_platform_team_id=apple_platform_team_id,
+            arn=arn,
+            event_delivery_failure_topic_arn=event_delivery_failure_topic_arn,
+            event_endpoint_created_topic_arn=event_endpoint_created_topic_arn,
+            event_endpoint_deleted_topic_arn=event_endpoint_deleted_topic_arn,
+            event_endpoint_updated_topic_arn=event_endpoint_updated_topic_arn,
+            failure_feedback_role_arn=failure_feedback_role_arn,
+            name=name,
+            platform=platform,
+            platform_credential=platform_credential,
+            platform_principal=platform_principal,
+            success_feedback_role_arn=success_feedback_role_arn,
+            success_feedback_sample_rate=success_feedback_sample_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
+             apple_platform_team_id: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             event_delivery_failure_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_created_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_deleted_topic_arn: Optional[pulumi.Input[str]] = None,
+             event_endpoint_updated_topic_arn: Optional[pulumi.Input[str]] = None,
+             failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             platform_credential: Optional[pulumi.Input[str]] = None,
+             platform_principal: Optional[pulumi.Input[str]] = None,
+             success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+             success_feedback_sample_rate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apple_platform_bundle_id is None and 'applePlatformBundleId' in kwargs:
+            apple_platform_bundle_id = kwargs['applePlatformBundleId']
+        if apple_platform_team_id is None and 'applePlatformTeamId' in kwargs:
+            apple_platform_team_id = kwargs['applePlatformTeamId']
+        if event_delivery_failure_topic_arn is None and 'eventDeliveryFailureTopicArn' in kwargs:
+            event_delivery_failure_topic_arn = kwargs['eventDeliveryFailureTopicArn']
+        if event_endpoint_created_topic_arn is None and 'eventEndpointCreatedTopicArn' in kwargs:
+            event_endpoint_created_topic_arn = kwargs['eventEndpointCreatedTopicArn']
+        if event_endpoint_deleted_topic_arn is None and 'eventEndpointDeletedTopicArn' in kwargs:
+            event_endpoint_deleted_topic_arn = kwargs['eventEndpointDeletedTopicArn']
+        if event_endpoint_updated_topic_arn is None and 'eventEndpointUpdatedTopicArn' in kwargs:
+            event_endpoint_updated_topic_arn = kwargs['eventEndpointUpdatedTopicArn']
+        if failure_feedback_role_arn is None and 'failureFeedbackRoleArn' in kwargs:
+            failure_feedback_role_arn = kwargs['failureFeedbackRoleArn']
+        if platform_credential is None and 'platformCredential' in kwargs:
+            platform_credential = kwargs['platformCredential']
+        if platform_principal is None and 'platformPrincipal' in kwargs:
+            platform_principal = kwargs['platformPrincipal']
+        if success_feedback_role_arn is None and 'successFeedbackRoleArn' in kwargs:
+            success_feedback_role_arn = kwargs['successFeedbackRoleArn']
+        if success_feedback_sample_rate is None and 'successFeedbackSampleRate' in kwargs:
+            success_feedback_sample_rate = kwargs['successFeedbackSampleRate']
+
         if apple_platform_bundle_id is not None:
-            pulumi.set(__self__, "apple_platform_bundle_id", apple_platform_bundle_id)
+            _setter("apple_platform_bundle_id", apple_platform_bundle_id)
         if apple_platform_team_id is not None:
-            pulumi.set(__self__, "apple_platform_team_id", apple_platform_team_id)
+            _setter("apple_platform_team_id", apple_platform_team_id)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if event_delivery_failure_topic_arn is not None:
-            pulumi.set(__self__, "event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
+            _setter("event_delivery_failure_topic_arn", event_delivery_failure_topic_arn)
         if event_endpoint_created_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_created_topic_arn", event_endpoint_created_topic_arn)
+            _setter("event_endpoint_created_topic_arn", event_endpoint_created_topic_arn)
         if event_endpoint_deleted_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_deleted_topic_arn", event_endpoint_deleted_topic_arn)
+            _setter("event_endpoint_deleted_topic_arn", event_endpoint_deleted_topic_arn)
         if event_endpoint_updated_topic_arn is not None:
-            pulumi.set(__self__, "event_endpoint_updated_topic_arn", event_endpoint_updated_topic_arn)
+            _setter("event_endpoint_updated_topic_arn", event_endpoint_updated_topic_arn)
         if failure_feedback_role_arn is not None:
-            pulumi.set(__self__, "failure_feedback_role_arn", failure_feedback_role_arn)
+            _setter("failure_feedback_role_arn", failure_feedback_role_arn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if platform_credential is not None:
-            pulumi.set(__self__, "platform_credential", platform_credential)
+            _setter("platform_credential", platform_credential)
         if platform_principal is not None:
-            pulumi.set(__self__, "platform_principal", platform_principal)
+            _setter("platform_principal", platform_principal)
         if success_feedback_role_arn is not None:
-            pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
+            _setter("success_feedback_role_arn", success_feedback_role_arn)
         if success_feedback_sample_rate is not None:
-            pulumi.set(__self__, "success_feedback_sample_rate", success_feedback_sample_rate)
+            _setter("success_feedback_sample_rate", success_feedback_sample_rate)
 
     @property
     @pulumi.getter(name="applePlatformBundleId")
@@ -612,6 +732,10 @@ class PlatformApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PlatformApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

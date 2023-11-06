@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -72,30 +72,79 @@ class PatchBaselineArgs:
                See `source` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        PatchBaselineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_rules=approval_rules,
+            approved_patches=approved_patches,
+            approved_patches_compliance_level=approved_patches_compliance_level,
+            approved_patches_enable_non_security=approved_patches_enable_non_security,
+            description=description,
+            global_filters=global_filters,
+            name=name,
+            operating_system=operating_system,
+            rejected_patches=rejected_patches,
+            rejected_patches_action=rejected_patches_action,
+            sources=sources,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
+             approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             approved_patches_compliance_level: Optional[pulumi.Input[str]] = None,
+             approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operating_system: Optional[pulumi.Input[str]] = None,
+             rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rejected_patches_action: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if approval_rules is None and 'approvalRules' in kwargs:
+            approval_rules = kwargs['approvalRules']
+        if approved_patches is None and 'approvedPatches' in kwargs:
+            approved_patches = kwargs['approvedPatches']
+        if approved_patches_compliance_level is None and 'approvedPatchesComplianceLevel' in kwargs:
+            approved_patches_compliance_level = kwargs['approvedPatchesComplianceLevel']
+        if approved_patches_enable_non_security is None and 'approvedPatchesEnableNonSecurity' in kwargs:
+            approved_patches_enable_non_security = kwargs['approvedPatchesEnableNonSecurity']
+        if global_filters is None and 'globalFilters' in kwargs:
+            global_filters = kwargs['globalFilters']
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if rejected_patches is None and 'rejectedPatches' in kwargs:
+            rejected_patches = kwargs['rejectedPatches']
+        if rejected_patches_action is None and 'rejectedPatchesAction' in kwargs:
+            rejected_patches_action = kwargs['rejectedPatchesAction']
+
         if approval_rules is not None:
-            pulumi.set(__self__, "approval_rules", approval_rules)
+            _setter("approval_rules", approval_rules)
         if approved_patches is not None:
-            pulumi.set(__self__, "approved_patches", approved_patches)
+            _setter("approved_patches", approved_patches)
         if approved_patches_compliance_level is not None:
-            pulumi.set(__self__, "approved_patches_compliance_level", approved_patches_compliance_level)
+            _setter("approved_patches_compliance_level", approved_patches_compliance_level)
         if approved_patches_enable_non_security is not None:
-            pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+            _setter("approved_patches_enable_non_security", approved_patches_enable_non_security)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if global_filters is not None:
-            pulumi.set(__self__, "global_filters", global_filters)
+            _setter("global_filters", global_filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operating_system is not None:
-            pulumi.set(__self__, "operating_system", operating_system)
+            _setter("operating_system", operating_system)
         if rejected_patches is not None:
-            pulumi.set(__self__, "rejected_patches", rejected_patches)
+            _setter("rejected_patches", rejected_patches)
         if rejected_patches_action is not None:
-            pulumi.set(__self__, "rejected_patches_action", rejected_patches_action)
+            _setter("rejected_patches_action", rejected_patches_action)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="approvalRules")
@@ -334,37 +383,92 @@ class _PatchBaselineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _PatchBaselineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_rules=approval_rules,
+            approved_patches=approved_patches,
+            approved_patches_compliance_level=approved_patches_compliance_level,
+            approved_patches_enable_non_security=approved_patches_enable_non_security,
+            arn=arn,
+            description=description,
+            global_filters=global_filters,
+            name=name,
+            operating_system=operating_system,
+            rejected_patches=rejected_patches,
+            rejected_patches_action=rejected_patches_action,
+            sources=sources,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRuleArgs']]]] = None,
+             approved_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             approved_patches_compliance_level: Optional[pulumi.Input[str]] = None,
+             approved_patches_enable_non_security: Optional[pulumi.Input[bool]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operating_system: Optional[pulumi.Input[str]] = None,
+             rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rejected_patches_action: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if approval_rules is None and 'approvalRules' in kwargs:
+            approval_rules = kwargs['approvalRules']
+        if approved_patches is None and 'approvedPatches' in kwargs:
+            approved_patches = kwargs['approvedPatches']
+        if approved_patches_compliance_level is None and 'approvedPatchesComplianceLevel' in kwargs:
+            approved_patches_compliance_level = kwargs['approvedPatchesComplianceLevel']
+        if approved_patches_enable_non_security is None and 'approvedPatchesEnableNonSecurity' in kwargs:
+            approved_patches_enable_non_security = kwargs['approvedPatchesEnableNonSecurity']
+        if global_filters is None and 'globalFilters' in kwargs:
+            global_filters = kwargs['globalFilters']
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if rejected_patches is None and 'rejectedPatches' in kwargs:
+            rejected_patches = kwargs['rejectedPatches']
+        if rejected_patches_action is None and 'rejectedPatchesAction' in kwargs:
+            rejected_patches_action = kwargs['rejectedPatchesAction']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if approval_rules is not None:
-            pulumi.set(__self__, "approval_rules", approval_rules)
+            _setter("approval_rules", approval_rules)
         if approved_patches is not None:
-            pulumi.set(__self__, "approved_patches", approved_patches)
+            _setter("approved_patches", approved_patches)
         if approved_patches_compliance_level is not None:
-            pulumi.set(__self__, "approved_patches_compliance_level", approved_patches_compliance_level)
+            _setter("approved_patches_compliance_level", approved_patches_compliance_level)
         if approved_patches_enable_non_security is not None:
-            pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
+            _setter("approved_patches_enable_non_security", approved_patches_enable_non_security)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if global_filters is not None:
-            pulumi.set(__self__, "global_filters", global_filters)
+            _setter("global_filters", global_filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operating_system is not None:
-            pulumi.set(__self__, "operating_system", operating_system)
+            _setter("operating_system", operating_system)
         if rejected_patches is not None:
-            pulumi.set(__self__, "rejected_patches", rejected_patches)
+            _setter("rejected_patches", rejected_patches)
         if rejected_patches_action is not None:
-            pulumi.set(__self__, "rejected_patches_action", rejected_patches_action)
+            _setter("rejected_patches_action", rejected_patches_action)
         if sources is not None:
-            pulumi.set(__self__, "sources", sources)
+            _setter("sources", sources)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter(name="approvalRules")
@@ -981,6 +1085,10 @@ class PatchBaseline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PatchBaselineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

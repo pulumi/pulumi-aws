@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LoadBalancerBackendServerPolicyArgs', 'LoadBalancerBackendServerPolicy']
@@ -23,10 +23,35 @@ class LoadBalancerBackendServerPolicyArgs:
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
-        pulumi.set(__self__, "instance_port", instance_port)
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        LoadBalancerBackendServerPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            load_balancer_name=load_balancer_name,
+            policy_names=policy_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: Optional[pulumi.Input[int]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancer_name is None:
+            raise TypeError("Missing 'load_balancer_name' argument")
+        if policy_names is None and 'policyNames' in kwargs:
+            policy_names = kwargs['policyNames']
+
+        _setter("instance_port", instance_port)
+        _setter("load_balancer_name", load_balancer_name)
         if policy_names is not None:
-            pulumi.set(__self__, "policy_names", policy_names)
+            _setter("policy_names", policy_names)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -77,12 +102,33 @@ class _LoadBalancerBackendServerPolicyState:
         :param pulumi.Input[str] load_balancer_name: The load balancer to attach the policy to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_names: List of Policy Names to apply to the backend server.
         """
+        _LoadBalancerBackendServerPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_port=instance_port,
+            load_balancer_name=load_balancer_name,
+            policy_names=policy_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_port: Optional[pulumi.Input[int]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             policy_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if policy_names is None and 'policyNames' in kwargs:
+            policy_names = kwargs['policyNames']
+
         if instance_port is not None:
-            pulumi.set(__self__, "instance_port", instance_port)
+            _setter("instance_port", instance_port)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if policy_names is not None:
-            pulumi.set(__self__, "policy_names", policy_names)
+            _setter("policy_names", policy_names)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -238,6 +284,10 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerBackendServerPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

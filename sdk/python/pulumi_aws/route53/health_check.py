@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HealthCheckArgs', 'HealthCheck']
@@ -65,47 +65,130 @@ class HealthCheckArgs:
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "type", type)
+        HealthCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            child_health_threshold=child_health_threshold,
+            child_healthchecks=child_healthchecks,
+            cloudwatch_alarm_name=cloudwatch_alarm_name,
+            cloudwatch_alarm_region=cloudwatch_alarm_region,
+            disabled=disabled,
+            enable_sni=enable_sni,
+            failure_threshold=failure_threshold,
+            fqdn=fqdn,
+            insufficient_data_health_status=insufficient_data_health_status,
+            invert_healthcheck=invert_healthcheck,
+            ip_address=ip_address,
+            measure_latency=measure_latency,
+            port=port,
+            reference_name=reference_name,
+            regions=regions,
+            request_interval=request_interval,
+            resource_path=resource_path,
+            routing_control_arn=routing_control_arn,
+            search_string=search_string,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             child_health_threshold: Optional[pulumi.Input[int]] = None,
+             child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloudwatch_alarm_name: Optional[pulumi.Input[str]] = None,
+             cloudwatch_alarm_region: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             enable_sni: Optional[pulumi.Input[bool]] = None,
+             failure_threshold: Optional[pulumi.Input[int]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             insufficient_data_health_status: Optional[pulumi.Input[str]] = None,
+             invert_healthcheck: Optional[pulumi.Input[bool]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             measure_latency: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             reference_name: Optional[pulumi.Input[str]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             request_interval: Optional[pulumi.Input[int]] = None,
+             resource_path: Optional[pulumi.Input[str]] = None,
+             routing_control_arn: Optional[pulumi.Input[str]] = None,
+             search_string: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if child_health_threshold is None and 'childHealthThreshold' in kwargs:
+            child_health_threshold = kwargs['childHealthThreshold']
+        if child_healthchecks is None and 'childHealthchecks' in kwargs:
+            child_healthchecks = kwargs['childHealthchecks']
+        if cloudwatch_alarm_name is None and 'cloudwatchAlarmName' in kwargs:
+            cloudwatch_alarm_name = kwargs['cloudwatchAlarmName']
+        if cloudwatch_alarm_region is None and 'cloudwatchAlarmRegion' in kwargs:
+            cloudwatch_alarm_region = kwargs['cloudwatchAlarmRegion']
+        if enable_sni is None and 'enableSni' in kwargs:
+            enable_sni = kwargs['enableSni']
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if insufficient_data_health_status is None and 'insufficientDataHealthStatus' in kwargs:
+            insufficient_data_health_status = kwargs['insufficientDataHealthStatus']
+        if invert_healthcheck is None and 'invertHealthcheck' in kwargs:
+            invert_healthcheck = kwargs['invertHealthcheck']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if measure_latency is None and 'measureLatency' in kwargs:
+            measure_latency = kwargs['measureLatency']
+        if reference_name is None and 'referenceName' in kwargs:
+            reference_name = kwargs['referenceName']
+        if request_interval is None and 'requestInterval' in kwargs:
+            request_interval = kwargs['requestInterval']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if routing_control_arn is None and 'routingControlArn' in kwargs:
+            routing_control_arn = kwargs['routingControlArn']
+        if search_string is None and 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+
+        _setter("type", type)
         if child_health_threshold is not None:
-            pulumi.set(__self__, "child_health_threshold", child_health_threshold)
+            _setter("child_health_threshold", child_health_threshold)
         if child_healthchecks is not None:
-            pulumi.set(__self__, "child_healthchecks", child_healthchecks)
+            _setter("child_healthchecks", child_healthchecks)
         if cloudwatch_alarm_name is not None:
-            pulumi.set(__self__, "cloudwatch_alarm_name", cloudwatch_alarm_name)
+            _setter("cloudwatch_alarm_name", cloudwatch_alarm_name)
         if cloudwatch_alarm_region is not None:
-            pulumi.set(__self__, "cloudwatch_alarm_region", cloudwatch_alarm_region)
+            _setter("cloudwatch_alarm_region", cloudwatch_alarm_region)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if enable_sni is not None:
-            pulumi.set(__self__, "enable_sni", enable_sni)
+            _setter("enable_sni", enable_sni)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if insufficient_data_health_status is not None:
-            pulumi.set(__self__, "insufficient_data_health_status", insufficient_data_health_status)
+            _setter("insufficient_data_health_status", insufficient_data_health_status)
         if invert_healthcheck is not None:
-            pulumi.set(__self__, "invert_healthcheck", invert_healthcheck)
+            _setter("invert_healthcheck", invert_healthcheck)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if measure_latency is not None:
-            pulumi.set(__self__, "measure_latency", measure_latency)
+            _setter("measure_latency", measure_latency)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if request_interval is not None:
-            pulumi.set(__self__, "request_interval", request_interval)
+            _setter("request_interval", request_interval)
         if resource_path is not None:
-            pulumi.set(__self__, "resource_path", resource_path)
+            _setter("resource_path", resource_path)
         if routing_control_arn is not None:
-            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
+            _setter("routing_control_arn", routing_control_arn)
         if search_string is not None:
-            pulumi.set(__self__, "search_string", search_string)
+            _setter("search_string", search_string)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -424,55 +507,142 @@ class _HealthCheckState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
+        _HealthCheckState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            child_health_threshold=child_health_threshold,
+            child_healthchecks=child_healthchecks,
+            cloudwatch_alarm_name=cloudwatch_alarm_name,
+            cloudwatch_alarm_region=cloudwatch_alarm_region,
+            disabled=disabled,
+            enable_sni=enable_sni,
+            failure_threshold=failure_threshold,
+            fqdn=fqdn,
+            insufficient_data_health_status=insufficient_data_health_status,
+            invert_healthcheck=invert_healthcheck,
+            ip_address=ip_address,
+            measure_latency=measure_latency,
+            port=port,
+            reference_name=reference_name,
+            regions=regions,
+            request_interval=request_interval,
+            resource_path=resource_path,
+            routing_control_arn=routing_control_arn,
+            search_string=search_string,
+            tags=tags,
+            tags_all=tags_all,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             child_health_threshold: Optional[pulumi.Input[int]] = None,
+             child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloudwatch_alarm_name: Optional[pulumi.Input[str]] = None,
+             cloudwatch_alarm_region: Optional[pulumi.Input[str]] = None,
+             disabled: Optional[pulumi.Input[bool]] = None,
+             enable_sni: Optional[pulumi.Input[bool]] = None,
+             failure_threshold: Optional[pulumi.Input[int]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             insufficient_data_health_status: Optional[pulumi.Input[str]] = None,
+             invert_healthcheck: Optional[pulumi.Input[bool]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             measure_latency: Optional[pulumi.Input[bool]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             reference_name: Optional[pulumi.Input[str]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             request_interval: Optional[pulumi.Input[int]] = None,
+             resource_path: Optional[pulumi.Input[str]] = None,
+             routing_control_arn: Optional[pulumi.Input[str]] = None,
+             search_string: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if child_health_threshold is None and 'childHealthThreshold' in kwargs:
+            child_health_threshold = kwargs['childHealthThreshold']
+        if child_healthchecks is None and 'childHealthchecks' in kwargs:
+            child_healthchecks = kwargs['childHealthchecks']
+        if cloudwatch_alarm_name is None and 'cloudwatchAlarmName' in kwargs:
+            cloudwatch_alarm_name = kwargs['cloudwatchAlarmName']
+        if cloudwatch_alarm_region is None and 'cloudwatchAlarmRegion' in kwargs:
+            cloudwatch_alarm_region = kwargs['cloudwatchAlarmRegion']
+        if enable_sni is None and 'enableSni' in kwargs:
+            enable_sni = kwargs['enableSni']
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if insufficient_data_health_status is None and 'insufficientDataHealthStatus' in kwargs:
+            insufficient_data_health_status = kwargs['insufficientDataHealthStatus']
+        if invert_healthcheck is None and 'invertHealthcheck' in kwargs:
+            invert_healthcheck = kwargs['invertHealthcheck']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if measure_latency is None and 'measureLatency' in kwargs:
+            measure_latency = kwargs['measureLatency']
+        if reference_name is None and 'referenceName' in kwargs:
+            reference_name = kwargs['referenceName']
+        if request_interval is None and 'requestInterval' in kwargs:
+            request_interval = kwargs['requestInterval']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if routing_control_arn is None and 'routingControlArn' in kwargs:
+            routing_control_arn = kwargs['routingControlArn']
+        if search_string is None and 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if child_health_threshold is not None:
-            pulumi.set(__self__, "child_health_threshold", child_health_threshold)
+            _setter("child_health_threshold", child_health_threshold)
         if child_healthchecks is not None:
-            pulumi.set(__self__, "child_healthchecks", child_healthchecks)
+            _setter("child_healthchecks", child_healthchecks)
         if cloudwatch_alarm_name is not None:
-            pulumi.set(__self__, "cloudwatch_alarm_name", cloudwatch_alarm_name)
+            _setter("cloudwatch_alarm_name", cloudwatch_alarm_name)
         if cloudwatch_alarm_region is not None:
-            pulumi.set(__self__, "cloudwatch_alarm_region", cloudwatch_alarm_region)
+            _setter("cloudwatch_alarm_region", cloudwatch_alarm_region)
         if disabled is not None:
-            pulumi.set(__self__, "disabled", disabled)
+            _setter("disabled", disabled)
         if enable_sni is not None:
-            pulumi.set(__self__, "enable_sni", enable_sni)
+            _setter("enable_sni", enable_sni)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if insufficient_data_health_status is not None:
-            pulumi.set(__self__, "insufficient_data_health_status", insufficient_data_health_status)
+            _setter("insufficient_data_health_status", insufficient_data_health_status)
         if invert_healthcheck is not None:
-            pulumi.set(__self__, "invert_healthcheck", invert_healthcheck)
+            _setter("invert_healthcheck", invert_healthcheck)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if measure_latency is not None:
-            pulumi.set(__self__, "measure_latency", measure_latency)
+            _setter("measure_latency", measure_latency)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if reference_name is not None:
-            pulumi.set(__self__, "reference_name", reference_name)
+            _setter("reference_name", reference_name)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if request_interval is not None:
-            pulumi.set(__self__, "request_interval", request_interval)
+            _setter("request_interval", request_interval)
         if resource_path is not None:
-            pulumi.set(__self__, "resource_path", resource_path)
+            _setter("resource_path", resource_path)
         if routing_control_arn is not None:
-            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
+            _setter("routing_control_arn", routing_control_arn)
         if search_string is not None:
-            pulumi.set(__self__, "search_string", search_string)
+            _setter("search_string", search_string)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -993,6 +1163,10 @@ class HealthCheck(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HealthCheckArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

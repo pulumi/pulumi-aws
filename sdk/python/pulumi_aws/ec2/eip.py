@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EipArgs', 'Eip']
@@ -44,29 +44,68 @@ class EipArgs:
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
                case both options are defined as the api only requires one or the other.
         """
+        EipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            associate_with_private_ip=associate_with_private_ip,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            domain=domain,
+            instance=instance,
+            network_border_group=network_border_group,
+            network_interface=network_interface,
+            public_ipv4_pool=public_ipv4_pool,
+            tags=tags,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             associate_with_private_ip: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             instance: Optional[pulumi.Input[str]] = None,
+             network_border_group: Optional[pulumi.Input[str]] = None,
+             network_interface: Optional[pulumi.Input[str]] = None,
+             public_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if associate_with_private_ip is None and 'associateWithPrivateIp' in kwargs:
+            associate_with_private_ip = kwargs['associateWithPrivateIp']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if network_border_group is None and 'networkBorderGroup' in kwargs:
+            network_border_group = kwargs['networkBorderGroup']
+        if network_interface is None and 'networkInterface' in kwargs:
+            network_interface = kwargs['networkInterface']
+        if public_ipv4_pool is None and 'publicIpv4Pool' in kwargs:
+            public_ipv4_pool = kwargs['publicIpv4Pool']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if associate_with_private_ip is not None:
-            pulumi.set(__self__, "associate_with_private_ip", associate_with_private_ip)
+            _setter("associate_with_private_ip", associate_with_private_ip)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if instance is not None:
-            pulumi.set(__self__, "instance", instance)
+            _setter("instance", instance)
         if network_border_group is not None:
-            pulumi.set(__self__, "network_border_group", network_border_group)
+            _setter("network_border_group", network_border_group)
         if network_interface is not None:
-            pulumi.set(__self__, "network_interface", network_interface)
+            _setter("network_interface", network_interface)
         if public_ipv4_pool is not None:
-            pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
+            _setter("public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpc is not None:
             warnings.warn("""use domain attribute instead""", DeprecationWarning)
             pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
 
     @property
     @pulumi.getter
@@ -250,50 +289,125 @@ class _EipState:
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
                case both options are defined as the api only requires one or the other.
         """
+        _EipState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            allocation_id=allocation_id,
+            associate_with_private_ip=associate_with_private_ip,
+            association_id=association_id,
+            carrier_ip=carrier_ip,
+            customer_owned_ip=customer_owned_ip,
+            customer_owned_ipv4_pool=customer_owned_ipv4_pool,
+            domain=domain,
+            instance=instance,
+            network_border_group=network_border_group,
+            network_interface=network_interface,
+            private_dns=private_dns,
+            private_ip=private_ip,
+            public_dns=public_dns,
+            public_ip=public_ip,
+            public_ipv4_pool=public_ipv4_pool,
+            tags=tags,
+            tags_all=tags_all,
+            vpc=vpc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             allocation_id: Optional[pulumi.Input[str]] = None,
+             associate_with_private_ip: Optional[pulumi.Input[str]] = None,
+             association_id: Optional[pulumi.Input[str]] = None,
+             carrier_ip: Optional[pulumi.Input[str]] = None,
+             customer_owned_ip: Optional[pulumi.Input[str]] = None,
+             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[str]] = None,
+             instance: Optional[pulumi.Input[str]] = None,
+             network_border_group: Optional[pulumi.Input[str]] = None,
+             network_interface: Optional[pulumi.Input[str]] = None,
+             private_dns: Optional[pulumi.Input[str]] = None,
+             private_ip: Optional[pulumi.Input[str]] = None,
+             public_dns: Optional[pulumi.Input[str]] = None,
+             public_ip: Optional[pulumi.Input[str]] = None,
+             public_ipv4_pool: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpc: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allocation_id is None and 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if associate_with_private_ip is None and 'associateWithPrivateIp' in kwargs:
+            associate_with_private_ip = kwargs['associateWithPrivateIp']
+        if association_id is None and 'associationId' in kwargs:
+            association_id = kwargs['associationId']
+        if carrier_ip is None and 'carrierIp' in kwargs:
+            carrier_ip = kwargs['carrierIp']
+        if customer_owned_ip is None and 'customerOwnedIp' in kwargs:
+            customer_owned_ip = kwargs['customerOwnedIp']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if network_border_group is None and 'networkBorderGroup' in kwargs:
+            network_border_group = kwargs['networkBorderGroup']
+        if network_interface is None and 'networkInterface' in kwargs:
+            network_interface = kwargs['networkInterface']
+        if private_dns is None and 'privateDns' in kwargs:
+            private_dns = kwargs['privateDns']
+        if private_ip is None and 'privateIp' in kwargs:
+            private_ip = kwargs['privateIp']
+        if public_dns is None and 'publicDns' in kwargs:
+            public_dns = kwargs['publicDns']
+        if public_ip is None and 'publicIp' in kwargs:
+            public_ip = kwargs['publicIp']
+        if public_ipv4_pool is None and 'publicIpv4Pool' in kwargs:
+            public_ipv4_pool = kwargs['publicIpv4Pool']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if allocation_id is not None:
-            pulumi.set(__self__, "allocation_id", allocation_id)
+            _setter("allocation_id", allocation_id)
         if associate_with_private_ip is not None:
-            pulumi.set(__self__, "associate_with_private_ip", associate_with_private_ip)
+            _setter("associate_with_private_ip", associate_with_private_ip)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if carrier_ip is not None:
-            pulumi.set(__self__, "carrier_ip", carrier_ip)
+            _setter("carrier_ip", carrier_ip)
         if customer_owned_ip is not None:
-            pulumi.set(__self__, "customer_owned_ip", customer_owned_ip)
+            _setter("customer_owned_ip", customer_owned_ip)
         if customer_owned_ipv4_pool is not None:
-            pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+            _setter("customer_owned_ipv4_pool", customer_owned_ipv4_pool)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if instance is not None:
-            pulumi.set(__self__, "instance", instance)
+            _setter("instance", instance)
         if network_border_group is not None:
-            pulumi.set(__self__, "network_border_group", network_border_group)
+            _setter("network_border_group", network_border_group)
         if network_interface is not None:
-            pulumi.set(__self__, "network_interface", network_interface)
+            _setter("network_interface", network_interface)
         if private_dns is not None:
-            pulumi.set(__self__, "private_dns", private_dns)
+            _setter("private_dns", private_dns)
         if private_ip is not None:
-            pulumi.set(__self__, "private_ip", private_ip)
+            _setter("private_ip", private_ip)
         if public_dns is not None:
-            pulumi.set(__self__, "public_dns", public_dns)
+            _setter("public_dns", public_dns)
         if public_ip is not None:
-            pulumi.set(__self__, "public_ip", public_ip)
+            _setter("public_ip", public_ip)
         if public_ipv4_pool is not None:
-            pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
+            _setter("public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if vpc is not None:
             warnings.warn("""use domain attribute instead""", DeprecationWarning)
             pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
         if vpc is not None:
-            pulumi.set(__self__, "vpc", vpc)
+            _setter("vpc", vpc)
 
     @property
     @pulumi.getter
@@ -757,6 +871,10 @@ class Eip(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

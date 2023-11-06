@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,9 +22,28 @@ class GroupInsightsConfigurationArgs:
         :param pulumi.Input[bool] insights_enabled: Specifies whether insights are enabled.
         :param pulumi.Input[bool] notifications_enabled: Specifies whether insight notifications are enabled.
         """
-        pulumi.set(__self__, "insights_enabled", insights_enabled)
+        GroupInsightsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            insights_enabled=insights_enabled,
+            notifications_enabled=notifications_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             insights_enabled: Optional[pulumi.Input[bool]] = None,
+             notifications_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if insights_enabled is None and 'insightsEnabled' in kwargs:
+            insights_enabled = kwargs['insightsEnabled']
+        if insights_enabled is None:
+            raise TypeError("Missing 'insights_enabled' argument")
+        if notifications_enabled is None and 'notificationsEnabled' in kwargs:
+            notifications_enabled = kwargs['notificationsEnabled']
+
+        _setter("insights_enabled", insights_enabled)
         if notifications_enabled is not None:
-            pulumi.set(__self__, "notifications_enabled", notifications_enabled)
+            _setter("notifications_enabled", notifications_enabled)
 
     @property
     @pulumi.getter(name="insightsEnabled")

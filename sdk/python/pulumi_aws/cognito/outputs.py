@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -87,12 +87,33 @@ class IdentityPoolCognitoIdentityProvider(dict):
         :param str provider_name: The provider name for an Amazon Cognito Identity User Pool.
         :param bool server_side_token_check: Whether server-side token validation is enabled for the identity provider’s token or not.
         """
+        IdentityPoolCognitoIdentityProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            provider_name=provider_name,
+            server_side_token_check=server_side_token_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             provider_name: Optional[str] = None,
+             server_side_token_check: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if server_side_token_check is None and 'serverSideTokenCheck' in kwargs:
+            server_side_token_check = kwargs['serverSideTokenCheck']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if provider_name is not None:
-            pulumi.set(__self__, "provider_name", provider_name)
+            _setter("provider_name", provider_name)
         if server_side_token_check is not None:
-            pulumi.set(__self__, "server_side_token_check", server_side_token_check)
+            _setter("server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
@@ -153,12 +174,39 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
         :param str ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
         :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         """
-        pulumi.set(__self__, "identity_provider", identity_provider)
-        pulumi.set(__self__, "type", type)
+        IdentityPoolRoleAttachmentRoleMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_provider=identity_provider,
+            type=type,
+            ambiguous_role_resolution=ambiguous_role_resolution,
+            mapping_rules=mapping_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_provider: Optional[str] = None,
+             type: Optional[str] = None,
+             ambiguous_role_resolution: Optional[str] = None,
+             mapping_rules: Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if identity_provider is None:
+            raise TypeError("Missing 'identity_provider' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if ambiguous_role_resolution is None and 'ambiguousRoleResolution' in kwargs:
+            ambiguous_role_resolution = kwargs['ambiguousRoleResolution']
+        if mapping_rules is None and 'mappingRules' in kwargs:
+            mapping_rules = kwargs['mappingRules']
+
+        _setter("identity_provider", identity_provider)
+        _setter("type", type)
         if ambiguous_role_resolution is not None:
-            pulumi.set(__self__, "ambiguous_role_resolution", ambiguous_role_resolution)
+            _setter("ambiguous_role_resolution", ambiguous_role_resolution)
         if mapping_rules is not None:
-            pulumi.set(__self__, "mapping_rules", mapping_rules)
+            _setter("mapping_rules", mapping_rules)
 
     @property
     @pulumi.getter(name="identityProvider")
@@ -225,10 +273,39 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
         :param str role_arn: The role ARN.
         :param str value: A brief string that the claim must match, for example, "paid" or "yes".
         """
-        pulumi.set(__self__, "claim", claim)
-        pulumi.set(__self__, "match_type", match_type)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "value", value)
+        IdentityPoolRoleAttachmentRoleMappingMappingRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claim=claim,
+            match_type=match_type,
+            role_arn=role_arn,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claim: Optional[str] = None,
+             match_type: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if claim is None:
+            raise TypeError("Missing 'claim' argument")
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if match_type is None:
+            raise TypeError("Missing 'match_type' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("claim", claim)
+        _setter("match_type", match_type)
+        _setter("role_arn", role_arn)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -303,16 +380,45 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
         :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
         :param bool user_data_shared: If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
+        ManagedUserPoolClientAnalyticsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_arn=application_arn,
+            application_id=application_id,
+            external_id=external_id,
+            role_arn=role_arn,
+            user_data_shared=user_data_shared,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_arn: Optional[str] = None,
+             application_id: Optional[str] = None,
+             external_id: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             user_data_shared: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_arn is None and 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if user_data_shared is None and 'userDataShared' in kwargs:
+            user_data_shared = kwargs['userDataShared']
+
         if application_arn is not None:
-            pulumi.set(__self__, "application_arn", application_arn)
+            _setter("application_arn", application_arn)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if user_data_shared is not None:
-            pulumi.set(__self__, "user_data_shared", user_data_shared)
+            _setter("user_data_shared", user_data_shared)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -387,12 +493,33 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
         :param str id_token: Time unit for the value in `id_token_validity`, and it defaults to `hours`.
         :param str refresh_token: Time unit for the value in `refresh_token_validity` and defaults to `days`.
         """
+        ManagedUserPoolClientTokenValidityUnits._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            id_token=id_token,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             id_token: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if id_token is None and 'idToken' in kwargs:
+            id_token = kwargs['idToken']
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if id_token is not None:
-            pulumi.set(__self__, "id_token", id_token)
+            _setter("id_token", id_token)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -447,8 +574,29 @@ class ResourceServerScope(dict):
         :param str scope_description: The scope description.
         :param str scope_name: The scope name.
         """
-        pulumi.set(__self__, "scope_description", scope_description)
-        pulumi.set(__self__, "scope_name", scope_name)
+        ResourceServerScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope_description=scope_description,
+            scope_name=scope_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope_description: Optional[str] = None,
+             scope_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scope_description is None and 'scopeDescription' in kwargs:
+            scope_description = kwargs['scopeDescription']
+        if scope_description is None:
+            raise TypeError("Missing 'scope_description' argument")
+        if scope_name is None and 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+        if scope_name is None:
+            raise TypeError("Missing 'scope_name' argument")
+
+        _setter("scope_description", scope_description)
+        _setter("scope_name", scope_name)
 
     @property
     @pulumi.getter(name="scopeDescription")
@@ -493,8 +641,27 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs' actions: Account takeover risk configuration actions. See details below.
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "notify_configuration", notify_configuration)
+        RiskConfigurationAccountTakeoverRiskConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            notify_configuration=notify_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions'] = None,
+             notify_configuration: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if notify_configuration is None and 'notifyConfiguration' in kwargs:
+            notify_configuration = kwargs['notifyConfiguration']
+        if notify_configuration is None:
+            raise TypeError("Missing 'notify_configuration' argument")
+
+        _setter("actions", actions)
+        _setter("notify_configuration", notify_configuration)
 
     @property
     @pulumi.getter
@@ -545,12 +712,33 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs' low_action: Action to take for a low risk. See action block below.
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs' medium_action: Action to take for a medium risk. See action block below.
         """
+        RiskConfigurationAccountTakeoverRiskConfigurationActions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            high_action=high_action,
+            low_action=low_action,
+            medium_action=medium_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             high_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction'] = None,
+             low_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction'] = None,
+             medium_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if high_action is None and 'highAction' in kwargs:
+            high_action = kwargs['highAction']
+        if low_action is None and 'lowAction' in kwargs:
+            low_action = kwargs['lowAction']
+        if medium_action is None and 'mediumAction' in kwargs:
+            medium_action = kwargs['mediumAction']
+
         if high_action is not None:
-            pulumi.set(__self__, "high_action", high_action)
+            _setter("high_action", high_action)
         if low_action is not None:
-            pulumi.set(__self__, "low_action", low_action)
+            _setter("low_action", low_action)
         if medium_action is not None:
-            pulumi.set(__self__, "medium_action", medium_action)
+            _setter("medium_action", medium_action)
 
     @property
     @pulumi.getter(name="highAction")
@@ -603,8 +791,27 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
         :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         :param bool notify: Whether to send a notification.
         """
-        pulumi.set(__self__, "event_action", event_action)
-        pulumi.set(__self__, "notify", notify)
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_action=event_action,
+            notify=notify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_action: Optional[str] = None,
+             notify: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_action is None and 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if event_action is None:
+            raise TypeError("Missing 'event_action' argument")
+        if notify is None:
+            raise TypeError("Missing 'notify' argument")
+
+        _setter("event_action", event_action)
+        _setter("notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -649,8 +856,27 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
         :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         :param bool notify: Whether to send a notification.
         """
-        pulumi.set(__self__, "event_action", event_action)
-        pulumi.set(__self__, "notify", notify)
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_action=event_action,
+            notify=notify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_action: Optional[str] = None,
+             notify: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_action is None and 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if event_action is None:
+            raise TypeError("Missing 'event_action' argument")
+        if notify is None:
+            raise TypeError("Missing 'notify' argument")
+
+        _setter("event_action", event_action)
+        _setter("notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -695,8 +921,27 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
         :param str event_action: The action to take in response to the account takeover action. Valid values are `BLOCK`, `MFA_IF_CONFIGURED`, `MFA_REQUIRED` and `NO_ACTION`.
         :param bool notify: Whether to send a notification.
         """
-        pulumi.set(__self__, "event_action", event_action)
-        pulumi.set(__self__, "notify", notify)
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_action=event_action,
+            notify=notify,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_action: Optional[str] = None,
+             notify: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_action is None and 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if event_action is None:
+            raise TypeError("Missing 'event_action' argument")
+        if notify is None:
+            raise TypeError("Missing 'notify' argument")
+
+        _setter("event_action", event_action)
+        _setter("notify", notify)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -759,17 +1004,52 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict)
         :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs' no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
         :param str reply_to: The destination to which the receiver of an email should reply to.
         """
-        pulumi.set(__self__, "source_arn", source_arn)
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_arn=source_arn,
+            block_email=block_email,
+            from_=from_,
+            mfa_email=mfa_email,
+            no_action_email=no_action_email,
+            reply_to=reply_to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_arn: Optional[str] = None,
+             block_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail'] = None,
+             from_: Optional[str] = None,
+             mfa_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail'] = None,
+             no_action_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail'] = None,
+             reply_to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if source_arn is None:
+            raise TypeError("Missing 'source_arn' argument")
+        if block_email is None and 'blockEmail' in kwargs:
+            block_email = kwargs['blockEmail']
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if mfa_email is None and 'mfaEmail' in kwargs:
+            mfa_email = kwargs['mfaEmail']
+        if no_action_email is None and 'noActionEmail' in kwargs:
+            no_action_email = kwargs['noActionEmail']
+        if reply_to is None and 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+
+        _setter("source_arn", source_arn)
         if block_email is not None:
-            pulumi.set(__self__, "block_email", block_email)
+            _setter("block_email", block_email)
         if from_ is not None:
-            pulumi.set(__self__, "from_", from_)
+            _setter("from_", from_)
         if mfa_email is not None:
-            pulumi.set(__self__, "mfa_email", mfa_email)
+            _setter("mfa_email", mfa_email)
         if no_action_email is not None:
-            pulumi.set(__self__, "no_action_email", no_action_email)
+            _setter("no_action_email", no_action_email)
         if reply_to is not None:
-            pulumi.set(__self__, "reply_to", reply_to)
+            _setter("reply_to", reply_to)
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -850,9 +1130,34 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
         :param str subject: The email subject.
         :param str text_body: The email text body.
         """
-        pulumi.set(__self__, "html_body", html_body)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "text_body", text_body)
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            html_body=html_body,
+            subject=subject,
+            text_body=text_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             html_body: Optional[str] = None,
+             subject: Optional[str] = None,
+             text_body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if html_body is None and 'htmlBody' in kwargs:
+            html_body = kwargs['htmlBody']
+        if html_body is None:
+            raise TypeError("Missing 'html_body' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if text_body is None and 'textBody' in kwargs:
+            text_body = kwargs['textBody']
+        if text_body is None:
+            raise TypeError("Missing 'text_body' argument")
+
+        _setter("html_body", html_body)
+        _setter("subject", subject)
+        _setter("text_body", text_body)
 
     @property
     @pulumi.getter(name="htmlBody")
@@ -909,9 +1214,34 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
         :param str subject: The email subject.
         :param str text_body: The email text body.
         """
-        pulumi.set(__self__, "html_body", html_body)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "text_body", text_body)
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            html_body=html_body,
+            subject=subject,
+            text_body=text_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             html_body: Optional[str] = None,
+             subject: Optional[str] = None,
+             text_body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if html_body is None and 'htmlBody' in kwargs:
+            html_body = kwargs['htmlBody']
+        if html_body is None:
+            raise TypeError("Missing 'html_body' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if text_body is None and 'textBody' in kwargs:
+            text_body = kwargs['textBody']
+        if text_body is None:
+            raise TypeError("Missing 'text_body' argument")
+
+        _setter("html_body", html_body)
+        _setter("subject", subject)
+        _setter("text_body", text_body)
 
     @property
     @pulumi.getter(name="htmlBody")
@@ -968,9 +1298,34 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
         :param str subject: The email subject.
         :param str text_body: The email text body.
         """
-        pulumi.set(__self__, "html_body", html_body)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "text_body", text_body)
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            html_body=html_body,
+            subject=subject,
+            text_body=text_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             html_body: Optional[str] = None,
+             subject: Optional[str] = None,
+             text_body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if html_body is None and 'htmlBody' in kwargs:
+            html_body = kwargs['htmlBody']
+        if html_body is None:
+            raise TypeError("Missing 'html_body' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if text_body is None and 'textBody' in kwargs:
+            text_body = kwargs['textBody']
+        if text_body is None:
+            raise TypeError("Missing 'text_body' argument")
+
+        _setter("html_body", html_body)
+        _setter("subject", subject)
+        _setter("text_body", text_body)
 
     @property
     @pulumi.getter(name="htmlBody")
@@ -1023,9 +1378,26 @@ class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
         :param 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs' actions: The compromised credentials risk configuration actions. See details below.
         :param Sequence[str] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
         """
-        pulumi.set(__self__, "actions", actions)
+        RiskConfigurationCompromisedCredentialsRiskConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            event_filters=event_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional['outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions'] = None,
+             event_filters: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if event_filters is None and 'eventFilters' in kwargs:
+            event_filters = kwargs['eventFilters']
+
+        _setter("actions", actions)
         if event_filters is not None:
-            pulumi.set(__self__, "event_filters", event_filters)
+            _setter("event_filters", event_filters)
 
     @property
     @pulumi.getter
@@ -1068,7 +1440,22 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
         """
         :param str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
         """
-        pulumi.set(__self__, "event_action", event_action)
+        RiskConfigurationCompromisedCredentialsRiskConfigurationActions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_action=event_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_action is None and 'eventAction' in kwargs:
+            event_action = kwargs['eventAction']
+        if event_action is None:
+            raise TypeError("Missing 'event_action' argument")
+
+        _setter("event_action", event_action)
 
     @property
     @pulumi.getter(name="eventAction")
@@ -1111,10 +1498,27 @@ class RiskConfigurationRiskExceptionConfiguration(dict):
                The IP range is in CIDR notation.
                Can contain a maximum of 200 items.
         """
+        RiskConfigurationRiskExceptionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blocked_ip_range_lists=blocked_ip_range_lists,
+            skipped_ip_range_lists=skipped_ip_range_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blocked_ip_range_lists: Optional[Sequence[str]] = None,
+             skipped_ip_range_lists: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if blocked_ip_range_lists is None and 'blockedIpRangeLists' in kwargs:
+            blocked_ip_range_lists = kwargs['blockedIpRangeLists']
+        if skipped_ip_range_lists is None and 'skippedIpRangeLists' in kwargs:
+            skipped_ip_range_lists = kwargs['skippedIpRangeLists']
+
         if blocked_ip_range_lists is not None:
-            pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
+            _setter("blocked_ip_range_lists", blocked_ip_range_lists)
         if skipped_ip_range_lists is not None:
-            pulumi.set(__self__, "skipped_ip_range_lists", skipped_ip_range_lists)
+            _setter("skipped_ip_range_lists", skipped_ip_range_lists)
 
     @property
     @pulumi.getter(name="blockedIpRangeLists")
@@ -1161,8 +1565,21 @@ class UserPoolAccountRecoverySetting(dict):
         """
         :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
+        UserPoolAccountRecoverySetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_mechanisms=recovery_mechanisms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_mechanisms: Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if recovery_mechanisms is None and 'recoveryMechanisms' in kwargs:
+            recovery_mechanisms = kwargs['recoveryMechanisms']
+
         if recovery_mechanisms is not None:
-            pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
+            _setter("recovery_mechanisms", recovery_mechanisms)
 
     @property
     @pulumi.getter(name="recoveryMechanisms")
@@ -1184,8 +1601,25 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
                The following arguments are optional:
         :param int priority: Positive integer specifying priority of a method with 1 being the highest priority.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        UserPoolAccountRecoverySettingRecoveryMechanism._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             priority: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+
+        _setter("name", name)
+        _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -1234,10 +1668,27 @@ class UserPoolAdminCreateUserConfig(dict):
         :param bool allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
         :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs' invite_message_template: Invite message template structure. Detailed below.
         """
+        UserPoolAdminCreateUserConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_admin_create_user_only=allow_admin_create_user_only,
+            invite_message_template=invite_message_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_admin_create_user_only: Optional[bool] = None,
+             invite_message_template: Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_admin_create_user_only is None and 'allowAdminCreateUserOnly' in kwargs:
+            allow_admin_create_user_only = kwargs['allowAdminCreateUserOnly']
+        if invite_message_template is None and 'inviteMessageTemplate' in kwargs:
+            invite_message_template = kwargs['inviteMessageTemplate']
+
         if allow_admin_create_user_only is not None:
-            pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
+            _setter("allow_admin_create_user_only", allow_admin_create_user_only)
         if invite_message_template is not None:
-            pulumi.set(__self__, "invite_message_template", invite_message_template)
+            _setter("invite_message_template", invite_message_template)
 
     @property
     @pulumi.getter(name="allowAdminCreateUserOnly")
@@ -1288,12 +1739,33 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
         :param str email_subject: Subject line for email messages.
         :param str sms_message: Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
         """
+        UserPoolAdminCreateUserConfigInviteMessageTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_message=email_message,
+            email_subject=email_subject,
+            sms_message=sms_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_message: Optional[str] = None,
+             email_subject: Optional[str] = None,
+             sms_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_message is None and 'emailMessage' in kwargs:
+            email_message = kwargs['emailMessage']
+        if email_subject is None and 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if sms_message is None and 'smsMessage' in kwargs:
+            sms_message = kwargs['smsMessage']
+
         if email_message is not None:
-            pulumi.set(__self__, "email_message", email_message)
+            _setter("email_message", email_message)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
         if sms_message is not None:
-            pulumi.set(__self__, "sms_message", sms_message)
+            _setter("sms_message", sms_message)
 
     @property
     @pulumi.getter(name="emailMessage")
@@ -1360,16 +1832,45 @@ class UserPoolClientAnalyticsConfiguration(dict):
         :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         :param bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
+        UserPoolClientAnalyticsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_arn=application_arn,
+            application_id=application_id,
+            external_id=external_id,
+            role_arn=role_arn,
+            user_data_shared=user_data_shared,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_arn: Optional[str] = None,
+             application_id: Optional[str] = None,
+             external_id: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             user_data_shared: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_arn is None and 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if user_data_shared is None and 'userDataShared' in kwargs:
+            user_data_shared = kwargs['userDataShared']
+
         if application_arn is not None:
-            pulumi.set(__self__, "application_arn", application_arn)
+            _setter("application_arn", application_arn)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
+            _setter("role_arn", role_arn)
         if user_data_shared is not None:
-            pulumi.set(__self__, "user_data_shared", user_data_shared)
+            _setter("user_data_shared", user_data_shared)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -1444,12 +1945,33 @@ class UserPoolClientTokenValidityUnits(dict):
         :param str id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
         :param str refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
         """
+        UserPoolClientTokenValidityUnits._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            id_token=id_token,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             id_token: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if id_token is None and 'idToken' in kwargs:
+            id_token = kwargs['idToken']
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if id_token is not None:
-            pulumi.set(__self__, "id_token", id_token)
+            _setter("id_token", id_token)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -1504,10 +2026,27 @@ class UserPoolDeviceConfiguration(dict):
         :param bool challenge_required_on_new_device: Whether a challenge is required on a new device. Only applicable to a new device.
         :param bool device_only_remembered_on_user_prompt: Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
         """
+        UserPoolDeviceConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            challenge_required_on_new_device=challenge_required_on_new_device,
+            device_only_remembered_on_user_prompt=device_only_remembered_on_user_prompt,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             challenge_required_on_new_device: Optional[bool] = None,
+             device_only_remembered_on_user_prompt: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if challenge_required_on_new_device is None and 'challengeRequiredOnNewDevice' in kwargs:
+            challenge_required_on_new_device = kwargs['challengeRequiredOnNewDevice']
+        if device_only_remembered_on_user_prompt is None and 'deviceOnlyRememberedOnUserPrompt' in kwargs:
+            device_only_remembered_on_user_prompt = kwargs['deviceOnlyRememberedOnUserPrompt']
+
         if challenge_required_on_new_device is not None:
-            pulumi.set(__self__, "challenge_required_on_new_device", challenge_required_on_new_device)
+            _setter("challenge_required_on_new_device", challenge_required_on_new_device)
         if device_only_remembered_on_user_prompt is not None:
-            pulumi.set(__self__, "device_only_remembered_on_user_prompt", device_only_remembered_on_user_prompt)
+            _setter("device_only_remembered_on_user_prompt", device_only_remembered_on_user_prompt)
 
     @property
     @pulumi.getter(name="challengeRequiredOnNewDevice")
@@ -1566,16 +2105,45 @@ class UserPoolEmailConfiguration(dict):
         :param str reply_to_email_address: REPLY-TO email address.
         :param str source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         """
+        UserPoolEmailConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_set=configuration_set,
+            email_sending_account=email_sending_account,
+            from_email_address=from_email_address,
+            reply_to_email_address=reply_to_email_address,
+            source_arn=source_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_set: Optional[str] = None,
+             email_sending_account: Optional[str] = None,
+             from_email_address: Optional[str] = None,
+             reply_to_email_address: Optional[str] = None,
+             source_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_set is None and 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if email_sending_account is None and 'emailSendingAccount' in kwargs:
+            email_sending_account = kwargs['emailSendingAccount']
+        if from_email_address is None and 'fromEmailAddress' in kwargs:
+            from_email_address = kwargs['fromEmailAddress']
+        if reply_to_email_address is None and 'replyToEmailAddress' in kwargs:
+            reply_to_email_address = kwargs['replyToEmailAddress']
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+
         if configuration_set is not None:
-            pulumi.set(__self__, "configuration_set", configuration_set)
+            _setter("configuration_set", configuration_set)
         if email_sending_account is not None:
-            pulumi.set(__self__, "email_sending_account", email_sending_account)
+            _setter("email_sending_account", email_sending_account)
         if from_email_address is not None:
-            pulumi.set(__self__, "from_email_address", from_email_address)
+            _setter("from_email_address", from_email_address)
         if reply_to_email_address is not None:
-            pulumi.set(__self__, "reply_to_email_address", reply_to_email_address)
+            _setter("reply_to_email_address", reply_to_email_address)
         if source_arn is not None:
-            pulumi.set(__self__, "source_arn", source_arn)
+            _setter("source_arn", source_arn)
 
     @property
     @pulumi.getter(name="configurationSet")
@@ -1690,32 +2258,93 @@ class UserPoolLambdaConfig(dict):
         :param str user_migration: User migration Lambda config type.
         :param str verify_auth_challenge_response: Verifies the authentication challenge response.
         """
+        UserPoolLambdaConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_auth_challenge=create_auth_challenge,
+            custom_email_sender=custom_email_sender,
+            custom_message=custom_message,
+            custom_sms_sender=custom_sms_sender,
+            define_auth_challenge=define_auth_challenge,
+            kms_key_id=kms_key_id,
+            post_authentication=post_authentication,
+            post_confirmation=post_confirmation,
+            pre_authentication=pre_authentication,
+            pre_sign_up=pre_sign_up,
+            pre_token_generation=pre_token_generation,
+            user_migration=user_migration,
+            verify_auth_challenge_response=verify_auth_challenge_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_auth_challenge: Optional[str] = None,
+             custom_email_sender: Optional['outputs.UserPoolLambdaConfigCustomEmailSender'] = None,
+             custom_message: Optional[str] = None,
+             custom_sms_sender: Optional['outputs.UserPoolLambdaConfigCustomSmsSender'] = None,
+             define_auth_challenge: Optional[str] = None,
+             kms_key_id: Optional[str] = None,
+             post_authentication: Optional[str] = None,
+             post_confirmation: Optional[str] = None,
+             pre_authentication: Optional[str] = None,
+             pre_sign_up: Optional[str] = None,
+             pre_token_generation: Optional[str] = None,
+             user_migration: Optional[str] = None,
+             verify_auth_challenge_response: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_auth_challenge is None and 'createAuthChallenge' in kwargs:
+            create_auth_challenge = kwargs['createAuthChallenge']
+        if custom_email_sender is None and 'customEmailSender' in kwargs:
+            custom_email_sender = kwargs['customEmailSender']
+        if custom_message is None and 'customMessage' in kwargs:
+            custom_message = kwargs['customMessage']
+        if custom_sms_sender is None and 'customSmsSender' in kwargs:
+            custom_sms_sender = kwargs['customSmsSender']
+        if define_auth_challenge is None and 'defineAuthChallenge' in kwargs:
+            define_auth_challenge = kwargs['defineAuthChallenge']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if post_authentication is None and 'postAuthentication' in kwargs:
+            post_authentication = kwargs['postAuthentication']
+        if post_confirmation is None and 'postConfirmation' in kwargs:
+            post_confirmation = kwargs['postConfirmation']
+        if pre_authentication is None and 'preAuthentication' in kwargs:
+            pre_authentication = kwargs['preAuthentication']
+        if pre_sign_up is None and 'preSignUp' in kwargs:
+            pre_sign_up = kwargs['preSignUp']
+        if pre_token_generation is None and 'preTokenGeneration' in kwargs:
+            pre_token_generation = kwargs['preTokenGeneration']
+        if user_migration is None and 'userMigration' in kwargs:
+            user_migration = kwargs['userMigration']
+        if verify_auth_challenge_response is None and 'verifyAuthChallengeResponse' in kwargs:
+            verify_auth_challenge_response = kwargs['verifyAuthChallengeResponse']
+
         if create_auth_challenge is not None:
-            pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
+            _setter("create_auth_challenge", create_auth_challenge)
         if custom_email_sender is not None:
-            pulumi.set(__self__, "custom_email_sender", custom_email_sender)
+            _setter("custom_email_sender", custom_email_sender)
         if custom_message is not None:
-            pulumi.set(__self__, "custom_message", custom_message)
+            _setter("custom_message", custom_message)
         if custom_sms_sender is not None:
-            pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
+            _setter("custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
-            pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+            _setter("define_auth_challenge", define_auth_challenge)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if post_authentication is not None:
-            pulumi.set(__self__, "post_authentication", post_authentication)
+            _setter("post_authentication", post_authentication)
         if post_confirmation is not None:
-            pulumi.set(__self__, "post_confirmation", post_confirmation)
+            _setter("post_confirmation", post_confirmation)
         if pre_authentication is not None:
-            pulumi.set(__self__, "pre_authentication", pre_authentication)
+            _setter("pre_authentication", pre_authentication)
         if pre_sign_up is not None:
-            pulumi.set(__self__, "pre_sign_up", pre_sign_up)
+            _setter("pre_sign_up", pre_sign_up)
         if pre_token_generation is not None:
-            pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+            _setter("pre_token_generation", pre_token_generation)
         if user_migration is not None:
-            pulumi.set(__self__, "user_migration", user_migration)
+            _setter("user_migration", user_migration)
         if verify_auth_challenge_response is not None:
-            pulumi.set(__self__, "verify_auth_challenge_response", verify_auth_challenge_response)
+            _setter("verify_auth_challenge_response", verify_auth_challenge_response)
 
     @property
     @pulumi.getter(name="createAuthChallenge")
@@ -1850,8 +2479,29 @@ class UserPoolLambdaConfigCustomEmailSender(dict):
         :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
         """
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
-        pulumi.set(__self__, "lambda_version", lambda_version)
+        UserPoolLambdaConfigCustomEmailSender._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_arn=lambda_arn,
+            lambda_version=lambda_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_arn: Optional[str] = None,
+             lambda_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if lambda_version is None and 'lambdaVersion' in kwargs:
+            lambda_version = kwargs['lambdaVersion']
+        if lambda_version is None:
+            raise TypeError("Missing 'lambda_version' argument")
+
+        _setter("lambda_arn", lambda_arn)
+        _setter("lambda_version", lambda_version)
 
     @property
     @pulumi.getter(name="lambdaArn")
@@ -1898,8 +2548,29 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
         :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
         """
-        pulumi.set(__self__, "lambda_arn", lambda_arn)
-        pulumi.set(__self__, "lambda_version", lambda_version)
+        UserPoolLambdaConfigCustomSmsSender._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lambda_arn=lambda_arn,
+            lambda_version=lambda_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lambda_arn: Optional[str] = None,
+             lambda_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if lambda_version is None and 'lambdaVersion' in kwargs:
+            lambda_version = kwargs['lambdaVersion']
+        if lambda_version is None:
+            raise TypeError("Missing 'lambda_version' argument")
+
+        _setter("lambda_arn", lambda_arn)
+        _setter("lambda_version", lambda_version)
 
     @property
     @pulumi.getter(name="lambdaArn")
@@ -1962,18 +2633,51 @@ class UserPoolPasswordPolicy(dict):
         :param bool require_uppercase: Whether you have required users to use at least one uppercase letter in their password.
         :param int temporary_password_validity_days: In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
         """
+        UserPoolPasswordPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimum_length=minimum_length,
+            require_lowercase=require_lowercase,
+            require_numbers=require_numbers,
+            require_symbols=require_symbols,
+            require_uppercase=require_uppercase,
+            temporary_password_validity_days=temporary_password_validity_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimum_length: Optional[int] = None,
+             require_lowercase: Optional[bool] = None,
+             require_numbers: Optional[bool] = None,
+             require_symbols: Optional[bool] = None,
+             require_uppercase: Optional[bool] = None,
+             temporary_password_validity_days: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if minimum_length is None and 'minimumLength' in kwargs:
+            minimum_length = kwargs['minimumLength']
+        if require_lowercase is None and 'requireLowercase' in kwargs:
+            require_lowercase = kwargs['requireLowercase']
+        if require_numbers is None and 'requireNumbers' in kwargs:
+            require_numbers = kwargs['requireNumbers']
+        if require_symbols is None and 'requireSymbols' in kwargs:
+            require_symbols = kwargs['requireSymbols']
+        if require_uppercase is None and 'requireUppercase' in kwargs:
+            require_uppercase = kwargs['requireUppercase']
+        if temporary_password_validity_days is None and 'temporaryPasswordValidityDays' in kwargs:
+            temporary_password_validity_days = kwargs['temporaryPasswordValidityDays']
+
         if minimum_length is not None:
-            pulumi.set(__self__, "minimum_length", minimum_length)
+            _setter("minimum_length", minimum_length)
         if require_lowercase is not None:
-            pulumi.set(__self__, "require_lowercase", require_lowercase)
+            _setter("require_lowercase", require_lowercase)
         if require_numbers is not None:
-            pulumi.set(__self__, "require_numbers", require_numbers)
+            _setter("require_numbers", require_numbers)
         if require_symbols is not None:
-            pulumi.set(__self__, "require_symbols", require_symbols)
+            _setter("require_symbols", require_symbols)
         if require_uppercase is not None:
-            pulumi.set(__self__, "require_uppercase", require_uppercase)
+            _setter("require_uppercase", require_uppercase)
         if temporary_password_validity_days is not None:
-            pulumi.set(__self__, "temporary_password_validity_days", temporary_password_validity_days)
+            _setter("temporary_password_validity_days", temporary_password_validity_days)
 
     @property
     @pulumi.getter(name="minimumLength")
@@ -2066,18 +2770,53 @@ class UserPoolSchema(dict):
         :param bool required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
         :param 'UserPoolSchemaStringAttributeConstraintsArgs' string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
         """
-        pulumi.set(__self__, "attribute_data_type", attribute_data_type)
-        pulumi.set(__self__, "name", name)
+        UserPoolSchema._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute_data_type=attribute_data_type,
+            name=name,
+            developer_only_attribute=developer_only_attribute,
+            mutable=mutable,
+            number_attribute_constraints=number_attribute_constraints,
+            required=required,
+            string_attribute_constraints=string_attribute_constraints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute_data_type: Optional[str] = None,
+             name: Optional[str] = None,
+             developer_only_attribute: Optional[bool] = None,
+             mutable: Optional[bool] = None,
+             number_attribute_constraints: Optional['outputs.UserPoolSchemaNumberAttributeConstraints'] = None,
+             required: Optional[bool] = None,
+             string_attribute_constraints: Optional['outputs.UserPoolSchemaStringAttributeConstraints'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if attribute_data_type is None and 'attributeDataType' in kwargs:
+            attribute_data_type = kwargs['attributeDataType']
+        if attribute_data_type is None:
+            raise TypeError("Missing 'attribute_data_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if developer_only_attribute is None and 'developerOnlyAttribute' in kwargs:
+            developer_only_attribute = kwargs['developerOnlyAttribute']
+        if number_attribute_constraints is None and 'numberAttributeConstraints' in kwargs:
+            number_attribute_constraints = kwargs['numberAttributeConstraints']
+        if string_attribute_constraints is None and 'stringAttributeConstraints' in kwargs:
+            string_attribute_constraints = kwargs['stringAttributeConstraints']
+
+        _setter("attribute_data_type", attribute_data_type)
+        _setter("name", name)
         if developer_only_attribute is not None:
-            pulumi.set(__self__, "developer_only_attribute", developer_only_attribute)
+            _setter("developer_only_attribute", developer_only_attribute)
         if mutable is not None:
-            pulumi.set(__self__, "mutable", mutable)
+            _setter("mutable", mutable)
         if number_attribute_constraints is not None:
-            pulumi.set(__self__, "number_attribute_constraints", number_attribute_constraints)
+            _setter("number_attribute_constraints", number_attribute_constraints)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
         if string_attribute_constraints is not None:
-            pulumi.set(__self__, "string_attribute_constraints", string_attribute_constraints)
+            _setter("string_attribute_constraints", string_attribute_constraints)
 
     @property
     @pulumi.getter(name="attributeDataType")
@@ -2164,10 +2903,27 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
         :param str max_value: Maximum value of an attribute that is of the number data type.
         :param str min_value: Minimum value of an attribute that is of the number data type.
         """
+        UserPoolSchemaNumberAttributeConstraints._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_value=max_value,
+            min_value=min_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_value: Optional[str] = None,
+             min_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if max_value is None and 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if min_value is None and 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+
         if max_value is not None:
-            pulumi.set(__self__, "max_value", max_value)
+            _setter("max_value", max_value)
         if min_value is not None:
-            pulumi.set(__self__, "min_value", min_value)
+            _setter("min_value", min_value)
 
     @property
     @pulumi.getter(name="maxValue")
@@ -2214,10 +2970,27 @@ class UserPoolSchemaStringAttributeConstraints(dict):
         :param str max_length: Maximum length of an attribute value of the string type.
         :param str min_length: Minimum length of an attribute value of the string type.
         """
+        UserPoolSchemaStringAttributeConstraints._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_length=max_length,
+            min_length=min_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_length: Optional[str] = None,
+             min_length: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if max_length is None and 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if min_length is None and 'minLength' in kwargs:
+            min_length = kwargs['minLength']
+
         if max_length is not None:
-            pulumi.set(__self__, "max_length", max_length)
+            _setter("max_length", max_length)
         if min_length is not None:
-            pulumi.set(__self__, "min_length", min_length)
+            _setter("min_length", min_length)
 
     @property
     @pulumi.getter(name="maxLength")
@@ -2268,10 +3041,35 @@ class UserPoolSmsConfiguration(dict):
         :param str sns_caller_arn: ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
         :param str sns_region: The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
         """
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        UserPoolSmsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_id=external_id,
+            sns_caller_arn=sns_caller_arn,
+            sns_region=sns_region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_id: Optional[str] = None,
+             sns_caller_arn: Optional[str] = None,
+             sns_region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if external_id is None:
+            raise TypeError("Missing 'external_id' argument")
+        if sns_caller_arn is None and 'snsCallerArn' in kwargs:
+            sns_caller_arn = kwargs['snsCallerArn']
+        if sns_caller_arn is None:
+            raise TypeError("Missing 'sns_caller_arn' argument")
+        if sns_region is None and 'snsRegion' in kwargs:
+            sns_region = kwargs['snsRegion']
+
+        _setter("external_id", external_id)
+        _setter("sns_caller_arn", sns_caller_arn)
         if sns_region is not None:
-            pulumi.set(__self__, "sns_region", sns_region)
+            _setter("sns_region", sns_region)
 
     @property
     @pulumi.getter(name="externalId")
@@ -2305,7 +3103,20 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
         """
         :param bool enabled: Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        UserPoolSoftwareTokenMfaConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -2340,7 +3151,22 @@ class UserPoolUserAttributeUpdateSettings(dict):
         """
         :param Sequence[str] attributes_require_verification_before_updates: A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
         """
-        pulumi.set(__self__, "attributes_require_verification_before_updates", attributes_require_verification_before_updates)
+        UserPoolUserAttributeUpdateSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes_require_verification_before_updates=attributes_require_verification_before_updates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes_require_verification_before_updates: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if attributes_require_verification_before_updates is None and 'attributesRequireVerificationBeforeUpdates' in kwargs:
+            attributes_require_verification_before_updates = kwargs['attributesRequireVerificationBeforeUpdates']
+        if attributes_require_verification_before_updates is None:
+            raise TypeError("Missing 'attributes_require_verification_before_updates' argument")
+
+        _setter("attributes_require_verification_before_updates", attributes_require_verification_before_updates)
 
     @property
     @pulumi.getter(name="attributesRequireVerificationBeforeUpdates")
@@ -2375,7 +3201,22 @@ class UserPoolUserPoolAddOns(dict):
         """
         :param str advanced_security_mode: Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         """
-        pulumi.set(__self__, "advanced_security_mode", advanced_security_mode)
+        UserPoolUserPoolAddOns._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_security_mode=advanced_security_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_security_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if advanced_security_mode is None and 'advancedSecurityMode' in kwargs:
+            advanced_security_mode = kwargs['advancedSecurityMode']
+        if advanced_security_mode is None:
+            raise TypeError("Missing 'advanced_security_mode' argument")
+
+        _setter("advanced_security_mode", advanced_security_mode)
 
     @property
     @pulumi.getter(name="advancedSecurityMode")
@@ -2410,7 +3251,22 @@ class UserPoolUsernameConfiguration(dict):
         """
         :param bool case_sensitive: Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         """
-        pulumi.set(__self__, "case_sensitive", case_sensitive)
+        UserPoolUsernameConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_sensitive=case_sensitive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_sensitive: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if case_sensitive is None and 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+        if case_sensitive is None:
+            raise TypeError("Missing 'case_sensitive' argument")
+
+        _setter("case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter(name="caseSensitive")
@@ -2465,18 +3321,51 @@ class UserPoolVerificationMessageTemplate(dict):
         :param str email_subject_by_link: Subject line for the email message template for sending a confirmation link to the user.
         :param str sms_message: SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
+        UserPoolVerificationMessageTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_email_option=default_email_option,
+            email_message=email_message,
+            email_message_by_link=email_message_by_link,
+            email_subject=email_subject,
+            email_subject_by_link=email_subject_by_link,
+            sms_message=sms_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_email_option: Optional[str] = None,
+             email_message: Optional[str] = None,
+             email_message_by_link: Optional[str] = None,
+             email_subject: Optional[str] = None,
+             email_subject_by_link: Optional[str] = None,
+             sms_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_email_option is None and 'defaultEmailOption' in kwargs:
+            default_email_option = kwargs['defaultEmailOption']
+        if email_message is None and 'emailMessage' in kwargs:
+            email_message = kwargs['emailMessage']
+        if email_message_by_link is None and 'emailMessageByLink' in kwargs:
+            email_message_by_link = kwargs['emailMessageByLink']
+        if email_subject is None and 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if email_subject_by_link is None and 'emailSubjectByLink' in kwargs:
+            email_subject_by_link = kwargs['emailSubjectByLink']
+        if sms_message is None and 'smsMessage' in kwargs:
+            sms_message = kwargs['smsMessage']
+
         if default_email_option is not None:
-            pulumi.set(__self__, "default_email_option", default_email_option)
+            _setter("default_email_option", default_email_option)
         if email_message is not None:
-            pulumi.set(__self__, "email_message", email_message)
+            _setter("email_message", email_message)
         if email_message_by_link is not None:
-            pulumi.set(__self__, "email_message_by_link", email_message_by_link)
+            _setter("email_message_by_link", email_message_by_link)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
         if email_subject_by_link is not None:
-            pulumi.set(__self__, "email_subject_by_link", email_subject_by_link)
+            _setter("email_subject_by_link", email_subject_by_link)
         if sms_message is not None:
-            pulumi.set(__self__, "sms_message", sms_message)
+            _setter("sms_message", sms_message)
 
     @property
     @pulumi.getter(name="defaultEmailOption")
@@ -2533,9 +3422,36 @@ class GetIdentityPoolCognitoIdentityProviderResult(dict):
                  client_id: str,
                  provider_name: str,
                  server_side_token_check: bool):
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "server_side_token_check", server_side_token_check)
+        GetIdentityPoolCognitoIdentityProviderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            provider_name=provider_name,
+            server_side_token_check=server_side_token_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             provider_name: Optional[str] = None,
+             server_side_token_check: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if server_side_token_check is None and 'serverSideTokenCheck' in kwargs:
+            server_side_token_check = kwargs['serverSideTokenCheck']
+        if server_side_token_check is None:
+            raise TypeError("Missing 'server_side_token_check' argument")
+
+        _setter("client_id", client_id)
+        _setter("provider_name", provider_name)
+        _setter("server_side_token_check", server_side_token_check)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2568,11 +3484,50 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
         :param str role_arn: (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         :param bool user_data_shared: (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
-        pulumi.set(__self__, "application_arn", application_arn)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "external_id", external_id)
-        pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "user_data_shared", user_data_shared)
+        GetUserPoolClientAnalyticsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_arn=application_arn,
+            application_id=application_id,
+            external_id=external_id,
+            role_arn=role_arn,
+            user_data_shared=user_data_shared,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_arn: Optional[str] = None,
+             application_id: Optional[str] = None,
+             external_id: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             user_data_shared: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_arn is None and 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if application_arn is None:
+            raise TypeError("Missing 'application_arn' argument")
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if external_id is None:
+            raise TypeError("Missing 'external_id' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if user_data_shared is None and 'userDataShared' in kwargs:
+            user_data_shared = kwargs['userDataShared']
+        if user_data_shared is None:
+            raise TypeError("Missing 'user_data_shared' argument")
+
+        _setter("application_arn", application_arn)
+        _setter("application_id", application_id)
+        _setter("external_id", external_id)
+        _setter("role_arn", role_arn)
+        _setter("user_data_shared", user_data_shared)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -2626,9 +3581,36 @@ class GetUserPoolClientTokenValidityUnitResult(dict):
         :param str id_token: (Optional) Time unit in for the value in `id_token_validity`, defaults to `hours`.
         :param str refresh_token: (Optional) Time unit in for the value in `refresh_token_validity`, defaults to `days`.
         """
-        pulumi.set(__self__, "access_token", access_token)
-        pulumi.set(__self__, "id_token", id_token)
-        pulumi.set(__self__, "refresh_token", refresh_token)
+        GetUserPoolClientTokenValidityUnitResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            id_token=id_token,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             id_token: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if access_token is None:
+            raise TypeError("Missing 'access_token' argument")
+        if id_token is None and 'idToken' in kwargs:
+            id_token = kwargs['idToken']
+        if id_token is None:
+            raise TypeError("Missing 'id_token' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if refresh_token is None:
+            raise TypeError("Missing 'refresh_token' argument")
+
+        _setter("access_token", access_token)
+        _setter("id_token", id_token)
+        _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="accessToken")

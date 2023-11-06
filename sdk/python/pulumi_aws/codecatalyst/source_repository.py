@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SourceRepositoryArgs', 'SourceRepository']
@@ -27,12 +27,37 @@ class SourceRepositoryArgs:
         :param pulumi.Input[str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         :param pulumi.Input[str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         """
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "space_name", space_name)
+        SourceRepositoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_name=project_name,
+            space_name=space_name,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_name: Optional[pulumi.Input[str]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if space_name is None:
+            raise TypeError("Missing 'space_name' argument")
+
+        _setter("project_name", project_name)
+        _setter("space_name", space_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectName")
@@ -101,14 +126,35 @@ class _SourceRepositoryState:
                The following arguments are optional:
         :param pulumi.Input[str] space_name: The name of the CodeCatalyst space.
         """
+        _SourceRepositoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            project_name=project_name,
+            space_name=space_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if space_name is not None:
-            pulumi.set(__self__, "space_name", space_name)
+            _setter("space_name", space_name)
 
     @property
     @pulumi.getter
@@ -242,6 +288,10 @@ class SourceRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

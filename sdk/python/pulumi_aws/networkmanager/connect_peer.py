@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,15 +33,52 @@ class ConnectPeerArgs:
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
-        pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
-        pulumi.set(__self__, "peer_address", peer_address)
+        ConnectPeerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connect_attachment_id=connect_attachment_id,
+            inside_cidr_blocks=inside_cidr_blocks,
+            peer_address=peer_address,
+            bgp_options=bgp_options,
+            core_network_address=core_network_address,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connect_attachment_id: Optional[pulumi.Input[str]] = None,
+             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             peer_address: Optional[pulumi.Input[str]] = None,
+             bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
+             core_network_address: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connect_attachment_id is None and 'connectAttachmentId' in kwargs:
+            connect_attachment_id = kwargs['connectAttachmentId']
+        if connect_attachment_id is None:
+            raise TypeError("Missing 'connect_attachment_id' argument")
+        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+        if inside_cidr_blocks is None:
+            raise TypeError("Missing 'inside_cidr_blocks' argument")
+        if peer_address is None and 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if peer_address is None:
+            raise TypeError("Missing 'peer_address' argument")
+        if bgp_options is None and 'bgpOptions' in kwargs:
+            bgp_options = kwargs['bgpOptions']
+        if core_network_address is None and 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+
+        _setter("connect_attachment_id", connect_attachment_id)
+        _setter("inside_cidr_blocks", inside_cidr_blocks)
+        _setter("peer_address", peer_address)
         if bgp_options is not None:
-            pulumi.set(__self__, "bgp_options", bgp_options)
+            _setter("bgp_options", bgp_options)
         if core_network_address is not None:
-            pulumi.set(__self__, "core_network_address", core_network_address)
+            _setter("core_network_address", core_network_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="connectAttachmentId")
@@ -152,37 +189,94 @@ class _ConnectPeerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ConnectPeerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            bgp_options=bgp_options,
+            configurations=configurations,
+            connect_attachment_id=connect_attachment_id,
+            connect_peer_id=connect_peer_id,
+            core_network_address=core_network_address,
+            core_network_id=core_network_id,
+            created_at=created_at,
+            edge_location=edge_location,
+            inside_cidr_blocks=inside_cidr_blocks,
+            peer_address=peer_address,
+            state=state,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]] = None,
+             connect_attachment_id: Optional[pulumi.Input[str]] = None,
+             connect_peer_id: Optional[pulumi.Input[str]] = None,
+             core_network_address: Optional[pulumi.Input[str]] = None,
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             peer_address: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bgp_options is None and 'bgpOptions' in kwargs:
+            bgp_options = kwargs['bgpOptions']
+        if connect_attachment_id is None and 'connectAttachmentId' in kwargs:
+            connect_attachment_id = kwargs['connectAttachmentId']
+        if connect_peer_id is None and 'connectPeerId' in kwargs:
+            connect_peer_id = kwargs['connectPeerId']
+        if core_network_address is None and 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if edge_location is None and 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+        if peer_address is None and 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if bgp_options is not None:
-            pulumi.set(__self__, "bgp_options", bgp_options)
+            _setter("bgp_options", bgp_options)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if connect_attachment_id is not None:
-            pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
+            _setter("connect_attachment_id", connect_attachment_id)
         if connect_peer_id is not None:
-            pulumi.set(__self__, "connect_peer_id", connect_peer_id)
+            _setter("connect_peer_id", connect_peer_id)
         if core_network_address is not None:
-            pulumi.set(__self__, "core_network_address", core_network_address)
+            _setter("core_network_address", core_network_address)
         if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+            _setter("core_network_id", core_network_id)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
+            _setter("edge_location", edge_location)
         if inside_cidr_blocks is not None:
-            pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+            _setter("inside_cidr_blocks", inside_cidr_blocks)
         if peer_address is not None:
-            pulumi.set(__self__, "peer_address", peer_address)
+            _setter("peer_address", peer_address)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -417,6 +511,10 @@ class ConnectPeer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectPeerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -437,6 +535,11 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectPeerArgs.__new__(ConnectPeerArgs)
 
+            if bgp_options is not None and not isinstance(bgp_options, ConnectPeerBgpOptionsArgs):
+                bgp_options = bgp_options or {}
+                def _setter(key, value):
+                    bgp_options[key] = value
+                ConnectPeerBgpOptionsArgs._configure(_setter, **bgp_options)
             __props__.__dict__["bgp_options"] = bgp_options
             if connect_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connect_attachment_id'")

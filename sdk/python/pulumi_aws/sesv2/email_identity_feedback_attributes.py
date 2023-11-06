@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributes']
@@ -21,9 +21,28 @@ class EmailIdentityFeedbackAttributesArgs:
         :param pulumi.Input[str] email_identity: The email identity.
         :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         """
-        pulumi.set(__self__, "email_identity", email_identity)
+        EmailIdentityFeedbackAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_identity=email_identity,
+            email_forwarding_enabled=email_forwarding_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_identity: Optional[pulumi.Input[str]] = None,
+             email_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_identity is None and 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if email_identity is None:
+            raise TypeError("Missing 'email_identity' argument")
+        if email_forwarding_enabled is None and 'emailForwardingEnabled' in kwargs:
+            email_forwarding_enabled = kwargs['emailForwardingEnabled']
+
+        _setter("email_identity", email_identity)
         if email_forwarding_enabled is not None:
-            pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
+            _setter("email_forwarding_enabled", email_forwarding_enabled)
 
     @property
     @pulumi.getter(name="emailIdentity")
@@ -60,10 +79,27 @@ class _EmailIdentityFeedbackAttributesState:
         :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         :param pulumi.Input[str] email_identity: The email identity.
         """
+        _EmailIdentityFeedbackAttributesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_forwarding_enabled=email_forwarding_enabled,
+            email_identity=email_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
+             email_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_forwarding_enabled is None and 'emailForwardingEnabled' in kwargs:
+            email_forwarding_enabled = kwargs['emailForwardingEnabled']
+        if email_identity is None and 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+
         if email_forwarding_enabled is not None:
-            pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
+            _setter("email_forwarding_enabled", email_forwarding_enabled)
         if email_identity is not None:
-            pulumi.set(__self__, "email_identity", email_identity)
+            _setter("email_identity", email_identity)
 
     @property
     @pulumi.getter(name="emailForwardingEnabled")
@@ -167,6 +203,10 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EmailIdentityFeedbackAttributesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

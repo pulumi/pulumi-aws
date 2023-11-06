@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceSettingArgs', 'ServiceSetting']
@@ -21,8 +21,29 @@ class ServiceSettingArgs:
         :param pulumi.Input[str] setting_id: ID of the service setting.
         :param pulumi.Input[str] setting_value: Value of the service setting.
         """
-        pulumi.set(__self__, "setting_id", setting_id)
-        pulumi.set(__self__, "setting_value", setting_value)
+        ServiceSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            setting_id=setting_id,
+            setting_value=setting_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             setting_id: Optional[pulumi.Input[str]] = None,
+             setting_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if setting_id is None and 'settingId' in kwargs:
+            setting_id = kwargs['settingId']
+        if setting_id is None:
+            raise TypeError("Missing 'setting_id' argument")
+        if setting_value is None and 'settingValue' in kwargs:
+            setting_value = kwargs['settingValue']
+        if setting_value is None:
+            raise TypeError("Missing 'setting_value' argument")
+
+        _setter("setting_id", setting_id)
+        _setter("setting_value", setting_value)
 
     @property
     @pulumi.getter(name="settingId")
@@ -63,14 +84,35 @@ class _ServiceSettingState:
         :param pulumi.Input[str] setting_value: Value of the service setting.
         :param pulumi.Input[str] status: Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
         """
+        _ServiceSettingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            setting_id=setting_id,
+            setting_value=setting_value,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             setting_id: Optional[pulumi.Input[str]] = None,
+             setting_value: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if setting_id is None and 'settingId' in kwargs:
+            setting_id = kwargs['settingId']
+        if setting_value is None and 'settingValue' in kwargs:
+            setting_value = kwargs['settingValue']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if setting_id is not None:
-            pulumi.set(__self__, "setting_id", setting_id)
+            _setter("setting_id", setting_id)
         if setting_value is not None:
-            pulumi.set(__self__, "setting_value", setting_value)
+            _setter("setting_value", setting_value)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -194,6 +236,10 @@ class ServiceSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

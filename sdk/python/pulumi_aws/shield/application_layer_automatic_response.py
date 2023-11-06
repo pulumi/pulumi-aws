@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,10 +24,31 @@ class ApplicationLayerAutomaticResponseArgs:
         :param pulumi.Input[str] action: One of `COUNT` or `BLOCK`
         :param pulumi.Input[str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "resource_arn", resource_arn)
+        ApplicationLayerAutomaticResponseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            resource_arn=resource_arn,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
+        _setter("action", action)
+        _setter("resource_arn", resource_arn)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -74,12 +95,29 @@ class _ApplicationLayerAutomaticResponseState:
         :param pulumi.Input[str] action: One of `COUNT` or `BLOCK`
         :param pulumi.Input[str] resource_arn: ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         """
+        _ApplicationLayerAutomaticResponseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            resource_arn=resource_arn,
+            timeouts=timeouts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if resource_arn is not None:
-            pulumi.set(__self__, "resource_arn", resource_arn)
+            _setter("resource_arn", resource_arn)
         if timeouts is not None:
-            pulumi.set(__self__, "timeouts", timeouts)
+            _setter("timeouts", timeouts)
 
     @property
     @pulumi.getter
@@ -181,6 +219,10 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationLayerAutomaticResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,6 +246,11 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
+            if timeouts is not None and not isinstance(timeouts, ApplicationLayerAutomaticResponseTimeoutsArgs):
+                timeouts = timeouts or {}
+                def _setter(key, value):
+                    timeouts[key] = value
+                ApplicationLayerAutomaticResponseTimeoutsArgs._configure(_setter, **timeouts)
             __props__.__dict__["timeouts"] = timeouts
         super(ApplicationLayerAutomaticResponse, __self__).__init__(
             'aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse',

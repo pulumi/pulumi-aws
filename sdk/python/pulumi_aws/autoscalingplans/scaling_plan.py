@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,33 @@ class ScalingPlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         """
-        pulumi.set(__self__, "application_source", application_source)
-        pulumi.set(__self__, "scaling_instructions", scaling_instructions)
+        ScalingPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_source=application_source,
+            scaling_instructions=scaling_instructions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
+             scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_source is None and 'applicationSource' in kwargs:
+            application_source = kwargs['applicationSource']
+        if application_source is None:
+            raise TypeError("Missing 'application_source' argument")
+        if scaling_instructions is None and 'scalingInstructions' in kwargs:
+            scaling_instructions = kwargs['scalingInstructions']
+        if scaling_instructions is None:
+            raise TypeError("Missing 'scaling_instructions' argument")
+
+        _setter("application_source", application_source)
+        _setter("scaling_instructions", scaling_instructions)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="applicationSource")
@@ -81,14 +104,37 @@ class _ScalingPlanState:
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
+        _ScalingPlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_source=application_source,
+            name=name,
+            scaling_instructions=scaling_instructions,
+            scaling_plan_version=scaling_plan_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+             scaling_plan_version: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_source is None and 'applicationSource' in kwargs:
+            application_source = kwargs['applicationSource']
+        if scaling_instructions is None and 'scalingInstructions' in kwargs:
+            scaling_instructions = kwargs['scalingInstructions']
+        if scaling_plan_version is None and 'scalingPlanVersion' in kwargs:
+            scaling_plan_version = kwargs['scalingPlanVersion']
+
         if application_source is not None:
-            pulumi.set(__self__, "application_source", application_source)
+            _setter("application_source", application_source)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scaling_instructions is not None:
-            pulumi.set(__self__, "scaling_instructions", scaling_instructions)
+            _setter("scaling_instructions", scaling_instructions)
         if scaling_plan_version is not None:
-            pulumi.set(__self__, "scaling_plan_version", scaling_plan_version)
+            _setter("scaling_plan_version", scaling_plan_version)
 
     @property
     @pulumi.getter(name="applicationSource")
@@ -206,6 +252,10 @@ class ScalingPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalingPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,6 +273,11 @@ class ScalingPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScalingPlanArgs.__new__(ScalingPlanArgs)
 
+            if application_source is not None and not isinstance(application_source, ScalingPlanApplicationSourceArgs):
+                application_source = application_source or {}
+                def _setter(key, value):
+                    application_source[key] = value
+                ScalingPlanApplicationSourceArgs._configure(_setter, **application_source)
             if application_source is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source'")
             __props__.__dict__["application_source"] = application_source

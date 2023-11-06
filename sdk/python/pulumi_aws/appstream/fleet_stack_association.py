@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FleetStackAssociationArgs', 'FleetStackAssociation']
@@ -21,8 +21,29 @@ class FleetStackAssociationArgs:
         :param pulumi.Input[str] fleet_name: Name of the fleet.
         :param pulumi.Input[str] stack_name: Name of the stack.
         """
-        pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "stack_name", stack_name)
+        FleetStackAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fleet_name=fleet_name,
+            stack_name=stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+
+        _setter("fleet_name", fleet_name)
+        _setter("stack_name", stack_name)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -59,10 +80,27 @@ class _FleetStackAssociationState:
         :param pulumi.Input[str] fleet_name: Name of the fleet.
         :param pulumi.Input[str] stack_name: Name of the stack.
         """
+        _FleetStackAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fleet_name=fleet_name,
+            stack_name=stack_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+
         if fleet_name is not None:
-            pulumi.set(__self__, "fleet_name", fleet_name)
+            _setter("fleet_name", fleet_name)
         if stack_name is not None:
-            pulumi.set(__self__, "stack_name", stack_name)
+            _setter("stack_name", stack_name)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -176,6 +214,10 @@ class FleetStackAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetStackAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

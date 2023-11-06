@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,20 +33,55 @@ class OptionGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "engine_name", engine_name)
-        pulumi.set(__self__, "major_engine_version", major_engine_version)
+        OptionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            engine_name=engine_name,
+            major_engine_version=major_engine_version,
+            name=name,
+            name_prefix=name_prefix,
+            option_group_description=option_group_description,
+            options=options,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             engine_name: Optional[pulumi.Input[str]] = None,
+             major_engine_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             option_group_description: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if engine_name is None:
+            raise TypeError("Missing 'engine_name' argument")
+        if major_engine_version is None and 'majorEngineVersion' in kwargs:
+            major_engine_version = kwargs['majorEngineVersion']
+        if major_engine_version is None:
+            raise TypeError("Missing 'major_engine_version' argument")
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if option_group_description is None and 'optionGroupDescription' in kwargs:
+            option_group_description = kwargs['optionGroupDescription']
+
+        _setter("engine_name", engine_name)
+        _setter("major_engine_version", major_engine_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if option_group_description is None:
             option_group_description = 'Managed by Pulumi'
         if option_group_description is not None:
-            pulumi.set(__self__, "option_group_description", option_group_description)
+            _setter("option_group_description", option_group_description)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="engineName")
@@ -157,29 +192,66 @@ class _OptionGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _OptionGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            engine_name=engine_name,
+            major_engine_version=major_engine_version,
+            name=name,
+            name_prefix=name_prefix,
+            option_group_description=option_group_description,
+            options=options,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             engine_name: Optional[pulumi.Input[str]] = None,
+             major_engine_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             name_prefix: Optional[pulumi.Input[str]] = None,
+             option_group_description: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if major_engine_version is None and 'majorEngineVersion' in kwargs:
+            major_engine_version = kwargs['majorEngineVersion']
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if option_group_description is None and 'optionGroupDescription' in kwargs:
+            option_group_description = kwargs['optionGroupDescription']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if engine_name is not None:
-            pulumi.set(__self__, "engine_name", engine_name)
+            _setter("engine_name", engine_name)
         if major_engine_version is not None:
-            pulumi.set(__self__, "major_engine_version", major_engine_version)
+            _setter("major_engine_version", major_engine_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if name_prefix is not None:
-            pulumi.set(__self__, "name_prefix", name_prefix)
+            _setter("name_prefix", name_prefix)
         if option_group_description is None:
             option_group_description = 'Managed by Pulumi'
         if option_group_description is not None:
-            pulumi.set(__self__, "option_group_description", option_group_description)
+            _setter("option_group_description", option_group_description)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -446,6 +518,10 @@ class OptionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OptionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,24 +36,63 @@ class DomainConfigurationArgs:
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See below.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
+        DomainConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizer_config=authorizer_config,
+            domain_name=domain_name,
+            name=name,
+            server_certificate_arns=server_certificate_arns,
+            service_type=service_type,
+            status=status,
+            tags=tags,
+            tls_config=tls_config,
+            validation_certificate_arn=validation_certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_type: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
+             validation_certificate_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorizer_config is None and 'authorizerConfig' in kwargs:
+            authorizer_config = kwargs['authorizerConfig']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if server_certificate_arns is None and 'serverCertificateArns' in kwargs:
+            server_certificate_arns = kwargs['serverCertificateArns']
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+        if validation_certificate_arn is None and 'validationCertificateArn' in kwargs:
+            validation_certificate_arn = kwargs['validationCertificateArn']
+
         if authorizer_config is not None:
-            pulumi.set(__self__, "authorizer_config", authorizer_config)
+            _setter("authorizer_config", authorizer_config)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_certificate_arns is not None:
-            pulumi.set(__self__, "server_certificate_arns", server_certificate_arns)
+            _setter("server_certificate_arns", server_certificate_arns)
         if service_type is not None:
-            pulumi.set(__self__, "service_type", service_type)
+            _setter("service_type", service_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
         if validation_certificate_arn is not None:
-            pulumi.set(__self__, "validation_certificate_arn", validation_certificate_arn)
+            _setter("validation_certificate_arn", validation_certificate_arn)
 
     @property
     @pulumi.getter(name="authorizerConfig")
@@ -190,33 +229,82 @@ class _DomainConfigurationState:
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See below.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
+        _DomainConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            authorizer_config=authorizer_config,
+            domain_name=domain_name,
+            domain_type=domain_type,
+            name=name,
+            server_certificate_arns=server_certificate_arns,
+            service_type=service_type,
+            status=status,
+            tags=tags,
+            tags_all=tags_all,
+            tls_config=tls_config,
+            validation_certificate_arn=validation_certificate_arn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             authorizer_config: Optional[pulumi.Input['DomainConfigurationAuthorizerConfigArgs']] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_certificate_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_type: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
+             validation_certificate_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorizer_config is None and 'authorizerConfig' in kwargs:
+            authorizer_config = kwargs['authorizerConfig']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_type is None and 'domainType' in kwargs:
+            domain_type = kwargs['domainType']
+        if server_certificate_arns is None and 'serverCertificateArns' in kwargs:
+            server_certificate_arns = kwargs['serverCertificateArns']
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+        if validation_certificate_arn is None and 'validationCertificateArn' in kwargs:
+            validation_certificate_arn = kwargs['validationCertificateArn']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if authorizer_config is not None:
-            pulumi.set(__self__, "authorizer_config", authorizer_config)
+            _setter("authorizer_config", authorizer_config)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if domain_type is not None:
-            pulumi.set(__self__, "domain_type", domain_type)
+            _setter("domain_type", domain_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_certificate_arns is not None:
-            pulumi.set(__self__, "server_certificate_arns", server_certificate_arns)
+            _setter("server_certificate_arns", server_certificate_arns)
         if service_type is not None:
-            pulumi.set(__self__, "service_type", service_type)
+            _setter("service_type", service_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if tls_config is not None:
-            pulumi.set(__self__, "tls_config", tls_config)
+            _setter("tls_config", tls_config)
         if validation_certificate_arn is not None:
-            pulumi.set(__self__, "validation_certificate_arn", validation_certificate_arn)
+            _setter("validation_certificate_arn", validation_certificate_arn)
 
     @property
     @pulumi.getter
@@ -451,6 +539,10 @@ class DomainConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -474,6 +566,11 @@ class DomainConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainConfigurationArgs.__new__(DomainConfigurationArgs)
 
+            if authorizer_config is not None and not isinstance(authorizer_config, DomainConfigurationAuthorizerConfigArgs):
+                authorizer_config = authorizer_config or {}
+                def _setter(key, value):
+                    authorizer_config[key] = value
+                DomainConfigurationAuthorizerConfigArgs._configure(_setter, **authorizer_config)
             __props__.__dict__["authorizer_config"] = authorizer_config
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
@@ -481,6 +578,11 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            if tls_config is not None and not isinstance(tls_config, DomainConfigurationTlsConfigArgs):
+                tls_config = tls_config or {}
+                def _setter(key, value):
+                    tls_config[key] = value
+                DomainConfigurationTlsConfigArgs._configure(_setter, **tls_config)
             __props__.__dict__["tls_config"] = tls_config
             __props__.__dict__["validation_certificate_arn"] = validation_certificate_arn
             __props__.__dict__["arn"] = None

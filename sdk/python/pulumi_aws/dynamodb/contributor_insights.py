@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContributorInsightsArgs', 'ContributorInsights']
@@ -21,9 +21,28 @@ class ContributorInsightsArgs:
         :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
         :param pulumi.Input[str] index_name: The global secondary index name
         """
-        pulumi.set(__self__, "table_name", table_name)
+        ContributorInsightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            table_name=table_name,
+            index_name=index_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             table_name: Optional[pulumi.Input[str]] = None,
+             index_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+
+        _setter("table_name", table_name)
         if index_name is not None:
-            pulumi.set(__self__, "index_name", index_name)
+            _setter("index_name", index_name)
 
     @property
     @pulumi.getter(name="tableName")
@@ -60,10 +79,27 @@ class _ContributorInsightsState:
         :param pulumi.Input[str] index_name: The global secondary index name
         :param pulumi.Input[str] table_name: The name of the table to enable contributor insights
         """
+        _ContributorInsightsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            index_name=index_name,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             index_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if index_name is not None:
-            pulumi.set(__self__, "index_name", index_name)
+            _setter("index_name", index_name)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="indexName")
@@ -159,6 +195,10 @@ class ContributorInsights(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContributorInsightsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

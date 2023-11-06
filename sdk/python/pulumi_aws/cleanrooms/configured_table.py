@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,15 +33,48 @@ class ConfiguredTableArgs:
         :param pulumi.Input[str] name: The name of the configured table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key value pairs which tag the configured table.
         """
-        pulumi.set(__self__, "allowed_columns", allowed_columns)
-        pulumi.set(__self__, "analysis_method", analysis_method)
-        pulumi.set(__self__, "table_reference", table_reference)
+        ConfiguredTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_columns=allowed_columns,
+            analysis_method=analysis_method,
+            table_reference=table_reference,
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             analysis_method: Optional[pulumi.Input[str]] = None,
+             table_reference: Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_columns is None and 'allowedColumns' in kwargs:
+            allowed_columns = kwargs['allowedColumns']
+        if allowed_columns is None:
+            raise TypeError("Missing 'allowed_columns' argument")
+        if analysis_method is None and 'analysisMethod' in kwargs:
+            analysis_method = kwargs['analysisMethod']
+        if analysis_method is None:
+            raise TypeError("Missing 'analysis_method' argument")
+        if table_reference is None and 'tableReference' in kwargs:
+            table_reference = kwargs['tableReference']
+        if table_reference is None:
+            raise TypeError("Missing 'table_reference' argument")
+
+        _setter("allowed_columns", allowed_columns)
+        _setter("analysis_method", analysis_method)
+        _setter("table_reference", table_reference)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedColumns")
@@ -145,29 +178,70 @@ class _ConfiguredTableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key value pairs which tag the configured table.
         :param pulumi.Input[str] update_time: The date and time the configured table was last updated.
         """
+        _ConfiguredTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_columns=allowed_columns,
+            analysis_method=analysis_method,
+            arn=arn,
+            create_time=create_time,
+            description=description,
+            name=name,
+            table_reference=table_reference,
+            tags=tags,
+            tags_all=tags_all,
+            update_time=update_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             analysis_method: Optional[pulumi.Input[str]] = None,
+             arn: Optional[pulumi.Input[str]] = None,
+             create_time: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_reference: Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             update_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_columns is None and 'allowedColumns' in kwargs:
+            allowed_columns = kwargs['allowedColumns']
+        if analysis_method is None and 'analysisMethod' in kwargs:
+            analysis_method = kwargs['analysisMethod']
+        if create_time is None and 'createTime' in kwargs:
+            create_time = kwargs['createTime']
+        if table_reference is None and 'tableReference' in kwargs:
+            table_reference = kwargs['tableReference']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+        if update_time is None and 'updateTime' in kwargs:
+            update_time = kwargs['updateTime']
+
         if allowed_columns is not None:
-            pulumi.set(__self__, "allowed_columns", allowed_columns)
+            _setter("allowed_columns", allowed_columns)
         if analysis_method is not None:
-            pulumi.set(__self__, "analysis_method", analysis_method)
+            _setter("analysis_method", analysis_method)
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if create_time is not None:
-            pulumi.set(__self__, "create_time", create_time)
+            _setter("create_time", create_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_reference is not None:
-            pulumi.set(__self__, "table_reference", table_reference)
+            _setter("table_reference", table_reference)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if update_time is not None:
-            pulumi.set(__self__, "update_time", update_time)
+            _setter("update_time", update_time)
 
     @property
     @pulumi.getter(name="allowedColumns")
@@ -401,6 +475,10 @@ class ConfiguredTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfiguredTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -429,6 +507,11 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["analysis_method"] = analysis_method
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            if table_reference is not None and not isinstance(table_reference, ConfiguredTableTableReferenceArgs):
+                table_reference = table_reference or {}
+                def _setter(key, value):
+                    table_reference[key] = value
+                ConfiguredTableTableReferenceArgs._configure(_setter, **table_reference)
             if table_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'table_reference'")
             __props__.__dict__["table_reference"] = table_reference

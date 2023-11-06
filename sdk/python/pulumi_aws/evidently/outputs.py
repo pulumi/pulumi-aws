@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -35,10 +35,23 @@ class FeatureEvaluationRule(dict):
         :param str name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param str type: This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
         """
+        FeatureEvaluationRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -66,8 +79,25 @@ class FeatureVariation(dict):
         :param str name: The name of the variation. Minimum length of `1`. Maximum length of `127`.
         :param 'FeatureVariationValueArgs' value: A block that specifies the value assigned to this variation. Detailed below
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        FeatureVariation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional['outputs.FeatureVariationValue'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -122,14 +152,39 @@ class FeatureVariationValue(dict):
         :param str long_value: If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
         :param str string_value: If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
         """
+        FeatureVariationValue._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bool_value=bool_value,
+            double_value=double_value,
+            long_value=long_value,
+            string_value=string_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bool_value: Optional[str] = None,
+             double_value: Optional[str] = None,
+             long_value: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bool_value is None and 'boolValue' in kwargs:
+            bool_value = kwargs['boolValue']
+        if double_value is None and 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if long_value is None and 'longValue' in kwargs:
+            long_value = kwargs['longValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if bool_value is not None:
-            pulumi.set(__self__, "bool_value", bool_value)
+            _setter("bool_value", bool_value)
         if double_value is not None:
-            pulumi.set(__self__, "double_value", double_value)
+            _setter("double_value", double_value)
         if long_value is not None:
-            pulumi.set(__self__, "long_value", long_value)
+            _setter("long_value", long_value)
         if string_value is not None:
-            pulumi.set(__self__, "string_value", string_value)
+            _setter("string_value", string_value)
 
     @property
     @pulumi.getter(name="boolValue")
@@ -192,10 +247,27 @@ class LaunchExecution(dict):
         :param str ended_time: The date and time that the launch ended.
         :param str started_time: The date and time that the launch started.
         """
+        LaunchExecution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_time=ended_time,
+            started_time=started_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_time: Optional[str] = None,
+             started_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ended_time is None and 'endedTime' in kwargs:
+            ended_time = kwargs['endedTime']
+        if started_time is None and 'startedTime' in kwargs:
+            started_time = kwargs['startedTime']
+
         if ended_time is not None:
-            pulumi.set(__self__, "ended_time", ended_time)
+            _setter("ended_time", ended_time)
         if started_time is not None:
-            pulumi.set(__self__, "started_time", started_time)
+            _setter("started_time", started_time)
 
     @property
     @pulumi.getter(name="endedTime")
@@ -227,11 +299,34 @@ class LaunchGroup(dict):
         :param str variation: Specifies the feature variation to use for this launch group.
         :param str description: Specifies the description of the launch group.
         """
-        pulumi.set(__self__, "feature", feature)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "variation", variation)
+        LaunchGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            feature=feature,
+            name=name,
+            variation=variation,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             feature: Optional[str] = None,
+             name: Optional[str] = None,
+             variation: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if feature is None:
+            raise TypeError("Missing 'feature' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if variation is None:
+            raise TypeError("Missing 'variation' argument")
+
+        _setter("feature", feature)
+        _setter("name", name)
+        _setter("variation", variation)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -290,7 +385,22 @@ class LaunchMetricMonitor(dict):
         """
         :param 'LaunchMetricMonitorMetricDefinitionArgs' metric_definition: A block that defines the metric. Detailed below.
         """
-        pulumi.set(__self__, "metric_definition", metric_definition)
+        LaunchMetricMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_definition=metric_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_definition: Optional['outputs.LaunchMetricMonitorMetricDefinition'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if metric_definition is None and 'metricDefinition' in kwargs:
+            metric_definition = kwargs['metricDefinition']
+        if metric_definition is None:
+            raise TypeError("Missing 'metric_definition' argument")
+
+        _setter("metric_definition", metric_definition)
 
     @property
     @pulumi.getter(name="metricDefinition")
@@ -339,13 +449,46 @@ class LaunchMetricMonitorMetricDefinition(dict):
         :param str event_pattern: Specifies The EventBridge event pattern that defines how the metric is recorded.
         :param str unit_label: Specifies a label for the units that the metric is measuring.
         """
-        pulumi.set(__self__, "entity_id_key", entity_id_key)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value_key", value_key)
+        LaunchMetricMonitorMetricDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entity_id_key=entity_id_key,
+            name=name,
+            value_key=value_key,
+            event_pattern=event_pattern,
+            unit_label=unit_label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entity_id_key: Optional[str] = None,
+             name: Optional[str] = None,
+             value_key: Optional[str] = None,
+             event_pattern: Optional[str] = None,
+             unit_label: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entity_id_key is None and 'entityIdKey' in kwargs:
+            entity_id_key = kwargs['entityIdKey']
+        if entity_id_key is None:
+            raise TypeError("Missing 'entity_id_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value_key is None and 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+        if value_key is None:
+            raise TypeError("Missing 'value_key' argument")
+        if event_pattern is None and 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if unit_label is None and 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+
+        _setter("entity_id_key", entity_id_key)
+        _setter("name", name)
+        _setter("value_key", value_key)
         if event_pattern is not None:
-            pulumi.set(__self__, "event_pattern", event_pattern)
+            _setter("event_pattern", event_pattern)
         if unit_label is not None:
-            pulumi.set(__self__, "unit_label", unit_label)
+            _setter("unit_label", unit_label)
 
     @property
     @pulumi.getter(name="entityIdKey")
@@ -395,7 +538,20 @@ class LaunchScheduledSplitsConfig(dict):
         """
         :param Sequence['LaunchScheduledSplitsConfigStepArgs'] steps: One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
         """
-        pulumi.set(__self__, "steps", steps)
+        LaunchScheduledSplitsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            steps=steps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             steps: Optional[Sequence['outputs.LaunchScheduledSplitsConfigStep']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if steps is None:
+            raise TypeError("Missing 'steps' argument")
+
+        _setter("steps", steps)
 
     @property
     @pulumi.getter
@@ -438,10 +594,35 @@ class LaunchScheduledSplitsConfigStep(dict):
         :param str start_time: Specifies the date and time that this step of the launch starts.
         :param Sequence['LaunchScheduledSplitsConfigStepSegmentOverrideArgs'] segment_overrides: One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         """
-        pulumi.set(__self__, "group_weights", group_weights)
-        pulumi.set(__self__, "start_time", start_time)
+        LaunchScheduledSplitsConfigStep._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_weights=group_weights,
+            start_time=start_time,
+            segment_overrides=segment_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_weights: Optional[Mapping[str, int]] = None,
+             start_time: Optional[str] = None,
+             segment_overrides: Optional[Sequence['outputs.LaunchScheduledSplitsConfigStepSegmentOverride']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if group_weights is None and 'groupWeights' in kwargs:
+            group_weights = kwargs['groupWeights']
+        if group_weights is None:
+            raise TypeError("Missing 'group_weights' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if segment_overrides is None and 'segmentOverrides' in kwargs:
+            segment_overrides = kwargs['segmentOverrides']
+
+        _setter("group_weights", group_weights)
+        _setter("start_time", start_time)
         if segment_overrides is not None:
-            pulumi.set(__self__, "segment_overrides", segment_overrides)
+            _setter("segment_overrides", segment_overrides)
 
     @property
     @pulumi.getter(name="groupWeights")
@@ -496,9 +677,32 @@ class LaunchScheduledSplitsConfigStepSegmentOverride(dict):
         :param str segment: The name or ARN of the segment to use.
         :param Mapping[str, int] weights: The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
         """
-        pulumi.set(__self__, "evaluation_order", evaluation_order)
-        pulumi.set(__self__, "segment", segment)
-        pulumi.set(__self__, "weights", weights)
+        LaunchScheduledSplitsConfigStepSegmentOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            evaluation_order=evaluation_order,
+            segment=segment,
+            weights=weights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             evaluation_order: Optional[int] = None,
+             segment: Optional[str] = None,
+             weights: Optional[Mapping[str, int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if evaluation_order is None and 'evaluationOrder' in kwargs:
+            evaluation_order = kwargs['evaluationOrder']
+        if evaluation_order is None:
+            raise TypeError("Missing 'evaluation_order' argument")
+        if segment is None:
+            raise TypeError("Missing 'segment' argument")
+        if weights is None:
+            raise TypeError("Missing 'weights' argument")
+
+        _setter("evaluation_order", evaluation_order)
+        _setter("segment", segment)
+        _setter("weights", weights)
 
     @property
     @pulumi.getter(name="evaluationOrder")
@@ -553,10 +757,27 @@ class ProjectDataDelivery(dict):
         :param 'ProjectDataDeliveryCloudwatchLogsArgs' cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
         :param 'ProjectDataDeliveryS3DestinationArgs' s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         """
+        ProjectDataDelivery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            s3_destination=s3_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional['outputs.ProjectDataDeliveryCloudwatchLogs'] = None,
+             s3_destination: Optional['outputs.ProjectDataDeliveryS3Destination'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if s3_destination is not None:
-            pulumi.set(__self__, "s3_destination", s3_destination)
+            _setter("s3_destination", s3_destination)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -601,8 +822,21 @@ class ProjectDataDeliveryCloudwatchLogs(dict):
                
                The `s3_destination` block supports the following arguments:
         """
+        ProjectDataDeliveryCloudwatchLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group=log_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+            _setter("log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -624,10 +858,23 @@ class ProjectDataDeliveryS3Destination(dict):
         :param str bucket: The name of the bucket in which Evidently stores evaluation events.
         :param str prefix: The bucket prefix in which Evidently stores evaluation events.
         """
+        ProjectDataDeliveryS3Destination._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket=bucket,
+            prefix=prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if bucket is not None:
-            pulumi.set(__self__, "bucket", bucket)
+            _setter("bucket", bucket)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
 
     @property
     @pulumi.getter

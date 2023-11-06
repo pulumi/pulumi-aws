@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,8 +52,29 @@ class DirectoryConfigServiceAccountCredentials(dict):
         :param str account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
         :param str account_password: Password for the account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "account_password", account_password)
+        DirectoryConfigServiceAccountCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            account_password=account_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[str] = None,
+             account_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if account_password is None and 'accountPassword' in kwargs:
+            account_password = kwargs['accountPassword']
+        if account_password is None:
+            raise TypeError("Missing 'account_password' argument")
+
+        _setter("account_name", account_name)
+        _setter("account_password", account_password)
 
     @property
     @pulumi.getter(name="accountName")
@@ -104,13 +125,36 @@ class FleetComputeCapacity(dict):
         :param int in_use: Number of instances in use for streaming.
         :param int running: Total number of simultaneous streaming instances that are running.
         """
-        pulumi.set(__self__, "desired_instances", desired_instances)
+        FleetComputeCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_instances=desired_instances,
+            available=available,
+            in_use=in_use,
+            running=running,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_instances: Optional[int] = None,
+             available: Optional[int] = None,
+             in_use: Optional[int] = None,
+             running: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if desired_instances is None and 'desiredInstances' in kwargs:
+            desired_instances = kwargs['desiredInstances']
+        if desired_instances is None:
+            raise TypeError("Missing 'desired_instances' argument")
+        if in_use is None and 'inUse' in kwargs:
+            in_use = kwargs['inUse']
+
+        _setter("desired_instances", desired_instances)
         if available is not None:
-            pulumi.set(__self__, "available", available)
+            _setter("available", available)
         if in_use is not None:
-            pulumi.set(__self__, "in_use", in_use)
+            _setter("in_use", in_use)
         if running is not None:
-            pulumi.set(__self__, "running", running)
+            _setter("running", running)
 
     @property
     @pulumi.getter(name="desiredInstances")
@@ -173,10 +217,27 @@ class FleetDomainJoinInfo(dict):
         :param str directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param str organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
         """
+        FleetDomainJoinInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if directory_name is None and 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if organizational_unit_distinguished_name is None and 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -223,10 +284,27 @@ class FleetVpcConfig(dict):
         :param Sequence[str] security_group_ids: Identifiers of the security groups for the fleet or image builder.
         :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
         """
+        FleetVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -273,9 +351,28 @@ class ImageBuilderAccessEndpoint(dict):
         :param str endpoint_type: Type of interface endpoint.
         :param str vpce_id: Identifier (ID) of the VPC in which the interface endpoint is used.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        ImageBuilderAccessEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[str] = None,
+             vpce_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if vpce_id is None and 'vpceId' in kwargs:
+            vpce_id = kwargs['vpceId']
+
+        _setter("endpoint_type", endpoint_type)
         if vpce_id is not None:
-            pulumi.set(__self__, "vpce_id", vpce_id)
+            _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -322,10 +419,27 @@ class ImageBuilderDomainJoinInfo(dict):
         :param str directory_name: Fully qualified name of the directory (for example, corp.example.com).
         :param str organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
         """
+        ImageBuilderDomainJoinInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory_name=directory_name,
+            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory_name: Optional[str] = None,
+             organizational_unit_distinguished_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if directory_name is None and 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if organizational_unit_distinguished_name is None and 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
         if directory_name is not None:
-            pulumi.set(__self__, "directory_name", directory_name)
+            _setter("directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
-            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -372,10 +486,27 @@ class ImageBuilderVpcConfig(dict):
         :param Sequence[str] security_group_ids: Identifiers of the security groups for the image builder or image builder.
         :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
         """
+        ImageBuilderVpcConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_ids=security_group_ids,
+            subnet_ids=subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
-            pulumi.set(__self__, "security_group_ids", security_group_ids)
+            _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+            _setter("subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -423,9 +554,28 @@ class StackAccessEndpoint(dict):
                See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
         :param str vpce_id: ID of the VPC in which the interface endpoint is used.
         """
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        StackAccessEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            vpce_id=vpce_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[str] = None,
+             vpce_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if vpce_id is None and 'vpceId' in kwargs:
+            vpce_id = kwargs['vpceId']
+
+        _setter("endpoint_type", endpoint_type)
         if vpce_id is not None:
-            pulumi.set(__self__, "vpce_id", vpce_id)
+            _setter("vpce_id", vpce_id)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -473,9 +623,26 @@ class StackApplicationSettings(dict):
                Required when `enabled` is `true`.
                Can be up to 100 characters.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        StackApplicationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            settings_group=settings_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             settings_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if settings_group is None and 'settingsGroup' in kwargs:
+            settings_group = kwargs['settingsGroup']
+
+        _setter("enabled", enabled)
         if settings_group is not None:
-            pulumi.set(__self__, "settings_group", settings_group)
+            _setter("settings_group", settings_group)
 
     @property
     @pulumi.getter
@@ -527,11 +694,32 @@ class StackStorageConnector(dict):
         :param Sequence[str] domains: Names of the domains for the account.
         :param str resource_identifier: ARN of the storage connector.
         """
-        pulumi.set(__self__, "connector_type", connector_type)
+        StackStorageConnector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_type=connector_type,
+            domains=domains,
+            resource_identifier=resource_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_type: Optional[str] = None,
+             domains: Optional[Sequence[str]] = None,
+             resource_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if connector_type is None:
+            raise TypeError("Missing 'connector_type' argument")
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
+        _setter("connector_type", connector_type)
         if domains is not None:
-            pulumi.set(__self__, "domains", domains)
+            _setter("domains", domains)
         if resource_identifier is not None:
-            pulumi.set(__self__, "resource_identifier", resource_identifier)
+            _setter("resource_identifier", resource_identifier)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -584,8 +772,21 @@ class StackStreamingExperienceSettings(dict):
         :param str preferred_protocol: The preferred protocol that you want to use while streaming your application.
                Valid values are `TCP` and `UDP`.
         """
+        StackStreamingExperienceSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_protocol=preferred_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if preferred_protocol is None and 'preferredProtocol' in kwargs:
+            preferred_protocol = kwargs['preferredProtocol']
+
         if preferred_protocol is not None:
-            pulumi.set(__self__, "preferred_protocol", preferred_protocol)
+            _setter("preferred_protocol", preferred_protocol)
 
     @property
     @pulumi.getter(name="preferredProtocol")
@@ -608,8 +809,25 @@ class StackUserSetting(dict):
         :param str permission: Whether the action is enabled or disabled.
                Valid values are `ENABLED` or `DISABLED`.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "permission", permission)
+        StackUserSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            permission=permission,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             permission: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if permission is None:
+            raise TypeError("Missing 'permission' argument")
+
+        _setter("action", action)
+        _setter("permission", permission)
 
     @property
     @pulumi.getter

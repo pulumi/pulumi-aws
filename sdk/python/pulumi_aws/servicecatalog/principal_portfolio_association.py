@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrincipalPortfolioAssociationArgs', 'PrincipalPortfolioAssociation']
@@ -27,12 +27,41 @@ class PrincipalPortfolioAssociationArgs:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
-        pulumi.set(__self__, "portfolio_id", portfolio_id)
-        pulumi.set(__self__, "principal_arn", principal_arn)
+        PrincipalPortfolioAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            portfolio_id=portfolio_id,
+            principal_arn=principal_arn,
+            accept_language=accept_language,
+            principal_type=principal_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             accept_language: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if principal_arn is None and 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if principal_arn is None:
+            raise TypeError("Missing 'principal_arn' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+
+        _setter("portfolio_id", portfolio_id)
+        _setter("principal_arn", principal_arn)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -101,14 +130,39 @@ class _PrincipalPortfolioAssociationState:
                The following arguments are optional:
         :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
+        _PrincipalPortfolioAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_language=accept_language,
+            portfolio_id=portfolio_id,
+            principal_arn=principal_arn,
+            principal_type=principal_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_language: Optional[pulumi.Input[str]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if principal_arn is None and 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if portfolio_id is not None:
-            pulumi.set(__self__, "portfolio_id", portfolio_id)
+            _setter("portfolio_id", portfolio_id)
         if principal_arn is not None:
-            pulumi.set(__self__, "principal_arn", principal_arn)
+            _setter("principal_arn", principal_arn)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -242,6 +296,10 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrincipalPortfolioAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

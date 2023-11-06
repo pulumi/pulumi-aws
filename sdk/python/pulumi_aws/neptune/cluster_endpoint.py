@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterEndpointArgs', 'ClusterEndpoint']
@@ -29,15 +29,52 @@ class ClusterEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        ClusterEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_endpoint_identifier=cluster_endpoint_identifier,
+            cluster_identifier=cluster_identifier,
+            endpoint_type=endpoint_type,
+            excluded_members=excluded_members,
+            static_members=static_members,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_endpoint_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_endpoint_identifier is None and 'clusterEndpointIdentifier' in kwargs:
+            cluster_endpoint_identifier = kwargs['clusterEndpointIdentifier']
+        if cluster_endpoint_identifier is None:
+            raise TypeError("Missing 'cluster_endpoint_identifier' argument")
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if excluded_members is None and 'excludedMembers' in kwargs:
+            excluded_members = kwargs['excludedMembers']
+        if static_members is None and 'staticMembers' in kwargs:
+            static_members = kwargs['staticMembers']
+
+        _setter("cluster_endpoint_identifier", cluster_endpoint_identifier)
+        _setter("cluster_identifier", cluster_identifier)
+        _setter("endpoint_type", endpoint_type)
         if excluded_members is not None:
-            pulumi.set(__self__, "excluded_members", excluded_members)
+            _setter("excluded_members", excluded_members)
         if static_members is not None:
-            pulumi.set(__self__, "static_members", static_members)
+            _setter("static_members", static_members)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
@@ -136,27 +173,66 @@ class _ClusterEndpointState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        _ClusterEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            cluster_endpoint_identifier=cluster_endpoint_identifier,
+            cluster_identifier=cluster_identifier,
+            endpoint=endpoint,
+            endpoint_type=endpoint_type,
+            excluded_members=excluded_members,
+            static_members=static_members,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             cluster_endpoint_identifier: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             excluded_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             static_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_endpoint_identifier is None and 'clusterEndpointIdentifier' in kwargs:
+            cluster_endpoint_identifier = kwargs['clusterEndpointIdentifier']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if excluded_members is None and 'excludedMembers' in kwargs:
+            excluded_members = kwargs['excludedMembers']
+        if static_members is None and 'staticMembers' in kwargs:
+            static_members = kwargs['staticMembers']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if cluster_endpoint_identifier is not None:
-            pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
+            _setter("cluster_endpoint_identifier", cluster_endpoint_identifier)
         if cluster_identifier is not None:
-            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+            _setter("cluster_identifier", cluster_identifier)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if excluded_members is not None:
-            pulumi.set(__self__, "excluded_members", excluded_members)
+            _setter("excluded_members", excluded_members)
         if static_members is not None:
-            pulumi.set(__self__, "static_members", static_members)
+            _setter("static_members", static_members)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -353,6 +429,10 @@ class ClusterEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

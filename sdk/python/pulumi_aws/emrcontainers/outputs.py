@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -69,13 +69,48 @@ class JobTemplateJobTemplateData(dict):
         :param 'JobTemplateJobTemplateDataConfigurationOverridesArgs' configuration_overrides: The configuration settings that are used to override defaults configuration.
         :param Mapping[str, str] job_tags: The tags assigned to jobs started using the job template.
         """
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        pulumi.set(__self__, "job_driver", job_driver)
-        pulumi.set(__self__, "release_label", release_label)
+        JobTemplateJobTemplateData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_role_arn=execution_role_arn,
+            job_driver=job_driver,
+            release_label=release_label,
+            configuration_overrides=configuration_overrides,
+            job_tags=job_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_role_arn: Optional[str] = None,
+             job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriver'] = None,
+             release_label: Optional[str] = None,
+             configuration_overrides: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverrides'] = None,
+             job_tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if execution_role_arn is None:
+            raise TypeError("Missing 'execution_role_arn' argument")
+        if job_driver is None and 'jobDriver' in kwargs:
+            job_driver = kwargs['jobDriver']
+        if job_driver is None:
+            raise TypeError("Missing 'job_driver' argument")
+        if release_label is None and 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if release_label is None:
+            raise TypeError("Missing 'release_label' argument")
+        if configuration_overrides is None and 'configurationOverrides' in kwargs:
+            configuration_overrides = kwargs['configurationOverrides']
+        if job_tags is None and 'jobTags' in kwargs:
+            job_tags = kwargs['jobTags']
+
+        _setter("execution_role_arn", execution_role_arn)
+        _setter("job_driver", job_driver)
+        _setter("release_label", release_label)
         if configuration_overrides is not None:
-            pulumi.set(__self__, "configuration_overrides", configuration_overrides)
+            _setter("configuration_overrides", configuration_overrides)
         if job_tags is not None:
-            pulumi.set(__self__, "job_tags", job_tags)
+            _setter("job_tags", job_tags)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -146,10 +181,27 @@ class JobTemplateJobTemplateDataConfigurationOverrides(dict):
         :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs'] application_configurations: The configurations for the application running by the job run.
         :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs' monitoring_configuration: The configurations for monitoring.
         """
+        JobTemplateJobTemplateDataConfigurationOverrides._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_configurations=application_configurations,
+            monitoring_configuration=monitoring_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration']] = None,
+             monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_configurations is None and 'applicationConfigurations' in kwargs:
+            application_configurations = kwargs['applicationConfigurations']
+        if monitoring_configuration is None and 'monitoringConfiguration' in kwargs:
+            monitoring_configuration = kwargs['monitoringConfiguration']
+
         if application_configurations is not None:
-            pulumi.set(__self__, "application_configurations", application_configurations)
+            _setter("application_configurations", application_configurations)
         if monitoring_configuration is not None:
-            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
+            _setter("monitoring_configuration", monitoring_configuration)
 
     @property
     @pulumi.getter(name="applicationConfigurations")
@@ -179,11 +231,28 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(d
         :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs'] configurations: A list of additional configurations to apply within a configuration object.
         :param Mapping[str, str] properties: A set of properties specified within a configuration classification.
         """
-        pulumi.set(__self__, "classification", classification)
+        JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            configurations=configurations,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[str] = None,
+             configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration']] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if classification is None:
+            raise TypeError("Missing 'classification' argument")
+
+        _setter("classification", classification)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -219,10 +288,23 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
         :param str classification: The classification within a configuration.
         :param Mapping[str, str] properties: A set of properties specified within a configuration classification.
         """
+        JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification=classification,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if classification is not None:
-            pulumi.set(__self__, "classification", classification)
+            _setter("classification", classification)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -273,12 +355,33 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(di
         :param str persistent_app_ui: Monitoring configurations for the persistent application UI.
         :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs' s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
         """
+        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloud_watch_monitoring_configuration=cloud_watch_monitoring_configuration,
+            persistent_app_ui=persistent_app_ui,
+            s3_monitoring_configuration=s3_monitoring_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloud_watch_monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration'] = None,
+             persistent_app_ui: Optional[str] = None,
+             s3_monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloud_watch_monitoring_configuration is None and 'cloudWatchMonitoringConfiguration' in kwargs:
+            cloud_watch_monitoring_configuration = kwargs['cloudWatchMonitoringConfiguration']
+        if persistent_app_ui is None and 'persistentAppUi' in kwargs:
+            persistent_app_ui = kwargs['persistentAppUi']
+        if s3_monitoring_configuration is None and 's3MonitoringConfiguration' in kwargs:
+            s3_monitoring_configuration = kwargs['s3MonitoringConfiguration']
+
         if cloud_watch_monitoring_configuration is not None:
-            pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
+            _setter("cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
         if persistent_app_ui is not None:
-            pulumi.set(__self__, "persistent_app_ui", persistent_app_ui)
+            _setter("persistent_app_ui", persistent_app_ui)
         if s3_monitoring_configuration is not None:
-            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+            _setter("s3_monitoring_configuration", s3_monitoring_configuration)
 
     @property
     @pulumi.getter(name="cloudWatchMonitoringConfiguration")
@@ -333,9 +436,28 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
         :param str log_group_name: The name of the log group for log publishing.
         :param str log_stream_name_prefix: The specified name prefix for log streams.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+            log_stream_name_prefix=log_stream_name_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             log_stream_name_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if log_stream_name_prefix is None and 'logStreamNamePrefix' in kwargs:
+            log_stream_name_prefix = kwargs['logStreamNamePrefix']
+
+        _setter("log_group_name", log_group_name)
         if log_stream_name_prefix is not None:
-            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+            _setter("log_stream_name_prefix", log_stream_name_prefix)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -378,7 +500,22 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
         """
         :param str log_uri: Amazon S3 destination URI for log publishing.
         """
-        pulumi.set(__self__, "log_uri", log_uri)
+        JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_uri=log_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_uri is None and 'logUri' in kwargs:
+            log_uri = kwargs['logUri']
+        if log_uri is None:
+            raise TypeError("Missing 'log_uri' argument")
+
+        _setter("log_uri", log_uri)
 
     @property
     @pulumi.getter(name="logUri")
@@ -417,10 +554,27 @@ class JobTemplateJobTemplateDataJobDriver(dict):
         :param 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs' spark_sql_job_driver: The job driver for job type.
         :param 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs' spark_submit_job_driver: The job driver parameters specified for spark submit.
         """
+        JobTemplateJobTemplateDataJobDriver._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spark_sql_job_driver=spark_sql_job_driver,
+            spark_submit_job_driver=spark_submit_job_driver,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spark_sql_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver'] = None,
+             spark_submit_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if spark_sql_job_driver is None and 'sparkSqlJobDriver' in kwargs:
+            spark_sql_job_driver = kwargs['sparkSqlJobDriver']
+        if spark_submit_job_driver is None and 'sparkSubmitJobDriver' in kwargs:
+            spark_submit_job_driver = kwargs['sparkSubmitJobDriver']
+
         if spark_sql_job_driver is not None:
-            pulumi.set(__self__, "spark_sql_job_driver", spark_sql_job_driver)
+            _setter("spark_sql_job_driver", spark_sql_job_driver)
         if spark_submit_job_driver is not None:
-            pulumi.set(__self__, "spark_submit_job_driver", spark_submit_job_driver)
+            _setter("spark_submit_job_driver", spark_submit_job_driver)
 
     @property
     @pulumi.getter(name="sparkSqlJobDriver")
@@ -467,10 +621,27 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
         :param str entry_point: The SQL file to be executed.
         :param str spark_sql_parameters: The Spark parameters to be included in the Spark SQL command.
         """
+        JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entry_point=entry_point,
+            spark_sql_parameters=spark_sql_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entry_point: Optional[str] = None,
+             spark_sql_parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entry_point is None and 'entryPoint' in kwargs:
+            entry_point = kwargs['entryPoint']
+        if spark_sql_parameters is None and 'sparkSqlParameters' in kwargs:
+            spark_sql_parameters = kwargs['sparkSqlParameters']
+
         if entry_point is not None:
-            pulumi.set(__self__, "entry_point", entry_point)
+            _setter("entry_point", entry_point)
         if spark_sql_parameters is not None:
-            pulumi.set(__self__, "spark_sql_parameters", spark_sql_parameters)
+            _setter("spark_sql_parameters", spark_sql_parameters)
 
     @property
     @pulumi.getter(name="entryPoint")
@@ -521,11 +692,34 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
         :param Sequence[str] entry_point_arguments: The arguments for job application.
         :param str spark_submit_parameters: The Spark submit parameters that are used for job runs.
         """
-        pulumi.set(__self__, "entry_point", entry_point)
+        JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            entry_point=entry_point,
+            entry_point_arguments=entry_point_arguments,
+            spark_submit_parameters=spark_submit_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             entry_point: Optional[str] = None,
+             entry_point_arguments: Optional[Sequence[str]] = None,
+             spark_submit_parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if entry_point is None and 'entryPoint' in kwargs:
+            entry_point = kwargs['entryPoint']
+        if entry_point is None:
+            raise TypeError("Missing 'entry_point' argument")
+        if entry_point_arguments is None and 'entryPointArguments' in kwargs:
+            entry_point_arguments = kwargs['entryPointArguments']
+        if spark_submit_parameters is None and 'sparkSubmitParameters' in kwargs:
+            spark_submit_parameters = kwargs['sparkSubmitParameters']
+
+        _setter("entry_point", entry_point)
         if entry_point_arguments is not None:
-            pulumi.set(__self__, "entry_point_arguments", entry_point_arguments)
+            _setter("entry_point_arguments", entry_point_arguments)
         if spark_submit_parameters is not None:
-            pulumi.set(__self__, "spark_submit_parameters", spark_submit_parameters)
+            _setter("spark_submit_parameters", spark_submit_parameters)
 
     @property
     @pulumi.getter(name="entryPoint")
@@ -563,9 +757,30 @@ class VirtualClusterContainerProvider(dict):
         :param 'VirtualClusterContainerProviderInfoArgs' info: Nested list containing information about the configuration of the container provider
         :param str type: The type of the container provider
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        VirtualClusterContainerProvider._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             info: Optional['outputs.VirtualClusterContainerProviderInfo'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if info is None:
+            raise TypeError("Missing 'info' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -616,7 +831,22 @@ class VirtualClusterContainerProviderInfo(dict):
         """
         :param 'VirtualClusterContainerProviderInfoEksInfoArgs' eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
-        pulumi.set(__self__, "eks_info", eks_info)
+        VirtualClusterContainerProviderInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eks_info=eks_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eks_info: Optional['outputs.VirtualClusterContainerProviderInfoEksInfo'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eks_info is None and 'eksInfo' in kwargs:
+            eks_info = kwargs['eksInfo']
+        if eks_info is None:
+            raise TypeError("Missing 'eks_info' argument")
+
+        _setter("eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
@@ -634,8 +864,19 @@ class VirtualClusterContainerProviderInfoEksInfo(dict):
         """
         :param str namespace: The namespace where the EMR Containers cluster is running
         """
+        VirtualClusterContainerProviderInfoEksInfo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter
@@ -657,9 +898,30 @@ class GetVirtualClusterContainerProviderResult(dict):
         :param Sequence['GetVirtualClusterContainerProviderInfoArgs'] infos: Nested list containing information about the configuration of the container provider
         :param str type: The type of the container provider
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "infos", infos)
-        pulumi.set(__self__, "type", type)
+        GetVirtualClusterContainerProviderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            infos=infos,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             infos: Optional[Sequence['outputs.GetVirtualClusterContainerProviderInfoResult']] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if infos is None:
+            raise TypeError("Missing 'infos' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("infos", infos)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -693,7 +955,22 @@ class GetVirtualClusterContainerProviderInfoResult(dict):
         """
         :param Sequence['GetVirtualClusterContainerProviderInfoEksInfoArgs'] eks_infos: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
-        pulumi.set(__self__, "eks_infos", eks_infos)
+        GetVirtualClusterContainerProviderInfoResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eks_infos=eks_infos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eks_infos: Optional[Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eks_infos is None and 'eksInfos' in kwargs:
+            eks_infos = kwargs['eksInfos']
+        if eks_infos is None:
+            raise TypeError("Missing 'eks_infos' argument")
+
+        _setter("eks_infos", eks_infos)
 
     @property
     @pulumi.getter(name="eksInfos")
@@ -711,7 +988,20 @@ class GetVirtualClusterContainerProviderInfoEksInfoResult(dict):
         """
         :param str namespace: The namespace where the EMR Containers cluster is running
         """
-        pulumi.set(__self__, "namespace", namespace)
+        GetVirtualClusterContainerProviderInfoEksInfoResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
+        _setter("namespace", namespace)
 
     @property
     @pulumi.getter

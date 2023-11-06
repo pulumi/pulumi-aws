@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,34 @@ class ContactListArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
-        pulumi.set(__self__, "contact_list_name", contact_list_name)
+        ContactListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_list_name=contact_list_name,
+            description=description,
+            tags=tags,
+            topics=topics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_list_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if contact_list_name is None and 'contactListName' in kwargs:
+            contact_list_name = kwargs['contactListName']
+        if contact_list_name is None:
+            raise TypeError("Missing 'contact_list_name' argument")
+
+        _setter("contact_list_name", contact_list_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if topics is not None:
-            pulumi.set(__self__, "topics", topics)
+            _setter("topics", topics)
 
     @property
     @pulumi.getter(name="contactListName")
@@ -110,25 +131,58 @@ class _ContactListState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
+        _ContactListState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            contact_list_name=contact_list_name,
+            created_timestamp=created_timestamp,
+            description=description,
+            last_updated_timestamp=last_updated_timestamp,
+            tags=tags,
+            tags_all=tags_all,
+            topics=topics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             contact_list_name: Optional[pulumi.Input[str]] = None,
+             created_timestamp: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             last_updated_timestamp: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if contact_list_name is None and 'contactListName' in kwargs:
+            contact_list_name = kwargs['contactListName']
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if last_updated_timestamp is None and 'lastUpdatedTimestamp' in kwargs:
+            last_updated_timestamp = kwargs['lastUpdatedTimestamp']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if contact_list_name is not None:
-            pulumi.set(__self__, "contact_list_name", contact_list_name)
+            _setter("contact_list_name", contact_list_name)
         if created_timestamp is not None:
-            pulumi.set(__self__, "created_timestamp", created_timestamp)
+            _setter("created_timestamp", created_timestamp)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if last_updated_timestamp is not None:
-            pulumi.set(__self__, "last_updated_timestamp", last_updated_timestamp)
+            _setter("last_updated_timestamp", last_updated_timestamp)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
         if topics is not None:
-            pulumi.set(__self__, "topics", topics)
+            _setter("topics", topics)
 
     @property
     @pulumi.getter
@@ -335,6 +389,10 @@ class ContactList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

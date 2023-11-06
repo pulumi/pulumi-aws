@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -46,12 +46,29 @@ class LoggingConfigurationDestinationConfiguration(dict):
         :param 'LoggingConfigurationDestinationConfigurationFirehoseArgs' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         :param 'LoggingConfigurationDestinationConfigurationS3Args' s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
+        LoggingConfigurationDestinationConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cloudwatch_logs=cloudwatch_logs,
+            firehose=firehose,
+            s3=s3,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cloudwatch_logs: Optional['outputs.LoggingConfigurationDestinationConfigurationCloudwatchLogs'] = None,
+             firehose: Optional['outputs.LoggingConfigurationDestinationConfigurationFirehose'] = None,
+             s3: Optional['outputs.LoggingConfigurationDestinationConfigurationS3'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cloudwatch_logs is None and 'cloudwatchLogs' in kwargs:
+            cloudwatch_logs = kwargs['cloudwatchLogs']
+
         if cloudwatch_logs is not None:
-            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+            _setter("cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
-            pulumi.set(__self__, "firehose", firehose)
+            _setter("firehose", firehose)
         if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+            _setter("s3", s3)
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
@@ -102,7 +119,22 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
         """
         :param str log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
         """
-        pulumi.set(__self__, "log_group_name", log_group_name)
+        LoggingConfigurationDestinationConfigurationCloudwatchLogs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_group_name=log_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_group_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+
+        _setter("log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -137,7 +169,22 @@ class LoggingConfigurationDestinationConfigurationFirehose(dict):
         """
         :param str delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
         """
-        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
+        LoggingConfigurationDestinationConfigurationFirehose._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delivery_stream_name=delivery_stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delivery_stream_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delivery_stream_name is None and 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if delivery_stream_name is None:
+            raise TypeError("Missing 'delivery_stream_name' argument")
+
+        _setter("delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -174,7 +221,22 @@ class LoggingConfigurationDestinationConfigurationS3(dict):
                
                The following arguments are optional:
         """
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        LoggingConfigurationDestinationConfigurationS3._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bucket_name=bucket_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bucket_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
+        _setter("bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -215,10 +277,25 @@ class RoomMessageReviewHandler(dict):
                encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
         :param str uri: ARN of the lambda message review handler function.
         """
+        RoomMessageReviewHandler._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fallback_result=fallback_result,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fallback_result: Optional[str] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fallback_result is None and 'fallbackResult' in kwargs:
+            fallback_result = kwargs['fallbackResult']
+
         if fallback_result is not None:
-            pulumi.set(__self__, "fallback_result", fallback_result)
+            _setter("fallback_result", fallback_result)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="fallbackResult")

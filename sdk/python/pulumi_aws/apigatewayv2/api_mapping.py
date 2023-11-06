@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiMappingArgs', 'ApiMapping']
@@ -25,11 +25,40 @@ class ApiMappingArgs:
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         :param pulumi.Input[str] api_mapping_key: The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "stage", stage)
+        ApiMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            domain_name=domain_name,
+            stage=stage,
+            api_mapping_key=api_mapping_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input[str]] = None,
+             api_mapping_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if api_mapping_key is None and 'apiMappingKey' in kwargs:
+            api_mapping_key = kwargs['apiMappingKey']
+
+        _setter("api_id", api_id)
+        _setter("domain_name", domain_name)
+        _setter("stage", stage)
         if api_mapping_key is not None:
-            pulumi.set(__self__, "api_mapping_key", api_mapping_key)
+            _setter("api_mapping_key", api_mapping_key)
 
     @property
     @pulumi.getter(name="apiId")
@@ -94,14 +123,37 @@ class _ApiMappingState:
         :param pulumi.Input[str] domain_name: Domain name. Use the `apigatewayv2.DomainName` resource to configure a domain name.
         :param pulumi.Input[str] stage: API stage. Use the `apigatewayv2.Stage` resource to configure an API stage.
         """
+        _ApiMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            api_mapping_key=api_mapping_key,
+            domain_name=domain_name,
+            stage=stage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             api_mapping_key: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_mapping_key is None and 'apiMappingKey' in kwargs:
+            api_mapping_key = kwargs['apiMappingKey']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if api_mapping_key is not None:
-            pulumi.set(__self__, "api_mapping_key", api_mapping_key)
+            _setter("api_mapping_key", api_mapping_key)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if stage is not None:
-            pulumi.set(__self__, "stage", stage)
+            _setter("stage", stage)
 
     @property
     @pulumi.getter(name="apiId")
@@ -235,6 +287,10 @@ class ApiMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

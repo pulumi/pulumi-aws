@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,11 +26,30 @@ class RepositoryAssociationArgs:
                The following arguments are optional:
         :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         """
-        pulumi.set(__self__, "repository", repository)
+        RepositoryAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            kms_key_details=kms_key_details,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']] = None,
+             kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if kms_key_details is None and 'kmsKeyDetails' in kwargs:
+            kms_key_details = kwargs['kmsKeyDetails']
+
+        _setter("repository", repository)
         if kms_key_details is not None:
-            pulumi.set(__self__, "kms_key_details", kms_key_details)
+            _setter("kms_key_details", kms_key_details)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -99,35 +118,84 @@ class _RepositoryAssociationState:
         :param pulumi.Input[str] state: The state of the repository association.
         :param pulumi.Input[str] state_reason: A description of why the repository association is in the current state.
         """
+        _RepositoryAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arn=arn,
+            association_id=association_id,
+            connection_arn=connection_arn,
+            kms_key_details=kms_key_details,
+            name=name,
+            owner=owner,
+            provider_type=provider_type,
+            repository=repository,
+            s3_repository_details=s3_repository_details,
+            state=state,
+            state_reason=state_reason,
+            tags=tags,
+            tags_all=tags_all,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arn: Optional[pulumi.Input[str]] = None,
+             association_id: Optional[pulumi.Input[str]] = None,
+             connection_arn: Optional[pulumi.Input[str]] = None,
+             kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']] = None,
+             s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             state_reason: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if association_id is None and 'associationId' in kwargs:
+            association_id = kwargs['associationId']
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if kms_key_details is None and 'kmsKeyDetails' in kwargs:
+            kms_key_details = kwargs['kmsKeyDetails']
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if s3_repository_details is None and 's3RepositoryDetails' in kwargs:
+            s3_repository_details = kwargs['s3RepositoryDetails']
+        if state_reason is None and 'stateReason' in kwargs:
+            state_reason = kwargs['stateReason']
+        if tags_all is None and 'tagsAll' in kwargs:
+            tags_all = kwargs['tagsAll']
+
         if arn is not None:
-            pulumi.set(__self__, "arn", arn)
+            _setter("arn", arn)
         if association_id is not None:
-            pulumi.set(__self__, "association_id", association_id)
+            _setter("association_id", association_id)
         if connection_arn is not None:
-            pulumi.set(__self__, "connection_arn", connection_arn)
+            _setter("connection_arn", connection_arn)
         if kms_key_details is not None:
-            pulumi.set(__self__, "kms_key_details", kms_key_details)
+            _setter("kms_key_details", kms_key_details)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if s3_repository_details is not None:
-            pulumi.set(__self__, "s3_repository_details", s3_repository_details)
+            _setter("s3_repository_details", s3_repository_details)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if state_reason is not None:
-            pulumi.set(__self__, "state_reason", state_reason)
+            _setter("state_reason", state_reason)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tags_all is not None:
             warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
             pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
+            _setter("tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -360,6 +428,10 @@ class RepositoryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -377,7 +449,17 @@ class RepositoryAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryAssociationArgs.__new__(RepositoryAssociationArgs)
 
+            if kms_key_details is not None and not isinstance(kms_key_details, RepositoryAssociationKmsKeyDetailsArgs):
+                kms_key_details = kms_key_details or {}
+                def _setter(key, value):
+                    kms_key_details[key] = value
+                RepositoryAssociationKmsKeyDetailsArgs._configure(_setter, **kms_key_details)
             __props__.__dict__["kms_key_details"] = kms_key_details
+            if repository is not None and not isinstance(repository, RepositoryAssociationRepositoryArgs):
+                repository = repository or {}
+                def _setter(key, value):
+                    repository[key] = value
+                RepositoryAssociationRepositoryArgs._configure(_setter, **repository)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository

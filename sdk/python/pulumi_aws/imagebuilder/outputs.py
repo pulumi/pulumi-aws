@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -110,9 +110,26 @@ class ContainerRecipeComponent(dict):
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
         :param Sequence['ContainerRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
-        pulumi.set(__self__, "component_arn", component_arn)
+        ContainerRecipeComponent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_arn=component_arn,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_arn: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if component_arn is None and 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if component_arn is None:
+            raise TypeError("Missing 'component_arn' argument")
+
+        _setter("component_arn", component_arn)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -140,8 +157,25 @@ class ContainerRecipeComponentParameter(dict):
         :param str name: The name of the component parameter.
         :param str value: The value for the named component parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ContainerRecipeComponentParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -186,10 +220,25 @@ class ContainerRecipeInstanceConfiguration(dict):
         :param Sequence['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Configuration block(s) with block device mappings for the container recipe. Detailed below.
         :param str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
+        ContainerRecipeInstanceConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_device_mappings=block_device_mappings,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_device_mappings: Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']] = None,
+             image: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+
         if block_device_mappings is not None:
-            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+            _setter("block_device_mappings", block_device_mappings)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
@@ -242,14 +291,37 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
         :param bool no_device: Set to `true` to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
+        ContainerRecipeInstanceConfigurationBlockDeviceMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             ebs: Optional['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs'] = None,
+             no_device: Optional[bool] = None,
+             virtual_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if no_device is not None:
-            pulumi.set(__self__, "no_device", no_device)
+            _setter("no_device", no_device)
         if virtual_name is not None:
-            pulumi.set(__self__, "virtual_name", virtual_name)
+            _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -330,22 +402,57 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
         """
+        ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            encrypted=encrypted,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            snapshot_id=snapshot_id,
+            throughput=throughput,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[str] = None,
+             encrypted: Optional[str] = None,
+             iops: Optional[int] = None,
+             kms_key_id: Optional[str] = None,
+             snapshot_id: Optional[str] = None,
+             throughput: Optional[int] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -438,8 +545,27 @@ class ContainerRecipeTargetRepository(dict):
         :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         :param str service: The service in which this image is registered. Valid values: `ECR`.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "service", service)
+        ContainerRecipeTargetRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[str] = None,
+             service: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+
+        _setter("repository_name", repository_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -502,17 +628,50 @@ class DistributionConfigurationDistribution(dict):
         :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
-        pulumi.set(__self__, "region", region)
+        DistributionConfigurationDistribution._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            region=region,
+            ami_distribution_configuration=ami_distribution_configuration,
+            container_distribution_configuration=container_distribution_configuration,
+            fast_launch_configurations=fast_launch_configurations,
+            launch_template_configurations=launch_template_configurations,
+            license_configuration_arns=license_configuration_arns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             region: Optional[str] = None,
+             ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration'] = None,
+             container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration'] = None,
+             fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']] = None,
+             launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
+             license_configuration_arns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if ami_distribution_configuration is None and 'amiDistributionConfiguration' in kwargs:
+            ami_distribution_configuration = kwargs['amiDistributionConfiguration']
+        if container_distribution_configuration is None and 'containerDistributionConfiguration' in kwargs:
+            container_distribution_configuration = kwargs['containerDistributionConfiguration']
+        if fast_launch_configurations is None and 'fastLaunchConfigurations' in kwargs:
+            fast_launch_configurations = kwargs['fastLaunchConfigurations']
+        if launch_template_configurations is None and 'launchTemplateConfigurations' in kwargs:
+            launch_template_configurations = kwargs['launchTemplateConfigurations']
+        if license_configuration_arns is None and 'licenseConfigurationArns' in kwargs:
+            license_configuration_arns = kwargs['licenseConfigurationArns']
+
+        _setter("region", region)
         if ami_distribution_configuration is not None:
-            pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
+            _setter("ami_distribution_configuration", ami_distribution_configuration)
         if container_distribution_configuration is not None:
-            pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+            _setter("container_distribution_configuration", container_distribution_configuration)
         if fast_launch_configurations is not None:
-            pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
+            _setter("fast_launch_configurations", fast_launch_configurations)
         if launch_template_configurations is not None:
-            pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
+            _setter("launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
-            pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
+            _setter("license_configuration_arns", license_configuration_arns)
 
     @property
     @pulumi.getter
@@ -605,18 +764,47 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
         :param str name: Name to apply to the distributed AMI.
         :param Sequence[str] target_account_ids: Set of AWS Account identifiers to distribute the AMI.
         """
+        DistributionConfigurationDistributionAmiDistributionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ami_tags=ami_tags,
+            description=description,
+            kms_key_id=kms_key_id,
+            launch_permission=launch_permission,
+            name=name,
+            target_account_ids=target_account_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ami_tags: Optional[Mapping[str, str]] = None,
+             description: Optional[str] = None,
+             kms_key_id: Optional[str] = None,
+             launch_permission: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission'] = None,
+             name: Optional[str] = None,
+             target_account_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ami_tags is None and 'amiTags' in kwargs:
+            ami_tags = kwargs['amiTags']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if launch_permission is None and 'launchPermission' in kwargs:
+            launch_permission = kwargs['launchPermission']
+        if target_account_ids is None and 'targetAccountIds' in kwargs:
+            target_account_ids = kwargs['targetAccountIds']
+
         if ami_tags is not None:
-            pulumi.set(__self__, "ami_tags", ami_tags)
+            _setter("ami_tags", ami_tags)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if launch_permission is not None:
-            pulumi.set(__self__, "launch_permission", launch_permission)
+            _setter("launch_permission", launch_permission)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_account_ids is not None:
-            pulumi.set(__self__, "target_account_ids", target_account_ids)
+            _setter("target_account_ids", target_account_ids)
 
     @property
     @pulumi.getter(name="amiTags")
@@ -703,14 +891,39 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         :param Sequence[str] user_groups: Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
         :param Sequence[str] user_ids: Set of AWS Account identifiers to assign.
         """
+        DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            organization_arns=organization_arns,
+            organizational_unit_arns=organizational_unit_arns,
+            user_groups=user_groups,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             organization_arns: Optional[Sequence[str]] = None,
+             organizational_unit_arns: Optional[Sequence[str]] = None,
+             user_groups: Optional[Sequence[str]] = None,
+             user_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if organization_arns is None and 'organizationArns' in kwargs:
+            organization_arns = kwargs['organizationArns']
+        if organizational_unit_arns is None and 'organizationalUnitArns' in kwargs:
+            organizational_unit_arns = kwargs['organizationalUnitArns']
+        if user_groups is None and 'userGroups' in kwargs:
+            user_groups = kwargs['userGroups']
+        if user_ids is None and 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+
         if organization_arns is not None:
-            pulumi.set(__self__, "organization_arns", organization_arns)
+            _setter("organization_arns", organization_arns)
         if organizational_unit_arns is not None:
-            pulumi.set(__self__, "organizational_unit_arns", organizational_unit_arns)
+            _setter("organizational_unit_arns", organizational_unit_arns)
         if user_groups is not None:
-            pulumi.set(__self__, "user_groups", user_groups)
+            _setter("user_groups", user_groups)
         if user_ids is not None:
-            pulumi.set(__self__, "user_ids", user_ids)
+            _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter(name="organizationArns")
@@ -775,11 +988,32 @@ class DistributionConfigurationDistributionContainerDistributionConfiguration(di
         :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
         :param str description: Description of the container distribution configuration.
         """
-        pulumi.set(__self__, "target_repository", target_repository)
+        DistributionConfigurationDistributionContainerDistributionConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_repository=target_repository,
+            container_tags=container_tags,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_repository: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository'] = None,
+             container_tags: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target_repository is None and 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+        if target_repository is None:
+            raise TypeError("Missing 'target_repository' argument")
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+
+        _setter("target_repository", target_repository)
         if container_tags is not None:
-            pulumi.set(__self__, "container_tags", container_tags)
+            _setter("container_tags", container_tags)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="targetRepository")
@@ -832,8 +1066,27 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
         :param str repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         :param str service: The service in which this image is registered. Valid values: `ECR`.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "service", service)
+        DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[str] = None,
+             service: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+
+        _setter("repository_name", repository_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -890,14 +1143,45 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
         :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
         :param 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs' snapshot_configuration: Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "enabled", enabled)
+        DistributionConfigurationDistributionFastLaunchConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            enabled=enabled,
+            launch_template=launch_template,
+            max_parallel_launches=max_parallel_launches,
+            snapshot_configuration=snapshot_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             launch_template: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate'] = None,
+             max_parallel_launches: Optional[int] = None,
+             snapshot_configuration: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if max_parallel_launches is None and 'maxParallelLaunches' in kwargs:
+            max_parallel_launches = kwargs['maxParallelLaunches']
+        if snapshot_configuration is None and 'snapshotConfiguration' in kwargs:
+            snapshot_configuration = kwargs['snapshotConfiguration']
+
+        _setter("account_id", account_id)
+        _setter("enabled", enabled)
         if launch_template is not None:
-            pulumi.set(__self__, "launch_template", launch_template)
+            _setter("launch_template", launch_template)
         if max_parallel_launches is not None:
-            pulumi.set(__self__, "max_parallel_launches", max_parallel_launches)
+            _setter("max_parallel_launches", max_parallel_launches)
         if snapshot_configuration is not None:
-            pulumi.set(__self__, "snapshot_configuration", snapshot_configuration)
+            _setter("snapshot_configuration", snapshot_configuration)
 
     @property
     @pulumi.getter(name="accountId")
@@ -972,12 +1256,33 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
         :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
         """
+        DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template_id=launch_template_id,
+            launch_template_name=launch_template_name,
+            launch_template_version=launch_template_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template_id: Optional[str] = None,
+             launch_template_name: Optional[str] = None,
+             launch_template_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+        if launch_template_version is None and 'launchTemplateVersion' in kwargs:
+            launch_template_version = kwargs['launchTemplateVersion']
+
         if launch_template_id is not None:
-            pulumi.set(__self__, "launch_template_id", launch_template_id)
+            _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
-            pulumi.set(__self__, "launch_template_name", launch_template_name)
+            _setter("launch_template_name", launch_template_name)
         if launch_template_version is not None:
-            pulumi.set(__self__, "launch_template_version", launch_template_version)
+            _setter("launch_template_version", launch_template_version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -1028,8 +1333,21 @@ class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfig
         """
         :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         """
+        DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_resource_count=target_resource_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_resource_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target_resource_count is None and 'targetResourceCount' in kwargs:
+            target_resource_count = kwargs['targetResourceCount']
+
         if target_resource_count is not None:
-            pulumi.set(__self__, "target_resource_count", target_resource_count)
+            _setter("target_resource_count", target_resource_count)
 
     @property
     @pulumi.getter(name="targetResourceCount")
@@ -1070,11 +1388,32 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
         :param str account_id: The account ID that this configuration applies to.
         :param bool default: Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
         """
-        pulumi.set(__self__, "launch_template_id", launch_template_id)
+        DistributionConfigurationDistributionLaunchTemplateConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template_id=launch_template_id,
+            account_id=account_id,
+            default=default,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template_id: Optional[str] = None,
+             account_id: Optional[str] = None,
+             default: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_id is None:
+            raise TypeError("Missing 'launch_template_id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
+        _setter("launch_template_id", launch_template_id)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -1129,10 +1468,27 @@ class ImageImageScanningConfiguration(dict):
         :param 'ImageImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration. Detailed below.
         :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
         """
+        ImageImageScanningConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_configuration=ecr_configuration,
+            image_scanning_enabled=image_scanning_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_configuration: Optional['outputs.ImageImageScanningConfigurationEcrConfiguration'] = None,
+             image_scanning_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_configuration is None and 'ecrConfiguration' in kwargs:
+            ecr_configuration = kwargs['ecrConfiguration']
+        if image_scanning_enabled is None and 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+
         if ecr_configuration is not None:
-            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+            _setter("ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
-            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+            _setter("image_scanning_enabled", image_scanning_enabled)
 
     @property
     @pulumi.getter(name="ecrConfiguration")
@@ -1179,10 +1535,27 @@ class ImageImageScanningConfigurationEcrConfiguration(dict):
         :param Sequence[str] container_tags: Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
         :param str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images.
         """
+        ImageImageScanningConfigurationEcrConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_tags=container_tags,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_tags: Optional[Sequence[str]] = None,
+             repository_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if container_tags is not None:
-            pulumi.set(__self__, "container_tags", container_tags)
+            _setter("container_tags", container_tags)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="containerTags")
@@ -1229,10 +1602,27 @@ class ImageImageTestsConfiguration(dict):
         :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
         :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
         """
+        ImageImageTestsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_tests_enabled=image_tests_enabled,
+            timeout_minutes=timeout_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_tests_enabled: Optional[bool] = None,
+             timeout_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_tests_enabled is None and 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if timeout_minutes is None and 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+
         if image_tests_enabled is not None:
-            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+            _setter("image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
-            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+            _setter("timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
@@ -1260,10 +1650,23 @@ class ImageOutputResource(dict):
         :param Sequence['ImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
         :param Sequence['ImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
+        ImageOutputResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amis=amis,
+            containers=containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None,
+             containers: Optional[Sequence['outputs.ImageOutputResourceContainer']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if amis is not None:
-            pulumi.set(__self__, "amis", amis)
+            _setter("amis", amis)
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
 
     @property
     @pulumi.getter
@@ -1314,16 +1717,37 @@ class ImageOutputResourceAmi(dict):
         :param str name: Name of the AMI.
         :param str region: Region of the container image.
         """
+        ImageOutputResourceAmi._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            description=description,
+            image=image,
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             description: Optional[str] = None,
+             image: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1392,10 +1816,25 @@ class ImageOutputResourceContainer(dict):
         :param Sequence[str] image_uris: Set of URIs for created containers.
         :param str region: Region of the container image.
         """
+        ImageOutputResourceContainer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_uris=image_uris,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_uris: Optional[Sequence[str]] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_uris is None and 'imageUris' in kwargs:
+            image_uris = kwargs['imageUris']
+
         if image_uris is not None:
-            pulumi.set(__self__, "image_uris", image_uris)
+            _setter("image_uris", image_uris)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="imageUris")
@@ -1442,10 +1881,27 @@ class ImagePipelineImageScanningConfiguration(dict):
         :param 'ImagePipelineImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
         :param bool image_scanning_enabled: Whether image scans are enabled. Defaults to `false`.
         """
+        ImagePipelineImageScanningConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_configuration=ecr_configuration,
+            image_scanning_enabled=image_scanning_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_configuration: Optional['outputs.ImagePipelineImageScanningConfigurationEcrConfiguration'] = None,
+             image_scanning_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_configuration is None and 'ecrConfiguration' in kwargs:
+            ecr_configuration = kwargs['ecrConfiguration']
+        if image_scanning_enabled is None and 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+
         if ecr_configuration is not None:
-            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+            _setter("ecr_configuration", ecr_configuration)
         if image_scanning_enabled is not None:
-            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+            _setter("image_scanning_enabled", image_scanning_enabled)
 
     @property
     @pulumi.getter(name="ecrConfiguration")
@@ -1491,10 +1947,27 @@ class ImagePipelineImageScanningConfigurationEcrConfiguration(dict):
         """
         :param str repository_name: The name of the repository to scan
         """
+        ImagePipelineImageScanningConfigurationEcrConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_tags=container_tags,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_tags: Optional[Sequence[str]] = None,
+             repository_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if container_tags is not None:
-            pulumi.set(__self__, "container_tags", container_tags)
+            _setter("container_tags", container_tags)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="containerTags")
@@ -1538,10 +2011,27 @@ class ImagePipelineImageTestsConfiguration(dict):
         :param bool image_tests_enabled: Whether image tests are enabled. Defaults to `true`.
         :param int timeout_minutes: Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
         """
+        ImagePipelineImageTestsConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_tests_enabled=image_tests_enabled,
+            timeout_minutes=timeout_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_tests_enabled: Optional[bool] = None,
+             timeout_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_tests_enabled is None and 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if timeout_minutes is None and 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+
         if image_tests_enabled is not None:
-            pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
+            _setter("image_tests_enabled", image_tests_enabled)
         if timeout_minutes is not None:
-            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+            _setter("timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
@@ -1592,11 +2082,32 @@ class ImagePipelineSchedule(dict):
         :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
         :param str timezone: The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
         """
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        ImagePipelineSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_expression=schedule_expression,
+            pipeline_execution_start_condition=pipeline_execution_start_condition,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_expression: Optional[str] = None,
+             pipeline_execution_start_condition: Optional[str] = None,
+             timezone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+        if pipeline_execution_start_condition is None and 'pipelineExecutionStartCondition' in kwargs:
+            pipeline_execution_start_condition = kwargs['pipelineExecutionStartCondition']
+
+        _setter("schedule_expression", schedule_expression)
         if pipeline_execution_start_condition is not None:
-            pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
+            _setter("pipeline_execution_start_condition", pipeline_execution_start_condition)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -1659,14 +2170,37 @@ class ImageRecipeBlockDeviceMapping(dict):
         :param bool no_device: Set to `true` to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
+        ImageRecipeBlockDeviceMapping._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             ebs: Optional['outputs.ImageRecipeBlockDeviceMappingEbs'] = None,
+             no_device: Optional[bool] = None,
+             virtual_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if ebs is not None:
-            pulumi.set(__self__, "ebs", ebs)
+            _setter("ebs", ebs)
         if no_device is not None:
-            pulumi.set(__self__, "no_device", no_device)
+            _setter("no_device", no_device)
         if virtual_name is not None:
-            pulumi.set(__self__, "virtual_name", virtual_name)
+            _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -1747,22 +2281,57 @@ class ImageRecipeBlockDeviceMappingEbs(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
         """
+        ImageRecipeBlockDeviceMappingEbs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            encrypted=encrypted,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            snapshot_id=snapshot_id,
+            throughput=throughput,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[str] = None,
+             encrypted: Optional[str] = None,
+             iops: Optional[int] = None,
+             kms_key_id: Optional[str] = None,
+             snapshot_id: Optional[str] = None,
+             throughput: Optional[int] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
-            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+            _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
-            pulumi.set(__self__, "encrypted", encrypted)
+            _setter("encrypted", encrypted)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if kms_key_id is not None:
-            pulumi.set(__self__, "kms_key_id", kms_key_id)
+            _setter("kms_key_id", kms_key_id)
         if snapshot_id is not None:
-            pulumi.set(__self__, "snapshot_id", snapshot_id)
+            _setter("snapshot_id", snapshot_id)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if volume_size is not None:
-            pulumi.set(__self__, "volume_size", volume_size)
+            _setter("volume_size", volume_size)
         if volume_type is not None:
-            pulumi.set(__self__, "volume_type", volume_type)
+            _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -1855,9 +2424,26 @@ class ImageRecipeComponent(dict):
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
         :param Sequence['ImageRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
-        pulumi.set(__self__, "component_arn", component_arn)
+        ImageRecipeComponent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_arn=component_arn,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_arn: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if component_arn is None and 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if component_arn is None:
+            raise TypeError("Missing 'component_arn' argument")
+
+        _setter("component_arn", component_arn)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -1885,8 +2471,25 @@ class ImageRecipeComponentParameter(dict):
         :param str name: The name of the component parameter.
         :param str value: The value for the named component parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        ImageRecipeComponentParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1929,7 +2532,22 @@ class ImageRecipeSystemsManagerAgent(dict):
         """
         :param bool uninstall_after_build: Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
         """
-        pulumi.set(__self__, "uninstall_after_build", uninstall_after_build)
+        ImageRecipeSystemsManagerAgent._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uninstall_after_build=uninstall_after_build,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uninstall_after_build: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if uninstall_after_build is None and 'uninstallAfterBuild' in kwargs:
+            uninstall_after_build = kwargs['uninstallAfterBuild']
+        if uninstall_after_build is None:
+            raise TypeError("Missing 'uninstall_after_build' argument")
+
+        _setter("uninstall_after_build", uninstall_after_build)
 
     @property
     @pulumi.getter(name="uninstallAfterBuild")
@@ -1968,10 +2586,27 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
         :param int http_put_response_hop_limit: The number of hops that an instance can traverse to reach its destonation.
         :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
         """
+        InfrastructureConfigurationInstanceMetadataOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_put_response_hop_limit=http_put_response_hop_limit,
+            http_tokens=http_tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_put_response_hop_limit: Optional[int] = None,
+             http_tokens: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_put_response_hop_limit is None and 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if http_tokens is None and 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+
         if http_put_response_hop_limit is not None:
-            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+            _setter("http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
-            pulumi.set(__self__, "http_tokens", http_tokens)
+            _setter("http_tokens", http_tokens)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -2014,7 +2649,22 @@ class InfrastructureConfigurationLogging(dict):
         """
         :param 'InfrastructureConfigurationLoggingS3LogsArgs' s3_logs: Configuration block with S3 logging settings. Detailed below.
         """
-        pulumi.set(__self__, "s3_logs", s3_logs)
+        InfrastructureConfigurationLogging._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_logs=s3_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_logs: Optional['outputs.InfrastructureConfigurationLoggingS3Logs'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+        if s3_logs is None:
+            raise TypeError("Missing 's3_logs' argument")
+
+        _setter("s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="s3Logs")
@@ -2055,9 +2705,28 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
                The following arguments are optional:
         :param str s3_key_prefix: Prefix to use for S3 logs. Defaults to `/`.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        InfrastructureConfigurationLoggingS3Logs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: Optional[str] = None,
+             s3_key_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
+        _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
-            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+            _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -2087,8 +2756,25 @@ class GetComponentsFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetComponentsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2116,8 +2802,27 @@ class GetContainerRecipeComponentResult(dict):
         :param str component_arn: ARN of the Image Builder Component.
         :param Sequence['GetContainerRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
         """
-        pulumi.set(__self__, "component_arn", component_arn)
-        pulumi.set(__self__, "parameters", parameters)
+        GetContainerRecipeComponentResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_arn=component_arn,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_arn: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.GetContainerRecipeComponentParameterResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if component_arn is None and 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if component_arn is None:
+            raise TypeError("Missing 'component_arn' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+
+        _setter("component_arn", component_arn)
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -2145,8 +2850,25 @@ class GetContainerRecipeComponentParameterResult(dict):
         :param str name: Name of the container recipe.
         :param str value: Value of the component parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetContainerRecipeComponentParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2174,8 +2896,27 @@ class GetContainerRecipeInstanceConfigurationResult(dict):
         :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Set of objects with block device mappings for the instance configuration.
         :param str image: AMI ID of the base image for container build and test instance.
         """
-        pulumi.set(__self__, "block_device_mappings", block_device_mappings)
-        pulumi.set(__self__, "image", image)
+        GetContainerRecipeInstanceConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            block_device_mappings=block_device_mappings,
+            image=image,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             block_device_mappings: Optional[Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult']] = None,
+             image: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if block_device_mappings is None:
+            raise TypeError("Missing 'block_device_mappings' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+
+        _setter("block_device_mappings", block_device_mappings)
+        _setter("image", image)
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
@@ -2207,10 +2948,41 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
         :param str no_device: Whether to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "ebs", ebs)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             ebs: Optional[Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult']] = None,
+             no_device: Optional[str] = None,
+             virtual_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if ebs is None:
+            raise TypeError("Missing 'ebs' argument")
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if no_device is None:
+            raise TypeError("Missing 'no_device' argument")
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+        if virtual_name is None:
+            raise TypeError("Missing 'virtual_name' argument")
+
+        _setter("device_name", device_name)
+        _setter("ebs", ebs)
+        _setter("no_device", no_device)
+        _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2266,14 +3038,65 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            encrypted=encrypted,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            snapshot_id=snapshot_id,
+            throughput=throughput,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[bool] = None,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             kms_key_id: Optional[str] = None,
+             snapshot_id: Optional[str] = None,
+             throughput: Optional[int] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if delete_on_termination is None:
+            raise TypeError("Missing 'delete_on_termination' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if iops is None:
+            raise TypeError("Missing 'iops' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if kms_key_id is None:
+            raise TypeError("Missing 'kms_key_id' argument")
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if snapshot_id is None:
+            raise TypeError("Missing 'snapshot_id' argument")
+        if throughput is None:
+            raise TypeError("Missing 'throughput' argument")
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_size is None:
+            raise TypeError("Missing 'volume_size' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+
+        _setter("delete_on_termination", delete_on_termination)
+        _setter("encrypted", encrypted)
+        _setter("iops", iops)
+        _setter("kms_key_id", kms_key_id)
+        _setter("snapshot_id", snapshot_id)
+        _setter("throughput", throughput)
+        _setter("volume_size", volume_size)
+        _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -2349,8 +3172,27 @@ class GetContainerRecipeTargetRepositoryResult(dict):
         :param str repository_name: Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
         :param str service: Service in which this image is registered.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "service", service)
+        GetContainerRecipeTargetRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[str] = None,
+             service: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+
+        _setter("repository_name", repository_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -2378,8 +3220,25 @@ class GetContainerRecipesFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetContainerRecipesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2415,12 +3274,55 @@ class GetDistributionConfigurationDistributionResult(dict):
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param str region: AWS Region of distribution.
         """
-        pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
-        pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
-        pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
-        pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
-        pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
-        pulumi.set(__self__, "region", region)
+        GetDistributionConfigurationDistributionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ami_distribution_configurations=ami_distribution_configurations,
+            container_distribution_configurations=container_distribution_configurations,
+            fast_launch_configurations=fast_launch_configurations,
+            launch_template_configurations=launch_template_configurations,
+            license_configuration_arns=license_configuration_arns,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ami_distribution_configurations: Optional[Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult']] = None,
+             container_distribution_configurations: Optional[Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult']] = None,
+             fast_launch_configurations: Optional[Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult']] = None,
+             launch_template_configurations: Optional[Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult']] = None,
+             license_configuration_arns: Optional[Sequence[str]] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ami_distribution_configurations is None and 'amiDistributionConfigurations' in kwargs:
+            ami_distribution_configurations = kwargs['amiDistributionConfigurations']
+        if ami_distribution_configurations is None:
+            raise TypeError("Missing 'ami_distribution_configurations' argument")
+        if container_distribution_configurations is None and 'containerDistributionConfigurations' in kwargs:
+            container_distribution_configurations = kwargs['containerDistributionConfigurations']
+        if container_distribution_configurations is None:
+            raise TypeError("Missing 'container_distribution_configurations' argument")
+        if fast_launch_configurations is None and 'fastLaunchConfigurations' in kwargs:
+            fast_launch_configurations = kwargs['fastLaunchConfigurations']
+        if fast_launch_configurations is None:
+            raise TypeError("Missing 'fast_launch_configurations' argument")
+        if launch_template_configurations is None and 'launchTemplateConfigurations' in kwargs:
+            launch_template_configurations = kwargs['launchTemplateConfigurations']
+        if launch_template_configurations is None:
+            raise TypeError("Missing 'launch_template_configurations' argument")
+        if license_configuration_arns is None and 'licenseConfigurationArns' in kwargs:
+            license_configuration_arns = kwargs['licenseConfigurationArns']
+        if license_configuration_arns is None:
+            raise TypeError("Missing 'license_configuration_arns' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("ami_distribution_configurations", ami_distribution_configurations)
+        _setter("container_distribution_configurations", container_distribution_configurations)
+        _setter("fast_launch_configurations", fast_launch_configurations)
+        _setter("launch_template_configurations", launch_template_configurations)
+        _setter("license_configuration_arns", license_configuration_arns)
+        _setter("region", region)
 
     @property
     @pulumi.getter(name="amiDistributionConfigurations")
@@ -2488,12 +3390,53 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
         :param str name: Name of the distribution configuration.
         :param Sequence[str] target_account_ids: Set of target AWS Account identifiers.
         """
-        pulumi.set(__self__, "ami_tags", ami_tags)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "launch_permissions", launch_permissions)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "target_account_ids", target_account_ids)
+        GetDistributionConfigurationDistributionAmiDistributionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ami_tags=ami_tags,
+            description=description,
+            kms_key_id=kms_key_id,
+            launch_permissions=launch_permissions,
+            name=name,
+            target_account_ids=target_account_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ami_tags: Optional[Mapping[str, str]] = None,
+             description: Optional[str] = None,
+             kms_key_id: Optional[str] = None,
+             launch_permissions: Optional[Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult']] = None,
+             name: Optional[str] = None,
+             target_account_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ami_tags is None and 'amiTags' in kwargs:
+            ami_tags = kwargs['amiTags']
+        if ami_tags is None:
+            raise TypeError("Missing 'ami_tags' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if kms_key_id is None:
+            raise TypeError("Missing 'kms_key_id' argument")
+        if launch_permissions is None and 'launchPermissions' in kwargs:
+            launch_permissions = kwargs['launchPermissions']
+        if launch_permissions is None:
+            raise TypeError("Missing 'launch_permissions' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if target_account_ids is None and 'targetAccountIds' in kwargs:
+            target_account_ids = kwargs['targetAccountIds']
+        if target_account_ids is None:
+            raise TypeError("Missing 'target_account_ids' argument")
+
+        _setter("ami_tags", ami_tags)
+        _setter("description", description)
+        _setter("kms_key_id", kms_key_id)
+        _setter("launch_permissions", launch_permissions)
+        _setter("name", name)
+        _setter("target_account_ids", target_account_ids)
 
     @property
     @pulumi.getter(name="amiTags")
@@ -2557,10 +3500,43 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
         :param Sequence[str] user_groups: Set of EC2 launch permission user groups.
         :param Sequence[str] user_ids: Set of AWS Account identifiers.
         """
-        pulumi.set(__self__, "organization_arns", organization_arns)
-        pulumi.set(__self__, "organizational_unit_arns", organizational_unit_arns)
-        pulumi.set(__self__, "user_groups", user_groups)
-        pulumi.set(__self__, "user_ids", user_ids)
+        GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            organization_arns=organization_arns,
+            organizational_unit_arns=organizational_unit_arns,
+            user_groups=user_groups,
+            user_ids=user_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             organization_arns: Optional[Sequence[str]] = None,
+             organizational_unit_arns: Optional[Sequence[str]] = None,
+             user_groups: Optional[Sequence[str]] = None,
+             user_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if organization_arns is None and 'organizationArns' in kwargs:
+            organization_arns = kwargs['organizationArns']
+        if organization_arns is None:
+            raise TypeError("Missing 'organization_arns' argument")
+        if organizational_unit_arns is None and 'organizationalUnitArns' in kwargs:
+            organizational_unit_arns = kwargs['organizationalUnitArns']
+        if organizational_unit_arns is None:
+            raise TypeError("Missing 'organizational_unit_arns' argument")
+        if user_groups is None and 'userGroups' in kwargs:
+            user_groups = kwargs['userGroups']
+        if user_groups is None:
+            raise TypeError("Missing 'user_groups' argument")
+        if user_ids is None and 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+        if user_ids is None:
+            raise TypeError("Missing 'user_ids' argument")
+
+        _setter("organization_arns", organization_arns)
+        _setter("organizational_unit_arns", organizational_unit_arns)
+        _setter("user_groups", user_groups)
+        _setter("user_ids", user_ids)
 
     @property
     @pulumi.getter(name="organizationArns")
@@ -2606,9 +3582,34 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
         :param str description: Description of the container distribution configuration.
         :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs'] target_repositories: Set of destination repositories for the container distribution configuration.
         """
-        pulumi.set(__self__, "container_tags", container_tags)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "target_repositories", target_repositories)
+        GetDistributionConfigurationDistributionContainerDistributionConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_tags=container_tags,
+            description=description,
+            target_repositories=target_repositories,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_tags: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             target_repositories: Optional[Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if container_tags is None:
+            raise TypeError("Missing 'container_tags' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if target_repositories is None and 'targetRepositories' in kwargs:
+            target_repositories = kwargs['targetRepositories']
+        if target_repositories is None:
+            raise TypeError("Missing 'target_repositories' argument")
+
+        _setter("container_tags", container_tags)
+        _setter("description", description)
+        _setter("target_repositories", target_repositories)
 
     @property
     @pulumi.getter(name="containerTags")
@@ -2644,8 +3645,27 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
         :param str repository_name: Name of the container repository where the output container image is stored.
         :param str service: Service in which the image is registered.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "service", service)
+        GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            service=service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[str] = None,
+             service: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+
+        _setter("repository_name", repository_name)
+        _setter("service", service)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -2679,11 +3699,48 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict
         :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
         :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs'] snapshot_configurations: Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "launch_templates", launch_templates)
-        pulumi.set(__self__, "max_parallel_launches", max_parallel_launches)
-        pulumi.set(__self__, "snapshot_configurations", snapshot_configurations)
+        GetDistributionConfigurationDistributionFastLaunchConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            enabled=enabled,
+            launch_templates=launch_templates,
+            max_parallel_launches=max_parallel_launches,
+            snapshot_configurations=snapshot_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             launch_templates: Optional[Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult']] = None,
+             max_parallel_launches: Optional[int] = None,
+             snapshot_configurations: Optional[Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if launch_templates is None and 'launchTemplates' in kwargs:
+            launch_templates = kwargs['launchTemplates']
+        if launch_templates is None:
+            raise TypeError("Missing 'launch_templates' argument")
+        if max_parallel_launches is None and 'maxParallelLaunches' in kwargs:
+            max_parallel_launches = kwargs['maxParallelLaunches']
+        if max_parallel_launches is None:
+            raise TypeError("Missing 'max_parallel_launches' argument")
+        if snapshot_configurations is None and 'snapshotConfigurations' in kwargs:
+            snapshot_configurations = kwargs['snapshotConfigurations']
+        if snapshot_configurations is None:
+            raise TypeError("Missing 'snapshot_configurations' argument")
+
+        _setter("account_id", account_id)
+        _setter("enabled", enabled)
+        _setter("launch_templates", launch_templates)
+        _setter("max_parallel_launches", max_parallel_launches)
+        _setter("snapshot_configurations", snapshot_configurations)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2737,9 +3794,36 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
         :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
         :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
         """
-        pulumi.set(__self__, "launch_template_id", launch_template_id)
-        pulumi.set(__self__, "launch_template_name", launch_template_name)
-        pulumi.set(__self__, "launch_template_version", launch_template_version)
+        GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            launch_template_id=launch_template_id,
+            launch_template_name=launch_template_name,
+            launch_template_version=launch_template_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             launch_template_id: Optional[str] = None,
+             launch_template_name: Optional[str] = None,
+             launch_template_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_id is None:
+            raise TypeError("Missing 'launch_template_id' argument")
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+        if launch_template_name is None:
+            raise TypeError("Missing 'launch_template_name' argument")
+        if launch_template_version is None and 'launchTemplateVersion' in kwargs:
+            launch_template_version = kwargs['launchTemplateVersion']
+        if launch_template_version is None:
+            raise TypeError("Missing 'launch_template_version' argument")
+
+        _setter("launch_template_id", launch_template_id)
+        _setter("launch_template_name", launch_template_name)
+        _setter("launch_template_version", launch_template_version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -2773,7 +3857,22 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotCon
         """
         :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         """
-        pulumi.set(__self__, "target_resource_count", target_resource_count)
+        GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_resource_count=target_resource_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_resource_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target_resource_count is None and 'targetResourceCount' in kwargs:
+            target_resource_count = kwargs['targetResourceCount']
+        if target_resource_count is None:
+            raise TypeError("Missing 'target_resource_count' argument")
+
+        _setter("target_resource_count", target_resource_count)
 
     @property
     @pulumi.getter(name="targetResourceCount")
@@ -2795,9 +3894,34 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
         :param bool default: Whether the specified Amazon EC2 launch template is set as the default launch template.
         :param str launch_template_id: ID of the Amazon EC2 launch template.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "launch_template_id", launch_template_id)
+        GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            default=default,
+            launch_template_id=launch_template_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             default: Optional[bool] = None,
+             launch_template_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if default is None:
+            raise TypeError("Missing 'default' argument")
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_id is None:
+            raise TypeError("Missing 'launch_template_id' argument")
+
+        _setter("account_id", account_id)
+        _setter("default", default)
+        _setter("launch_template_id", launch_template_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2833,8 +3957,25 @@ class GetDistributionConfigurationsFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetDistributionConfigurationsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2862,8 +4003,29 @@ class GetImageImageScanningConfigurationResult(dict):
         :param Sequence['GetImageImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: Configuration block with ECR configuration.
         :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
-        pulumi.set(__self__, "ecr_configurations", ecr_configurations)
-        pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+        GetImageImageScanningConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_configurations=ecr_configurations,
+            image_scanning_enabled=image_scanning_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_configurations: Optional[Sequence['outputs.GetImageImageScanningConfigurationEcrConfigurationResult']] = None,
+             image_scanning_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_configurations is None and 'ecrConfigurations' in kwargs:
+            ecr_configurations = kwargs['ecrConfigurations']
+        if ecr_configurations is None:
+            raise TypeError("Missing 'ecr_configurations' argument")
+        if image_scanning_enabled is None and 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+        if image_scanning_enabled is None:
+            raise TypeError("Missing 'image_scanning_enabled' argument")
+
+        _setter("ecr_configurations", ecr_configurations)
+        _setter("image_scanning_enabled", image_scanning_enabled)
 
     @property
     @pulumi.getter(name="ecrConfigurations")
@@ -2891,8 +4053,29 @@ class GetImageImageScanningConfigurationEcrConfigurationResult(dict):
         :param Sequence[str] container_tags: Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
         :param str repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images.
         """
-        pulumi.set(__self__, "container_tags", container_tags)
-        pulumi.set(__self__, "repository_name", repository_name)
+        GetImageImageScanningConfigurationEcrConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_tags=container_tags,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_tags: Optional[Sequence[str]] = None,
+             repository_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if container_tags is None:
+            raise TypeError("Missing 'container_tags' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+
+        _setter("container_tags", container_tags)
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="containerTags")
@@ -2920,8 +4103,29 @@ class GetImageImageTestsConfigurationResult(dict):
         :param bool image_tests_enabled: Whether image tests are enabled.
         :param int timeout_minutes: Number of minutes before image tests time out.
         """
-        pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
-        pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        GetImageImageTestsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_tests_enabled=image_tests_enabled,
+            timeout_minutes=timeout_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_tests_enabled: Optional[bool] = None,
+             timeout_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_tests_enabled is None and 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if image_tests_enabled is None:
+            raise TypeError("Missing 'image_tests_enabled' argument")
+        if timeout_minutes is None and 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+        if timeout_minutes is None:
+            raise TypeError("Missing 'timeout_minutes' argument")
+
+        _setter("image_tests_enabled", image_tests_enabled)
+        _setter("timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
@@ -2949,8 +4153,25 @@ class GetImageOutputResourceResult(dict):
         :param Sequence['GetImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
         :param Sequence['GetImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
-        pulumi.set(__self__, "amis", amis)
-        pulumi.set(__self__, "containers", containers)
+        GetImageOutputResourceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amis=amis,
+            containers=containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amis: Optional[Sequence['outputs.GetImageOutputResourceAmiResult']] = None,
+             containers: Optional[Sequence['outputs.GetImageOutputResourceContainerResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if amis is None:
+            raise TypeError("Missing 'amis' argument")
+        if containers is None:
+            raise TypeError("Missing 'containers' argument")
+
+        _setter("amis", amis)
+        _setter("containers", containers)
 
     @property
     @pulumi.getter
@@ -2984,11 +4205,42 @@ class GetImageOutputResourceAmiResult(dict):
         :param str name: Name of the AMI.
         :param str region: Region of the container image.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
+        GetImageOutputResourceAmiResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            description=description,
+            image=image,
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             description: Optional[str] = None,
+             image: Optional[str] = None,
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("account_id", account_id)
+        _setter("description", description)
+        _setter("image", image)
+        _setter("name", name)
+        _setter("region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -3040,8 +4292,27 @@ class GetImageOutputResourceContainerResult(dict):
         :param Sequence[str] image_uris: Set of URIs for created containers.
         :param str region: Region of the container image.
         """
-        pulumi.set(__self__, "image_uris", image_uris)
-        pulumi.set(__self__, "region", region)
+        GetImageOutputResourceContainerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_uris=image_uris,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_uris: Optional[Sequence[str]] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_uris is None and 'imageUris' in kwargs:
+            image_uris = kwargs['imageUris']
+        if image_uris is None:
+            raise TypeError("Missing 'image_uris' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
+        _setter("image_uris", image_uris)
+        _setter("region", region)
 
     @property
     @pulumi.getter(name="imageUris")
@@ -3069,8 +4340,29 @@ class GetImagePipelineImageScanningConfigurationResult(dict):
         :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: List if an object with ecr configuration for image scanning
         :param bool image_scanning_enabled: Whether image scanning is enabled.
         """
-        pulumi.set(__self__, "ecr_configurations", ecr_configurations)
-        pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+        GetImagePipelineImageScanningConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ecr_configurations=ecr_configurations,
+            image_scanning_enabled=image_scanning_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ecr_configurations: Optional[Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult']] = None,
+             image_scanning_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ecr_configurations is None and 'ecrConfigurations' in kwargs:
+            ecr_configurations = kwargs['ecrConfigurations']
+        if ecr_configurations is None:
+            raise TypeError("Missing 'ecr_configurations' argument")
+        if image_scanning_enabled is None and 'imageScanningEnabled' in kwargs:
+            image_scanning_enabled = kwargs['imageScanningEnabled']
+        if image_scanning_enabled is None:
+            raise TypeError("Missing 'image_scanning_enabled' argument")
+
+        _setter("ecr_configurations", ecr_configurations)
+        _setter("image_scanning_enabled", image_scanning_enabled)
 
     @property
     @pulumi.getter(name="ecrConfigurations")
@@ -3098,8 +4390,29 @@ class GetImagePipelineImageScanningConfigurationEcrConfigurationResult(dict):
         :param Sequence[str] container_tags: Tags that are added to the output containers that are scanned
         :param str repository_name: The name of the container repository that Amazon Inspector scans
         """
-        pulumi.set(__self__, "container_tags", container_tags)
-        pulumi.set(__self__, "repository_name", repository_name)
+        GetImagePipelineImageScanningConfigurationEcrConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_tags=container_tags,
+            repository_name=repository_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_tags: Optional[Sequence[str]] = None,
+             repository_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_tags is None and 'containerTags' in kwargs:
+            container_tags = kwargs['containerTags']
+        if container_tags is None:
+            raise TypeError("Missing 'container_tags' argument")
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+
+        _setter("container_tags", container_tags)
+        _setter("repository_name", repository_name)
 
     @property
     @pulumi.getter(name="containerTags")
@@ -3127,8 +4440,29 @@ class GetImagePipelineImageTestsConfigurationResult(dict):
         :param bool image_tests_enabled: Whether image tests are enabled.
         :param int timeout_minutes: Number of minutes before image tests time out.
         """
-        pulumi.set(__self__, "image_tests_enabled", image_tests_enabled)
-        pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        GetImagePipelineImageTestsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_tests_enabled=image_tests_enabled,
+            timeout_minutes=timeout_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_tests_enabled: Optional[bool] = None,
+             timeout_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if image_tests_enabled is None and 'imageTestsEnabled' in kwargs:
+            image_tests_enabled = kwargs['imageTestsEnabled']
+        if image_tests_enabled is None:
+            raise TypeError("Missing 'image_tests_enabled' argument")
+        if timeout_minutes is None and 'timeoutMinutes' in kwargs:
+            timeout_minutes = kwargs['timeoutMinutes']
+        if timeout_minutes is None:
+            raise TypeError("Missing 'timeout_minutes' argument")
+
+        _setter("image_tests_enabled", image_tests_enabled)
+        _setter("timeout_minutes", timeout_minutes)
 
     @property
     @pulumi.getter(name="imageTestsEnabled")
@@ -3156,8 +4490,29 @@ class GetImagePipelineScheduleResult(dict):
         :param str pipeline_execution_start_condition: Condition when the pipeline should trigger a new image build.
         :param str schedule_expression: Cron expression of how often the pipeline start condition is evaluated.
         """
-        pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
-        pulumi.set(__self__, "schedule_expression", schedule_expression)
+        GetImagePipelineScheduleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_execution_start_condition=pipeline_execution_start_condition,
+            schedule_expression=schedule_expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_execution_start_condition: Optional[str] = None,
+             schedule_expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if pipeline_execution_start_condition is None and 'pipelineExecutionStartCondition' in kwargs:
+            pipeline_execution_start_condition = kwargs['pipelineExecutionStartCondition']
+        if pipeline_execution_start_condition is None:
+            raise TypeError("Missing 'pipeline_execution_start_condition' argument")
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+
+        _setter("pipeline_execution_start_condition", pipeline_execution_start_condition)
+        _setter("schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")
@@ -3185,8 +4540,25 @@ class GetImagePipelinesFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetImagePipelinesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3218,10 +4590,41 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
         :param str no_device: Whether to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "ebs", ebs)
-        pulumi.set(__self__, "no_device", no_device)
-        pulumi.set(__self__, "virtual_name", virtual_name)
+        GetImageRecipeBlockDeviceMappingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            ebs=ebs,
+            no_device=no_device,
+            virtual_name=virtual_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[str] = None,
+             ebs: Optional[Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult']] = None,
+             no_device: Optional[str] = None,
+             virtual_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if ebs is None:
+            raise TypeError("Missing 'ebs' argument")
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if no_device is None:
+            raise TypeError("Missing 'no_device' argument")
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+        if virtual_name is None:
+            raise TypeError("Missing 'virtual_name' argument")
+
+        _setter("device_name", device_name)
+        _setter("ebs", ebs)
+        _setter("no_device", no_device)
+        _setter("virtual_name", virtual_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -3277,14 +4680,65 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
         :param int volume_size: Size of the volume, in GiB.
         :param str volume_type: Type of the volume. For example, `gp2` or `io2`.
         """
-        pulumi.set(__self__, "delete_on_termination", delete_on_termination)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "kms_key_id", kms_key_id)
-        pulumi.set(__self__, "snapshot_id", snapshot_id)
-        pulumi.set(__self__, "throughput", throughput)
-        pulumi.set(__self__, "volume_size", volume_size)
-        pulumi.set(__self__, "volume_type", volume_type)
+        GetImageRecipeBlockDeviceMappingEbResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_on_termination=delete_on_termination,
+            encrypted=encrypted,
+            iops=iops,
+            kms_key_id=kms_key_id,
+            snapshot_id=snapshot_id,
+            throughput=throughput,
+            volume_size=volume_size,
+            volume_type=volume_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_on_termination: Optional[bool] = None,
+             encrypted: Optional[bool] = None,
+             iops: Optional[int] = None,
+             kms_key_id: Optional[str] = None,
+             snapshot_id: Optional[str] = None,
+             throughput: Optional[int] = None,
+             volume_size: Optional[int] = None,
+             volume_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if delete_on_termination is None:
+            raise TypeError("Missing 'delete_on_termination' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if iops is None:
+            raise TypeError("Missing 'iops' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if kms_key_id is None:
+            raise TypeError("Missing 'kms_key_id' argument")
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if snapshot_id is None:
+            raise TypeError("Missing 'snapshot_id' argument")
+        if throughput is None:
+            raise TypeError("Missing 'throughput' argument")
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_size is None:
+            raise TypeError("Missing 'volume_size' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+
+        _setter("delete_on_termination", delete_on_termination)
+        _setter("encrypted", encrypted)
+        _setter("iops", iops)
+        _setter("kms_key_id", kms_key_id)
+        _setter("snapshot_id", snapshot_id)
+        _setter("throughput", throughput)
+        _setter("volume_size", volume_size)
+        _setter("volume_type", volume_type)
 
     @property
     @pulumi.getter(name="deleteOnTermination")
@@ -3360,8 +4814,27 @@ class GetImageRecipeComponentResult(dict):
         :param str component_arn: ARN of the Image Builder Component.
         :param Sequence['GetImageRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
         """
-        pulumi.set(__self__, "component_arn", component_arn)
-        pulumi.set(__self__, "parameters", parameters)
+        GetImageRecipeComponentResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_arn=component_arn,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_arn: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.GetImageRecipeComponentParameterResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if component_arn is None and 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if component_arn is None:
+            raise TypeError("Missing 'component_arn' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+
+        _setter("component_arn", component_arn)
+        _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -3389,8 +4862,25 @@ class GetImageRecipeComponentParameterResult(dict):
         :param str name: Name of the image recipe.
         :param str value: Value of the component parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetImageRecipeComponentParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3418,8 +4908,25 @@ class GetImageRecipesFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetImageRecipesFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3447,8 +4954,29 @@ class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
         :param int http_put_response_hop_limit: Number of hops that an instance can traverse to reach its destonation.
         :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests.
         """
-        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
-        pulumi.set(__self__, "http_tokens", http_tokens)
+        GetInfrastructureConfigurationInstanceMetadataOptionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_put_response_hop_limit=http_put_response_hop_limit,
+            http_tokens=http_tokens,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_put_response_hop_limit: Optional[int] = None,
+             http_tokens: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_put_response_hop_limit is None and 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if http_put_response_hop_limit is None:
+            raise TypeError("Missing 'http_put_response_hop_limit' argument")
+        if http_tokens is None and 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+        if http_tokens is None:
+            raise TypeError("Missing 'http_tokens' argument")
+
+        _setter("http_put_response_hop_limit", http_put_response_hop_limit)
+        _setter("http_tokens", http_tokens)
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -3474,7 +5002,22 @@ class GetInfrastructureConfigurationLoggingResult(dict):
         """
         :param Sequence['GetInfrastructureConfigurationLoggingS3LogArgs'] s3_logs: Nested list of S3 logs settings.
         """
-        pulumi.set(__self__, "s3_logs", s3_logs)
+        GetInfrastructureConfigurationLoggingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_logs=s3_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_logs: Optional[Sequence['outputs.GetInfrastructureConfigurationLoggingS3LogResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+        if s3_logs is None:
+            raise TypeError("Missing 's3_logs' argument")
+
+        _setter("s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="s3Logs")
@@ -3494,8 +5037,29 @@ class GetInfrastructureConfigurationLoggingS3LogResult(dict):
         :param str s3_bucket_name: Name of the S3 Bucket for logging.
         :param str s3_key_prefix: Key prefix for S3 Bucket logging.
         """
-        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
-        pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        GetInfrastructureConfigurationLoggingS3LogResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            s3_bucket_name=s3_bucket_name,
+            s3_key_prefix=s3_key_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             s3_bucket_name: Optional[str] = None,
+             s3_key_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if s3_key_prefix is None:
+            raise TypeError("Missing 's3_key_prefix' argument")
+
+        _setter("s3_bucket_name", s3_bucket_name)
+        _setter("s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -3523,8 +5087,25 @@ class GetInfrastructureConfigurationsFilterResult(dict):
         :param str name: Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
         :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
+        GetInfrastructureConfigurationsFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("values", values)
 
     @property
     @pulumi.getter

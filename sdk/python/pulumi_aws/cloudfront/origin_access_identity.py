@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OriginAccessIdentityArgs', 'OriginAccessIdentity']
@@ -19,8 +19,19 @@ class OriginAccessIdentityArgs:
         The set of arguments for constructing a OriginAccessIdentity resource.
         :param pulumi.Input[str] comment: An optional comment for the origin access identity.
         """
+        OriginAccessIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment=comment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
 
     @property
     @pulumi.getter
@@ -60,18 +71,47 @@ class _OriginAccessIdentityState:
                access identity, which you use when giving the origin access identity read
                permission to an object in Amazon S3.
         """
+        _OriginAccessIdentityState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caller_reference=caller_reference,
+            cloudfront_access_identity_path=cloudfront_access_identity_path,
+            comment=comment,
+            etag=etag,
+            iam_arn=iam_arn,
+            s3_canonical_user_id=s3_canonical_user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caller_reference: Optional[pulumi.Input[str]] = None,
+             cloudfront_access_identity_path: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             iam_arn: Optional[pulumi.Input[str]] = None,
+             s3_canonical_user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if caller_reference is None and 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if cloudfront_access_identity_path is None and 'cloudfrontAccessIdentityPath' in kwargs:
+            cloudfront_access_identity_path = kwargs['cloudfrontAccessIdentityPath']
+        if iam_arn is None and 'iamArn' in kwargs:
+            iam_arn = kwargs['iamArn']
+        if s3_canonical_user_id is None and 's3CanonicalUserId' in kwargs:
+            s3_canonical_user_id = kwargs['s3CanonicalUserId']
+
         if caller_reference is not None:
-            pulumi.set(__self__, "caller_reference", caller_reference)
+            _setter("caller_reference", caller_reference)
         if cloudfront_access_identity_path is not None:
-            pulumi.set(__self__, "cloudfront_access_identity_path", cloudfront_access_identity_path)
+            _setter("cloudfront_access_identity_path", cloudfront_access_identity_path)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if iam_arn is not None:
-            pulumi.set(__self__, "iam_arn", iam_arn)
+            _setter("iam_arn", iam_arn)
         if s3_canonical_user_id is not None:
-            pulumi.set(__self__, "s3_canonical_user_id", s3_canonical_user_id)
+            _setter("s3_canonical_user_id", s3_canonical_user_id)
 
     @property
     @pulumi.getter(name="callerReference")
@@ -326,6 +366,10 @@ class OriginAccessIdentity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OriginAccessIdentityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
