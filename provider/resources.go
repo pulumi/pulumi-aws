@@ -43,6 +43,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
+func ptr[T any](t T) *T {
+	return &t
+}
+
 // all of the AWS token components used below.
 const (
 	// packages:
@@ -641,8 +645,8 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
-//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
-var metadata []byte
+// NO go:embed cmd/pulumi-resource-aws/bridge-metadata.json
+// var _metadata []byte
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
@@ -668,7 +672,8 @@ func Provider() *tfbridge.ProviderInfo {
 		// See pulumi/pulumi-aws#2880
 		SkipValidateProviderConfigForPluginFramework: true,
 
-		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		// MetadataInfo: tfbridge.NewProviderMetadata(_metadata),
+		MetadataInfo: &MetadataInfo,
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
@@ -884,7 +889,8 @@ func Provider() *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_method_settings": {
 				Tok: awsResource(apigatewayMod, "MethodSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -893,7 +899,8 @@ func Provider() *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_model": {
 				Tok: awsResource(apigatewayMod, "Model"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -902,7 +909,8 @@ func Provider() *tfbridge.ProviderInfo {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
 					},
-				}},
+				},
+			},
 			"aws_api_gateway_request_validator": {
 				Tok: awsResource(apigatewayMod, "RequestValidator"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2427,7 +2435,6 @@ func Provider() *tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleS3"},
 					},
 					"sns": {
-
 						// Singularization converts `sns` to `sn`, which is wrong.
 						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSns"},
 					},
@@ -3464,7 +3471,7 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsResource(s3Mod, "BucketIntelligentTieringConfiguration"),
 			},
 			"aws_s3_bucket_replication_configuration": {Tok: awsResource(s3Mod, "BucketReplicationConfig")},
-			//S3 Control
+			// S3 Control
 			"aws_s3control_bucket": {
 				Tok: awsResource(s3ControlMod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -5964,7 +5971,6 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-
 			"aws_auditmanager_control": {
 				Tok: awsDataSource(auditmanagerMod, "getControl"),
 			},
@@ -6495,7 +6501,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			// S3
 			"aws_canonical_user_id": {Tok: awsDataSource(s3Mod, "getCanonicalUserId")},
 			"aws_s3_account_public_access_block": {
-				Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock")},
+				Tok: awsDataSource(s3Mod, "getAccountPublicAccessBlock"),
+			},
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
@@ -6673,14 +6680,14 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			"aws_imagebuilder_container_recipes":             {Tok: awsDataSource(imageBuilderMod, "getContainerRecipes")},
 			"aws_imagebuilder_image_pipelines":               {Tok: awsDataSource(imageBuilderMod, "getImagePipelines")},
 
-			//ses
+			// ses
 			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},
 			"aws_ses_domain_identity":         {Tok: awsDataSource(sesMod, "getDomainIdentity")},
 			"aws_ses_email_identity":          {Tok: awsDataSource(sesMod, "getEmailIdentity")},
-			//signer
+			// signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},
-			//serverless repository
+			// serverless repository
 			"aws_serverlessapplicationrepository_application": {
 				Tok: awsDataSource(serverlessRepositoryMod, "getApplication"),
 			},
@@ -6756,7 +6763,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 				},
 			},
 			"aws_lb_listener": {Tok: awsDataSource(lbMod, "getListener")},
-			"aws_lb_target_group": {Tok: awsDataSource(lbMod, "getTargetGroup"),
+			"aws_lb_target_group": {
+				Tok: awsDataSource(lbMod, "getTargetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"stickiness": {
 						MaxItemsOne: ref(true),
@@ -6921,7 +6929,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			i := &tfbridge.PythonInfo{
 				Requires: map[string]string{
 					"pulumi": ">=3.0.0,<4.0.0",
-				}}
+				},
+			}
 			i.PyProject.Enabled = true
 			return i
 		})(),
