@@ -64,15 +64,17 @@ func main() {
 			return err
 		}
 
-		app, err := appconfig.NewApplication(ctx, "testappconfigapp", &appconfig.ApplicationArgs{
-			Tags: tagsMap,
-		}, pulumi.Provider(p))
+		app, err := appconfig.NewApplication(ctx, "testappconfigapp",
+			&appconfig.ApplicationArgs{
+				Tags: tagsMap,
+			}, pulumi.Provider(p))
 		if err != nil {
 			return err
 		}
 
 		ctx.Export("vpc", exportTags(vpc.Tags))
 		ctx.Export("bucket", exportTags(bucket.Tags))
+		ctx.Export("bucket-name", bucket.Bucket)
 		ctx.Export("appconfig-app", exportTags(app.Tags))
 
 		return nil

@@ -181,7 +181,14 @@ func (st tagsState) validateStateResult(phase int) func(
 	stack integration.RuntimeValidationStackInfo,
 ) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+		bucketName := stack.Outputs["bucket-name"].(string)
+		actualBucketTags := fetchBucketTags(t, bucketName)
+
 		for k, v := range stack.Outputs {
+			if k == "bucket-name" {
+				continue
+			}
+
 			actualTagsJSON := v.(string)
 			var actualTags map[string]string
 			err := json.Unmarshal([]byte(actualTagsJSON), &actualTags)
@@ -190,6 +197,32 @@ func (st tagsState) validateStateResult(phase int) func(
 			t.Logf("state: %v", st.serialize(t))
 			require.Equalf(t, st.expectedTags(), actualTags, "key=%s", k)
 			t.Logf("key=%s tags are as expected: %v", k, actualTagsJSON)
+
+			if k == "bucket" {
+				require.Equalf(t, st.expectedTags(), actualBucketTags, "bad bucket tags")
+			}
 		}
 	}
+}
+
+func fetchBucketTags(t *testing.T, awsBucket string) map[string]string {
+	sess := session.Must(session.NewSessionWithOptions(session.Options{
+		SharedConfigState: session.SharedConfigEnable,
+	}))
+
+	client := s3sdk.New(sess)
+
+	input := &s3sdk.GetBucketTaggingInput{
+		Bucket: &awsBucket,
+	}
+
+	result, err := client.GetBucketTagging(input)
+	require.NoError(t, err)
+
+	tags := make(map[string]string)
+	for _, tag := range result.TagSet {
+		tags[*tag.Key] = *tag.Value
+	}
+
+	return tags
 }
