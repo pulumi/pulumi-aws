@@ -57,7 +57,6 @@ public class Utilities {
         return Optional.empty();
 	}
 
-	// TODO: this probably should be done via a mutator on the InvokeOptions
 	public static InvokeOptions withVersion(@Nullable InvokeOptions options) {
             if (options != null && options.getVersion().isPresent()) {
                 return options;
