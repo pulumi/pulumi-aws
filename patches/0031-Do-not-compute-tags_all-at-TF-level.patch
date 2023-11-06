@@ -1,10 +1,41 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
-Date: Fri, 3 Nov 2023 16:12:47 -0400
-Subject: [PATCH 35/35] Make tags_all attribute no longer computed for Plugin
- Framework
+Date: Mon, 6 Nov 2023 11:17:16 -0500
+Subject: [PATCH 31/31] Do not compute tags_all at TF level
 
 
+diff --git a/internal/framework/base.go b/internal/framework/base.go
+index 34065d9285..5225f639af 100644
+--- a/internal/framework/base.go
++++ b/internal/framework/base.go
+@@ -69,6 +69,12 @@ func (r *ResourceWithConfigure) Configure(_ context.Context, request resource.Co
+ 
+ // SetTagsAll calculates the new value for the `tags_all` attribute.
+ func (r *ResourceWithConfigure) SetTagsAll(ctx context.Context, request resource.ModifyPlanRequest, response *resource.ModifyPlanResponse) {
++
++	// Skip SetTagsAll in Pulumi because it is handled at Pulumi provider level.
++	if 1+1 == 2 {
++		return
++	}
++
+ 	// If the entire plan is null, the resource is planned for destruction.
+ 	if request.Plan.Raw.IsNull() {
+ 		return
+diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
+index 85a814022b..b119e21c46 100644
+--- a/internal/provider/fwprovider/provider.go
++++ b/internal/provider/fwprovider/provider.go
+@@ -413,8 +413,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+ 					continue
+ 				}
+ 				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
+-					if !v.IsComputed() {
+-						errs = append(errs, fmt.Errorf("`%s` attribute must be Computed: %s", names.AttrTagsAll, typeName))
++					if v.IsComputed() {
++						errs = append(errs, fmt.Errorf("`%s` attribute must not be Computed: %s", names.AttrTagsAll, typeName))
+ 						continue
+ 					}
+ 				} else {
 diff --git a/internal/service/appconfig/environment.go b/internal/service/appconfig/environment.go
 index 258bb7c907..e129655da6 100644
 --- a/internal/service/appconfig/environment.go
@@ -200,3 +231,161 @@ index 33d374f4e2..b2e1c97096 100644
  		},
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
+diff --git a/internal/verify/diff.go b/internal/verify/diff.go
+index 5e9c779a28..87a57e6076 100644
+--- a/internal/verify/diff.go
++++ b/internal/verify/diff.go
+@@ -5,103 +5,14 @@ package verify
+ 
+ import (
+ 	"context"
+-	"fmt"
+ 	"strings"
+ 	"time"
+ 
+ 	"github.com/aws/aws-sdk-go/aws"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+-	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+-	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
+ )
+ 
+-// Find JSON diff functions in the json.go file.
+-
+-// SetTagsDiff sets the new plan difference with the result of
+-// merging resource tags on to those defined at the provider-level;
+-// returns an error if unsuccessful or if the resource tags are identical
+-// to those configured at the provider-level to avoid non-empty plans
+-// after resource READ operations as resource and provider-level tags
+-// will be indistinguishable when returned from an AWS API.
+ func SetTagsDiff(ctx context.Context, diff *schema.ResourceDiff, meta interface{}) error {
+-	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
+-	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+-
+-	resourceTags := tftags.New(ctx, diff.Get("tags").(map[string]interface{}))
+-
+-	allTags := defaultTagsConfig.MergeTags(resourceTags).IgnoreConfig(ignoreTagsConfig)
+-	// To ensure "tags_all" is correctly computed, we explicitly set the attribute diff
+-	// when the merger of resource-level tags onto provider-level tags results in n > 0 tags,
+-	// otherwise we mark the attribute as "Computed" only when there is a known diff (excluding an empty map)
+-	// or a change for "tags_all".
+-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/18366
+-	// Reference: https://github.com/hashicorp/terraform-provider-aws/issues/19005
+-
+-	if !diff.GetRawPlan().GetAttr("tags").IsWhollyKnown() {
+-		if err := diff.SetNewComputed("tags_all"); err != nil {
+-			return fmt.Errorf("setting tags_all to computed: %w", err)
+-		}
+-		return nil
+-	}
+-
+-	if diff.HasChange("tags") {
+-		_, n := diff.GetChange("tags")
+-		newTags := tftags.New(ctx, n.(map[string]interface{}))
+-
+-		if newTags.HasZeroValue() {
+-			if err := diff.SetNewComputed("tags_all"); err != nil {
+-				return fmt.Errorf("setting tags_all to computed: %w", err)
+-			}
+-		}
+-
+-		if len(allTags) > 0 && (!newTags.HasZeroValue() || !allTags.HasZeroValue()) {
+-			if err := diff.SetNew("tags_all", allTags.Map()); err != nil {
+-				return fmt.Errorf("setting new tags_all diff: %w", err)
+-			}
+-		}
+-
+-		if len(allTags) == 0 {
+-			if err := diff.SetNewComputed("tags_all"); err != nil {
+-				return fmt.Errorf("setting tags_all to computed: %w", err)
+-			}
+-		}
+-	} else if !diff.HasChange("tags") {
+-		if len(allTags) > 0 && !allTags.HasZeroValue() {
+-			if err := diff.SetNew("tags_all", allTags.Map()); err != nil {
+-				return fmt.Errorf("setting new tags_all diff: %w", err)
+-			}
+-			return nil
+-		}
+-
+-		var ta tftags.KeyValueTags
+-		if tagsAll, ok := diff.Get("tags_all").(map[string]interface{}); ok {
+-			ta = tftags.New(ctx, tagsAll)
+-		}
+-		if len(allTags) > 0 && !ta.DeepEqual(allTags) && allTags.HasZeroValue() {
+-			if err := diff.SetNewComputed("tags_all"); err != nil {
+-				return fmt.Errorf("setting tags_all to computed: %w", err)
+-			}
+-			return nil
+-		}
+-	} else if tagsAll, ok := diff.Get("tags_all").(map[string]interface{}); ok {
+-		ta := tftags.New(ctx, tagsAll)
+-		if !ta.DeepEqual(allTags) {
+-			if allTags.HasZeroValue() {
+-				if err := diff.SetNewComputed("tags_all"); err != nil {
+-					return fmt.Errorf("setting tags_all to computed: %w", err)
+-				}
+-			}
+-		}
+-	} else if len(diff.Get("tags_all").(map[string]interface{})) > 0 {
+-		if err := diff.SetNewComputed("tags_all"); err != nil {
+-			return fmt.Errorf("setting tags_all to computed: %w", err)
+-		}
+-	} else if diff.HasChange("tags_all") {
+-		if err := diff.SetNewComputed("tags_all"); err != nil {
+-			return fmt.Errorf("setting tags_all to computed: %w", err)
+-		}
+-	}
+-
+ 	return nil
+ }
+ 
+diff --git a/shim/shim.go b/shim/shim.go
+index 2af7c06925..ce64074bfd 100644
+--- a/shim/shim.go
++++ b/shim/shim.go
+@@ -20,6 +20,9 @@ func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
+ 	if err != nil {
+ 		return UpstreamProvider{}, err
+ 	}
++	if primary != nil {
++		markTagsAllNotComputedForResources(primary)
++	}
+ 	pf := fwprovider.New(primary)
+ 	return UpstreamProvider{
+ 		SDKV2Provider:           primary,
+@@ -34,3 +37,35 @@ type TagIgnoreConfig = tags.IgnoreConfig
+ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
+ 	return TagConfig{Tags: tags.New(ctx, i)}
+ }
++
++// For resources with tags_all attribute, ensures that the schema of tags_all matches the schema of
++// tags. In particular, this makes sure tags_all is not computed and is ForceNew if necessary. The
++// rationale for this is that Pulumi copies tags to tags_all before it hits the TF layer, so these
++// attributes must match in schema.
++func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
++	updatedResourcesMap := map[string]*schema.Resource{}
++	for rn, r := range sdkV2Provider.ResourcesMap {
++		if _, ok := r.Schema["tags_all"]; ok {
++			var updatedResource schema.Resource = *r
++			updatedResource.Schema = map[string]*schema.Schema{}
++
++			for k, v := range r.Schema {
++				if k == "tags_all" {
++					if tagsSchema, ok := r.Schema["tags"]; ok {
++						tagsAll := *tagsSchema
++						updatedResource.Schema[k] = &tagsAll
++					} else {
++						panic("Unable to edit tagsAll schema for " + rn)
++					}
++				} else {
++					updatedResource.Schema[k] = v
++				}
++			}
++
++			updatedResourcesMap[rn] = &updatedResource
++		} else {
++			updatedResourcesMap[rn] = r
++		}
++	}
++	sdkV2Provider.ResourcesMap = updatedResourcesMap
++}
