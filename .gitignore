@@ -41,3 +41,5 @@ sdk/python/*.egg-info
 
 
 sdk/python/venv
+
+hack.go

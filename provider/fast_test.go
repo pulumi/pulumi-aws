@@ -1,6 +1,7 @@
 package provider
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
@@ -10,8 +11,16 @@ func init() {
 	version.Version = "1.2.3"
 }
 
+// func TestInit(_ *testing.T) {
+// 	init()
+// }
+
 func TestProvider(_ *testing.T) {
 	Provider()
+}
+
+func TestPrint(_ *testing.T) {
+	fmt.Println(MetadataInfo)
 }
 
 // With embed / json parsing

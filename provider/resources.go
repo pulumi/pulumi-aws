@@ -43,10 +43,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
-func ptr[T any](t T) *T {
-	return &t
-}
-
 // all of the AWS token components used below.
 const (
 	// packages:
@@ -673,7 +669,7 @@ func Provider() *tfbridge.ProviderInfo {
 		SkipValidateProviderConfigForPluginFramework: true,
 
 		// MetadataInfo: tfbridge.NewProviderMetadata(_metadata),
-		MetadataInfo: &MetadataInfo,
+		MetadataInfo: MetadataInfo,
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {

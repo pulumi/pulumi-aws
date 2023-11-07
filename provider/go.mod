@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.13.13
+	github.com/dave/jennifer v1.7.0
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.37
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
@@ -11,6 +12,7 @@ require (
 	github.com/pulumi/providertest v0.0.2
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.18.3
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.63.2
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096
 	github.com/pulumi/pulumi/pkg/v3 v3.91.1
 	github.com/pulumi/pulumi/sdk/v3 v3.91.1
 	github.com/stretchr/testify v1.8.4
@@ -176,7 +178,6 @@ require (
 	github.com/cheggaaa/pb v1.0.29 // indirect
 	github.com/cloudflare/circl v1.3.3 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
-	github.com/dave/jennifer v1.7.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
@@ -292,7 +293,6 @@ require (
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/esc v0.5.6 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.8 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 // indirect
 	github.com/pulumi/pulumi-yaml v1.2.2 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
