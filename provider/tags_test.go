@@ -322,6 +322,7 @@ func TestTagsAllNoLongerComputed(t *testing.T) {
 		}
 	})
 
+	// Note: when this test starts failing, see ./scripts/patch_computed_only.sh
 	t.Run("plugin_framework", func(t *testing.T) {
 		p := tfbridge.ShimProviderWithContext(ctx, upstreamProvider.PluginFrameworkProvider)
 		p.ResourcesMap().Range(func(key string, res tfshim.Resource) bool {
