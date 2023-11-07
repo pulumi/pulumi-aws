@@ -186,12 +186,13 @@ func (st tagsState) validateStateResult(phase int) func(
 	stack integration.RuntimeValidationStackInfo,
 ) {
 	return func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+		legacyBucketTags := fetchBucketTags(t, stack.Outputs["legacy-bucket-name"].(string))
 		actualBucketTags := fetchBucketTags(t, stack.Outputs["bucket-name"].(string))
 		actualVpcTags := fetchVpcTags(t, stack.Outputs["vpc-id"].(string))
 		appTags := fetchAppConfigTags(t, stack.Outputs["appconfig-app-arn"].(string))
 		for k, v := range stack.Outputs {
 			switch k {
-			case "bucket-name", "vpc-id", "appconfig-app-arn":
+			case "bucket-name", "legacy-bucket-name", "vpc-id", "appconfig-app-arn":
 				continue
 			}
 
@@ -206,6 +207,9 @@ func (st tagsState) validateStateResult(phase int) func(
 
 			if k == "bucket" {
 				require.Equalf(t, st.expectedTags(), actualBucketTags, "bad bucket tags")
+			}
+			if k == "legacy-bucket" {
+				require.Equalf(t, st.expectedTags(), legacyBucketTags, "bad legacy bucket tags")
 			}
 			if k == "vpc" {
 				require.Equalf(t, st.expectedTags(), actualVpcTags, "bad vpc tags")
