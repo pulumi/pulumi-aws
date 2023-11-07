@@ -64,6 +64,13 @@ func main() {
 			return err
 		}
 
+		legacyBucket, err := s3.NewBucket(ctx, "bucketlegacy", &s3.BucketArgs{
+			Tags: tagsMap,
+		}, pulumi.Provider(p))
+		if err != nil {
+			return err
+		}
+
 		app, err := appconfig.NewApplication(ctx, "testappconfigapp",
 			&appconfig.ApplicationArgs{
 				Tags: tagsMap,
@@ -75,7 +82,9 @@ func main() {
 		ctx.Export("vpc", exportTags(vpc.Tags))
 		ctx.Export("vpc-id", vpc.ID())
 		ctx.Export("bucket", exportTags(bucket.Tags))
+		ctx.Export("legacy-bucket", exportTags(legacyBucket.Tags))
 		ctx.Export("bucket-name", bucket.Bucket)
+		ctx.Export("legacy-bucket-name", legacyBucket.Bucket)
 		ctx.Export("appconfig-app", exportTags(app.Tags))
 		ctx.Export("appconfig-app-arn", app.Arn)
 
