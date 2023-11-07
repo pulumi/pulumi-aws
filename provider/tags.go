@@ -60,6 +60,8 @@ func applyTags(
 		return ret, nil
 	}
 	ret["tags"] = allTags
+	ret["tagsAll"] = allTags
+
 	return ret, nil
 }
 
@@ -122,17 +124,4 @@ func mergeTags(
 	} else {
 		return resource.NewNullProperty(), nil
 	}
-}
-
-// Ensures that a tagsAll property, if present is marked secret. This works around deeper issues
-// where bridged providers opt out of being sent secret bits and leave it to Pulumi CLI to handle
-// secret propagation, however the mechanism lacks enough information to appreciate that tagsAll
-// depends on tags can can propagate secret material across these two properties.
-func ensureTagsAllSecret(ctx context.Context, props resource.PropertyMap) (resource.PropertyMap, error) {
-	if _, ok := props["tagsAll"]; !ok || props["tagsAll"].IsSecret() {
-		return props, nil
-	}
-	copy := props.Copy()
-	copy["tagsAll"] = resource.MakeSecret(props["tagsAll"])
-	return copy, nil
 }
