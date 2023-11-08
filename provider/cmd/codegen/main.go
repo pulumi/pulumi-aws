@@ -1,12 +1,14 @@
+//go:build !hack
+
 package main
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/dave/jennifer/jen"
+	provider "github.com/pulumi/pulumi-aws/provider/v6"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/history"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/unstable/metadata"
 	"github.com/pulumi/pulumi-terraform-bridge/x/muxer"
 )
@@ -49,11 +51,10 @@ func addField(node *jen.Statement, fh *history.FieldHistory) jen.Code {
 }
 
 func main() {
-	content, err := os.ReadFile("cmd/pulumi-resource-aws/bridge-metadata.json")
-	if err != nil {
-		panic(err)
-	}
-	mdinfo := tfbridge.NewProviderMetadata(content)
+	prov := provider.Provider()
+	prov.SetAutonaming(255, "-")
+	prov.MustApplyAutoAliases()
+	mdinfo := prov.MetadataInfo
 
 	mux, _, _ := metadata.Get[muxer.DispatchTable](mdinfo.Data, "mux")
 	muxFuncParams := []jen.Code{}
@@ -66,9 +67,8 @@ func main() {
 	}
 
 	f := jen.NewFile("provider")
+	f.PackageComment("//go:build hack")
 	f.PackageComment("Generated code DO NOT EDIT")
-
-	f.Var().Add(jen.Id("MetadataInfo").Op("*").Add(jen.Qual("github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge", "MetadataInfo")))
 
 	hist, _, _ := metadata.Get[history.AliasHistory](mdinfo.Data, "auto-aliasing")
 
@@ -161,8 +161,12 @@ func main() {
 
 	f.Func().Id("init").Params().Block(initParams...)
 
-	err = f.Save("hack.go")
+	err := f.Save("hack.go")
 	if err != nil {
 		panic(err)
 	}
+}
+
+func init() {
+	version.Version = "1.2.3"
 }

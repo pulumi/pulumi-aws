@@ -16,7 +16,6 @@ package provider
 
 import (
 	"context"
-	_ "embed"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -641,9 +640,6 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
-// NO go:embed cmd/pulumi-resource-aws/bridge-metadata.json
-// var _metadata []byte
-
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
 	ctx := context.Background()
@@ -668,8 +664,7 @@ func Provider() *tfbridge.ProviderInfo {
 		// See pulumi/pulumi-aws#2880
 		SkipValidateProviderConfigForPluginFramework: true,
 
-		// MetadataInfo: tfbridge.NewProviderMetadata(_metadata),
-		MetadataInfo: MetadataInfo,
+		MetadataInfo: newMetadataInfo(),
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
@@ -7220,9 +7215,7 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
 	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
 
-	prov.SetAutonaming(255, "-")
-
-	prov.MustApplyAutoAliases()
+	providerHooks(&prov)
 
 	return &prov
 }
