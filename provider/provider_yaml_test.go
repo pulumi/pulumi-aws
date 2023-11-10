@@ -20,74 +20,74 @@ import (
 	"testing"
 )
 
-// func TestBucket(t *testing.T) {
-// 	test(t, filepath.Join("test-programs", "bucket")).Run(t)
-// }
+func TestBucket(t *testing.T) {
+	test(t, filepath.Join("test-programs", "bucket"))
+}
 
-// func TestEKSCluster(t *testing.T) {
-// 	test(t, filepath.Join("test-programs", "eks-cluster")).Run(t)
-// }
+func TestEKSCluster(t *testing.T) {
+	test(t, filepath.Join("test-programs", "eks-cluster"))
+}
 
-// func TestRdsInstance(t *testing.T) {
-// 	test(t, filepath.Join("test-programs", "rds-instance")).Run(t)
-// }
+func TestRdsInstance(t *testing.T) {
+	test(t, filepath.Join("test-programs", "rds-instance"))
+}
 
-// func TestRoute53ResolverEndpoint(t *testing.T) {
-// 	test(t, filepath.Join("test-programs", "route53-resolver-endpoint")).Run(t)
-// }
+func TestRoute53ResolverEndpoint(t *testing.T) {
+	test(t, filepath.Join("test-programs", "route53-resolver-endpoint"))
+}
 
-// func TestSnsTopic(t *testing.T) {
-// 	test(t, filepath.Join("test-programs", "sns-topic")).Run(t)
-// }
+func TestSnsTopic(t *testing.T) {
+	test(t, filepath.Join("test-programs", "sns-topic"))
+}
 
 func TestApiGatewayIntegrationResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-integrationresponse")).Run(t)
+	test(t, filepath.Join("test-programs", "apigateway-integrationresponse"))
 }
 
 func TestApiGatewayMethodResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-methodreponse")).Run(t)
+	test(t, filepath.Join("test-programs", "apigateway-methodreponse"))
 }
 
 func TestApiGatewayResource(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-resource")).Run(t)
+	test(t, filepath.Join("test-programs", "apigateway-resource"))
 }
 
 func TestApiGatewayResourceResponse(t *testing.T) {
-	test(t, filepath.Join("test-programs", "apigateway-resource-response")).Run(t)
+	test(t, filepath.Join("test-programs", "apigateway-resource-response"))
 }
 
 func TestCloudwatchEventRule(t *testing.T) {
-	test(t, filepath.Join("test-programs", "cloudwatch-eventrule")).Run(t)
+	test(t, filepath.Join("test-programs", "cloudwatch-eventrule"))
 }
 
 func TestCloudwatchLogGroup(t *testing.T) {
-	test(t, filepath.Join("test-programs", "cloudwatch-loggroup")).Run(t)
+	test(t, filepath.Join("test-programs", "cloudwatch-loggroup"))
 }
 
 func TestDynamoTable(t *testing.T) {
-	test(t, filepath.Join("test-programs", "dynamodb-table")).Run(t)
+	test(t, filepath.Join("test-programs", "dynamodb-table"))
 }
 
 func TestEcrLifecyclePolicy(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ecr-lifecyclepolicy")).Run(t)
+	test(t, filepath.Join("test-programs", "ecr-lifecyclepolicy"))
 }
 
 func TestEcrRepository(t *testing.T) {
-	test(t, filepath.Join("test-programs", "ecr-repository")).Run(t)
+	test(t, filepath.Join("test-programs", "ecr-repository"))
 }
 
 func TestIamInstanceProfile(t *testing.T) {
-	test(t, filepath.Join("test-programs", "iam-instanceprofile")).Run(t)
+	test(t, filepath.Join("test-programs", "iam-instanceprofile"))
 }
 
 func TestIamOpenIDConnectProvider(t *testing.T) {
-	test(t, filepath.Join("test-programs", "iam-openidconnectprovider")).Run(t)
+	test(t, filepath.Join("test-programs", "iam-openidconnectprovider"))
 }
 
 func TestKmsKey(t *testing.T) {
-	test(t, filepath.Join("test-programs", "kms-key")).Run(t)
+	test(t, filepath.Join("test-programs", "kms-key"))
 }
 
 func TestSecretsManagerSecret(t *testing.T) {
-	test(t, filepath.Join("test-programs", "secretsmanager-secret")).Run(t)
+	test(t, filepath.Join("test-programs", "secretsmanager-secret"))
 }

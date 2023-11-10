@@ -41,14 +41,16 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 	return p
 }
 
-func test(t *testing.T, dir string, opts ...providertest.Option) *providertest.ProviderTest {
+func test(t *testing.T, dir string, opts ...providertest.Option) {
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
+		return
 	}
 	opts = append(opts,
 		providertest.WithProviderName("aws"),
 		providertest.WithBaselineVersion("5.42.0"),
 		providertest.WithResourceProviderServer(providerServer(t)),
 	)
-	return providertest.NewProviderTest(dir, opts...)
+	ptest := providertest.NewProviderTest(dir, opts...)
+	ptest.Run(t)
 }
