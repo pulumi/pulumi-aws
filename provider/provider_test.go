@@ -42,6 +42,9 @@ func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
 }
 
 func test(t *testing.T, dir string, opts ...providertest.Option) *providertest.ProviderTest {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without AWS creds")
+	}
 	opts = append(opts,
 		providertest.WithProviderName("aws"),
 		providertest.WithBaselineVersion("5.42.0"),
