@@ -10,8 +10,8 @@
 // does not run YAML-only test a the moment, and it splits tests by language build tag; for this
 // reason the file is marked as another language so that the test runs only once.
 
-//go:build !go && !nodejs && !python && !dotnet && !java
-// +build !go,!nodejs,!python,!dotnet,!java
+//go:build !go && !nodejs && !python && !dotnet
+// +build !go,!nodejs,!python,!dotnet
 
 package provider
 

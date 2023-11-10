@@ -16,11 +16,11 @@
 package provider
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/providertest"
-	"os"
 )
 
 func TestLambdaLayerNew(t *testing.T) {
