@@ -1,0 +1,103 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-11-10T17:25:53.390036-05:00",
+            "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+            "version": "v3.92.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:WXU3xi726Qg=:v1:GEF3rcxKA15HpUC/:ZSFjVbw+/l3nSEViLy7EVYiMKumUVw=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-p-it-antons-mac-ecr-lifecy-2d6af959",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-11-10T22:25:49.722947Z",
+                "modified": "2023-11-10T22:25:49.722947Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "450b84e8-ec86-46bd-ab1b-75692953325c",
+                "type": "pulumi:providers:aws",
+                "created": "2023-11-10T22:25:51.23072Z",
+                "modified": "2023-11-10T22:25:51.23072Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo",
+                "custom": true,
+                "id": "bar",
+                "type": "aws:ecr/repository:Repository",
+                "inputs": {
+                    "__defaults": [
+                        "imageTagMutability"
+                    ],
+                    "imageTagMutability": "MUTABLE",
+                    "name": "bar"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":1200000000000}}",
+                    "arn": "arn:aws:ecr:us-west-2:616138583583:repository/bar",
+                    "encryptionConfigurations": [
+                        {
+                            "encryptionType": "AES256",
+                            "kmsKey": ""
+                        }
+                    ],
+                    "id": "bar",
+                    "imageScanningConfiguration": {
+                        "scanOnPush": false
+                    },
+                    "imageTagMutability": "MUTABLE",
+                    "name": "bar",
+                    "registryId": "616138583583",
+                    "repositoryUrl": "616138583583.dkr.ecr.us-west-2.amazonaws.com/bar",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-p-it-antons-mac-ecr-lifecy-2d6af959",
+                "provider": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::450b84e8-ec86-46bd-ab1b-75692953325c",
+                "propertyDependencies": {
+                    "name": null
+                },
+                "created": "2023-11-10T22:25:53.145685Z",
+                "modified": "2023-11-10T22:25:53.145685Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/lifecyclePolicy:LifecyclePolicy::foopolicy",
+                "custom": true,
+                "id": "bar",
+                "type": "aws:ecr/lifecyclePolicy:LifecyclePolicy",
+                "inputs": {
+                    "__defaults": [],
+                    "policy": "{\n    \"rules\": [\n        {\n            \"rulePriority\": 1,\n            \"description\": \"Expire images older than 14 days\",\n            \"selection\": {\n                \"tagStatus\": \"untagged\",\n                \"countType\": \"sinceImagePushed\",\n                \"countUnit\": \"days\",\n                \"countNumber\": 14\n            },\n            \"action\": {\n                \"type\": \"expire\"\n            }\n        }\n    ]\n}\n",
+                    "repository": "bar"
+                },
+                "outputs": {
+                    "id": "bar",
+                    "policy": "{\"rules\":[{\"action\":{\"type\":\"expire\"},\"description\":\"Expire images older than 14 days\",\"rulePriority\":1,\"selection\":{\"countNumber\":14,\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"tagStatus\":\"untagged\"}}]}",
+                    "registryId": "616138583583",
+                    "repository": "bar"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:pulumi:Stack::aws_ecr_lifecyclePolicy_LifecyclePolicy_1-p-it-antons-mac-ecr-lifecy-2d6af959",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::pulumi:providers:aws::default::450b84e8-ec86-46bd-ab1b-75692953325c",
+                "propertyDependencies": {
+                    "policy": null,
+                    "repository": [
+                        "urn:pulumi:p-it-antons-mac-ecr-lifecy-2d6af959::aws_ecr_lifecyclePolicy_LifecyclePolicy_1::aws:ecr/repository:Repository::foo"
+                    ]
+                },
+                "created": "2023-11-10T22:25:53.389892Z",
+                "modified": "2023-11-10T22:25:53.389892Z"
+            }
+        ]
+    }
+}

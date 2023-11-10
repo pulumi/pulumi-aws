@@ -1,0 +1,254 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-11-10T17:23:05.006273-05:00",
+            "magic": "7a709c148c841bd111f454593cb3e2e763c9bdd1e384d02234b29bc070e10e78",
+            "version": "v3.92.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:6d1Qq1wIc9c=:v1:MzIicgMpnxidEKdL:J7DiXS+xanaSAys5vVuyUOqpYM8ZvQ=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2023-11-10T22:23:00.499782Z",
+                "modified": "2023-11-10T22:23:00.499782Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "type": "pulumi:providers:aws",
+                "created": "2023-11-10T22:23:02.025248Z",
+                "modified": "2023-11-10T22:23:02.025248Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI",
+                "custom": true,
+                "id": "v1ve06ocl6",
+                "type": "aws:apigateway/restApi:RestApi",
+                "inputs": {
+                    "__defaults": [
+                        "minimumCompressionSize",
+                        "putRestApiMode"
+                    ],
+                    "description": "This is my API for demonstration purposes",
+                    "minimumCompressionSize": -1,
+                    "name": "MyDemoAPI",
+                    "putRestApiMode": "overwrite"
+                },
+                "outputs": {
+                    "apiKeySource": "HEADER",
+                    "arn": "arn:aws:apigateway:us-west-2::/restapis/v1ve06ocl6",
+                    "binaryMediaTypes": [],
+                    "createdDate": "2023-11-10T22:23:03Z",
+                    "description": "This is my API for demonstration purposes",
+                    "disableExecuteApiEndpoint": false,
+                    "endpointConfiguration": {
+                        "types": "EDGE",
+                        "vpcEndpointIds": []
+                    },
+                    "executionArn": "arn:aws:execute-api:us-west-2:616138583583:v1ve06ocl6",
+                    "id": "v1ve06ocl6",
+                    "minimumCompressionSize": -1,
+                    "name": "MyDemoAPI",
+                    "policy": "",
+                    "rootResourceId": "6l6ql3hnui",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "provider": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default::19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "propertyDependencies": {
+                    "description": null,
+                    "name": null
+                },
+                "created": "2023-11-10T22:23:04.256536Z",
+                "modified": "2023-11-10T22:23:04.256536Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource",
+                "custom": true,
+                "id": "owzlrx",
+                "type": "aws:apigateway/resource:Resource",
+                "inputs": {
+                    "__defaults": [],
+                    "parentId": "6l6ql3hnui",
+                    "pathPart": "mydemoresource",
+                    "restApi": "v1ve06ocl6"
+                },
+                "outputs": {
+                    "id": "owzlrx",
+                    "parentId": "6l6ql3hnui",
+                    "path": "/mydemoresource",
+                    "pathPart": "mydemoresource",
+                    "restApi": "v1ve06ocl6"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default::19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "propertyDependencies": {
+                    "parentId": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                    ],
+                    "pathPart": null,
+                    "restApi": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                    ]
+                },
+                "created": "2023-11-10T22:23:04.552754Z",
+                "modified": "2023-11-10T22:23:04.552754Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/method:Method::MyDemoMethod",
+                "custom": true,
+                "id": "agm-v1ve06ocl6-owzlrx-GET",
+                "type": "aws:apigateway/method:Method",
+                "inputs": {
+                    "__defaults": [
+                        "apiKeyRequired"
+                    ],
+                    "apiKeyRequired": false,
+                    "authorization": "NONE",
+                    "httpMethod": "GET",
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6"
+                },
+                "outputs": {
+                    "apiKeyRequired": false,
+                    "authorization": "NONE",
+                    "httpMethod": "GET",
+                    "id": "agm-v1ve06ocl6-owzlrx-GET",
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource",
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default::19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "propertyDependencies": {
+                    "authorization": null,
+                    "httpMethod": null,
+                    "resourceId": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource"
+                    ],
+                    "restApi": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                    ]
+                },
+                "created": "2023-11-10T22:23:04.713501Z",
+                "modified": "2023-11-10T22:23:04.713501Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/methodResponse:MethodResponse::response_200",
+                "custom": true,
+                "id": "agmr-v1ve06ocl6-owzlrx-GET-200",
+                "type": "aws:apigateway/methodResponse:MethodResponse",
+                "inputs": {
+                    "__defaults": [],
+                    "httpMethod": "GET",
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6",
+                    "statusCode": "200"
+                },
+                "outputs": {
+                    "httpMethod": "GET",
+                    "id": "agmr-v1ve06ocl6-owzlrx-GET-200",
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6",
+                    "statusCode": "200"
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/method:Method::MyDemoMethod",
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource",
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default::19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "propertyDependencies": {
+                    "httpMethod": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/method:Method::MyDemoMethod"
+                    ],
+                    "resourceId": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource"
+                    ],
+                    "restApi": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                    ],
+                    "statusCode": null
+                },
+                "created": "2023-11-10T22:23:04.865088Z",
+                "modified": "2023-11-10T22:23:04.865088Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/integration:Integration::MyDemoIntegration",
+                "custom": true,
+                "id": "agi-v1ve06ocl6-owzlrx-GET",
+                "type": "aws:apigateway/integration:Integration",
+                "inputs": {
+                    "__defaults": [
+                        "connectionType",
+                        "timeoutMilliseconds"
+                    ],
+                    "connectionType": "INTERNET",
+                    "httpMethod": "GET",
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6",
+                    "timeoutMilliseconds": 29000,
+                    "type": "MOCK"
+                },
+                "outputs": {
+                    "cacheKeyParameters": [],
+                    "cacheNamespace": "owzlrx",
+                    "connectionId": "",
+                    "connectionType": "INTERNET",
+                    "contentHandling": "",
+                    "credentials": "",
+                    "httpMethod": "GET",
+                    "id": "agi-v1ve06ocl6-owzlrx-GET",
+                    "integrationHttpMethod": "",
+                    "passthroughBehavior": "WHEN_NO_MATCH",
+                    "requestParameters": {},
+                    "requestTemplates": {},
+                    "resourceId": "owzlrx",
+                    "restApi": "v1ve06ocl6",
+                    "timeoutMilliseconds": 29000,
+                    "tlsConfig": null,
+                    "type": "MOCK",
+                    "uri": ""
+                },
+                "parent": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:pulumi:Stack::aws_apigateway_methodResponse_MethodResponse_1-p-it-antons-mac-apigateway-bfd86f6a",
+                "dependencies": [
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/method:Method::MyDemoMethod",
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource",
+                    "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                ],
+                "provider": "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::pulumi:providers:aws::default::19f04ff8-cf1c-4d97-be78-14613ed05740",
+                "propertyDependencies": {
+                    "httpMethod": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/method:Method::MyDemoMethod"
+                    ],
+                    "resourceId": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/resource:Resource::MyDemoResource"
+                    ],
+                    "restApi": [
+                        "urn:pulumi:p-it-antons-mac-apigateway-bfd86f6a::aws_apigateway_methodResponse_MethodResponse_1::aws:apigateway/restApi:RestApi::MyDemoAPI"
+                    ],
+                    "type": null
+                },
+                "created": "2023-11-10T22:23:05.006089Z",
+                "modified": "2023-11-10T22:23:05.006089Z"
+            }
+        ]
+    }
+}
