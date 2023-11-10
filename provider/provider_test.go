@@ -54,3 +54,7 @@ func test(t *testing.T, dir string, opts ...providertest.Option) {
 	ptest := providertest.NewProviderTest(dir, opts...)
 	ptest.Run(t)
 }
+
+func TestUpgradeCoverage(t *testing.T) {
+	providertest.ReportUpgradeCoverage(t)
+}
