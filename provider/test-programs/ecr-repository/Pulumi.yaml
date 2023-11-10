@@ -1,0 +1,12 @@
+
+name: "aws_ecr_repository_Repository_1"
+runtime: yaml
+    
+resources:
+  foo:
+    type: aws:ecr:Repository
+    properties:
+      name: bar
+      imageTagMutability: MUTABLE
+      imageScanningConfiguration:
+        scanOnPush: true

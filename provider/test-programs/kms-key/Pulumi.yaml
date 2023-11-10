@@ -1,0 +1,10 @@
+
+name: "aws_kms_key_Key_1"
+runtime: yaml
+    
+resources:
+  a:
+    type: aws:kms:Key
+    properties:
+      description: KMS key 1
+      deletionWindowInDays: 10
