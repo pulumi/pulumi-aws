@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Image Pipeline.
@@ -135,12 +134,6 @@ func (o LookupImagePipelineResultOutput) ToLookupImagePipelineResultOutput() Loo
 
 func (o LookupImagePipelineResultOutput) ToLookupImagePipelineResultOutputWithContext(ctx context.Context) LookupImagePipelineResultOutput {
 	return o
-}
-
-func (o LookupImagePipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImagePipelineResult] {
-	return pulumix.Output[LookupImagePipelineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupImagePipelineResultOutput) Arn() pulumi.StringOutput {

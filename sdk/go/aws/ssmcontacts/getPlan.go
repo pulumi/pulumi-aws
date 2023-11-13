@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing a Plan of an AWS SSM Contact.
@@ -101,12 +100,6 @@ func (o LookupPlanResultOutput) ToLookupPlanResultOutput() LookupPlanResultOutpu
 
 func (o LookupPlanResultOutput) ToLookupPlanResultOutputWithContext(ctx context.Context) LookupPlanResultOutput {
 	return o
-}
-
-func (o LookupPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPlanResult] {
-	return pulumix.Output[LookupPlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPlanResultOutput) ContactId() pulumi.StringOutput {

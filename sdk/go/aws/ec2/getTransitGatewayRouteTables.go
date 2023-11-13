@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
@@ -114,12 +113,6 @@ func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTables
 
 func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesResultOutput {
 	return o
-}
-
-func (o GetTransitGatewayRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayRouteTablesResult] {
-	return pulumix.Output[GetTransitGatewayRouteTablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTransitGatewayRouteTablesResultOutput) Filters() GetTransitGatewayRouteTablesFilterArrayOutput {

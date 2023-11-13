@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
@@ -753,12 +752,6 @@ func (i *S3Endpoint) ToS3EndpointOutputWithContext(ctx context.Context) S3Endpoi
 	return pulumi.ToOutputWithContext(ctx, i).(S3EndpointOutput)
 }
 
-func (i *S3Endpoint) ToOutput(ctx context.Context) pulumix.Output[*S3Endpoint] {
-	return pulumix.Output[*S3Endpoint]{
-		OutputState: i.ToS3EndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // S3EndpointArrayInput is an input type that accepts S3EndpointArray and S3EndpointArrayOutput values.
 // You can construct a concrete instance of `S3EndpointArrayInput` via:
 //
@@ -782,12 +775,6 @@ func (i S3EndpointArray) ToS3EndpointArrayOutput() S3EndpointArrayOutput {
 
 func (i S3EndpointArray) ToS3EndpointArrayOutputWithContext(ctx context.Context) S3EndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3EndpointArrayOutput)
-}
-
-func (i S3EndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*S3Endpoint] {
-	return pulumix.Output[[]*S3Endpoint]{
-		OutputState: i.ToS3EndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // S3EndpointMapInput is an input type that accepts S3EndpointMap and S3EndpointMapOutput values.
@@ -815,12 +802,6 @@ func (i S3EndpointMap) ToS3EndpointMapOutputWithContext(ctx context.Context) S3E
 	return pulumi.ToOutputWithContext(ctx, i).(S3EndpointMapOutput)
 }
 
-func (i S3EndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3Endpoint] {
-	return pulumix.Output[map[string]*S3Endpoint]{
-		OutputState: i.ToS3EndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type S3EndpointOutput struct{ *pulumi.OutputState }
 
 func (S3EndpointOutput) ElementType() reflect.Type {
@@ -833,12 +814,6 @@ func (o S3EndpointOutput) ToS3EndpointOutput() S3EndpointOutput {
 
 func (o S3EndpointOutput) ToS3EndpointOutputWithContext(ctx context.Context) S3EndpointOutput {
 	return o
-}
-
-func (o S3EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*S3Endpoint] {
-	return pulumix.Output[*S3Endpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to add column name information to the .csv output file. Default is `false`.
@@ -1124,12 +1099,6 @@ func (o S3EndpointArrayOutput) ToS3EndpointArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o S3EndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*S3Endpoint] {
-	return pulumix.Output[[]*S3Endpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o S3EndpointArrayOutput) Index(i pulumi.IntInput) S3EndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *S3Endpoint {
 		return vs[0].([]*S3Endpoint)[vs[1].(int)]
@@ -1148,12 +1117,6 @@ func (o S3EndpointMapOutput) ToS3EndpointMapOutput() S3EndpointMapOutput {
 
 func (o S3EndpointMapOutput) ToS3EndpointMapOutputWithContext(ctx context.Context) S3EndpointMapOutput {
 	return o
-}
-
-func (o S3EndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3Endpoint] {
-	return pulumix.Output[map[string]*S3Endpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o S3EndpointMapOutput) MapIndex(k pulumi.StringInput) S3EndpointOutput {

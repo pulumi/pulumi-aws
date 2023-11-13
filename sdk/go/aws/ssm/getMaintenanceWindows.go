@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the window IDs of SSM maintenance windows.
@@ -107,12 +106,6 @@ func (o GetMaintenanceWindowsResultOutput) ToGetMaintenanceWindowsResultOutput()
 
 func (o GetMaintenanceWindowsResultOutput) ToGetMaintenanceWindowsResultOutputWithContext(ctx context.Context) GetMaintenanceWindowsResultOutput {
 	return o
-}
-
-func (o GetMaintenanceWindowsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMaintenanceWindowsResult] {
-	return pulumix.Output[GetMaintenanceWindowsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMaintenanceWindowsResultOutput) Filters() GetMaintenanceWindowsFilterArrayOutput {

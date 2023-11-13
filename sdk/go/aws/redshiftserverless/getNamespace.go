@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Redshift Serverless Namespace.
@@ -114,12 +113,6 @@ func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutput() LookupNames
 
 func (o LookupNamespaceResultOutput) ToLookupNamespaceResultOutputWithContext(ctx context.Context) LookupNamespaceResultOutput {
 	return o
-}
-
-func (o LookupNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNamespaceResult] {
-	return pulumix.Output[LookupNamespaceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The username of the administrator for the first database created in the namespace.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Lex V2 Models Bot.
@@ -245,12 +244,6 @@ func (i *V2modelsBot) ToV2modelsBotOutputWithContext(ctx context.Context) V2mode
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotOutput)
 }
 
-func (i *V2modelsBot) ToOutput(ctx context.Context) pulumix.Output[*V2modelsBot] {
-	return pulumix.Output[*V2modelsBot]{
-		OutputState: i.ToV2modelsBotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // V2modelsBotArrayInput is an input type that accepts V2modelsBotArray and V2modelsBotArrayOutput values.
 // You can construct a concrete instance of `V2modelsBotArrayInput` via:
 //
@@ -274,12 +267,6 @@ func (i V2modelsBotArray) ToV2modelsBotArrayOutput() V2modelsBotArrayOutput {
 
 func (i V2modelsBotArray) ToV2modelsBotArrayOutputWithContext(ctx context.Context) V2modelsBotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotArrayOutput)
-}
-
-func (i V2modelsBotArray) ToOutput(ctx context.Context) pulumix.Output[[]*V2modelsBot] {
-	return pulumix.Output[[]*V2modelsBot]{
-		OutputState: i.ToV2modelsBotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // V2modelsBotMapInput is an input type that accepts V2modelsBotMap and V2modelsBotMapOutput values.
@@ -307,12 +294,6 @@ func (i V2modelsBotMap) ToV2modelsBotMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotMapOutput)
 }
 
-func (i V2modelsBotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*V2modelsBot] {
-	return pulumix.Output[map[string]*V2modelsBot]{
-		OutputState: i.ToV2modelsBotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type V2modelsBotOutput struct{ *pulumi.OutputState }
 
 func (V2modelsBotOutput) ElementType() reflect.Type {
@@ -325,12 +306,6 @@ func (o V2modelsBotOutput) ToV2modelsBotOutput() V2modelsBotOutput {
 
 func (o V2modelsBotOutput) ToV2modelsBotOutputWithContext(ctx context.Context) V2modelsBotOutput {
 	return o
-}
-
-func (o V2modelsBotOutput) ToOutput(ctx context.Context) pulumix.Output[*V2modelsBot] {
-	return pulumix.Output[*V2modelsBot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o V2modelsBotOutput) Arn() pulumi.StringOutput {
@@ -405,12 +380,6 @@ func (o V2modelsBotArrayOutput) ToV2modelsBotArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o V2modelsBotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*V2modelsBot] {
-	return pulumix.Output[[]*V2modelsBot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o V2modelsBotArrayOutput) Index(i pulumi.IntInput) V2modelsBotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *V2modelsBot {
 		return vs[0].([]*V2modelsBot)[vs[1].(int)]
@@ -429,12 +398,6 @@ func (o V2modelsBotMapOutput) ToV2modelsBotMapOutput() V2modelsBotMapOutput {
 
 func (o V2modelsBotMapOutput) ToV2modelsBotMapOutputWithContext(ctx context.Context) V2modelsBotMapOutput {
 	return o
-}
-
-func (o V2modelsBotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*V2modelsBot] {
-	return pulumix.Output[map[string]*V2modelsBot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o V2modelsBotMapOutput) MapIndex(k pulumi.StringInput) V2modelsBotOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Lambda Function.
@@ -165,12 +164,6 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutput() LookupFunctio
 
 func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx context.Context) LookupFunctionResultOutput {
 	return o
-}
-
-func (o LookupFunctionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionResult] {
-	return pulumix.Output[LookupFunctionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Instruction set architecture for the Lambda function.

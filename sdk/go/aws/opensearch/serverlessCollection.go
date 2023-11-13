@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS OpenSearch Serverless Collection.
@@ -241,12 +240,6 @@ func (i *ServerlessCollection) ToServerlessCollectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionOutput)
 }
 
-func (i *ServerlessCollection) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollection] {
-	return pulumix.Output[*ServerlessCollection]{
-		OutputState: i.ToServerlessCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessCollectionArrayInput is an input type that accepts ServerlessCollectionArray and ServerlessCollectionArrayOutput values.
 // You can construct a concrete instance of `ServerlessCollectionArrayInput` via:
 //
@@ -270,12 +263,6 @@ func (i ServerlessCollectionArray) ToServerlessCollectionArrayOutput() Serverles
 
 func (i ServerlessCollectionArray) ToServerlessCollectionArrayOutputWithContext(ctx context.Context) ServerlessCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionArrayOutput)
-}
-
-func (i ServerlessCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCollection] {
-	return pulumix.Output[[]*ServerlessCollection]{
-		OutputState: i.ToServerlessCollectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerlessCollectionMapInput is an input type that accepts ServerlessCollectionMap and ServerlessCollectionMapOutput values.
@@ -303,12 +290,6 @@ func (i ServerlessCollectionMap) ToServerlessCollectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionMapOutput)
 }
 
-func (i ServerlessCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCollection] {
-	return pulumix.Output[map[string]*ServerlessCollection]{
-		OutputState: i.ToServerlessCollectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerlessCollectionOutput struct{ *pulumi.OutputState }
 
 func (ServerlessCollectionOutput) ElementType() reflect.Type {
@@ -321,12 +302,6 @@ func (o ServerlessCollectionOutput) ToServerlessCollectionOutput() ServerlessCol
 
 func (o ServerlessCollectionOutput) ToServerlessCollectionOutputWithContext(ctx context.Context) ServerlessCollectionOutput {
 	return o
-}
-
-func (o ServerlessCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCollection] {
-	return pulumix.Output[*ServerlessCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the collection.
@@ -394,12 +369,6 @@ func (o ServerlessCollectionArrayOutput) ToServerlessCollectionArrayOutputWithCo
 	return o
 }
 
-func (o ServerlessCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCollection] {
-	return pulumix.Output[[]*ServerlessCollection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessCollectionArrayOutput) Index(i pulumi.IntInput) ServerlessCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessCollection {
 		return vs[0].([]*ServerlessCollection)[vs[1].(int)]
@@ -418,12 +387,6 @@ func (o ServerlessCollectionMapOutput) ToServerlessCollectionMapOutput() Serverl
 
 func (o ServerlessCollectionMapOutput) ToServerlessCollectionMapOutputWithContext(ctx context.Context) ServerlessCollectionMapOutput {
 	return o
-}
-
-func (o ServerlessCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCollection] {
-	return pulumix.Output[map[string]*ServerlessCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCollectionMapOutput) MapIndex(k pulumi.StringInput) ServerlessCollectionOutput {

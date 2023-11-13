@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Secrets Manager secret policy.
@@ -202,12 +201,6 @@ func (i *SecretPolicy) ToSecretPolicyOutputWithContext(ctx context.Context) Secr
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyOutput)
 }
 
-func (i *SecretPolicy) ToOutput(ctx context.Context) pulumix.Output[*SecretPolicy] {
-	return pulumix.Output[*SecretPolicy]{
-		OutputState: i.ToSecretPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecretPolicyArrayInput is an input type that accepts SecretPolicyArray and SecretPolicyArrayOutput values.
 // You can construct a concrete instance of `SecretPolicyArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i SecretPolicyArray) ToSecretPolicyArrayOutput() SecretPolicyArrayOutput {
 
 func (i SecretPolicyArray) ToSecretPolicyArrayOutputWithContext(ctx context.Context) SecretPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyArrayOutput)
-}
-
-func (i SecretPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecretPolicy] {
-	return pulumix.Output[[]*SecretPolicy]{
-		OutputState: i.ToSecretPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecretPolicyMapInput is an input type that accepts SecretPolicyMap and SecretPolicyMapOutput values.
@@ -264,12 +251,6 @@ func (i SecretPolicyMap) ToSecretPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyMapOutput)
 }
 
-func (i SecretPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretPolicy] {
-	return pulumix.Output[map[string]*SecretPolicy]{
-		OutputState: i.ToSecretPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecretPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecretPolicyOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o SecretPolicyOutput) ToSecretPolicyOutput() SecretPolicyOutput {
 
 func (o SecretPolicyOutput) ToSecretPolicyOutputWithContext(ctx context.Context) SecretPolicyOutput {
 	return o
-}
-
-func (o SecretPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretPolicy] {
-	return pulumix.Output[*SecretPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
@@ -321,12 +296,6 @@ func (o SecretPolicyArrayOutput) ToSecretPolicyArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o SecretPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecretPolicy] {
-	return pulumix.Output[[]*SecretPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecretPolicyArrayOutput) Index(i pulumi.IntInput) SecretPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecretPolicy {
 		return vs[0].([]*SecretPolicy)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o SecretPolicyMapOutput) ToSecretPolicyMapOutput() SecretPolicyMapOutput {
 
 func (o SecretPolicyMapOutput) ToSecretPolicyMapOutputWithContext(ctx context.Context) SecretPolicyMapOutput {
 	return o
-}
-
-func (o SecretPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecretPolicy] {
-	return pulumix.Output[map[string]*SecretPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretPolicyMapOutput) MapIndex(k pulumi.StringInput) SecretPolicyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
@@ -221,12 +220,6 @@ func (i *AnalyticsConfiguration) ToAnalyticsConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationOutput)
 }
 
-func (i *AnalyticsConfiguration) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfiguration] {
-	return pulumix.Output[*AnalyticsConfiguration]{
-		OutputState: i.ToAnalyticsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyticsConfigurationArrayInput is an input type that accepts AnalyticsConfigurationArray and AnalyticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `AnalyticsConfigurationArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i AnalyticsConfigurationArray) ToAnalyticsConfigurationArrayOutput() Analy
 
 func (i AnalyticsConfigurationArray) ToAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) AnalyticsConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationArrayOutput)
-}
-
-func (i AnalyticsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsConfiguration] {
-	return pulumix.Output[[]*AnalyticsConfiguration]{
-		OutputState: i.ToAnalyticsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AnalyticsConfigurationMapInput is an input type that accepts AnalyticsConfigurationMap and AnalyticsConfigurationMapOutput values.
@@ -283,12 +270,6 @@ func (i AnalyticsConfigurationMap) ToAnalyticsConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationMapOutput)
 }
 
-func (i AnalyticsConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsConfiguration] {
-	return pulumix.Output[map[string]*AnalyticsConfiguration]{
-		OutputState: i.ToAnalyticsConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutput() Analytics
 
 func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationOutputWithContext(ctx context.Context) AnalyticsConfigurationOutput {
 	return o
-}
-
-func (o AnalyticsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfiguration] {
-	return pulumix.Output[*AnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket this analytics configuration is associated with.
@@ -345,12 +320,6 @@ func (o AnalyticsConfigurationArrayOutput) ToAnalyticsConfigurationArrayOutputWi
 	return o
 }
 
-func (o AnalyticsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsConfiguration] {
-	return pulumix.Output[[]*AnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) AnalyticsConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsConfiguration {
 		return vs[0].([]*AnalyticsConfiguration)[vs[1].(int)]
@@ -369,12 +338,6 @@ func (o AnalyticsConfigurationMapOutput) ToAnalyticsConfigurationMapOutput() Ana
 
 func (o AnalyticsConfigurationMapOutput) ToAnalyticsConfigurationMapOutputWithContext(ctx context.Context) AnalyticsConfigurationMapOutput {
 	return o
-}
-
-func (o AnalyticsConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsConfiguration] {
-	return pulumix.Output[map[string]*AnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsConfigurationMapOutput) MapIndex(k pulumi.StringInput) AnalyticsConfigurationOutput {

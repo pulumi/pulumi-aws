@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Inspector Classic Assessment Target
@@ -158,12 +157,6 @@ func (i *AssessmentTarget) ToAssessmentTargetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetOutput)
 }
 
-func (i *AssessmentTarget) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTarget] {
-	return pulumix.Output[*AssessmentTarget]{
-		OutputState: i.ToAssessmentTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentTargetArrayInput is an input type that accepts AssessmentTargetArray and AssessmentTargetArrayOutput values.
 // You can construct a concrete instance of `AssessmentTargetArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i AssessmentTargetArray) ToAssessmentTargetArrayOutput() AssessmentTargetA
 
 func (i AssessmentTargetArray) ToAssessmentTargetArrayOutputWithContext(ctx context.Context) AssessmentTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetArrayOutput)
-}
-
-func (i AssessmentTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentTarget] {
-	return pulumix.Output[[]*AssessmentTarget]{
-		OutputState: i.ToAssessmentTargetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssessmentTargetMapInput is an input type that accepts AssessmentTargetMap and AssessmentTargetMapOutput values.
@@ -220,12 +207,6 @@ func (i AssessmentTargetMap) ToAssessmentTargetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetMapOutput)
 }
 
-func (i AssessmentTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentTarget] {
-	return pulumix.Output[map[string]*AssessmentTarget]{
-		OutputState: i.ToAssessmentTargetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentTargetOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTargetOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o AssessmentTargetOutput) ToAssessmentTargetOutput() AssessmentTargetOutpu
 
 func (o AssessmentTargetOutput) ToAssessmentTargetOutputWithContext(ctx context.Context) AssessmentTargetOutput {
 	return o
-}
-
-func (o AssessmentTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentTarget] {
-	return pulumix.Output[*AssessmentTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The target assessment ARN.
@@ -275,12 +250,6 @@ func (o AssessmentTargetArrayOutput) ToAssessmentTargetArrayOutputWithContext(ct
 	return o
 }
 
-func (o AssessmentTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentTarget] {
-	return pulumix.Output[[]*AssessmentTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentTargetArrayOutput) Index(i pulumi.IntInput) AssessmentTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentTarget {
 		return vs[0].([]*AssessmentTarget)[vs[1].(int)]
@@ -299,12 +268,6 @@ func (o AssessmentTargetMapOutput) ToAssessmentTargetMapOutput() AssessmentTarge
 
 func (o AssessmentTargetMapOutput) ToAssessmentTargetMapOutputWithContext(ctx context.Context) AssessmentTargetMapOutput {
 	return o
-}
-
-func (o AssessmentTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentTarget] {
-	return pulumix.Output[map[string]*AssessmentTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentTargetMapOutput) MapIndex(k pulumi.StringInput) AssessmentTargetOutput {

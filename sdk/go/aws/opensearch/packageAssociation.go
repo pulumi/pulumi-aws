@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Opensearch Package Association.
@@ -165,12 +164,6 @@ func (i *PackageAssociation) ToPackageAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PackageAssociationOutput)
 }
 
-func (i *PackageAssociation) ToOutput(ctx context.Context) pulumix.Output[*PackageAssociation] {
-	return pulumix.Output[*PackageAssociation]{
-		OutputState: i.ToPackageAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackageAssociationArrayInput is an input type that accepts PackageAssociationArray and PackageAssociationArrayOutput values.
 // You can construct a concrete instance of `PackageAssociationArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i PackageAssociationArray) ToPackageAssociationArrayOutput() PackageAssoci
 
 func (i PackageAssociationArray) ToPackageAssociationArrayOutputWithContext(ctx context.Context) PackageAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PackageAssociationArrayOutput)
-}
-
-func (i PackageAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PackageAssociation] {
-	return pulumix.Output[[]*PackageAssociation]{
-		OutputState: i.ToPackageAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PackageAssociationMapInput is an input type that accepts PackageAssociationMap and PackageAssociationMapOutput values.
@@ -227,12 +214,6 @@ func (i PackageAssociationMap) ToPackageAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PackageAssociationMapOutput)
 }
 
-func (i PackageAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PackageAssociation] {
-	return pulumix.Output[map[string]*PackageAssociation]{
-		OutputState: i.ToPackageAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackageAssociationOutput struct{ *pulumi.OutputState }
 
 func (PackageAssociationOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o PackageAssociationOutput) ToPackageAssociationOutput() PackageAssociatio
 
 func (o PackageAssociationOutput) ToPackageAssociationOutputWithContext(ctx context.Context) PackageAssociationOutput {
 	return o
-}
-
-func (o PackageAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PackageAssociation] {
-	return pulumix.Output[*PackageAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the domain to associate the package with.
@@ -281,12 +256,6 @@ func (o PackageAssociationArrayOutput) ToPackageAssociationArrayOutputWithContex
 	return o
 }
 
-func (o PackageAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PackageAssociation] {
-	return pulumix.Output[[]*PackageAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackageAssociationArrayOutput) Index(i pulumi.IntInput) PackageAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PackageAssociation {
 		return vs[0].([]*PackageAssociation)[vs[1].(int)]
@@ -305,12 +274,6 @@ func (o PackageAssociationMapOutput) ToPackageAssociationMapOutput() PackageAsso
 
 func (o PackageAssociationMapOutput) ToPackageAssociationMapOutputWithContext(ctx context.Context) PackageAssociationMapOutput {
 	return o
-}
-
-func (o PackageAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PackageAssociation] {
-	return pulumix.Output[map[string]*PackageAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageAssociationMapOutput) MapIndex(k pulumi.StringInput) PackageAssociationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about all
@@ -106,12 +105,6 @@ func (o GetInstanceProfilesResultOutput) ToGetInstanceProfilesResultOutput() Get
 
 func (o GetInstanceProfilesResultOutput) ToGetInstanceProfilesResultOutputWithContext(ctx context.Context) GetInstanceProfilesResultOutput {
 	return o
-}
-
-func (o GetInstanceProfilesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceProfilesResult] {
-	return pulumix.Output[GetInstanceProfilesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARNs of instance profiles.

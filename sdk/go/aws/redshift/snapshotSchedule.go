@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -215,12 +214,6 @@ func (i *SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleOutput)
 }
 
-func (i *SnapshotSchedule) ToOutput(ctx context.Context) pulumix.Output[*SnapshotSchedule] {
-	return pulumix.Output[*SnapshotSchedule]{
-		OutputState: i.ToSnapshotScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnapshotScheduleArrayInput is an input type that accepts SnapshotScheduleArray and SnapshotScheduleArrayOutput values.
 // You can construct a concrete instance of `SnapshotScheduleArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i SnapshotScheduleArray) ToSnapshotScheduleArrayOutput() SnapshotScheduleA
 
 func (i SnapshotScheduleArray) ToSnapshotScheduleArrayOutputWithContext(ctx context.Context) SnapshotScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleArrayOutput)
-}
-
-func (i SnapshotScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotSchedule] {
-	return pulumix.Output[[]*SnapshotSchedule]{
-		OutputState: i.ToSnapshotScheduleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SnapshotScheduleMapInput is an input type that accepts SnapshotScheduleMap and SnapshotScheduleMapOutput values.
@@ -277,12 +264,6 @@ func (i SnapshotScheduleMap) ToSnapshotScheduleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleMapOutput)
 }
 
-func (i SnapshotScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotSchedule] {
-	return pulumix.Output[map[string]*SnapshotSchedule]{
-		OutputState: i.ToSnapshotScheduleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o SnapshotScheduleOutput) ToSnapshotScheduleOutput() SnapshotScheduleOutpu
 
 func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
 	return o
-}
-
-func (o SnapshotScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotSchedule] {
-	return pulumix.Output[*SnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
@@ -360,12 +335,6 @@ func (o SnapshotScheduleArrayOutput) ToSnapshotScheduleArrayOutputWithContext(ct
 	return o
 }
 
-func (o SnapshotScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotSchedule] {
-	return pulumix.Output[[]*SnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SnapshotScheduleArrayOutput) Index(i pulumi.IntInput) SnapshotScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotSchedule {
 		return vs[0].([]*SnapshotSchedule)[vs[1].(int)]
@@ -384,12 +353,6 @@ func (o SnapshotScheduleMapOutput) ToSnapshotScheduleMapOutput() SnapshotSchedul
 
 func (o SnapshotScheduleMapOutput) ToSnapshotScheduleMapOutputWithContext(ctx context.Context) SnapshotScheduleMapOutput {
 	return o
-}
-
-func (o SnapshotScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotSchedule] {
-	return pulumix.Output[map[string]*SnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotScheduleMapOutput) MapIndex(k pulumi.StringInput) SnapshotScheduleOutput {

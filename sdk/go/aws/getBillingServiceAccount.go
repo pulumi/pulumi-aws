@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
@@ -162,12 +161,6 @@ func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOu
 
 func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOutputWithContext(ctx context.Context) GetBillingServiceAccountResultOutput {
 	return o
-}
-
-func (o GetBillingServiceAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBillingServiceAccountResult] {
-	return pulumix.Output[GetBillingServiceAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the AWS billing service account.

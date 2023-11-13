@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon AppIntegrations Data Integration resource.
@@ -225,12 +224,6 @@ func (i *DataIntegration) ToDataIntegrationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationOutput)
 }
 
-func (i *DataIntegration) ToOutput(ctx context.Context) pulumix.Output[*DataIntegration] {
-	return pulumix.Output[*DataIntegration]{
-		OutputState: i.ToDataIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataIntegrationArrayInput is an input type that accepts DataIntegrationArray and DataIntegrationArrayOutput values.
 // You can construct a concrete instance of `DataIntegrationArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i DataIntegrationArray) ToDataIntegrationArrayOutput() DataIntegrationArra
 
 func (i DataIntegrationArray) ToDataIntegrationArrayOutputWithContext(ctx context.Context) DataIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationArrayOutput)
-}
-
-func (i DataIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataIntegration] {
-	return pulumix.Output[[]*DataIntegration]{
-		OutputState: i.ToDataIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataIntegrationMapInput is an input type that accepts DataIntegrationMap and DataIntegrationMapOutput values.
@@ -287,12 +274,6 @@ func (i DataIntegrationMap) ToDataIntegrationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationMapOutput)
 }
 
-func (i DataIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataIntegration] {
-	return pulumix.Output[map[string]*DataIntegration]{
-		OutputState: i.ToDataIntegrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataIntegrationOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o DataIntegrationOutput) ToDataIntegrationOutput() DataIntegrationOutput {
 
 func (o DataIntegrationOutput) ToDataIntegrationOutputWithContext(ctx context.Context) DataIntegrationOutput {
 	return o
-}
-
-func (o DataIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegration] {
-	return pulumix.Output[*DataIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Data Integration.
@@ -369,12 +344,6 @@ func (o DataIntegrationArrayOutput) ToDataIntegrationArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o DataIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataIntegration] {
-	return pulumix.Output[[]*DataIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataIntegrationArrayOutput) Index(i pulumi.IntInput) DataIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataIntegration {
 		return vs[0].([]*DataIntegration)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o DataIntegrationMapOutput) ToDataIntegrationMapOutput() DataIntegrationMa
 
 func (o DataIntegrationMapOutput) ToDataIntegrationMapOutputWithContext(ctx context.Context) DataIntegrationMapOutput {
 	return o
-}
-
-func (o DataIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataIntegration] {
-	return pulumix.Output[map[string]*DataIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataIntegrationMapOutput) MapIndex(k pulumi.StringInput) DataIntegrationOutput {

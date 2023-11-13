@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CloudFormation StackSet. StackSets allow CloudFormation templates to be easily deployed across multiple accounts and regions via StackSet Instances (`cloudformation.StackSetInstance` resource). Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -393,12 +392,6 @@ func (i *StackSet) ToStackSetOutputWithContext(ctx context.Context) StackSetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOutput)
 }
 
-func (i *StackSet) ToOutput(ctx context.Context) pulumix.Output[*StackSet] {
-	return pulumix.Output[*StackSet]{
-		OutputState: i.ToStackSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackSetArrayInput is an input type that accepts StackSetArray and StackSetArrayOutput values.
 // You can construct a concrete instance of `StackSetArrayInput` via:
 //
@@ -422,12 +415,6 @@ func (i StackSetArray) ToStackSetArrayOutput() StackSetArrayOutput {
 
 func (i StackSetArray) ToStackSetArrayOutputWithContext(ctx context.Context) StackSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetArrayOutput)
-}
-
-func (i StackSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*StackSet] {
-	return pulumix.Output[[]*StackSet]{
-		OutputState: i.ToStackSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StackSetMapInput is an input type that accepts StackSetMap and StackSetMapOutput values.
@@ -455,12 +442,6 @@ func (i StackSetMap) ToStackSetMapOutputWithContext(ctx context.Context) StackSe
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetMapOutput)
 }
 
-func (i StackSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSet] {
-	return pulumix.Output[map[string]*StackSet]{
-		OutputState: i.ToStackSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSetOutput struct{ *pulumi.OutputState }
 
 func (StackSetOutput) ElementType() reflect.Type {
@@ -473,12 +454,6 @@ func (o StackSetOutput) ToStackSetOutput() StackSetOutput {
 
 func (o StackSetOutput) ToStackSetOutputWithContext(ctx context.Context) StackSetOutput {
 	return o
-}
-
-func (o StackSetOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSet] {
-	return pulumix.Output[*StackSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
@@ -582,12 +557,6 @@ func (o StackSetArrayOutput) ToStackSetArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o StackSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StackSet] {
-	return pulumix.Output[[]*StackSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetArrayOutput) Index(i pulumi.IntInput) StackSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSet {
 		return vs[0].([]*StackSet)[vs[1].(int)]
@@ -606,12 +575,6 @@ func (o StackSetMapOutput) ToStackSetMapOutput() StackSetMapOutput {
 
 func (o StackSetMapOutput) ToStackSetMapOutputWithContext(ctx context.Context) StackSetMapOutput {
 	return o
-}
-
-func (o StackSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSet] {
-	return pulumix.Output[map[string]*StackSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetMapOutput) MapIndex(k pulumi.StringInput) StackSetOutput {

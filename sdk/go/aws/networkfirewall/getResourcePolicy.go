@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Network Firewall resource policy.
@@ -100,12 +99,6 @@ func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutput() L
 
 func (o LookupResourcePolicyResultOutput) ToLookupResourcePolicyResultOutputWithContext(ctx context.Context) LookupResourcePolicyResultOutput {
 	return o
-}
-
-func (o LookupResourcePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourcePolicyResult] {
-	return pulumix.Output[LookupResourcePolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

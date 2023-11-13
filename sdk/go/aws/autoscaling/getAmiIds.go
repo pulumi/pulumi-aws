@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Autoscaling Groups data source allows access to the list of AWS
@@ -133,12 +132,6 @@ func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutput() GetAmiIdsResultOutput {
 
 func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Context) GetAmiIdsResultOutput {
 	return o
-}
-
-func (o GetAmiIdsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAmiIdsResult] {
-	return pulumix.Output[GetAmiIdsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the Autoscaling Groups Arns in the current region.

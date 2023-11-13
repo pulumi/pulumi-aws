@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Framework.
@@ -218,12 +217,6 @@ func (i *Framework) ToFrameworkOutputWithContext(ctx context.Context) FrameworkO
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkOutput)
 }
 
-func (i *Framework) ToOutput(ctx context.Context) pulumix.Output[*Framework] {
-	return pulumix.Output[*Framework]{
-		OutputState: i.ToFrameworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrameworkArrayInput is an input type that accepts FrameworkArray and FrameworkArrayOutput values.
 // You can construct a concrete instance of `FrameworkArrayInput` via:
 //
@@ -247,12 +240,6 @@ func (i FrameworkArray) ToFrameworkArrayOutput() FrameworkArrayOutput {
 
 func (i FrameworkArray) ToFrameworkArrayOutputWithContext(ctx context.Context) FrameworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkArrayOutput)
-}
-
-func (i FrameworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Framework] {
-	return pulumix.Output[[]*Framework]{
-		OutputState: i.ToFrameworkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrameworkMapInput is an input type that accepts FrameworkMap and FrameworkMapOutput values.
@@ -280,12 +267,6 @@ func (i FrameworkMap) ToFrameworkMapOutputWithContext(ctx context.Context) Frame
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkMapOutput)
 }
 
-func (i FrameworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Framework] {
-	return pulumix.Output[map[string]*Framework]{
-		OutputState: i.ToFrameworkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrameworkOutput struct{ *pulumi.OutputState }
 
 func (FrameworkOutput) ElementType() reflect.Type {
@@ -298,12 +279,6 @@ func (o FrameworkOutput) ToFrameworkOutput() FrameworkOutput {
 
 func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) FrameworkOutput {
 	return o
-}
-
-func (o FrameworkOutput) ToOutput(ctx context.Context) pulumix.Output[*Framework] {
-	return pulumix.Output[*Framework]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the framework.
@@ -363,12 +338,6 @@ func (o FrameworkArrayOutput) ToFrameworkArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o FrameworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Framework] {
-	return pulumix.Output[[]*Framework]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrameworkArrayOutput) Index(i pulumi.IntInput) FrameworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Framework {
 		return vs[0].([]*Framework)[vs[1].(int)]
@@ -387,12 +356,6 @@ func (o FrameworkMapOutput) ToFrameworkMapOutput() FrameworkMapOutput {
 
 func (o FrameworkMapOutput) ToFrameworkMapOutputWithContext(ctx context.Context) FrameworkMapOutput {
 	return o
-}
-
-func (o FrameworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Framework] {
-	return pulumix.Output[map[string]*Framework]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrameworkMapOutput) MapIndex(k pulumi.StringInput) FrameworkOutput {

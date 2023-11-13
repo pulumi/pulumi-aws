@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool UI Customization resource.
@@ -274,12 +273,6 @@ func (i *UserPoolUICustomization) ToUserPoolUICustomizationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationOutput)
 }
 
-func (i *UserPoolUICustomization) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUICustomization] {
-	return pulumix.Output[*UserPoolUICustomization]{
-		OutputState: i.ToUserPoolUICustomizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolUICustomizationArrayInput is an input type that accepts UserPoolUICustomizationArray and UserPoolUICustomizationArrayOutput values.
 // You can construct a concrete instance of `UserPoolUICustomizationArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i UserPoolUICustomizationArray) ToUserPoolUICustomizationArrayOutput() Use
 
 func (i UserPoolUICustomizationArray) ToUserPoolUICustomizationArrayOutputWithContext(ctx context.Context) UserPoolUICustomizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationArrayOutput)
-}
-
-func (i UserPoolUICustomizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolUICustomization] {
-	return pulumix.Output[[]*UserPoolUICustomization]{
-		OutputState: i.ToUserPoolUICustomizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPoolUICustomizationMapInput is an input type that accepts UserPoolUICustomizationMap and UserPoolUICustomizationMapOutput values.
@@ -336,12 +323,6 @@ func (i UserPoolUICustomizationMap) ToUserPoolUICustomizationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationMapOutput)
 }
 
-func (i UserPoolUICustomizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolUICustomization] {
-	return pulumix.Output[map[string]*UserPoolUICustomization]{
-		OutputState: i.ToUserPoolUICustomizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolUICustomizationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationOutput() UserPoo
 
 func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationOutputWithContext(ctx context.Context) UserPoolUICustomizationOutput {
 	return o
-}
-
-func (o UserPoolUICustomizationOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUICustomization] {
-	return pulumix.Output[*UserPoolUICustomization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
@@ -416,12 +391,6 @@ func (o UserPoolUICustomizationArrayOutput) ToUserPoolUICustomizationArrayOutput
 	return o
 }
 
-func (o UserPoolUICustomizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolUICustomization] {
-	return pulumix.Output[[]*UserPoolUICustomization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolUICustomizationArrayOutput) Index(i pulumi.IntInput) UserPoolUICustomizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolUICustomization {
 		return vs[0].([]*UserPoolUICustomization)[vs[1].(int)]
@@ -440,12 +409,6 @@ func (o UserPoolUICustomizationMapOutput) ToUserPoolUICustomizationMapOutput() U
 
 func (o UserPoolUICustomizationMapOutput) ToUserPoolUICustomizationMapOutputWithContext(ctx context.Context) UserPoolUICustomizationMapOutput {
 	return o
-}
-
-func (o UserPoolUICustomizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolUICustomization] {
-	return pulumix.Output[map[string]*UserPoolUICustomization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUICustomizationMapOutput) MapIndex(k pulumi.StringInput) UserPoolUICustomizationOutput {

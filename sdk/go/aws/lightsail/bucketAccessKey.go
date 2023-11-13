@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a lightsail bucket access key. This is a set of credentials that allow API requests to be made to the lightsail bucket.
@@ -135,12 +134,6 @@ func (i *BucketAccessKey) ToBucketAccessKeyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessKeyOutput)
 }
 
-func (i *BucketAccessKey) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessKey] {
-	return pulumix.Output[*BucketAccessKey]{
-		OutputState: i.ToBucketAccessKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketAccessKeyArrayInput is an input type that accepts BucketAccessKeyArray and BucketAccessKeyArrayOutput values.
 // You can construct a concrete instance of `BucketAccessKeyArrayInput` via:
 //
@@ -164,12 +157,6 @@ func (i BucketAccessKeyArray) ToBucketAccessKeyArrayOutput() BucketAccessKeyArra
 
 func (i BucketAccessKeyArray) ToBucketAccessKeyArrayOutputWithContext(ctx context.Context) BucketAccessKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessKeyArrayOutput)
-}
-
-func (i BucketAccessKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAccessKey] {
-	return pulumix.Output[[]*BucketAccessKey]{
-		OutputState: i.ToBucketAccessKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketAccessKeyMapInput is an input type that accepts BucketAccessKeyMap and BucketAccessKeyMapOutput values.
@@ -197,12 +184,6 @@ func (i BucketAccessKeyMap) ToBucketAccessKeyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessKeyMapOutput)
 }
 
-func (i BucketAccessKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAccessKey] {
-	return pulumix.Output[map[string]*BucketAccessKey]{
-		OutputState: i.ToBucketAccessKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketAccessKeyOutput struct{ *pulumi.OutputState }
 
 func (BucketAccessKeyOutput) ElementType() reflect.Type {
@@ -215,12 +196,6 @@ func (o BucketAccessKeyOutput) ToBucketAccessKeyOutput() BucketAccessKeyOutput {
 
 func (o BucketAccessKeyOutput) ToBucketAccessKeyOutputWithContext(ctx context.Context) BucketAccessKeyOutput {
 	return o
-}
-
-func (o BucketAccessKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessKey] {
-	return pulumix.Output[*BucketAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the access key.
@@ -262,12 +237,6 @@ func (o BucketAccessKeyArrayOutput) ToBucketAccessKeyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o BucketAccessKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAccessKey] {
-	return pulumix.Output[[]*BucketAccessKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccessKeyArrayOutput) Index(i pulumi.IntInput) BucketAccessKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketAccessKey {
 		return vs[0].([]*BucketAccessKey)[vs[1].(int)]
@@ -286,12 +255,6 @@ func (o BucketAccessKeyMapOutput) ToBucketAccessKeyMapOutput() BucketAccessKeyMa
 
 func (o BucketAccessKeyMapOutput) ToBucketAccessKeyMapOutputWithContext(ctx context.Context) BucketAccessKeyMapOutput {
 	return o
-}
-
-func (o BucketAccessKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAccessKey] {
-	return pulumix.Output[map[string]*BucketAccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAccessKeyMapOutput) MapIndex(k pulumi.StringInput) BucketAccessKeyOutput {

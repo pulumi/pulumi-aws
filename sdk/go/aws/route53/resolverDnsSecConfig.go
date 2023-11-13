@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNSSEC config resource.
@@ -166,12 +165,6 @@ func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigOutput)
 }
 
-func (i *ResolverDnsSecConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnsSecConfig] {
-	return pulumix.Output[*ResolverDnsSecConfig]{
-		OutputState: i.ToResolverDnsSecConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverDnsSecConfigArrayInput is an input type that accepts ResolverDnsSecConfigArray and ResolverDnsSecConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverDnsSecConfigArrayInput` via:
 //
@@ -195,12 +188,6 @@ func (i ResolverDnsSecConfigArray) ToResolverDnsSecConfigArrayOutput() ResolverD
 
 func (i ResolverDnsSecConfigArray) ToResolverDnsSecConfigArrayOutputWithContext(ctx context.Context) ResolverDnsSecConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigArrayOutput)
-}
-
-func (i ResolverDnsSecConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverDnsSecConfig] {
-	return pulumix.Output[[]*ResolverDnsSecConfig]{
-		OutputState: i.ToResolverDnsSecConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverDnsSecConfigMapInput is an input type that accepts ResolverDnsSecConfigMap and ResolverDnsSecConfigMapOutput values.
@@ -228,12 +215,6 @@ func (i ResolverDnsSecConfigMap) ToResolverDnsSecConfigMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigMapOutput)
 }
 
-func (i ResolverDnsSecConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverDnsSecConfig] {
-	return pulumix.Output[map[string]*ResolverDnsSecConfig]{
-		OutputState: i.ToResolverDnsSecConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverDnsSecConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnsSecConfigOutput) ElementType() reflect.Type {
@@ -246,12 +227,6 @@ func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigOutput() ResolverDnsSe
 
 func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigOutputWithContext(ctx context.Context) ResolverDnsSecConfigOutput {
 	return o
-}
-
-func (o ResolverDnsSecConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnsSecConfig] {
-	return pulumix.Output[*ResolverDnsSecConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN for a configuration for DNSSEC validation.
@@ -288,12 +263,6 @@ func (o ResolverDnsSecConfigArrayOutput) ToResolverDnsSecConfigArrayOutputWithCo
 	return o
 }
 
-func (o ResolverDnsSecConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverDnsSecConfig] {
-	return pulumix.Output[[]*ResolverDnsSecConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverDnsSecConfigArrayOutput) Index(i pulumi.IntInput) ResolverDnsSecConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverDnsSecConfig {
 		return vs[0].([]*ResolverDnsSecConfig)[vs[1].(int)]
@@ -312,12 +281,6 @@ func (o ResolverDnsSecConfigMapOutput) ToResolverDnsSecConfigMapOutput() Resolve
 
 func (o ResolverDnsSecConfigMapOutput) ToResolverDnsSecConfigMapOutputWithContext(ctx context.Context) ResolverDnsSecConfigMapOutput {
 	return o
-}
-
-func (o ResolverDnsSecConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverDnsSecConfig] {
-	return pulumix.Output[map[string]*ResolverDnsSecConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverDnsSecConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverDnsSecConfigOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an GameLift Script resource.
@@ -199,12 +198,6 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
 }
 
-func (i *Script) ToOutput(ctx context.Context) pulumix.Output[*Script] {
-	return pulumix.Output[*Script]{
-		OutputState: i.ToScriptOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScriptArrayInput is an input type that accepts ScriptArray and ScriptArrayOutput values.
 // You can construct a concrete instance of `ScriptArrayInput` via:
 //
@@ -228,12 +221,6 @@ func (i ScriptArray) ToScriptArrayOutput() ScriptArrayOutput {
 
 func (i ScriptArray) ToScriptArrayOutputWithContext(ctx context.Context) ScriptArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptArrayOutput)
-}
-
-func (i ScriptArray) ToOutput(ctx context.Context) pulumix.Output[[]*Script] {
-	return pulumix.Output[[]*Script]{
-		OutputState: i.ToScriptArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScriptMapInput is an input type that accepts ScriptMap and ScriptMapOutput values.
@@ -261,12 +248,6 @@ func (i ScriptMap) ToScriptMapOutputWithContext(ctx context.Context) ScriptMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptMapOutput)
 }
 
-func (i ScriptMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Script] {
-	return pulumix.Output[map[string]*Script]{
-		OutputState: i.ToScriptMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScriptOutput struct{ *pulumi.OutputState }
 
 func (ScriptOutput) ElementType() reflect.Type {
@@ -279,12 +260,6 @@ func (o ScriptOutput) ToScriptOutput() ScriptOutput {
 
 func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return o
-}
-
-func (o ScriptOutput) ToOutput(ctx context.Context) pulumix.Output[*Script] {
-	return pulumix.Output[*Script]{
-		OutputState: o.OutputState,
-	}
 }
 
 // GameLift Script ARN.
@@ -338,12 +313,6 @@ func (o ScriptArrayOutput) ToScriptArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o ScriptArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Script] {
-	return pulumix.Output[[]*Script]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScriptArrayOutput) Index(i pulumi.IntInput) ScriptOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Script {
 		return vs[0].([]*Script)[vs[1].(int)]
@@ -362,12 +331,6 @@ func (o ScriptMapOutput) ToScriptMapOutput() ScriptMapOutput {
 
 func (o ScriptMapOutput) ToScriptMapOutputWithContext(ctx context.Context) ScriptMapOutput {
 	return o
-}
-
-func (o ScriptMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Script] {
-	return pulumix.Output[map[string]*Script]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScriptMapOutput) MapIndex(k pulumi.StringInput) ScriptOutput {

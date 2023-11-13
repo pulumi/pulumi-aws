@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC Endpoint Policy resource.
@@ -189,12 +188,6 @@ func (i *VpcEndpointPolicy) ToVpcEndpointPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPolicyOutput)
 }
 
-func (i *VpcEndpointPolicy) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointPolicy] {
-	return pulumix.Output[*VpcEndpointPolicy]{
-		OutputState: i.ToVpcEndpointPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcEndpointPolicyArrayInput is an input type that accepts VpcEndpointPolicyArray and VpcEndpointPolicyArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointPolicyArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i VpcEndpointPolicyArray) ToVpcEndpointPolicyArrayOutput() VpcEndpointPoli
 
 func (i VpcEndpointPolicyArray) ToVpcEndpointPolicyArrayOutputWithContext(ctx context.Context) VpcEndpointPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPolicyArrayOutput)
-}
-
-func (i VpcEndpointPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointPolicy] {
-	return pulumix.Output[[]*VpcEndpointPolicy]{
-		OutputState: i.ToVpcEndpointPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcEndpointPolicyMapInput is an input type that accepts VpcEndpointPolicyMap and VpcEndpointPolicyMapOutput values.
@@ -251,12 +238,6 @@ func (i VpcEndpointPolicyMap) ToVpcEndpointPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointPolicyMapOutput)
 }
 
-func (i VpcEndpointPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointPolicy] {
-	return pulumix.Output[map[string]*VpcEndpointPolicy]{
-		OutputState: i.ToVpcEndpointPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcEndpointPolicyOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointPolicyOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o VpcEndpointPolicyOutput) ToVpcEndpointPolicyOutput() VpcEndpointPolicyOu
 
 func (o VpcEndpointPolicyOutput) ToVpcEndpointPolicyOutputWithContext(ctx context.Context) VpcEndpointPolicyOutput {
 	return o
-}
-
-func (o VpcEndpointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointPolicy] {
-	return pulumix.Output[*VpcEndpointPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
@@ -301,12 +276,6 @@ func (o VpcEndpointPolicyArrayOutput) ToVpcEndpointPolicyArrayOutputWithContext(
 	return o
 }
 
-func (o VpcEndpointPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointPolicy] {
-	return pulumix.Output[[]*VpcEndpointPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcEndpointPolicyArrayOutput) Index(i pulumi.IntInput) VpcEndpointPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointPolicy {
 		return vs[0].([]*VpcEndpointPolicy)[vs[1].(int)]
@@ -325,12 +294,6 @@ func (o VpcEndpointPolicyMapOutput) ToVpcEndpointPolicyMapOutput() VpcEndpointPo
 
 func (o VpcEndpointPolicyMapOutput) ToVpcEndpointPolicyMapOutputWithContext(ctx context.Context) VpcEndpointPolicyMapOutput {
 	return o
-}
-
-func (o VpcEndpointPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointPolicy] {
-	return pulumix.Output[map[string]*VpcEndpointPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcEndpointPolicyMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointPolicyOutput {

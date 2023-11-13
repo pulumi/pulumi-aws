@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Single Sign-On (SSO) Account Assignment resource
@@ -173,12 +172,6 @@ func (i *AccountAssignment) ToAccountAssignmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentOutput)
 }
 
-func (i *AccountAssignment) ToOutput(ctx context.Context) pulumix.Output[*AccountAssignment] {
-	return pulumix.Output[*AccountAssignment]{
-		OutputState: i.ToAccountAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountAssignmentArrayInput is an input type that accepts AccountAssignmentArray and AccountAssignmentArrayOutput values.
 // You can construct a concrete instance of `AccountAssignmentArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i AccountAssignmentArray) ToAccountAssignmentArrayOutput() AccountAssignme
 
 func (i AccountAssignmentArray) ToAccountAssignmentArrayOutputWithContext(ctx context.Context) AccountAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentArrayOutput)
-}
-
-func (i AccountAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountAssignment] {
-	return pulumix.Output[[]*AccountAssignment]{
-		OutputState: i.ToAccountAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountAssignmentMapInput is an input type that accepts AccountAssignmentMap and AccountAssignmentMapOutput values.
@@ -235,12 +222,6 @@ func (i AccountAssignmentMap) ToAccountAssignmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentMapOutput)
 }
 
-func (i AccountAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountAssignment] {
-	return pulumix.Output[map[string]*AccountAssignment]{
-		OutputState: i.ToAccountAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountAssignmentOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o AccountAssignmentOutput) ToAccountAssignmentOutput() AccountAssignmentOu
 
 func (o AccountAssignmentOutput) ToAccountAssignmentOutputWithContext(ctx context.Context) AccountAssignmentOutput {
 	return o
-}
-
-func (o AccountAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountAssignment] {
-	return pulumix.Output[*AccountAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the SSO Instance.
@@ -305,12 +280,6 @@ func (o AccountAssignmentArrayOutput) ToAccountAssignmentArrayOutputWithContext(
 	return o
 }
 
-func (o AccountAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountAssignment] {
-	return pulumix.Output[[]*AccountAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountAssignmentArrayOutput) Index(i pulumi.IntInput) AccountAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountAssignment {
 		return vs[0].([]*AccountAssignment)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutput() AccountAssign
 
 func (o AccountAssignmentMapOutput) ToAccountAssignmentMapOutputWithContext(ctx context.Context) AccountAssignmentMapOutput {
 	return o
-}
-
-func (o AccountAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountAssignment] {
-	return pulumix.Output[map[string]*AccountAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountAssignmentMapOutput) MapIndex(k pulumi.StringInput) AccountAssignmentOutput {

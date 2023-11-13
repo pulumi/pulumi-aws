@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lightsail Key Pair, for use with Lightsail Instances. These key pairs
@@ -275,12 +274,6 @@ func (i *KeyPair) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPairOutput)
 }
 
-func (i *KeyPair) ToOutput(ctx context.Context) pulumix.Output[*KeyPair] {
-	return pulumix.Output[*KeyPair]{
-		OutputState: i.ToKeyPairOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyPairArrayInput is an input type that accepts KeyPairArray and KeyPairArrayOutput values.
 // You can construct a concrete instance of `KeyPairArrayInput` via:
 //
@@ -304,12 +297,6 @@ func (i KeyPairArray) ToKeyPairArrayOutput() KeyPairArrayOutput {
 
 func (i KeyPairArray) ToKeyPairArrayOutputWithContext(ctx context.Context) KeyPairArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPairArrayOutput)
-}
-
-func (i KeyPairArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeyPair] {
-	return pulumix.Output[[]*KeyPair]{
-		OutputState: i.ToKeyPairArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KeyPairMapInput is an input type that accepts KeyPairMap and KeyPairMapOutput values.
@@ -337,12 +324,6 @@ func (i KeyPairMap) ToKeyPairMapOutputWithContext(ctx context.Context) KeyPairMa
 	return pulumi.ToOutputWithContext(ctx, i).(KeyPairMapOutput)
 }
 
-func (i KeyPairMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyPair] {
-	return pulumix.Output[map[string]*KeyPair]{
-		OutputState: i.ToKeyPairMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyPairOutput struct{ *pulumi.OutputState }
 
 func (KeyPairOutput) ElementType() reflect.Type {
@@ -355,12 +336,6 @@ func (o KeyPairOutput) ToKeyPairOutput() KeyPairOutput {
 
 func (o KeyPairOutput) ToKeyPairOutputWithContext(ctx context.Context) KeyPairOutput {
 	return o
-}
-
-func (o KeyPairOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyPair] {
-	return pulumix.Output[*KeyPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Lightsail key pair.
@@ -433,12 +408,6 @@ func (o KeyPairArrayOutput) ToKeyPairArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o KeyPairArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeyPair] {
-	return pulumix.Output[[]*KeyPair]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyPairArrayOutput) Index(i pulumi.IntInput) KeyPairOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeyPair {
 		return vs[0].([]*KeyPair)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o KeyPairMapOutput) ToKeyPairMapOutput() KeyPairMapOutput {
 
 func (o KeyPairMapOutput) ToKeyPairMapOutputWithContext(ctx context.Context) KeyPairMapOutput {
 	return o
-}
-
-func (o KeyPairMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeyPair] {
-	return pulumix.Output[map[string]*KeyPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyPairMapOutput) MapIndex(k pulumi.StringInput) KeyPairOutput {

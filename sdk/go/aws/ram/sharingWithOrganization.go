@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations. If you enable sharing with your organization, you can share resources without using invitations. Refer to the [AWS RAM user guide](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) for more details.
@@ -122,12 +121,6 @@ func (i *SharingWithOrganization) ToSharingWithOrganizationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SharingWithOrganizationOutput)
 }
 
-func (i *SharingWithOrganization) ToOutput(ctx context.Context) pulumix.Output[*SharingWithOrganization] {
-	return pulumix.Output[*SharingWithOrganization]{
-		OutputState: i.ToSharingWithOrganizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SharingWithOrganizationArrayInput is an input type that accepts SharingWithOrganizationArray and SharingWithOrganizationArrayOutput values.
 // You can construct a concrete instance of `SharingWithOrganizationArrayInput` via:
 //
@@ -151,12 +144,6 @@ func (i SharingWithOrganizationArray) ToSharingWithOrganizationArrayOutput() Sha
 
 func (i SharingWithOrganizationArray) ToSharingWithOrganizationArrayOutputWithContext(ctx context.Context) SharingWithOrganizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharingWithOrganizationArrayOutput)
-}
-
-func (i SharingWithOrganizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharingWithOrganization] {
-	return pulumix.Output[[]*SharingWithOrganization]{
-		OutputState: i.ToSharingWithOrganizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SharingWithOrganizationMapInput is an input type that accepts SharingWithOrganizationMap and SharingWithOrganizationMapOutput values.
@@ -184,12 +171,6 @@ func (i SharingWithOrganizationMap) ToSharingWithOrganizationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SharingWithOrganizationMapOutput)
 }
 
-func (i SharingWithOrganizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharingWithOrganization] {
-	return pulumix.Output[map[string]*SharingWithOrganization]{
-		OutputState: i.ToSharingWithOrganizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SharingWithOrganizationOutput struct{ *pulumi.OutputState }
 
 func (SharingWithOrganizationOutput) ElementType() reflect.Type {
@@ -204,12 +185,6 @@ func (o SharingWithOrganizationOutput) ToSharingWithOrganizationOutputWithContex
 	return o
 }
 
-func (o SharingWithOrganizationOutput) ToOutput(ctx context.Context) pulumix.Output[*SharingWithOrganization] {
-	return pulumix.Output[*SharingWithOrganization]{
-		OutputState: o.OutputState,
-	}
-}
-
 type SharingWithOrganizationArrayOutput struct{ *pulumi.OutputState }
 
 func (SharingWithOrganizationArrayOutput) ElementType() reflect.Type {
@@ -222,12 +197,6 @@ func (o SharingWithOrganizationArrayOutput) ToSharingWithOrganizationArrayOutput
 
 func (o SharingWithOrganizationArrayOutput) ToSharingWithOrganizationArrayOutputWithContext(ctx context.Context) SharingWithOrganizationArrayOutput {
 	return o
-}
-
-func (o SharingWithOrganizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharingWithOrganization] {
-	return pulumix.Output[[]*SharingWithOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharingWithOrganizationArrayOutput) Index(i pulumi.IntInput) SharingWithOrganizationOutput {
@@ -248,12 +217,6 @@ func (o SharingWithOrganizationMapOutput) ToSharingWithOrganizationMapOutput() S
 
 func (o SharingWithOrganizationMapOutput) ToSharingWithOrganizationMapOutputWithContext(ctx context.Context) SharingWithOrganizationMapOutput {
 	return o
-}
-
-func (o SharingWithOrganizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharingWithOrganization] {
-	return pulumix.Output[map[string]*SharingWithOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharingWithOrganizationMapOutput) MapIndex(k pulumi.StringInput) SharingWithOrganizationOutput {

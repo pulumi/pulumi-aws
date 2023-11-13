@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -324,12 +323,6 @@ func (i *KeySigningKey) ToKeySigningKeyOutputWithContext(ctx context.Context) Ke
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyOutput)
 }
 
-func (i *KeySigningKey) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
-	return pulumix.Output[*KeySigningKey]{
-		OutputState: i.ToKeySigningKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeySigningKeyArrayInput is an input type that accepts KeySigningKeyArray and KeySigningKeyArrayOutput values.
 // You can construct a concrete instance of `KeySigningKeyArrayInput` via:
 //
@@ -353,12 +346,6 @@ func (i KeySigningKeyArray) ToKeySigningKeyArrayOutput() KeySigningKeyArrayOutpu
 
 func (i KeySigningKeyArray) ToKeySigningKeyArrayOutputWithContext(ctx context.Context) KeySigningKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyArrayOutput)
-}
-
-func (i KeySigningKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*KeySigningKey] {
-	return pulumix.Output[[]*KeySigningKey]{
-		OutputState: i.ToKeySigningKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KeySigningKeyMapInput is an input type that accepts KeySigningKeyMap and KeySigningKeyMapOutput values.
@@ -386,12 +373,6 @@ func (i KeySigningKeyMap) ToKeySigningKeyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyMapOutput)
 }
 
-func (i KeySigningKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeySigningKey] {
-	return pulumix.Output[map[string]*KeySigningKey]{
-		OutputState: i.ToKeySigningKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeySigningKeyOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyOutput) ElementType() reflect.Type {
@@ -404,12 +385,6 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutput() KeySigningKeyOutput {
 
 func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Context) KeySigningKeyOutput {
 	return o
-}
-
-func (o KeySigningKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySigningKey] {
-	return pulumix.Output[*KeySigningKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
@@ -498,12 +473,6 @@ func (o KeySigningKeyArrayOutput) ToKeySigningKeyArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o KeySigningKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KeySigningKey] {
-	return pulumix.Output[[]*KeySigningKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySigningKeyArrayOutput) Index(i pulumi.IntInput) KeySigningKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeySigningKey {
 		return vs[0].([]*KeySigningKey)[vs[1].(int)]
@@ -522,12 +491,6 @@ func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutput() KeySigningKeyMapOutpu
 
 func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutputWithContext(ctx context.Context) KeySigningKeyMapOutput {
 	return o
-}
-
-func (o KeySigningKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KeySigningKey] {
-	return pulumix.Output[map[string]*KeySigningKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeySigningKeyMapOutput) MapIndex(k pulumi.StringInput) KeySigningKeyOutput {

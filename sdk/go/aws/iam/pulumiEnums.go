@@ -1181,12 +1181,6 @@ func (o ManagedPolicyOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Con
 	}).(ManagedPolicyPtrOutput)
 }
 
-func (o ManagedPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedPolicy] {
-	return pulumix.Output[ManagedPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1220,12 +1214,6 @@ func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutpu
 
 func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
 	return o
-}
-
-func (o ManagedPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicy] {
-	return pulumix.Output[*ManagedPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {

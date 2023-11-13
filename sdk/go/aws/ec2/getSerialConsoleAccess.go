@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -79,12 +78,6 @@ func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResult
 
 func (o LookupSerialConsoleAccessResultOutput) ToLookupSerialConsoleAccessResultOutputWithContext(ctx context.Context) LookupSerialConsoleAccessResultOutput {
 	return o
-}
-
-func (o LookupSerialConsoleAccessResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSerialConsoleAccessResult] {
-	return pulumix.Output[LookupSerialConsoleAccessResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether or not serial console access is enabled. Returns as `true` or `false`.

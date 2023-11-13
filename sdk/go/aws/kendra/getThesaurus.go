@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Thesaurus.
@@ -134,12 +133,6 @@ func (o LookupThesaurusResultOutput) ToLookupThesaurusResultOutput() LookupThesa
 
 func (o LookupThesaurusResultOutput) ToLookupThesaurusResultOutputWithContext(ctx context.Context) LookupThesaurusResultOutput {
 	return o
-}
-
-func (o LookupThesaurusResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThesaurusResult] {
-	return pulumix.Output[LookupThesaurusResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Thesaurus.

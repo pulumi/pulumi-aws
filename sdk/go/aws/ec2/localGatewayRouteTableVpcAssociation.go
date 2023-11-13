@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
@@ -202,12 +201,6 @@ func (i *LocalGatewayRouteTableVpcAssociation) ToLocalGatewayRouteTableVpcAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVpcAssociationOutput)
 }
 
-func (i *LocalGatewayRouteTableVpcAssociation) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: i.ToLocalGatewayRouteTableVpcAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalGatewayRouteTableVpcAssociationArrayInput is an input type that accepts LocalGatewayRouteTableVpcAssociationArray and LocalGatewayRouteTableVpcAssociationArrayOutput values.
 // You can construct a concrete instance of `LocalGatewayRouteTableVpcAssociationArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i LocalGatewayRouteTableVpcAssociationArray) ToLocalGatewayRouteTableVpcAs
 
 func (i LocalGatewayRouteTableVpcAssociationArray) ToLocalGatewayRouteTableVpcAssociationArrayOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVpcAssociationArrayOutput)
-}
-
-func (i LocalGatewayRouteTableVpcAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[[]*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: i.ToLocalGatewayRouteTableVpcAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalGatewayRouteTableVpcAssociationMapInput is an input type that accepts LocalGatewayRouteTableVpcAssociationMap and LocalGatewayRouteTableVpcAssociationMapOutput values.
@@ -264,12 +251,6 @@ func (i LocalGatewayRouteTableVpcAssociationMap) ToLocalGatewayRouteTableVpcAsso
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVpcAssociationMapOutput)
 }
 
-func (i LocalGatewayRouteTableVpcAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[map[string]*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: i.ToLocalGatewayRouteTableVpcAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGatewayRouteTableVpcAssociationOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteTableVpcAssociationOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o LocalGatewayRouteTableVpcAssociationOutput) ToLocalGatewayRouteTableVpcA
 
 func (o LocalGatewayRouteTableVpcAssociationOutput) ToLocalGatewayRouteTableVpcAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationOutput {
 	return o
-}
-
-func (o LocalGatewayRouteTableVpcAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGatewayRouteTableVpcAssociationOutput) LocalGatewayId() pulumi.StringOutput {
@@ -332,12 +307,6 @@ func (o LocalGatewayRouteTableVpcAssociationArrayOutput) ToLocalGatewayRouteTabl
 	return o
 }
 
-func (o LocalGatewayRouteTableVpcAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[[]*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalGatewayRouteTableVpcAssociationArrayOutput) Index(i pulumi.IntInput) LocalGatewayRouteTableVpcAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGatewayRouteTableVpcAssociation {
 		return vs[0].([]*LocalGatewayRouteTableVpcAssociation)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o LocalGatewayRouteTableVpcAssociationMapOutput) ToLocalGatewayRouteTableV
 
 func (o LocalGatewayRouteTableVpcAssociationMapOutput) ToLocalGatewayRouteTableVpcAssociationMapOutputWithContext(ctx context.Context) LocalGatewayRouteTableVpcAssociationMapOutput {
 	return o
-}
-
-func (o LocalGatewayRouteTableVpcAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalGatewayRouteTableVpcAssociation] {
-	return pulumix.Output[map[string]*LocalGatewayRouteTableVpcAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalGatewayRouteTableVpcAssociationMapOutput) MapIndex(k pulumi.StringInput) LocalGatewayRouteTableVpcAssociationOutput {

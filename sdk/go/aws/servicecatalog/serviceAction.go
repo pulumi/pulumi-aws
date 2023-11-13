@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog self-service action.
@@ -181,12 +180,6 @@ func (i *ServiceAction) ToServiceActionOutputWithContext(ctx context.Context) Se
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionOutput)
 }
 
-func (i *ServiceAction) ToOutput(ctx context.Context) pulumix.Output[*ServiceAction] {
-	return pulumix.Output[*ServiceAction]{
-		OutputState: i.ToServiceActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceActionArrayInput is an input type that accepts ServiceActionArray and ServiceActionArrayOutput values.
 // You can construct a concrete instance of `ServiceActionArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i ServiceActionArray) ToServiceActionArrayOutput() ServiceActionArrayOutpu
 
 func (i ServiceActionArray) ToServiceActionArrayOutputWithContext(ctx context.Context) ServiceActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionArrayOutput)
-}
-
-func (i ServiceActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAction] {
-	return pulumix.Output[[]*ServiceAction]{
-		OutputState: i.ToServiceActionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceActionMapInput is an input type that accepts ServiceActionMap and ServiceActionMapOutput values.
@@ -243,12 +230,6 @@ func (i ServiceActionMap) ToServiceActionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionMapOutput)
 }
 
-func (i ServiceActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAction] {
-	return pulumix.Output[map[string]*ServiceAction]{
-		OutputState: i.ToServiceActionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o ServiceActionOutput) ToServiceActionOutput() ServiceActionOutput {
 
 func (o ServiceActionOutput) ToServiceActionOutputWithContext(ctx context.Context) ServiceActionOutput {
 	return o
-}
-
-func (o ServiceActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAction] {
-	return pulumix.Output[*ServiceAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -305,12 +280,6 @@ func (o ServiceActionArrayOutput) ToServiceActionArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ServiceActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAction] {
-	return pulumix.Output[[]*ServiceAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceActionArrayOutput) Index(i pulumi.IntInput) ServiceActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceAction {
 		return vs[0].([]*ServiceAction)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o ServiceActionMapOutput) ToServiceActionMapOutput() ServiceActionMapOutpu
 
 func (o ServiceActionMapOutput) ToServiceActionMapOutputWithContext(ctx context.Context) ServiceActionMapOutput {
 	return o
-}
-
-func (o ServiceActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAction] {
-	return pulumix.Output[map[string]*ServiceAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionMapOutput) MapIndex(k pulumi.StringInput) ServiceActionOutput {

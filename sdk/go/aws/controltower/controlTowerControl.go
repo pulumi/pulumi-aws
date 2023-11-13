@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
@@ -170,12 +169,6 @@ func (i *ControlTowerControl) ToControlTowerControlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ControlTowerControlOutput)
 }
 
-func (i *ControlTowerControl) ToOutput(ctx context.Context) pulumix.Output[*ControlTowerControl] {
-	return pulumix.Output[*ControlTowerControl]{
-		OutputState: i.ToControlTowerControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ControlTowerControlArrayInput is an input type that accepts ControlTowerControlArray and ControlTowerControlArrayOutput values.
 // You can construct a concrete instance of `ControlTowerControlArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i ControlTowerControlArray) ToControlTowerControlArrayOutput() ControlTowe
 
 func (i ControlTowerControlArray) ToControlTowerControlArrayOutputWithContext(ctx context.Context) ControlTowerControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControlTowerControlArrayOutput)
-}
-
-func (i ControlTowerControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*ControlTowerControl] {
-	return pulumix.Output[[]*ControlTowerControl]{
-		OutputState: i.ToControlTowerControlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ControlTowerControlMapInput is an input type that accepts ControlTowerControlMap and ControlTowerControlMapOutput values.
@@ -232,12 +219,6 @@ func (i ControlTowerControlMap) ToControlTowerControlMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ControlTowerControlMapOutput)
 }
 
-func (i ControlTowerControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ControlTowerControl] {
-	return pulumix.Output[map[string]*ControlTowerControl]{
-		OutputState: i.ToControlTowerControlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ControlTowerControlOutput struct{ *pulumi.OutputState }
 
 func (ControlTowerControlOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o ControlTowerControlOutput) ToControlTowerControlOutput() ControlTowerCon
 
 func (o ControlTowerControlOutput) ToControlTowerControlOutputWithContext(ctx context.Context) ControlTowerControlOutput {
 	return o
-}
-
-func (o ControlTowerControlOutput) ToOutput(ctx context.Context) pulumix.Output[*ControlTowerControl] {
-	return pulumix.Output[*ControlTowerControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
@@ -282,12 +257,6 @@ func (o ControlTowerControlArrayOutput) ToControlTowerControlArrayOutputWithCont
 	return o
 }
 
-func (o ControlTowerControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ControlTowerControl] {
-	return pulumix.Output[[]*ControlTowerControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ControlTowerControlArrayOutput) Index(i pulumi.IntInput) ControlTowerControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ControlTowerControl {
 		return vs[0].([]*ControlTowerControl)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o ControlTowerControlMapOutput) ToControlTowerControlMapOutput() ControlTo
 
 func (o ControlTowerControlMapOutput) ToControlTowerControlMapOutputWithContext(ctx context.Context) ControlTowerControlMapOutput {
 	return o
-}
-
-func (o ControlTowerControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ControlTowerControl] {
-	return pulumix.Output[map[string]*ControlTowerControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ControlTowerControlMapOutput) MapIndex(k pulumi.StringInput) ControlTowerControlOutput {

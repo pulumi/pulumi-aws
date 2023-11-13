@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Audit Manager Control.
@@ -169,12 +168,6 @@ func (o LookupControlResultOutput) ToLookupControlResultOutput() LookupControlRe
 
 func (o LookupControlResultOutput) ToLookupControlResultOutputWithContext(ctx context.Context) LookupControlResultOutput {
 	return o
-}
-
-func (o LookupControlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupControlResult] {
-	return pulumix.Output[LookupControlResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupControlResultOutput) ActionPlanInstructions() pulumi.StringOutput {

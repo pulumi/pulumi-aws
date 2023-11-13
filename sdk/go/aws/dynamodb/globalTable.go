@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
@@ -212,12 +211,6 @@ func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) Global
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableOutput)
 }
 
-func (i *GlobalTable) ToOutput(ctx context.Context) pulumix.Output[*GlobalTable] {
-	return pulumix.Output[*GlobalTable]{
-		OutputState: i.ToGlobalTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalTableArrayInput is an input type that accepts GlobalTableArray and GlobalTableArrayOutput values.
 // You can construct a concrete instance of `GlobalTableArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i GlobalTableArray) ToGlobalTableArrayOutput() GlobalTableArrayOutput {
 
 func (i GlobalTableArray) ToGlobalTableArrayOutputWithContext(ctx context.Context) GlobalTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableArrayOutput)
-}
-
-func (i GlobalTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalTable] {
-	return pulumix.Output[[]*GlobalTable]{
-		OutputState: i.ToGlobalTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalTableMapInput is an input type that accepts GlobalTableMap and GlobalTableMapOutput values.
@@ -274,12 +261,6 @@ func (i GlobalTableMap) ToGlobalTableMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableMapOutput)
 }
 
-func (i GlobalTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalTable] {
-	return pulumix.Output[map[string]*GlobalTable]{
-		OutputState: i.ToGlobalTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o GlobalTableOutput) ToGlobalTableOutput() GlobalTableOutput {
 
 func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput {
 	return o
-}
-
-func (o GlobalTableOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTable] {
-	return pulumix.Output[*GlobalTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the DynamoDB Global Table
@@ -329,12 +304,6 @@ func (o GlobalTableArrayOutput) ToGlobalTableArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o GlobalTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalTable] {
-	return pulumix.Output[[]*GlobalTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalTableArrayOutput) Index(i pulumi.IntInput) GlobalTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalTable {
 		return vs[0].([]*GlobalTable)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o GlobalTableMapOutput) ToGlobalTableMapOutput() GlobalTableMapOutput {
 
 func (o GlobalTableMapOutput) ToGlobalTableMapOutputWithContext(ctx context.Context) GlobalTableMapOutput {
 	return o
-}
-
-func (o GlobalTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalTable] {
-	return pulumix.Output[map[string]*GlobalTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableMapOutput) MapIndex(k pulumi.StringInput) GlobalTableOutput {

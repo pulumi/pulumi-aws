@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a device.
@@ -101,12 +100,6 @@ func (o LookupDeviceResultOutput) ToLookupDeviceResultOutput() LookupDeviceResul
 
 func (o LookupDeviceResultOutput) ToLookupDeviceResultOutputWithContext(ctx context.Context) LookupDeviceResultOutput {
 	return o
-}
-
-func (o LookupDeviceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeviceResult] {
-	return pulumix.Output[LookupDeviceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the device.

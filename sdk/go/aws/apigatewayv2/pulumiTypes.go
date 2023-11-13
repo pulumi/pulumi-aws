@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsConfigurationOutput)
 }
 
-func (i ApiCorsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApiCorsConfiguration] {
-	return pulumix.Output[ApiCorsConfiguration]{
-		OutputState: i.ToApiCorsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApiCorsConfigurationArgs) ToApiCorsConfigurationPtrOutput() ApiCorsConfigurationPtrOutput {
 	return i.ToApiCorsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *apiCorsConfigurationPtrType) ToApiCorsConfigurationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCorsConfigurationPtrOutput)
 }
 
-func (i *apiCorsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApiCorsConfiguration] {
-	return pulumix.Output[*ApiCorsConfiguration]{
-		OutputState: i.ToApiCorsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApiCorsConfigurationOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCorsConfiguration) *ApiCorsConfiguration {
 		return &v
 	}).(ApiCorsConfigurationPtrOutput)
-}
-
-func (o ApiCorsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApiCorsConfiguration] {
-	return pulumix.Output[ApiCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether credentials are included in the CORS request.
@@ -192,12 +173,6 @@ func (o ApiCorsConfigurationPtrOutput) ToApiCorsConfigurationPtrOutput() ApiCors
 
 func (o ApiCorsConfigurationPtrOutput) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
 	return o
-}
-
-func (o ApiCorsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiCorsConfiguration] {
-	return pulumix.Output[*ApiCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiCorsConfigurationPtrOutput) Elem() ApiCorsConfigurationOutput {
@@ -307,12 +282,6 @@ func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationOutput)
 }
 
-func (i AuthorizerJwtConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AuthorizerJwtConfiguration] {
-	return pulumix.Output[AuthorizerJwtConfiguration]{
-		OutputState: i.ToAuthorizerJwtConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AuthorizerJwtConfigurationArgs) ToAuthorizerJwtConfigurationPtrOutput() AuthorizerJwtConfigurationPtrOutput {
 	return i.ToAuthorizerJwtConfigurationPtrOutputWithContext(context.Background())
 }
@@ -354,12 +323,6 @@ func (i *authorizerJwtConfigurationPtrType) ToAuthorizerJwtConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerJwtConfigurationPtrOutput)
 }
 
-func (i *authorizerJwtConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AuthorizerJwtConfiguration] {
-	return pulumix.Output[*AuthorizerJwtConfiguration]{
-		OutputState: i.ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthorizerJwtConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerJwtConfigurationOutput) ElementType() reflect.Type {
@@ -384,12 +347,6 @@ func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputW
 	}).(AuthorizerJwtConfigurationPtrOutput)
 }
 
-func (o AuthorizerJwtConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AuthorizerJwtConfiguration] {
-	return pulumix.Output[AuthorizerJwtConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
 func (o AuthorizerJwtConfigurationOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthorizerJwtConfiguration) []string { return v.Audiences }).(pulumi.StringArrayOutput)
@@ -412,12 +369,6 @@ func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutp
 
 func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
 	return o
-}
-
-func (o AuthorizerJwtConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthorizerJwtConfiguration] {
-	return pulumix.Output[*AuthorizerJwtConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOutput {
@@ -503,12 +454,6 @@ func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput)
 }
 
-func (i DomainNameDomainNameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNameDomainNameConfiguration] {
-	return pulumix.Output[DomainNameDomainNameConfiguration]{
-		OutputState: i.ToDomainNameDomainNameConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
 	return i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
 }
@@ -550,12 +495,6 @@ func (i *domainNameDomainNameConfigurationPtrType) ToDomainNameDomainNameConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationPtrOutput)
 }
 
-func (i *domainNameDomainNameConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainNameDomainNameConfiguration] {
-	return pulumix.Output[*DomainNameDomainNameConfiguration]{
-		OutputState: i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainNameDomainNameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameDomainNameConfigurationOutput) ElementType() reflect.Type {
@@ -578,12 +517,6 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameDomainNameConfiguration) *DomainNameDomainNameConfiguration {
 		return &v
 	}).(DomainNameDomainNameConfigurationPtrOutput)
-}
-
-func (o DomainNameDomainNameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNameDomainNameConfiguration] {
-	return pulumix.Output[DomainNameDomainNameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
@@ -628,12 +561,6 @@ func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfig
 
 func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
 	return o
-}
-
-func (o DomainNameDomainNameConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNameDomainNameConfiguration] {
-	return pulumix.Output[*DomainNameDomainNameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameConfigurationOutput {
@@ -743,12 +670,6 @@ func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationOutput)
 }
 
-func (i DomainNameMutualTlsAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[DomainNameMutualTlsAuthentication] {
-	return pulumix.Output[DomainNameMutualTlsAuthentication]{
-		OutputState: i.ToDomainNameMutualTlsAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainNameMutualTlsAuthenticationArgs) ToDomainNameMutualTlsAuthenticationPtrOutput() DomainNameMutualTlsAuthenticationPtrOutput {
 	return i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -790,12 +711,6 @@ func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenti
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-func (i *domainNameMutualTlsAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainNameMutualTlsAuthentication] {
-	return pulumix.Output[*DomainNameMutualTlsAuthentication]{
-		OutputState: i.ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
@@ -820,12 +735,6 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-func (o DomainNameMutualTlsAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[DomainNameMutualTlsAuthentication] {
-	return pulumix.Output[DomainNameMutualTlsAuthentication]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) string { return v.TruststoreUri }).(pulumi.StringOutput)
@@ -848,12 +757,6 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthent
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
 	return o
-}
-
-func (o DomainNameMutualTlsAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainNameMutualTlsAuthentication] {
-	return pulumix.Output[*DomainNameMutualTlsAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
@@ -925,12 +828,6 @@ func (i IntegrationResponseParameterArgs) ToIntegrationResponseParameterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterOutput)
 }
 
-func (i IntegrationResponseParameterArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationResponseParameter] {
-	return pulumix.Output[IntegrationResponseParameter]{
-		OutputState: i.ToIntegrationResponseParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationResponseParameterArrayInput is an input type that accepts IntegrationResponseParameterArray and IntegrationResponseParameterArrayOutput values.
 // You can construct a concrete instance of `IntegrationResponseParameterArrayInput` via:
 //
@@ -956,12 +853,6 @@ func (i IntegrationResponseParameterArray) ToIntegrationResponseParameterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseParameterArrayOutput)
 }
 
-func (i IntegrationResponseParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationResponseParameter] {
-	return pulumix.Output[[]IntegrationResponseParameter]{
-		OutputState: i.ToIntegrationResponseParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationResponseParameterOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseParameterOutput) ElementType() reflect.Type {
@@ -974,12 +865,6 @@ func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutput
 
 func (o IntegrationResponseParameterOutput) ToIntegrationResponseParameterOutputWithContext(ctx context.Context) IntegrationResponseParameterOutput {
 	return o
-}
-
-func (o IntegrationResponseParameterOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationResponseParameter] {
-	return pulumix.Output[IntegrationResponseParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
@@ -1005,12 +890,6 @@ func (o IntegrationResponseParameterArrayOutput) ToIntegrationResponseParameterA
 
 func (o IntegrationResponseParameterArrayOutput) ToIntegrationResponseParameterArrayOutputWithContext(ctx context.Context) IntegrationResponseParameterArrayOutput {
 	return o
-}
-
-func (o IntegrationResponseParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IntegrationResponseParameter] {
-	return pulumix.Output[[]IntegrationResponseParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationResponseParameterArrayOutput) Index(i pulumi.IntInput) IntegrationResponseParameterOutput {
@@ -1050,12 +929,6 @@ func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutput() IntegrationTlsC
 
 func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigOutputWithContext(ctx context.Context) IntegrationTlsConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigOutput)
-}
-
-func (i IntegrationTlsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[IntegrationTlsConfig] {
-	return pulumix.Output[IntegrationTlsConfig]{
-		OutputState: i.ToIntegrationTlsConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i IntegrationTlsConfigArgs) ToIntegrationTlsConfigPtrOutput() IntegrationTlsConfigPtrOutput {
@@ -1099,12 +972,6 @@ func (i *integrationTlsConfigPtrType) ToIntegrationTlsConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTlsConfigPtrOutput)
 }
 
-func (i *integrationTlsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTlsConfig] {
-	return pulumix.Output[*IntegrationTlsConfig]{
-		OutputState: i.ToIntegrationTlsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationTlsConfigOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTlsConfigOutput) ElementType() reflect.Type {
@@ -1129,12 +996,6 @@ func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(c
 	}).(IntegrationTlsConfigPtrOutput)
 }
 
-func (o IntegrationTlsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTlsConfig] {
-	return pulumix.Output[IntegrationTlsConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
 func (o IntegrationTlsConfigOutput) ServerNameToVerify() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationTlsConfig) *string { return v.ServerNameToVerify }).(pulumi.StringPtrOutput)
@@ -1152,12 +1013,6 @@ func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutput() Integra
 
 func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
 	return o
-}
-
-func (o IntegrationTlsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTlsConfig] {
-	return pulumix.Output[*IntegrationTlsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
@@ -1217,12 +1072,6 @@ func (i RouteRequestParameterArgs) ToRouteRequestParameterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RouteRequestParameterOutput)
 }
 
-func (i RouteRequestParameterArgs) ToOutput(ctx context.Context) pulumix.Output[RouteRequestParameter] {
-	return pulumix.Output[RouteRequestParameter]{
-		OutputState: i.ToRouteRequestParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteRequestParameterArrayInput is an input type that accepts RouteRequestParameterArray and RouteRequestParameterArrayOutput values.
 // You can construct a concrete instance of `RouteRequestParameterArrayInput` via:
 //
@@ -1248,12 +1097,6 @@ func (i RouteRequestParameterArray) ToRouteRequestParameterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteRequestParameterArrayOutput)
 }
 
-func (i RouteRequestParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]RouteRequestParameter] {
-	return pulumix.Output[[]RouteRequestParameter]{
-		OutputState: i.ToRouteRequestParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteRequestParameterOutput struct{ *pulumi.OutputState }
 
 func (RouteRequestParameterOutput) ElementType() reflect.Type {
@@ -1266,12 +1109,6 @@ func (o RouteRequestParameterOutput) ToRouteRequestParameterOutput() RouteReques
 
 func (o RouteRequestParameterOutput) ToRouteRequestParameterOutputWithContext(ctx context.Context) RouteRequestParameterOutput {
 	return o
-}
-
-func (o RouteRequestParameterOutput) ToOutput(ctx context.Context) pulumix.Output[RouteRequestParameter] {
-	return pulumix.Output[RouteRequestParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
@@ -1296,12 +1133,6 @@ func (o RouteRequestParameterArrayOutput) ToRouteRequestParameterArrayOutput() R
 
 func (o RouteRequestParameterArrayOutput) ToRouteRequestParameterArrayOutputWithContext(ctx context.Context) RouteRequestParameterArrayOutput {
 	return o
-}
-
-func (o RouteRequestParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RouteRequestParameter] {
-	return pulumix.Output[[]RouteRequestParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteRequestParameterArrayOutput) Index(i pulumi.IntInput) RouteRequestParameterOutput {
@@ -1347,12 +1178,6 @@ func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsOutput)
 }
 
-func (i StageAccessLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StageAccessLogSettings] {
-	return pulumix.Output[StageAccessLogSettings]{
-		OutputState: i.ToStageAccessLogSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StageAccessLogSettingsArgs) ToStageAccessLogSettingsPtrOutput() StageAccessLogSettingsPtrOutput {
 	return i.ToStageAccessLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -1394,12 +1219,6 @@ func (i *stageAccessLogSettingsPtrType) ToStageAccessLogSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StageAccessLogSettingsPtrOutput)
 }
 
-func (i *stageAccessLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StageAccessLogSettings] {
-	return pulumix.Output[*StageAccessLogSettings]{
-		OutputState: i.ToStageAccessLogSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StageAccessLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (StageAccessLogSettingsOutput) ElementType() reflect.Type {
@@ -1424,12 +1243,6 @@ func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithConte
 	}).(StageAccessLogSettingsPtrOutput)
 }
 
-func (o StageAccessLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StageAccessLogSettings] {
-	return pulumix.Output[StageAccessLogSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
 func (o StageAccessLogSettingsOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StageAccessLogSettings) string { return v.DestinationArn }).(pulumi.StringOutput)
@@ -1452,12 +1265,6 @@ func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutput() Sta
 
 func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
 	return o
-}
-
-func (o StageAccessLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StageAccessLogSettings] {
-	return pulumix.Output[*StageAccessLogSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
@@ -1543,12 +1350,6 @@ func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StageDefaultRouteSettingsOutput)
 }
 
-func (i StageDefaultRouteSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StageDefaultRouteSettings] {
-	return pulumix.Output[StageDefaultRouteSettings]{
-		OutputState: i.ToStageDefaultRouteSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StageDefaultRouteSettingsArgs) ToStageDefaultRouteSettingsPtrOutput() StageDefaultRouteSettingsPtrOutput {
 	return i.ToStageDefaultRouteSettingsPtrOutputWithContext(context.Background())
 }
@@ -1590,12 +1391,6 @@ func (i *stageDefaultRouteSettingsPtrType) ToStageDefaultRouteSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(StageDefaultRouteSettingsPtrOutput)
 }
 
-func (i *stageDefaultRouteSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StageDefaultRouteSettings] {
-	return pulumix.Output[*StageDefaultRouteSettings]{
-		OutputState: i.ToStageDefaultRouteSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StageDefaultRouteSettingsOutput struct{ *pulumi.OutputState }
 
 func (StageDefaultRouteSettingsOutput) ElementType() reflect.Type {
@@ -1618,12 +1413,6 @@ func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageDefaultRouteSettings) *StageDefaultRouteSettings {
 		return &v
 	}).(StageDefaultRouteSettingsPtrOutput)
-}
-
-func (o StageDefaultRouteSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StageDefaultRouteSettings] {
-	return pulumix.Output[StageDefaultRouteSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
@@ -1665,12 +1454,6 @@ func (o StageDefaultRouteSettingsPtrOutput) ToStageDefaultRouteSettingsPtrOutput
 
 func (o StageDefaultRouteSettingsPtrOutput) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
 	return o
-}
-
-func (o StageDefaultRouteSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StageDefaultRouteSettings] {
-	return pulumix.Output[*StageDefaultRouteSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutput {
@@ -1792,12 +1575,6 @@ func (i StageRouteSettingArgs) ToStageRouteSettingOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingOutput)
 }
 
-func (i StageRouteSettingArgs) ToOutput(ctx context.Context) pulumix.Output[StageRouteSetting] {
-	return pulumix.Output[StageRouteSetting]{
-		OutputState: i.ToStageRouteSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StageRouteSettingArrayInput is an input type that accepts StageRouteSettingArray and StageRouteSettingArrayOutput values.
 // You can construct a concrete instance of `StageRouteSettingArrayInput` via:
 //
@@ -1823,12 +1600,6 @@ func (i StageRouteSettingArray) ToStageRouteSettingArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StageRouteSettingArrayOutput)
 }
 
-func (i StageRouteSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]StageRouteSetting] {
-	return pulumix.Output[[]StageRouteSetting]{
-		OutputState: i.ToStageRouteSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StageRouteSettingOutput struct{ *pulumi.OutputState }
 
 func (StageRouteSettingOutput) ElementType() reflect.Type {
@@ -1841,12 +1612,6 @@ func (o StageRouteSettingOutput) ToStageRouteSettingOutput() StageRouteSettingOu
 
 func (o StageRouteSettingOutput) ToStageRouteSettingOutputWithContext(ctx context.Context) StageRouteSettingOutput {
 	return o
-}
-
-func (o StageRouteSettingOutput) ToOutput(ctx context.Context) pulumix.Output[StageRouteSetting] {
-	return pulumix.Output[StageRouteSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
@@ -1893,12 +1658,6 @@ func (o StageRouteSettingArrayOutput) ToStageRouteSettingArrayOutput() StageRout
 
 func (o StageRouteSettingArrayOutput) ToStageRouteSettingArrayOutputWithContext(ctx context.Context) StageRouteSettingArrayOutput {
 	return o
-}
-
-func (o StageRouteSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StageRouteSetting] {
-	return pulumix.Output[[]StageRouteSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StageRouteSettingArrayOutput) Index(i pulumi.IntInput) StageRouteSettingOutput {
@@ -1960,12 +1719,6 @@ func (i GetApiCorsConfigurationArgs) ToGetApiCorsConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationOutput)
 }
 
-func (i GetApiCorsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApiCorsConfiguration] {
-	return pulumix.Output[GetApiCorsConfiguration]{
-		OutputState: i.ToGetApiCorsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetApiCorsConfigurationArrayInput is an input type that accepts GetApiCorsConfigurationArray and GetApiCorsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetApiCorsConfigurationArrayInput` via:
 //
@@ -1991,12 +1744,6 @@ func (i GetApiCorsConfigurationArray) ToGetApiCorsConfigurationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationArrayOutput)
 }
 
-func (i GetApiCorsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApiCorsConfiguration] {
-	return pulumix.Output[[]GetApiCorsConfiguration]{
-		OutputState: i.ToGetApiCorsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetApiCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetApiCorsConfigurationOutput) ElementType() reflect.Type {
@@ -2009,12 +1756,6 @@ func (o GetApiCorsConfigurationOutput) ToGetApiCorsConfigurationOutput() GetApiC
 
 func (o GetApiCorsConfigurationOutput) ToGetApiCorsConfigurationOutputWithContext(ctx context.Context) GetApiCorsConfigurationOutput {
 	return o
-}
-
-func (o GetApiCorsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApiCorsConfiguration] {
-	return pulumix.Output[GetApiCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether credentials are included in the CORS request.
@@ -2059,12 +1800,6 @@ func (o GetApiCorsConfigurationArrayOutput) ToGetApiCorsConfigurationArrayOutput
 
 func (o GetApiCorsConfigurationArrayOutput) ToGetApiCorsConfigurationArrayOutputWithContext(ctx context.Context) GetApiCorsConfigurationArrayOutput {
 	return o
-}
-
-func (o GetApiCorsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApiCorsConfiguration] {
-	return pulumix.Output[[]GetApiCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetApiCorsConfigurationArrayOutput) Index(i pulumi.IntInput) GetApiCorsConfigurationOutput {

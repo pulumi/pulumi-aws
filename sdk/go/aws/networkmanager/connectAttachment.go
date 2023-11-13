@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager ConnectAttachment.
@@ -239,12 +238,6 @@ func (i *ConnectAttachment) ToConnectAttachmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOutput)
 }
 
-func (i *ConnectAttachment) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
-	return pulumix.Output[*ConnectAttachment]{
-		OutputState: i.ToConnectAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectAttachmentArrayInput is an input type that accepts ConnectAttachmentArray and ConnectAttachmentArrayOutput values.
 // You can construct a concrete instance of `ConnectAttachmentArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i ConnectAttachmentArray) ToConnectAttachmentArrayOutput() ConnectAttachme
 
 func (i ConnectAttachmentArray) ToConnectAttachmentArrayOutputWithContext(ctx context.Context) ConnectAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentArrayOutput)
-}
-
-func (i ConnectAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectAttachment] {
-	return pulumix.Output[[]*ConnectAttachment]{
-		OutputState: i.ToConnectAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectAttachmentMapInput is an input type that accepts ConnectAttachmentMap and ConnectAttachmentMapOutput values.
@@ -301,12 +288,6 @@ func (i ConnectAttachmentMap) ToConnectAttachmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentMapOutput)
 }
 
-func (i ConnectAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectAttachment] {
-	return pulumix.Output[map[string]*ConnectAttachment]{
-		OutputState: i.ToConnectAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ConnectAttachmentOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o ConnectAttachmentOutput) ToConnectAttachmentOutput() ConnectAttachmentOu
 
 func (o ConnectAttachmentOutput) ToConnectAttachmentOutputWithContext(ctx context.Context) ConnectAttachmentOutput {
 	return o
-}
-
-func (o ConnectAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
-	return pulumix.Output[*ConnectAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the attachment.
@@ -419,12 +394,6 @@ func (o ConnectAttachmentArrayOutput) ToConnectAttachmentArrayOutputWithContext(
 	return o
 }
 
-func (o ConnectAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectAttachment] {
-	return pulumix.Output[[]*ConnectAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectAttachmentArrayOutput) Index(i pulumi.IntInput) ConnectAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectAttachment {
 		return vs[0].([]*ConnectAttachment)[vs[1].(int)]
@@ -443,12 +412,6 @@ func (o ConnectAttachmentMapOutput) ToConnectAttachmentMapOutput() ConnectAttach
 
 func (o ConnectAttachmentMapOutput) ToConnectAttachmentMapOutputWithContext(ctx context.Context) ConnectAttachmentMapOutput {
 	return o
-}
-
-func (o ConnectAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectAttachment] {
-	return pulumix.Output[map[string]*ConnectAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectAttachmentMapOutput) MapIndex(k pulumi.StringInput) ConnectAttachmentOutput {
