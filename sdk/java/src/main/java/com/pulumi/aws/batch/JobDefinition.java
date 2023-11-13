@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * Provides a Batch Job Definition resource.
  * 
  * ## Example Usage
+ * ### Job definition of type container
  * ```java
  * package generated_program;
  * 
@@ -85,6 +86,67 @@ import javax.annotation.Nullable;
  *                         jsonProperty(&#34;name&#34;, &#34;nofile&#34;),
  *                         jsonProperty(&#34;softLimit&#34;, 1024)
  *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Job definition of type multinode
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
+ *             .type(&#34;multinode&#34;)
+ *             .nodeProperties(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;mainNode&#34;, 0),
+ *                     jsonProperty(&#34;nodeRangeProperties&#34;, jsonArray(
+ *                         jsonObject(
+ *                             jsonProperty(&#34;container&#34;, jsonObject(
+ *                                 jsonProperty(&#34;command&#34;, jsonArray(
+ *                                     &#34;ls&#34;, 
+ *                                     &#34;-la&#34;
+ *                                 )),
+ *                                 jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
+ *                                 jsonProperty(&#34;memory&#34;, 128),
+ *                                 jsonProperty(&#34;vcpus&#34;, 1)
+ *                             )),
+ *                             jsonProperty(&#34;targetNodes&#34;, &#34;0:&#34;)
+ *                         ), 
+ *                         jsonObject(
+ *                             jsonProperty(&#34;container&#34;, jsonObject(
+ *                                 jsonProperty(&#34;command&#34;, jsonArray(
+ *                                     &#34;echo&#34;, 
+ *                                     &#34;test&#34;
+ *                                 )),
+ *                                 jsonProperty(&#34;image&#34;, &#34;busybox&#34;),
+ *                                 jsonProperty(&#34;memory&#34;, 128),
+ *                                 jsonProperty(&#34;vcpus&#34;, 1)
+ *                             )),
+ *                             jsonProperty(&#34;targetNodes&#34;, &#34;1:&#34;)
+ *                         )
+ *                     )),
+ *                     jsonProperty(&#34;numNodes&#34;, 2)
  *                 )))
  *             .build());
  * 
@@ -227,6 +289,22 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * 
+     */
+    @Export(name="nodeProperties", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> nodeProperties;
+
+    /**
+     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * 
+     */
+    public Output<Optional<String>> nodeProperties() {
+        return Codegen.optional(this.nodeProperties);
+    }
+    /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      * 
      */
@@ -345,7 +423,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeout);
     }
     /**
-     * The type of job definition. Must be `container`.
+     * The type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -354,7 +432,7 @@ public class JobDefinition extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of job definition. Must be `container`.
+     * @return The type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 

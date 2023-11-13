@@ -195,6 +195,46 @@ import (
 //	}
 //
 // ```
+// ### Custom Headers
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				CustomHeaders: pulumi.String(`  customHeaders:
+//	    - pattern: '**'
+//	      headers:
+//	        - key: 'Strict-Transport-Security'
+//	          value: 'max-age=31536000; includeSubDomains'
+//	        - key: 'X-Frame-Options'
+//	          value: 'SAMEORIGIN'
+//	        - key: 'X-XSS-Protection'
+//	          value: '1; mode=block'
+//	        - key: 'X-Content-Type-Options'
+//	          value: 'nosniff'
+//	        - key: 'Content-Security-Policy'
+//	          value: "default-src 'self'"
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -222,6 +262,8 @@ type App struct {
 	BasicAuthCredentials pulumi.StringPtrOutput `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringOutput `pulumi:"buildSpec"`
+	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+	CustomHeaders pulumi.StringOutput `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayOutput `pulumi:"customRules"`
 	// Default domain for the Amplify app.
@@ -316,6 +358,8 @@ type appState struct {
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+	CustomHeaders *string `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
 	// Default domain for the Amplify app.
@@ -365,6 +409,8 @@ type AppState struct {
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
+	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+	CustomHeaders pulumi.StringPtrInput
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayInput
 	// Default domain for the Amplify app.
@@ -416,6 +462,8 @@ type appArgs struct {
 	BasicAuthCredentials *string `pulumi:"basicAuthCredentials"`
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec *string `pulumi:"buildSpec"`
+	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+	CustomHeaders *string `pulumi:"customHeaders"`
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
 	// Description for an Amplify app.
@@ -456,6 +504,8 @@ type AppArgs struct {
 	BasicAuthCredentials pulumi.StringPtrInput
 	// The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 	BuildSpec pulumi.StringPtrInput
+	// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+	CustomHeaders pulumi.StringPtrInput
 	// Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
 	CustomRules AppCustomRuleArrayInput
 	// Description for an Amplify app.
@@ -623,6 +673,11 @@ func (o AppOutput) BasicAuthCredentials() pulumi.StringPtrOutput {
 // The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
 func (o AppOutput) BuildSpec() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.BuildSpec }).(pulumi.StringOutput)
+}
+
+// The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+func (o AppOutput) CustomHeaders() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.CustomHeaders }).(pulumi.StringOutput)
 }
 
 // Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.

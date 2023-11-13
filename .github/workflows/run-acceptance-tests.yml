@@ -9,6 +9,7 @@ env:
       3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GOVERSION: 1.21.x
+  GRADLEVERSION: "7.6"
   JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NODEVERSION: 20.x
@@ -85,7 +86,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        gradle-version: "7.6"
+        gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -252,23 +253,24 @@ jobs:
     #
     # GitHub documents `jobs.result` as:
     #
-    #	The result of a job in the reusable workflow. Possible values are success,
-    #	failure, cancelled, or skipped.
+    # The result of a job in the reusable workflow. Possible values are success,
+    # failure, cancelled, or skipped.
     #
     # GitHub documents `cancelled()` as:
     #
-    #	Returns true if the workflow was canceled.
+    # Returns true if the workflow was canceled.
     #
     # Combining these terms gives us an intuitive definition of success:
     #
-    #	We have succeeded when no dependent workflow has failed and the job was
-    #	not cancelled.
+    # We have succeeded when no dependent workflow has failed and the job was
+    # not cancelled.
     #
     if: (github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository) &&
       ! cancelled()
     needs:
     - test
+    - license_check
     - go_test_shim
     runs-on: ubuntu-latest
     steps:
@@ -335,7 +337,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        gradle-version: "7.6"
+        gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -399,6 +401,10 @@ jobs:
         - dotnet
         - go
         - java
+  license_check:
+    name: License Check
+    uses: ./.github/workflows/license.yml
+    secrets: inherit
   go_test_shim:
       name: Run test of provider shim
       runs-on: ubuntu-latest

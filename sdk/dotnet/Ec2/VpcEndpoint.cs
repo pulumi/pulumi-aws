@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PrefixListId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
         /// Defaults to `false`.
         /// </summary>
         [Output("privateDnsEnabled")]
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Policy { get; set; }
 
         /// <summary>
-        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
         /// Defaults to `false`.
         /// </summary>
         [Input("privateDnsEnabled")]
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrefixListId { get; set; }
 
         /// <summary>
-        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+        /// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
         /// Defaults to `false`.
         /// </summary>
         [Input("privateDnsEnabled")]
@@ -551,7 +551,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+        /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         /// </summary>
         public InputList<string> SubnetIds
         {

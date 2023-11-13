@@ -25,7 +25,7 @@ class ConnectAttachmentArgs:
         The set of arguments for constructing a ConnectAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options for creating an attachment.
+        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
@@ -66,7 +66,7 @@ class ConnectAttachmentArgs:
     @pulumi.getter
     def options(self) -> pulumi.Input['ConnectAttachmentOptionsArgs']:
         """
-        Options for creating an attachment.
+        Options block. See options for more information.
 
         The following arguments are optional:
         """
@@ -127,7 +127,7 @@ class _ConnectAttachmentState:
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options for creating an attachment.
+        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
@@ -257,7 +257,7 @@ class _ConnectAttachmentState:
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]:
         """
-        Options for creating an attachment.
+        Options block. See options for more information.
 
         The following arguments are optional:
         """
@@ -383,7 +383,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options for creating an attachment.
+        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -500,7 +500,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options for creating an attachment.
+        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
@@ -589,7 +589,7 @@ class ConnectAttachment(pulumi.CustomResource):
     @pulumi.getter
     def options(self) -> pulumi.Output['outputs.ConnectAttachmentOptions']:
         """
-        Options for creating an attachment.
+        Options block. See options for more information.
 
         The following arguments are optional:
         """

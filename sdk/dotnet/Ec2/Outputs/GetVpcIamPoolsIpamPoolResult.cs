@@ -52,8 +52,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// ID of the IPAM pool.
         /// </summary>
-        public readonly string? Id;
-        public readonly string IpamPoolId;
+        public readonly string Id;
         /// <summary>
         /// ID of the scope the pool belongs to.
         /// </summary>
@@ -98,9 +97,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string description,
 
-            string? id,
-
-            string ipamPoolId,
+            string id,
 
             string ipamScopeId,
 
@@ -128,7 +125,6 @@ namespace Pulumi.Aws.Ec2.Outputs
             AwsService = awsService;
             Description = description;
             Id = id;
-            IpamPoolId = ipamPoolId;
             IpamScopeId = ipamScopeId;
             IpamScopeType = ipamScopeType;
             Locale = locale;

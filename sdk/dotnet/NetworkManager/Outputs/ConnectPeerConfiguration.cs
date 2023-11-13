@@ -19,7 +19,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? CoreNetworkAddress;
         /// <summary>
-        /// The inside IP addresses used for BGP peering.
+        /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
         public readonly ImmutableArray<string> InsideCidrBlocks;
         /// <summary>

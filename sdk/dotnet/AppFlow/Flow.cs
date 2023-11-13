@@ -50,8 +50,8 @@ namespace Pulumi.Aws.AppFlow
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     "arn:aws:s3:::example_source",
-    ///                     "arn:aws:s3:::example_source/*",
+    ///                     "arn:aws:s3:::example-source",
+    ///                     "arn:aws:s3:::example-source/*",
     ///                 },
     ///             },
     ///         },
@@ -102,8 +102,8 @@ namespace Pulumi.Aws.AppFlow
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     "arn:aws:s3:::example_destination",
-    ///                     "arn:aws:s3:::example_destination/*",
+    ///                     "arn:aws:s3:::example-destination",
+    ///                     "arn:aws:s3:::example-destination/*",
     ///                 },
     ///             },
     ///         },

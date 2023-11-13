@@ -152,6 +152,41 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// ### Ignoring Provider `default_tags`
+    /// 
+    /// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+    /// If the resource's own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket");
+    /// 
+    ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucketObject", new()
+    ///     {
+    ///         Key = "someobject",
+    ///         Bucket = examplebucket.Id,
+    ///         Source = new FileAsset("important.txt"),
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "test" },
+    ///         },
+    ///         OverrideProvider = new Aws.S3.Inputs.BucketObjectv2OverrideProviderArgs
+    ///         {
+    ///             DefaultTags = new Aws.S3.Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs
+    ///             {
+    ///                 Tags = null,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -312,6 +347,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("objectLockRetainUntilDate")]
         public Output<string?> ObjectLockRetainUntilDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Override provider-level configuration options. See Override Provider below for more details.
+        /// </summary>
+        [Output("overrideProvider")]
+        public Output<Outputs.BucketObjectv2OverrideProvider?> OverrideProvider { get; private set; } = null!;
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
@@ -542,6 +583,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ObjectLockRetainUntilDate { get; set; }
 
         /// <summary>
+        /// Override provider-level configuration options. See Override Provider below for more details.
+        /// </summary>
+        [Input("overrideProvider")]
+        public Input<Inputs.BucketObjectv2OverrideProviderArgs>? OverrideProvider { get; set; }
+
+        /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Input("serverSideEncryption")]
@@ -740,6 +787,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("objectLockRetainUntilDate")]
         public Input<string>? ObjectLockRetainUntilDate { get; set; }
+
+        /// <summary>
+        /// Override provider-level configuration options. See Override Provider below for more details.
+        /// </summary>
+        [Input("overrideProvider")]
+        public Input<Inputs.BucketObjectv2OverrideProviderGetArgs>? OverrideProvider { get; set; }
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".

@@ -65,7 +65,7 @@ namespace Pulumi.Aws.NetworkManager
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Options for creating an attachment.
+        /// Options block. See options for more information.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string> EdgeLocation { get; set; } = null!;
 
         /// <summary>
-        /// Options for creating an attachment.
+        /// Options block. See options for more information.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.NetworkManager
         public Input<string>? EdgeLocation { get; set; }
 
         /// <summary>
-        /// Options for creating an attachment.
+        /// Options block. See options for more information.
         /// 
         /// The following arguments are optional:
         /// </summary>

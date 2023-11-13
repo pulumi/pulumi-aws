@@ -48,7 +48,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 
@@ -57,7 +57,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
     private Output<ConnectAttachmentOptionsArgs> options;
 
     /**
-     * @return Options for creating an attachment.
+     * @return Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 
@@ -167,7 +167,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Options for creating an attachment.
+         * @param options Options block. See options for more information.
          * 
          * The following arguments are optional:
          * 
@@ -180,7 +180,7 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param options Options for creating an attachment.
+         * @param options Options block. See options for more information.
          * 
          * The following arguments are optional:
          * 

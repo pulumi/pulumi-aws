@@ -459,6 +459,25 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * 
+     */
+    @Import(name="manageMasterPassword")
+    private @Nullable Output<Boolean> manageMasterPassword;
+
+    /**
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
+     * Conflicts with `master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * 
+     */
+    public Optional<Output<Boolean>> manageMasterPassword() {
+        return Optional.ofNullable(this.manageMasterPassword);
+    }
+
+    /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      * 
      */
@@ -475,8 +494,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manage_master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Import(name="masterPassword")
@@ -484,12 +505,44 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Password for the master DB user.
-     * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-     * contain at least one uppercase letter, one lowercase letter, and one number.
+     * Conflicts with `manage_master_password`.
+     * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+     * Note that this may show up in logs, and it will be stored in the state file.
+     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Optional<Output<String>> masterPassword() {
         return Optional.ofNullable(this.masterPassword);
+    }
+
+    /**
+     * ARN of the cluster admin credentials secret
+     * 
+     */
+    @Import(name="masterPasswordSecretArn")
+    private @Nullable Output<String> masterPasswordSecretArn;
+
+    /**
+     * @return ARN of the cluster admin credentials secret
+     * 
+     */
+    public Optional<Output<String>> masterPasswordSecretArn() {
+        return Optional.ofNullable(this.masterPasswordSecretArn);
+    }
+
+    /**
+     * ID of the KMS key used to encrypt the cluster admin credentials secret.
+     * 
+     */
+    @Import(name="masterPasswordSecretKmsKeyId")
+    private @Nullable Output<String> masterPasswordSecretKmsKeyId;
+
+    /**
+     * @return ID of the KMS key used to encrypt the cluster admin credentials secret.
+     * 
+     */
+    public Optional<Output<String>> masterPasswordSecretKmsKeyId() {
+        return Optional.ofNullable(this.masterPasswordSecretKmsKeyId);
     }
 
     /**
@@ -621,6 +674,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * 
+     */
+    @Import(name="snapshotArn")
+    private @Nullable Output<String> snapshotArn;
+
+    /**
+     * @return The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+     * 
+     */
+    public Optional<Output<String>> snapshotArn() {
+        return Optional.ofNullable(this.snapshotArn);
+    }
+
+    /**
      * The name of the cluster the source snapshot was created from.
      * 
      */
@@ -651,14 +719,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the snapshot from which to create the new cluster.
+     * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
     @Import(name="snapshotIdentifier")
     private @Nullable Output<String> snapshotIdentifier;
 
     /**
-     * @return The name of the snapshot from which to create the new cluster.
+     * @return The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
     public Optional<Output<String>> snapshotIdentifier() {
@@ -749,8 +817,11 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.kmsKeyId = $.kmsKeyId;
         this.logging = $.logging;
         this.maintenanceTrackName = $.maintenanceTrackName;
+        this.manageMasterPassword = $.manageMasterPassword;
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
         this.masterPassword = $.masterPassword;
+        this.masterPasswordSecretArn = $.masterPasswordSecretArn;
+        this.masterPasswordSecretKmsKeyId = $.masterPasswordSecretKmsKeyId;
         this.masterUsername = $.masterUsername;
         this.nodeType = $.nodeType;
         this.numberOfNodes = $.numberOfNodes;
@@ -759,6 +830,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
+        this.snapshotArn = $.snapshotArn;
         this.snapshotClusterIdentifier = $.snapshotClusterIdentifier;
         this.snapshotCopy = $.snapshotCopy;
         this.snapshotIdentifier = $.snapshotIdentifier;
@@ -1410,6 +1482,31 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
+         * Conflicts with `master_password`.
+         * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterPassword(@Nullable Output<Boolean> manageMasterPassword) {
+            $.manageMasterPassword = manageMasterPassword;
+            return this;
+        }
+
+        /**
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
+         * Conflicts with `master_password`.
+         * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder manageMasterPassword(Boolean manageMasterPassword) {
+            return manageMasterPassword(Output.of(manageMasterPassword));
+        }
+
+        /**
          * @param manualSnapshotRetentionPeriod The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
          * 
          * @return builder
@@ -1432,8 +1529,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user.
-         * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-         * contain at least one uppercase letter, one lowercase letter, and one number.
+         * Conflicts with `manage_master_password`.
+         * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+         * Note that this may show up in logs, and it will be stored in the state file.
+         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
@@ -1445,14 +1544,58 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPassword Password for the master DB user.
-         * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
-         * contain at least one uppercase letter, one lowercase letter, and one number.
+         * Conflicts with `manage_master_password`.
+         * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+         * Note that this may show up in logs, and it will be stored in the state file.
+         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
          */
         public Builder masterPassword(String masterPassword) {
             return masterPassword(Output.of(masterPassword));
+        }
+
+        /**
+         * @param masterPasswordSecretArn ARN of the cluster admin credentials secret
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordSecretArn(@Nullable Output<String> masterPasswordSecretArn) {
+            $.masterPasswordSecretArn = masterPasswordSecretArn;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordSecretArn ARN of the cluster admin credentials secret
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordSecretArn(String masterPasswordSecretArn) {
+            return masterPasswordSecretArn(Output.of(masterPasswordSecretArn));
+        }
+
+        /**
+         * @param masterPasswordSecretKmsKeyId ID of the KMS key used to encrypt the cluster admin credentials secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordSecretKmsKeyId(@Nullable Output<String> masterPasswordSecretKmsKeyId) {
+            $.masterPasswordSecretKmsKeyId = masterPasswordSecretKmsKeyId;
+            return this;
+        }
+
+        /**
+         * @param masterPasswordSecretKmsKeyId ID of the KMS key used to encrypt the cluster admin credentials secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder masterPasswordSecretKmsKeyId(String masterPasswordSecretKmsKeyId) {
+            return masterPasswordSecretKmsKeyId(Output.of(masterPasswordSecretKmsKeyId));
         }
 
         /**
@@ -1632,6 +1775,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param snapshotArn The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotArn(@Nullable Output<String> snapshotArn) {
+            $.snapshotArn = snapshotArn;
+            return this;
+        }
+
+        /**
+         * @param snapshotArn The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotArn(String snapshotArn) {
+            return snapshotArn(Output.of(snapshotArn));
+        }
+
+        /**
          * @param snapshotClusterIdentifier The name of the cluster the source snapshot was created from.
          * 
          * @return builder
@@ -1674,7 +1838,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier The name of the snapshot from which to create the new cluster.
+         * @param snapshotIdentifier The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
          * 
          * @return builder
          * 
@@ -1685,7 +1849,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier The name of the snapshot from which to create the new cluster.
+         * @param snapshotIdentifier The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
          * 
          * @return builder
          * 

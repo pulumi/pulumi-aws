@@ -83,10 +83,10 @@ index 48be193e59..e3a4359db9 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index f1545bec92..63897dead6 100644
+index a8423f2c68..fd011f951c 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
-@@ -48,7 +48,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -49,7 +49,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,

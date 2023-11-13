@@ -12,6 +12,9 @@ namespace Pulumi.Aws.NetworkManager.Inputs
 
     public sealed class ConnectAttachmentOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 

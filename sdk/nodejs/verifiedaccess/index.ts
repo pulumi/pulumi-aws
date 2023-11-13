@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { EndpointArgs, EndpointState } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
@@ -35,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:verifiedaccess/endpoint:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "aws:verifiedaccess/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "aws:verifiedaccess/instance:Instance":
@@ -50,6 +57,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "verifiedaccess/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/group", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "verifiedaccess/instanceLoggingConfiguration", _module)

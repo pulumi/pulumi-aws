@@ -116,7 +116,7 @@ public final class ConnectAttachmentState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 
@@ -125,7 +125,7 @@ public final class ConnectAttachmentState extends com.pulumi.resources.ResourceA
     private @Nullable Output<ConnectAttachmentOptionsArgs> options;
 
     /**
-     * @return Options for creating an attachment.
+     * @return Options block. See options for more information.
      * 
      * The following arguments are optional:
      * 
@@ -421,7 +421,7 @@ public final class ConnectAttachmentState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param options Options for creating an attachment.
+         * @param options Options block. See options for more information.
          * 
          * The following arguments are optional:
          * 
@@ -434,7 +434,7 @@ public final class ConnectAttachmentState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param options Options for creating an attachment.
+         * @param options Options block. See options for more information.
          * 
          * The following arguments are optional:
          * 

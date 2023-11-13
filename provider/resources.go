@@ -631,7 +631,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		return nil
 	}
 
-	var err error = nil
+	var err error
 	credentialsValidationOnce.Do(func() {
 		err = validateCredentials(vars, c)
 	})
@@ -648,7 +648,7 @@ var metadata []byte
 func Provider() *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
@@ -7157,13 +7157,13 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			return true
 		}
 		// Skip resources that don't have tags_all.
-		tagsAllF, ok := value.Schema().GetOk("tags_all")
+		_, ok = value.Schema().GetOk("tags_all")
 		if !ok {
 			return true
 		}
 
-		// tags_all must computed, tags must be non-computed.
-		if tagsF.Computed() || !tagsAllF.Computed() {
+		// tags must be non-computed.
+		if tagsF.Computed() {
 			return true
 		}
 
@@ -7187,19 +7187,22 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}
 		fields := prov.Resources[key].GetFields()
-		yes := true
+
 		if _, ok := fields["tags_all"]; !ok {
 			fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
-		fields["tags_all"].Secret = &yes
+
+		fields["tags_all"].Secret = tfbridge.True()
 		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
+
+		// Upstream provider is edited to unmark tags_all as computed internally so that
+		// Pulumi provider internals can set it, but the user should not be able to set it.
+		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
+
+		fields["tags_all"].MarkAsOptional = tfbridge.False()
 
 		contract.Assertf(prov.Resources[key].TransformOutputs == nil,
 			"prov.Resources[key].TransformOutputs==nil")
-
-		// TODO[pulumi/pulumi-terraform-bridge#1380] this should not be necessary once 1380
-		// is fixed since marking tags_all as Secret should achieve the same effect
-		prov.Resources[key].TransformOutputs = ensureTagsAllSecret
 
 		return true
 	})
@@ -7218,6 +7221,8 @@ $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aw
 	prov.SetAutonaming(255, "-")
 
 	prov.MustApplyAutoAliases()
+
+	prov.XSkipDetailedDiffForChanges = true
 
 	return &prov
 }

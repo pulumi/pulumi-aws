@@ -355,7 +355,7 @@ namespace Pulumi.Aws.Rds
         /// Days to retain backups for. Default `1`
         /// </summary>
         [Output("backupRetentionPeriod")]
-        public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
+        public Output<int> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.

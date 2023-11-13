@@ -348,7 +348,7 @@ class Configuration(pulumi.CustomResource):
         \"\"\",
             description="Example Configuration",
             engine_type="ActiveMQ",
-            engine_version="5.15.0")
+            engine_version="5.17.6")
         ```
         ### RabbitMQ
 
@@ -363,7 +363,7 @@ class Configuration(pulumi.CustomResource):
         \"\"\",
             description="Example Configuration",
             engine_type="RabbitMQ",
-            engine_version="3.11.16")
+            engine_version="3.11.20")
         ```
 
         ## Import
@@ -417,7 +417,7 @@ class Configuration(pulumi.CustomResource):
         \"\"\",
             description="Example Configuration",
             engine_type="ActiveMQ",
-            engine_version="5.15.0")
+            engine_version="5.17.6")
         ```
         ### RabbitMQ
 
@@ -432,7 +432,7 @@ class Configuration(pulumi.CustomResource):
         \"\"\",
             description="Example Configuration",
             engine_type="RabbitMQ",
-            engine_version="3.11.16")
+            engine_version="3.11.20")
         ```
 
         ## Import

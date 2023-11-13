@@ -25,10 +25,22 @@ namespace Pulumi.Aws.Iot.Inputs
         }
 
         /// <summary>
-        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
+
+        [Input("headers")]
+        private InputList<Inputs.TopicRuleErrorActionKafkaHeaderGetArgs>? _headers;
+
+        /// <summary>
+        /// The list of Kafka headers that you specify. Nested arguments below.
+        /// </summary>
+        public InputList<Inputs.TopicRuleErrorActionKafkaHeaderGetArgs> Headers
+        {
+            get => _headers ?? (_headers = new InputList<Inputs.TopicRuleErrorActionKafkaHeaderGetArgs>());
+            set => _headers = value;
+        }
 
         /// <summary>
         /// The Kafka message key.

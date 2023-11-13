@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .endpoint import *
 from .group import *
 from .instance import *
 from .instance_logging_configuration import *

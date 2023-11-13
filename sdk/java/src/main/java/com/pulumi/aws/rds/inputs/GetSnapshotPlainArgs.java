@@ -49,8 +49,6 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
      * 
      */
     @Import(name="includePublic")
@@ -59,8 +57,6 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
      * 
      */
     public Optional<Boolean> includePublic() {
@@ -122,9 +118,19 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.snapshotType);
     }
 
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
+    /**
+     * @return Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
+     * 
+     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -184,8 +190,6 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
          * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-         * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB snapshot.
          * 
          * @return builder
          * 
@@ -233,6 +237,13 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
             return this;
         }
 
+        /**
+         * @param tags Mapping of tags, each pair of which must exactly match
+         * a pair on the desired DB snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

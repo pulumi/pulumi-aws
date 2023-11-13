@@ -33,14 +33,14 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     @Import(name="rotationLambdaArn")
     private @Nullable Output<String> rotationLambdaArn;
 
     /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret.
+     * @return Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
     public Optional<Output<String>> rotationLambdaArn() {
@@ -126,7 +126,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
+         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class SecretRotationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
+         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
          * 
          * @return builder
          * 

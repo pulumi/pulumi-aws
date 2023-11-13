@@ -61,10 +61,10 @@ namespace Pulumi.Aws.SecretsManager
         public Output<bool> RotationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Output("rotationLambdaArn")]
-        public Output<string> RotationLambdaArn { get; private set; } = null!;
+        public Output<string?> RotationLambdaArn { get; private set; } = null!;
 
         /// <summary>
         /// A structure that defines the rotation configuration for this secret. Defined below.
@@ -125,10 +125,10 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class SecretRotationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
-        [Input("rotationLambdaArn", required: true)]
-        public Input<string> RotationLambdaArn { get; set; } = null!;
+        [Input("rotationLambdaArn")]
+        public Input<string>? RotationLambdaArn { get; set; }
 
         /// <summary>
         /// A structure that defines the rotation configuration for this secret. Defined below.
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? RotationEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the ARN of the Lambda function that can rotate the secret.
+        /// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         /// </summary>
         [Input("rotationLambdaArn")]
         public Input<string>? RotationLambdaArn { get; set; }

@@ -196,6 +196,48 @@ import (
 //	}
 //
 // ```
+// ### Ignoring Provider `defaultTags`
+//
+// S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+// If the resource's own `tags` and the provider-level `defaultTags` would together lead to more than 10 tags on an S3 object, use the `overrideProvider` configuration block to suppress any provider-level `defaultTags`.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			examplebucket, err := s3.NewBucketV2(ctx, "examplebucket", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketObjectv2(ctx, "examplebucketObject", &s3.BucketObjectv2Args{
+//				Key:    pulumi.String("someobject"),
+//				Bucket: examplebucket.ID(),
+//				Source: pulumi.NewFileAsset("important.txt"),
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("test"),
+//				},
+//				OverrideProvider: &s3.BucketObjectv2OverrideProviderArgs{
+//					DefaultTags: &s3.BucketObjectv2OverrideProviderDefaultTagsArgs{
+//						Tags: nil,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -269,6 +311,8 @@ type BucketObjectv2 struct {
 	ObjectLockMode pulumi.StringPtrOutput `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrOutput `pulumi:"objectLockRetainUntilDate"`
+	// Override provider-level configuration options. See Override Provider below for more details.
+	OverrideProvider BucketObjectv2OverrideProviderPtrOutput `pulumi:"overrideProvider"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringOutput `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -384,6 +428,8 @@ type bucketObjectv2State struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// Override provider-level configuration options. See Override Provider below for more details.
+	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -457,6 +503,8 @@ type BucketObjectv2State struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	// Override provider-level configuration options. See Override Provider below for more details.
+	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -526,6 +574,8 @@ type bucketObjectv2Args struct {
 	ObjectLockMode *string `pulumi:"objectLockMode"`
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate *string `pulumi:"objectLockRetainUntilDate"`
+	// Override provider-level configuration options. See Override Provider below for more details.
+	OverrideProvider *BucketObjectv2OverrideProvider `pulumi:"overrideProvider"`
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption *string `pulumi:"serverSideEncryption"`
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -586,6 +636,8 @@ type BucketObjectv2Args struct {
 	ObjectLockMode pulumi.StringPtrInput
 	// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 	ObjectLockRetainUntilDate pulumi.StringPtrInput
+	// Override provider-level configuration options. See Override Provider below for more details.
+	OverrideProvider BucketObjectv2OverrideProviderPtrInput
 	// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
 	ServerSideEncryption pulumi.StringPtrInput
 	// Path to a file that will be read and uploaded as raw bytes for the object content.
@@ -830,6 +882,11 @@ func (o BucketObjectv2Output) ObjectLockMode() pulumi.StringPtrOutput {
 // Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
 func (o BucketObjectv2Output) ObjectLockRetainUntilDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringPtrOutput { return v.ObjectLockRetainUntilDate }).(pulumi.StringPtrOutput)
+}
+
+// Override provider-level configuration options. See Override Provider below for more details.
+func (o BucketObjectv2Output) OverrideProvider() BucketObjectv2OverrideProviderPtrOutput {
+	return o.ApplyT(func(v *BucketObjectv2) BucketObjectv2OverrideProviderPtrOutput { return v.OverrideProvider }).(BucketObjectv2OverrideProviderPtrOutput)
 }
 
 // Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".

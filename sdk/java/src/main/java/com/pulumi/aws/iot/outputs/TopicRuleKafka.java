@@ -3,8 +3,10 @@
 
 package com.pulumi.aws.iot.outputs;
 
+import com.pulumi.aws.iot.outputs.TopicRuleKafkaHeader;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,10 +20,15 @@ public final class TopicRuleKafka {
      */
     private Map<String,String> clientProperties;
     /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
      * 
      */
     private String destinationArn;
+    /**
+     * @return The list of Kafka headers that you specify. Nested arguments below.
+     * 
+     */
+    private @Nullable List<TopicRuleKafkaHeader> headers;
     /**
      * @return The Kafka message key.
      * 
@@ -47,11 +54,18 @@ public final class TopicRuleKafka {
         return this.clientProperties;
     }
     /**
-     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination` .
+     * @return The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
      * 
      */
     public String destinationArn() {
         return this.destinationArn;
+    }
+    /**
+     * @return The list of Kafka headers that you specify. Nested arguments below.
+     * 
+     */
+    public List<TopicRuleKafkaHeader> headers() {
+        return this.headers == null ? List.of() : this.headers;
     }
     /**
      * @return The Kafka message key.
@@ -86,6 +100,7 @@ public final class TopicRuleKafka {
     public static final class Builder {
         private Map<String,String> clientProperties;
         private String destinationArn;
+        private @Nullable List<TopicRuleKafkaHeader> headers;
         private @Nullable String key;
         private @Nullable String partition;
         private String topic;
@@ -94,6 +109,7 @@ public final class TopicRuleKafka {
     	      Objects.requireNonNull(defaults);
     	      this.clientProperties = defaults.clientProperties;
     	      this.destinationArn = defaults.destinationArn;
+    	      this.headers = defaults.headers;
     	      this.key = defaults.key;
     	      this.partition = defaults.partition;
     	      this.topic = defaults.topic;
@@ -108,6 +124,14 @@ public final class TopicRuleKafka {
         public Builder destinationArn(String destinationArn) {
             this.destinationArn = Objects.requireNonNull(destinationArn);
             return this;
+        }
+        @CustomType.Setter
+        public Builder headers(@Nullable List<TopicRuleKafkaHeader> headers) {
+            this.headers = headers;
+            return this;
+        }
+        public Builder headers(TopicRuleKafkaHeader... headers) {
+            return headers(List.of(headers));
         }
         @CustomType.Setter
         public Builder key(@Nullable String key) {
@@ -128,6 +152,7 @@ public final class TopicRuleKafka {
             final var o = new TopicRuleKafka();
             o.clientProperties = clientProperties;
             o.destinationArn = destinationArn;
+            o.headers = headers;
             o.key = key;
             o.partition = partition;
             o.topic = topic;

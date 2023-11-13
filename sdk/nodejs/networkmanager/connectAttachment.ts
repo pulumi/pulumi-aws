@@ -74,7 +74,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
      */
     public readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      *
      * The following arguments are optional:
      */
@@ -205,7 +205,7 @@ export interface ConnectAttachmentState {
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      *
      * The following arguments are optional:
      */
@@ -255,7 +255,7 @@ export interface ConnectAttachmentArgs {
      */
     edgeLocation: pulumi.Input<string>;
     /**
-     * Options for creating an attachment.
+     * Options block. See options for more information.
      *
      * The following arguments are optional:
      */

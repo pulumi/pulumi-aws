@@ -155,7 +155,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly prefixListId!: pulumi.Output<string>;
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
@@ -181,7 +181,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -319,7 +319,7 @@ export interface VpcEndpointState {
      */
     prefixListId?: pulumi.Input<string>;
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
@@ -345,7 +345,7 @@ export interface VpcEndpointState {
      */
     state?: pulumi.Input<string>;
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -389,7 +389,7 @@ export interface VpcEndpointArgs {
      */
     policy?: pulumi.Input<string>;
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
+     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
      * Defaults to `false`.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
@@ -407,7 +407,7 @@ export interface VpcEndpointArgs {
      */
     serviceName: pulumi.Input<string>;
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
+     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

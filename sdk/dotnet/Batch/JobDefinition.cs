@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Definition resource.
     /// 
     /// ## Example Usage
+    /// ### Job definition of type container
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -84,6 +85,62 @@ namespace Pulumi.Aws.Batch
     ///                     ["softLimit"] = 1024,
     ///                 },
     ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Job definition of type multinode
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Batch.JobDefinition("test", new()
+    ///     {
+    ///         Type = "multinode",
+    ///         NodeProperties = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["mainNode"] = 0,
+    ///             ["nodeRangeProperties"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["container"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["command"] = new[]
+    ///                         {
+    ///                             "ls",
+    ///                             "-la",
+    ///                         },
+    ///                         ["image"] = "busybox",
+    ///                         ["memory"] = 128,
+    ///                         ["vcpus"] = 1,
+    ///                     },
+    ///                     ["targetNodes"] = "0:",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["container"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["command"] = new[]
+    ///                         {
+    ///                             "echo",
+    ///                             "test",
+    ///                         },
+    ///                         ["image"] = "busybox",
+    ///                         ["memory"] = 128,
+    ///                         ["vcpus"] = 1,
+    ///                     },
+    ///                     ["targetNodes"] = "1:",
+    ///                 },
+    ///             },
+    ///             ["numNodes"] = 2,
     ///         }),
     ///     });
     /// 
@@ -207,6 +264,13 @@ namespace Pulumi.Aws.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// </summary>
+        [Output("nodeProperties")]
+        public Output<string?> NodeProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the parameter substitution placeholders to set in the job definition.
         /// </summary>
         [Output("parameters")]
@@ -256,7 +320,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// The type of job definition. Must be `container`.
+        /// The type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -326,6 +390,13 @@ namespace Pulumi.Aws.Batch
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// </summary>
+        [Input("nodeProperties")]
+        public Input<string>? NodeProperties { get; set; }
+
         [Input("parameters")]
         private InputMap<string>? _parameters;
 
@@ -382,7 +453,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition. Must be `container`.
+        /// The type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -415,6 +486,13 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+        /// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+        /// </summary>
+        [Input("nodeProperties")]
+        public Input<string>? NodeProperties { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
@@ -495,7 +573,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.JobDefinitionTimeoutGetArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// The type of job definition. Must be `container`.
+        /// The type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -79,9 +79,9 @@ export class ConnectPeer extends pulumi.CustomResource {
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    public readonly insideCidrBlocks!: pulumi.Output<string[]>;
+    public readonly insideCidrBlocks!: pulumi.Output<string[] | undefined>;
     /**
      * The Connect peer address.
      *
@@ -92,6 +92,10 @@ export class ConnectPeer extends pulumi.CustomResource {
      * The state of the Connect peer.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     */
+    public readonly subnetArn!: pulumi.Output<string | undefined>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -128,15 +132,13 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["insideCidrBlocks"] = state ? state.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subnetArn"] = state ? state.subnetArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectPeerArgs | undefined;
             if ((!args || args.connectAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectAttachmentId'");
-            }
-            if ((!args || args.insideCidrBlocks === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'insideCidrBlocks'");
             }
             if ((!args || args.peerAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peerAddress'");
@@ -146,6 +148,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["coreNetworkAddress"] = args ? args.coreNetworkAddress : undefined;
             resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["subnetArn"] = args ? args.subnetArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
@@ -198,7 +201,7 @@ export interface ConnectPeerState {
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
     insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -211,6 +214,10 @@ export interface ConnectPeerState {
      * The state of the Connect peer.
      */
     state?: pulumi.Input<string>;
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     */
+    subnetArn?: pulumi.Input<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -240,15 +247,19 @@ export interface ConnectPeerArgs {
      */
     coreNetworkAddress?: pulumi.Input<string>;
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      */
-    insideCidrBlocks: pulumi.Input<pulumi.Input<string>[]>;
+    insideCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Connect peer address.
      *
      * The following arguments are optional:
      */
     peerAddress: pulumi.Input<string>;
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     */
+    subnetArn?: pulumi.Input<string>;
     /**
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -10,6 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'EndpointLoadBalancerOptionsArgs',
+    'EndpointNetworkInterfaceOptionsArgs',
+    'EndpointSseSpecificationArgs',
     'InstanceLoggingConfigurationAccessLogsArgs',
     'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs',
     'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs',
@@ -18,6 +21,129 @@ __all__ = [
     'TrustProviderDeviceOptionsArgs',
     'TrustProviderOidcOptionsArgs',
 ]
+
+@pulumi.input_type
+class EndpointLoadBalancerOptionsArgs:
+    def __init__(__self__, *,
+                 load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "load_balancer_arn")
+
+    @load_balancer_arn.setter
+    def load_balancer_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_arn", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class EndpointNetworkInterfaceOptionsArgs:
+    def __init__(__self__, *,
+                 network_interface_id: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_interface_id")
+
+    @network_interface_id.setter
+    def network_interface_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
+
+
+@pulumi.input_type
+class EndpointSseSpecificationArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        if customer_managed_key_enabled is not None:
+            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEnabled")
+    def customer_managed_key_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "customer_managed_key_enabled")
+
+    @customer_managed_key_enabled.setter
+    def customer_managed_key_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_managed_key_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
 
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsArgs:

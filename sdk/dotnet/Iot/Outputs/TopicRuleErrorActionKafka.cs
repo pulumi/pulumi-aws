@@ -18,9 +18,13 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> ClientProperties;
         /// <summary>
-        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+        /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
         /// </summary>
         public readonly string DestinationArn;
+        /// <summary>
+        /// The list of Kafka headers that you specify. Nested arguments below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TopicRuleErrorActionKafkaHeader> Headers;
         /// <summary>
         /// The Kafka message key.
         /// </summary>
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Iot.Outputs
 
             string destinationArn,
 
+            ImmutableArray<Outputs.TopicRuleErrorActionKafkaHeader> headers,
+
             string? key,
 
             string? partition,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Iot.Outputs
         {
             ClientProperties = clientProperties;
             DestinationArn = destinationArn;
+            Headers = headers;
             Key = key;
             Partition = partition;
             Topic = topic;

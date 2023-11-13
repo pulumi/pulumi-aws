@@ -136,8 +136,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include manual DB snapshots that are public and can be
         /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-        /// `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB snapshot.
         /// </summary>
         [Input("includePublic")]
         public bool? IncludePublic { get; set; }
@@ -167,6 +165,11 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired DB snapshot.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -196,8 +199,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Set this value to true to include manual DB snapshots that are public and can be
         /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-        /// `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB snapshot.
         /// </summary>
         [Input("includePublic")]
         public Input<bool>? IncludePublic { get; set; }
@@ -227,6 +228,11 @@ namespace Pulumi.Aws.Rds
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Mapping of tags, each pair of which must exactly match
+        /// a pair on the desired DB snapshot.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

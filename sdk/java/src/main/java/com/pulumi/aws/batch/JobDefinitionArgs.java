@@ -53,6 +53,23 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * 
+     */
+    @Import(name="nodeProperties")
+    private @Nullable Output<String> nodeProperties;
+
+    /**
+     * @return A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+     * 
+     */
+    public Optional<Output<String>> nodeProperties() {
+        return Optional.ofNullable(this.nodeProperties);
+    }
+
+    /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      * 
      */
@@ -145,7 +162,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of job definition. Must be `container`.
+     * The type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -154,7 +171,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> type;
 
     /**
-     * @return The type of job definition. Must be `container`.
+     * @return The type of job definition. Must be `container` or `multinode`.
      * 
      * The following arguments are optional:
      * 
@@ -168,6 +185,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
     private JobDefinitionArgs(JobDefinitionArgs $) {
         this.containerProperties = $.containerProperties;
         this.name = $.name;
+        this.nodeProperties = $.nodeProperties;
         this.parameters = $.parameters;
         this.platformCapabilities = $.platformCapabilities;
         this.propagateTags = $.propagateTags;
@@ -237,6 +255,29 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeProperties(@Nullable Output<String> nodeProperties) {
+            $.nodeProperties = nodeProperties;
+            return this;
+        }
+
+        /**
+         * @param nodeProperties A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodeProperties(String nodeProperties) {
+            return nodeProperties(Output.of(nodeProperties));
         }
 
         /**
@@ -378,7 +419,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of job definition. Must be `container`.
+         * @param type The type of job definition. Must be `container` or `multinode`.
          * 
          * The following arguments are optional:
          * 
@@ -391,7 +432,7 @@ public final class JobDefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of job definition. Must be `container`.
+         * @param type The type of job definition. Must be `container` or `multinode`.
          * 
          * The following arguments are optional:
          * 

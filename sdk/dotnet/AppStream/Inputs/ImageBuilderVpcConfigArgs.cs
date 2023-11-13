@@ -28,7 +28,7 @@ namespace Pulumi.Aws.AppStream.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+        /// Identifier of the subnet to which a network interface is attached from the image builder instance.
         /// </summary>
         public InputList<string> SubnetIds
         {

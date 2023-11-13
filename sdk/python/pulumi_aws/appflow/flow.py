@@ -355,8 +355,8 @@ class Flow(pulumi.CustomResource):
                 "s3:GetObject",
             ],
             resources=[
-                "arn:aws:s3:::example_source",
-                "arn:aws:s3:::example_source/*",
+                "arn:aws:s3:::example-source",
+                "arn:aws:s3:::example-source/*",
             ],
         )])
         example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
@@ -383,8 +383,8 @@ class Flow(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                "arn:aws:s3:::example_destination",
-                "arn:aws:s3:::example_destination/*",
+                "arn:aws:s3:::example-destination",
+                "arn:aws:s3:::example-destination/*",
             ],
         )])
         example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",
@@ -473,8 +473,8 @@ class Flow(pulumi.CustomResource):
                 "s3:GetObject",
             ],
             resources=[
-                "arn:aws:s3:::example_source",
-                "arn:aws:s3:::example_source/*",
+                "arn:aws:s3:::example-source",
+                "arn:aws:s3:::example-source/*",
             ],
         )])
         example_source_bucket_policy = aws.s3.BucketPolicy("exampleSourceBucketPolicy",
@@ -501,8 +501,8 @@ class Flow(pulumi.CustomResource):
                 "s3:PutObjectAcl",
             ],
             resources=[
-                "arn:aws:s3:::example_destination",
-                "arn:aws:s3:::example_destination/*",
+                "arn:aws:s3:::example-destination",
+                "arn:aws:s3:::example-destination/*",
             ],
         )])
         example_destination_bucket_policy = aws.s3.BucketPolicy("exampleDestinationBucketPolicy",

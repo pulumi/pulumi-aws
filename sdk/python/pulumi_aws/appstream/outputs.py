@@ -370,7 +370,7 @@ class ImageBuilderVpcConfig(dict):
                  subnet_ids: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] security_group_ids: Identifiers of the security groups for the image builder or image builder.
-        :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+        :param Sequence[str] subnet_ids: Identifier of the subnet to which a network interface is attached from the image builder instance.
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -389,7 +389,7 @@ class ImageBuilderVpcConfig(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
         """
-        Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+        Identifier of the subnet to which a network interface is attached from the image builder instance.
         """
         return pulumi.get(self, "subnet_ids")
 

@@ -7328,7 +7328,7 @@ export namespace appstream {
          */
         securityGroupIds: string[];
         /**
-         * Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+         * Identifier of the subnet to which a network interface is attached from the image builder instance.
          */
         subnetIds: string[];
     }
@@ -22492,8 +22492,7 @@ export namespace ec2 {
         /**
          * ID of the IPAM pool.
          */
-        id?: string;
-        ipamPoolId: string;
+        id: string;
         /**
          * ID of the scope the pool belongs to.
          */
@@ -22597,8 +22596,7 @@ export namespace ec2 {
         /**
          * ID of the IPAM pool.
          */
-        id?: string;
-        ipamPoolId: string;
+        id: string;
         /**
          * ID of the scope the pool belongs to.
          */
@@ -23155,7 +23153,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateIamInstanceProfile {
         /**
-         * The Amazon Resource Name (ARN) of the instance profile.
+         * The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
          */
         arn?: string;
         /**
@@ -34549,9 +34547,13 @@ export namespace iot {
          */
         clientProperties: {[key: string]: string};
         /**
-         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
          */
         destinationArn: string;
+        /**
+         * The list of Kafka headers that you specify. Nested arguments below.
+         */
+        headers?: outputs.iot.TopicRuleErrorActionKafkaHeader[];
         /**
          * The Kafka message key.
          */
@@ -34564,6 +34566,17 @@ export namespace iot {
          * The Kafka topic for messages to be sent to the Kafka broker.
          */
         topic: string;
+    }
+
+    export interface TopicRuleErrorActionKafkaHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        key: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
     }
 
     export interface TopicRuleErrorActionKinesis {
@@ -34799,9 +34812,13 @@ export namespace iot {
          */
         clientProperties: {[key: string]: string};
         /**
-         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
          */
         destinationArn: string;
+        /**
+         * The list of Kafka headers that you specify. Nested arguments below.
+         */
+        headers?: outputs.iot.TopicRuleKafkaHeader[];
         /**
          * The Kafka message key.
          */
@@ -34814,6 +34831,17 @@ export namespace iot {
          * The Kafka topic for messages to be sent to the Kafka broker.
          */
         topic: string;
+    }
+
+    export interface TopicRuleKafkaHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        key: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
     }
 
     export interface TopicRuleKinesis {
@@ -45758,6 +45786,9 @@ export namespace networkfirewall {
 
 export namespace networkmanager {
     export interface ConnectAttachmentOptions {
+        /**
+         * The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+         */
         protocol?: string;
     }
 
@@ -45772,7 +45803,7 @@ export namespace networkmanager {
          */
         coreNetworkAddress: string;
         /**
-         * The inside IP addresses used for BGP peering.
+         * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          */
         insideCidrBlocks: string[];
         /**
@@ -53143,6 +53174,20 @@ export namespace s3 {
          * Number of years that you want to specify for the default retention period.
          */
         years?: number;
+    }
+
+    export interface BucketObjectv2OverrideProvider {
+        /**
+         * Override the provider `defaultTags` configuration block.
+         */
+        defaultTags?: outputs.s3.BucketObjectv2OverrideProviderDefaultTags;
+    }
+
+    export interface BucketObjectv2OverrideProviderDefaultTags {
+        /**
+         * Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: {[key: string]: string};
     }
 
     export interface BucketOwnershipControlsRule {
@@ -61032,6 +61077,24 @@ export namespace transfer {
 }
 
 export namespace verifiedaccess {
+    export interface EndpointLoadBalancerOptions {
+        loadBalancerArn?: string;
+        port?: number;
+        protocol?: string;
+        subnetIds?: string[];
+    }
+
+    export interface EndpointNetworkInterfaceOptions {
+        networkInterfaceId?: string;
+        port?: number;
+        protocol?: string;
+    }
+
+    export interface EndpointSseSpecification {
+        customerManagedKeyEnabled?: boolean;
+        kmsKeyArn?: string;
+    }
+
     export interface InstanceLoggingConfigurationAccessLogs {
         /**
          * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.

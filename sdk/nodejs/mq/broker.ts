@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         revision: aws_mq_configuration.test.latest_revision,
  *     },
  *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.9",
+ *     engineVersion: "5.17.6",
  *     hostInstanceType: "mq.t2.micro",
  *     securityGroups: [aws_security_group.test.id],
  *     users: [{
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *         revision: aws_mq_configuration.test.latest_revision,
  *     },
  *     engineType: "ActiveMQ",
- *     engineVersion: "5.15.9",
+ *     engineVersion: "5.17.6",
  *     storageType: "ebs",
  *     hostInstanceType: "mq.m5.large",
  *     securityGroups: [aws_security_group.test.id],
@@ -136,7 +136,7 @@ export class Broker extends pulumi.CustomResource {
      */
     public readonly engineType!: pulumi.Output<string>;
     /**
-     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -323,7 +323,7 @@ export interface BrokerState {
      */
     engineType?: pulumi.Input<string>;
     /**
-     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -428,7 +428,7 @@ export interface BrokerArgs {
      */
     engineType: pulumi.Input<string>;
     /**
-     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      */
     engineVersion: pulumi.Input<string>;
     /**

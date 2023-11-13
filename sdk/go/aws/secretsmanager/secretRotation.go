@@ -67,8 +67,8 @@ type SecretRotation struct {
 
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled pulumi.BoolOutput `pulumi:"rotationEnabled"`
-	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn pulumi.StringOutput `pulumi:"rotationLambdaArn"`
+	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+	RotationLambdaArn pulumi.StringPtrOutput `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRulesOutput `pulumi:"rotationRules"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -82,9 +82,6 @@ func NewSecretRotation(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.RotationLambdaArn == nil {
-		return nil, errors.New("invalid value for required argument 'RotationLambdaArn'")
-	}
 	if args.RotationRules == nil {
 		return nil, errors.New("invalid value for required argument 'RotationRules'")
 	}
@@ -116,7 +113,7 @@ func GetSecretRotation(ctx *pulumi.Context,
 type secretRotationState struct {
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled *bool `pulumi:"rotationEnabled"`
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
 	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules *SecretRotationRotationRules `pulumi:"rotationRules"`
@@ -127,7 +124,7 @@ type secretRotationState struct {
 type SecretRotationState struct {
 	// Specifies whether automatic rotation is enabled for this secret.
 	RotationEnabled pulumi.BoolPtrInput
-	// Specifies the ARN of the Lambda function that can rotate the secret.
+	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
 	RotationLambdaArn pulumi.StringPtrInput
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRulesPtrInput
@@ -140,8 +137,8 @@ func (SecretRotationState) ElementType() reflect.Type {
 }
 
 type secretRotationArgs struct {
-	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
+	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+	RotationLambdaArn *string `pulumi:"rotationLambdaArn"`
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRules `pulumi:"rotationRules"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -150,8 +147,8 @@ type secretRotationArgs struct {
 
 // The set of arguments for constructing a SecretRotation resource.
 type SecretRotationArgs struct {
-	// Specifies the ARN of the Lambda function that can rotate the secret.
-	RotationLambdaArn pulumi.StringInput
+	// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+	RotationLambdaArn pulumi.StringPtrInput
 	// A structure that defines the rotation configuration for this secret. Defined below.
 	RotationRules SecretRotationRotationRulesInput
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -274,9 +271,9 @@ func (o SecretRotationOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecretRotation) pulumi.BoolOutput { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the ARN of the Lambda function that can rotate the secret.
-func (o SecretRotationOutput) RotationLambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *SecretRotation) pulumi.StringOutput { return v.RotationLambdaArn }).(pulumi.StringOutput)
+// Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+func (o SecretRotationOutput) RotationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecretRotation) pulumi.StringPtrOutput { return v.RotationLambdaArn }).(pulumi.StringPtrOutput)
 }
 
 // A structure that defines the rotation configuration for this secret. Defined below.

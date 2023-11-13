@@ -7289,6 +7289,330 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Years() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+type BucketObjectv2OverrideProvider struct {
+	// Override the provider `defaultTags` configuration block.
+	DefaultTags *BucketObjectv2OverrideProviderDefaultTags `pulumi:"defaultTags"`
+}
+
+// BucketObjectv2OverrideProviderInput is an input type that accepts BucketObjectv2OverrideProviderArgs and BucketObjectv2OverrideProviderOutput values.
+// You can construct a concrete instance of `BucketObjectv2OverrideProviderInput` via:
+//
+//	BucketObjectv2OverrideProviderArgs{...}
+type BucketObjectv2OverrideProviderInput interface {
+	pulumi.Input
+
+	ToBucketObjectv2OverrideProviderOutput() BucketObjectv2OverrideProviderOutput
+	ToBucketObjectv2OverrideProviderOutputWithContext(context.Context) BucketObjectv2OverrideProviderOutput
+}
+
+type BucketObjectv2OverrideProviderArgs struct {
+	// Override the provider `defaultTags` configuration block.
+	DefaultTags BucketObjectv2OverrideProviderDefaultTagsPtrInput `pulumi:"defaultTags"`
+}
+
+func (BucketObjectv2OverrideProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectv2OverrideProvider)(nil)).Elem()
+}
+
+func (i BucketObjectv2OverrideProviderArgs) ToBucketObjectv2OverrideProviderOutput() BucketObjectv2OverrideProviderOutput {
+	return i.ToBucketObjectv2OverrideProviderOutputWithContext(context.Background())
+}
+
+func (i BucketObjectv2OverrideProviderArgs) ToBucketObjectv2OverrideProviderOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderOutput)
+}
+
+func (i BucketObjectv2OverrideProviderArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectv2OverrideProvider] {
+	return pulumix.Output[BucketObjectv2OverrideProvider]{
+		OutputState: i.ToBucketObjectv2OverrideProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i BucketObjectv2OverrideProviderArgs) ToBucketObjectv2OverrideProviderPtrOutput() BucketObjectv2OverrideProviderPtrOutput {
+	return i.ToBucketObjectv2OverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectv2OverrideProviderArgs) ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderOutput).ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx)
+}
+
+// BucketObjectv2OverrideProviderPtrInput is an input type that accepts BucketObjectv2OverrideProviderArgs, BucketObjectv2OverrideProviderPtr and BucketObjectv2OverrideProviderPtrOutput values.
+// You can construct a concrete instance of `BucketObjectv2OverrideProviderPtrInput` via:
+//
+//	        BucketObjectv2OverrideProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketObjectv2OverrideProviderPtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectv2OverrideProviderPtrOutput() BucketObjectv2OverrideProviderPtrOutput
+	ToBucketObjectv2OverrideProviderPtrOutputWithContext(context.Context) BucketObjectv2OverrideProviderPtrOutput
+}
+
+type bucketObjectv2OverrideProviderPtrType BucketObjectv2OverrideProviderArgs
+
+func BucketObjectv2OverrideProviderPtr(v *BucketObjectv2OverrideProviderArgs) BucketObjectv2OverrideProviderPtrInput {
+	return (*bucketObjectv2OverrideProviderPtrType)(v)
+}
+
+func (*bucketObjectv2OverrideProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectv2OverrideProvider)(nil)).Elem()
+}
+
+func (i *bucketObjectv2OverrideProviderPtrType) ToBucketObjectv2OverrideProviderPtrOutput() BucketObjectv2OverrideProviderPtrOutput {
+	return i.ToBucketObjectv2OverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectv2OverrideProviderPtrType) ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderPtrOutput)
+}
+
+func (i *bucketObjectv2OverrideProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2OverrideProvider] {
+	return pulumix.Output[*BucketObjectv2OverrideProvider]{
+		OutputState: i.ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type BucketObjectv2OverrideProviderOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectv2OverrideProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectv2OverrideProvider)(nil)).Elem()
+}
+
+func (o BucketObjectv2OverrideProviderOutput) ToBucketObjectv2OverrideProviderOutput() BucketObjectv2OverrideProviderOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderOutput) ToBucketObjectv2OverrideProviderOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderOutput) ToBucketObjectv2OverrideProviderPtrOutput() BucketObjectv2OverrideProviderPtrOutput {
+	return o.ToBucketObjectv2OverrideProviderPtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectv2OverrideProviderOutput) ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectv2OverrideProvider) *BucketObjectv2OverrideProvider {
+		return &v
+	}).(BucketObjectv2OverrideProviderPtrOutput)
+}
+
+func (o BucketObjectv2OverrideProviderOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectv2OverrideProvider] {
+	return pulumix.Output[BucketObjectv2OverrideProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Override the provider `defaultTags` configuration block.
+func (o BucketObjectv2OverrideProviderOutput) DefaultTags() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyT(func(v BucketObjectv2OverrideProvider) *BucketObjectv2OverrideProviderDefaultTags {
+		return v.DefaultTags
+	}).(BucketObjectv2OverrideProviderDefaultTagsPtrOutput)
+}
+
+type BucketObjectv2OverrideProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectv2OverrideProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectv2OverrideProvider)(nil)).Elem()
+}
+
+func (o BucketObjectv2OverrideProviderPtrOutput) ToBucketObjectv2OverrideProviderPtrOutput() BucketObjectv2OverrideProviderPtrOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderPtrOutput) ToBucketObjectv2OverrideProviderPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderPtrOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2OverrideProvider] {
+	return pulumix.Output[*BucketObjectv2OverrideProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o BucketObjectv2OverrideProviderPtrOutput) Elem() BucketObjectv2OverrideProviderOutput {
+	return o.ApplyT(func(v *BucketObjectv2OverrideProvider) BucketObjectv2OverrideProvider {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectv2OverrideProvider
+		return ret
+	}).(BucketObjectv2OverrideProviderOutput)
+}
+
+// Override the provider `defaultTags` configuration block.
+func (o BucketObjectv2OverrideProviderPtrOutput) DefaultTags() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyT(func(v *BucketObjectv2OverrideProvider) *BucketObjectv2OverrideProviderDefaultTags {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTags
+	}).(BucketObjectv2OverrideProviderDefaultTagsPtrOutput)
+}
+
+type BucketObjectv2OverrideProviderDefaultTags struct {
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// BucketObjectv2OverrideProviderDefaultTagsInput is an input type that accepts BucketObjectv2OverrideProviderDefaultTagsArgs and BucketObjectv2OverrideProviderDefaultTagsOutput values.
+// You can construct a concrete instance of `BucketObjectv2OverrideProviderDefaultTagsInput` via:
+//
+//	BucketObjectv2OverrideProviderDefaultTagsArgs{...}
+type BucketObjectv2OverrideProviderDefaultTagsInput interface {
+	pulumi.Input
+
+	ToBucketObjectv2OverrideProviderDefaultTagsOutput() BucketObjectv2OverrideProviderDefaultTagsOutput
+	ToBucketObjectv2OverrideProviderDefaultTagsOutputWithContext(context.Context) BucketObjectv2OverrideProviderDefaultTagsOutput
+}
+
+type BucketObjectv2OverrideProviderDefaultTagsArgs struct {
+	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (BucketObjectv2OverrideProviderDefaultTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectv2OverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (i BucketObjectv2OverrideProviderDefaultTagsArgs) ToBucketObjectv2OverrideProviderDefaultTagsOutput() BucketObjectv2OverrideProviderDefaultTagsOutput {
+	return i.ToBucketObjectv2OverrideProviderDefaultTagsOutputWithContext(context.Background())
+}
+
+func (i BucketObjectv2OverrideProviderDefaultTagsArgs) ToBucketObjectv2OverrideProviderDefaultTagsOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderDefaultTagsOutput)
+}
+
+func (i BucketObjectv2OverrideProviderDefaultTagsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectv2OverrideProviderDefaultTags] {
+	return pulumix.Output[BucketObjectv2OverrideProviderDefaultTags]{
+		OutputState: i.ToBucketObjectv2OverrideProviderDefaultTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i BucketObjectv2OverrideProviderDefaultTagsArgs) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutput() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return i.ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketObjectv2OverrideProviderDefaultTagsArgs) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderDefaultTagsOutput).ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx)
+}
+
+// BucketObjectv2OverrideProviderDefaultTagsPtrInput is an input type that accepts BucketObjectv2OverrideProviderDefaultTagsArgs, BucketObjectv2OverrideProviderDefaultTagsPtr and BucketObjectv2OverrideProviderDefaultTagsPtrOutput values.
+// You can construct a concrete instance of `BucketObjectv2OverrideProviderDefaultTagsPtrInput` via:
+//
+//	        BucketObjectv2OverrideProviderDefaultTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketObjectv2OverrideProviderDefaultTagsPtrInput interface {
+	pulumi.Input
+
+	ToBucketObjectv2OverrideProviderDefaultTagsPtrOutput() BucketObjectv2OverrideProviderDefaultTagsPtrOutput
+	ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(context.Context) BucketObjectv2OverrideProviderDefaultTagsPtrOutput
+}
+
+type bucketObjectv2OverrideProviderDefaultTagsPtrType BucketObjectv2OverrideProviderDefaultTagsArgs
+
+func BucketObjectv2OverrideProviderDefaultTagsPtr(v *BucketObjectv2OverrideProviderDefaultTagsArgs) BucketObjectv2OverrideProviderDefaultTagsPtrInput {
+	return (*bucketObjectv2OverrideProviderDefaultTagsPtrType)(v)
+}
+
+func (*bucketObjectv2OverrideProviderDefaultTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectv2OverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (i *bucketObjectv2OverrideProviderDefaultTagsPtrType) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutput() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return i.ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketObjectv2OverrideProviderDefaultTagsPtrType) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2OverrideProviderDefaultTagsPtrOutput)
+}
+
+func (i *bucketObjectv2OverrideProviderDefaultTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2OverrideProviderDefaultTags] {
+	return pulumix.Output[*BucketObjectv2OverrideProviderDefaultTags]{
+		OutputState: i.ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type BucketObjectv2OverrideProviderDefaultTagsOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectv2OverrideProviderDefaultTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketObjectv2OverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToBucketObjectv2OverrideProviderDefaultTagsOutput() BucketObjectv2OverrideProviderDefaultTagsOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToBucketObjectv2OverrideProviderDefaultTagsOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutput() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o.ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectv2OverrideProviderDefaultTags) *BucketObjectv2OverrideProviderDefaultTags {
+		return &v
+	}).(BucketObjectv2OverrideProviderDefaultTagsPtrOutput)
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectv2OverrideProviderDefaultTags] {
+	return pulumix.Output[BucketObjectv2OverrideProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BucketObjectv2OverrideProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketObjectv2OverrideProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type BucketObjectv2OverrideProviderDefaultTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketObjectv2OverrideProviderDefaultTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketObjectv2OverrideProviderDefaultTags)(nil)).Elem()
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutput() BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) ToBucketObjectv2OverrideProviderDefaultTagsPtrOutputWithContext(ctx context.Context) BucketObjectv2OverrideProviderDefaultTagsPtrOutput {
+	return o
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2OverrideProviderDefaultTags] {
+	return pulumix.Output[*BucketObjectv2OverrideProviderDefaultTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) Elem() BucketObjectv2OverrideProviderDefaultTagsOutput {
+	return o.ApplyT(func(v *BucketObjectv2OverrideProviderDefaultTags) BucketObjectv2OverrideProviderDefaultTags {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectv2OverrideProviderDefaultTags
+		return ret
+	}).(BucketObjectv2OverrideProviderDefaultTagsOutput)
+}
+
+// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BucketObjectv2OverrideProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BucketObjectv2OverrideProviderDefaultTags) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
 type BucketOwnershipControlsRule struct {
 	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 	ObjectOwnership string `pulumi:"objectOwnership"`
@@ -19080,6 +19404,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RulePtrInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetentionInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationV2RuleDefaultRetentionPtrInput)(nil)).Elem(), BucketObjectLockConfigurationV2RuleDefaultRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderInput)(nil)).Elem(), BucketObjectv2OverrideProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderPtrInput)(nil)).Elem(), BucketObjectv2OverrideProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderDefaultTagsInput)(nil)).Elem(), BucketObjectv2OverrideProviderDefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectv2OverrideProviderDefaultTagsPtrInput)(nil)).Elem(), BucketObjectv2OverrideProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleInput)(nil)).Elem(), BucketOwnershipControlsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRulePtrInput)(nil)).Elem(), BucketOwnershipControlsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigRuleInput)(nil)).Elem(), BucketReplicationConfigRuleArgs{})
@@ -19306,6 +19634,10 @@ func init() {
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RulePtrOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderOutput{})
+	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderPtrOutput{})
+	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderDefaultTagsOutput{})
+	pulumi.RegisterOutputType(BucketObjectv2OverrideProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRulePtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigRuleOutput{})

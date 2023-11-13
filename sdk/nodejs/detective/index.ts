@@ -20,6 +20,16 @@ export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
 utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
+export { OrganizationAdminAccountArgs, OrganizationAdminAccountState } from "./organizationAdminAccount";
+export type OrganizationAdminAccount = import("./organizationAdminAccount").OrganizationAdminAccount;
+export const OrganizationAdminAccount: typeof import("./organizationAdminAccount").OrganizationAdminAccount = null as any;
+utilities.lazyLoad(exports, ["OrganizationAdminAccount"], () => require("./organizationAdminAccount"));
+
+export { OrganizationConfigurationArgs, OrganizationConfigurationState } from "./organizationConfiguration";
+export type OrganizationConfiguration = import("./organizationConfiguration").OrganizationConfiguration;
+export const OrganizationConfiguration: typeof import("./organizationConfiguration").OrganizationConfiguration = null as any;
+utilities.lazyLoad(exports, ["OrganizationConfiguration"], () => require("./organizationConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +41,10 @@ const _module = {
                 return new InvitationAccepter(name, <any>undefined, { urn })
             case "aws:detective/member:Member":
                 return new Member(name, <any>undefined, { urn })
+            case "aws:detective/organizationAdminAccount:OrganizationAdminAccount":
+                return new OrganizationAdminAccount(name, <any>undefined, { urn })
+            case "aws:detective/organizationConfiguration:OrganizationConfiguration":
+                return new OrganizationConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +53,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "detective/graph", _module)
 pulumi.runtime.registerResourceModule("aws", "detective/invitationAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "detective/member", _module)
+pulumi.runtime.registerResourceModule("aws", "detective/organizationAdminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "detective/organizationConfiguration", _module)

@@ -16,14 +16,14 @@ public final class LaunchTemplateIamInstanceProfileArgs extends com.pulumi.resou
     public static final LaunchTemplateIamInstanceProfileArgs Empty = new LaunchTemplateIamInstanceProfileArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the instance profile.
+     * The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the instance profile.
+     * @return The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -71,7 +71,7 @@ public final class LaunchTemplateIamInstanceProfileArgs extends com.pulumi.resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the instance profile.
+         * @param arn The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LaunchTemplateIamInstanceProfileArgs extends com.pulumi.resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the instance profile.
+         * @param arn The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
          * 
          * @return builder
          * 

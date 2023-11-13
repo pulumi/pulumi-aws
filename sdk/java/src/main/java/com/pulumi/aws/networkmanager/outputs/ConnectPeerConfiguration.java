@@ -20,7 +20,7 @@ public final class ConnectPeerConfiguration {
      */
     private @Nullable String coreNetworkAddress;
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     private @Nullable List<String> insideCidrBlocks;
@@ -45,7 +45,7 @@ public final class ConnectPeerConfiguration {
         return Optional.ofNullable(this.coreNetworkAddress);
     }
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public List<String> insideCidrBlocks() {

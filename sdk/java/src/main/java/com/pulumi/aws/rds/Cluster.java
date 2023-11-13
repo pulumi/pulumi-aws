@@ -525,14 +525,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> backupRetentionPeriod;
+    private Output<Integer> backupRetentionPeriod;
 
     /**
      * @return Days to retain backups for. Default `1`
      * 
      */
-    public Output<Optional<Integer>> backupRetentionPeriod() {
-        return Codegen.optional(this.backupRetentionPeriod);
+    public Output<Integer> backupRetentionPeriod() {
+        return this.backupRetentionPeriod;
     }
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.

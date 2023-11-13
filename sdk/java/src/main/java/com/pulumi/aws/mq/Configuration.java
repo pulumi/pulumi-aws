@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .description(&#34;Example Configuration&#34;)
  *             .engineType(&#34;ActiveMQ&#34;)
- *             .engineVersion(&#34;5.15.0&#34;)
+ *             .engineVersion(&#34;5.17.6&#34;)
  *             .build());
  * 
  *     }
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .description(&#34;Example Configuration&#34;)
  *             .engineType(&#34;RabbitMQ&#34;)
- *             .engineVersion(&#34;3.11.16&#34;)
+ *             .engineVersion(&#34;3.11.20&#34;)
  *             .build());
  * 
  *     }

@@ -7,6 +7,7 @@ import com.pulumi.asset.AssetOrArchive;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketObjectv2Args;
 import com.pulumi.aws.s3.inputs.BucketObjectv2State;
+import com.pulumi.aws.s3.outputs.BucketObjectv2OverrideProvider;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -217,6 +218,52 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketVersioningV2)
  *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Ignoring Provider `default_tags`
+ * 
+ * S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+ * If the resource&#39;s own `tags` and the provider-level `default_tags` would together lead to more than 10 tags on an S3 object, use the `override_provider` configuration block to suppress any provider-level `default_tags`.
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketObjectv2;
+ * import com.pulumi.aws.s3.BucketObjectv2Args;
+ * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
+ * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderDefaultTagsArgs;
+ * import com.pulumi.asset.FileAsset;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var examplebucket = new BucketV2(&#34;examplebucket&#34;);
+ * 
+ *         var examplebucketObject = new BucketObjectv2(&#34;examplebucketObject&#34;, BucketObjectv2Args.builder()        
+ *             .key(&#34;someobject&#34;)
+ *             .bucket(examplebucket.id())
+ *             .source(new FileAsset(&#34;important.txt&#34;))
+ *             .tags(Map.of(&#34;Env&#34;, &#34;test&#34;))
+ *             .overrideProvider(BucketObjectv2OverrideProviderArgs.builder()
+ *                 .defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs.builder()
+ *                     .tags()
+ *                     .build())
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -567,6 +614,20 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> objectLockRetainUntilDate() {
         return Codegen.optional(this.objectLockRetainUntilDate);
+    }
+    /**
+     * Override provider-level configuration options. See Override Provider below for more details.
+     * 
+     */
+    @Export(name="overrideProvider", refs={BucketObjectv2OverrideProvider.class}, tree="[0]")
+    private Output</* @Nullable */ BucketObjectv2OverrideProvider> overrideProvider;
+
+    /**
+     * @return Override provider-level configuration options. See Override Provider below for more details.
+     * 
+     */
+    public Output<Optional<BucketObjectv2OverrideProvider>> overrideProvider() {
+        return Codegen.optional(this.overrideProvider);
     }
     /**
      * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.

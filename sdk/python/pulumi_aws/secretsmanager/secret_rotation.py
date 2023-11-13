@@ -16,30 +16,19 @@ __all__ = ['SecretRotationArgs', 'SecretRotation']
 @pulumi.input_type
 class SecretRotationArgs:
     def __init__(__self__, *,
-                 rotation_lambda_arn: pulumi.Input[str],
                  rotation_rules: pulumi.Input['SecretRotationRotationRulesArgs'],
-                 secret_id: pulumi.Input[str]):
+                 secret_id: pulumi.Input[str],
+                 rotation_lambda_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecretRotation resource.
-        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
-        pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
         pulumi.set(__self__, "rotation_rules", rotation_rules)
         pulumi.set(__self__, "secret_id", secret_id)
-
-    @property
-    @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> pulumi.Input[str]:
-        """
-        Specifies the ARN of the Lambda function that can rotate the secret.
-        """
-        return pulumi.get(self, "rotation_lambda_arn")
-
-    @rotation_lambda_arn.setter
-    def rotation_lambda_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "rotation_lambda_arn", value)
+        if rotation_lambda_arn is not None:
+            pulumi.set(__self__, "rotation_lambda_arn", rotation_lambda_arn)
 
     @property
     @pulumi.getter(name="rotationRules")
@@ -65,6 +54,18 @@ class SecretRotationArgs:
     def secret_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_id", value)
 
+    @property
+    @pulumi.getter(name="rotationLambdaArn")
+    def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
+        """
+        return pulumi.get(self, "rotation_lambda_arn")
+
+    @rotation_lambda_arn.setter
+    def rotation_lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rotation_lambda_arn", value)
+
 
 @pulumi.input_type
 class _SecretRotationState:
@@ -76,7 +77,7 @@ class _SecretRotationState:
         """
         Input properties used for looking up and filtering SecretRotation resources.
         :param pulumi.Input[bool] rotation_enabled: Specifies whether automatic rotation is enabled for this secret.
-        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
+        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input['SecretRotationRotationRulesArgs'] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
@@ -105,7 +106,7 @@ class _SecretRotationState:
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ARN of the Lambda function that can rotate the secret.
+        Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 
@@ -182,7 +183,7 @@ class SecretRotation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
+        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
@@ -252,8 +253,6 @@ class SecretRotation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecretRotationArgs.__new__(SecretRotationArgs)
 
-            if rotation_lambda_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'rotation_lambda_arn'")
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
             if rotation_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rotation_rules'")
@@ -284,7 +283,7 @@ class SecretRotation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] rotation_enabled: Specifies whether automatic rotation is enabled for this secret.
-        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret.
+        :param pulumi.Input[str] rotation_lambda_arn: Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         :param pulumi.Input[pulumi.InputType['SecretRotationRotationRulesArgs']] rotation_rules: A structure that defines the rotation configuration for this secret. Defined below.
         :param pulumi.Input[str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         """
@@ -308,9 +307,9 @@ class SecretRotation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
-    def rotation_lambda_arn(self) -> pulumi.Output[str]:
+    def rotation_lambda_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the ARN of the Lambda function that can rotate the secret.
+        Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
         """
         return pulumi.get(self, "rotation_lambda_arn")
 

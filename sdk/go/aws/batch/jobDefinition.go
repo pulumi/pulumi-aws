@@ -16,6 +16,7 @@ import (
 // Provides a Batch Job Definition resource.
 //
 // ## Example Usage
+// ### Job definition of type container
 //
 // ```go
 // package main
@@ -83,6 +84,68 @@ import (
 //			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
 //				Type:                pulumi.String("container"),
 //				ContainerProperties: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Job definition of type multinode
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"mainNode": 0,
+//				"nodeRangeProperties": []map[string]interface{}{
+//					map[string]interface{}{
+//						"container": map[string]interface{}{
+//							"command": []string{
+//								"ls",
+//								"-la",
+//							},
+//							"image":  "busybox",
+//							"memory": 128,
+//							"vcpus":  1,
+//						},
+//						"targetNodes": "0:",
+//					},
+//					map[string]interface{}{
+//						"container": map[string]interface{}{
+//							"command": []string{
+//								"echo",
+//								"test",
+//							},
+//							"image":  "busybox",
+//							"memory": 128,
+//							"vcpus":  1,
+//						},
+//						"targetNodes": "1:",
+//					},
+//				},
+//				"numNodes": 2,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
+//				Type:           pulumi.String("multinode"),
+//				NodeProperties: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -206,6 +269,9 @@ type JobDefinition struct {
 	ContainerProperties pulumi.StringPtrOutput `pulumi:"containerProperties"`
 	// Specifies the name of the job definition.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+	NodeProperties pulumi.StringPtrOutput `pulumi:"nodeProperties"`
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
@@ -225,7 +291,7 @@ type JobDefinition struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrOutput `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
+	// The type of job definition. Must be `container` or `multinode`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -275,6 +341,9 @@ type jobDefinitionState struct {
 	ContainerProperties *string `pulumi:"containerProperties"`
 	// Specifies the name of the job definition.
 	Name *string `pulumi:"name"`
+	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+	NodeProperties *string `pulumi:"nodeProperties"`
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
@@ -294,7 +363,7 @@ type jobDefinitionState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
+	// The type of job definition. Must be `container` or `multinode`.
 	//
 	// The following arguments are optional:
 	Type *string `pulumi:"type"`
@@ -308,6 +377,9 @@ type JobDefinitionState struct {
 	ContainerProperties pulumi.StringPtrInput
 	// Specifies the name of the job definition.
 	Name pulumi.StringPtrInput
+	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+	NodeProperties pulumi.StringPtrInput
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters pulumi.StringMapInput
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
@@ -327,7 +399,7 @@ type JobDefinitionState struct {
 	TagsAll pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition. Must be `container`.
+	// The type of job definition. Must be `container` or `multinode`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringPtrInput
@@ -343,6 +415,9 @@ type jobDefinitionArgs struct {
 	ContainerProperties *string `pulumi:"containerProperties"`
 	// Specifies the name of the job definition.
 	Name *string `pulumi:"name"`
+	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+	NodeProperties *string `pulumi:"nodeProperties"`
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
@@ -356,7 +431,7 @@ type jobDefinitionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
-	// The type of job definition. Must be `container`.
+	// The type of job definition. Must be `container` or `multinode`.
 	//
 	// The following arguments are optional:
 	Type string `pulumi:"type"`
@@ -369,6 +444,9 @@ type JobDefinitionArgs struct {
 	ContainerProperties pulumi.StringPtrInput
 	// Specifies the name of the job definition.
 	Name pulumi.StringPtrInput
+	// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+	// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+	NodeProperties pulumi.StringPtrInput
 	// Specifies the parameter substitution placeholders to set in the job definition.
 	Parameters pulumi.StringMapInput
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
@@ -382,7 +460,7 @@ type JobDefinitionArgs struct {
 	Tags pulumi.StringMapInput
 	// Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
 	Timeout JobDefinitionTimeoutPtrInput
-	// The type of job definition. Must be `container`.
+	// The type of job definition. Must be `container` or `multinode`.
 	//
 	// The following arguments are optional:
 	Type pulumi.StringInput
@@ -515,6 +593,12 @@ func (o JobDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
+// provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
+func (o JobDefinitionOutput) NodeProperties() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.NodeProperties }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the parameter substitution placeholders to set in the job definition.
 func (o JobDefinitionOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobDefinition) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
@@ -558,7 +642,7 @@ func (o JobDefinitionOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 	return o.ApplyT(func(v *JobDefinition) JobDefinitionTimeoutPtrOutput { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }
 
-// The type of job definition. Must be `container`.
+// The type of job definition. Must be `container` or `multinode`.
 //
 // The following arguments are optional:
 func (o JobDefinitionOutput) Type() pulumi.StringOutput {

@@ -74,9 +74,9 @@ export class SecretRotation extends pulumi.CustomResource {
      */
     public /*out*/ readonly rotationEnabled!: pulumi.Output<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
-    public readonly rotationLambdaArn!: pulumi.Output<string>;
+    public readonly rotationLambdaArn!: pulumi.Output<string | undefined>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
@@ -105,9 +105,6 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["secretId"] = state ? state.secretId : undefined;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
-            if ((!args || args.rotationLambdaArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'rotationLambdaArn'");
-            }
             if ((!args || args.rotationRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rotationRules'");
             }
@@ -133,7 +130,7 @@ export interface SecretRotationState {
      */
     rotationEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
     rotationLambdaArn?: pulumi.Input<string>;
     /**
@@ -151,9 +148,9 @@ export interface SecretRotationState {
  */
 export interface SecretRotationArgs {
     /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
+     * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      */
-    rotationLambdaArn: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */

@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  *             "s3:GetObject",
  *         ],
  *         resources: [
- *             "arn:aws:s3:::example_source",
- *             "arn:aws:s3:::example_source/*",
+ *             "arn:aws:s3:::example-source",
+ *             "arn:aws:s3:::example-source/*",
  *         ],
  *     }],
  * });
@@ -62,8 +62,8 @@ import * as utilities from "../utilities";
  *             "s3:PutObjectAcl",
  *         ],
  *         resources: [
- *             "arn:aws:s3:::example_destination",
- *             "arn:aws:s3:::example_destination/*",
+ *             "arn:aws:s3:::example-destination",
+ *             "arn:aws:s3:::example-destination/*",
  *         ],
  *     }],
  * });

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Mq
     ///             Revision = aws_mq_configuration.Test.Latest_revision,
     ///         },
     ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.15.9",
+    ///         EngineVersion = "5.17.6",
     ///         HostInstanceType = "mq.t2.micro",
     ///         SecurityGroups = new[]
     ///         {
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Mq
     ///             Revision = aws_mq_configuration.Test.Latest_revision,
     ///         },
     ///         EngineType = "ActiveMQ",
-    ///         EngineVersion = "5.15.9",
+    ///         EngineVersion = "5.17.6",
     ///         StorageType = "ebs",
     ///         HostInstanceType = "mq.m5.large",
     ///         SecurityGroups = new[]
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Mq
         public Output<string> EngineType { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Mq
         public Input<string> EngineType { get; set; } = null!;
 
         /// <summary>
-        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Mq
         public Input<string>? EngineType { get; set; }
 
         /// <summary>
-        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
+        /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InvitationAccepter{}
 	case "aws:detective/member:Member":
 		r = &Member{}
+	case "aws:detective/organizationAdminAccount:OrganizationAdminAccount":
+		r = &OrganizationAdminAccount{}
+	case "aws:detective/organizationConfiguration:OrganizationConfiguration":
+		r = &OrganizationConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +57,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"detective/member",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"detective/organizationAdminAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"detective/organizationConfiguration",
 		&module{version},
 	)
 }

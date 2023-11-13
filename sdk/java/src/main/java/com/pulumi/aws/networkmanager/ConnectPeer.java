@@ -145,18 +145,18 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
         return this.edgeLocation;
     }
     /**
-     * The inside IP addresses used for BGP peering.
+     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Export(name="insideCidrBlocks", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> insideCidrBlocks;
+    private Output</* @Nullable */ List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering.
+     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    public Output<List<String>> insideCidrBlocks() {
-        return this.insideCidrBlocks;
+    public Output<Optional<List<String>>> insideCidrBlocks() {
+        return Codegen.optional(this.insideCidrBlocks);
     }
     /**
      * The Connect peer address.
@@ -189,6 +189,20 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> state() {
         return this.state;
+    }
+    /**
+     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    @Export(name="subnetArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> subnetArn;
+
+    /**
+     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * 
+     */
+    public Output<Optional<String>> subnetArn() {
+        return Codegen.optional(this.subnetArn);
     }
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

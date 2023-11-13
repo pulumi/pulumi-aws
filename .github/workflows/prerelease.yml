@@ -9,6 +9,7 @@ env:
       3.1.301
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GOVERSION: 1.21.x
+  GRADLEVERSION: "7.6"
   JAVAVERSION: "11"
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NODEVERSION: 20.x
@@ -82,7 +83,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        gradle-version: "7.6"
+        gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -128,6 +129,10 @@ jobs:
         - dotnet
         - go
         - java
+  license_check:
+    name: License Check
+    uses: ./.github/workflows/license.yml
+    secrets: inherit
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -222,6 +227,7 @@ jobs:
     name: publish
     needs:
       - test
+      - license_check
       - go_test_shim
     runs-on: pulumi-ubuntu-8core
     steps:
@@ -343,7 +349,7 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        gradle-version: "7.6"
+        gradle-version: ${{ env.GRADLEVERSION }}
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:

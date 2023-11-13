@@ -21,6 +21,7 @@ class AppArgs:
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +42,7 @@ class AppArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
@@ -65,6 +67,8 @@ class AppArgs:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
         if description is not None:
@@ -151,6 +155,18 @@ class AppArgs:
     @build_spec.setter
     def build_spec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "build_spec", value)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_headers", value)
 
     @property
     @pulumi.getter(name="customRules")
@@ -318,6 +334,7 @@ class _AppState:
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -342,6 +359,7 @@ class _AppState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
         :param pulumi.Input[str] description: Description for an Amplify app.
@@ -371,6 +389,8 @@ class _AppState:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
             pulumi.set(__self__, "build_spec", build_spec)
+        if custom_headers is not None:
+            pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
         if default_domain is not None:
@@ -478,6 +498,18 @@ class _AppState:
     @build_spec.setter
     def build_spec(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "build_spec", value)
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        """
+        return pulumi.get(self, "custom_headers")
+
+    @custom_headers.setter
+    def custom_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_headers", value)
 
     @property
     @pulumi.getter(name="customRules")
@@ -685,6 +717,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
@@ -798,6 +831,28 @@ class App(pulumi.CustomResource):
             "_CUSTOM_IMAGE": "node:16",
         })
         ```
+        ### Custom Headers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", custom_headers=\"\"\"  customHeaders:
+            - pattern: '**'
+              headers:
+                - key: 'Strict-Transport-Security'
+                  value: 'max-age=31536000; includeSubDomains'
+                - key: 'X-Frame-Options'
+                  value: 'SAMEORIGIN'
+                - key: 'X-XSS-Protection'
+                  value: '1; mode=block'
+                - key: 'X-Content-Type-Options'
+                  value: 'nosniff'
+                - key: 'Content-Security-Policy'
+                  value: "default-src 'self'"
+
+        \"\"\")
+        ```
 
         ## Import
 
@@ -815,6 +870,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
@@ -934,6 +990,28 @@ class App(pulumi.CustomResource):
             "_CUSTOM_IMAGE": "node:16",
         })
         ```
+        ### Custom Headers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example", custom_headers=\"\"\"  customHeaders:
+            - pattern: '**'
+              headers:
+                - key: 'Strict-Transport-Security'
+                  value: 'max-age=31536000; includeSubDomains'
+                - key: 'X-Frame-Options'
+                  value: 'SAMEORIGIN'
+                - key: 'X-XSS-Protection'
+                  value: '1; mode=block'
+                - key: 'X-Content-Type-Options'
+                  value: 'nosniff'
+                - key: 'Content-Security-Policy'
+                  value: "default-src 'self'"
+
+        \"\"\")
+        ```
 
         ## Import
 
@@ -964,6 +1042,7 @@ class App(pulumi.CustomResource):
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
+                 custom_headers: Optional[pulumi.Input[str]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
@@ -991,6 +1070,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
             __props__.__dict__["basic_auth_credentials"] = None if basic_auth_credentials is None else pulumi.Output.secret(basic_auth_credentials)
             __props__.__dict__["build_spec"] = build_spec
+            __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_auto_branch_creation"] = enable_auto_branch_creation
@@ -1026,6 +1106,7 @@ class App(pulumi.CustomResource):
             auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
             build_spec: Optional[pulumi.Input[str]] = None,
+            custom_headers: Optional[pulumi.Input[str]] = None,
             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -1055,6 +1136,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
+        :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
         :param pulumi.Input[str] description: Description for an Amplify app.
@@ -1082,6 +1164,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["auto_branch_creation_patterns"] = auto_branch_creation_patterns
         __props__.__dict__["basic_auth_credentials"] = basic_auth_credentials
         __props__.__dict__["build_spec"] = build_spec
+        __props__.__dict__["custom_headers"] = custom_headers
         __props__.__dict__["custom_rules"] = custom_rules
         __props__.__dict__["default_domain"] = default_domain
         __props__.__dict__["description"] = description
@@ -1147,6 +1230,14 @@ class App(pulumi.CustomResource):
         The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         """
         return pulumi.get(self, "build_spec")
+
+    @property
+    @pulumi.getter(name="customHeaders")
+    def custom_headers(self) -> pulumi.Output[str]:
+        """
+        The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
+        """
+        return pulumi.get(self, "custom_headers")
 
     @property
     @pulumi.getter(name="customRules")

@@ -69,8 +69,6 @@ export interface GetSnapshotArgs {
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
      */
     includePublic?: boolean;
     /**
@@ -90,6 +88,10 @@ export interface GetSnapshotArgs {
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: string;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -228,8 +230,6 @@ export interface GetSnapshotOutputArgs {
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
      */
     includePublic?: pulumi.Input<boolean>;
     /**
@@ -249,5 +249,9 @@ export interface GetSnapshotOutputArgs {
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: pulumi.Input<string>;
+    /**
+     * Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -1,0 +1,19 @@
+{
+  "packages": [
+    "go@1.21.",
+    "nodejs@20.",
+    "python3@3.9",
+    "dotnet-sdk@6.0.",
+    "gradle_7@7.6"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PATH=\"$(pwd)/bin/:$PATH\""
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

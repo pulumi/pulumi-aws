@@ -5055,7 +5055,7 @@ class LaunchTemplateIamInstanceProfile(dict):
                  arn: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str arn: The Amazon Resource Name (ARN) of the instance profile.
+        :param str arn: The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         :param str name: The name of the instance profile.
         """
         if arn is not None:
@@ -5067,7 +5067,7 @@ class LaunchTemplateIamInstanceProfile(dict):
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the instance profile.
+        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
         """
         return pulumi.get(self, "arn")
 
@@ -22459,7 +22459,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
                  auto_import: bool,
                  aws_service: str,
                  description: str,
-                 ipam_pool_id: str,
+                 id: str,
                  ipam_scope_id: str,
                  ipam_scope_type: str,
                  locale: str,
@@ -22467,8 +22467,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
                  publicly_advertisable: bool,
                  source_ipam_pool_id: str,
                  state: str,
-                 tags: Mapping[str, str],
-                 id: Optional[str] = None):
+                 tags: Mapping[str, str]):
         """
         :param str address_family: IP protocol assigned to this pool.
         :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
@@ -22479,12 +22478,12 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         :param bool auto_import: If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         :param str aws_service: Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         :param str description: Description for the IPAM pool.
+        :param str id: ID of the IPAM pool.
         :param str ipam_scope_id: ID of the scope the pool belongs to.
         :param str locale: Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         :param bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         :param str source_ipam_pool_id: ID of the source IPAM pool.
         :param Mapping[str, str] tags: Map of tags to assigned to the resource.
-        :param str id: ID of the IPAM pool.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
@@ -22495,7 +22494,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         pulumi.set(__self__, "auto_import", auto_import)
         pulumi.set(__self__, "aws_service", aws_service)
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
         pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
         pulumi.set(__self__, "locale", locale)
@@ -22504,8 +22503,6 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "tags", tags)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -22580,9 +22577,12 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> str:
-        return pulumi.get(self, "ipam_pool_id")
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the IPAM pool.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipamScopeId")
@@ -22638,14 +22638,6 @@ class GetVpcIamPoolsIpamPoolResult(dict):
         Map of tags to assigned to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        ID of the IPAM pool.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -22766,7 +22758,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
                  auto_import: bool,
                  aws_service: str,
                  description: str,
-                 ipam_pool_id: str,
+                 id: str,
                  ipam_scope_id: str,
                  ipam_scope_type: str,
                  locale: str,
@@ -22774,8 +22766,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
                  publicly_advertisable: bool,
                  source_ipam_pool_id: str,
                  state: str,
-                 tags: Mapping[str, str],
-                 id: Optional[str] = None):
+                 tags: Mapping[str, str]):
         """
         :param str address_family: IP protocol assigned to this pool.
         :param int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
@@ -22786,12 +22777,12 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         :param bool auto_import: If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         :param str aws_service: Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         :param str description: Description for the IPAM pool.
+        :param str id: ID of the IPAM pool.
         :param str ipam_scope_id: ID of the scope the pool belongs to.
         :param str locale: Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         :param bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         :param str source_ipam_pool_id: ID of the source IPAM pool.
         :param Mapping[str, str] tags: Map of tags to assigned to the resource.
-        :param str id: ID of the IPAM pool.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
@@ -22802,7 +22793,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         pulumi.set(__self__, "auto_import", auto_import)
         pulumi.set(__self__, "aws_service", aws_service)
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
         pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
         pulumi.set(__self__, "locale", locale)
@@ -22811,8 +22802,6 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "tags", tags)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -22887,9 +22876,12 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="ipamPoolId")
-    def ipam_pool_id(self) -> str:
-        return pulumi.get(self, "ipam_pool_id")
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the IPAM pool.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipamScopeId")
@@ -22945,14 +22937,6 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
         Map of tags to assigned to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        ID of the IPAM pool.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

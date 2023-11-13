@@ -287,7 +287,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Days to retain backups for. Default `1`
      */
-    public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
+    public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
