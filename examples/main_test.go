@@ -9,23 +9,27 @@ import (
 )
 
 func TestMain(m *testing.M) {
-	// Ensure we use a locally built provider
-	awsProviderPath, err := exec.LookPath("pulumi-resource-aws")
-	if err != nil {
-		log.Println("AWS provider not found in path!")
-		os.Exit(1)
-	}
+	disableProviderBuild := os.Getenv("DISABLE_PROVIDER_BUILD")
+	if disableProviderBuild == "" {
+		cwd, err := os.Getwd()
+		if err != nil {
+			log.Println("Unable to get working directory!")
+			os.Exit(1)
+		}
+		command := exec.Command("make", "provider", "-o", "tfgen", "-o", "install_plugins")
+		command.Dir = filepath.Join(cwd, "..")
+		err = command.Run()
+		if err != nil {
+			log.Println("Unable to build provider!")
+			os.Exit(1)
+		}
 
-	cwd, err := os.Getwd()
-	if err != nil {
-		log.Println("Unable to get working directory!")
-		os.Exit(1)
-	}
-	desiredPath := filepath.Join(cwd, "..", "bin", "pulumi-resource-aws")
-
-	if awsProviderPath != desiredPath {
-		log.Println("AWS provider not built locally!")
-		os.Exit(1)
+		binPath := filepath.Join(cwd, "..", "bin")
+		err = os.Setenv("PATH", binPath+":"+os.Getenv("PATH"))
+		if err != nil {
+			log.Println("Unable to set PATH!")
+			os.Exit(1)
+		}
 	}
 
 	exitVal := m.Run()
