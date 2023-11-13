@@ -9,7 +9,7 @@ import (
 )
 
 func TestMain(m *testing.M) {
-	disableProviderBuild := os.Getenv("DISABLE_PROVIDER_BUILD")
+	disableProviderBuild := os.Getenv("GITHUB_ACTIONS")
 	if disableProviderBuild == "" {
 		cwd, err := os.Getwd()
 		if err != nil {
