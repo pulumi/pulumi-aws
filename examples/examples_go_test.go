@@ -165,8 +165,7 @@ func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
 			"state1":     st.serialize(t),
 			"state2":     st2.serialize(t),
 		},
-		Quick:            true,
-		DestroyOnCleanup: true,
+		Quick: true,
 	})
 }
 
