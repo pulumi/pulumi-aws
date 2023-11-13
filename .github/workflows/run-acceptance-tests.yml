@@ -30,6 +30,9 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 jobs:
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
