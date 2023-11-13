@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve the SES domain identity
@@ -103,12 +102,6 @@ func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutput() L
 
 func (o LookupDomainIdentityResultOutput) ToLookupDomainIdentityResultOutputWithContext(ctx context.Context) LookupDomainIdentityResultOutput {
 	return o
-}
-
-func (o LookupDomainIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainIdentityResult] {
-	return pulumix.Output[LookupDomainIdentityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the domain identity.

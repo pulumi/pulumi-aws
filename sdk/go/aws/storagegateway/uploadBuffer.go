@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway upload buffer.
@@ -201,12 +200,6 @@ func (i *UploadBuffer) ToUploadBufferOutputWithContext(ctx context.Context) Uplo
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferOutput)
 }
 
-func (i *UploadBuffer) ToOutput(ctx context.Context) pulumix.Output[*UploadBuffer] {
-	return pulumix.Output[*UploadBuffer]{
-		OutputState: i.ToUploadBufferOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UploadBufferArrayInput is an input type that accepts UploadBufferArray and UploadBufferArrayOutput values.
 // You can construct a concrete instance of `UploadBufferArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i UploadBufferArray) ToUploadBufferArrayOutput() UploadBufferArrayOutput {
 
 func (i UploadBufferArray) ToUploadBufferArrayOutputWithContext(ctx context.Context) UploadBufferArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferArrayOutput)
-}
-
-func (i UploadBufferArray) ToOutput(ctx context.Context) pulumix.Output[[]*UploadBuffer] {
-	return pulumix.Output[[]*UploadBuffer]{
-		OutputState: i.ToUploadBufferArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UploadBufferMapInput is an input type that accepts UploadBufferMap and UploadBufferMapOutput values.
@@ -263,12 +250,6 @@ func (i UploadBufferMap) ToUploadBufferMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(UploadBufferMapOutput)
 }
 
-func (i UploadBufferMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UploadBuffer] {
-	return pulumix.Output[map[string]*UploadBuffer]{
-		OutputState: i.ToUploadBufferMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UploadBufferOutput struct{ *pulumi.OutputState }
 
 func (UploadBufferOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o UploadBufferOutput) ToUploadBufferOutput() UploadBufferOutput {
 
 func (o UploadBufferOutput) ToUploadBufferOutputWithContext(ctx context.Context) UploadBufferOutput {
 	return o
-}
-
-func (o UploadBufferOutput) ToOutput(ctx context.Context) pulumix.Output[*UploadBuffer] {
-	return pulumix.Output[*UploadBuffer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -318,12 +293,6 @@ func (o UploadBufferArrayOutput) ToUploadBufferArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o UploadBufferArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UploadBuffer] {
-	return pulumix.Output[[]*UploadBuffer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UploadBufferArrayOutput) Index(i pulumi.IntInput) UploadBufferOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UploadBuffer {
 		return vs[0].([]*UploadBuffer)[vs[1].(int)]
@@ -342,12 +311,6 @@ func (o UploadBufferMapOutput) ToUploadBufferMapOutput() UploadBufferMapOutput {
 
 func (o UploadBufferMapOutput) ToUploadBufferMapOutputWithContext(ctx context.Context) UploadBufferMapOutput {
 	return o
-}
-
-func (o UploadBufferMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UploadBuffer] {
-	return pulumix.Output[map[string]*UploadBuffer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UploadBufferMapOutput) MapIndex(k pulumi.StringInput) UploadBufferOutput {

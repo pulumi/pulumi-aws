@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associate an existing ElastiCache user and an existing user group.
@@ -187,12 +186,6 @@ func (i *UserGroupAssociation) ToUserGroupAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupAssociationOutput)
 }
 
-func (i *UserGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*UserGroupAssociation] {
-	return pulumix.Output[*UserGroupAssociation]{
-		OutputState: i.ToUserGroupAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserGroupAssociationArrayInput is an input type that accepts UserGroupAssociationArray and UserGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `UserGroupAssociationArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i UserGroupAssociationArray) ToUserGroupAssociationArrayOutput() UserGroup
 
 func (i UserGroupAssociationArray) ToUserGroupAssociationArrayOutputWithContext(ctx context.Context) UserGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupAssociationArrayOutput)
-}
-
-func (i UserGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroupAssociation] {
-	return pulumix.Output[[]*UserGroupAssociation]{
-		OutputState: i.ToUserGroupAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserGroupAssociationMapInput is an input type that accepts UserGroupAssociationMap and UserGroupAssociationMapOutput values.
@@ -249,12 +236,6 @@ func (i UserGroupAssociationMap) ToUserGroupAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupAssociationMapOutput)
 }
 
-func (i UserGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroupAssociation] {
-	return pulumix.Output[map[string]*UserGroupAssociation]{
-		OutputState: i.ToUserGroupAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (UserGroupAssociationOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o UserGroupAssociationOutput) ToUserGroupAssociationOutput() UserGroupAsso
 
 func (o UserGroupAssociationOutput) ToUserGroupAssociationOutputWithContext(ctx context.Context) UserGroupAssociationOutput {
 	return o
-}
-
-func (o UserGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroupAssociation] {
-	return pulumix.Output[*UserGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the user group.
@@ -299,12 +274,6 @@ func (o UserGroupAssociationArrayOutput) ToUserGroupAssociationArrayOutputWithCo
 	return o
 }
 
-func (o UserGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroupAssociation] {
-	return pulumix.Output[[]*UserGroupAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserGroupAssociationArrayOutput) Index(i pulumi.IntInput) UserGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGroupAssociation {
 		return vs[0].([]*UserGroupAssociation)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o UserGroupAssociationMapOutput) ToUserGroupAssociationMapOutput() UserGro
 
 func (o UserGroupAssociationMapOutput) ToUserGroupAssociationMapOutputWithContext(ctx context.Context) UserGroupAssociationMapOutput {
 	return o
-}
-
-func (o UserGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroupAssociation] {
-	return pulumix.Output[map[string]*UserGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) UserGroupAssociationOutput {

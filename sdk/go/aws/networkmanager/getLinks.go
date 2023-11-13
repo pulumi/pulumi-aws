@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about link.
@@ -123,12 +122,6 @@ func (o GetLinksResultOutput) ToGetLinksResultOutput() GetLinksResultOutput {
 
 func (o GetLinksResultOutput) ToGetLinksResultOutputWithContext(ctx context.Context) GetLinksResultOutput {
 	return o
-}
-
-func (o GetLinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinksResult] {
-	return pulumix.Output[GetLinksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLinksResultOutput) GlobalNetworkId() pulumi.StringOutput {

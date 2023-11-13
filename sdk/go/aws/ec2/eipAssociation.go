@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS EIP Association as a top level resource, to associate and
@@ -252,12 +251,6 @@ func (i *EipAssociation) ToEipAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationOutput)
 }
 
-func (i *EipAssociation) ToOutput(ctx context.Context) pulumix.Output[*EipAssociation] {
-	return pulumix.Output[*EipAssociation]{
-		OutputState: i.ToEipAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EipAssociationArrayInput is an input type that accepts EipAssociationArray and EipAssociationArrayOutput values.
 // You can construct a concrete instance of `EipAssociationArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i EipAssociationArray) ToEipAssociationArrayOutput() EipAssociationArrayOu
 
 func (i EipAssociationArray) ToEipAssociationArrayOutputWithContext(ctx context.Context) EipAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationArrayOutput)
-}
-
-func (i EipAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EipAssociation] {
-	return pulumix.Output[[]*EipAssociation]{
-		OutputState: i.ToEipAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EipAssociationMapInput is an input type that accepts EipAssociationMap and EipAssociationMapOutput values.
@@ -314,12 +301,6 @@ func (i EipAssociationMap) ToEipAssociationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationMapOutput)
 }
 
-func (i EipAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EipAssociation] {
-	return pulumix.Output[map[string]*EipAssociation]{
-		OutputState: i.ToEipAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EipAssociationOutput struct{ *pulumi.OutputState }
 
 func (EipAssociationOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o EipAssociationOutput) ToEipAssociationOutput() EipAssociationOutput {
 
 func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Context) EipAssociationOutput {
 	return o
-}
-
-func (o EipAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*EipAssociation] {
-	return pulumix.Output[*EipAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allocation ID. This is required for EC2-VPC.
@@ -393,12 +368,6 @@ func (o EipAssociationArrayOutput) ToEipAssociationArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o EipAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EipAssociation] {
-	return pulumix.Output[[]*EipAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EipAssociationArrayOutput) Index(i pulumi.IntInput) EipAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EipAssociation {
 		return vs[0].([]*EipAssociation)[vs[1].(int)]
@@ -417,12 +386,6 @@ func (o EipAssociationMapOutput) ToEipAssociationMapOutput() EipAssociationMapOu
 
 func (o EipAssociationMapOutput) ToEipAssociationMapOutputWithContext(ctx context.Context) EipAssociationMapOutput {
 	return o
-}
-
-func (o EipAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EipAssociation] {
-	return pulumix.Output[map[string]*EipAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EipAssociationMapOutput) MapIndex(k pulumi.StringInput) EipAssociationOutput {

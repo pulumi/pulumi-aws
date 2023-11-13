@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
@@ -198,12 +197,6 @@ func (i *BucketMetric) ToBucketMetricOutputWithContext(ctx context.Context) Buck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricOutput)
 }
 
-func (i *BucketMetric) ToOutput(ctx context.Context) pulumix.Output[*BucketMetric] {
-	return pulumix.Output[*BucketMetric]{
-		OutputState: i.ToBucketMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketMetricArrayInput is an input type that accepts BucketMetricArray and BucketMetricArrayOutput values.
 // You can construct a concrete instance of `BucketMetricArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i BucketMetricArray) ToBucketMetricArrayOutput() BucketMetricArrayOutput {
 
 func (i BucketMetricArray) ToBucketMetricArrayOutputWithContext(ctx context.Context) BucketMetricArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricArrayOutput)
-}
-
-func (i BucketMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketMetric] {
-	return pulumix.Output[[]*BucketMetric]{
-		OutputState: i.ToBucketMetricArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketMetricMapInput is an input type that accepts BucketMetricMap and BucketMetricMapOutput values.
@@ -260,12 +247,6 @@ func (i BucketMetricMap) ToBucketMetricMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricMapOutput)
 }
 
-func (i BucketMetricMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketMetric] {
-	return pulumix.Output[map[string]*BucketMetric]{
-		OutputState: i.ToBucketMetricMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketMetricOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o BucketMetricOutput) ToBucketMetricOutput() BucketMetricOutput {
 
 func (o BucketMetricOutput) ToBucketMetricOutputWithContext(ctx context.Context) BucketMetricOutput {
 	return o
-}
-
-func (o BucketMetricOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketMetric] {
-	return pulumix.Output[*BucketMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket to put metric configuration.
@@ -315,12 +290,6 @@ func (o BucketMetricArrayOutput) ToBucketMetricArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o BucketMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketMetric] {
-	return pulumix.Output[[]*BucketMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketMetricArrayOutput) Index(i pulumi.IntInput) BucketMetricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketMetric {
 		return vs[0].([]*BucketMetric)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o BucketMetricMapOutput) ToBucketMetricMapOutput() BucketMetricMapOutput {
 
 func (o BucketMetricMapOutput) ToBucketMetricMapOutputWithContext(ctx context.Context) BucketMetricMapOutput {
 	return o
-}
-
-func (o BucketMetricMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketMetric] {
-	return pulumix.Output[map[string]*BucketMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketMetricMapOutput) MapIndex(k pulumi.StringInput) BucketMetricOutput {

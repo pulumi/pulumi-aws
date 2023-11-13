@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutput
 
 func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput)
-}
-
-func (i WorkspaceNetworkAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceNetworkAccessControl] {
-	return pulumix.Output[WorkspaceNetworkAccessControl]{
-		OutputState: i.ToWorkspaceNetworkAccessControlOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
@@ -98,12 +91,6 @@ func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
-func (i *workspaceNetworkAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceNetworkAccessControl] {
-	return pulumix.Output[*WorkspaceNetworkAccessControl]{
-		OutputState: i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceNetworkAccessControlOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceNetworkAccessControlOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrO
 	}).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
-func (o WorkspaceNetworkAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceNetworkAccessControl] {
-	return pulumix.Output[WorkspaceNetworkAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of prefix list IDs.
 func (o WorkspaceNetworkAccessControlOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
@@ -156,12 +137,6 @@ func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlP
 
 func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
 	return o
-}
-
-func (o WorkspaceNetworkAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceNetworkAccessControl] {
-	return pulumix.Output[*WorkspaceNetworkAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceNetworkAccessControlPtrOutput) Elem() WorkspaceNetworkAccessControlOutput {
@@ -231,12 +206,6 @@ func (i WorkspaceVpcConfigurationArgs) ToWorkspaceVpcConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVpcConfigurationOutput)
 }
 
-func (i WorkspaceVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVpcConfiguration] {
-	return pulumix.Output[WorkspaceVpcConfiguration]{
-		OutputState: i.ToWorkspaceVpcConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceVpcConfigurationArgs) ToWorkspaceVpcConfigurationPtrOutput() WorkspaceVpcConfigurationPtrOutput {
 	return i.ToWorkspaceVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *workspaceVpcConfigurationPtrType) ToWorkspaceVpcConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVpcConfigurationPtrOutput)
 }
 
-func (i *workspaceVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVpcConfiguration] {
-	return pulumix.Output[*WorkspaceVpcConfiguration]{
-		OutputState: i.ToWorkspaceVpcConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceVpcConfigurationOutput) ElementType() reflect.Type {
@@ -308,12 +271,6 @@ func (o WorkspaceVpcConfigurationOutput) ToWorkspaceVpcConfigurationPtrOutputWit
 	}).(WorkspaceVpcConfigurationPtrOutput)
 }
 
-func (o WorkspaceVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVpcConfiguration] {
-	return pulumix.Output[WorkspaceVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -336,12 +293,6 @@ func (o WorkspaceVpcConfigurationPtrOutput) ToWorkspaceVpcConfigurationPtrOutput
 
 func (o WorkspaceVpcConfigurationPtrOutput) ToWorkspaceVpcConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceVpcConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkspaceVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVpcConfiguration] {
-	return pulumix.Output[*WorkspaceVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceVpcConfigurationPtrOutput) Elem() WorkspaceVpcConfigurationOutput {

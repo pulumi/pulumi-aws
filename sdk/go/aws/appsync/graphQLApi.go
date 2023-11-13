@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type GraphQLApi struct {
@@ -228,12 +227,6 @@ func (i *GraphQLApi) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLA
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiOutput)
 }
 
-func (i *GraphQLApi) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApi] {
-	return pulumix.Output[*GraphQLApi]{
-		OutputState: i.ToGraphQLApiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GraphQLApiArrayInput is an input type that accepts GraphQLApiArray and GraphQLApiArrayOutput values.
 // You can construct a concrete instance of `GraphQLApiArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i GraphQLApiArray) ToGraphQLApiArrayOutput() GraphQLApiArrayOutput {
 
 func (i GraphQLApiArray) ToGraphQLApiArrayOutputWithContext(ctx context.Context) GraphQLApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiArrayOutput)
-}
-
-func (i GraphQLApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*GraphQLApi] {
-	return pulumix.Output[[]*GraphQLApi]{
-		OutputState: i.ToGraphQLApiArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GraphQLApiMapInput is an input type that accepts GraphQLApiMap and GraphQLApiMapOutput values.
@@ -290,12 +277,6 @@ func (i GraphQLApiMap) ToGraphQLApiMapOutputWithContext(ctx context.Context) Gra
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiMapOutput)
 }
 
-func (i GraphQLApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GraphQLApi] {
-	return pulumix.Output[map[string]*GraphQLApi]{
-		OutputState: i.ToGraphQLApiMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GraphQLApiOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o GraphQLApiOutput) ToGraphQLApiOutput() GraphQLApiOutput {
 
 func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) GraphQLApiOutput {
 	return o
-}
-
-func (o GraphQLApiOutput) ToOutput(ctx context.Context) pulumix.Output[*GraphQLApi] {
-	return pulumix.Output[*GraphQLApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more additional authentication providers for the GraphqlApi. Defined below.
@@ -404,12 +379,6 @@ func (o GraphQLApiArrayOutput) ToGraphQLApiArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GraphQLApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GraphQLApi] {
-	return pulumix.Output[[]*GraphQLApi]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GraphQLApiArrayOutput) Index(i pulumi.IntInput) GraphQLApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GraphQLApi {
 		return vs[0].([]*GraphQLApi)[vs[1].(int)]
@@ -428,12 +397,6 @@ func (o GraphQLApiMapOutput) ToGraphQLApiMapOutput() GraphQLApiMapOutput {
 
 func (o GraphQLApiMapOutput) ToGraphQLApiMapOutputWithContext(ctx context.Context) GraphQLApiMapOutput {
 	return o
-}
-
-func (o GraphQLApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GraphQLApi] {
-	return pulumix.Output[map[string]*GraphQLApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GraphQLApiMapOutput) MapIndex(k pulumi.StringInput) GraphQLApiOutput {

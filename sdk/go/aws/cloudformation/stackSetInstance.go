@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -352,12 +351,6 @@ func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
 }
 
-func (i *StackSetInstance) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
-	return pulumix.Output[*StackSetInstance]{
-		OutputState: i.ToStackSetInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StackSetInstanceArrayInput is an input type that accepts StackSetInstanceArray and StackSetInstanceArrayOutput values.
 // You can construct a concrete instance of `StackSetInstanceArrayInput` via:
 //
@@ -381,12 +374,6 @@ func (i StackSetInstanceArray) ToStackSetInstanceArrayOutput() StackSetInstanceA
 
 func (i StackSetInstanceArray) ToStackSetInstanceArrayOutputWithContext(ctx context.Context) StackSetInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceArrayOutput)
-}
-
-func (i StackSetInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
-	return pulumix.Output[[]*StackSetInstance]{
-		OutputState: i.ToStackSetInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StackSetInstanceMapInput is an input type that accepts StackSetInstanceMap and StackSetInstanceMapOutput values.
@@ -414,12 +401,6 @@ func (i StackSetInstanceMap) ToStackSetInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceMapOutput)
 }
 
-func (i StackSetInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
-	return pulumix.Output[map[string]*StackSetInstance]{
-		OutputState: i.ToStackSetInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSetInstanceOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceOutput) ElementType() reflect.Type {
@@ -432,12 +413,6 @@ func (o StackSetInstanceOutput) ToStackSetInstanceOutput() StackSetInstanceOutpu
 
 func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
 	return o
-}
-
-func (o StackSetInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
-	return pulumix.Output[*StackSetInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -511,12 +486,6 @@ func (o StackSetInstanceArrayOutput) ToStackSetInstanceArrayOutputWithContext(ct
 	return o
 }
 
-func (o StackSetInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
-	return pulumix.Output[[]*StackSetInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetInstanceArrayOutput) Index(i pulumi.IntInput) StackSetInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSetInstance {
 		return vs[0].([]*StackSetInstance)[vs[1].(int)]
@@ -535,12 +504,6 @@ func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutput() StackSetInstanc
 
 func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutputWithContext(ctx context.Context) StackSetInstanceMapOutput {
 	return o
-}
-
-func (o StackSetInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
-	return pulumix.Output[map[string]*StackSetInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetInstanceMapOutput) MapIndex(k pulumi.StringInput) StackSetInstanceOutput {

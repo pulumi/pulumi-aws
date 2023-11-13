@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Cognito Identity Pool.
@@ -121,12 +120,6 @@ func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutput() Looku
 
 func (o LookupIdentityPoolResultOutput) ToLookupIdentityPoolResultOutputWithContext(ctx context.Context) LookupIdentityPoolResultOutput {
 	return o
-}
-
-func (o LookupIdentityPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentityPoolResult] {
-	return pulumix.Output[LookupIdentityPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the classic / basic authentication flow is enabled.

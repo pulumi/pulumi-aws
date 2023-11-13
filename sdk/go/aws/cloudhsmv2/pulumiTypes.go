@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateOutput)
 }
 
-func (i ClusterClusterCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClusterCertificate] {
-	return pulumix.Output[ClusterClusterCertificate]{
-		OutputState: i.ToClusterClusterCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterClusterCertificateArrayInput is an input type that accepts ClusterClusterCertificateArray and ClusterClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterCertificateArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ClusterClusterCertificateArray) ToClusterClusterCertificateArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateArrayOutput)
 }
 
-func (i ClusterClusterCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClusterCertificate] {
-	return pulumix.Output[[]ClusterClusterCertificate]{
-		OutputState: i.ToClusterClusterCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterCertificateOutput) ElementType() reflect.Type {
@@ -102,12 +89,6 @@ func (o ClusterClusterCertificateOutput) ToClusterClusterCertificateOutput() Clu
 
 func (o ClusterClusterCertificateOutput) ToClusterClusterCertificateOutputWithContext(ctx context.Context) ClusterClusterCertificateOutput {
 	return o
-}
-
-func (o ClusterClusterCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClusterCertificate] {
-	return pulumix.Output[ClusterClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringPtrOutput {
@@ -142,12 +123,6 @@ func (o ClusterClusterCertificateArrayOutput) ToClusterClusterCertificateArrayOu
 
 func (o ClusterClusterCertificateArrayOutput) ToClusterClusterCertificateArrayOutputWithContext(ctx context.Context) ClusterClusterCertificateArrayOutput {
 	return o
-}
-
-func (o ClusterClusterCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClusterCertificate] {
-	return pulumix.Output[[]ClusterClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterClusterCertificateArrayOutput) Index(i pulumi.IntInput) ClusterClusterCertificateOutput {
@@ -195,12 +170,6 @@ func (i GetClusterClusterCertificateArgs) ToGetClusterClusterCertificateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterCertificateOutput)
 }
 
-func (i GetClusterClusterCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterClusterCertificate] {
-	return pulumix.Output[GetClusterClusterCertificate]{
-		OutputState: i.ToGetClusterClusterCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetClusterClusterCertificateArrayInput is an input type that accepts GetClusterClusterCertificateArray and GetClusterClusterCertificateArrayOutput values.
 // You can construct a concrete instance of `GetClusterClusterCertificateArrayInput` via:
 //
@@ -226,12 +195,6 @@ func (i GetClusterClusterCertificateArray) ToGetClusterClusterCertificateArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterCertificateArrayOutput)
 }
 
-func (i GetClusterClusterCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterClusterCertificate] {
-	return pulumix.Output[[]GetClusterClusterCertificate]{
-		OutputState: i.ToGetClusterClusterCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetClusterClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (GetClusterClusterCertificateOutput) ElementType() reflect.Type {
@@ -244,12 +207,6 @@ func (o GetClusterClusterCertificateOutput) ToGetClusterClusterCertificateOutput
 
 func (o GetClusterClusterCertificateOutput) ToGetClusterClusterCertificateOutputWithContext(ctx context.Context) GetClusterClusterCertificateOutput {
 	return o
-}
-
-func (o GetClusterClusterCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterClusterCertificate] {
-	return pulumix.Output[GetClusterClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetClusterClusterCertificateOutput) AwsHardwareCertificate() pulumi.StringOutput {
@@ -284,12 +241,6 @@ func (o GetClusterClusterCertificateArrayOutput) ToGetClusterClusterCertificateA
 
 func (o GetClusterClusterCertificateArrayOutput) ToGetClusterClusterCertificateArrayOutputWithContext(ctx context.Context) GetClusterClusterCertificateArrayOutput {
 	return o
-}
-
-func (o GetClusterClusterCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterClusterCertificate] {
-	return pulumix.Output[[]GetClusterClusterCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetClusterClusterCertificateArrayOutput) Index(i pulumi.IntInput) GetClusterClusterCertificateOutput {

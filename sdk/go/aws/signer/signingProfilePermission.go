@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
@@ -229,12 +228,6 @@ func (i *SigningProfilePermission) ToSigningProfilePermissionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionOutput)
 }
 
-func (i *SigningProfilePermission) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePermission] {
-	return pulumix.Output[*SigningProfilePermission]{
-		OutputState: i.ToSigningProfilePermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SigningProfilePermissionArrayInput is an input type that accepts SigningProfilePermissionArray and SigningProfilePermissionArrayOutput values.
 // You can construct a concrete instance of `SigningProfilePermissionArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutput() S
 
 func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutputWithContext(ctx context.Context) SigningProfilePermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionArrayOutput)
-}
-
-func (i SigningProfilePermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SigningProfilePermission] {
-	return pulumix.Output[[]*SigningProfilePermission]{
-		OutputState: i.ToSigningProfilePermissionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SigningProfilePermissionMapInput is an input type that accepts SigningProfilePermissionMap and SigningProfilePermissionMapOutput values.
@@ -291,12 +278,6 @@ func (i SigningProfilePermissionMap) ToSigningProfilePermissionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionMapOutput)
 }
 
-func (i SigningProfilePermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningProfilePermission] {
-	return pulumix.Output[map[string]*SigningProfilePermission]{
-		OutputState: i.ToSigningProfilePermissionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SigningProfilePermissionOutput struct{ *pulumi.OutputState }
 
 func (SigningProfilePermissionOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o SigningProfilePermissionOutput) ToSigningProfilePermissionOutput() Signi
 
 func (o SigningProfilePermissionOutput) ToSigningProfilePermissionOutputWithContext(ctx context.Context) SigningProfilePermissionOutput {
 	return o
-}
-
-func (o SigningProfilePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePermission] {
-	return pulumix.Output[*SigningProfilePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An AWS Signer action permitted as part of cross-account permissions. Valid values: `signer:StartSigningJob`, `signer:GetSigningProfile`, `signer:RevokeSignature`, or `signer:SignPayload`.
@@ -361,12 +336,6 @@ func (o SigningProfilePermissionArrayOutput) ToSigningProfilePermissionArrayOutp
 	return o
 }
 
-func (o SigningProfilePermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SigningProfilePermission] {
-	return pulumix.Output[[]*SigningProfilePermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfilePermissionArrayOutput) Index(i pulumi.IntInput) SigningProfilePermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SigningProfilePermission {
 		return vs[0].([]*SigningProfilePermission)[vs[1].(int)]
@@ -385,12 +354,6 @@ func (o SigningProfilePermissionMapOutput) ToSigningProfilePermissionMapOutput()
 
 func (o SigningProfilePermissionMapOutput) ToSigningProfilePermissionMapOutputWithContext(ctx context.Context) SigningProfilePermissionMapOutput {
 	return o
-}
-
-func (o SigningProfilePermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningProfilePermission] {
-	return pulumix.Output[map[string]*SigningProfilePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SigningProfilePermissionMapOutput) MapIndex(k pulumi.StringInput) SigningProfilePermissionOutput {

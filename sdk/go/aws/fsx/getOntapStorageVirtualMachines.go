@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -109,12 +108,6 @@ func (o GetOntapStorageVirtualMachinesResultOutput) ToGetOntapStorageVirtualMach
 
 func (o GetOntapStorageVirtualMachinesResultOutput) ToGetOntapStorageVirtualMachinesResultOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachinesResultOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachinesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachinesResult] {
-	return pulumix.Output[GetOntapStorageVirtualMachinesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachinesResultOutput) Filters() GetOntapStorageVirtualMachinesFilterArrayOutput {

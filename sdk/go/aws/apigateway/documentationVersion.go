@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an API Gateway Documentation Version.
@@ -178,12 +177,6 @@ func (i *DocumentationVersion) ToDocumentationVersionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionOutput)
 }
 
-func (i *DocumentationVersion) ToOutput(ctx context.Context) pulumix.Output[*DocumentationVersion] {
-	return pulumix.Output[*DocumentationVersion]{
-		OutputState: i.ToDocumentationVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentationVersionArrayInput is an input type that accepts DocumentationVersionArray and DocumentationVersionArrayOutput values.
 // You can construct a concrete instance of `DocumentationVersionArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i DocumentationVersionArray) ToDocumentationVersionArrayOutput() Documenta
 
 func (i DocumentationVersionArray) ToDocumentationVersionArrayOutputWithContext(ctx context.Context) DocumentationVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionArrayOutput)
-}
-
-func (i DocumentationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentationVersion] {
-	return pulumix.Output[[]*DocumentationVersion]{
-		OutputState: i.ToDocumentationVersionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DocumentationVersionMapInput is an input type that accepts DocumentationVersionMap and DocumentationVersionMapOutput values.
@@ -240,12 +227,6 @@ func (i DocumentationVersionMap) ToDocumentationVersionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionMapOutput)
 }
 
-func (i DocumentationVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentationVersion] {
-	return pulumix.Output[map[string]*DocumentationVersion]{
-		OutputState: i.ToDocumentationVersionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentationVersionOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutput() Documentation
 
 func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx context.Context) DocumentationVersionOutput {
 	return o
-}
-
-func (o DocumentationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentationVersion] {
-	return pulumix.Output[*DocumentationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the API documentation version.
@@ -295,12 +270,6 @@ func (o DocumentationVersionArrayOutput) ToDocumentationVersionArrayOutputWithCo
 	return o
 }
 
-func (o DocumentationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentationVersion] {
-	return pulumix.Output[[]*DocumentationVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentationVersionArrayOutput) Index(i pulumi.IntInput) DocumentationVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DocumentationVersion {
 		return vs[0].([]*DocumentationVersion)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o DocumentationVersionMapOutput) ToDocumentationVersionMapOutput() Documen
 
 func (o DocumentationVersionMapOutput) ToDocumentationVersionMapOutputWithContext(ctx context.Context) DocumentationVersionMapOutput {
 	return o
-}
-
-func (o DocumentationVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentationVersion] {
-	return pulumix.Output[map[string]*DocumentationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentationVersionMapOutput) MapIndex(k pulumi.StringInput) DocumentationVersionOutput {

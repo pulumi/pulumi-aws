@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppConfig Configuration Profile resource.
@@ -249,12 +248,6 @@ func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
 }
 
-func (i *ConfigurationProfile) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationProfile] {
-	return pulumix.Output[*ConfigurationProfile]{
-		OutputState: i.ToConfigurationProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationProfileArrayInput is an input type that accepts ConfigurationProfileArray and ConfigurationProfileArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileArrayInput` via:
 //
@@ -278,12 +271,6 @@ func (i ConfigurationProfileArray) ToConfigurationProfileArrayOutput() Configura
 
 func (i ConfigurationProfileArray) ToConfigurationProfileArrayOutputWithContext(ctx context.Context) ConfigurationProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileArrayOutput)
-}
-
-func (i ConfigurationProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationProfile] {
-	return pulumix.Output[[]*ConfigurationProfile]{
-		OutputState: i.ToConfigurationProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationProfileMapInput is an input type that accepts ConfigurationProfileMap and ConfigurationProfileMapOutput values.
@@ -311,12 +298,6 @@ func (i ConfigurationProfileMap) ToConfigurationProfileMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileMapOutput)
 }
 
-func (i ConfigurationProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationProfile] {
-	return pulumix.Output[map[string]*ConfigurationProfile]{
-		OutputState: i.ToConfigurationProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationProfileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
@@ -329,12 +310,6 @@ func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() Configuration
 
 func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
 	return o
-}
-
-func (o ConfigurationProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationProfile] {
-	return pulumix.Output[*ConfigurationProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Application ID. Must be between 4 and 7 characters in length.
@@ -408,12 +383,6 @@ func (o ConfigurationProfileArrayOutput) ToConfigurationProfileArrayOutputWithCo
 	return o
 }
 
-func (o ConfigurationProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationProfile] {
-	return pulumix.Output[[]*ConfigurationProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationProfileArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationProfile {
 		return vs[0].([]*ConfigurationProfile)[vs[1].(int)]
@@ -432,12 +401,6 @@ func (o ConfigurationProfileMapOutput) ToConfigurationProfileMapOutput() Configu
 
 func (o ConfigurationProfileMapOutput) ToConfigurationProfileMapOutputWithContext(ctx context.Context) ConfigurationProfileMapOutput {
 	return o
-}
-
-func (o ConfigurationProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationProfile] {
-	return pulumix.Output[map[string]*ConfigurationProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationProfileMapOutput) MapIndex(k pulumi.StringInput) ConfigurationProfileOutput {

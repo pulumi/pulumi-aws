@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of AMI IDs matching the specified criteria.
@@ -152,12 +151,6 @@ func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutput() GetAmiIdsResultOutput {
 
 func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Context) GetAmiIdsResultOutput {
 	return o
-}
-
-func (o GetAmiIdsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAmiIdsResult] {
-	return pulumix.Output[GetAmiIdsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAmiIdsResultOutput) ExecutableUsers() pulumi.StringArrayOutput {

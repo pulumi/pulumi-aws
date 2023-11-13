@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AMI resource allows the creation and management of a completely-custom
@@ -428,12 +427,6 @@ func (i *Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiOutput)
 }
 
-func (i *Ami) ToOutput(ctx context.Context) pulumix.Output[*Ami] {
-	return pulumix.Output[*Ami]{
-		OutputState: i.ToAmiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AmiArrayInput is an input type that accepts AmiArray and AmiArrayOutput values.
 // You can construct a concrete instance of `AmiArrayInput` via:
 //
@@ -457,12 +450,6 @@ func (i AmiArray) ToAmiArrayOutput() AmiArrayOutput {
 
 func (i AmiArray) ToAmiArrayOutputWithContext(ctx context.Context) AmiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiArrayOutput)
-}
-
-func (i AmiArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ami] {
-	return pulumix.Output[[]*Ami]{
-		OutputState: i.ToAmiArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AmiMapInput is an input type that accepts AmiMap and AmiMapOutput values.
@@ -490,12 +477,6 @@ func (i AmiMap) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiMapOutput)
 }
 
-func (i AmiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ami] {
-	return pulumix.Output[map[string]*Ami]{
-		OutputState: i.ToAmiMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AmiOutput struct{ *pulumi.OutputState }
 
 func (AmiOutput) ElementType() reflect.Type {
@@ -508,12 +489,6 @@ func (o AmiOutput) ToAmiOutput() AmiOutput {
 
 func (o AmiOutput) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return o
-}
-
-func (o AmiOutput) ToOutput(ctx context.Context) pulumix.Output[*Ami] {
-	return pulumix.Output[*Ami]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
@@ -684,12 +659,6 @@ func (o AmiArrayOutput) ToAmiArrayOutputWithContext(ctx context.Context) AmiArra
 	return o
 }
 
-func (o AmiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ami] {
-	return pulumix.Output[[]*Ami]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AmiArrayOutput) Index(i pulumi.IntInput) AmiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ami {
 		return vs[0].([]*Ami)[vs[1].(int)]
@@ -708,12 +677,6 @@ func (o AmiMapOutput) ToAmiMapOutput() AmiMapOutput {
 
 func (o AmiMapOutput) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutput {
 	return o
-}
-
-func (o AmiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ami] {
-	return pulumix.Output[map[string]*Ami]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AmiMapOutput) MapIndex(k pulumi.StringInput) AmiOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Quantum Ledger Database (QLDB) resource
@@ -201,12 +200,6 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerOutput)
 }
 
-func (i *Ledger) ToOutput(ctx context.Context) pulumix.Output[*Ledger] {
-	return pulumix.Output[*Ledger]{
-		OutputState: i.ToLedgerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LedgerArrayInput is an input type that accepts LedgerArray and LedgerArrayOutput values.
 // You can construct a concrete instance of `LedgerArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i LedgerArray) ToLedgerArrayOutput() LedgerArrayOutput {
 
 func (i LedgerArray) ToLedgerArrayOutputWithContext(ctx context.Context) LedgerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerArrayOutput)
-}
-
-func (i LedgerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ledger] {
-	return pulumix.Output[[]*Ledger]{
-		OutputState: i.ToLedgerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LedgerMapInput is an input type that accepts LedgerMap and LedgerMapOutput values.
@@ -263,12 +250,6 @@ func (i LedgerMap) ToLedgerMapOutputWithContext(ctx context.Context) LedgerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(LedgerMapOutput)
 }
 
-func (i LedgerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ledger] {
-	return pulumix.Output[map[string]*Ledger]{
-		OutputState: i.ToLedgerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LedgerOutput struct{ *pulumi.OutputState }
 
 func (LedgerOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o LedgerOutput) ToLedgerOutput() LedgerOutput {
 
 func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 	return o
-}
-
-func (o LedgerOutput) ToOutput(ctx context.Context) pulumix.Output[*Ledger] {
-	return pulumix.Output[*Ledger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the QLDB Ledger
@@ -340,12 +315,6 @@ func (o LedgerArrayOutput) ToLedgerArrayOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LedgerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ledger] {
-	return pulumix.Output[[]*Ledger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LedgerArrayOutput) Index(i pulumi.IntInput) LedgerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ledger {
 		return vs[0].([]*Ledger)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o LedgerMapOutput) ToLedgerMapOutput() LedgerMapOutput {
 
 func (o LedgerMapOutput) ToLedgerMapOutputWithContext(ctx context.Context) LedgerMapOutput {
 	return o
-}
-
-func (o LedgerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ledger] {
-	return pulumix.Output[map[string]*Ledger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LedgerMapOutput) MapIndex(k pulumi.StringInput) LedgerOutput {

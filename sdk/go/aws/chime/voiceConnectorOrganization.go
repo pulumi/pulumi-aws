@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enable origination settings to control inbound calling to your SIP infrastructure.
@@ -183,12 +182,6 @@ func (i *VoiceConnectorOrganization) ToVoiceConnectorOrganizationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOrganizationOutput)
 }
 
-func (i *VoiceConnectorOrganization) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorOrganization] {
-	return pulumix.Output[*VoiceConnectorOrganization]{
-		OutputState: i.ToVoiceConnectorOrganizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VoiceConnectorOrganizationArrayInput is an input type that accepts VoiceConnectorOrganizationArray and VoiceConnectorOrganizationArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorOrganizationArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i VoiceConnectorOrganizationArray) ToVoiceConnectorOrganizationArrayOutput
 
 func (i VoiceConnectorOrganizationArray) ToVoiceConnectorOrganizationArrayOutputWithContext(ctx context.Context) VoiceConnectorOrganizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOrganizationArrayOutput)
-}
-
-func (i VoiceConnectorOrganizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorOrganization] {
-	return pulumix.Output[[]*VoiceConnectorOrganization]{
-		OutputState: i.ToVoiceConnectorOrganizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VoiceConnectorOrganizationMapInput is an input type that accepts VoiceConnectorOrganizationMap and VoiceConnectorOrganizationMapOutput values.
@@ -245,12 +232,6 @@ func (i VoiceConnectorOrganizationMap) ToVoiceConnectorOrganizationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOrganizationMapOutput)
 }
 
-func (i VoiceConnectorOrganizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorOrganization] {
-	return pulumix.Output[map[string]*VoiceConnectorOrganization]{
-		OutputState: i.ToVoiceConnectorOrganizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VoiceConnectorOrganizationOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorOrganizationOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o VoiceConnectorOrganizationOutput) ToVoiceConnectorOrganizationOutput() V
 
 func (o VoiceConnectorOrganizationOutput) ToVoiceConnectorOrganizationOutputWithContext(ctx context.Context) VoiceConnectorOrganizationOutput {
 	return o
-}
-
-func (o VoiceConnectorOrganizationOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorOrganization] {
-	return pulumix.Output[*VoiceConnectorOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
@@ -300,12 +275,6 @@ func (o VoiceConnectorOrganizationArrayOutput) ToVoiceConnectorOrganizationArray
 	return o
 }
 
-func (o VoiceConnectorOrganizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorOrganization] {
-	return pulumix.Output[[]*VoiceConnectorOrganization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VoiceConnectorOrganizationArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOrganizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorOrganization {
 		return vs[0].([]*VoiceConnectorOrganization)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o VoiceConnectorOrganizationMapOutput) ToVoiceConnectorOrganizationMapOutp
 
 func (o VoiceConnectorOrganizationMapOutput) ToVoiceConnectorOrganizationMapOutputWithContext(ctx context.Context) VoiceConnectorOrganizationMapOutput {
 	return o
-}
-
-func (o VoiceConnectorOrganizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorOrganization] {
-	return pulumix.Output[map[string]*VoiceConnectorOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VoiceConnectorOrganizationMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorOrganizationOutput {

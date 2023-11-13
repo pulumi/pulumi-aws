@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsOutput
 
 func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsOutputWithContext(ctx context.Context) RepositoryExternalConnectionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionsOutput)
-}
-
-func (i RepositoryExternalConnectionsArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryExternalConnections] {
-	return pulumix.Output[RepositoryExternalConnections]{
-		OutputState: i.ToRepositoryExternalConnectionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RepositoryExternalConnectionsArgs) ToRepositoryExternalConnectionsPtrOutput() RepositoryExternalConnectionsPtrOutput {
@@ -98,12 +91,6 @@ func (i *repositoryExternalConnectionsPtrType) ToRepositoryExternalConnectionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryExternalConnectionsPtrOutput)
 }
 
-func (i *repositoryExternalConnectionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryExternalConnections] {
-	return pulumix.Output[*RepositoryExternalConnections]{
-		OutputState: i.ToRepositoryExternalConnectionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryExternalConnectionsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryExternalConnectionsOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryExternalConnections) *RepositoryExternalConnections {
 		return &v
 	}).(RepositoryExternalConnectionsPtrOutput)
-}
-
-func (o RepositoryExternalConnectionsOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryExternalConnections] {
-	return pulumix.Output[RepositoryExternalConnections]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the external connection associated with a repository.
@@ -159,12 +140,6 @@ func (o RepositoryExternalConnectionsPtrOutput) ToRepositoryExternalConnectionsP
 
 func (o RepositoryExternalConnectionsPtrOutput) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
 	return o
-}
-
-func (o RepositoryExternalConnectionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryExternalConnections] {
-	return pulumix.Output[*RepositoryExternalConnections]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryExternalConnectionsPtrOutput) Elem() RepositoryExternalConnectionsOutput {
@@ -238,12 +213,6 @@ func (i RepositoryUpstreamArgs) ToRepositoryUpstreamOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryUpstreamOutput)
 }
 
-func (i RepositoryUpstreamArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryUpstream] {
-	return pulumix.Output[RepositoryUpstream]{
-		OutputState: i.ToRepositoryUpstreamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryUpstreamArrayInput is an input type that accepts RepositoryUpstreamArray and RepositoryUpstreamArrayOutput values.
 // You can construct a concrete instance of `RepositoryUpstreamArrayInput` via:
 //
@@ -269,12 +238,6 @@ func (i RepositoryUpstreamArray) ToRepositoryUpstreamArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryUpstreamArrayOutput)
 }
 
-func (i RepositoryUpstreamArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryUpstream] {
-	return pulumix.Output[[]RepositoryUpstream]{
-		OutputState: i.ToRepositoryUpstreamArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryUpstreamOutput struct{ *pulumi.OutputState }
 
 func (RepositoryUpstreamOutput) ElementType() reflect.Type {
@@ -287,12 +250,6 @@ func (o RepositoryUpstreamOutput) ToRepositoryUpstreamOutput() RepositoryUpstrea
 
 func (o RepositoryUpstreamOutput) ToRepositoryUpstreamOutputWithContext(ctx context.Context) RepositoryUpstreamOutput {
 	return o
-}
-
-func (o RepositoryUpstreamOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryUpstream] {
-	return pulumix.Output[RepositoryUpstream]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of an upstream repository.
@@ -312,12 +269,6 @@ func (o RepositoryUpstreamArrayOutput) ToRepositoryUpstreamArrayOutput() Reposit
 
 func (o RepositoryUpstreamArrayOutput) ToRepositoryUpstreamArrayOutputWithContext(ctx context.Context) RepositoryUpstreamArrayOutput {
 	return o
-}
-
-func (o RepositoryUpstreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryUpstream] {
-	return pulumix.Output[[]RepositoryUpstream]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryUpstreamArrayOutput) Index(i pulumi.IntInput) RepositoryUpstreamOutput {

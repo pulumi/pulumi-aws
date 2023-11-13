@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
@@ -106,12 +105,6 @@ func (o GetLbsResultOutput) ToGetLbsResultOutput() GetLbsResultOutput {
 
 func (o GetLbsResultOutput) ToGetLbsResultOutputWithContext(ctx context.Context) GetLbsResultOutput {
 	return o
-}
-
-func (o GetLbsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLbsResult] {
-	return pulumix.Output[GetLbsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of Load Balancer ARNs.

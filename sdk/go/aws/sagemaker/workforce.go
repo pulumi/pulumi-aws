@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Workforce resource.
@@ -251,12 +250,6 @@ func (i *Workforce) ToWorkforceOutputWithContext(ctx context.Context) WorkforceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkforceOutput)
 }
 
-func (i *Workforce) ToOutput(ctx context.Context) pulumix.Output[*Workforce] {
-	return pulumix.Output[*Workforce]{
-		OutputState: i.ToWorkforceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkforceArrayInput is an input type that accepts WorkforceArray and WorkforceArrayOutput values.
 // You can construct a concrete instance of `WorkforceArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i WorkforceArray) ToWorkforceArrayOutput() WorkforceArrayOutput {
 
 func (i WorkforceArray) ToWorkforceArrayOutputWithContext(ctx context.Context) WorkforceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkforceArrayOutput)
-}
-
-func (i WorkforceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workforce] {
-	return pulumix.Output[[]*Workforce]{
-		OutputState: i.ToWorkforceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkforceMapInput is an input type that accepts WorkforceMap and WorkforceMapOutput values.
@@ -313,12 +300,6 @@ func (i WorkforceMap) ToWorkforceMapOutputWithContext(ctx context.Context) Workf
 	return pulumi.ToOutputWithContext(ctx, i).(WorkforceMapOutput)
 }
 
-func (i WorkforceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workforce] {
-	return pulumix.Output[map[string]*Workforce]{
-		OutputState: i.ToWorkforceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkforceOutput struct{ *pulumi.OutputState }
 
 func (WorkforceOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o WorkforceOutput) ToWorkforceOutput() WorkforceOutput {
 
 func (o WorkforceOutput) ToWorkforceOutputWithContext(ctx context.Context) WorkforceOutput {
 	return o
-}
-
-func (o WorkforceOutput) ToOutput(ctx context.Context) pulumix.Output[*Workforce] {
-	return pulumix.Output[*Workforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
@@ -389,12 +364,6 @@ func (o WorkforceArrayOutput) ToWorkforceArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o WorkforceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workforce] {
-	return pulumix.Output[[]*Workforce]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkforceArrayOutput) Index(i pulumi.IntInput) WorkforceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workforce {
 		return vs[0].([]*Workforce)[vs[1].(int)]
@@ -413,12 +382,6 @@ func (o WorkforceMapOutput) ToWorkforceMapOutput() WorkforceMapOutput {
 
 func (o WorkforceMapOutput) ToWorkforceMapOutputWithContext(ctx context.Context) WorkforceMapOutput {
 	return o
-}
-
-func (o WorkforceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workforce] {
-	return pulumix.Output[map[string]*Workforce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkforceMapOutput) MapIndex(k pulumi.StringInput) WorkforceOutput {

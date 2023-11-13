@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an S3 Location within AWS DataSync.
@@ -223,12 +222,6 @@ func (i *S3Location) ToS3LocationOutputWithContext(ctx context.Context) S3Locati
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationOutput)
 }
 
-func (i *S3Location) ToOutput(ctx context.Context) pulumix.Output[*S3Location] {
-	return pulumix.Output[*S3Location]{
-		OutputState: i.ToS3LocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // S3LocationArrayInput is an input type that accepts S3LocationArray and S3LocationArrayOutput values.
 // You can construct a concrete instance of `S3LocationArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i S3LocationArray) ToS3LocationArrayOutput() S3LocationArrayOutput {
 
 func (i S3LocationArray) ToS3LocationArrayOutputWithContext(ctx context.Context) S3LocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationArrayOutput)
-}
-
-func (i S3LocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*S3Location] {
-	return pulumix.Output[[]*S3Location]{
-		OutputState: i.ToS3LocationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // S3LocationMapInput is an input type that accepts S3LocationMap and S3LocationMapOutput values.
@@ -285,12 +272,6 @@ func (i S3LocationMap) ToS3LocationMapOutputWithContext(ctx context.Context) S3L
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationMapOutput)
 }
 
-func (i S3LocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3Location] {
-	return pulumix.Output[map[string]*S3Location]{
-		OutputState: i.ToS3LocationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type S3LocationOutput struct{ *pulumi.OutputState }
 
 func (S3LocationOutput) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o S3LocationOutput) ToS3LocationOutput() S3LocationOutput {
 
 func (o S3LocationOutput) ToS3LocationOutputWithContext(ctx context.Context) S3LocationOutput {
 	return o
-}
-
-func (o S3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[*S3Location] {
-	return pulumix.Output[*S3Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of DataSync Agent ARNs with which this location will be associated.
@@ -371,12 +346,6 @@ func (o S3LocationArrayOutput) ToS3LocationArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o S3LocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*S3Location] {
-	return pulumix.Output[[]*S3Location]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o S3LocationArrayOutput) Index(i pulumi.IntInput) S3LocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *S3Location {
 		return vs[0].([]*S3Location)[vs[1].(int)]
@@ -395,12 +364,6 @@ func (o S3LocationMapOutput) ToS3LocationMapOutput() S3LocationMapOutput {
 
 func (o S3LocationMapOutput) ToS3LocationMapOutputWithContext(ctx context.Context) S3LocationMapOutput {
 	return o
-}
-
-func (o S3LocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3Location] {
-	return pulumix.Output[map[string]*S3Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o S3LocationMapOutput) MapIndex(k pulumi.StringInput) S3LocationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on EC2 Transit Gateway Attachments.
@@ -79,12 +78,6 @@ func (o GetAttachmentsResultOutput) ToGetAttachmentsResultOutput() GetAttachment
 
 func (o GetAttachmentsResultOutput) ToGetAttachmentsResultOutputWithContext(ctx context.Context) GetAttachmentsResultOutput {
 	return o
-}
-
-func (o GetAttachmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentsResult] {
-	return pulumix.Output[GetAttachmentsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAttachmentsResultOutput) Filters() GetAttachmentsFilterArrayOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
@@ -699,12 +698,6 @@ func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestOutput)
 }
 
-func (i *SpotFleetRequest) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequest] {
-	return pulumix.Output[*SpotFleetRequest]{
-		OutputState: i.ToSpotFleetRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpotFleetRequestArrayInput is an input type that accepts SpotFleetRequestArray and SpotFleetRequestArrayOutput values.
 // You can construct a concrete instance of `SpotFleetRequestArrayInput` via:
 //
@@ -728,12 +721,6 @@ func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutput() SpotFleetRequestA
 
 func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutputWithContext(ctx context.Context) SpotFleetRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestArrayOutput)
-}
-
-func (i SpotFleetRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpotFleetRequest] {
-	return pulumix.Output[[]*SpotFleetRequest]{
-		OutputState: i.ToSpotFleetRequestArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpotFleetRequestMapInput is an input type that accepts SpotFleetRequestMap and SpotFleetRequestMapOutput values.
@@ -761,12 +748,6 @@ func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestMapOutput)
 }
 
-func (i SpotFleetRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotFleetRequest] {
-	return pulumix.Output[map[string]*SpotFleetRequest]{
-		OutputState: i.ToSpotFleetRequestMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpotFleetRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestOutput) ElementType() reflect.Type {
@@ -779,12 +760,6 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestOutput() SpotFleetRequestOutpu
 
 func (o SpotFleetRequestOutput) ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput {
 	return o
-}
-
-func (o SpotFleetRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotFleetRequest] {
-	return pulumix.Output[*SpotFleetRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates how to allocate the target capacity across
@@ -976,12 +951,6 @@ func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutputWithContext(ct
 	return o
 }
 
-func (o SpotFleetRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpotFleetRequest] {
-	return pulumix.Output[[]*SpotFleetRequest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpotFleetRequestArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotFleetRequest {
 		return vs[0].([]*SpotFleetRequest)[vs[1].(int)]
@@ -1000,12 +969,6 @@ func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutput() SpotFleetReques
 
 func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutputWithContext(ctx context.Context) SpotFleetRequestMapOutput {
 	return o
-}
-
-func (o SpotFleetRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotFleetRequest] {
-	return pulumix.Output[map[string]*SpotFleetRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpotFleetRequestMapOutput) MapIndex(k pulumi.StringInput) SpotFleetRequestOutput {

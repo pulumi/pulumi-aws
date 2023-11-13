@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Device Farm Uploads.
@@ -201,12 +200,6 @@ func (i *Upload) ToUploadOutputWithContext(ctx context.Context) UploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadOutput)
 }
 
-func (i *Upload) ToOutput(ctx context.Context) pulumix.Output[*Upload] {
-	return pulumix.Output[*Upload]{
-		OutputState: i.ToUploadOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UploadArrayInput is an input type that accepts UploadArray and UploadArrayOutput values.
 // You can construct a concrete instance of `UploadArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i UploadArray) ToUploadArrayOutput() UploadArrayOutput {
 
 func (i UploadArray) ToUploadArrayOutputWithContext(ctx context.Context) UploadArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UploadArrayOutput)
-}
-
-func (i UploadArray) ToOutput(ctx context.Context) pulumix.Output[[]*Upload] {
-	return pulumix.Output[[]*Upload]{
-		OutputState: i.ToUploadArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UploadMapInput is an input type that accepts UploadMap and UploadMapOutput values.
@@ -263,12 +250,6 @@ func (i UploadMap) ToUploadMapOutputWithContext(ctx context.Context) UploadMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(UploadMapOutput)
 }
 
-func (i UploadMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Upload] {
-	return pulumix.Output[map[string]*Upload]{
-		OutputState: i.ToUploadMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UploadOutput struct{ *pulumi.OutputState }
 
 func (UploadOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o UploadOutput) ToUploadOutput() UploadOutput {
 
 func (o UploadOutput) ToUploadOutputWithContext(ctx context.Context) UploadOutput {
 	return o
-}
-
-func (o UploadOutput) ToOutput(ctx context.Context) pulumix.Output[*Upload] {
-	return pulumix.Output[*Upload]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of this upload.
@@ -343,12 +318,6 @@ func (o UploadArrayOutput) ToUploadArrayOutputWithContext(ctx context.Context) U
 	return o
 }
 
-func (o UploadArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Upload] {
-	return pulumix.Output[[]*Upload]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UploadArrayOutput) Index(i pulumi.IntInput) UploadOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Upload {
 		return vs[0].([]*Upload)[vs[1].(int)]
@@ -367,12 +336,6 @@ func (o UploadMapOutput) ToUploadMapOutput() UploadMapOutput {
 
 func (o UploadMapOutput) ToUploadMapOutputWithContext(ctx context.Context) UploadMapOutput {
 	return o
-}
-
-func (o UploadMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Upload] {
-	return pulumix.Output[map[string]*Upload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UploadMapOutput) MapIndex(k pulumi.StringInput) UploadOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
@@ -262,12 +261,6 @@ func (i *AccessKey) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyOutput)
 }
 
-func (i *AccessKey) ToOutput(ctx context.Context) pulumix.Output[*AccessKey] {
-	return pulumix.Output[*AccessKey]{
-		OutputState: i.ToAccessKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessKeyArrayInput is an input type that accepts AccessKeyArray and AccessKeyArrayOutput values.
 // You can construct a concrete instance of `AccessKeyArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i AccessKeyArray) ToAccessKeyArrayOutput() AccessKeyArrayOutput {
 
 func (i AccessKeyArray) ToAccessKeyArrayOutputWithContext(ctx context.Context) AccessKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyArrayOutput)
-}
-
-func (i AccessKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessKey] {
-	return pulumix.Output[[]*AccessKey]{
-		OutputState: i.ToAccessKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccessKeyMapInput is an input type that accepts AccessKeyMap and AccessKeyMapOutput values.
@@ -324,12 +311,6 @@ func (i AccessKeyMap) ToAccessKeyMapOutputWithContext(ctx context.Context) Acces
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyMapOutput)
 }
 
-func (i AccessKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessKey] {
-	return pulumix.Output[map[string]*AccessKey]{
-		OutputState: i.ToAccessKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessKeyOutput struct{ *pulumi.OutputState }
 
 func (AccessKeyOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o AccessKeyOutput) ToAccessKeyOutput() AccessKeyOutput {
 
 func (o AccessKeyOutput) ToAccessKeyOutputWithContext(ctx context.Context) AccessKeyOutput {
 	return o
-}
-
-func (o AccessKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessKey] {
-	return pulumix.Output[*AccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
@@ -409,12 +384,6 @@ func (o AccessKeyArrayOutput) ToAccessKeyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o AccessKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessKey] {
-	return pulumix.Output[[]*AccessKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessKeyArrayOutput) Index(i pulumi.IntInput) AccessKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessKey {
 		return vs[0].([]*AccessKey)[vs[1].(int)]
@@ -433,12 +402,6 @@ func (o AccessKeyMapOutput) ToAccessKeyMapOutput() AccessKeyMapOutput {
 
 func (o AccessKeyMapOutput) ToAccessKeyMapOutputWithContext(ctx context.Context) AccessKeyMapOutput {
 	return o
-}
-
-func (o AccessKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessKey] {
-	return pulumix.Output[map[string]*AccessKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessKeyMapOutput) MapIndex(k pulumi.StringInput) AccessKeyOutput {

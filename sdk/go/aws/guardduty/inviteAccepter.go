@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
@@ -179,12 +178,6 @@ func (i *InviteAccepter) ToInviteAccepterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterOutput)
 }
 
-func (i *InviteAccepter) ToOutput(ctx context.Context) pulumix.Output[*InviteAccepter] {
-	return pulumix.Output[*InviteAccepter]{
-		OutputState: i.ToInviteAccepterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InviteAccepterArrayInput is an input type that accepts InviteAccepterArray and InviteAccepterArrayOutput values.
 // You can construct a concrete instance of `InviteAccepterArrayInput` via:
 //
@@ -208,12 +201,6 @@ func (i InviteAccepterArray) ToInviteAccepterArrayOutput() InviteAccepterArrayOu
 
 func (i InviteAccepterArray) ToInviteAccepterArrayOutputWithContext(ctx context.Context) InviteAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterArrayOutput)
-}
-
-func (i InviteAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InviteAccepter] {
-	return pulumix.Output[[]*InviteAccepter]{
-		OutputState: i.ToInviteAccepterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InviteAccepterMapInput is an input type that accepts InviteAccepterMap and InviteAccepterMapOutput values.
@@ -241,12 +228,6 @@ func (i InviteAccepterMap) ToInviteAccepterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterMapOutput)
 }
 
-func (i InviteAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InviteAccepter] {
-	return pulumix.Output[map[string]*InviteAccepter]{
-		OutputState: i.ToInviteAccepterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InviteAccepterOutput struct{ *pulumi.OutputState }
 
 func (InviteAccepterOutput) ElementType() reflect.Type {
@@ -259,12 +240,6 @@ func (o InviteAccepterOutput) ToInviteAccepterOutput() InviteAccepterOutput {
 
 func (o InviteAccepterOutput) ToInviteAccepterOutputWithContext(ctx context.Context) InviteAccepterOutput {
 	return o
-}
-
-func (o InviteAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*InviteAccepter] {
-	return pulumix.Output[*InviteAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The detector ID of the member GuardDuty account.
@@ -291,12 +266,6 @@ func (o InviteAccepterArrayOutput) ToInviteAccepterArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o InviteAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InviteAccepter] {
-	return pulumix.Output[[]*InviteAccepter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InviteAccepterArrayOutput) Index(i pulumi.IntInput) InviteAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InviteAccepter {
 		return vs[0].([]*InviteAccepter)[vs[1].(int)]
@@ -315,12 +284,6 @@ func (o InviteAccepterMapOutput) ToInviteAccepterMapOutput() InviteAccepterMapOu
 
 func (o InviteAccepterMapOutput) ToInviteAccepterMapOutputWithContext(ctx context.Context) InviteAccepterMapOutput {
 	return o
-}
-
-func (o InviteAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InviteAccepter] {
-	return pulumix.Output[map[string]*InviteAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InviteAccepterMapOutput) MapIndex(k pulumi.StringInput) InviteAccepterOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Patch Group resource
@@ -149,12 +148,6 @@ func (i *PatchGroup) ToPatchGroupOutputWithContext(ctx context.Context) PatchGro
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupOutput)
 }
 
-func (i *PatchGroup) ToOutput(ctx context.Context) pulumix.Output[*PatchGroup] {
-	return pulumix.Output[*PatchGroup]{
-		OutputState: i.ToPatchGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchGroupArrayInput is an input type that accepts PatchGroupArray and PatchGroupArrayOutput values.
 // You can construct a concrete instance of `PatchGroupArrayInput` via:
 //
@@ -178,12 +171,6 @@ func (i PatchGroupArray) ToPatchGroupArrayOutput() PatchGroupArrayOutput {
 
 func (i PatchGroupArray) ToPatchGroupArrayOutputWithContext(ctx context.Context) PatchGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupArrayOutput)
-}
-
-func (i PatchGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*PatchGroup] {
-	return pulumix.Output[[]*PatchGroup]{
-		OutputState: i.ToPatchGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PatchGroupMapInput is an input type that accepts PatchGroupMap and PatchGroupMapOutput values.
@@ -211,12 +198,6 @@ func (i PatchGroupMap) ToPatchGroupMapOutputWithContext(ctx context.Context) Pat
 	return pulumi.ToOutputWithContext(ctx, i).(PatchGroupMapOutput)
 }
 
-func (i PatchGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchGroup] {
-	return pulumix.Output[map[string]*PatchGroup]{
-		OutputState: i.ToPatchGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchGroupOutput struct{ *pulumi.OutputState }
 
 func (PatchGroupOutput) ElementType() reflect.Type {
@@ -229,12 +210,6 @@ func (o PatchGroupOutput) ToPatchGroupOutput() PatchGroupOutput {
 
 func (o PatchGroupOutput) ToPatchGroupOutputWithContext(ctx context.Context) PatchGroupOutput {
 	return o
-}
-
-func (o PatchGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchGroup] {
-	return pulumix.Output[*PatchGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the patch baseline to register the patch group with.
@@ -261,12 +236,6 @@ func (o PatchGroupArrayOutput) ToPatchGroupArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o PatchGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PatchGroup] {
-	return pulumix.Output[[]*PatchGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PatchGroupArrayOutput) Index(i pulumi.IntInput) PatchGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PatchGroup {
 		return vs[0].([]*PatchGroup)[vs[1].(int)]
@@ -285,12 +254,6 @@ func (o PatchGroupMapOutput) ToPatchGroupMapOutput() PatchGroupMapOutput {
 
 func (o PatchGroupMapOutput) ToPatchGroupMapOutputWithContext(ctx context.Context) PatchGroupMapOutput {
 	return o
-}
-
-func (o PatchGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchGroup] {
-	return pulumix.Output[map[string]*PatchGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchGroupMapOutput) MapIndex(k pulumi.StringInput) PatchGroupOutput {

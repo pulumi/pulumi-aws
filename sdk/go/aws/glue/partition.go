@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Partition Resource.
@@ -180,12 +179,6 @@ func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionO
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
 }
 
-func (i *Partition) ToOutput(ctx context.Context) pulumix.Output[*Partition] {
-	return pulumix.Output[*Partition]{
-		OutputState: i.ToPartitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PartitionArrayInput is an input type that accepts PartitionArray and PartitionArrayOutput values.
 // You can construct a concrete instance of `PartitionArrayInput` via:
 //
@@ -209,12 +202,6 @@ func (i PartitionArray) ToPartitionArrayOutput() PartitionArrayOutput {
 
 func (i PartitionArray) ToPartitionArrayOutputWithContext(ctx context.Context) PartitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionArrayOutput)
-}
-
-func (i PartitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Partition] {
-	return pulumix.Output[[]*Partition]{
-		OutputState: i.ToPartitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PartitionMapInput is an input type that accepts PartitionMap and PartitionMapOutput values.
@@ -242,12 +229,6 @@ func (i PartitionMap) ToPartitionMapOutputWithContext(ctx context.Context) Parti
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionMapOutput)
 }
 
-func (i PartitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Partition] {
-	return pulumix.Output[map[string]*Partition]{
-		OutputState: i.ToPartitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PartitionOutput struct{ *pulumi.OutputState }
 
 func (PartitionOutput) ElementType() reflect.Type {
@@ -260,12 +241,6 @@ func (o PartitionOutput) ToPartitionOutput() PartitionOutput {
 
 func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
 	return o
-}
-
-func (o PartitionOutput) ToOutput(ctx context.Context) pulumix.Output[*Partition] {
-	return pulumix.Output[*Partition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
@@ -326,12 +301,6 @@ func (o PartitionArrayOutput) ToPartitionArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PartitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Partition] {
-	return pulumix.Output[[]*Partition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PartitionArrayOutput) Index(i pulumi.IntInput) PartitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Partition {
 		return vs[0].([]*Partition)[vs[1].(int)]
@@ -350,12 +319,6 @@ func (o PartitionMapOutput) ToPartitionMapOutput() PartitionMapOutput {
 
 func (o PartitionMapOutput) ToPartitionMapOutputWithContext(ctx context.Context) PartitionMapOutput {
 	return o
-}
-
-func (o PartitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Partition] {
-	return pulumix.Output[map[string]*Partition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PartitionMapOutput) MapIndex(k pulumi.StringInput) PartitionOutput {

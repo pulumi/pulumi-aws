@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a specific EC2 Key Pair.
@@ -143,12 +142,6 @@ func (o LookupKeyPairResultOutput) ToLookupKeyPairResultOutput() LookupKeyPairRe
 
 func (o LookupKeyPairResultOutput) ToLookupKeyPairResultOutputWithContext(ctx context.Context) LookupKeyPairResultOutput {
 	return o
-}
-
-func (o LookupKeyPairResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupKeyPairResult] {
-	return pulumix.Output[LookupKeyPairResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Key Pair.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
@@ -284,12 +283,6 @@ func (i *ClassificationJob) ToClassificationJobOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobOutput)
 }
 
-func (i *ClassificationJob) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJob] {
-	return pulumix.Output[*ClassificationJob]{
-		OutputState: i.ToClassificationJobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationJobArrayInput is an input type that accepts ClassificationJobArray and ClassificationJobArrayOutput values.
 // You can construct a concrete instance of `ClassificationJobArrayInput` via:
 //
@@ -313,12 +306,6 @@ func (i ClassificationJobArray) ToClassificationJobArrayOutput() ClassificationJ
 
 func (i ClassificationJobArray) ToClassificationJobArrayOutputWithContext(ctx context.Context) ClassificationJobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobArrayOutput)
-}
-
-func (i ClassificationJobArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClassificationJob] {
-	return pulumix.Output[[]*ClassificationJob]{
-		OutputState: i.ToClassificationJobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClassificationJobMapInput is an input type that accepts ClassificationJobMap and ClassificationJobMapOutput values.
@@ -346,12 +333,6 @@ func (i ClassificationJobMap) ToClassificationJobMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobMapOutput)
 }
 
-func (i ClassificationJobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClassificationJob] {
-	return pulumix.Output[map[string]*ClassificationJob]{
-		OutputState: i.ToClassificationJobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationJobOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobOutput) ElementType() reflect.Type {
@@ -364,12 +345,6 @@ func (o ClassificationJobOutput) ToClassificationJobOutput() ClassificationJobOu
 
 func (o ClassificationJobOutput) ToClassificationJobOutputWithContext(ctx context.Context) ClassificationJobOutput {
 	return o
-}
-
-func (o ClassificationJobOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationJob] {
-	return pulumix.Output[*ClassificationJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date and time, in UTC and extended RFC 3339 format, when the job was created.
@@ -464,12 +439,6 @@ func (o ClassificationJobArrayOutput) ToClassificationJobArrayOutputWithContext(
 	return o
 }
 
-func (o ClassificationJobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClassificationJob] {
-	return pulumix.Output[[]*ClassificationJob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClassificationJobArrayOutput) Index(i pulumi.IntInput) ClassificationJobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClassificationJob {
 		return vs[0].([]*ClassificationJob)[vs[1].(int)]
@@ -488,12 +457,6 @@ func (o ClassificationJobMapOutput) ToClassificationJobMapOutput() Classificatio
 
 func (o ClassificationJobMapOutput) ToClassificationJobMapOutputWithContext(ctx context.Context) ClassificationJobMapOutput {
 	return o
-}
-
-func (o ClassificationJobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClassificationJob] {
-	return pulumix.Output[map[string]*ClassificationJob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationJobMapOutput) MapIndex(k pulumi.StringInput) ClassificationJobOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
@@ -156,12 +155,6 @@ func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutput() L
 
 func (o LookupVirtualServiceResultOutput) ToLookupVirtualServiceResultOutputWithContext(ctx context.Context) LookupVirtualServiceResultOutput {
 	return o
-}
-
-func (o LookupVirtualServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualServiceResult] {
-	return pulumix.Output[LookupVirtualServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the virtual service.

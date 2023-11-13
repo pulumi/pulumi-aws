@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Control Config Control Panel.
@@ -171,12 +170,6 @@ func (i *ControlPanel) ToControlPanelOutputWithContext(ctx context.Context) Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelOutput)
 }
 
-func (i *ControlPanel) ToOutput(ctx context.Context) pulumix.Output[*ControlPanel] {
-	return pulumix.Output[*ControlPanel]{
-		OutputState: i.ToControlPanelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ControlPanelArrayInput is an input type that accepts ControlPanelArray and ControlPanelArrayOutput values.
 // You can construct a concrete instance of `ControlPanelArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i ControlPanelArray) ToControlPanelArrayOutput() ControlPanelArrayOutput {
 
 func (i ControlPanelArray) ToControlPanelArrayOutputWithContext(ctx context.Context) ControlPanelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelArrayOutput)
-}
-
-func (i ControlPanelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ControlPanel] {
-	return pulumix.Output[[]*ControlPanel]{
-		OutputState: i.ToControlPanelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ControlPanelMapInput is an input type that accepts ControlPanelMap and ControlPanelMapOutput values.
@@ -233,12 +220,6 @@ func (i ControlPanelMap) ToControlPanelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelMapOutput)
 }
 
-func (i ControlPanelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ControlPanel] {
-	return pulumix.Output[map[string]*ControlPanel]{
-		OutputState: i.ToControlPanelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ControlPanelOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o ControlPanelOutput) ToControlPanelOutput() ControlPanelOutput {
 
 func (o ControlPanelOutput) ToControlPanelOutputWithContext(ctx context.Context) ControlPanelOutput {
 	return o
-}
-
-func (o ControlPanelOutput) ToOutput(ctx context.Context) pulumix.Output[*ControlPanel] {
-	return pulumix.Output[*ControlPanel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the control panel.
@@ -303,12 +278,6 @@ func (o ControlPanelArrayOutput) ToControlPanelArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ControlPanelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ControlPanel] {
-	return pulumix.Output[[]*ControlPanel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ControlPanelArrayOutput) Index(i pulumi.IntInput) ControlPanelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ControlPanel {
 		return vs[0].([]*ControlPanel)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o ControlPanelMapOutput) ToControlPanelMapOutput() ControlPanelMapOutput {
 
 func (o ControlPanelMapOutput) ToControlPanelMapOutputWithContext(ctx context.Context) ControlPanelMapOutput {
 	return o
-}
-
-func (o ControlPanelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ControlPanel] {
-	return pulumix.Output[map[string]*ControlPanel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ControlPanelMapOutput) MapIndex(k pulumi.StringInput) ControlPanelOutput {

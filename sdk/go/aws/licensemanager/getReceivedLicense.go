@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
@@ -129,12 +128,6 @@ func (o GetReceivedLicenseResultOutput) ToGetReceivedLicenseResultOutput() GetRe
 
 func (o GetReceivedLicenseResultOutput) ToGetReceivedLicenseResultOutputWithContext(ctx context.Context) GetReceivedLicenseResultOutput {
 	return o
-}
-
-func (o GetReceivedLicenseResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicenseResult] {
-	return pulumix.Output[GetReceivedLicenseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Granted license beneficiary. This is in the form of the ARN of the root user of the account.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i VaultNotificationArgs) ToVaultNotificationOutput() VaultNotificationOutp
 
 func (i VaultNotificationArgs) ToVaultNotificationOutputWithContext(ctx context.Context) VaultNotificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationOutput)
-}
-
-func (i VaultNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[VaultNotification] {
-	return pulumix.Output[VaultNotification]{
-		OutputState: i.ToVaultNotificationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i VaultNotificationArgs) ToVaultNotificationPtrOutput() VaultNotificationPtrOutput {
@@ -98,12 +91,6 @@ func (i *vaultNotificationPtrType) ToVaultNotificationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationPtrOutput)
 }
 
-func (i *vaultNotificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VaultNotification] {
-	return pulumix.Output[*VaultNotification]{
-		OutputState: i.ToVaultNotificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultNotificationOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o VaultNotificationOutput) ToVaultNotificationPtrOutputWithContext(ctx con
 	}).(VaultNotificationPtrOutput)
 }
 
-func (o VaultNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[VaultNotification] {
-	return pulumix.Output[VaultNotification]{
-		OutputState: o.OutputState,
-	}
-}
-
 // You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
 func (o VaultNotificationOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VaultNotification) []string { return v.Events }).(pulumi.StringArrayOutput)
@@ -156,12 +137,6 @@ func (o VaultNotificationPtrOutput) ToVaultNotificationPtrOutput() VaultNotifica
 
 func (o VaultNotificationPtrOutput) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
 	return o
-}
-
-func (o VaultNotificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultNotification] {
-	return pulumix.Output[*VaultNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultNotificationPtrOutput) Elem() VaultNotificationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM policy attached to a user.
@@ -201,12 +200,6 @@ func (i *UserPolicy) ToUserPolicyOutputWithContext(ctx context.Context) UserPoli
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyOutput)
 }
 
-func (i *UserPolicy) ToOutput(ctx context.Context) pulumix.Output[*UserPolicy] {
-	return pulumix.Output[*UserPolicy]{
-		OutputState: i.ToUserPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPolicyArrayInput is an input type that accepts UserPolicyArray and UserPolicyArrayOutput values.
 // You can construct a concrete instance of `UserPolicyArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i UserPolicyArray) ToUserPolicyArrayOutput() UserPolicyArrayOutput {
 
 func (i UserPolicyArray) ToUserPolicyArrayOutputWithContext(ctx context.Context) UserPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyArrayOutput)
-}
-
-func (i UserPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPolicy] {
-	return pulumix.Output[[]*UserPolicy]{
-		OutputState: i.ToUserPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPolicyMapInput is an input type that accepts UserPolicyMap and UserPolicyMapOutput values.
@@ -263,12 +250,6 @@ func (i UserPolicyMap) ToUserPolicyMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyMapOutput)
 }
 
-func (i UserPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPolicy] {
-	return pulumix.Output[map[string]*UserPolicy]{
-		OutputState: i.ToUserPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPolicyOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o UserPolicyOutput) ToUserPolicyOutput() UserPolicyOutput {
 
 func (o UserPolicyOutput) ToUserPolicyOutputWithContext(ctx context.Context) UserPolicyOutput {
 	return o
-}
-
-func (o UserPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPolicy] {
-	return pulumix.Output[*UserPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the policy. If omitted, the provider will assign a random, unique name.
@@ -323,12 +298,6 @@ func (o UserPolicyArrayOutput) ToUserPolicyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o UserPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPolicy] {
-	return pulumix.Output[[]*UserPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPolicyArrayOutput) Index(i pulumi.IntInput) UserPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPolicy {
 		return vs[0].([]*UserPolicy)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o UserPolicyMapOutput) ToUserPolicyMapOutput() UserPolicyMapOutput {
 
 func (o UserPolicyMapOutput) ToUserPolicyMapOutputWithContext(ctx context.Context) UserPolicyMapOutput {
 	return o
-}
-
-func (o UserPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPolicy] {
-	return pulumix.Output[map[string]*UserPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPolicyMapOutput) MapIndex(k pulumi.StringInput) UserPolicyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Container Registry Repository Policy.
@@ -199,12 +198,6 @@ func (i *RepositoryPolicy) ToRepositoryPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyOutput)
 }
 
-func (i *RepositoryPolicy) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicy] {
-	return pulumix.Output[*RepositoryPolicy]{
-		OutputState: i.ToRepositoryPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryPolicyArrayInput is an input type that accepts RepositoryPolicyArray and RepositoryPolicyArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyArrayInput` via:
 //
@@ -228,12 +221,6 @@ func (i RepositoryPolicyArray) ToRepositoryPolicyArrayOutput() RepositoryPolicyA
 
 func (i RepositoryPolicyArray) ToRepositoryPolicyArrayOutputWithContext(ctx context.Context) RepositoryPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyArrayOutput)
-}
-
-func (i RepositoryPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicy] {
-	return pulumix.Output[[]*RepositoryPolicy]{
-		OutputState: i.ToRepositoryPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryPolicyMapInput is an input type that accepts RepositoryPolicyMap and RepositoryPolicyMapOutput values.
@@ -261,12 +248,6 @@ func (i RepositoryPolicyMap) ToRepositoryPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMapOutput)
 }
 
-func (i RepositoryPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicy] {
-	return pulumix.Output[map[string]*RepositoryPolicy]{
-		OutputState: i.ToRepositoryPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyOutput) ElementType() reflect.Type {
@@ -279,12 +260,6 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutput() RepositoryPolicyOutpu
 
 func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.Context) RepositoryPolicyOutput {
 	return o
-}
-
-func (o RepositoryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicy] {
-	return pulumix.Output[*RepositoryPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The policy document. This is a JSON formatted string.
@@ -316,12 +291,6 @@ func (o RepositoryPolicyArrayOutput) ToRepositoryPolicyArrayOutputWithContext(ct
 	return o
 }
 
-func (o RepositoryPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicy] {
-	return pulumix.Output[[]*RepositoryPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryPolicyArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicy {
 		return vs[0].([]*RepositoryPolicy)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o RepositoryPolicyMapOutput) ToRepositoryPolicyMapOutput() RepositoryPolic
 
 func (o RepositoryPolicyMapOutput) ToRepositoryPolicyMapOutputWithContext(ctx context.Context) RepositoryPolicyMapOutput {
 	return o
-}
-
-func (o RepositoryPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicy] {
-	return pulumix.Output[map[string]*RepositoryPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyOutput {

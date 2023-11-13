@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS RDS (Relational Database) Export Task.
@@ -428,12 +427,6 @@ func (i *ExportTask) ToExportTaskOutputWithContext(ctx context.Context) ExportTa
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskOutput)
 }
 
-func (i *ExportTask) ToOutput(ctx context.Context) pulumix.Output[*ExportTask] {
-	return pulumix.Output[*ExportTask]{
-		OutputState: i.ToExportTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExportTaskArrayInput is an input type that accepts ExportTaskArray and ExportTaskArrayOutput values.
 // You can construct a concrete instance of `ExportTaskArrayInput` via:
 //
@@ -457,12 +450,6 @@ func (i ExportTaskArray) ToExportTaskArrayOutput() ExportTaskArrayOutput {
 
 func (i ExportTaskArray) ToExportTaskArrayOutputWithContext(ctx context.Context) ExportTaskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskArrayOutput)
-}
-
-func (i ExportTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExportTask] {
-	return pulumix.Output[[]*ExportTask]{
-		OutputState: i.ToExportTaskArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExportTaskMapInput is an input type that accepts ExportTaskMap and ExportTaskMapOutput values.
@@ -490,12 +477,6 @@ func (i ExportTaskMap) ToExportTaskMapOutputWithContext(ctx context.Context) Exp
 	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskMapOutput)
 }
 
-func (i ExportTaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExportTask] {
-	return pulumix.Output[map[string]*ExportTask]{
-		OutputState: i.ToExportTaskMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExportTaskOutput struct{ *pulumi.OutputState }
 
 func (ExportTaskOutput) ElementType() reflect.Type {
@@ -508,12 +489,6 @@ func (o ExportTaskOutput) ToExportTaskOutput() ExportTaskOutput {
 
 func (o ExportTaskOutput) ToExportTaskOutputWithContext(ctx context.Context) ExportTaskOutput {
 	return o
-}
-
-func (o ExportTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*ExportTask] {
-	return pulumix.Output[*ExportTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
@@ -611,12 +586,6 @@ func (o ExportTaskArrayOutput) ToExportTaskArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ExportTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExportTask] {
-	return pulumix.Output[[]*ExportTask]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExportTaskArrayOutput) Index(i pulumi.IntInput) ExportTaskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExportTask {
 		return vs[0].([]*ExportTask)[vs[1].(int)]
@@ -635,12 +604,6 @@ func (o ExportTaskMapOutput) ToExportTaskMapOutput() ExportTaskMapOutput {
 
 func (o ExportTaskMapOutput) ToExportTaskMapOutputWithContext(ctx context.Context) ExportTaskMapOutput {
 	return o
-}
-
-func (o ExportTaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExportTask] {
-	return pulumix.Output[map[string]*ExportTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExportTaskMapOutput) MapIndex(k pulumi.StringInput) ExportTaskOutput {

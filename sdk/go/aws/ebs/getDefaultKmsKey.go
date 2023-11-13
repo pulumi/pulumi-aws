@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the default EBS encryption KMS key in the current region.
@@ -87,12 +86,6 @@ func (o LookupDefaultKmsKeyResultOutput) ToLookupDefaultKmsKeyResultOutput() Loo
 
 func (o LookupDefaultKmsKeyResultOutput) ToLookupDefaultKmsKeyResultOutputWithContext(ctx context.Context) LookupDefaultKmsKeyResultOutput {
 	return o
-}
-
-func (o LookupDefaultKmsKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDefaultKmsKeyResult] {
-	return pulumix.Output[LookupDefaultKmsKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Prefix List Reference.
@@ -213,12 +212,6 @@ func (i *PrefixListReference) ToPrefixListReferenceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceOutput)
 }
 
-func (i *PrefixListReference) ToOutput(ctx context.Context) pulumix.Output[*PrefixListReference] {
-	return pulumix.Output[*PrefixListReference]{
-		OutputState: i.ToPrefixListReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrefixListReferenceArrayInput is an input type that accepts PrefixListReferenceArray and PrefixListReferenceArrayOutput values.
 // You can construct a concrete instance of `PrefixListReferenceArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i PrefixListReferenceArray) ToPrefixListReferenceArrayOutput() PrefixListR
 
 func (i PrefixListReferenceArray) ToPrefixListReferenceArrayOutputWithContext(ctx context.Context) PrefixListReferenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceArrayOutput)
-}
-
-func (i PrefixListReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrefixListReference] {
-	return pulumix.Output[[]*PrefixListReference]{
-		OutputState: i.ToPrefixListReferenceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrefixListReferenceMapInput is an input type that accepts PrefixListReferenceMap and PrefixListReferenceMapOutput values.
@@ -275,12 +262,6 @@ func (i PrefixListReferenceMap) ToPrefixListReferenceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListReferenceMapOutput)
 }
 
-func (i PrefixListReferenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrefixListReference] {
-	return pulumix.Output[map[string]*PrefixListReference]{
-		OutputState: i.ToPrefixListReferenceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrefixListReferenceOutput struct{ *pulumi.OutputState }
 
 func (PrefixListReferenceOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o PrefixListReferenceOutput) ToPrefixListReferenceOutput() PrefixListRefer
 
 func (o PrefixListReferenceOutput) ToPrefixListReferenceOutputWithContext(ctx context.Context) PrefixListReferenceOutput {
 	return o
-}
-
-func (o PrefixListReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[*PrefixListReference] {
-	return pulumix.Output[*PrefixListReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
@@ -341,12 +316,6 @@ func (o PrefixListReferenceArrayOutput) ToPrefixListReferenceArrayOutputWithCont
 	return o
 }
 
-func (o PrefixListReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrefixListReference] {
-	return pulumix.Output[[]*PrefixListReference]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrefixListReferenceArrayOutput) Index(i pulumi.IntInput) PrefixListReferenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrefixListReference {
 		return vs[0].([]*PrefixListReference)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutput() PrefixLis
 
 func (o PrefixListReferenceMapOutput) ToPrefixListReferenceMapOutputWithContext(ctx context.Context) PrefixListReferenceMapOutput {
 	return o
-}
-
-func (o PrefixListReferenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrefixListReference] {
-	return pulumix.Output[map[string]*PrefixListReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrefixListReferenceMapOutput) MapIndex(k pulumi.StringInput) PrefixListReferenceOutput {

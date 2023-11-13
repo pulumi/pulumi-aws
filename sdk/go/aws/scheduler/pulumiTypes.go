@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i ScheduleFlexibleTimeWindowArgs) ToScheduleFlexibleTimeWindowOutput() Sch
 
 func (i ScheduleFlexibleTimeWindowArgs) ToScheduleFlexibleTimeWindowOutputWithContext(ctx context.Context) ScheduleFlexibleTimeWindowOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFlexibleTimeWindowOutput)
-}
-
-func (i ScheduleFlexibleTimeWindowArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleFlexibleTimeWindow] {
-	return pulumix.Output[ScheduleFlexibleTimeWindow]{
-		OutputState: i.ToScheduleFlexibleTimeWindowOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ScheduleFlexibleTimeWindowArgs) ToScheduleFlexibleTimeWindowPtrOutput() ScheduleFlexibleTimeWindowPtrOutput {
@@ -98,12 +91,6 @@ func (i *scheduleFlexibleTimeWindowPtrType) ToScheduleFlexibleTimeWindowPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleFlexibleTimeWindowPtrOutput)
 }
 
-func (i *scheduleFlexibleTimeWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindow] {
-	return pulumix.Output[*ScheduleFlexibleTimeWindow]{
-		OutputState: i.ToScheduleFlexibleTimeWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleFlexibleTimeWindowOutput struct{ *pulumi.OutputState }
 
 func (ScheduleFlexibleTimeWindowOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o ScheduleFlexibleTimeWindowOutput) ToScheduleFlexibleTimeWindowPtrOutputW
 	}).(ScheduleFlexibleTimeWindowPtrOutput)
 }
 
-func (o ScheduleFlexibleTimeWindowOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleFlexibleTimeWindow] {
-	return pulumix.Output[ScheduleFlexibleTimeWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
 func (o ScheduleFlexibleTimeWindowOutput) MaximumWindowInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleFlexibleTimeWindow) *int { return v.MaximumWindowInMinutes }).(pulumi.IntPtrOutput)
@@ -156,12 +137,6 @@ func (o ScheduleFlexibleTimeWindowPtrOutput) ToScheduleFlexibleTimeWindowPtrOutp
 
 func (o ScheduleFlexibleTimeWindowPtrOutput) ToScheduleFlexibleTimeWindowPtrOutputWithContext(ctx context.Context) ScheduleFlexibleTimeWindowPtrOutput {
 	return o
-}
-
-func (o ScheduleFlexibleTimeWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindow] {
-	return pulumix.Output[*ScheduleFlexibleTimeWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleFlexibleTimeWindowPtrOutput) Elem() ScheduleFlexibleTimeWindowOutput {
@@ -267,12 +242,6 @@ func (i ScheduleTargetArgs) ToScheduleTargetOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetOutput)
 }
 
-func (i ScheduleTargetArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTarget] {
-	return pulumix.Output[ScheduleTarget]{
-		OutputState: i.ToScheduleTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetArgs) ToScheduleTargetPtrOutput() ScheduleTargetPtrOutput {
 	return i.ToScheduleTargetPtrOutputWithContext(context.Background())
 }
@@ -314,12 +283,6 @@ func (i *scheduleTargetPtrType) ToScheduleTargetPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetPtrOutput)
 }
 
-func (i *scheduleTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTarget] {
-	return pulumix.Output[*ScheduleTarget]{
-		OutputState: i.ToScheduleTargetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetOutput) ElementType() reflect.Type {
@@ -342,12 +305,6 @@ func (o ScheduleTargetOutput) ToScheduleTargetPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleTarget) *ScheduleTarget {
 		return &v
 	}).(ScheduleTargetPtrOutput)
-}
-
-func (o ScheduleTargetOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTarget] {
-	return pulumix.Output[ScheduleTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
@@ -416,12 +373,6 @@ func (o ScheduleTargetPtrOutput) ToScheduleTargetPtrOutput() ScheduleTargetPtrOu
 
 func (o ScheduleTargetPtrOutput) ToScheduleTargetPtrOutputWithContext(ctx context.Context) ScheduleTargetPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTarget] {
-	return pulumix.Output[*ScheduleTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetPtrOutput) Elem() ScheduleTargetOutput {
@@ -569,12 +520,6 @@ func (i ScheduleTargetDeadLetterConfigArgs) ToScheduleTargetDeadLetterConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetDeadLetterConfigOutput)
 }
 
-func (i ScheduleTargetDeadLetterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetDeadLetterConfig] {
-	return pulumix.Output[ScheduleTargetDeadLetterConfig]{
-		OutputState: i.ToScheduleTargetDeadLetterConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetDeadLetterConfigArgs) ToScheduleTargetDeadLetterConfigPtrOutput() ScheduleTargetDeadLetterConfigPtrOutput {
 	return i.ToScheduleTargetDeadLetterConfigPtrOutputWithContext(context.Background())
 }
@@ -616,12 +561,6 @@ func (i *scheduleTargetDeadLetterConfigPtrType) ToScheduleTargetDeadLetterConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetDeadLetterConfigPtrOutput)
 }
 
-func (i *scheduleTargetDeadLetterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetDeadLetterConfig] {
-	return pulumix.Output[*ScheduleTargetDeadLetterConfig]{
-		OutputState: i.ToScheduleTargetDeadLetterConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -646,12 +585,6 @@ func (o ScheduleTargetDeadLetterConfigOutput) ToScheduleTargetDeadLetterConfigPt
 	}).(ScheduleTargetDeadLetterConfigPtrOutput)
 }
 
-func (o ScheduleTargetDeadLetterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetDeadLetterConfig] {
-	return pulumix.Output[ScheduleTargetDeadLetterConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // ARN of the SQS queue specified as the destination for the dead-letter queue.
 func (o ScheduleTargetDeadLetterConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetDeadLetterConfig) string { return v.Arn }).(pulumi.StringOutput)
@@ -669,12 +602,6 @@ func (o ScheduleTargetDeadLetterConfigPtrOutput) ToScheduleTargetDeadLetterConfi
 
 func (o ScheduleTargetDeadLetterConfigPtrOutput) ToScheduleTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) ScheduleTargetDeadLetterConfigPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetDeadLetterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetDeadLetterConfig] {
-	return pulumix.Output[*ScheduleTargetDeadLetterConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetDeadLetterConfigPtrOutput) Elem() ScheduleTargetDeadLetterConfigOutput {
@@ -786,12 +713,6 @@ func (i ScheduleTargetEcsParametersArgs) ToScheduleTargetEcsParametersOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersOutput)
 }
 
-func (i ScheduleTargetEcsParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParameters] {
-	return pulumix.Output[ScheduleTargetEcsParameters]{
-		OutputState: i.ToScheduleTargetEcsParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetEcsParametersArgs) ToScheduleTargetEcsParametersPtrOutput() ScheduleTargetEcsParametersPtrOutput {
 	return i.ToScheduleTargetEcsParametersPtrOutputWithContext(context.Background())
 }
@@ -833,12 +754,6 @@ func (i *scheduleTargetEcsParametersPtrType) ToScheduleTargetEcsParametersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersPtrOutput)
 }
 
-func (i *scheduleTargetEcsParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEcsParameters] {
-	return pulumix.Output[*ScheduleTargetEcsParameters]{
-		OutputState: i.ToScheduleTargetEcsParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEcsParametersOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEcsParametersOutput) ElementType() reflect.Type {
@@ -861,12 +776,6 @@ func (o ScheduleTargetEcsParametersOutput) ToScheduleTargetEcsParametersPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleTargetEcsParameters) *ScheduleTargetEcsParameters {
 		return &v
 	}).(ScheduleTargetEcsParametersPtrOutput)
-}
-
-func (o ScheduleTargetEcsParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParameters] {
-	return pulumix.Output[ScheduleTargetEcsParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Up to `6` capacity provider strategies to use for the task. Detailed below.
@@ -961,12 +870,6 @@ func (o ScheduleTargetEcsParametersPtrOutput) ToScheduleTargetEcsParametersPtrOu
 
 func (o ScheduleTargetEcsParametersPtrOutput) ToScheduleTargetEcsParametersPtrOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEcsParameters] {
-	return pulumix.Output[*ScheduleTargetEcsParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEcsParametersPtrOutput) Elem() ScheduleTargetEcsParametersOutput {
@@ -1162,12 +1065,6 @@ func (i ScheduleTargetEcsParametersCapacityProviderStrategyArgs) ToScheduleTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersCapacityProviderStrategyOutput)
 }
 
-func (i ScheduleTargetEcsParametersCapacityProviderStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersCapacityProviderStrategy] {
-	return pulumix.Output[ScheduleTargetEcsParametersCapacityProviderStrategy]{
-		OutputState: i.ToScheduleTargetEcsParametersCapacityProviderStrategyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleTargetEcsParametersCapacityProviderStrategyArrayInput is an input type that accepts ScheduleTargetEcsParametersCapacityProviderStrategyArray and ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput values.
 // You can construct a concrete instance of `ScheduleTargetEcsParametersCapacityProviderStrategyArrayInput` via:
 //
@@ -1193,12 +1090,6 @@ func (i ScheduleTargetEcsParametersCapacityProviderStrategyArray) ToScheduleTarg
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput)
 }
 
-func (i ScheduleTargetEcsParametersCapacityProviderStrategyArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersCapacityProviderStrategy] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersCapacityProviderStrategy]{
-		OutputState: i.ToScheduleTargetEcsParametersCapacityProviderStrategyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEcsParametersCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEcsParametersCapacityProviderStrategyOutput) ElementType() reflect.Type {
@@ -1211,12 +1102,6 @@ func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) ToScheduleTar
 
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) ToScheduleTargetEcsParametersCapacityProviderStrategyOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersCapacityProviderStrategyOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersCapacityProviderStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersCapacityProviderStrategy] {
-	return pulumix.Output[ScheduleTargetEcsParametersCapacityProviderStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // How many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Ranges from `0` (default) to `100000`.
@@ -1246,12 +1131,6 @@ func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) ToSchedu
 
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) ToScheduleTargetEcsParametersCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersCapacityProviderStrategy] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersCapacityProviderStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEcsParametersCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) ScheduleTargetEcsParametersCapacityProviderStrategyOutput {
@@ -1301,12 +1180,6 @@ func (i ScheduleTargetEcsParametersNetworkConfigurationArgs) ToScheduleTargetEcs
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersNetworkConfigurationOutput)
 }
 
-func (i ScheduleTargetEcsParametersNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersNetworkConfiguration] {
-	return pulumix.Output[ScheduleTargetEcsParametersNetworkConfiguration]{
-		OutputState: i.ToScheduleTargetEcsParametersNetworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetEcsParametersNetworkConfigurationArgs) ToScheduleTargetEcsParametersNetworkConfigurationPtrOutput() ScheduleTargetEcsParametersNetworkConfigurationPtrOutput {
 	return i.ToScheduleTargetEcsParametersNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1348,12 +1221,6 @@ func (i *scheduleTargetEcsParametersNetworkConfigurationPtrType) ToScheduleTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
 }
 
-func (i *scheduleTargetEcsParametersNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEcsParametersNetworkConfiguration] {
-	return pulumix.Output[*ScheduleTargetEcsParametersNetworkConfiguration]{
-		OutputState: i.ToScheduleTargetEcsParametersNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEcsParametersNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEcsParametersNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -1376,12 +1243,6 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) ToScheduleTargetE
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleTargetEcsParametersNetworkConfiguration) *ScheduleTargetEcsParametersNetworkConfiguration {
 		return &v
 	}).(ScheduleTargetEcsParametersNetworkConfigurationPtrOutput)
-}
-
-func (o ScheduleTargetEcsParametersNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersNetworkConfiguration] {
-	return pulumix.Output[ScheduleTargetEcsParametersNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launchType` is set to `FARGATE`.
@@ -1411,12 +1272,6 @@ func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) ToScheduleTarg
 
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) ToScheduleTargetEcsParametersNetworkConfigurationPtrOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersNetworkConfigurationPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEcsParametersNetworkConfiguration] {
-	return pulumix.Output[*ScheduleTargetEcsParametersNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEcsParametersNetworkConfigurationPtrOutput) Elem() ScheduleTargetEcsParametersNetworkConfigurationOutput {
@@ -1496,12 +1351,6 @@ func (i ScheduleTargetEcsParametersPlacementConstraintArgs) ToScheduleTargetEcsP
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersPlacementConstraintOutput)
 }
 
-func (i ScheduleTargetEcsParametersPlacementConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersPlacementConstraint] {
-	return pulumix.Output[ScheduleTargetEcsParametersPlacementConstraint]{
-		OutputState: i.ToScheduleTargetEcsParametersPlacementConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleTargetEcsParametersPlacementConstraintArrayInput is an input type that accepts ScheduleTargetEcsParametersPlacementConstraintArray and ScheduleTargetEcsParametersPlacementConstraintArrayOutput values.
 // You can construct a concrete instance of `ScheduleTargetEcsParametersPlacementConstraintArrayInput` via:
 //
@@ -1527,12 +1376,6 @@ func (i ScheduleTargetEcsParametersPlacementConstraintArray) ToScheduleTargetEcs
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersPlacementConstraintArrayOutput)
 }
 
-func (i ScheduleTargetEcsParametersPlacementConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersPlacementConstraint] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersPlacementConstraint]{
-		OutputState: i.ToScheduleTargetEcsParametersPlacementConstraintArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEcsParametersPlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEcsParametersPlacementConstraintOutput) ElementType() reflect.Type {
@@ -1545,12 +1388,6 @@ func (o ScheduleTargetEcsParametersPlacementConstraintOutput) ToScheduleTargetEc
 
 func (o ScheduleTargetEcsParametersPlacementConstraintOutput) ToScheduleTargetEcsParametersPlacementConstraintOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersPlacementConstraintOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersPlacementConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersPlacementConstraint] {
-	return pulumix.Output[ScheduleTargetEcsParametersPlacementConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
@@ -1575,12 +1412,6 @@ func (o ScheduleTargetEcsParametersPlacementConstraintArrayOutput) ToScheduleTar
 
 func (o ScheduleTargetEcsParametersPlacementConstraintArrayOutput) ToScheduleTargetEcsParametersPlacementConstraintArrayOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersPlacementConstraintArrayOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersPlacementConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersPlacementConstraint] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersPlacementConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEcsParametersPlacementConstraintArrayOutput) Index(i pulumi.IntInput) ScheduleTargetEcsParametersPlacementConstraintOutput {
@@ -1626,12 +1457,6 @@ func (i ScheduleTargetEcsParametersPlacementStrategyArgs) ToScheduleTargetEcsPar
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersPlacementStrategyOutput)
 }
 
-func (i ScheduleTargetEcsParametersPlacementStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersPlacementStrategy] {
-	return pulumix.Output[ScheduleTargetEcsParametersPlacementStrategy]{
-		OutputState: i.ToScheduleTargetEcsParametersPlacementStrategyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleTargetEcsParametersPlacementStrategyArrayInput is an input type that accepts ScheduleTargetEcsParametersPlacementStrategyArray and ScheduleTargetEcsParametersPlacementStrategyArrayOutput values.
 // You can construct a concrete instance of `ScheduleTargetEcsParametersPlacementStrategyArrayInput` via:
 //
@@ -1657,12 +1482,6 @@ func (i ScheduleTargetEcsParametersPlacementStrategyArray) ToScheduleTargetEcsPa
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEcsParametersPlacementStrategyArrayOutput)
 }
 
-func (i ScheduleTargetEcsParametersPlacementStrategyArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersPlacementStrategy] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersPlacementStrategy]{
-		OutputState: i.ToScheduleTargetEcsParametersPlacementStrategyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEcsParametersPlacementStrategyOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEcsParametersPlacementStrategyOutput) ElementType() reflect.Type {
@@ -1675,12 +1494,6 @@ func (o ScheduleTargetEcsParametersPlacementStrategyOutput) ToScheduleTargetEcsP
 
 func (o ScheduleTargetEcsParametersPlacementStrategyOutput) ToScheduleTargetEcsParametersPlacementStrategyOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersPlacementStrategyOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersPlacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEcsParametersPlacementStrategy] {
-	return pulumix.Output[ScheduleTargetEcsParametersPlacementStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The field to apply the placement strategy against.
@@ -1705,12 +1518,6 @@ func (o ScheduleTargetEcsParametersPlacementStrategyArrayOutput) ToScheduleTarge
 
 func (o ScheduleTargetEcsParametersPlacementStrategyArrayOutput) ToScheduleTargetEcsParametersPlacementStrategyArrayOutputWithContext(ctx context.Context) ScheduleTargetEcsParametersPlacementStrategyArrayOutput {
 	return o
-}
-
-func (o ScheduleTargetEcsParametersPlacementStrategyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetEcsParametersPlacementStrategy] {
-	return pulumix.Output[[]ScheduleTargetEcsParametersPlacementStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEcsParametersPlacementStrategyArrayOutput) Index(i pulumi.IntInput) ScheduleTargetEcsParametersPlacementStrategyOutput {
@@ -1756,12 +1563,6 @@ func (i ScheduleTargetEventbridgeParametersArgs) ToScheduleTargetEventbridgePara
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEventbridgeParametersOutput)
 }
 
-func (i ScheduleTargetEventbridgeParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEventbridgeParameters] {
-	return pulumix.Output[ScheduleTargetEventbridgeParameters]{
-		OutputState: i.ToScheduleTargetEventbridgeParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetEventbridgeParametersArgs) ToScheduleTargetEventbridgeParametersPtrOutput() ScheduleTargetEventbridgeParametersPtrOutput {
 	return i.ToScheduleTargetEventbridgeParametersPtrOutputWithContext(context.Background())
 }
@@ -1803,12 +1604,6 @@ func (i *scheduleTargetEventbridgeParametersPtrType) ToScheduleTargetEventbridge
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetEventbridgeParametersPtrOutput)
 }
 
-func (i *scheduleTargetEventbridgeParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEventbridgeParameters] {
-	return pulumix.Output[*ScheduleTargetEventbridgeParameters]{
-		OutputState: i.ToScheduleTargetEventbridgeParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetEventbridgeParametersOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetEventbridgeParametersOutput) ElementType() reflect.Type {
@@ -1833,12 +1628,6 @@ func (o ScheduleTargetEventbridgeParametersOutput) ToScheduleTargetEventbridgePa
 	}).(ScheduleTargetEventbridgeParametersPtrOutput)
 }
 
-func (o ScheduleTargetEventbridgeParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetEventbridgeParameters] {
-	return pulumix.Output[ScheduleTargetEventbridgeParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
 func (o ScheduleTargetEventbridgeParametersOutput) DetailType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetEventbridgeParameters) string { return v.DetailType }).(pulumi.StringOutput)
@@ -1861,12 +1650,6 @@ func (o ScheduleTargetEventbridgeParametersPtrOutput) ToScheduleTargetEventbridg
 
 func (o ScheduleTargetEventbridgeParametersPtrOutput) ToScheduleTargetEventbridgeParametersPtrOutputWithContext(ctx context.Context) ScheduleTargetEventbridgeParametersPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetEventbridgeParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetEventbridgeParameters] {
-	return pulumix.Output[*ScheduleTargetEventbridgeParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetEventbridgeParametersPtrOutput) Elem() ScheduleTargetEventbridgeParametersOutput {
@@ -1932,12 +1715,6 @@ func (i ScheduleTargetKinesisParametersArgs) ToScheduleTargetKinesisParametersOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetKinesisParametersOutput)
 }
 
-func (i ScheduleTargetKinesisParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetKinesisParameters] {
-	return pulumix.Output[ScheduleTargetKinesisParameters]{
-		OutputState: i.ToScheduleTargetKinesisParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetKinesisParametersArgs) ToScheduleTargetKinesisParametersPtrOutput() ScheduleTargetKinesisParametersPtrOutput {
 	return i.ToScheduleTargetKinesisParametersPtrOutputWithContext(context.Background())
 }
@@ -1979,12 +1756,6 @@ func (i *scheduleTargetKinesisParametersPtrType) ToScheduleTargetKinesisParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetKinesisParametersPtrOutput)
 }
 
-func (i *scheduleTargetKinesisParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetKinesisParameters] {
-	return pulumix.Output[*ScheduleTargetKinesisParameters]{
-		OutputState: i.ToScheduleTargetKinesisParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetKinesisParametersOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetKinesisParametersOutput) ElementType() reflect.Type {
@@ -2009,12 +1780,6 @@ func (o ScheduleTargetKinesisParametersOutput) ToScheduleTargetKinesisParameters
 	}).(ScheduleTargetKinesisParametersPtrOutput)
 }
 
-func (o ScheduleTargetKinesisParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetKinesisParameters] {
-	return pulumix.Output[ScheduleTargetKinesisParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
 func (o ScheduleTargetKinesisParametersOutput) PartitionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleTargetKinesisParameters) string { return v.PartitionKey }).(pulumi.StringOutput)
@@ -2032,12 +1797,6 @@ func (o ScheduleTargetKinesisParametersPtrOutput) ToScheduleTargetKinesisParamet
 
 func (o ScheduleTargetKinesisParametersPtrOutput) ToScheduleTargetKinesisParametersPtrOutputWithContext(ctx context.Context) ScheduleTargetKinesisParametersPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetKinesisParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetKinesisParameters] {
-	return pulumix.Output[*ScheduleTargetKinesisParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetKinesisParametersPtrOutput) Elem() ScheduleTargetKinesisParametersOutput {
@@ -2097,12 +1856,6 @@ func (i ScheduleTargetRetryPolicyArgs) ToScheduleTargetRetryPolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetRetryPolicyOutput)
 }
 
-func (i ScheduleTargetRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetRetryPolicy] {
-	return pulumix.Output[ScheduleTargetRetryPolicy]{
-		OutputState: i.ToScheduleTargetRetryPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetRetryPolicyArgs) ToScheduleTargetRetryPolicyPtrOutput() ScheduleTargetRetryPolicyPtrOutput {
 	return i.ToScheduleTargetRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -2144,12 +1897,6 @@ func (i *scheduleTargetRetryPolicyPtrType) ToScheduleTargetRetryPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetRetryPolicyPtrOutput)
 }
 
-func (i *scheduleTargetRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetRetryPolicy] {
-	return pulumix.Output[*ScheduleTargetRetryPolicy]{
-		OutputState: i.ToScheduleTargetRetryPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetRetryPolicyOutput) ElementType() reflect.Type {
@@ -2174,12 +1921,6 @@ func (o ScheduleTargetRetryPolicyOutput) ToScheduleTargetRetryPolicyPtrOutputWit
 	}).(ScheduleTargetRetryPolicyPtrOutput)
 }
 
-func (o ScheduleTargetRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetRetryPolicy] {
-	return pulumix.Output[ScheduleTargetRetryPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
 func (o ScheduleTargetRetryPolicyOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetRetryPolicy) *int { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
@@ -2202,12 +1943,6 @@ func (o ScheduleTargetRetryPolicyPtrOutput) ToScheduleTargetRetryPolicyPtrOutput
 
 func (o ScheduleTargetRetryPolicyPtrOutput) ToScheduleTargetRetryPolicyPtrOutputWithContext(ctx context.Context) ScheduleTargetRetryPolicyPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetRetryPolicy] {
-	return pulumix.Output[*ScheduleTargetRetryPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetRetryPolicyPtrOutput) Elem() ScheduleTargetRetryPolicyOutput {
@@ -2273,12 +2008,6 @@ func (i ScheduleTargetSagemakerPipelineParametersArgs) ToScheduleTargetSagemaker
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSagemakerPipelineParametersOutput)
 }
 
-func (i ScheduleTargetSagemakerPipelineParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSagemakerPipelineParameters] {
-	return pulumix.Output[ScheduleTargetSagemakerPipelineParameters]{
-		OutputState: i.ToScheduleTargetSagemakerPipelineParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduleTargetSagemakerPipelineParametersArgs) ToScheduleTargetSagemakerPipelineParametersPtrOutput() ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return i.ToScheduleTargetSagemakerPipelineParametersPtrOutputWithContext(context.Background())
 }
@@ -2320,12 +2049,6 @@ func (i *scheduleTargetSagemakerPipelineParametersPtrType) ToScheduleTargetSagem
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-func (i *scheduleTargetSagemakerPipelineParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetSagemakerPipelineParameters] {
-	return pulumix.Output[*ScheduleTargetSagemakerPipelineParameters]{
-		OutputState: i.ToScheduleTargetSagemakerPipelineParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetSagemakerPipelineParametersOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetSagemakerPipelineParametersOutput) ElementType() reflect.Type {
@@ -2350,12 +2073,6 @@ func (o ScheduleTargetSagemakerPipelineParametersOutput) ToScheduleTargetSagemak
 	}).(ScheduleTargetSagemakerPipelineParametersPtrOutput)
 }
 
-func (o ScheduleTargetSagemakerPipelineParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSagemakerPipelineParameters] {
-	return pulumix.Output[ScheduleTargetSagemakerPipelineParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
 func (o ScheduleTargetSagemakerPipelineParametersOutput) PipelineParameters() ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o.ApplyT(func(v ScheduleTargetSagemakerPipelineParameters) []ScheduleTargetSagemakerPipelineParametersPipelineParameter {
@@ -2375,12 +2092,6 @@ func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) ToScheduleTargetSage
 
 func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) ToScheduleTargetSagemakerPipelineParametersPtrOutputWithContext(ctx context.Context) ScheduleTargetSagemakerPipelineParametersPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetSagemakerPipelineParameters] {
-	return pulumix.Output[*ScheduleTargetSagemakerPipelineParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetSagemakerPipelineParametersPtrOutput) Elem() ScheduleTargetSagemakerPipelineParametersOutput {
@@ -2440,12 +2151,6 @@ func (i ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs) ToSchedu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput)
 }
 
-func (i ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSagemakerPipelineParametersPipelineParameter] {
-	return pulumix.Output[ScheduleTargetSagemakerPipelineParametersPipelineParameter]{
-		OutputState: i.ToScheduleTargetSagemakerPipelineParametersPipelineParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayInput is an input type that accepts ScheduleTargetSagemakerPipelineParametersPipelineParameterArray and ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput values.
 // You can construct a concrete instance of `ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayInput` via:
 //
@@ -2471,12 +2176,6 @@ func (i ScheduleTargetSagemakerPipelineParametersPipelineParameterArray) ToSched
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput)
 }
 
-func (i ScheduleTargetSagemakerPipelineParametersPipelineParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetSagemakerPipelineParametersPipelineParameter] {
-	return pulumix.Output[[]ScheduleTargetSagemakerPipelineParametersPipelineParameter]{
-		OutputState: i.ToScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ElementType() reflect.Type {
@@ -2489,12 +2188,6 @@ func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ToSche
 
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ToScheduleTargetSagemakerPipelineParametersPipelineParameterOutputWithContext(ctx context.Context) ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput {
 	return o
-}
-
-func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSagemakerPipelineParametersPipelineParameter] {
-	return pulumix.Output[ScheduleTargetSagemakerPipelineParametersPipelineParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of parameter to start execution of a SageMaker Model Building Pipeline.
@@ -2519,12 +2212,6 @@ func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput) T
 
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput) ToScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutputWithContext(ctx context.Context) ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput {
 	return o
-}
-
-func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleTargetSagemakerPipelineParametersPipelineParameter] {
-	return pulumix.Output[[]ScheduleTargetSagemakerPipelineParametersPipelineParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetSagemakerPipelineParametersPipelineParameterArrayOutput) Index(i pulumi.IntInput) ScheduleTargetSagemakerPipelineParametersPipelineParameterOutput {
@@ -2564,12 +2251,6 @@ func (i ScheduleTargetSqsParametersArgs) ToScheduleTargetSqsParametersOutput() S
 
 func (i ScheduleTargetSqsParametersArgs) ToScheduleTargetSqsParametersOutputWithContext(ctx context.Context) ScheduleTargetSqsParametersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSqsParametersOutput)
-}
-
-func (i ScheduleTargetSqsParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSqsParameters] {
-	return pulumix.Output[ScheduleTargetSqsParameters]{
-		OutputState: i.ToScheduleTargetSqsParametersOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ScheduleTargetSqsParametersArgs) ToScheduleTargetSqsParametersPtrOutput() ScheduleTargetSqsParametersPtrOutput {
@@ -2613,12 +2294,6 @@ func (i *scheduleTargetSqsParametersPtrType) ToScheduleTargetSqsParametersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTargetSqsParametersPtrOutput)
 }
 
-func (i *scheduleTargetSqsParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetSqsParameters] {
-	return pulumix.Output[*ScheduleTargetSqsParameters]{
-		OutputState: i.ToScheduleTargetSqsParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleTargetSqsParametersOutput struct{ *pulumi.OutputState }
 
 func (ScheduleTargetSqsParametersOutput) ElementType() reflect.Type {
@@ -2643,12 +2318,6 @@ func (o ScheduleTargetSqsParametersOutput) ToScheduleTargetSqsParametersPtrOutpu
 	}).(ScheduleTargetSqsParametersPtrOutput)
 }
 
-func (o ScheduleTargetSqsParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleTargetSqsParameters] {
-	return pulumix.Output[ScheduleTargetSqsParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // FIFO message group ID to use as the target.
 func (o ScheduleTargetSqsParametersOutput) MessageGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleTargetSqsParameters) *string { return v.MessageGroupId }).(pulumi.StringPtrOutput)
@@ -2666,12 +2335,6 @@ func (o ScheduleTargetSqsParametersPtrOutput) ToScheduleTargetSqsParametersPtrOu
 
 func (o ScheduleTargetSqsParametersPtrOutput) ToScheduleTargetSqsParametersPtrOutputWithContext(ctx context.Context) ScheduleTargetSqsParametersPtrOutput {
 	return o
-}
-
-func (o ScheduleTargetSqsParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleTargetSqsParameters] {
-	return pulumix.Output[*ScheduleTargetSqsParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleTargetSqsParametersPtrOutput) Elem() ScheduleTargetSqsParametersOutput {

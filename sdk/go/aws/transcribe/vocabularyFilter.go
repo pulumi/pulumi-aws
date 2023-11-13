@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe VocabularyFilter.
@@ -222,12 +221,6 @@ func (i *VocabularyFilter) ToVocabularyFilterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterOutput)
 }
 
-func (i *VocabularyFilter) ToOutput(ctx context.Context) pulumix.Output[*VocabularyFilter] {
-	return pulumix.Output[*VocabularyFilter]{
-		OutputState: i.ToVocabularyFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VocabularyFilterArrayInput is an input type that accepts VocabularyFilterArray and VocabularyFilterArrayOutput values.
 // You can construct a concrete instance of `VocabularyFilterArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i VocabularyFilterArray) ToVocabularyFilterArrayOutput() VocabularyFilterA
 
 func (i VocabularyFilterArray) ToVocabularyFilterArrayOutputWithContext(ctx context.Context) VocabularyFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterArrayOutput)
-}
-
-func (i VocabularyFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VocabularyFilter] {
-	return pulumix.Output[[]*VocabularyFilter]{
-		OutputState: i.ToVocabularyFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VocabularyFilterMapInput is an input type that accepts VocabularyFilterMap and VocabularyFilterMapOutput values.
@@ -284,12 +271,6 @@ func (i VocabularyFilterMap) ToVocabularyFilterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyFilterMapOutput)
 }
 
-func (i VocabularyFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VocabularyFilter] {
-	return pulumix.Output[map[string]*VocabularyFilter]{
-		OutputState: i.ToVocabularyFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VocabularyFilterOutput struct{ *pulumi.OutputState }
 
 func (VocabularyFilterOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o VocabularyFilterOutput) ToVocabularyFilterOutput() VocabularyFilterOutpu
 
 func (o VocabularyFilterOutput) ToVocabularyFilterOutputWithContext(ctx context.Context) VocabularyFilterOutput {
 	return o
-}
-
-func (o VocabularyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*VocabularyFilter] {
-	return pulumix.Output[*VocabularyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the VocabularyFilter.
@@ -366,12 +341,6 @@ func (o VocabularyFilterArrayOutput) ToVocabularyFilterArrayOutputWithContext(ct
 	return o
 }
 
-func (o VocabularyFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VocabularyFilter] {
-	return pulumix.Output[[]*VocabularyFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VocabularyFilterArrayOutput) Index(i pulumi.IntInput) VocabularyFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VocabularyFilter {
 		return vs[0].([]*VocabularyFilter)[vs[1].(int)]
@@ -390,12 +359,6 @@ func (o VocabularyFilterMapOutput) ToVocabularyFilterMapOutput() VocabularyFilte
 
 func (o VocabularyFilterMapOutput) ToVocabularyFilterMapOutputWithContext(ctx context.Context) VocabularyFilterMapOutput {
 	return o
-}
-
-func (o VocabularyFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VocabularyFilter] {
-	return pulumix.Output[map[string]*VocabularyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VocabularyFilterMapOutput) MapIndex(k pulumi.StringInput) VocabularyFilterOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
@@ -175,12 +174,6 @@ func (i *DetectorFeature) ToDetectorFeatureOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureOutput)
 }
 
-func (i *DetectorFeature) ToOutput(ctx context.Context) pulumix.Output[*DetectorFeature] {
-	return pulumix.Output[*DetectorFeature]{
-		OutputState: i.ToDetectorFeatureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DetectorFeatureArrayInput is an input type that accepts DetectorFeatureArray and DetectorFeatureArrayOutput values.
 // You can construct a concrete instance of `DetectorFeatureArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i DetectorFeatureArray) ToDetectorFeatureArrayOutput() DetectorFeatureArra
 
 func (i DetectorFeatureArray) ToDetectorFeatureArrayOutputWithContext(ctx context.Context) DetectorFeatureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureArrayOutput)
-}
-
-func (i DetectorFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]*DetectorFeature] {
-	return pulumix.Output[[]*DetectorFeature]{
-		OutputState: i.ToDetectorFeatureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DetectorFeatureMapInput is an input type that accepts DetectorFeatureMap and DetectorFeatureMapOutput values.
@@ -237,12 +224,6 @@ func (i DetectorFeatureMap) ToDetectorFeatureMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorFeatureMapOutput)
 }
 
-func (i DetectorFeatureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DetectorFeature] {
-	return pulumix.Output[map[string]*DetectorFeature]{
-		OutputState: i.ToDetectorFeatureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DetectorFeatureOutput struct{ *pulumi.OutputState }
 
 func (DetectorFeatureOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o DetectorFeatureOutput) ToDetectorFeatureOutput() DetectorFeatureOutput {
 
 func (o DetectorFeatureOutput) ToDetectorFeatureOutputWithContext(ctx context.Context) DetectorFeatureOutput {
 	return o
-}
-
-func (o DetectorFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorFeature] {
-	return pulumix.Output[*DetectorFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Additional feature configuration block. See below.
@@ -299,12 +274,6 @@ func (o DetectorFeatureArrayOutput) ToDetectorFeatureArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o DetectorFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DetectorFeature] {
-	return pulumix.Output[[]*DetectorFeature]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorFeatureArrayOutput) Index(i pulumi.IntInput) DetectorFeatureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DetectorFeature {
 		return vs[0].([]*DetectorFeature)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o DetectorFeatureMapOutput) ToDetectorFeatureMapOutput() DetectorFeatureMa
 
 func (o DetectorFeatureMapOutput) ToDetectorFeatureMapOutputWithContext(ctx context.Context) DetectorFeatureMapOutput {
 	return o
-}
-
-func (o DetectorFeatureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DetectorFeature] {
-	return pulumix.Output[map[string]*DetectorFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorFeatureMapOutput) MapIndex(k pulumi.StringInput) DetectorFeatureOutput {
