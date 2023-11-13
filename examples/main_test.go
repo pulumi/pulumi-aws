@@ -16,7 +16,7 @@ func TestMain(m *testing.M) {
 			log.Println("Unable to get working directory!")
 			os.Exit(1)
 		}
-		command := exec.Command("make", "provider", "-o", "tfgen", "-o", "install_plugins")
+		command := exec.Command("make", "provider_no_deps")
 		command.Dir = filepath.Join(cwd, "..")
 		err = command.Run()
 		if err != nil {
