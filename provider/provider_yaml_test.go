@@ -10,14 +10,13 @@
 // does not run YAML-only test a the moment, and it splits tests by language build tag; for this
 // reason the file is marked as another language so that the test runs only once.
 
-//go:build !go && !nodejs && !python && !dotnet
-// +build !go,!nodejs,!python,!dotnet
-
 package provider
 
 import (
 	"path/filepath"
 	"testing"
+
+	"github.com/pulumi/providertest"
 )
 
 func TestBucket(t *testing.T) {
@@ -65,7 +64,8 @@ func TestCloudwatchLogGroup(t *testing.T) {
 }
 
 func TestDynamoTable(t *testing.T) {
-	test(t, filepath.Join("test-programs", "dynamodb-table"))
+	test(t, filepath.Join("test-programs", "dynamodb-table"),
+		providertest.WithDiffValidation(providertest.NoReplacements()))
 }
 
 func TestEcrLifecyclePolicy(t *testing.T) {
