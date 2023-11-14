@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple API Gateway Authorizers.
@@ -100,12 +99,6 @@ func (o GetAuthorizersResultOutput) ToGetAuthorizersResultOutput() GetAuthorizer
 
 func (o GetAuthorizersResultOutput) ToGetAuthorizersResultOutputWithContext(ctx context.Context) GetAuthorizersResultOutput {
 	return o
-}
-
-func (o GetAuthorizersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAuthorizersResult] {
-	return pulumix.Output[GetAuthorizersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

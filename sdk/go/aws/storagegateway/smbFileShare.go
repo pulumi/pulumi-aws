@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway SMB File Share.
@@ -453,12 +452,6 @@ func (i *SmbFileShare) ToSmbFileShareOutputWithContext(ctx context.Context) SmbF
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareOutput)
 }
 
-func (i *SmbFileShare) ToOutput(ctx context.Context) pulumix.Output[*SmbFileShare] {
-	return pulumix.Output[*SmbFileShare]{
-		OutputState: i.ToSmbFileShareOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SmbFileShareArrayInput is an input type that accepts SmbFileShareArray and SmbFileShareArrayOutput values.
 // You can construct a concrete instance of `SmbFileShareArrayInput` via:
 //
@@ -482,12 +475,6 @@ func (i SmbFileShareArray) ToSmbFileShareArrayOutput() SmbFileShareArrayOutput {
 
 func (i SmbFileShareArray) ToSmbFileShareArrayOutputWithContext(ctx context.Context) SmbFileShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareArrayOutput)
-}
-
-func (i SmbFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*SmbFileShare] {
-	return pulumix.Output[[]*SmbFileShare]{
-		OutputState: i.ToSmbFileShareArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SmbFileShareMapInput is an input type that accepts SmbFileShareMap and SmbFileShareMapOutput values.
@@ -515,12 +502,6 @@ func (i SmbFileShareMap) ToSmbFileShareMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareMapOutput)
 }
 
-func (i SmbFileShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmbFileShare] {
-	return pulumix.Output[map[string]*SmbFileShare]{
-		OutputState: i.ToSmbFileShareMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SmbFileShareOutput struct{ *pulumi.OutputState }
 
 func (SmbFileShareOutput) ElementType() reflect.Type {
@@ -533,12 +514,6 @@ func (o SmbFileShareOutput) ToSmbFileShareOutput() SmbFileShareOutput {
 
 func (o SmbFileShareOutput) ToSmbFileShareOutputWithContext(ctx context.Context) SmbFileShareOutput {
 	return o
-}
-
-func (o SmbFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[*SmbFileShare] {
-	return pulumix.Output[*SmbFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -702,12 +677,6 @@ func (o SmbFileShareArrayOutput) ToSmbFileShareArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o SmbFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SmbFileShare] {
-	return pulumix.Output[[]*SmbFileShare]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SmbFileShareArrayOutput) Index(i pulumi.IntInput) SmbFileShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SmbFileShare {
 		return vs[0].([]*SmbFileShare)[vs[1].(int)]
@@ -726,12 +695,6 @@ func (o SmbFileShareMapOutput) ToSmbFileShareMapOutput() SmbFileShareMapOutput {
 
 func (o SmbFileShareMapOutput) ToSmbFileShareMapOutputWithContext(ctx context.Context) SmbFileShareMapOutput {
 	return o
-}
-
-func (o SmbFileShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmbFileShare] {
-	return pulumix.Output[map[string]*SmbFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SmbFileShareMapOutput) MapIndex(k pulumi.StringInput) SmbFileShareOutput {

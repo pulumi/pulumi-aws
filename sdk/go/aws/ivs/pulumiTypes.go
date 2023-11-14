@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigura
 
 func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigurationDestinationConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationOutput)
-}
-
-func (i RecordingConfigurationDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfiguration] {
-	return pulumix.Output[RecordingConfigurationDestinationConfiguration]{
-		OutputState: i.ToRecordingConfigurationDestinationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RecordingConfigurationDestinationConfigurationArgs) ToRecordingConfigurationDestinationConfigurationPtrOutput() RecordingConfigurationDestinationConfigurationPtrOutput {
@@ -94,12 +87,6 @@ func (i *recordingConfigurationDestinationConfigurationPtrType) ToRecordingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationPtrOutput)
 }
 
-func (i *recordingConfigurationDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationDestinationConfiguration] {
-	return pulumix.Output[*RecordingConfigurationDestinationConfiguration]{
-		OutputState: i.ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	}).(RecordingConfigurationDestinationConfigurationPtrOutput)
 }
 
-func (o RecordingConfigurationDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfiguration] {
-	return pulumix.Output[RecordingConfigurationDestinationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // S3 destination configuration where recorded videos will be stored.
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationDestinationConfigurationS3Output {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) RecordingConfigurationDestinationConfigurationS3 {
@@ -149,12 +130,6 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) ToRecordingConf
 
 func (o RecordingConfigurationDestinationConfigurationPtrOutput) ToRecordingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationPtrOutput {
 	return o
-}
-
-func (o RecordingConfigurationDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationDestinationConfiguration] {
-	return pulumix.Output[*RecordingConfigurationDestinationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationDestinationConfigurationPtrOutput) Elem() RecordingConfigurationDestinationConfigurationOutput {
@@ -214,12 +189,6 @@ func (i RecordingConfigurationDestinationConfigurationS3Args) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationS3Output)
 }
 
-func (i RecordingConfigurationDestinationConfigurationS3Args) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[RecordingConfigurationDestinationConfigurationS3]{
-		OutputState: i.ToRecordingConfigurationDestinationConfigurationS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordingConfigurationDestinationConfigurationS3Args) ToRecordingConfigurationDestinationConfigurationS3PtrOutput() RecordingConfigurationDestinationConfigurationS3PtrOutput {
 	return i.ToRecordingConfigurationDestinationConfigurationS3PtrOutputWithContext(context.Background())
 }
@@ -261,12 +230,6 @@ func (i *recordingConfigurationDestinationConfigurationS3PtrType) ToRecordingCon
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-func (i *recordingConfigurationDestinationConfigurationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[*RecordingConfigurationDestinationConfigurationS3]{
-		OutputState: i.ToRecordingConfigurationDestinationConfigurationS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordingConfigurationDestinationConfigurationS3Output struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationDestinationConfigurationS3Output) ElementType() reflect.Type {
@@ -291,12 +254,6 @@ func (o RecordingConfigurationDestinationConfigurationS3Output) ToRecordingConfi
 	}).(RecordingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-func (o RecordingConfigurationDestinationConfigurationS3Output) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[RecordingConfigurationDestinationConfigurationS3]{
-		OutputState: o.OutputState,
-	}
-}
-
 // S3 bucket name where recorded videos will be stored.
 //
 // The following arguments are optional:
@@ -316,12 +273,6 @@ func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) ToRecordingCo
 
 func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) ToRecordingConfigurationDestinationConfigurationS3PtrOutputWithContext(ctx context.Context) RecordingConfigurationDestinationConfigurationS3PtrOutput {
 	return o
-}
-
-func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[*RecordingConfigurationDestinationConfigurationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationDestinationConfigurationS3PtrOutput) Elem() RecordingConfigurationDestinationConfigurationS3Output {
@@ -383,12 +334,6 @@ func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationOutput)
 }
 
-func (i RecordingConfigurationThumbnailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfiguration] {
-	return pulumix.Output[RecordingConfigurationThumbnailConfiguration]{
-		OutputState: i.ToRecordingConfigurationThumbnailConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RecordingConfigurationThumbnailConfigurationArgs) ToRecordingConfigurationThumbnailConfigurationPtrOutput() RecordingConfigurationThumbnailConfigurationPtrOutput {
 	return i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(context.Background())
 }
@@ -430,12 +375,6 @@ func (i *recordingConfigurationThumbnailConfigurationPtrType) ToRecordingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationThumbnailConfigurationPtrOutput)
 }
 
-func (i *recordingConfigurationThumbnailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfiguration] {
-	return pulumix.Output[*RecordingConfigurationThumbnailConfiguration]{
-		OutputState: i.ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RecordingConfigurationThumbnailConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationThumbnailConfigurationOutput) ElementType() reflect.Type {
@@ -460,12 +399,6 @@ func (o RecordingConfigurationThumbnailConfigurationOutput) ToRecordingConfigura
 	}).(RecordingConfigurationThumbnailConfigurationPtrOutput)
 }
 
-func (o RecordingConfigurationThumbnailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RecordingConfigurationThumbnailConfiguration] {
-	return pulumix.Output[RecordingConfigurationThumbnailConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
 func (o RecordingConfigurationThumbnailConfigurationOutput) RecordingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationThumbnailConfiguration) *string { return v.RecordingMode }).(pulumi.StringPtrOutput)
@@ -488,12 +421,6 @@ func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfig
 
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToRecordingConfigurationThumbnailConfigurationPtrOutputWithContext(ctx context.Context) RecordingConfigurationThumbnailConfigurationPtrOutput {
 	return o
-}
-
-func (o RecordingConfigurationThumbnailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfigurationThumbnailConfiguration] {
-	return pulumix.Output[*RecordingConfigurationThumbnailConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RecordingConfigurationThumbnailConfigurationPtrOutput) Elem() RecordingConfigurationThumbnailConfigurationOutput {

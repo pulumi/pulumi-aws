@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ListenerDefaultActionArgs) ToListenerDefaultActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionOutput)
 }
 
-func (i ListenerDefaultActionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultAction] {
-	return pulumix.Output[ListenerDefaultAction]{
-		OutputState: i.ToListenerDefaultActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerDefaultActionArgs) ToListenerDefaultActionPtrOutput() ListenerDefaultActionPtrOutput {
 	return i.ToListenerDefaultActionPtrOutputWithContext(context.Background())
 }
@@ -100,12 +93,6 @@ func (i *listenerDefaultActionPtrType) ToListenerDefaultActionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionPtrOutput)
 }
 
-func (i *listenerDefaultActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerDefaultAction] {
-	return pulumix.Output[*ListenerDefaultAction]{
-		OutputState: i.ToListenerDefaultActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerDefaultActionOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o ListenerDefaultActionOutput) ToListenerDefaultActionPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultAction) *ListenerDefaultAction {
 		return &v
 	}).(ListenerDefaultActionPtrOutput)
-}
-
-func (o ListenerDefaultActionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultAction] {
-	return pulumix.Output[ListenerDefaultAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerDefaultActionOutput) FixedResponse() ListenerDefaultActionFixedResponsePtrOutput {
@@ -159,12 +140,6 @@ func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutput() Liste
 
 func (o ListenerDefaultActionPtrOutput) ToListenerDefaultActionPtrOutputWithContext(ctx context.Context) ListenerDefaultActionPtrOutput {
 	return o
-}
-
-func (o ListenerDefaultActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerDefaultAction] {
-	return pulumix.Output[*ListenerDefaultAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerDefaultActionPtrOutput) Elem() ListenerDefaultActionOutput {
@@ -231,12 +206,6 @@ func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponseOutput)
 }
 
-func (i ListenerDefaultActionFixedResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionFixedResponse] {
-	return pulumix.Output[ListenerDefaultActionFixedResponse]{
-		OutputState: i.ToListenerDefaultActionFixedResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerDefaultActionFixedResponseArgs) ToListenerDefaultActionFixedResponsePtrOutput() ListenerDefaultActionFixedResponsePtrOutput {
 	return i.ToListenerDefaultActionFixedResponsePtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *listenerDefaultActionFixedResponsePtrType) ToListenerDefaultActionFixed
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-func (i *listenerDefaultActionFixedResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerDefaultActionFixedResponse] {
-	return pulumix.Output[*ListenerDefaultActionFixedResponse]{
-		OutputState: i.ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerDefaultActionFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (ListenerDefaultActionFixedResponseOutput) ElementType() reflect.Type {
@@ -308,12 +271,6 @@ func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedRe
 	}).(ListenerDefaultActionFixedResponsePtrOutput)
 }
 
-func (o ListenerDefaultActionFixedResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionFixedResponse] {
-	return pulumix.Output[ListenerDefaultActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
 func (o ListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
@@ -331,12 +288,6 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) ToListenerDefaultActionFixe
 
 func (o ListenerDefaultActionFixedResponsePtrOutput) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
 	return o
-}
-
-func (o ListenerDefaultActionFixedResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerDefaultActionFixedResponse] {
-	return pulumix.Output[*ListenerDefaultActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActionFixedResponseOutput {
@@ -392,12 +343,6 @@ func (i ListenerDefaultActionForwardArgs) ToListenerDefaultActionForwardOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardOutput)
 }
 
-func (i ListenerDefaultActionForwardArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionForward] {
-	return pulumix.Output[ListenerDefaultActionForward]{
-		OutputState: i.ToListenerDefaultActionForwardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerDefaultActionForwardArrayInput is an input type that accepts ListenerDefaultActionForwardArray and ListenerDefaultActionForwardArrayOutput values.
 // You can construct a concrete instance of `ListenerDefaultActionForwardArrayInput` via:
 //
@@ -423,12 +368,6 @@ func (i ListenerDefaultActionForwardArray) ToListenerDefaultActionForwardArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardArrayOutput)
 }
 
-func (i ListenerDefaultActionForwardArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerDefaultActionForward] {
-	return pulumix.Output[[]ListenerDefaultActionForward]{
-		OutputState: i.ToListenerDefaultActionForwardArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
 
 func (ListenerDefaultActionForwardOutput) ElementType() reflect.Type {
@@ -441,12 +380,6 @@ func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutput
 
 func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardOutputWithContext(ctx context.Context) ListenerDefaultActionForwardOutput {
 	return o
-}
-
-func (o ListenerDefaultActionForwardOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionForward] {
-	return pulumix.Output[ListenerDefaultActionForward]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more target group blocks.
@@ -466,12 +399,6 @@ func (o ListenerDefaultActionForwardArrayOutput) ToListenerDefaultActionForwardA
 
 func (o ListenerDefaultActionForwardArrayOutput) ToListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardArrayOutput {
 	return o
-}
-
-func (o ListenerDefaultActionForwardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerDefaultActionForward] {
-	return pulumix.Output[[]ListenerDefaultActionForward]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionForwardOutput {
@@ -519,12 +446,6 @@ func (i ListenerDefaultActionForwardTargetGroupArgs) ToListenerDefaultActionForw
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupOutput)
 }
 
-func (i ListenerDefaultActionForwardTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[ListenerDefaultActionForwardTargetGroup]{
-		OutputState: i.ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts ListenerDefaultActionForwardTargetGroupArray and ListenerDefaultActionForwardTargetGroupArrayOutput values.
 // You can construct a concrete instance of `ListenerDefaultActionForwardTargetGroupArrayInput` via:
 //
@@ -550,12 +471,6 @@ func (i ListenerDefaultActionForwardTargetGroupArray) ToListenerDefaultActionFor
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerDefaultActionForwardTargetGroupArrayOutput)
 }
 
-func (i ListenerDefaultActionForwardTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[[]ListenerDefaultActionForwardTargetGroup]{
-		OutputState: i.ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (ListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
@@ -568,12 +483,6 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 
 func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupOutput {
 	return o
-}
-
-func (o ListenerDefaultActionForwardTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[ListenerDefaultActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID or Amazon Resource Name (ARN) of the target group.
@@ -599,12 +508,6 @@ func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultAct
 
 func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o
-}
-
-func (o ListenerDefaultActionForwardTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[[]ListenerDefaultActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerDefaultActionForwardTargetGroupOutput {
@@ -650,12 +553,6 @@ func (i ListenerRuleActionArgs) ToListenerRuleActionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionOutput)
 }
 
-func (i ListenerRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAction] {
-	return pulumix.Output[ListenerRuleAction]{
-		OutputState: i.ToListenerRuleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleActionArgs) ToListenerRuleActionPtrOutput() ListenerRuleActionPtrOutput {
 	return i.ToListenerRuleActionPtrOutputWithContext(context.Background())
 }
@@ -697,12 +594,6 @@ func (i *listenerRuleActionPtrType) ToListenerRuleActionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionPtrOutput)
 }
 
-func (i *listenerRuleActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAction] {
-	return pulumix.Output[*ListenerRuleAction]{
-		OutputState: i.ToListenerRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionOutput) ElementType() reflect.Type {
@@ -727,12 +618,6 @@ func (o ListenerRuleActionOutput) ToListenerRuleActionPtrOutputWithContext(ctx c
 	}).(ListenerRuleActionPtrOutput)
 }
 
-func (o ListenerRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAction] {
-	return pulumix.Output[ListenerRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Describes the rule action that returns a custom HTTP response.
 func (o ListenerRuleActionOutput) FixedResponse() ListenerRuleActionFixedResponsePtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleActionFixedResponse { return v.FixedResponse }).(ListenerRuleActionFixedResponsePtrOutput)
@@ -755,12 +640,6 @@ func (o ListenerRuleActionPtrOutput) ToListenerRuleActionPtrOutput() ListenerRul
 
 func (o ListenerRuleActionPtrOutput) ToListenerRuleActionPtrOutputWithContext(ctx context.Context) ListenerRuleActionPtrOutput {
 	return o
-}
-
-func (o ListenerRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAction] {
-	return pulumix.Output[*ListenerRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionPtrOutput) Elem() ListenerRuleActionOutput {
@@ -826,12 +705,6 @@ func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponseOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponseOutput)
 }
 
-func (i ListenerRuleActionFixedResponseArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionFixedResponse] {
-	return pulumix.Output[ListenerRuleActionFixedResponse]{
-		OutputState: i.ToListenerRuleActionFixedResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleActionFixedResponseArgs) ToListenerRuleActionFixedResponsePtrOutput() ListenerRuleActionFixedResponsePtrOutput {
 	return i.ToListenerRuleActionFixedResponsePtrOutputWithContext(context.Background())
 }
@@ -873,12 +746,6 @@ func (i *listenerRuleActionFixedResponsePtrType) ToListenerRuleActionFixedRespon
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-func (i *listenerRuleActionFixedResponsePtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleActionFixedResponse] {
-	return pulumix.Output[*ListenerRuleActionFixedResponse]{
-		OutputState: i.ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleActionFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionFixedResponseOutput) ElementType() reflect.Type {
@@ -903,12 +770,6 @@ func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponse
 	}).(ListenerRuleActionFixedResponsePtrOutput)
 }
 
-func (o ListenerRuleActionFixedResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionFixedResponse] {
-	return pulumix.Output[ListenerRuleActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The HTTP response code.
 func (o ListenerRuleActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerRuleActionFixedResponse) int { return v.StatusCode }).(pulumi.IntOutput)
@@ -926,12 +787,6 @@ func (o ListenerRuleActionFixedResponsePtrOutput) ToListenerRuleActionFixedRespo
 
 func (o ListenerRuleActionFixedResponsePtrOutput) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
 	return o
-}
-
-func (o ListenerRuleActionFixedResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleActionFixedResponse] {
-	return pulumix.Output[*ListenerRuleActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionFixedResponsePtrOutput) Elem() ListenerRuleActionFixedResponseOutput {
@@ -991,12 +846,6 @@ func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardOutput)
 }
 
-func (i ListenerRuleActionForwardArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionForward] {
-	return pulumix.Output[ListenerRuleActionForward]{
-		OutputState: i.ToListenerRuleActionForwardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleActionForwardArgs) ToListenerRuleActionForwardPtrOutput() ListenerRuleActionForwardPtrOutput {
 	return i.ToListenerRuleActionForwardPtrOutputWithContext(context.Background())
 }
@@ -1038,12 +887,6 @@ func (i *listenerRuleActionForwardPtrType) ToListenerRuleActionForwardPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardPtrOutput)
 }
 
-func (i *listenerRuleActionForwardPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleActionForward] {
-	return pulumix.Output[*ListenerRuleActionForward]{
-		OutputState: i.ToListenerRuleActionForwardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleActionForwardOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionForwardOutput) ElementType() reflect.Type {
@@ -1068,12 +911,6 @@ func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWit
 	}).(ListenerRuleActionForwardPtrOutput)
 }
 
-func (o ListenerRuleActionForwardOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionForward] {
-	return pulumix.Output[ListenerRuleActionForward]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
 //
 // The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
@@ -1093,12 +930,6 @@ func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutput
 
 func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
 	return o
-}
-
-func (o ListenerRuleActionForwardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleActionForward] {
-	return pulumix.Output[*ListenerRuleActionForward]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutput {
@@ -1156,12 +987,6 @@ func (i ListenerRuleActionForwardTargetGroupArgs) ToListenerRuleActionForwardTar
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupOutput)
 }
 
-func (i ListenerRuleActionForwardTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionForwardTargetGroup] {
-	return pulumix.Output[ListenerRuleActionForwardTargetGroup]{
-		OutputState: i.ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleActionForwardTargetGroupArrayInput is an input type that accepts ListenerRuleActionForwardTargetGroupArray and ListenerRuleActionForwardTargetGroupArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleActionForwardTargetGroupArrayInput` via:
 //
@@ -1187,12 +1012,6 @@ func (i ListenerRuleActionForwardTargetGroupArray) ToListenerRuleActionForwardTa
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionForwardTargetGroupArrayOutput)
 }
 
-func (i ListenerRuleActionForwardTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleActionForwardTargetGroup] {
-	return pulumix.Output[[]ListenerRuleActionForwardTargetGroup]{
-		OutputState: i.ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionForwardTargetGroupOutput) ElementType() reflect.Type {
@@ -1205,12 +1024,6 @@ func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardT
 
 func (o ListenerRuleActionForwardTargetGroupOutput) ToListenerRuleActionForwardTargetGroupOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupOutput {
 	return o
-}
-
-func (o ListenerRuleActionForwardTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleActionForwardTargetGroup] {
-	return pulumix.Output[ListenerRuleActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
@@ -1233,12 +1046,6 @@ func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionFor
 
 func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToListenerRuleActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) ListenerRuleActionForwardTargetGroupArrayOutput {
 	return o
-}
-
-func (o ListenerRuleActionForwardTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleActionForwardTargetGroup] {
-	return pulumix.Output[[]ListenerRuleActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) ListenerRuleActionForwardTargetGroupOutput {
@@ -1278,12 +1085,6 @@ func (i ListenerRuleMatchArgs) ToListenerRuleMatchOutput() ListenerRuleMatchOutp
 
 func (i ListenerRuleMatchArgs) ToListenerRuleMatchOutputWithContext(ctx context.Context) ListenerRuleMatchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchOutput)
-}
-
-func (i ListenerRuleMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatch] {
-	return pulumix.Output[ListenerRuleMatch]{
-		OutputState: i.ToListenerRuleMatchOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ListenerRuleMatchArgs) ToListenerRuleMatchPtrOutput() ListenerRuleMatchPtrOutput {
@@ -1327,12 +1128,6 @@ func (i *listenerRuleMatchPtrType) ToListenerRuleMatchPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchPtrOutput)
 }
 
-func (i *listenerRuleMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatch] {
-	return pulumix.Output[*ListenerRuleMatch]{
-		OutputState: i.ToListenerRuleMatchPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchOutput) ElementType() reflect.Type {
@@ -1357,12 +1152,6 @@ func (o ListenerRuleMatchOutput) ToListenerRuleMatchPtrOutputWithContext(ctx con
 	}).(ListenerRuleMatchPtrOutput)
 }
 
-func (o ListenerRuleMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatch] {
-	return pulumix.Output[ListenerRuleMatch]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The HTTP criteria that a rule must match.
 func (o ListenerRuleMatchOutput) HttpMatch() ListenerRuleMatchHttpMatchPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatch) *ListenerRuleMatchHttpMatch { return v.HttpMatch }).(ListenerRuleMatchHttpMatchPtrOutput)
@@ -1380,12 +1169,6 @@ func (o ListenerRuleMatchPtrOutput) ToListenerRuleMatchPtrOutput() ListenerRuleM
 
 func (o ListenerRuleMatchPtrOutput) ToListenerRuleMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchPtrOutput {
 	return o
-}
-
-func (o ListenerRuleMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatch] {
-	return pulumix.Output[*ListenerRuleMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleMatchPtrOutput) Elem() ListenerRuleMatchOutput {
@@ -1449,12 +1232,6 @@ func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleMatchHttpMatchArgs) ToListenerRuleMatchHttpMatchPtrOutput() ListenerRuleMatchHttpMatchPtrOutput {
 	return i.ToListenerRuleMatchHttpMatchPtrOutputWithContext(context.Background())
 }
@@ -1496,12 +1273,6 @@ func (i *listenerRuleMatchHttpMatchPtrType) ToListenerRuleMatchHttpMatchPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPtrOutput)
 }
 
-func (i *listenerRuleMatchHttpMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchHttpMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchHttpMatchOutput) ElementType() reflect.Type {
@@ -1524,12 +1295,6 @@ func (o ListenerRuleMatchHttpMatchOutput) ToListenerRuleMatchHttpMatchPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleMatchHttpMatch) *ListenerRuleMatchHttpMatch {
 		return &v
 	}).(ListenerRuleMatchHttpMatchPtrOutput)
-}
-
-func (o ListenerRuleMatchHttpMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The header matches. Matches incoming requests with rule based on request header value before applying rule action.
@@ -1559,12 +1324,6 @@ func (o ListenerRuleMatchHttpMatchPtrOutput) ToListenerRuleMatchHttpMatchPtrOutp
 
 func (o ListenerRuleMatchHttpMatchPtrOutput) ToListenerRuleMatchHttpMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPtrOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleMatchHttpMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchOutput {
@@ -1648,12 +1407,6 @@ func (i ListenerRuleMatchHttpMatchHeaderMatchArgs) ToListenerRuleMatchHttpMatchH
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchHeaderMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleMatchHttpMatchHeaderMatchArrayInput is an input type that accepts ListenerRuleMatchHttpMatchHeaderMatchArray and ListenerRuleMatchHttpMatchHeaderMatchArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleMatchHttpMatchHeaderMatchArrayInput` via:
 //
@@ -1679,12 +1432,6 @@ func (i ListenerRuleMatchHttpMatchHeaderMatchArray) ToListenerRuleMatchHttpMatch
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchArrayOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchHeaderMatchArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleMatchHttpMatchHeaderMatch] {
-	return pulumix.Output[[]ListenerRuleMatchHttpMatchHeaderMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchHttpMatchHeaderMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchHttpMatchHeaderMatchOutput) ElementType() reflect.Type {
@@ -1697,12 +1444,6 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatc
 
 func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchHeaderMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether the match is case sensitive. Defaults to false.
@@ -1734,12 +1475,6 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ToListenerRuleMatchHtt
 
 func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ToListenerRuleMatchHttpMatchHeaderMatchArrayOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchArrayOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleMatchHttpMatchHeaderMatch] {
-	return pulumix.Output[[]ListenerRuleMatchHttpMatchHeaderMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleMatchHttpMatchHeaderMatchArrayOutput) Index(i pulumi.IntInput) ListenerRuleMatchHttpMatchHeaderMatchOutput {
@@ -1789,12 +1524,6 @@ func (i ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ToListenerRuleMatchHttpM
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchHeaderMatchMatchOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchHeaderMatchMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatchMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatchMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchHttpMatchHeaderMatchMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ElementType() reflect.Type {
@@ -1807,12 +1536,6 @@ func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHtt
 
 func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToListenerRuleMatchHttpMatchHeaderMatchMatchOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchHeaderMatchMatchOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchHeaderMatchMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatchMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchHeaderMatchMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a contains type match.
@@ -1867,12 +1590,6 @@ func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPat
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchPathMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchPathMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchPathMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleMatchHttpMatchPathMatchArgs) ToListenerRuleMatchHttpMatchPathMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return i.ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(context.Background())
 }
@@ -1914,12 +1631,6 @@ func (i *listenerRuleMatchHttpMatchPathMatchPtrType) ToListenerRuleMatchHttpMatc
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
 
-func (i *listenerRuleMatchHttpMatchPathMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatchPathMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatchPathMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchHttpMatchPathMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchHttpMatchPathMatchOutput) ElementType() reflect.Type {
@@ -1944,12 +1655,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToListenerRuleMatchHttpMatchP
 	}).(ListenerRuleMatchHttpMatchPathMatchPtrOutput)
 }
 
-func (o ListenerRuleMatchHttpMatchPathMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchPathMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchPathMatch]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether the match is case sensitive. Defaults to false.
 func (o ListenerRuleMatchHttpMatchPathMatchOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatch) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
@@ -1972,12 +1677,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) ToListenerRuleMatchHttpMat
 
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchPtrOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatchPathMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatchPathMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleMatchHttpMatchPathMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchPathMatchOutput {
@@ -2047,12 +1746,6 @@ func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMat
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchMatchOutput)
 }
 
-func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchPathMatchMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchPathMatchMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchPathMatchMatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleMatchHttpMatchPathMatchMatchArgs) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutput() ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
 	return i.ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(context.Background())
 }
@@ -2094,12 +1787,6 @@ func (i *listenerRuleMatchHttpMatchPathMatchMatchPtrType) ToListenerRuleMatchHtt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
 }
 
-func (i *listenerRuleMatchHttpMatchPathMatchMatchPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatchPathMatchMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatchPathMatchMatch]{
-		OutputState: i.ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleMatchHttpMatchPathMatchMatchOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleMatchHttpMatchPathMatchMatchOutput) ElementType() reflect.Type {
@@ -2124,12 +1811,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToListenerRuleMatchHttpM
 	}).(ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput)
 }
 
-func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleMatchHttpMatchPathMatchMatch] {
-	return pulumix.Output[ListenerRuleMatchHttpMatchPathMatchMatch]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies an exact type match.
 func (o ListenerRuleMatchHttpMatchPathMatchMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleMatchHttpMatchPathMatchMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
@@ -2152,12 +1833,6 @@ func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ToListenerRuleMatchHt
 
 func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ToListenerRuleMatchHttpMatchPathMatchMatchPtrOutputWithContext(ctx context.Context) ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput {
 	return o
-}
-
-func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleMatchHttpMatchPathMatchMatch] {
-	return pulumix.Output[*ListenerRuleMatchHttpMatchPathMatchMatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleMatchHttpMatchPathMatchMatchPtrOutput) Elem() ListenerRuleMatchHttpMatchPathMatchMatchOutput {
@@ -2223,12 +1898,6 @@ func (i ServiceDnsEntryArgs) ToServiceDnsEntryOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsEntryOutput)
 }
 
-func (i ServiceDnsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsEntry] {
-	return pulumix.Output[ServiceDnsEntry]{
-		OutputState: i.ToServiceDnsEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceDnsEntryArrayInput is an input type that accepts ServiceDnsEntryArray and ServiceDnsEntryArrayOutput values.
 // You can construct a concrete instance of `ServiceDnsEntryArrayInput` via:
 //
@@ -2254,12 +1923,6 @@ func (i ServiceDnsEntryArray) ToServiceDnsEntryArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsEntryArrayOutput)
 }
 
-func (i ServiceDnsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsEntry] {
-	return pulumix.Output[[]ServiceDnsEntry]{
-		OutputState: i.ToServiceDnsEntryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDnsEntryOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsEntryOutput) ElementType() reflect.Type {
@@ -2272,12 +1935,6 @@ func (o ServiceDnsEntryOutput) ToServiceDnsEntryOutput() ServiceDnsEntryOutput {
 
 func (o ServiceDnsEntryOutput) ToServiceDnsEntryOutputWithContext(ctx context.Context) ServiceDnsEntryOutput {
 	return o
-}
-
-func (o ServiceDnsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsEntry] {
-	return pulumix.Output[ServiceDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsEntryOutput) DomainName() pulumi.StringPtrOutput {
@@ -2300,12 +1957,6 @@ func (o ServiceDnsEntryArrayOutput) ToServiceDnsEntryArrayOutput() ServiceDnsEnt
 
 func (o ServiceDnsEntryArrayOutput) ToServiceDnsEntryArrayOutputWithContext(ctx context.Context) ServiceDnsEntryArrayOutput {
 	return o
-}
-
-func (o ServiceDnsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsEntry] {
-	return pulumix.Output[[]ServiceDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceDnsEntryOutput {
@@ -2351,12 +2002,6 @@ func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToServiceNetworkServiceAss
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryOutput)
 }
 
-func (i ServiceNetworkServiceAssociationDnsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationDnsEntry] {
-	return pulumix.Output[ServiceNetworkServiceAssociationDnsEntry]{
-		OutputState: i.ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceNetworkServiceAssociationDnsEntryArrayInput is an input type that accepts ServiceNetworkServiceAssociationDnsEntryArray and ServiceNetworkServiceAssociationDnsEntryArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkServiceAssociationDnsEntryArrayInput` via:
 //
@@ -2382,12 +2027,6 @@ func (i ServiceNetworkServiceAssociationDnsEntryArray) ToServiceNetworkServiceAs
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkServiceAssociationDnsEntryArrayOutput)
 }
 
-func (i ServiceNetworkServiceAssociationDnsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkServiceAssociationDnsEntry] {
-	return pulumix.Output[[]ServiceNetworkServiceAssociationDnsEntry]{
-		OutputState: i.ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkServiceAssociationDnsEntryOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkServiceAssociationDnsEntryOutput) ElementType() reflect.Type {
@@ -2400,12 +2039,6 @@ func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceA
 
 func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToServiceNetworkServiceAssociationDnsEntryOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryOutput {
 	return o
-}
-
-func (o ServiceNetworkServiceAssociationDnsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkServiceAssociationDnsEntry] {
-	return pulumix.Output[ServiceNetworkServiceAssociationDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The domain name of the service.
@@ -2430,12 +2063,6 @@ func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) ToServiceNetworkSer
 
 func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) ToServiceNetworkServiceAssociationDnsEntryArrayOutputWithContext(ctx context.Context) ServiceNetworkServiceAssociationDnsEntryArrayOutput {
 	return o
-}
-
-func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkServiceAssociationDnsEntry] {
-	return pulumix.Output[[]ServiceNetworkServiceAssociationDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkServiceAssociationDnsEntryArrayOutput) Index(i pulumi.IntInput) ServiceNetworkServiceAssociationDnsEntryOutput {
@@ -2481,12 +2108,6 @@ func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentTargetOutput)
 }
 
-func (i TargetGroupAttachmentTargetArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupAttachmentTarget] {
-	return pulumix.Output[TargetGroupAttachmentTarget]{
-		OutputState: i.ToTargetGroupAttachmentTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TargetGroupAttachmentTargetArgs) ToTargetGroupAttachmentTargetPtrOutput() TargetGroupAttachmentTargetPtrOutput {
 	return i.ToTargetGroupAttachmentTargetPtrOutputWithContext(context.Background())
 }
@@ -2528,12 +2149,6 @@ func (i *targetGroupAttachmentTargetPtrType) ToTargetGroupAttachmentTargetPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentTargetPtrOutput)
 }
 
-func (i *targetGroupAttachmentTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupAttachmentTarget] {
-	return pulumix.Output[*TargetGroupAttachmentTarget]{
-		OutputState: i.ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupAttachmentTargetOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupAttachmentTargetOutput) ElementType() reflect.Type {
@@ -2558,12 +2173,6 @@ func (o TargetGroupAttachmentTargetOutput) ToTargetGroupAttachmentTargetPtrOutpu
 	}).(TargetGroupAttachmentTargetPtrOutput)
 }
 
-func (o TargetGroupAttachmentTargetOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupAttachmentTarget] {
-	return pulumix.Output[TargetGroupAttachmentTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ID of the target. If the target type of the target group is INSTANCE, this is an instance ID. If the target type is IP , this is an IP address. If the target type is LAMBDA, this is the ARN of the Lambda function. If the target type is ALB, this is the ARN of the Application Load Balancer.
 func (o TargetGroupAttachmentTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupAttachmentTarget) string { return v.Id }).(pulumi.StringOutput)
@@ -2586,12 +2195,6 @@ func (o TargetGroupAttachmentTargetPtrOutput) ToTargetGroupAttachmentTargetPtrOu
 
 func (o TargetGroupAttachmentTargetPtrOutput) ToTargetGroupAttachmentTargetPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentTargetPtrOutput {
 	return o
-}
-
-func (o TargetGroupAttachmentTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupAttachmentTarget] {
-	return pulumix.Output[*TargetGroupAttachmentTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupAttachmentTargetPtrOutput) Elem() TargetGroupAttachmentTargetOutput {
@@ -2681,12 +2284,6 @@ func (i TargetGroupConfigArgs) ToTargetGroupConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigOutput)
 }
 
-func (i TargetGroupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfig] {
-	return pulumix.Output[TargetGroupConfig]{
-		OutputState: i.ToTargetGroupConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TargetGroupConfigArgs) ToTargetGroupConfigPtrOutput() TargetGroupConfigPtrOutput {
 	return i.ToTargetGroupConfigPtrOutputWithContext(context.Background())
 }
@@ -2728,12 +2325,6 @@ func (i *targetGroupConfigPtrType) ToTargetGroupConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigPtrOutput)
 }
 
-func (i *targetGroupConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfig] {
-	return pulumix.Output[*TargetGroupConfig]{
-		OutputState: i.ToTargetGroupConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupConfigOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupConfigOutput) ElementType() reflect.Type {
@@ -2756,12 +2347,6 @@ func (o TargetGroupConfigOutput) ToTargetGroupConfigPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfig) *TargetGroupConfig {
 		return &v
 	}).(TargetGroupConfigPtrOutput)
-}
-
-func (o TargetGroupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfig] {
-	return pulumix.Output[TargetGroupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The health check configuration.
@@ -2811,12 +2396,6 @@ func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutput() TargetGroupCo
 
 func (o TargetGroupConfigPtrOutput) ToTargetGroupConfigPtrOutputWithContext(ctx context.Context) TargetGroupConfigPtrOutput {
 	return o
-}
-
-func (o TargetGroupConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfig] {
-	return pulumix.Output[*TargetGroupConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupConfigPtrOutput) Elem() TargetGroupConfigOutput {
@@ -2968,12 +2547,6 @@ func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckOutput)
 }
 
-func (i TargetGroupConfigHealthCheckArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigHealthCheck] {
-	return pulumix.Output[TargetGroupConfigHealthCheck]{
-		OutputState: i.ToTargetGroupConfigHealthCheckOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TargetGroupConfigHealthCheckArgs) ToTargetGroupConfigHealthCheckPtrOutput() TargetGroupConfigHealthCheckPtrOutput {
 	return i.ToTargetGroupConfigHealthCheckPtrOutputWithContext(context.Background())
 }
@@ -3015,12 +2588,6 @@ func (i *targetGroupConfigHealthCheckPtrType) ToTargetGroupConfigHealthCheckPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckPtrOutput)
 }
 
-func (i *targetGroupConfigHealthCheckPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigHealthCheck] {
-	return pulumix.Output[*TargetGroupConfigHealthCheck]{
-		OutputState: i.ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupConfigHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupConfigHealthCheckOutput) ElementType() reflect.Type {
@@ -3043,12 +2610,6 @@ func (o TargetGroupConfigHealthCheckOutput) ToTargetGroupConfigHealthCheckPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupConfigHealthCheck) *TargetGroupConfigHealthCheck {
 		return &v
 	}).(TargetGroupConfigHealthCheckPtrOutput)
-}
-
-func (o TargetGroupConfigHealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigHealthCheck] {
-	return pulumix.Output[TargetGroupConfigHealthCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether health checking is enabled. Defaults to `true`.
@@ -3113,12 +2674,6 @@ func (o TargetGroupConfigHealthCheckPtrOutput) ToTargetGroupConfigHealthCheckPtr
 
 func (o TargetGroupConfigHealthCheckPtrOutput) ToTargetGroupConfigHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckPtrOutput {
 	return o
-}
-
-func (o TargetGroupConfigHealthCheckPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigHealthCheck] {
-	return pulumix.Output[*TargetGroupConfigHealthCheck]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupConfigHealthCheckPtrOutput) Elem() TargetGroupConfigHealthCheckOutput {
@@ -3264,12 +2819,6 @@ func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckM
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckMatcherOutput)
 }
 
-func (i TargetGroupConfigHealthCheckMatcherArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigHealthCheckMatcher] {
-	return pulumix.Output[TargetGroupConfigHealthCheckMatcher]{
-		OutputState: i.ToTargetGroupConfigHealthCheckMatcherOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TargetGroupConfigHealthCheckMatcherArgs) ToTargetGroupConfigHealthCheckMatcherPtrOutput() TargetGroupConfigHealthCheckMatcherPtrOutput {
 	return i.ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(context.Background())
 }
@@ -3311,12 +2860,6 @@ func (i *targetGroupConfigHealthCheckMatcherPtrType) ToTargetGroupConfigHealthCh
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupConfigHealthCheckMatcherPtrOutput)
 }
 
-func (i *targetGroupConfigHealthCheckMatcherPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigHealthCheckMatcher] {
-	return pulumix.Output[*TargetGroupConfigHealthCheckMatcher]{
-		OutputState: i.ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupConfigHealthCheckMatcherOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupConfigHealthCheckMatcherOutput) ElementType() reflect.Type {
@@ -3341,12 +2884,6 @@ func (o TargetGroupConfigHealthCheckMatcherOutput) ToTargetGroupConfigHealthChec
 	}).(TargetGroupConfigHealthCheckMatcherPtrOutput)
 }
 
-func (o TargetGroupConfigHealthCheckMatcherOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupConfigHealthCheckMatcher] {
-	return pulumix.Output[TargetGroupConfigHealthCheckMatcher]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The HTTP codes to use when checking for a successful response from a target.
 func (o TargetGroupConfigHealthCheckMatcherOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupConfigHealthCheckMatcher) *string { return v.Value }).(pulumi.StringPtrOutput)
@@ -3364,12 +2901,6 @@ func (o TargetGroupConfigHealthCheckMatcherPtrOutput) ToTargetGroupConfigHealthC
 
 func (o TargetGroupConfigHealthCheckMatcherPtrOutput) ToTargetGroupConfigHealthCheckMatcherPtrOutputWithContext(ctx context.Context) TargetGroupConfigHealthCheckMatcherPtrOutput {
 	return o
-}
-
-func (o TargetGroupConfigHealthCheckMatcherPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupConfigHealthCheckMatcher] {
-	return pulumix.Output[*TargetGroupConfigHealthCheckMatcher]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupConfigHealthCheckMatcherPtrOutput) Elem() TargetGroupConfigHealthCheckMatcherOutput {
@@ -3425,12 +2956,6 @@ func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionOutput)
 }
 
-func (i GetListenerDefaultActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultAction] {
-	return pulumix.Output[GetListenerDefaultAction]{
-		OutputState: i.ToGetListenerDefaultActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetListenerDefaultActionArrayInput is an input type that accepts GetListenerDefaultActionArray and GetListenerDefaultActionArrayOutput values.
 // You can construct a concrete instance of `GetListenerDefaultActionArrayInput` via:
 //
@@ -3456,12 +2981,6 @@ func (i GetListenerDefaultActionArray) ToGetListenerDefaultActionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionArrayOutput)
 }
 
-func (i GetListenerDefaultActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultAction] {
-	return pulumix.Output[[]GetListenerDefaultAction]{
-		OutputState: i.ToGetListenerDefaultActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetListenerDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionOutput) ElementType() reflect.Type {
@@ -3474,12 +2993,6 @@ func (o GetListenerDefaultActionOutput) ToGetListenerDefaultActionOutput() GetLi
 
 func (o GetListenerDefaultActionOutput) ToGetListenerDefaultActionOutputWithContext(ctx context.Context) GetListenerDefaultActionOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultAction] {
-	return pulumix.Output[GetListenerDefaultAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionOutput) FixedResponses() GetListenerDefaultActionFixedResponseArrayOutput {
@@ -3502,12 +3015,6 @@ func (o GetListenerDefaultActionArrayOutput) ToGetListenerDefaultActionArrayOutp
 
 func (o GetListenerDefaultActionArrayOutput) ToGetListenerDefaultActionArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionArrayOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultAction] {
-	return pulumix.Output[[]GetListenerDefaultAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionOutput {
@@ -3547,12 +3054,6 @@ func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFix
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseOutput)
 }
 
-func (i GetListenerDefaultActionFixedResponseArgs) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionFixedResponse] {
-	return pulumix.Output[GetListenerDefaultActionFixedResponse]{
-		OutputState: i.ToGetListenerDefaultActionFixedResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetListenerDefaultActionFixedResponseArrayInput is an input type that accepts GetListenerDefaultActionFixedResponseArray and GetListenerDefaultActionFixedResponseArrayOutput values.
 // You can construct a concrete instance of `GetListenerDefaultActionFixedResponseArrayInput` via:
 //
@@ -3578,12 +3079,6 @@ func (i GetListenerDefaultActionFixedResponseArray) ToGetListenerDefaultActionFi
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseArrayOutput)
 }
 
-func (i GetListenerDefaultActionFixedResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionFixedResponse] {
-	return pulumix.Output[[]GetListenerDefaultActionFixedResponse]{
-		OutputState: i.ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetListenerDefaultActionFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionFixedResponseOutput) ElementType() reflect.Type {
@@ -3596,12 +3091,6 @@ func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionF
 
 func (o GetListenerDefaultActionFixedResponseOutput) ToGetListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionFixedResponseOutput) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionFixedResponse] {
-	return pulumix.Output[GetListenerDefaultActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionFixedResponseOutput) StatusCode() pulumi.IntOutput {
@@ -3620,12 +3109,6 @@ func (o GetListenerDefaultActionFixedResponseArrayOutput) ToGetListenerDefaultAc
 
 func (o GetListenerDefaultActionFixedResponseArrayOutput) ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseArrayOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionFixedResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionFixedResponse] {
-	return pulumix.Output[[]GetListenerDefaultActionFixedResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionFixedResponseArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionFixedResponseOutput {
@@ -3665,12 +3148,6 @@ func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardOutput)
 }
 
-func (i GetListenerDefaultActionForwardArgs) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionForward] {
-	return pulumix.Output[GetListenerDefaultActionForward]{
-		OutputState: i.ToGetListenerDefaultActionForwardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetListenerDefaultActionForwardArrayInput is an input type that accepts GetListenerDefaultActionForwardArray and GetListenerDefaultActionForwardArrayOutput values.
 // You can construct a concrete instance of `GetListenerDefaultActionForwardArrayInput` via:
 //
@@ -3696,12 +3173,6 @@ func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardA
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardArrayOutput)
 }
 
-func (i GetListenerDefaultActionForwardArray) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionForward] {
-	return pulumix.Output[[]GetListenerDefaultActionForward]{
-		OutputState: i.ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionForwardOutput) ElementType() reflect.Type {
@@ -3714,12 +3185,6 @@ func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForward
 
 func (o GetListenerDefaultActionForwardOutput) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionForwardOutput) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionForward] {
-	return pulumix.Output[GetListenerDefaultActionForward]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionForwardOutput) TargetGroups() GetListenerDefaultActionForwardTargetGroupArrayOutput {
@@ -3740,12 +3205,6 @@ func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionFo
 
 func (o GetListenerDefaultActionForwardArrayOutput) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionForwardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionForward] {
-	return pulumix.Output[[]GetListenerDefaultActionForward]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardOutput {
@@ -3787,12 +3246,6 @@ func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActi
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupOutput)
 }
 
-func (i GetListenerDefaultActionForwardTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[GetListenerDefaultActionForwardTargetGroup]{
-		OutputState: i.ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArray and GetListenerDefaultActionForwardTargetGroupArrayOutput values.
 // You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupArrayInput` via:
 //
@@ -3818,12 +3271,6 @@ func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultAct
 	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
 }
 
-func (i GetListenerDefaultActionForwardTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[[]GetListenerDefaultActionForwardTargetGroup]{
-		OutputState: i.ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionForwardTargetGroupOutput) ElementType() reflect.Type {
@@ -3836,12 +3283,6 @@ func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultAc
 
 func (o GetListenerDefaultActionForwardTargetGroupOutput) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionForwardTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[GetListenerDefaultActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringOutput {
@@ -3864,12 +3305,6 @@ func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefa
 
 func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
 	return o
-}
-
-func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetListenerDefaultActionForwardTargetGroup] {
-	return pulumix.Output[[]GetListenerDefaultActionForwardTargetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetListenerDefaultActionForwardTargetGroupArrayOutput) Index(i pulumi.IntInput) GetListenerDefaultActionForwardTargetGroupOutput {
@@ -3911,12 +3346,6 @@ func (i GetServiceDnsEntryArgs) ToGetServiceDnsEntryOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsEntryOutput)
 }
 
-func (i GetServiceDnsEntryArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsEntry] {
-	return pulumix.Output[GetServiceDnsEntry]{
-		OutputState: i.ToGetServiceDnsEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceDnsEntryArrayInput is an input type that accepts GetServiceDnsEntryArray and GetServiceDnsEntryArrayOutput values.
 // You can construct a concrete instance of `GetServiceDnsEntryArrayInput` via:
 //
@@ -3942,12 +3371,6 @@ func (i GetServiceDnsEntryArray) ToGetServiceDnsEntryArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsEntryArrayOutput)
 }
 
-func (i GetServiceDnsEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsEntry] {
-	return pulumix.Output[[]GetServiceDnsEntry]{
-		OutputState: i.ToGetServiceDnsEntryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceDnsEntryOutput struct{ *pulumi.OutputState }
 
 func (GetServiceDnsEntryOutput) ElementType() reflect.Type {
@@ -3960,12 +3383,6 @@ func (o GetServiceDnsEntryOutput) ToGetServiceDnsEntryOutput() GetServiceDnsEntr
 
 func (o GetServiceDnsEntryOutput) ToGetServiceDnsEntryOutputWithContext(ctx context.Context) GetServiceDnsEntryOutput {
 	return o
-}
-
-func (o GetServiceDnsEntryOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsEntry] {
-	return pulumix.Output[GetServiceDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceDnsEntryOutput) DomainName() pulumi.StringOutput {
@@ -3988,12 +3405,6 @@ func (o GetServiceDnsEntryArrayOutput) ToGetServiceDnsEntryArrayOutput() GetServ
 
 func (o GetServiceDnsEntryArrayOutput) ToGetServiceDnsEntryArrayOutputWithContext(ctx context.Context) GetServiceDnsEntryArrayOutput {
 	return o
-}
-
-func (o GetServiceDnsEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsEntry] {
-	return pulumix.Output[[]GetServiceDnsEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceDnsEntryArrayOutput) Index(i pulumi.IntInput) GetServiceDnsEntryOutput {

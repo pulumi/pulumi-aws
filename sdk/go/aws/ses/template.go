@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a SES template.
@@ -171,12 +170,6 @@ func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
 }
 
-func (i *Template) ToOutput(ctx context.Context) pulumix.Output[*Template] {
-	return pulumix.Output[*Template]{
-		OutputState: i.ToTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TemplateArrayInput is an input type that accepts TemplateArray and TemplateArrayOutput values.
 // You can construct a concrete instance of `TemplateArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i TemplateArray) ToTemplateArrayOutput() TemplateArrayOutput {
 
 func (i TemplateArray) ToTemplateArrayOutputWithContext(ctx context.Context) TemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateArrayOutput)
-}
-
-func (i TemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Template] {
-	return pulumix.Output[[]*Template]{
-		OutputState: i.ToTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TemplateMapInput is an input type that accepts TemplateMap and TemplateMapOutput values.
@@ -233,12 +220,6 @@ func (i TemplateMap) ToTemplateMapOutputWithContext(ctx context.Context) Templat
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateMapOutput)
 }
 
-func (i TemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Template] {
-	return pulumix.Output[map[string]*Template]{
-		OutputState: i.ToTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
 
 func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return o
-}
-
-func (o TemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*Template] {
-	return pulumix.Output[*Template]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the SES template
@@ -298,12 +273,6 @@ func (o TemplateArrayOutput) ToTemplateArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o TemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Template] {
-	return pulumix.Output[[]*Template]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArrayOutput) Index(i pulumi.IntInput) TemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Template {
 		return vs[0].([]*Template)[vs[1].(int)]
@@ -322,12 +291,6 @@ func (o TemplateMapOutput) ToTemplateMapOutput() TemplateMapOutput {
 
 func (o TemplateMapOutput) ToTemplateMapOutputWithContext(ctx context.Context) TemplateMapOutput {
 	return o
-}
-
-func (o TemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Template] {
-	return pulumix.Output[map[string]*Template]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateMapOutput) MapIndex(k pulumi.StringInput) TemplateOutput {

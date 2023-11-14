@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Global Accelerator custom routing accelerator.
@@ -127,12 +126,6 @@ func (o LookupCustomRoutingAcceleratorResultOutput) ToLookupCustomRoutingAcceler
 
 func (o LookupCustomRoutingAcceleratorResultOutput) ToLookupCustomRoutingAcceleratorResultOutputWithContext(ctx context.Context) LookupCustomRoutingAcceleratorResultOutput {
 	return o
-}
-
-func (o LookupCustomRoutingAcceleratorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomRoutingAcceleratorResult] {
-	return pulumix.Output[LookupCustomRoutingAcceleratorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCustomRoutingAcceleratorResultOutput) Arn() pulumi.StringOutput {

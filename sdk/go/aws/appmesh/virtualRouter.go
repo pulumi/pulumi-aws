@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS App Mesh virtual router resource.
@@ -240,12 +239,6 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
 }
 
-func (i *VirtualRouter) ToOutput(ctx context.Context) pulumix.Output[*VirtualRouter] {
-	return pulumix.Output[*VirtualRouter]{
-		OutputState: i.ToVirtualRouterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualRouterArrayInput is an input type that accepts VirtualRouterArray and VirtualRouterArrayOutput values.
 // You can construct a concrete instance of `VirtualRouterArrayInput` via:
 //
@@ -269,12 +262,6 @@ func (i VirtualRouterArray) ToVirtualRouterArrayOutput() VirtualRouterArrayOutpu
 
 func (i VirtualRouterArray) ToVirtualRouterArrayOutputWithContext(ctx context.Context) VirtualRouterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterArrayOutput)
-}
-
-func (i VirtualRouterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualRouter] {
-	return pulumix.Output[[]*VirtualRouter]{
-		OutputState: i.ToVirtualRouterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualRouterMapInput is an input type that accepts VirtualRouterMap and VirtualRouterMapOutput values.
@@ -302,12 +289,6 @@ func (i VirtualRouterMap) ToVirtualRouterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterMapOutput)
 }
 
-func (i VirtualRouterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualRouter] {
-	return pulumix.Output[map[string]*VirtualRouter]{
-		OutputState: i.ToVirtualRouterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
@@ -320,12 +301,6 @@ func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {
 
 func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
 	return o
-}
-
-func (o VirtualRouterOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualRouter] {
-	return pulumix.Output[*VirtualRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the virtual router.
@@ -394,12 +369,6 @@ func (o VirtualRouterArrayOutput) ToVirtualRouterArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o VirtualRouterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualRouter] {
-	return pulumix.Output[[]*VirtualRouter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualRouterArrayOutput) Index(i pulumi.IntInput) VirtualRouterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualRouter {
 		return vs[0].([]*VirtualRouter)[vs[1].(int)]
@@ -418,12 +387,6 @@ func (o VirtualRouterMapOutput) ToVirtualRouterMapOutput() VirtualRouterMapOutpu
 
 func (o VirtualRouterMapOutput) ToVirtualRouterMapOutputWithContext(ctx context.Context) VirtualRouterMapOutput {
 	return o
-}
-
-func (o VirtualRouterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualRouter] {
-	return pulumix.Output[map[string]*VirtualRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualRouterMapOutput) MapIndex(k pulumi.StringInput) VirtualRouterOutput {

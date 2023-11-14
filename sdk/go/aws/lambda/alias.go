@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
@@ -202,12 +201,6 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
 }
 
-func (i *Alias) ToOutput(ctx context.Context) pulumix.Output[*Alias] {
-	return pulumix.Output[*Alias]{
-		OutputState: i.ToAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AliasArrayInput is an input type that accepts AliasArray and AliasArrayOutput values.
 // You can construct a concrete instance of `AliasArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i AliasArray) ToAliasArrayOutput() AliasArrayOutput {
 
 func (i AliasArray) ToAliasArrayOutputWithContext(ctx context.Context) AliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasArrayOutput)
-}
-
-func (i AliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*Alias] {
-	return pulumix.Output[[]*Alias]{
-		OutputState: i.ToAliasArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AliasMapInput is an input type that accepts AliasMap and AliasMapOutput values.
@@ -264,12 +251,6 @@ func (i AliasMap) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AliasMapOutput)
 }
 
-func (i AliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Alias] {
-	return pulumix.Output[map[string]*Alias]{
-		OutputState: i.ToAliasMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o AliasOutput) ToAliasOutput() AliasOutput {
 
 func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
-}
-
-func (o AliasOutput) ToOutput(ctx context.Context) pulumix.Output[*Alias] {
-	return pulumix.Output[*Alias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) identifying your Lambda function alias.
@@ -339,12 +314,6 @@ func (o AliasArrayOutput) ToAliasArrayOutputWithContext(ctx context.Context) Ali
 	return o
 }
 
-func (o AliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Alias] {
-	return pulumix.Output[[]*Alias]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AliasArrayOutput) Index(i pulumi.IntInput) AliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Alias {
 		return vs[0].([]*Alias)[vs[1].(int)]
@@ -363,12 +332,6 @@ func (o AliasMapOutput) ToAliasMapOutput() AliasMapOutput {
 
 func (o AliasMapOutput) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutput {
 	return o
-}
-
-func (o AliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Alias] {
-	return pulumix.Output[map[string]*Alias]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AliasMapOutput) MapIndex(k pulumi.StringInput) AliasOutput {

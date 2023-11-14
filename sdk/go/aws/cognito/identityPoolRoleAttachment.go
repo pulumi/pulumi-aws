@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Cognito Identity Pool Roles Attachment.
@@ -134,12 +133,6 @@ func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
 }
 
-func (i *IdentityPoolRoleAttachment) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolRoleAttachment] {
-	return pulumix.Output[*IdentityPoolRoleAttachment]{
-		OutputState: i.ToIdentityPoolRoleAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityPoolRoleAttachmentArrayInput is an input type that accepts IdentityPoolRoleAttachmentArray and IdentityPoolRoleAttachmentArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolRoleAttachmentArrayInput` via:
 //
@@ -163,12 +156,6 @@ func (i IdentityPoolRoleAttachmentArray) ToIdentityPoolRoleAttachmentArrayOutput
 
 func (i IdentityPoolRoleAttachmentArray) ToIdentityPoolRoleAttachmentArrayOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentArrayOutput)
-}
-
-func (i IdentityPoolRoleAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPoolRoleAttachment] {
-	return pulumix.Output[[]*IdentityPoolRoleAttachment]{
-		OutputState: i.ToIdentityPoolRoleAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityPoolRoleAttachmentMapInput is an input type that accepts IdentityPoolRoleAttachmentMap and IdentityPoolRoleAttachmentMapOutput values.
@@ -196,12 +183,6 @@ func (i IdentityPoolRoleAttachmentMap) ToIdentityPoolRoleAttachmentMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentMapOutput)
 }
 
-func (i IdentityPoolRoleAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPoolRoleAttachment] {
-	return pulumix.Output[map[string]*IdentityPoolRoleAttachment]{
-		OutputState: i.ToIdentityPoolRoleAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolRoleAttachmentOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
@@ -214,12 +195,6 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() I
 
 func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
 	return o
-}
-
-func (o IdentityPoolRoleAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolRoleAttachment] {
-	return pulumix.Output[*IdentityPoolRoleAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An identity pool ID in the format `REGION_GUID`.
@@ -253,12 +228,6 @@ func (o IdentityPoolRoleAttachmentArrayOutput) ToIdentityPoolRoleAttachmentArray
 	return o
 }
 
-func (o IdentityPoolRoleAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPoolRoleAttachment] {
-	return pulumix.Output[[]*IdentityPoolRoleAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityPoolRoleAttachmentArrayOutput) Index(i pulumi.IntInput) IdentityPoolRoleAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPoolRoleAttachment {
 		return vs[0].([]*IdentityPoolRoleAttachment)[vs[1].(int)]
@@ -277,12 +246,6 @@ func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutp
 
 func (o IdentityPoolRoleAttachmentMapOutput) ToIdentityPoolRoleAttachmentMapOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentMapOutput {
 	return o
-}
-
-func (o IdentityPoolRoleAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPoolRoleAttachment] {
-	return pulumix.Output[map[string]*IdentityPoolRoleAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolRoleAttachmentMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolRoleAttachmentOutput {

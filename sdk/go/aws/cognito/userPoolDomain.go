@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool Domain resource.
@@ -255,12 +254,6 @@ func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
 }
 
-func (i *UserPoolDomain) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomain] {
-	return pulumix.Output[*UserPoolDomain]{
-		OutputState: i.ToUserPoolDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolDomainArrayInput is an input type that accepts UserPoolDomainArray and UserPoolDomainArrayOutput values.
 // You can construct a concrete instance of `UserPoolDomainArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i UserPoolDomainArray) ToUserPoolDomainArrayOutput() UserPoolDomainArrayOu
 
 func (i UserPoolDomainArray) ToUserPoolDomainArrayOutputWithContext(ctx context.Context) UserPoolDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainArrayOutput)
-}
-
-func (i UserPoolDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolDomain] {
-	return pulumix.Output[[]*UserPoolDomain]{
-		OutputState: i.ToUserPoolDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserPoolDomainMapInput is an input type that accepts UserPoolDomainMap and UserPoolDomainMapOutput values.
@@ -317,12 +304,6 @@ func (i UserPoolDomainMap) ToUserPoolDomainMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainMapOutput)
 }
 
-func (i UserPoolDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolDomain] {
-	return pulumix.Output[map[string]*UserPoolDomain]{
-		OutputState: i.ToUserPoolDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolDomainOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return o
-}
-
-func (o UserPoolDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomain] {
-	return pulumix.Output[*UserPoolDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID for the user pool owner.
@@ -402,12 +377,6 @@ func (o UserPoolDomainArrayOutput) ToUserPoolDomainArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o UserPoolDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserPoolDomain] {
-	return pulumix.Output[[]*UserPoolDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolDomainArrayOutput) Index(i pulumi.IntInput) UserPoolDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolDomain {
 		return vs[0].([]*UserPoolDomain)[vs[1].(int)]
@@ -426,12 +395,6 @@ func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutput() UserPoolDomainMapOu
 
 func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutputWithContext(ctx context.Context) UserPoolDomainMapOutput {
 	return o
-}
-
-func (o UserPoolDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserPoolDomain] {
-	return pulumix.Output[map[string]*UserPoolDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolDomainMapOutput) MapIndex(k pulumi.StringInput) UserPoolDomainOutput {

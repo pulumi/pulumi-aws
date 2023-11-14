@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS FinSpace Kx User.
@@ -244,12 +243,6 @@ func (i *KxUser) ToKxUserOutputWithContext(ctx context.Context) KxUserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KxUserOutput)
 }
 
-func (i *KxUser) ToOutput(ctx context.Context) pulumix.Output[*KxUser] {
-	return pulumix.Output[*KxUser]{
-		OutputState: i.ToKxUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KxUserArrayInput is an input type that accepts KxUserArray and KxUserArrayOutput values.
 // You can construct a concrete instance of `KxUserArrayInput` via:
 //
@@ -273,12 +266,6 @@ func (i KxUserArray) ToKxUserArrayOutput() KxUserArrayOutput {
 
 func (i KxUserArray) ToKxUserArrayOutputWithContext(ctx context.Context) KxUserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KxUserArrayOutput)
-}
-
-func (i KxUserArray) ToOutput(ctx context.Context) pulumix.Output[[]*KxUser] {
-	return pulumix.Output[[]*KxUser]{
-		OutputState: i.ToKxUserArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KxUserMapInput is an input type that accepts KxUserMap and KxUserMapOutput values.
@@ -306,12 +293,6 @@ func (i KxUserMap) ToKxUserMapOutputWithContext(ctx context.Context) KxUserMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(KxUserMapOutput)
 }
 
-func (i KxUserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxUser] {
-	return pulumix.Output[map[string]*KxUser]{
-		OutputState: i.ToKxUserMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KxUserOutput struct{ *pulumi.OutputState }
 
 func (KxUserOutput) ElementType() reflect.Type {
@@ -324,12 +305,6 @@ func (o KxUserOutput) ToKxUserOutput() KxUserOutput {
 
 func (o KxUserOutput) ToKxUserOutputWithContext(ctx context.Context) KxUserOutput {
 	return o
-}
-
-func (o KxUserOutput) ToOutput(ctx context.Context) pulumix.Output[*KxUser] {
-	return pulumix.Output[*KxUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) identifier of the KX user.
@@ -380,12 +355,6 @@ func (o KxUserArrayOutput) ToKxUserArrayOutputWithContext(ctx context.Context) K
 	return o
 }
 
-func (o KxUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KxUser] {
-	return pulumix.Output[[]*KxUser]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KxUserArrayOutput) Index(i pulumi.IntInput) KxUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KxUser {
 		return vs[0].([]*KxUser)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o KxUserMapOutput) ToKxUserMapOutput() KxUserMapOutput {
 
 func (o KxUserMapOutput) ToKxUserMapOutputWithContext(ctx context.Context) KxUserMapOutput {
 	return o
-}
-
-func (o KxUserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxUser] {
-	return pulumix.Output[map[string]*KxUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KxUserMapOutput) MapIndex(k pulumi.StringInput) KxUserOutput {

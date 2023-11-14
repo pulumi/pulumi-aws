@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ClusterNodeArgs) ToClusterNodeOutputWithContext(ctx context.Context) Clu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeOutput)
 }
 
-func (i ClusterNodeArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterNode] {
-	return pulumix.Output[ClusterNode]{
-		OutputState: i.ToClusterNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterNodeArrayInput is an input type that accepts ClusterNodeArray and ClusterNodeArrayOutput values.
 // You can construct a concrete instance of `ClusterNodeArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ClusterNodeArray) ToClusterNodeArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeArrayOutput)
 }
 
-func (i ClusterNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNode] {
-	return pulumix.Output[[]ClusterNode]{
-		OutputState: i.ToClusterNodeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeOutput) ElementType() reflect.Type {
@@ -102,12 +89,6 @@ func (o ClusterNodeOutput) ToClusterNodeOutput() ClusterNodeOutput {
 
 func (o ClusterNodeOutput) ToClusterNodeOutputWithContext(ctx context.Context) ClusterNodeOutput {
 	return o
-}
-
-func (o ClusterNodeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterNode] {
-	return pulumix.Output[ClusterNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNodeOutput) Address() pulumi.StringPtrOutput {
@@ -139,12 +120,6 @@ func (o ClusterNodeArrayOutput) ToClusterNodeArrayOutput() ClusterNodeArrayOutpu
 
 func (o ClusterNodeArrayOutput) ToClusterNodeArrayOutputWithContext(ctx context.Context) ClusterNodeArrayOutput {
 	return o
-}
-
-func (o ClusterNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterNode] {
-	return pulumix.Output[[]ClusterNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterNodeOutput {
@@ -184,12 +159,6 @@ func (i ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionOutput() C
 
 func (i ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionOutputWithContext(ctx context.Context) ClusterServerSideEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerSideEncryptionOutput)
-}
-
-func (i ClusterServerSideEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterServerSideEncryption] {
-	return pulumix.Output[ClusterServerSideEncryption]{
-		OutputState: i.ToClusterServerSideEncryptionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ClusterServerSideEncryptionArgs) ToClusterServerSideEncryptionPtrOutput() ClusterServerSideEncryptionPtrOutput {
@@ -233,12 +202,6 @@ func (i *clusterServerSideEncryptionPtrType) ToClusterServerSideEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerSideEncryptionPtrOutput)
 }
 
-func (i *clusterServerSideEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerSideEncryption] {
-	return pulumix.Output[*ClusterServerSideEncryption]{
-		OutputState: i.ToClusterServerSideEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ClusterServerSideEncryptionOutput) ElementType() reflect.Type {
@@ -263,12 +226,6 @@ func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionPtrOutpu
 	}).(ClusterServerSideEncryptionPtrOutput)
 }
 
-func (o ClusterServerSideEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterServerSideEncryption] {
-	return pulumix.Output[ClusterServerSideEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to enable encryption at rest. Defaults to `false`.
 func (o ClusterServerSideEncryptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -286,12 +243,6 @@ func (o ClusterServerSideEncryptionPtrOutput) ToClusterServerSideEncryptionPtrOu
 
 func (o ClusterServerSideEncryptionPtrOutput) ToClusterServerSideEncryptionPtrOutputWithContext(ctx context.Context) ClusterServerSideEncryptionPtrOutput {
 	return o
-}
-
-func (o ClusterServerSideEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterServerSideEncryption] {
-	return pulumix.Output[*ClusterServerSideEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterServerSideEncryptionPtrOutput) Elem() ClusterServerSideEncryptionOutput {
@@ -351,12 +302,6 @@ func (i ParameterGroupParameterArgs) ToParameterGroupParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterOutput)
 }
 
-func (i ParameterGroupParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
-	return pulumix.Output[ParameterGroupParameter]{
-		OutputState: i.ToParameterGroupParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ParameterGroupParameterArrayInput is an input type that accepts ParameterGroupParameterArray and ParameterGroupParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupParameterArrayInput` via:
 //
@@ -382,12 +327,6 @@ func (i ParameterGroupParameterArray) ToParameterGroupParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupParameterArrayOutput)
 }
 
-func (i ParameterGroupParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
-	return pulumix.Output[[]ParameterGroupParameter]{
-		OutputState: i.ToParameterGroupParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ParameterGroupParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupParameterOutput) ElementType() reflect.Type {
@@ -400,12 +339,6 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutput() Paramet
 
 func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContext(ctx context.Context) ParameterGroupParameterOutput {
 	return o
-}
-
-func (o ParameterGroupParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupParameter] {
-	return pulumix.Output[ParameterGroupParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the parameter.
@@ -430,12 +363,6 @@ func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutput
 
 func (o ParameterGroupParameterArrayOutput) ToParameterGroupParameterArrayOutputWithContext(ctx context.Context) ParameterGroupParameterArrayOutput {
 	return o
-}
-
-func (o ParameterGroupParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupParameter] {
-	return pulumix.Output[[]ParameterGroupParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGroupParameterOutput {

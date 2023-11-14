@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i SecretReplicaArgs) ToSecretReplicaOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaOutput)
 }
 
-func (i SecretReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[SecretReplica] {
-	return pulumix.Output[SecretReplica]{
-		OutputState: i.ToSecretReplicaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecretReplicaArrayInput is an input type that accepts SecretReplicaArray and SecretReplicaArrayOutput values.
 // You can construct a concrete instance of `SecretReplicaArrayInput` via:
 //
@@ -94,12 +87,6 @@ func (i SecretReplicaArray) ToSecretReplicaArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaArrayOutput)
 }
 
-func (i SecretReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]SecretReplica] {
-	return pulumix.Output[[]SecretReplica]{
-		OutputState: i.ToSecretReplicaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecretReplicaOutput struct{ *pulumi.OutputState }
 
 func (SecretReplicaOutput) ElementType() reflect.Type {
@@ -112,12 +99,6 @@ func (o SecretReplicaOutput) ToSecretReplicaOutput() SecretReplicaOutput {
 
 func (o SecretReplicaOutput) ToSecretReplicaOutputWithContext(ctx context.Context) SecretReplicaOutput {
 	return o
-}
-
-func (o SecretReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[SecretReplica] {
-	return pulumix.Output[SecretReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
@@ -157,12 +138,6 @@ func (o SecretReplicaArrayOutput) ToSecretReplicaArrayOutput() SecretReplicaArra
 
 func (o SecretReplicaArrayOutput) ToSecretReplicaArrayOutputWithContext(ctx context.Context) SecretReplicaArrayOutput {
 	return o
-}
-
-func (o SecretReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecretReplica] {
-	return pulumix.Output[[]SecretReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
@@ -212,12 +187,6 @@ func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRotationRulesOutput)
 }
 
-func (i SecretRotationRotationRulesArgs) ToOutput(ctx context.Context) pulumix.Output[SecretRotationRotationRules] {
-	return pulumix.Output[SecretRotationRotationRules]{
-		OutputState: i.ToSecretRotationRotationRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SecretRotationRotationRulesArgs) ToSecretRotationRotationRulesPtrOutput() SecretRotationRotationRulesPtrOutput {
 	return i.ToSecretRotationRotationRulesPtrOutputWithContext(context.Background())
 }
@@ -259,12 +228,6 @@ func (i *secretRotationRotationRulesPtrType) ToSecretRotationRotationRulesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationRotationRulesPtrOutput)
 }
 
-func (i *secretRotationRotationRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SecretRotationRotationRules] {
-	return pulumix.Output[*SecretRotationRotationRules]{
-		OutputState: i.ToSecretRotationRotationRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecretRotationRotationRulesOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationRotationRulesOutput) ElementType() reflect.Type {
@@ -287,12 +250,6 @@ func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretRotationRotationRules) *SecretRotationRotationRules {
 		return &v
 	}).(SecretRotationRotationRulesPtrOutput)
-}
-
-func (o SecretRotationRotationRulesOutput) ToOutput(ctx context.Context) pulumix.Output[SecretRotationRotationRules] {
-	return pulumix.Output[SecretRotationRotationRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret. Either `automaticallyAfterDays` or `scheduleExpression` must be specified.
@@ -322,12 +279,6 @@ func (o SecretRotationRotationRulesPtrOutput) ToSecretRotationRotationRulesPtrOu
 
 func (o SecretRotationRotationRulesPtrOutput) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
 	return o
-}
-
-func (o SecretRotationRotationRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretRotationRotationRules] {
-	return pulumix.Output[*SecretRotationRotationRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRulesOutput {
@@ -405,12 +356,6 @@ func (i GetSecretRotationRotationRuleArgs) ToGetSecretRotationRotationRuleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRotationRuleOutput)
 }
 
-func (i GetSecretRotationRotationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecretRotationRotationRule] {
-	return pulumix.Output[GetSecretRotationRotationRule]{
-		OutputState: i.ToGetSecretRotationRotationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSecretRotationRotationRuleArrayInput is an input type that accepts GetSecretRotationRotationRuleArray and GetSecretRotationRotationRuleArrayOutput values.
 // You can construct a concrete instance of `GetSecretRotationRotationRuleArrayInput` via:
 //
@@ -436,12 +381,6 @@ func (i GetSecretRotationRotationRuleArray) ToGetSecretRotationRotationRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretRotationRotationRuleArrayOutput)
 }
 
-func (i GetSecretRotationRotationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretRotationRotationRule] {
-	return pulumix.Output[[]GetSecretRotationRotationRule]{
-		OutputState: i.ToGetSecretRotationRotationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSecretRotationRotationRuleOutput struct{ *pulumi.OutputState }
 
 func (GetSecretRotationRotationRuleOutput) ElementType() reflect.Type {
@@ -454,12 +393,6 @@ func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutp
 
 func (o GetSecretRotationRotationRuleOutput) ToGetSecretRotationRotationRuleOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleOutput {
 	return o
-}
-
-func (o GetSecretRotationRotationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretRotationRotationRule] {
-	return pulumix.Output[GetSecretRotationRotationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecretRotationRotationRuleOutput) AutomaticallyAfterDays() pulumi.IntOutput {
@@ -486,12 +419,6 @@ func (o GetSecretRotationRotationRuleArrayOutput) ToGetSecretRotationRotationRul
 
 func (o GetSecretRotationRotationRuleArrayOutput) ToGetSecretRotationRotationRuleArrayOutputWithContext(ctx context.Context) GetSecretRotationRotationRuleArrayOutput {
 	return o
-}
-
-func (o GetSecretRotationRotationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretRotationRotationRule] {
-	return pulumix.Output[[]GetSecretRotationRotationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecretRotationRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRotationRotationRuleOutput {
@@ -537,12 +464,6 @@ func (i GetSecretsFilterArgs) ToGetSecretsFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsFilterOutput)
 }
 
-func (i GetSecretsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecretsFilter] {
-	return pulumix.Output[GetSecretsFilter]{
-		OutputState: i.ToGetSecretsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSecretsFilterArrayInput is an input type that accepts GetSecretsFilterArray and GetSecretsFilterArrayOutput values.
 // You can construct a concrete instance of `GetSecretsFilterArrayInput` via:
 //
@@ -568,12 +489,6 @@ func (i GetSecretsFilterArray) ToGetSecretsFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsFilterArrayOutput)
 }
 
-func (i GetSecretsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsFilter] {
-	return pulumix.Output[[]GetSecretsFilter]{
-		OutputState: i.ToGetSecretsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSecretsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetSecretsFilterOutput) ElementType() reflect.Type {
@@ -586,12 +501,6 @@ func (o GetSecretsFilterOutput) ToGetSecretsFilterOutput() GetSecretsFilterOutpu
 
 func (o GetSecretsFilterOutput) ToGetSecretsFilterOutputWithContext(ctx context.Context) GetSecretsFilterOutput {
 	return o
-}
-
-func (o GetSecretsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsFilter] {
-	return pulumix.Output[GetSecretsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
@@ -616,12 +525,6 @@ func (o GetSecretsFilterArrayOutput) ToGetSecretsFilterArrayOutput() GetSecretsF
 
 func (o GetSecretsFilterArrayOutput) ToGetSecretsFilterArrayOutputWithContext(ctx context.Context) GetSecretsFilterArrayOutput {
 	return o
-}
-
-func (o GetSecretsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsFilter] {
-	return pulumix.Output[[]GetSecretsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecretsFilterArrayOutput) Index(i pulumi.IntInput) GetSecretsFilterOutput {

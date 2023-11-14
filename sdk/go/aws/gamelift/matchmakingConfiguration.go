@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a GameLift Alias resource.
@@ -361,12 +360,6 @@ func (i *MatchmakingConfiguration) ToMatchmakingConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationOutput)
 }
 
-func (i *MatchmakingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfiguration] {
-	return pulumix.Output[*MatchmakingConfiguration]{
-		OutputState: i.ToMatchmakingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MatchmakingConfigurationArrayInput is an input type that accepts MatchmakingConfigurationArray and MatchmakingConfigurationArrayOutput values.
 // You can construct a concrete instance of `MatchmakingConfigurationArrayInput` via:
 //
@@ -390,12 +383,6 @@ func (i MatchmakingConfigurationArray) ToMatchmakingConfigurationArrayOutput() M
 
 func (i MatchmakingConfigurationArray) ToMatchmakingConfigurationArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationArrayOutput)
-}
-
-func (i MatchmakingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MatchmakingConfiguration] {
-	return pulumix.Output[[]*MatchmakingConfiguration]{
-		OutputState: i.ToMatchmakingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MatchmakingConfigurationMapInput is an input type that accepts MatchmakingConfigurationMap and MatchmakingConfigurationMapOutput values.
@@ -423,12 +410,6 @@ func (i MatchmakingConfigurationMap) ToMatchmakingConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationMapOutput)
 }
 
-func (i MatchmakingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MatchmakingConfiguration] {
-	return pulumix.Output[map[string]*MatchmakingConfiguration]{
-		OutputState: i.ToMatchmakingConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MatchmakingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationOutput) ElementType() reflect.Type {
@@ -441,12 +422,6 @@ func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutput() Match
 
 func (o MatchmakingConfigurationOutput) ToMatchmakingConfigurationOutputWithContext(ctx context.Context) MatchmakingConfigurationOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfiguration] {
-	return pulumix.Output[*MatchmakingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the match that was created with this configuration must be accepted by matched players.
@@ -561,12 +536,6 @@ func (o MatchmakingConfigurationArrayOutput) ToMatchmakingConfigurationArrayOutp
 	return o
 }
 
-func (o MatchmakingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MatchmakingConfiguration] {
-	return pulumix.Output[[]*MatchmakingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MatchmakingConfiguration {
 		return vs[0].([]*MatchmakingConfiguration)[vs[1].(int)]
@@ -585,12 +554,6 @@ func (o MatchmakingConfigurationMapOutput) ToMatchmakingConfigurationMapOutput()
 
 func (o MatchmakingConfigurationMapOutput) ToMatchmakingConfigurationMapOutputWithContext(ctx context.Context) MatchmakingConfigurationMapOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MatchmakingConfiguration] {
-	return pulumix.Output[map[string]*MatchmakingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchmakingConfigurationMapOutput) MapIndex(k pulumi.StringInput) MatchmakingConfigurationOutput {

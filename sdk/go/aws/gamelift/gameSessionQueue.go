@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an GameLift Game Session Queue resource.
@@ -229,12 +228,6 @@ func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueOutput)
 }
 
-func (i *GameSessionQueue) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueue] {
-	return pulumix.Output[*GameSessionQueue]{
-		OutputState: i.ToGameSessionQueueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GameSessionQueueArrayInput is an input type that accepts GameSessionQueueArray and GameSessionQueueArrayOutput values.
 // You can construct a concrete instance of `GameSessionQueueArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i GameSessionQueueArray) ToGameSessionQueueArrayOutput() GameSessionQueueA
 
 func (i GameSessionQueueArray) ToGameSessionQueueArrayOutputWithContext(ctx context.Context) GameSessionQueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueArrayOutput)
-}
-
-func (i GameSessionQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*GameSessionQueue] {
-	return pulumix.Output[[]*GameSessionQueue]{
-		OutputState: i.ToGameSessionQueueArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GameSessionQueueMapInput is an input type that accepts GameSessionQueueMap and GameSessionQueueMapOutput values.
@@ -291,12 +278,6 @@ func (i GameSessionQueueMap) ToGameSessionQueueMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueMapOutput)
 }
 
-func (i GameSessionQueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GameSessionQueue] {
-	return pulumix.Output[map[string]*GameSessionQueue]{
-		OutputState: i.ToGameSessionQueueMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameSessionQueueOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutput() GameSessionQueueOutpu
 
 func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
 	return o
-}
-
-func (o GameSessionQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueue] {
-	return pulumix.Output[*GameSessionQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Game Session Queue ARN.
@@ -380,12 +355,6 @@ func (o GameSessionQueueArrayOutput) ToGameSessionQueueArrayOutputWithContext(ct
 	return o
 }
 
-func (o GameSessionQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GameSessionQueue] {
-	return pulumix.Output[[]*GameSessionQueue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameSessionQueueArrayOutput) Index(i pulumi.IntInput) GameSessionQueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GameSessionQueue {
 		return vs[0].([]*GameSessionQueue)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o GameSessionQueueMapOutput) ToGameSessionQueueMapOutput() GameSessionQueu
 
 func (o GameSessionQueueMapOutput) ToGameSessionQueueMapOutputWithContext(ctx context.Context) GameSessionQueueMapOutput {
 	return o
-}
-
-func (o GameSessionQueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GameSessionQueue] {
-	return pulumix.Output[map[string]*GameSessionQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameSessionQueueMapOutput) MapIndex(k pulumi.StringInput) GameSessionQueueOutput {

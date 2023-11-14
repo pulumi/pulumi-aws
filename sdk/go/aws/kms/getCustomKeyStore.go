@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the metadata KMS custom key store.
@@ -112,12 +111,6 @@ func (o LookupCustomKeyStoreResultOutput) ToLookupCustomKeyStoreResultOutput() L
 
 func (o LookupCustomKeyStoreResultOutput) ToLookupCustomKeyStoreResultOutputWithContext(ctx context.Context) LookupCustomKeyStoreResultOutput {
 	return o
-}
-
-func (o LookupCustomKeyStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomKeyStoreResult] {
-	return pulumix.Output[LookupCustomKeyStoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCustomKeyStoreResultOutput) CloudHsmClusterId() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Task.
@@ -134,12 +133,6 @@ func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutput()
 
 func (o LookupReplicationTaskResultOutput) ToLookupReplicationTaskResultOutputWithContext(ctx context.Context) LookupReplicationTaskResultOutput {
 	return o
-}
-
-func (o LookupReplicationTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationTaskResult] {
-	return pulumix.Output[LookupReplicationTaskResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Conflicts with `cdcStartTime`) Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).

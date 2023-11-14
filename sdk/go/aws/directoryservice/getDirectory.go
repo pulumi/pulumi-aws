@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get attributes of AWS Directory Service directory (SimpleAD, Managed AD, AD Connector). It's especially useful to refer AWS Managed AD or on-premise AD in AD Connector configuration.
@@ -129,12 +128,6 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutput() LookupDirec
 
 func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ctx context.Context) LookupDirectoryResultOutput {
 	return o
-}
-
-func (o LookupDirectoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryResult] {
-	return pulumix.Output[LookupDirectoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access URL for the directory/connector, such as http://alias.awsapps.com.

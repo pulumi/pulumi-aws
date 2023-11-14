@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i BrokerConfigurationArgs) ToBrokerConfigurationOutput() BrokerConfigurati
 
 func (i BrokerConfigurationArgs) ToBrokerConfigurationOutputWithContext(ctx context.Context) BrokerConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerConfigurationOutput)
-}
-
-func (i BrokerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerConfiguration] {
-	return pulumix.Output[BrokerConfiguration]{
-		OutputState: i.ToBrokerConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BrokerConfigurationArgs) ToBrokerConfigurationPtrOutput() BrokerConfigurationPtrOutput {
@@ -98,12 +91,6 @@ func (i *brokerConfigurationPtrType) ToBrokerConfigurationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerConfigurationPtrOutput)
 }
 
-func (i *brokerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BrokerConfiguration] {
-	return pulumix.Output[*BrokerConfiguration]{
-		OutputState: i.ToBrokerConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BrokerConfigurationOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o BrokerConfigurationOutput) ToBrokerConfigurationPtrOutputWithContext(ctx
 	}).(BrokerConfigurationPtrOutput)
 }
 
-func (o BrokerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerConfiguration] {
-	return pulumix.Output[BrokerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Configuration ID.
 func (o BrokerConfigurationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -156,12 +137,6 @@ func (o BrokerConfigurationPtrOutput) ToBrokerConfigurationPtrOutput() BrokerCon
 
 func (o BrokerConfigurationPtrOutput) ToBrokerConfigurationPtrOutputWithContext(ctx context.Context) BrokerConfigurationPtrOutput {
 	return o
-}
-
-func (o BrokerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokerConfiguration] {
-	return pulumix.Output[*BrokerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerConfigurationPtrOutput) Elem() BrokerConfigurationOutput {
@@ -231,12 +206,6 @@ func (i BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerEncryptionOptionsOutput)
 }
 
-func (i BrokerEncryptionOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerEncryptionOptions] {
-	return pulumix.Output[BrokerEncryptionOptions]{
-		OutputState: i.ToBrokerEncryptionOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BrokerEncryptionOptionsArgs) ToBrokerEncryptionOptionsPtrOutput() BrokerEncryptionOptionsPtrOutput {
 	return i.ToBrokerEncryptionOptionsPtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *brokerEncryptionOptionsPtrType) ToBrokerEncryptionOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerEncryptionOptionsPtrOutput)
 }
 
-func (i *brokerEncryptionOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BrokerEncryptionOptions] {
-	return pulumix.Output[*BrokerEncryptionOptions]{
-		OutputState: i.ToBrokerEncryptionOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerEncryptionOptionsOutput struct{ *pulumi.OutputState }
 
 func (BrokerEncryptionOptionsOutput) ElementType() reflect.Type {
@@ -308,12 +271,6 @@ func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsPtrOutputWithCon
 	}).(BrokerEncryptionOptionsPtrOutput)
 }
 
-func (o BrokerEncryptionOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerEncryptionOptions] {
-	return pulumix.Output[BrokerEncryptionOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
 func (o BrokerEncryptionOptionsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -336,12 +293,6 @@ func (o BrokerEncryptionOptionsPtrOutput) ToBrokerEncryptionOptionsPtrOutput() B
 
 func (o BrokerEncryptionOptionsPtrOutput) ToBrokerEncryptionOptionsPtrOutputWithContext(ctx context.Context) BrokerEncryptionOptionsPtrOutput {
 	return o
-}
-
-func (o BrokerEncryptionOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokerEncryptionOptions] {
-	return pulumix.Output[*BrokerEncryptionOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
@@ -409,12 +360,6 @@ func (i BrokerInstanceArgs) ToBrokerInstanceOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceOutput)
 }
 
-func (i BrokerInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerInstance] {
-	return pulumix.Output[BrokerInstance]{
-		OutputState: i.ToBrokerInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BrokerInstanceArrayInput is an input type that accepts BrokerInstanceArray and BrokerInstanceArrayOutput values.
 // You can construct a concrete instance of `BrokerInstanceArrayInput` via:
 //
@@ -440,12 +385,6 @@ func (i BrokerInstanceArray) ToBrokerInstanceArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceArrayOutput)
 }
 
-func (i BrokerInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]BrokerInstance] {
-	return pulumix.Output[[]BrokerInstance]{
-		OutputState: i.ToBrokerInstanceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerInstanceOutput struct{ *pulumi.OutputState }
 
 func (BrokerInstanceOutput) ElementType() reflect.Type {
@@ -458,12 +397,6 @@ func (o BrokerInstanceOutput) ToBrokerInstanceOutput() BrokerInstanceOutput {
 
 func (o BrokerInstanceOutput) ToBrokerInstanceOutputWithContext(ctx context.Context) BrokerInstanceOutput {
 	return o
-}
-
-func (o BrokerInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerInstance] {
-	return pulumix.Output[BrokerInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerInstanceOutput) ConsoleUrl() pulumi.StringPtrOutput {
@@ -490,12 +423,6 @@ func (o BrokerInstanceArrayOutput) ToBrokerInstanceArrayOutput() BrokerInstanceA
 
 func (o BrokerInstanceArrayOutput) ToBrokerInstanceArrayOutputWithContext(ctx context.Context) BrokerInstanceArrayOutput {
 	return o
-}
-
-func (o BrokerInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BrokerInstance] {
-	return pulumix.Output[[]BrokerInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerInstanceArrayOutput) Index(i pulumi.IntInput) BrokerInstanceOutput {
@@ -577,12 +504,6 @@ func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataOutput)
 }
 
-func (i BrokerLdapServerMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerLdapServerMetadata] {
-	return pulumix.Output[BrokerLdapServerMetadata]{
-		OutputState: i.ToBrokerLdapServerMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BrokerLdapServerMetadataArgs) ToBrokerLdapServerMetadataPtrOutput() BrokerLdapServerMetadataPtrOutput {
 	return i.ToBrokerLdapServerMetadataPtrOutputWithContext(context.Background())
 }
@@ -624,12 +545,6 @@ func (i *brokerLdapServerMetadataPtrType) ToBrokerLdapServerMetadataPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLdapServerMetadataPtrOutput)
 }
 
-func (i *brokerLdapServerMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*BrokerLdapServerMetadata] {
-	return pulumix.Output[*BrokerLdapServerMetadata]{
-		OutputState: i.ToBrokerLdapServerMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
 
 func (BrokerLdapServerMetadataOutput) ElementType() reflect.Type {
@@ -652,12 +567,6 @@ func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerLdapServerMetadata) *BrokerLdapServerMetadata {
 		return &v
 	}).(BrokerLdapServerMetadataPtrOutput)
-}
-
-func (o BrokerLdapServerMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerLdapServerMetadata] {
-	return pulumix.Output[BrokerLdapServerMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of a fully qualified domain name of the LDAP server and an optional failover server.
@@ -727,12 +636,6 @@ func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutput()
 
 func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
 	return o
-}
-
-func (o BrokerLdapServerMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokerLdapServerMetadata] {
-	return pulumix.Output[*BrokerLdapServerMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerLdapServerMetadataPtrOutput) Elem() BrokerLdapServerMetadataOutput {
@@ -892,12 +795,6 @@ func (i BrokerLogsArgs) ToBrokerLogsOutputWithContext(ctx context.Context) Broke
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLogsOutput)
 }
 
-func (i BrokerLogsArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerLogs] {
-	return pulumix.Output[BrokerLogs]{
-		OutputState: i.ToBrokerLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BrokerLogsArgs) ToBrokerLogsPtrOutput() BrokerLogsPtrOutput {
 	return i.ToBrokerLogsPtrOutputWithContext(context.Background())
 }
@@ -939,12 +836,6 @@ func (i *brokerLogsPtrType) ToBrokerLogsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerLogsPtrOutput)
 }
 
-func (i *brokerLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BrokerLogs] {
-	return pulumix.Output[*BrokerLogs]{
-		OutputState: i.ToBrokerLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (BrokerLogsOutput) ElementType() reflect.Type {
@@ -969,12 +860,6 @@ func (o BrokerLogsOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Context) 
 	}).(BrokerLogsPtrOutput)
 }
 
-func (o BrokerLogsOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerLogs] {
-	return pulumix.Output[BrokerLogs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
 func (o BrokerLogsOutput) Audit() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BrokerLogs) *bool { return v.Audit }).(pulumi.BoolPtrOutput)
@@ -997,12 +882,6 @@ func (o BrokerLogsPtrOutput) ToBrokerLogsPtrOutput() BrokerLogsPtrOutput {
 
 func (o BrokerLogsPtrOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Context) BrokerLogsPtrOutput {
 	return o
-}
-
-func (o BrokerLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokerLogs] {
-	return pulumix.Output[*BrokerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
@@ -1076,12 +955,6 @@ func (i BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTime
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
-func (i BrokerMaintenanceWindowStartTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[BrokerMaintenanceWindowStartTime]{
-		OutputState: i.ToBrokerMaintenanceWindowStartTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BrokerMaintenanceWindowStartTimeArgs) ToBrokerMaintenanceWindowStartTimePtrOutput() BrokerMaintenanceWindowStartTimePtrOutput {
 	return i.ToBrokerMaintenanceWindowStartTimePtrOutputWithContext(context.Background())
 }
@@ -1123,12 +996,6 @@ func (i *brokerMaintenanceWindowStartTimePtrType) ToBrokerMaintenanceWindowStart
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-func (i *brokerMaintenanceWindowStartTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*BrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[*BrokerMaintenanceWindowStartTime]{
-		OutputState: i.ToBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
 
 func (BrokerMaintenanceWindowStartTimeOutput) ElementType() reflect.Type {
@@ -1151,12 +1018,6 @@ func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerMaintenanceWindowStartTime) *BrokerMaintenanceWindowStartTime {
 		return &v
 	}).(BrokerMaintenanceWindowStartTimePtrOutput)
-}
-
-func (o BrokerMaintenanceWindowStartTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[BrokerMaintenanceWindowStartTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
@@ -1186,12 +1047,6 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) ToBrokerMaintenanceWindowStar
 
 func (o BrokerMaintenanceWindowStartTimePtrOutput) ToBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) BrokerMaintenanceWindowStartTimePtrOutput {
 	return o
-}
-
-func (o BrokerMaintenanceWindowStartTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[*BrokerMaintenanceWindowStartTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindowStartTimeOutput {
@@ -1287,12 +1142,6 @@ func (i BrokerUserArgs) ToBrokerUserOutputWithContext(ctx context.Context) Broke
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerUserOutput)
 }
 
-func (i BrokerUserArgs) ToOutput(ctx context.Context) pulumix.Output[BrokerUser] {
-	return pulumix.Output[BrokerUser]{
-		OutputState: i.ToBrokerUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BrokerUserArrayInput is an input type that accepts BrokerUserArray and BrokerUserArrayOutput values.
 // You can construct a concrete instance of `BrokerUserArrayInput` via:
 //
@@ -1318,12 +1167,6 @@ func (i BrokerUserArray) ToBrokerUserArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerUserArrayOutput)
 }
 
-func (i BrokerUserArray) ToOutput(ctx context.Context) pulumix.Output[[]BrokerUser] {
-	return pulumix.Output[[]BrokerUser]{
-		OutputState: i.ToBrokerUserArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrokerUserOutput struct{ *pulumi.OutputState }
 
 func (BrokerUserOutput) ElementType() reflect.Type {
@@ -1336,12 +1179,6 @@ func (o BrokerUserOutput) ToBrokerUserOutput() BrokerUserOutput {
 
 func (o BrokerUserOutput) ToBrokerUserOutputWithContext(ctx context.Context) BrokerUserOutput {
 	return o
-}
-
-func (o BrokerUserOutput) ToOutput(ctx context.Context) pulumix.Output[BrokerUser] {
-	return pulumix.Output[BrokerUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
@@ -1385,12 +1222,6 @@ func (o BrokerUserArrayOutput) ToBrokerUserArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BrokerUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BrokerUser] {
-	return pulumix.Output[[]BrokerUser]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BrokerUserArrayOutput) Index(i pulumi.IntInput) BrokerUserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokerUser {
 		return vs[0].([]BrokerUser)[vs[1].(int)]
@@ -1430,12 +1261,6 @@ func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationOutput)
 }
 
-func (i GetBrokerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerConfiguration] {
-	return pulumix.Output[GetBrokerConfiguration]{
-		OutputState: i.ToGetBrokerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerConfigurationOutput) ElementType() reflect.Type {
@@ -1448,12 +1273,6 @@ func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationOutput() GetBroker
 
 func (o GetBrokerConfigurationOutput) ToGetBrokerConfigurationOutputWithContext(ctx context.Context) GetBrokerConfigurationOutput {
 	return o
-}
-
-func (o GetBrokerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerConfiguration] {
-	return pulumix.Output[GetBrokerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerConfigurationOutput) Id() pulumi.StringOutput {
@@ -1497,12 +1316,6 @@ func (i GetBrokerEncryptionOptionArgs) ToGetBrokerEncryptionOptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionOutput)
 }
 
-func (i GetBrokerEncryptionOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerEncryptionOption] {
-	return pulumix.Output[GetBrokerEncryptionOption]{
-		OutputState: i.ToGetBrokerEncryptionOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBrokerEncryptionOptionArrayInput is an input type that accepts GetBrokerEncryptionOptionArray and GetBrokerEncryptionOptionArrayOutput values.
 // You can construct a concrete instance of `GetBrokerEncryptionOptionArrayInput` via:
 //
@@ -1528,12 +1341,6 @@ func (i GetBrokerEncryptionOptionArray) ToGetBrokerEncryptionOptionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionArrayOutput)
 }
 
-func (i GetBrokerEncryptionOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerEncryptionOption] {
-	return pulumix.Output[[]GetBrokerEncryptionOption]{
-		OutputState: i.ToGetBrokerEncryptionOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerEncryptionOptionOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerEncryptionOptionOutput) ElementType() reflect.Type {
@@ -1546,12 +1353,6 @@ func (o GetBrokerEncryptionOptionOutput) ToGetBrokerEncryptionOptionOutput() Get
 
 func (o GetBrokerEncryptionOptionOutput) ToGetBrokerEncryptionOptionOutputWithContext(ctx context.Context) GetBrokerEncryptionOptionOutput {
 	return o
-}
-
-func (o GetBrokerEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerEncryptionOption] {
-	return pulumix.Output[GetBrokerEncryptionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerEncryptionOptionOutput) KmsKeyId() pulumi.StringOutput {
@@ -1574,12 +1375,6 @@ func (o GetBrokerEncryptionOptionArrayOutput) ToGetBrokerEncryptionOptionArrayOu
 
 func (o GetBrokerEncryptionOptionArrayOutput) ToGetBrokerEncryptionOptionArrayOutputWithContext(ctx context.Context) GetBrokerEncryptionOptionArrayOutput {
 	return o
-}
-
-func (o GetBrokerEncryptionOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerEncryptionOption] {
-	return pulumix.Output[[]GetBrokerEncryptionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerEncryptionOptionArrayOutput) Index(i pulumi.IntInput) GetBrokerEncryptionOptionOutput {
@@ -1623,12 +1418,6 @@ func (i GetBrokerInstanceArgs) ToGetBrokerInstanceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceOutput)
 }
 
-func (i GetBrokerInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerInstance] {
-	return pulumix.Output[GetBrokerInstance]{
-		OutputState: i.ToGetBrokerInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBrokerInstanceArrayInput is an input type that accepts GetBrokerInstanceArray and GetBrokerInstanceArrayOutput values.
 // You can construct a concrete instance of `GetBrokerInstanceArrayInput` via:
 //
@@ -1654,12 +1443,6 @@ func (i GetBrokerInstanceArray) ToGetBrokerInstanceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceArrayOutput)
 }
 
-func (i GetBrokerInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerInstance] {
-	return pulumix.Output[[]GetBrokerInstance]{
-		OutputState: i.ToGetBrokerInstanceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerInstanceOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerInstanceOutput) ElementType() reflect.Type {
@@ -1672,12 +1455,6 @@ func (o GetBrokerInstanceOutput) ToGetBrokerInstanceOutput() GetBrokerInstanceOu
 
 func (o GetBrokerInstanceOutput) ToGetBrokerInstanceOutputWithContext(ctx context.Context) GetBrokerInstanceOutput {
 	return o
-}
-
-func (o GetBrokerInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerInstance] {
-	return pulumix.Output[GetBrokerInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerInstanceOutput) ConsoleUrl() pulumi.StringOutput {
@@ -1704,12 +1481,6 @@ func (o GetBrokerInstanceArrayOutput) ToGetBrokerInstanceArrayOutput() GetBroker
 
 func (o GetBrokerInstanceArrayOutput) ToGetBrokerInstanceArrayOutputWithContext(ctx context.Context) GetBrokerInstanceArrayOutput {
 	return o
-}
-
-func (o GetBrokerInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerInstance] {
-	return pulumix.Output[[]GetBrokerInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerInstanceArrayOutput) Index(i pulumi.IntInput) GetBrokerInstanceOutput {
@@ -1769,12 +1540,6 @@ func (i GetBrokerLdapServerMetadataArgs) ToGetBrokerLdapServerMetadataOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataOutput)
 }
 
-func (i GetBrokerLdapServerMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerLdapServerMetadata] {
-	return pulumix.Output[GetBrokerLdapServerMetadata]{
-		OutputState: i.ToGetBrokerLdapServerMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBrokerLdapServerMetadataArrayInput is an input type that accepts GetBrokerLdapServerMetadataArray and GetBrokerLdapServerMetadataArrayOutput values.
 // You can construct a concrete instance of `GetBrokerLdapServerMetadataArrayInput` via:
 //
@@ -1800,12 +1565,6 @@ func (i GetBrokerLdapServerMetadataArray) ToGetBrokerLdapServerMetadataArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataArrayOutput)
 }
 
-func (i GetBrokerLdapServerMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerLdapServerMetadata] {
-	return pulumix.Output[[]GetBrokerLdapServerMetadata]{
-		OutputState: i.ToGetBrokerLdapServerMetadataArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerLdapServerMetadataOutput) ElementType() reflect.Type {
@@ -1818,12 +1577,6 @@ func (o GetBrokerLdapServerMetadataOutput) ToGetBrokerLdapServerMetadataOutput()
 
 func (o GetBrokerLdapServerMetadataOutput) ToGetBrokerLdapServerMetadataOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataOutput {
 	return o
-}
-
-func (o GetBrokerLdapServerMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerLdapServerMetadata] {
-	return pulumix.Output[GetBrokerLdapServerMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerLdapServerMetadataOutput) Hosts() pulumi.StringArrayOutput {
@@ -1884,12 +1637,6 @@ func (o GetBrokerLdapServerMetadataArrayOutput) ToGetBrokerLdapServerMetadataArr
 	return o
 }
 
-func (o GetBrokerLdapServerMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerLdapServerMetadata] {
-	return pulumix.Output[[]GetBrokerLdapServerMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetBrokerLdapServerMetadataArrayOutput) Index(i pulumi.IntInput) GetBrokerLdapServerMetadataOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerLdapServerMetadata {
 		return vs[0].([]GetBrokerLdapServerMetadata)[vs[1].(int)]
@@ -1929,12 +1676,6 @@ func (i GetBrokerLogsArgs) ToGetBrokerLogsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsOutput)
 }
 
-func (i GetBrokerLogsArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerLogs] {
-	return pulumix.Output[GetBrokerLogs]{
-		OutputState: i.ToGetBrokerLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerLogsOutput) ElementType() reflect.Type {
@@ -1947,12 +1688,6 @@ func (o GetBrokerLogsOutput) ToGetBrokerLogsOutput() GetBrokerLogsOutput {
 
 func (o GetBrokerLogsOutput) ToGetBrokerLogsOutputWithContext(ctx context.Context) GetBrokerLogsOutput {
 	return o
-}
-
-func (o GetBrokerLogsOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerLogs] {
-	return pulumix.Output[GetBrokerLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerLogsOutput) Audit() pulumi.BoolOutput {
@@ -1998,12 +1733,6 @@ func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowSta
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimeOutput)
 }
 
-func (i GetBrokerMaintenanceWindowStartTimeArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[GetBrokerMaintenanceWindowStartTime]{
-		OutputState: i.ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerMaintenanceWindowStartTimeOutput) ElementType() reflect.Type {
@@ -2016,12 +1745,6 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowS
 
 func (o GetBrokerMaintenanceWindowStartTimeOutput) ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimeOutput {
 	return o
-}
-
-func (o GetBrokerMaintenanceWindowStartTimeOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerMaintenanceWindowStartTime] {
-	return pulumix.Output[GetBrokerMaintenanceWindowStartTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
@@ -2073,12 +1796,6 @@ func (i GetBrokerUserArgs) ToGetBrokerUserOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserOutput)
 }
 
-func (i GetBrokerUserArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerUser] {
-	return pulumix.Output[GetBrokerUser]{
-		OutputState: i.ToGetBrokerUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBrokerUserArrayInput is an input type that accepts GetBrokerUserArray and GetBrokerUserArrayOutput values.
 // You can construct a concrete instance of `GetBrokerUserArrayInput` via:
 //
@@ -2104,12 +1821,6 @@ func (i GetBrokerUserArray) ToGetBrokerUserArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserArrayOutput)
 }
 
-func (i GetBrokerUserArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerUser] {
-	return pulumix.Output[[]GetBrokerUser]{
-		OutputState: i.ToGetBrokerUserArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBrokerUserOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerUserOutput) ElementType() reflect.Type {
@@ -2122,12 +1833,6 @@ func (o GetBrokerUserOutput) ToGetBrokerUserOutput() GetBrokerUserOutput {
 
 func (o GetBrokerUserOutput) ToGetBrokerUserOutputWithContext(ctx context.Context) GetBrokerUserOutput {
 	return o
-}
-
-func (o GetBrokerUserOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerUser] {
-	return pulumix.Output[GetBrokerUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolOutput {
@@ -2158,12 +1863,6 @@ func (o GetBrokerUserArrayOutput) ToGetBrokerUserArrayOutput() GetBrokerUserArra
 
 func (o GetBrokerUserArrayOutput) ToGetBrokerUserArrayOutputWithContext(ctx context.Context) GetBrokerUserArrayOutput {
 	return o
-}
-
-func (o GetBrokerUserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerUser] {
-	return pulumix.Output[[]GetBrokerUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerUserArrayOutput) Index(i pulumi.IntInput) GetBrokerUserOutput {
@@ -2225,12 +1924,6 @@ func (i GetInstanceTypeOfferingsBrokerInstanceOptionArgs) ToGetInstanceTypeOffer
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionOutput)
 }
 
-func (i GetInstanceTypeOfferingsBrokerInstanceOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOption] {
-	return pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOption]{
-		OutputState: i.ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionArray and GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput values.
 // You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput` via:
 //
@@ -2256,12 +1949,6 @@ func (i GetInstanceTypeOfferingsBrokerInstanceOptionArray) ToGetInstanceTypeOffe
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput)
 }
 
-func (i GetInstanceTypeOfferingsBrokerInstanceOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOption] {
-	return pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOption]{
-		OutputState: i.ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetInstanceTypeOfferingsBrokerInstanceOptionOutput struct{ *pulumi.OutputState }
 
 func (GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ElementType() reflect.Type {
@@ -2274,12 +1961,6 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOff
 
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
 	return o
-}
-
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOption] {
-	return pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of available AZs. See Availability Zones. below
@@ -2328,12 +2009,6 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) ToGetInstanceTy
 	return o
 }
 
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOption] {
-	return pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeOfferingsBrokerInstanceOption {
 		return vs[0].([]GetInstanceTypeOfferingsBrokerInstanceOption)[vs[1].(int)]
@@ -2373,12 +2048,6 @@ func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ToGetI
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput)
 }
 
-func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone] {
-	return pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone]{
-		OutputState: i.ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray and GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput values.
 // You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput` via:
 //
@@ -2404,12 +2073,6 @@ func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput)
 }
 
-func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone] {
-	return pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone]{
-		OutputState: i.ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput struct{ *pulumi.OutputState }
 
 func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ElementType() reflect.Type {
@@ -2422,12 +2085,6 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGe
 
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
 	return o
-}
-
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone] {
-	return pulumix.Output[GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Availability Zone.
@@ -2447,12 +2104,6 @@ func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput)
 
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
 	return o
-}
-
-func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone] {
-	return pulumix.Output[[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {

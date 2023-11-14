@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
@@ -238,12 +237,6 @@ func (i *BucketIntelligentTieringConfiguration) ToBucketIntelligentTieringConfig
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationOutput)
 }
 
-func (i *BucketIntelligentTieringConfiguration) ToOutput(ctx context.Context) pulumix.Output[*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[*BucketIntelligentTieringConfiguration]{
-		OutputState: i.ToBucketIntelligentTieringConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationArrayInput` via:
 //
@@ -267,12 +260,6 @@ func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringCo
 
 func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationArrayOutput)
-}
-
-func (i BucketIntelligentTieringConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[[]*BucketIntelligentTieringConfiguration]{
-		OutputState: i.ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BucketIntelligentTieringConfigurationMapInput is an input type that accepts BucketIntelligentTieringConfigurationMap and BucketIntelligentTieringConfigurationMapOutput values.
@@ -300,12 +287,6 @@ func (i BucketIntelligentTieringConfigurationMap) ToBucketIntelligentTieringConf
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationMapOutput)
 }
 
-func (i BucketIntelligentTieringConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[map[string]*BucketIntelligentTieringConfiguration]{
-		OutputState: i.ToBucketIntelligentTieringConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketIntelligentTieringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationOutput) ElementType() reflect.Type {
@@ -318,12 +299,6 @@ func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringC
 
 func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
 	return o
-}
-
-func (o BucketIntelligentTieringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[*BucketIntelligentTieringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the bucket this intelligent tiering configuration is associated with.
@@ -369,12 +344,6 @@ func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTie
 	return o
 }
 
-func (o BucketIntelligentTieringConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[[]*BucketIntelligentTieringConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketIntelligentTieringConfigurationArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketIntelligentTieringConfiguration {
 		return vs[0].([]*BucketIntelligentTieringConfiguration)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o BucketIntelligentTieringConfigurationMapOutput) ToBucketIntelligentTieri
 
 func (o BucketIntelligentTieringConfigurationMapOutput) ToBucketIntelligentTieringConfigurationMapOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationMapOutput {
 	return o
-}
-
-func (o BucketIntelligentTieringConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[map[string]*BucketIntelligentTieringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketIntelligentTieringConfigurationMapOutput) MapIndex(k pulumi.StringInput) BucketIntelligentTieringConfigurationOutput {

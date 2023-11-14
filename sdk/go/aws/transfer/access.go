@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer Access resource.
@@ -250,12 +249,6 @@ func (i *Access) ToAccessOutputWithContext(ctx context.Context) AccessOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessOutput)
 }
 
-func (i *Access) ToOutput(ctx context.Context) pulumix.Output[*Access] {
-	return pulumix.Output[*Access]{
-		OutputState: i.ToAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessArrayInput is an input type that accepts AccessArray and AccessArrayOutput values.
 // You can construct a concrete instance of `AccessArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i AccessArray) ToAccessArrayOutput() AccessArrayOutput {
 
 func (i AccessArray) ToAccessArrayOutputWithContext(ctx context.Context) AccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessArrayOutput)
-}
-
-func (i AccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*Access] {
-	return pulumix.Output[[]*Access]{
-		OutputState: i.ToAccessArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccessMapInput is an input type that accepts AccessMap and AccessMapOutput values.
@@ -312,12 +299,6 @@ func (i AccessMap) ToAccessMapOutputWithContext(ctx context.Context) AccessMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessMapOutput)
 }
 
-func (i AccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Access] {
-	return pulumix.Output[map[string]*Access]{
-		OutputState: i.ToAccessMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessOutput struct{ *pulumi.OutputState }
 
 func (AccessOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o AccessOutput) ToAccessOutput() AccessOutput {
 
 func (o AccessOutput) ToAccessOutputWithContext(ctx context.Context) AccessOutput {
 	return o
-}
-
-func (o AccessOutput) ToOutput(ctx context.Context) pulumix.Output[*Access] {
-	return pulumix.Output[*Access]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
@@ -392,12 +367,6 @@ func (o AccessArrayOutput) ToAccessArrayOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o AccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Access] {
-	return pulumix.Output[[]*Access]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessArrayOutput) Index(i pulumi.IntInput) AccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Access {
 		return vs[0].([]*Access)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o AccessMapOutput) ToAccessMapOutput() AccessMapOutput {
 
 func (o AccessMapOutput) ToAccessMapOutputWithContext(ctx context.Context) AccessMapOutput {
 	return o
-}
-
-func (o AccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Access] {
-	return pulumix.Output[map[string]*Access]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessMapOutput) MapIndex(k pulumi.StringInput) AccessOutput {

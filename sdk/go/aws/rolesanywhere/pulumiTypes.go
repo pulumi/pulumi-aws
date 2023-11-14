@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i TrustAnchorSourceArgs) ToTrustAnchorSourceOutput() TrustAnchorSourceOutp
 
 func (i TrustAnchorSourceArgs) ToTrustAnchorSourceOutputWithContext(ctx context.Context) TrustAnchorSourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceOutput)
-}
-
-func (i TrustAnchorSourceArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSource] {
-	return pulumix.Output[TrustAnchorSource]{
-		OutputState: i.ToTrustAnchorSourceOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TrustAnchorSourceArgs) ToTrustAnchorSourcePtrOutput() TrustAnchorSourcePtrOutput {
@@ -98,12 +91,6 @@ func (i *trustAnchorSourcePtrType) ToTrustAnchorSourcePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourcePtrOutput)
 }
 
-func (i *trustAnchorSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSource] {
-	return pulumix.Output[*TrustAnchorSource]{
-		OutputState: i.ToTrustAnchorSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustAnchorSourceOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o TrustAnchorSourceOutput) ToTrustAnchorSourcePtrOutputWithContext(ctx con
 	}).(TrustAnchorSourcePtrOutput)
 }
 
-func (o TrustAnchorSourceOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSource] {
-	return pulumix.Output[TrustAnchorSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The data denoting the source of trust, documented below
 func (o TrustAnchorSourceOutput) SourceData() TrustAnchorSourceSourceDataOutput {
 	return o.ApplyT(func(v TrustAnchorSource) TrustAnchorSourceSourceData { return v.SourceData }).(TrustAnchorSourceSourceDataOutput)
@@ -156,12 +137,6 @@ func (o TrustAnchorSourcePtrOutput) ToTrustAnchorSourcePtrOutput() TrustAnchorSo
 
 func (o TrustAnchorSourcePtrOutput) ToTrustAnchorSourcePtrOutputWithContext(ctx context.Context) TrustAnchorSourcePtrOutput {
 	return o
-}
-
-func (o TrustAnchorSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSource] {
-	return pulumix.Output[*TrustAnchorSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorSourcePtrOutput) Elem() TrustAnchorSourceOutput {
@@ -229,12 +204,6 @@ func (i TrustAnchorSourceSourceDataArgs) ToTrustAnchorSourceSourceDataOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceSourceDataOutput)
 }
 
-func (i TrustAnchorSourceSourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSourceSourceData] {
-	return pulumix.Output[TrustAnchorSourceSourceData]{
-		OutputState: i.ToTrustAnchorSourceSourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TrustAnchorSourceSourceDataArgs) ToTrustAnchorSourceSourceDataPtrOutput() TrustAnchorSourceSourceDataPtrOutput {
 	return i.ToTrustAnchorSourceSourceDataPtrOutputWithContext(context.Background())
 }
@@ -276,12 +245,6 @@ func (i *trustAnchorSourceSourceDataPtrType) ToTrustAnchorSourceSourceDataPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorSourceSourceDataPtrOutput)
 }
 
-func (i *trustAnchorSourceSourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSourceSourceData] {
-	return pulumix.Output[*TrustAnchorSourceSourceData]{
-		OutputState: i.ToTrustAnchorSourceSourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustAnchorSourceSourceDataOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorSourceSourceDataOutput) ElementType() reflect.Type {
@@ -306,12 +269,6 @@ func (o TrustAnchorSourceSourceDataOutput) ToTrustAnchorSourceSourceDataPtrOutpu
 	}).(TrustAnchorSourceSourceDataPtrOutput)
 }
 
-func (o TrustAnchorSourceSourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorSourceSourceData] {
-	return pulumix.Output[TrustAnchorSourceSourceData]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The ARN of an ACM Private Certificate Authority.
 func (o TrustAnchorSourceSourceDataOutput) AcmPcaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustAnchorSourceSourceData) *string { return v.AcmPcaArn }).(pulumi.StringPtrOutput)
@@ -333,12 +290,6 @@ func (o TrustAnchorSourceSourceDataPtrOutput) ToTrustAnchorSourceSourceDataPtrOu
 
 func (o TrustAnchorSourceSourceDataPtrOutput) ToTrustAnchorSourceSourceDataPtrOutputWithContext(ctx context.Context) TrustAnchorSourceSourceDataPtrOutput {
 	return o
-}
-
-func (o TrustAnchorSourceSourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorSourceSourceData] {
-	return pulumix.Output[*TrustAnchorSourceSourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorSourceSourceDataPtrOutput) Elem() TrustAnchorSourceSourceDataOutput {

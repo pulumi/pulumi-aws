@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
@@ -171,12 +170,6 @@ func (i *ManagedScalingPolicy) ToManagedScalingPolicyOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyOutput)
 }
 
-func (i *ManagedScalingPolicy) ToOutput(ctx context.Context) pulumix.Output[*ManagedScalingPolicy] {
-	return pulumix.Output[*ManagedScalingPolicy]{
-		OutputState: i.ToManagedScalingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedScalingPolicyArrayInput is an input type that accepts ManagedScalingPolicyArray and ManagedScalingPolicyArrayOutput values.
 // You can construct a concrete instance of `ManagedScalingPolicyArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i ManagedScalingPolicyArray) ToManagedScalingPolicyArrayOutput() ManagedSc
 
 func (i ManagedScalingPolicyArray) ToManagedScalingPolicyArrayOutputWithContext(ctx context.Context) ManagedScalingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyArrayOutput)
-}
-
-func (i ManagedScalingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedScalingPolicy] {
-	return pulumix.Output[[]*ManagedScalingPolicy]{
-		OutputState: i.ToManagedScalingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedScalingPolicyMapInput is an input type that accepts ManagedScalingPolicyMap and ManagedScalingPolicyMapOutput values.
@@ -233,12 +220,6 @@ func (i ManagedScalingPolicyMap) ToManagedScalingPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyMapOutput)
 }
 
-func (i ManagedScalingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedScalingPolicy] {
-	return pulumix.Output[map[string]*ManagedScalingPolicy]{
-		OutputState: i.ToManagedScalingPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutput() ManagedScalin
 
 func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyOutputWithContext(ctx context.Context) ManagedScalingPolicyOutput {
 	return o
-}
-
-func (o ManagedScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedScalingPolicy] {
-	return pulumix.Output[*ManagedScalingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the EMR cluster
@@ -283,12 +258,6 @@ func (o ManagedScalingPolicyArrayOutput) ToManagedScalingPolicyArrayOutputWithCo
 	return o
 }
 
-func (o ManagedScalingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedScalingPolicy] {
-	return pulumix.Output[[]*ManagedScalingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedScalingPolicyArrayOutput) Index(i pulumi.IntInput) ManagedScalingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedScalingPolicy {
 		return vs[0].([]*ManagedScalingPolicy)[vs[1].(int)]
@@ -307,12 +276,6 @@ func (o ManagedScalingPolicyMapOutput) ToManagedScalingPolicyMapOutput() Managed
 
 func (o ManagedScalingPolicyMapOutput) ToManagedScalingPolicyMapOutputWithContext(ctx context.Context) ManagedScalingPolicyMapOutput {
 	return o
-}
-
-func (o ManagedScalingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedScalingPolicy] {
-	return pulumix.Output[map[string]*ManagedScalingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedScalingPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagedScalingPolicyOutput {

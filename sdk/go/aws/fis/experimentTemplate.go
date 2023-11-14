@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an FIS Experiment Template, which can be used to run an experiment.
@@ -259,12 +258,6 @@ func (i *ExperimentTemplate) ToExperimentTemplateOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateOutput)
 }
 
-func (i *ExperimentTemplate) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
-	return pulumix.Output[*ExperimentTemplate]{
-		OutputState: i.ToExperimentTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExperimentTemplateArrayInput is an input type that accepts ExperimentTemplateArray and ExperimentTemplateArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i ExperimentTemplateArray) ToExperimentTemplateArrayOutput() ExperimentTem
 
 func (i ExperimentTemplateArray) ToExperimentTemplateArrayOutputWithContext(ctx context.Context) ExperimentTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateArrayOutput)
-}
-
-func (i ExperimentTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExperimentTemplate] {
-	return pulumix.Output[[]*ExperimentTemplate]{
-		OutputState: i.ToExperimentTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExperimentTemplateMapInput is an input type that accepts ExperimentTemplateMap and ExperimentTemplateMapOutput values.
@@ -321,12 +308,6 @@ func (i ExperimentTemplateMap) ToExperimentTemplateMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateMapOutput)
 }
 
-func (i ExperimentTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExperimentTemplate] {
-	return pulumix.Output[map[string]*ExperimentTemplate]{
-		OutputState: i.ToExperimentTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExperimentTemplateOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o ExperimentTemplateOutput) ToExperimentTemplateOutput() ExperimentTemplat
 
 func (o ExperimentTemplateOutput) ToExperimentTemplateOutputWithContext(ctx context.Context) ExperimentTemplateOutput {
 	return o
-}
-
-func (o ExperimentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplate] {
-	return pulumix.Output[*ExperimentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Action to be performed during an experiment. See below.
@@ -403,12 +378,6 @@ func (o ExperimentTemplateArrayOutput) ToExperimentTemplateArrayOutputWithContex
 	return o
 }
 
-func (o ExperimentTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExperimentTemplate] {
-	return pulumix.Output[[]*ExperimentTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExperimentTemplateArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExperimentTemplate {
 		return vs[0].([]*ExperimentTemplate)[vs[1].(int)]
@@ -427,12 +396,6 @@ func (o ExperimentTemplateMapOutput) ToExperimentTemplateMapOutput() ExperimentT
 
 func (o ExperimentTemplateMapOutput) ToExperimentTemplateMapOutputWithContext(ctx context.Context) ExperimentTemplateMapOutput {
 	return o
-}
-
-func (o ExperimentTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExperimentTemplate] {
-	return pulumix.Output[map[string]*ExperimentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExperimentTemplateMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateOutput {

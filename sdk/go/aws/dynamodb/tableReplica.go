@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
@@ -248,12 +247,6 @@ func (i *TableReplica) ToTableReplicaOutputWithContext(ctx context.Context) Tabl
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaOutput)
 }
 
-func (i *TableReplica) ToOutput(ctx context.Context) pulumix.Output[*TableReplica] {
-	return pulumix.Output[*TableReplica]{
-		OutputState: i.ToTableReplicaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableReplicaArrayInput is an input type that accepts TableReplicaArray and TableReplicaArrayOutput values.
 // You can construct a concrete instance of `TableReplicaArrayInput` via:
 //
@@ -277,12 +270,6 @@ func (i TableReplicaArray) ToTableReplicaArrayOutput() TableReplicaArrayOutput {
 
 func (i TableReplicaArray) ToTableReplicaArrayOutputWithContext(ctx context.Context) TableReplicaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaArrayOutput)
-}
-
-func (i TableReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableReplica] {
-	return pulumix.Output[[]*TableReplica]{
-		OutputState: i.ToTableReplicaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TableReplicaMapInput is an input type that accepts TableReplicaMap and TableReplicaMapOutput values.
@@ -310,12 +297,6 @@ func (i TableReplicaMap) ToTableReplicaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaMapOutput)
 }
 
-func (i TableReplicaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableReplica] {
-	return pulumix.Output[map[string]*TableReplica]{
-		OutputState: i.ToTableReplicaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableReplicaOutput struct{ *pulumi.OutputState }
 
 func (TableReplicaOutput) ElementType() reflect.Type {
@@ -328,12 +309,6 @@ func (o TableReplicaOutput) ToTableReplicaOutput() TableReplicaOutput {
 
 func (o TableReplicaOutput) ToTableReplicaOutputWithContext(ctx context.Context) TableReplicaOutput {
 	return o
-}
-
-func (o TableReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[*TableReplica] {
-	return pulumix.Output[*TableReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the table replica.
@@ -389,12 +364,6 @@ func (o TableReplicaArrayOutput) ToTableReplicaArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o TableReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableReplica] {
-	return pulumix.Output[[]*TableReplica]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableReplicaArrayOutput) Index(i pulumi.IntInput) TableReplicaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableReplica {
 		return vs[0].([]*TableReplica)[vs[1].(int)]
@@ -413,12 +382,6 @@ func (o TableReplicaMapOutput) ToTableReplicaMapOutput() TableReplicaMapOutput {
 
 func (o TableReplicaMapOutput) ToTableReplicaMapOutputWithContext(ctx context.Context) TableReplicaMapOutput {
 	return o
-}
-
-func (o TableReplicaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableReplica] {
-	return pulumix.Output[map[string]*TableReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableReplicaMapOutput) MapIndex(k pulumi.StringInput) TableReplicaOutput {

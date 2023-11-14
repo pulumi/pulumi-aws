@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Tag Option Resource Association.
@@ -178,12 +177,6 @@ func (i *TagOptionResourceAssociation) ToTagOptionResourceAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationOutput)
 }
 
-func (i *TagOptionResourceAssociation) ToOutput(ctx context.Context) pulumix.Output[*TagOptionResourceAssociation] {
-	return pulumix.Output[*TagOptionResourceAssociation]{
-		OutputState: i.ToTagOptionResourceAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagOptionResourceAssociationArrayInput is an input type that accepts TagOptionResourceAssociationArray and TagOptionResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `TagOptionResourceAssociationArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i TagOptionResourceAssociationArray) ToTagOptionResourceAssociationArrayOu
 
 func (i TagOptionResourceAssociationArray) ToTagOptionResourceAssociationArrayOutputWithContext(ctx context.Context) TagOptionResourceAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationArrayOutput)
-}
-
-func (i TagOptionResourceAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagOptionResourceAssociation] {
-	return pulumix.Output[[]*TagOptionResourceAssociation]{
-		OutputState: i.ToTagOptionResourceAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TagOptionResourceAssociationMapInput is an input type that accepts TagOptionResourceAssociationMap and TagOptionResourceAssociationMapOutput values.
@@ -240,12 +227,6 @@ func (i TagOptionResourceAssociationMap) ToTagOptionResourceAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationMapOutput)
 }
 
-func (i TagOptionResourceAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagOptionResourceAssociation] {
-	return pulumix.Output[map[string]*TagOptionResourceAssociation]{
-		OutputState: i.ToTagOptionResourceAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagOptionResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutput
 
 func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationOutputWithContext(ctx context.Context) TagOptionResourceAssociationOutput {
 	return o
-}
-
-func (o TagOptionResourceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TagOptionResourceAssociation] {
-	return pulumix.Output[*TagOptionResourceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the resource.
@@ -310,12 +285,6 @@ func (o TagOptionResourceAssociationArrayOutput) ToTagOptionResourceAssociationA
 	return o
 }
 
-func (o TagOptionResourceAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagOptionResourceAssociation] {
-	return pulumix.Output[[]*TagOptionResourceAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagOptionResourceAssociationArrayOutput) Index(i pulumi.IntInput) TagOptionResourceAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagOptionResourceAssociation {
 		return vs[0].([]*TagOptionResourceAssociation)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o TagOptionResourceAssociationMapOutput) ToTagOptionResourceAssociationMap
 
 func (o TagOptionResourceAssociationMapOutput) ToTagOptionResourceAssociationMapOutputWithContext(ctx context.Context) TagOptionResourceAssociationMapOutput {
 	return o
-}
-
-func (o TagOptionResourceAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagOptionResourceAssociation] {
-	return pulumix.Output[map[string]*TagOptionResourceAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagOptionResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) TagOptionResourceAssociationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing a QuickSight Data Set.
@@ -131,12 +130,6 @@ func (o LookupDataSetResultOutput) ToLookupDataSetResultOutput() LookupDataSetRe
 
 func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx context.Context) LookupDataSetResultOutput {
 	return o
-}
-
-func (o LookupDataSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataSetResult] {
-	return pulumix.Output[LookupDataSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDataSetResultOutput) Arn() pulumi.StringOutput {

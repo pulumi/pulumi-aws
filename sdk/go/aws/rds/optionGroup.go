@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
@@ -265,12 +264,6 @@ func (i *OptionGroup) ToOptionGroupOutputWithContext(ctx context.Context) Option
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupOutput)
 }
 
-func (i *OptionGroup) ToOutput(ctx context.Context) pulumix.Output[*OptionGroup] {
-	return pulumix.Output[*OptionGroup]{
-		OutputState: i.ToOptionGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OptionGroupArrayInput is an input type that accepts OptionGroupArray and OptionGroupArrayOutput values.
 // You can construct a concrete instance of `OptionGroupArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i OptionGroupArray) ToOptionGroupArrayOutput() OptionGroupArrayOutput {
 
 func (i OptionGroupArray) ToOptionGroupArrayOutputWithContext(ctx context.Context) OptionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupArrayOutput)
-}
-
-func (i OptionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*OptionGroup] {
-	return pulumix.Output[[]*OptionGroup]{
-		OutputState: i.ToOptionGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OptionGroupMapInput is an input type that accepts OptionGroupMap and OptionGroupMapOutput values.
@@ -327,12 +314,6 @@ func (i OptionGroupMap) ToOptionGroupMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupMapOutput)
 }
 
-func (i OptionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OptionGroup] {
-	return pulumix.Output[map[string]*OptionGroup]{
-		OutputState: i.ToOptionGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OptionGroupOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o OptionGroupOutput) ToOptionGroupOutput() OptionGroupOutput {
 
 func (o OptionGroupOutput) ToOptionGroupOutputWithContext(ctx context.Context) OptionGroupOutput {
 	return o
-}
-
-func (o OptionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*OptionGroup] {
-	return pulumix.Output[*OptionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the DB option group.
@@ -414,12 +389,6 @@ func (o OptionGroupArrayOutput) ToOptionGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o OptionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OptionGroup] {
-	return pulumix.Output[[]*OptionGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OptionGroupArrayOutput) Index(i pulumi.IntInput) OptionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OptionGroup {
 		return vs[0].([]*OptionGroup)[vs[1].(int)]
@@ -438,12 +407,6 @@ func (o OptionGroupMapOutput) ToOptionGroupMapOutput() OptionGroupMapOutput {
 
 func (o OptionGroupMapOutput) ToOptionGroupMapOutputWithContext(ctx context.Context) OptionGroupMapOutput {
 	return o
-}
-
-func (o OptionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OptionGroup] {
-	return pulumix.Output[map[string]*OptionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OptionGroupMapOutput) MapIndex(k pulumi.StringInput) OptionGroupOutput {

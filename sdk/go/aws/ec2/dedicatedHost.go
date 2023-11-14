@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
@@ -238,12 +237,6 @@ func (i *DedicatedHost) ToDedicatedHostOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostOutput)
 }
 
-func (i *DedicatedHost) ToOutput(ctx context.Context) pulumix.Output[*DedicatedHost] {
-	return pulumix.Output[*DedicatedHost]{
-		OutputState: i.ToDedicatedHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DedicatedHostArrayInput is an input type that accepts DedicatedHostArray and DedicatedHostArrayOutput values.
 // You can construct a concrete instance of `DedicatedHostArrayInput` via:
 //
@@ -267,12 +260,6 @@ func (i DedicatedHostArray) ToDedicatedHostArrayOutput() DedicatedHostArrayOutpu
 
 func (i DedicatedHostArray) ToDedicatedHostArrayOutputWithContext(ctx context.Context) DedicatedHostArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostArrayOutput)
-}
-
-func (i DedicatedHostArray) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedHost] {
-	return pulumix.Output[[]*DedicatedHost]{
-		OutputState: i.ToDedicatedHostArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DedicatedHostMapInput is an input type that accepts DedicatedHostMap and DedicatedHostMapOutput values.
@@ -300,12 +287,6 @@ func (i DedicatedHostMap) ToDedicatedHostMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostMapOutput)
 }
 
-func (i DedicatedHostMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedHost] {
-	return pulumix.Output[map[string]*DedicatedHost]{
-		OutputState: i.ToDedicatedHostMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DedicatedHostOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostOutput) ElementType() reflect.Type {
@@ -318,12 +299,6 @@ func (o DedicatedHostOutput) ToDedicatedHostOutput() DedicatedHostOutput {
 
 func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Context) DedicatedHostOutput {
 	return o
-}
-
-func (o DedicatedHostOutput) ToOutput(ctx context.Context) pulumix.Output[*DedicatedHost] {
-	return pulumix.Output[*DedicatedHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Dedicated Host.
@@ -397,12 +372,6 @@ func (o DedicatedHostArrayOutput) ToDedicatedHostArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o DedicatedHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedHost] {
-	return pulumix.Output[[]*DedicatedHost]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DedicatedHostArrayOutput) Index(i pulumi.IntInput) DedicatedHostOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DedicatedHost {
 		return vs[0].([]*DedicatedHost)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o DedicatedHostMapOutput) ToDedicatedHostMapOutput() DedicatedHostMapOutpu
 
 func (o DedicatedHostMapOutput) ToDedicatedHostMapOutputWithContext(ctx context.Context) DedicatedHostMapOutput {
 	return o
-}
-
-func (o DedicatedHostMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedHost] {
-	return pulumix.Output[map[string]*DedicatedHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DedicatedHostMapOutput) MapIndex(k pulumi.StringInput) DedicatedHostOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
@@ -98,12 +97,6 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutput() LookupWebAclResul
 
 func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx context.Context) LookupWebAclResultOutput {
 	return o
-}
-
-func (o LookupWebAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWebAclResult] {
-	return pulumix.Output[LookupWebAclResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

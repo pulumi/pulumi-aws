@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Batch Scheduling Policy resource.
@@ -186,12 +185,6 @@ func (i *SchedulingPolicy) ToSchedulingPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyOutput)
 }
 
-func (i *SchedulingPolicy) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicy] {
-	return pulumix.Output[*SchedulingPolicy]{
-		OutputState: i.ToSchedulingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SchedulingPolicyArrayInput is an input type that accepts SchedulingPolicyArray and SchedulingPolicyArrayOutput values.
 // You can construct a concrete instance of `SchedulingPolicyArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i SchedulingPolicyArray) ToSchedulingPolicyArrayOutput() SchedulingPolicyA
 
 func (i SchedulingPolicyArray) ToSchedulingPolicyArrayOutputWithContext(ctx context.Context) SchedulingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyArrayOutput)
-}
-
-func (i SchedulingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SchedulingPolicy] {
-	return pulumix.Output[[]*SchedulingPolicy]{
-		OutputState: i.ToSchedulingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SchedulingPolicyMapInput is an input type that accepts SchedulingPolicyMap and SchedulingPolicyMapOutput values.
@@ -248,12 +235,6 @@ func (i SchedulingPolicyMap) ToSchedulingPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulingPolicyMapOutput)
 }
 
-func (i SchedulingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchedulingPolicy] {
-	return pulumix.Output[map[string]*SchedulingPolicy]{
-		OutputState: i.ToSchedulingPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (SchedulingPolicyOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o SchedulingPolicyOutput) ToSchedulingPolicyOutput() SchedulingPolicyOutpu
 
 func (o SchedulingPolicyOutput) ToSchedulingPolicyOutputWithContext(ctx context.Context) SchedulingPolicyOutput {
 	return o
-}
-
-func (o SchedulingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulingPolicy] {
-	return pulumix.Output[*SchedulingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of the scheduling policy.
@@ -314,12 +289,6 @@ func (o SchedulingPolicyArrayOutput) ToSchedulingPolicyArrayOutputWithContext(ct
 	return o
 }
 
-func (o SchedulingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SchedulingPolicy] {
-	return pulumix.Output[[]*SchedulingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulingPolicyArrayOutput) Index(i pulumi.IntInput) SchedulingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SchedulingPolicy {
 		return vs[0].([]*SchedulingPolicy)[vs[1].(int)]
@@ -338,12 +307,6 @@ func (o SchedulingPolicyMapOutput) ToSchedulingPolicyMapOutput() SchedulingPolic
 
 func (o SchedulingPolicyMapOutput) ToSchedulingPolicyMapOutputWithContext(ctx context.Context) SchedulingPolicyMapOutput {
 	return o
-}
-
-func (o SchedulingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SchedulingPolicy] {
-	return pulumix.Output[map[string]*SchedulingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulingPolicyMapOutput) MapIndex(k pulumi.StringInput) SchedulingPolicyOutput {

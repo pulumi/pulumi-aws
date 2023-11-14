@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront Field-level Encryption Config resource.
@@ -194,12 +193,6 @@ func (i *FieldLevelEncryptionConfig) ToFieldLevelEncryptionConfigOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigOutput)
 }
 
-func (i *FieldLevelEncryptionConfig) ToOutput(ctx context.Context) pulumix.Output[*FieldLevelEncryptionConfig] {
-	return pulumix.Output[*FieldLevelEncryptionConfig]{
-		OutputState: i.ToFieldLevelEncryptionConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FieldLevelEncryptionConfigArrayInput is an input type that accepts FieldLevelEncryptionConfigArray and FieldLevelEncryptionConfigArrayOutput values.
 // You can construct a concrete instance of `FieldLevelEncryptionConfigArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i FieldLevelEncryptionConfigArray) ToFieldLevelEncryptionConfigArrayOutput
 
 func (i FieldLevelEncryptionConfigArray) ToFieldLevelEncryptionConfigArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigArrayOutput)
-}
-
-func (i FieldLevelEncryptionConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*FieldLevelEncryptionConfig] {
-	return pulumix.Output[[]*FieldLevelEncryptionConfig]{
-		OutputState: i.ToFieldLevelEncryptionConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FieldLevelEncryptionConfigMapInput is an input type that accepts FieldLevelEncryptionConfigMap and FieldLevelEncryptionConfigMapOutput values.
@@ -256,12 +243,6 @@ func (i FieldLevelEncryptionConfigMap) ToFieldLevelEncryptionConfigMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigMapOutput)
 }
 
-func (i FieldLevelEncryptionConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FieldLevelEncryptionConfig] {
-	return pulumix.Output[map[string]*FieldLevelEncryptionConfig]{
-		OutputState: i.ToFieldLevelEncryptionConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FieldLevelEncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionConfigOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o FieldLevelEncryptionConfigOutput) ToFieldLevelEncryptionConfigOutput() F
 
 func (o FieldLevelEncryptionConfigOutput) ToFieldLevelEncryptionConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigOutput {
 	return o
-}
-
-func (o FieldLevelEncryptionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*FieldLevelEncryptionConfig] {
-	return pulumix.Output[*FieldLevelEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
@@ -325,12 +300,6 @@ func (o FieldLevelEncryptionConfigArrayOutput) ToFieldLevelEncryptionConfigArray
 	return o
 }
 
-func (o FieldLevelEncryptionConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FieldLevelEncryptionConfig] {
-	return pulumix.Output[[]*FieldLevelEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FieldLevelEncryptionConfigArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FieldLevelEncryptionConfig {
 		return vs[0].([]*FieldLevelEncryptionConfig)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o FieldLevelEncryptionConfigMapOutput) ToFieldLevelEncryptionConfigMapOutp
 
 func (o FieldLevelEncryptionConfigMapOutput) ToFieldLevelEncryptionConfigMapOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigMapOutput {
 	return o
-}
-
-func (o FieldLevelEncryptionConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FieldLevelEncryptionConfig] {
-	return pulumix.Output[map[string]*FieldLevelEncryptionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FieldLevelEncryptionConfigMapOutput) MapIndex(k pulumi.StringInput) FieldLevelEncryptionConfigOutput {

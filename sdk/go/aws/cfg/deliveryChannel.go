@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Config Delivery Channel.
@@ -259,12 +258,6 @@ func (i *DeliveryChannel) ToDeliveryChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelOutput)
 }
 
-func (i *DeliveryChannel) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannel] {
-	return pulumix.Output[*DeliveryChannel]{
-		OutputState: i.ToDeliveryChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeliveryChannelArrayInput is an input type that accepts DeliveryChannelArray and DeliveryChannelArrayOutput values.
 // You can construct a concrete instance of `DeliveryChannelArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i DeliveryChannelArray) ToDeliveryChannelArrayOutput() DeliveryChannelArra
 
 func (i DeliveryChannelArray) ToDeliveryChannelArrayOutputWithContext(ctx context.Context) DeliveryChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelArrayOutput)
-}
-
-func (i DeliveryChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeliveryChannel] {
-	return pulumix.Output[[]*DeliveryChannel]{
-		OutputState: i.ToDeliveryChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeliveryChannelMapInput is an input type that accepts DeliveryChannelMap and DeliveryChannelMapOutput values.
@@ -321,12 +308,6 @@ func (i DeliveryChannelMap) ToDeliveryChannelMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelMapOutput)
 }
 
-func (i DeliveryChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeliveryChannel] {
-	return pulumix.Output[map[string]*DeliveryChannel]{
-		OutputState: i.ToDeliveryChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutput() DeliveryChannelOutput {
 
 func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Context) DeliveryChannelOutput {
 	return o
-}
-
-func (o DeliveryChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryChannel] {
-	return pulumix.Output[*DeliveryChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
@@ -393,12 +368,6 @@ func (o DeliveryChannelArrayOutput) ToDeliveryChannelArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o DeliveryChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeliveryChannel] {
-	return pulumix.Output[[]*DeliveryChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeliveryChannelArrayOutput) Index(i pulumi.IntInput) DeliveryChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeliveryChannel {
 		return vs[0].([]*DeliveryChannel)[vs[1].(int)]
@@ -417,12 +386,6 @@ func (o DeliveryChannelMapOutput) ToDeliveryChannelMapOutput() DeliveryChannelMa
 
 func (o DeliveryChannelMapOutput) ToDeliveryChannelMapOutputWithContext(ctx context.Context) DeliveryChannelMapOutput {
 	return o
-}
-
-func (o DeliveryChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeliveryChannel] {
-	return pulumix.Output[map[string]*DeliveryChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeliveryChannelMapOutput) MapIndex(k pulumi.StringInput) DeliveryChannelOutput {

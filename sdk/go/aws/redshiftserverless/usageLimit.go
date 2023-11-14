@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a new Amazon Redshift Serverless Usage Limit.
@@ -198,12 +197,6 @@ func (i *UsageLimit) ToUsageLimitOutputWithContext(ctx context.Context) UsageLim
 	return pulumi.ToOutputWithContext(ctx, i).(UsageLimitOutput)
 }
 
-func (i *UsageLimit) ToOutput(ctx context.Context) pulumix.Output[*UsageLimit] {
-	return pulumix.Output[*UsageLimit]{
-		OutputState: i.ToUsageLimitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UsageLimitArrayInput is an input type that accepts UsageLimitArray and UsageLimitArrayOutput values.
 // You can construct a concrete instance of `UsageLimitArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i UsageLimitArray) ToUsageLimitArrayOutput() UsageLimitArrayOutput {
 
 func (i UsageLimitArray) ToUsageLimitArrayOutputWithContext(ctx context.Context) UsageLimitArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsageLimitArrayOutput)
-}
-
-func (i UsageLimitArray) ToOutput(ctx context.Context) pulumix.Output[[]*UsageLimit] {
-	return pulumix.Output[[]*UsageLimit]{
-		OutputState: i.ToUsageLimitArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UsageLimitMapInput is an input type that accepts UsageLimitMap and UsageLimitMapOutput values.
@@ -260,12 +247,6 @@ func (i UsageLimitMap) ToUsageLimitMapOutputWithContext(ctx context.Context) Usa
 	return pulumi.ToOutputWithContext(ctx, i).(UsageLimitMapOutput)
 }
 
-func (i UsageLimitMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsageLimit] {
-	return pulumix.Output[map[string]*UsageLimit]{
-		OutputState: i.ToUsageLimitMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UsageLimitOutput struct{ *pulumi.OutputState }
 
 func (UsageLimitOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o UsageLimitOutput) ToUsageLimitOutput() UsageLimitOutput {
 
 func (o UsageLimitOutput) ToUsageLimitOutputWithContext(ctx context.Context) UsageLimitOutput {
 	return o
-}
-
-func (o UsageLimitOutput) ToOutput(ctx context.Context) pulumix.Output[*UsageLimit] {
-	return pulumix.Output[*UsageLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
@@ -330,12 +305,6 @@ func (o UsageLimitArrayOutput) ToUsageLimitArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o UsageLimitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UsageLimit] {
-	return pulumix.Output[[]*UsageLimit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UsageLimitArrayOutput) Index(i pulumi.IntInput) UsageLimitOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UsageLimit {
 		return vs[0].([]*UsageLimit)[vs[1].(int)]
@@ -354,12 +323,6 @@ func (o UsageLimitMapOutput) ToUsageLimitMapOutput() UsageLimitMapOutput {
 
 func (o UsageLimitMapOutput) ToUsageLimitMapOutputWithContext(ctx context.Context) UsageLimitMapOutput {
 	return o
-}
-
-func (o UsageLimitMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsageLimit] {
-	return pulumix.Output[map[string]*UsageLimit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UsageLimitMapOutput) MapIndex(k pulumi.StringInput) UsageLimitOutput {

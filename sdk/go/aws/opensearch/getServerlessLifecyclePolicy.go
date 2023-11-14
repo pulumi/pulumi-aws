@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
@@ -114,12 +113,6 @@ func (o LookupServerlessLifecyclePolicyResultOutput) ToLookupServerlessLifecycle
 
 func (o LookupServerlessLifecyclePolicyResultOutput) ToLookupServerlessLifecyclePolicyResultOutputWithContext(ctx context.Context) LookupServerlessLifecyclePolicyResultOutput {
 	return o
-}
-
-func (o LookupServerlessLifecyclePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessLifecyclePolicyResult] {
-	return pulumix.Output[LookupServerlessLifecyclePolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date the lifecycle policy was created.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint APNs VoIP Channel resource.
@@ -306,12 +305,6 @@ func (i *ApnsVoipChannel) ToApnsVoipChannelOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelOutput)
 }
 
-func (i *ApnsVoipChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
-	return pulumix.Output[*ApnsVoipChannel]{
-		OutputState: i.ToApnsVoipChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApnsVoipChannelArrayInput is an input type that accepts ApnsVoipChannelArray and ApnsVoipChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsVoipChannelArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i ApnsVoipChannelArray) ToApnsVoipChannelArrayOutput() ApnsVoipChannelArra
 
 func (i ApnsVoipChannelArray) ToApnsVoipChannelArrayOutputWithContext(ctx context.Context) ApnsVoipChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelArrayOutput)
-}
-
-func (i ApnsVoipChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipChannel] {
-	return pulumix.Output[[]*ApnsVoipChannel]{
-		OutputState: i.ToApnsVoipChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApnsVoipChannelMapInput is an input type that accepts ApnsVoipChannelMap and ApnsVoipChannelMapOutput values.
@@ -368,12 +355,6 @@ func (i ApnsVoipChannelMap) ToApnsVoipChannelMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipChannelMapOutput)
 }
 
-func (i ApnsVoipChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipChannel] {
-	return pulumix.Output[map[string]*ApnsVoipChannel]{
-		OutputState: i.ToApnsVoipChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApnsVoipChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsVoipChannelOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutput() ApnsVoipChannelOutput {
 
 func (o ApnsVoipChannelOutput) ToApnsVoipChannelOutputWithContext(ctx context.Context) ApnsVoipChannelOutput {
 	return o
-}
-
-func (o ApnsVoipChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipChannel] {
-	return pulumix.Output[*ApnsVoipChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The application ID.
@@ -462,12 +437,6 @@ func (o ApnsVoipChannelArrayOutput) ToApnsVoipChannelArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ApnsVoipChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipChannel] {
-	return pulumix.Output[[]*ApnsVoipChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApnsVoipChannelArrayOutput) Index(i pulumi.IntInput) ApnsVoipChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApnsVoipChannel {
 		return vs[0].([]*ApnsVoipChannel)[vs[1].(int)]
@@ -486,12 +455,6 @@ func (o ApnsVoipChannelMapOutput) ToApnsVoipChannelMapOutput() ApnsVoipChannelMa
 
 func (o ApnsVoipChannelMapOutput) ToApnsVoipChannelMapOutputWithContext(ctx context.Context) ApnsVoipChannelMapOutput {
 	return o
-}
-
-func (o ApnsVoipChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipChannel] {
-	return pulumix.Output[map[string]*ApnsVoipChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApnsVoipChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsVoipChannelOutput {

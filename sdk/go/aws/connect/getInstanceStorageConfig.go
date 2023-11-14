@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Instance Storage Config.
@@ -112,12 +111,6 @@ func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigRe
 
 func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigResultOutputWithContext(ctx context.Context) LookupInstanceStorageConfigResultOutput {
 	return o
-}
-
-func (o LookupInstanceStorageConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceStorageConfigResult] {
-	return pulumix.Output[LookupInstanceStorageConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringOutput {

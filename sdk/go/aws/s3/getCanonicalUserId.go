@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
@@ -83,12 +82,6 @@ func (o GetCanonicalUserIdResultOutput) ToGetCanonicalUserIdResultOutput() GetCa
 
 func (o GetCanonicalUserIdResultOutput) ToGetCanonicalUserIdResultOutputWithContext(ctx context.Context) GetCanonicalUserIdResultOutput {
 	return o
-}
-
-func (o GetCanonicalUserIdResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCanonicalUserIdResult] {
-	return pulumix.Output[GetCanonicalUserIdResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
@@ -98,12 +97,6 @@ func (o GetIpsetResultOutput) ToGetIpsetResultOutput() GetIpsetResultOutput {
 
 func (o GetIpsetResultOutput) ToGetIpsetResultOutputWithContext(ctx context.Context) GetIpsetResultOutput {
 	return o
-}
-
-func (o GetIpsetResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpsetResult] {
-	return pulumix.Output[GetIpsetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

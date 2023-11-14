@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashb
 
 func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesDashboardAttributesOutput)
-}
-
-func (i AccountVdmAttributesDashboardAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesDashboardAttributes] {
-	return pulumix.Output[AccountVdmAttributesDashboardAttributes]{
-		OutputState: i.ToAccountVdmAttributesDashboardAttributesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccountVdmAttributesDashboardAttributesArgs) ToAccountVdmAttributesDashboardAttributesPtrOutput() AccountVdmAttributesDashboardAttributesPtrOutput {
@@ -94,12 +87,6 @@ func (i *accountVdmAttributesDashboardAttributesPtrType) ToAccountVdmAttributesD
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesDashboardAttributesPtrOutput)
 }
 
-func (i *accountVdmAttributesDashboardAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesDashboardAttributes] {
-	return pulumix.Output[*AccountVdmAttributesDashboardAttributes]{
-		OutputState: i.ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountVdmAttributesDashboardAttributesOutput struct{ *pulumi.OutputState }
 
 func (AccountVdmAttributesDashboardAttributesOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o AccountVdmAttributesDashboardAttributesOutput) ToAccountVdmAttributesDas
 	}).(AccountVdmAttributesDashboardAttributesPtrOutput)
 }
 
-func (o AccountVdmAttributesDashboardAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesDashboardAttributes] {
-	return pulumix.Output[AccountVdmAttributesDashboardAttributes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesDashboardAttributesOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountVdmAttributesDashboardAttributes) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
@@ -147,12 +128,6 @@ func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToAccountVdmAttributes
 
 func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToAccountVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesDashboardAttributesPtrOutput {
 	return o
-}
-
-func (o AccountVdmAttributesDashboardAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesDashboardAttributes] {
-	return pulumix.Output[*AccountVdmAttributesDashboardAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountVdmAttributesDashboardAttributesPtrOutput) Elem() AccountVdmAttributesDashboardAttributesOutput {
@@ -208,12 +183,6 @@ func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesGuardianAttributesOutput)
 }
 
-func (i AccountVdmAttributesGuardianAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesGuardianAttributes] {
-	return pulumix.Output[AccountVdmAttributesGuardianAttributes]{
-		OutputState: i.ToAccountVdmAttributesGuardianAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountVdmAttributesGuardianAttributesArgs) ToAccountVdmAttributesGuardianAttributesPtrOutput() AccountVdmAttributesGuardianAttributesPtrOutput {
 	return i.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
 }
@@ -255,12 +224,6 @@ func (i *accountVdmAttributesGuardianAttributesPtrType) ToAccountVdmAttributesGu
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesGuardianAttributesPtrOutput)
 }
 
-func (i *accountVdmAttributesGuardianAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesGuardianAttributes] {
-	return pulumix.Output[*AccountVdmAttributesGuardianAttributes]{
-		OutputState: i.ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountVdmAttributesGuardianAttributesOutput struct{ *pulumi.OutputState }
 
 func (AccountVdmAttributesGuardianAttributesOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o AccountVdmAttributesGuardianAttributesOutput) ToAccountVdmAttributesGuar
 	}).(AccountVdmAttributesGuardianAttributesPtrOutput)
 }
 
-func (o AccountVdmAttributesGuardianAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountVdmAttributesGuardianAttributes] {
-	return pulumix.Output[AccountVdmAttributesGuardianAttributes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o AccountVdmAttributesGuardianAttributesOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountVdmAttributesGuardianAttributes) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
@@ -308,12 +265,6 @@ func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToAccountVdmAttributesG
 
 func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToAccountVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) AccountVdmAttributesGuardianAttributesPtrOutput {
 	return o
-}
-
-func (o AccountVdmAttributesGuardianAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributesGuardianAttributes] {
-	return pulumix.Output[*AccountVdmAttributesGuardianAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountVdmAttributesGuardianAttributesPtrOutput) Elem() AccountVdmAttributesGuardianAttributesOutput {
@@ -373,12 +324,6 @@ func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsOutput)
 }
 
-func (i ConfigurationSetDeliveryOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[ConfigurationSetDeliveryOptions]{
-		OutputState: i.ToConfigurationSetDeliveryOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetDeliveryOptionsArgs) ToConfigurationSetDeliveryOptionsPtrOutput() ConfigurationSetDeliveryOptionsPtrOutput {
 	return i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(context.Background())
 }
@@ -420,12 +365,6 @@ func (i *configurationSetDeliveryOptionsPtrType) ToConfigurationSetDeliveryOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-func (i *configurationSetDeliveryOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
-		OutputState: i.ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetDeliveryOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetDeliveryOptionsOutput) ElementType() reflect.Type {
@@ -450,12 +389,6 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
-func (o ConfigurationSetDeliveryOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[ConfigurationSetDeliveryOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the dedicated IP pool to associate with the configuration set.
 func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
@@ -478,12 +411,6 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOpti
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetDeliveryOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetDeliveryOptions] {
-	return pulumix.Output[*ConfigurationSetDeliveryOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
@@ -573,12 +500,6 @@ func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSet
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(context.Background())
 }
@@ -620,12 +541,6 @@ func (i *configurationSetEventDestinationEventDestinationPtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationOutput) ElementType() reflect.Type {
@@ -648,12 +563,6 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) ToConfigurationS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestination {
 		return &v
 	}).(ConfigurationSetEventDestinationEventDestinationPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An object that defines an Amazon CloudWatch destination for email events. See cloudWatchDestination below
@@ -708,12 +617,6 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurati
 
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationOutput {
@@ -821,12 +724,6 @@ func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArg
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(context.Background())
 }
@@ -868,12 +765,6 @@ func (i *configurationSetEventDestinationEventDestinationCloudWatchDestinationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationCloudWatchDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ElementType() reflect.Type {
@@ -898,12 +789,6 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOut
 	}).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimensionConfiguration below.
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput) DimensionConfigurations() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationCloudWatchDestination) []ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
@@ -923,12 +808,6 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtr
 
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationCloudWatchDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationOutput {
@@ -992,12 +871,6 @@ func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput is an input type that accepts ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray and ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayInput` via:
 //
@@ -1023,12 +896,6 @@ func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration] {
-	return pulumix.Output[[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ElementType() reflect.Type {
@@ -1041,12 +908,6 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
@@ -1082,12 +943,6 @@ func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDim
 
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) ToConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration] {
-	return pulumix.Output[[]ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationOutput {
@@ -1133,12 +988,6 @@ func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
 }
@@ -1180,12 +1029,6 @@ func (i *configurationSetEventDestinationEventDestinationKinesisFirehoseDestinat
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
@@ -1208,12 +1051,6 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination) *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
 		return &v
 	}).(ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput)
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
@@ -1242,12 +1079,6 @@ func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinati
 
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationOutput {
@@ -1311,12 +1142,6 @@ func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationPinpointDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationPinpointDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(context.Background())
 }
@@ -1358,12 +1183,6 @@ func (i *configurationSetEventDestinationEventDestinationPinpointDestinationPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationPinpointDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationPinpointDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationPinpointDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ElementType() reflect.Type {
@@ -1388,12 +1207,6 @@ func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutpu
 	}).(ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationPinpointDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationPinpointDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationPinpointDestination) string {
 		return v.ApplicationArn
@@ -1412,12 +1225,6 @@ func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOu
 
 func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationPinpointDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationPinpointDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationPinpointDestinationOutput {
@@ -1472,12 +1279,6 @@ func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput)
 }
 
-func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationSnsDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationSnsDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput() ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(context.Background())
 }
@@ -1519,12 +1320,6 @@ func (i *configurationSetEventDestinationEventDestinationSnsDestinationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 }
 
-func (i *configurationSetEventDestinationEventDestinationSnsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationSnsDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationSnsDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ElementType() reflect.Type {
@@ -1549,12 +1344,6 @@ func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) To
 	}).(ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 }
 
-func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetEventDestinationEventDestinationSnsDestination] {
-	return pulumix.Output[ConfigurationSetEventDestinationEventDestinationSnsDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
 func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
@@ -1572,12 +1361,6 @@ func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput)
 
 func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) ToConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestinationEventDestinationSnsDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestinationEventDestinationSnsDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrOutput) Elem() ConfigurationSetEventDestinationEventDestinationSnsDestinationOutput {
@@ -1637,12 +1420,6 @@ func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsOutput)
 }
 
-func (i ConfigurationSetReputationOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetReputationOptions] {
-	return pulumix.Output[ConfigurationSetReputationOptions]{
-		OutputState: i.ToConfigurationSetReputationOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetReputationOptionsArgs) ToConfigurationSetReputationOptionsPtrOutput() ConfigurationSetReputationOptionsPtrOutput {
 	return i.ToConfigurationSetReputationOptionsPtrOutputWithContext(context.Background())
 }
@@ -1684,12 +1461,6 @@ func (i *configurationSetReputationOptionsPtrType) ToConfigurationSetReputationO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
-func (i *configurationSetReputationOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetReputationOptions] {
-	return pulumix.Output[*ConfigurationSetReputationOptions]{
-		OutputState: i.ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetReputationOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetReputationOptionsOutput) ElementType() reflect.Type {
@@ -1714,12 +1485,6 @@ func (o ConfigurationSetReputationOptionsOutput) ToConfigurationSetReputationOpt
 	}).(ConfigurationSetReputationOptionsPtrOutput)
 }
 
-func (o ConfigurationSetReputationOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetReputationOptions] {
-	return pulumix.Output[ConfigurationSetReputationOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
 func (o ConfigurationSetReputationOptionsOutput) LastFreshStart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetReputationOptions) *string { return v.LastFreshStart }).(pulumi.StringPtrOutput)
@@ -1742,12 +1507,6 @@ func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputation
 
 func (o ConfigurationSetReputationOptionsPtrOutput) ToConfigurationSetReputationOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetReputationOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetReputationOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetReputationOptions] {
-	return pulumix.Output[*ConfigurationSetReputationOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetReputationOptionsPtrOutput) Elem() ConfigurationSetReputationOptionsOutput {
@@ -1813,12 +1572,6 @@ func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsOutput)
 }
 
-func (i ConfigurationSetSendingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSendingOptions] {
-	return pulumix.Output[ConfigurationSetSendingOptions]{
-		OutputState: i.ToConfigurationSetSendingOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetSendingOptionsArgs) ToConfigurationSetSendingOptionsPtrOutput() ConfigurationSetSendingOptionsPtrOutput {
 	return i.ToConfigurationSetSendingOptionsPtrOutputWithContext(context.Background())
 }
@@ -1860,12 +1613,6 @@ func (i *configurationSetSendingOptionsPtrType) ToConfigurationSetSendingOptions
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (i *configurationSetSendingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSendingOptions] {
-	return pulumix.Output[*ConfigurationSetSendingOptions]{
-		OutputState: i.ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetSendingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetSendingOptionsOutput) ElementType() reflect.Type {
@@ -1890,12 +1637,6 @@ func (o ConfigurationSetSendingOptionsOutput) ToConfigurationSetSendingOptionsPt
 	}).(ConfigurationSetSendingOptionsPtrOutput)
 }
 
-func (o ConfigurationSetSendingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSendingOptions] {
-	return pulumix.Output[ConfigurationSetSendingOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
 func (o ConfigurationSetSendingOptionsOutput) SendingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetSendingOptions) *bool { return v.SendingEnabled }).(pulumi.BoolPtrOutput)
@@ -1913,12 +1654,6 @@ func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOption
 
 func (o ConfigurationSetSendingOptionsPtrOutput) ToConfigurationSetSendingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSendingOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetSendingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSendingOptions] {
-	return pulumix.Output[*ConfigurationSetSendingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetSendingOptionsPtrOutput) Elem() ConfigurationSetSendingOptionsOutput {
@@ -1974,12 +1709,6 @@ func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOpt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsOutput)
 }
 
-func (i ConfigurationSetSuppressionOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSuppressionOptions] {
-	return pulumix.Output[ConfigurationSetSuppressionOptions]{
-		OutputState: i.ToConfigurationSetSuppressionOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetSuppressionOptionsArgs) ToConfigurationSetSuppressionOptionsPtrOutput() ConfigurationSetSuppressionOptionsPtrOutput {
 	return i.ToConfigurationSetSuppressionOptionsPtrOutputWithContext(context.Background())
 }
@@ -2021,12 +1750,6 @@ func (i *configurationSetSuppressionOptionsPtrType) ToConfigurationSetSuppressio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
-func (i *configurationSetSuppressionOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSuppressionOptions] {
-	return pulumix.Output[*ConfigurationSetSuppressionOptions]{
-		OutputState: i.ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetSuppressionOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetSuppressionOptionsOutput) ElementType() reflect.Type {
@@ -2051,12 +1774,6 @@ func (o ConfigurationSetSuppressionOptionsOutput) ToConfigurationSetSuppressionO
 	}).(ConfigurationSetSuppressionOptionsPtrOutput)
 }
 
-func (o ConfigurationSetSuppressionOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetSuppressionOptions] {
-	return pulumix.Output[ConfigurationSetSuppressionOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
 func (o ConfigurationSetSuppressionOptionsOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetSuppressionOptions) []string { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
@@ -2074,12 +1791,6 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) ToConfigurationSetSuppressi
 
 func (o ConfigurationSetSuppressionOptionsPtrOutput) ToConfigurationSetSuppressionOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetSuppressionOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetSuppressionOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetSuppressionOptions] {
-	return pulumix.Output[*ConfigurationSetSuppressionOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetSuppressionOptionsPtrOutput) Elem() ConfigurationSetSuppressionOptionsOutput {
@@ -2135,12 +1846,6 @@ func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsOutput)
 }
 
-func (i ConfigurationSetTrackingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
-	return pulumix.Output[ConfigurationSetTrackingOptions]{
-		OutputState: i.ToConfigurationSetTrackingOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetTrackingOptionsArgs) ToConfigurationSetTrackingOptionsPtrOutput() ConfigurationSetTrackingOptionsPtrOutput {
 	return i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(context.Background())
 }
@@ -2182,12 +1887,6 @@ func (i *configurationSetTrackingOptionsPtrType) ToConfigurationSetTrackingOptio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
-func (i *configurationSetTrackingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
-	return pulumix.Output[*ConfigurationSetTrackingOptions]{
-		OutputState: i.ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetTrackingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTrackingOptionsOutput) ElementType() reflect.Type {
@@ -2212,12 +1911,6 @@ func (o ConfigurationSetTrackingOptionsOutput) ToConfigurationSetTrackingOptions
 	}).(ConfigurationSetTrackingOptionsPtrOutput)
 }
 
-func (o ConfigurationSetTrackingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetTrackingOptions] {
-	return pulumix.Output[ConfigurationSetTrackingOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The domain to use for tracking open and click events.
 func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) string { return v.CustomRedirectDomain }).(pulumi.StringOutput)
@@ -2235,12 +1928,6 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOpti
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) ToConfigurationSetTrackingOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetTrackingOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetTrackingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetTrackingOptions] {
-	return pulumix.Output[*ConfigurationSetTrackingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetTrackingOptionsPtrOutput) Elem() ConfigurationSetTrackingOptionsOutput {
@@ -2300,12 +1987,6 @@ func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsOutput)
 }
 
-func (i ConfigurationSetVdmOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
 	return i.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
 }
@@ -2347,12 +2028,6 @@ func (i *configurationSetVdmOptionsPtrType) ToConfigurationSetVdmOptionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
-func (i *configurationSetVdmOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetVdmOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetVdmOptionsOutput) ElementType() reflect.Type {
@@ -2375,12 +2050,6 @@ func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptions {
 		return &v
 	}).(ConfigurationSetVdmOptionsPtrOutput)
-}
-
-func (o ConfigurationSetVdmOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies additional settings for your VDM configuration as applicable to the Dashboard.
@@ -2409,12 +2078,6 @@ func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutp
 
 func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetVdmOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOutput {
@@ -2480,12 +2143,6 @@ func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOpt
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsDashboardOptionsOutput)
 }
 
-func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptionsDashboardOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptionsDashboardOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsDashboardOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetVdmOptionsDashboardOptionsArgs) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutput() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return i.ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(context.Background())
 }
@@ -2527,12 +2184,6 @@ func (i *configurationSetVdmOptionsDashboardOptionsPtrType) ToConfigurationSetVd
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-func (i *configurationSetVdmOptionsDashboardOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptionsDashboardOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptionsDashboardOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetVdmOptionsDashboardOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetVdmOptionsDashboardOptionsOutput) ElementType() reflect.Type {
@@ -2557,12 +2208,6 @@ func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToConfigurationSetVdmO
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptionsDashboardOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptionsDashboardOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsDashboardOptionsOutput) EngagementMetrics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptionsDashboardOptions) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
@@ -2580,12 +2225,6 @@ func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ToConfigurationSetV
 
 func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ToConfigurationSetVdmOptionsDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptionsDashboardOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptionsDashboardOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetVdmOptionsDashboardOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsDashboardOptionsOutput {
@@ -2641,12 +2280,6 @@ func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOpti
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsGuardianOptionsOutput)
 }
 
-func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptionsGuardianOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptionsGuardianOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsGuardianOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationSetVdmOptionsGuardianOptionsArgs) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutput() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return i.ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(context.Background())
 }
@@ -2688,12 +2321,6 @@ func (i *configurationSetVdmOptionsGuardianOptionsPtrType) ToConfigurationSetVdm
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
 }
 
-func (i *configurationSetVdmOptionsGuardianOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptionsGuardianOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptionsGuardianOptions]{
-		OutputState: i.ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetVdmOptionsGuardianOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetVdmOptionsGuardianOptionsOutput) ElementType() reflect.Type {
@@ -2718,12 +2345,6 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToConfigurationSetVdmOp
 	}).(ConfigurationSetVdmOptionsGuardianOptionsPtrOutput)
 }
 
-func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationSetVdmOptionsGuardianOptions] {
-	return pulumix.Output[ConfigurationSetVdmOptionsGuardianOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
 func (o ConfigurationSetVdmOptionsGuardianOptionsOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptionsGuardianOptions) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
@@ -2741,12 +2362,6 @@ func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ToConfigurationSetVd
 
 func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ToConfigurationSetVdmOptionsGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetVdmOptionsGuardianOptions] {
-	return pulumix.Output[*ConfigurationSetVdmOptionsGuardianOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetVdmOptionsGuardianOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsGuardianOptionsOutput {
@@ -2818,12 +2433,6 @@ func (i ContactListTopicArgs) ToContactListTopicOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListTopicOutput)
 }
 
-func (i ContactListTopicArgs) ToOutput(ctx context.Context) pulumix.Output[ContactListTopic] {
-	return pulumix.Output[ContactListTopic]{
-		OutputState: i.ToContactListTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContactListTopicArrayInput is an input type that accepts ContactListTopicArray and ContactListTopicArrayOutput values.
 // You can construct a concrete instance of `ContactListTopicArrayInput` via:
 //
@@ -2849,12 +2458,6 @@ func (i ContactListTopicArray) ToContactListTopicArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListTopicArrayOutput)
 }
 
-func (i ContactListTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactListTopic] {
-	return pulumix.Output[[]ContactListTopic]{
-		OutputState: i.ToContactListTopicArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactListTopicOutput struct{ *pulumi.OutputState }
 
 func (ContactListTopicOutput) ElementType() reflect.Type {
@@ -2867,12 +2470,6 @@ func (o ContactListTopicOutput) ToContactListTopicOutput() ContactListTopicOutpu
 
 func (o ContactListTopicOutput) ToContactListTopicOutputWithContext(ctx context.Context) ContactListTopicOutput {
 	return o
-}
-
-func (o ContactListTopicOutput) ToOutput(ctx context.Context) pulumix.Output[ContactListTopic] {
-	return pulumix.Output[ContactListTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
@@ -2909,12 +2506,6 @@ func (o ContactListTopicArrayOutput) ToContactListTopicArrayOutput() ContactList
 
 func (o ContactListTopicArrayOutput) ToContactListTopicArrayOutputWithContext(ctx context.Context) ContactListTopicArrayOutput {
 	return o
-}
-
-func (o ContactListTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactListTopic] {
-	return pulumix.Output[[]ContactListTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactListTopicArrayOutput) Index(i pulumi.IntInput) ContactListTopicOutput {
@@ -2988,12 +2579,6 @@ func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttrib
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesOutput)
 }
 
-func (i EmailIdentityDkimSigningAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[EmailIdentityDkimSigningAttributes] {
-	return pulumix.Output[EmailIdentityDkimSigningAttributes]{
-		OutputState: i.ToEmailIdentityDkimSigningAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EmailIdentityDkimSigningAttributesArgs) ToEmailIdentityDkimSigningAttributesPtrOutput() EmailIdentityDkimSigningAttributesPtrOutput {
 	return i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(context.Background())
 }
@@ -3035,12 +2620,6 @@ func (i *emailIdentityDkimSigningAttributesPtrType) ToEmailIdentityDkimSigningAt
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
 
-func (i *emailIdentityDkimSigningAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityDkimSigningAttributes] {
-	return pulumix.Output[*EmailIdentityDkimSigningAttributes]{
-		OutputState: i.ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailIdentityDkimSigningAttributesOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityDkimSigningAttributesOutput) ElementType() reflect.Type {
@@ -3063,12 +2642,6 @@ func (o EmailIdentityDkimSigningAttributesOutput) ToEmailIdentityDkimSigningAttr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentityDkimSigningAttributes) *EmailIdentityDkimSigningAttributes {
 		return &v
 	}).(EmailIdentityDkimSigningAttributesPtrOutput)
-}
-
-func (o EmailIdentityDkimSigningAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[EmailIdentityDkimSigningAttributes] {
-	return pulumix.Output[EmailIdentityDkimSigningAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // [Easy DKIM] The key length of the DKIM key pair in use.
@@ -3125,12 +2698,6 @@ func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningA
 
 func (o EmailIdentityDkimSigningAttributesPtrOutput) ToEmailIdentityDkimSigningAttributesPtrOutputWithContext(ctx context.Context) EmailIdentityDkimSigningAttributesPtrOutput {
 	return o
-}
-
-func (o EmailIdentityDkimSigningAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityDkimSigningAttributes] {
-	return pulumix.Output[*EmailIdentityDkimSigningAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailIdentityDkimSigningAttributesPtrOutput) Elem() EmailIdentityDkimSigningAttributesOutput {
@@ -3262,12 +2829,6 @@ func (i GetConfigurationSetDeliveryOptionArgs) ToGetConfigurationSetDeliveryOpti
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetDeliveryOptionOutput)
 }
 
-func (i GetConfigurationSetDeliveryOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetDeliveryOption] {
-	return pulumix.Output[GetConfigurationSetDeliveryOption]{
-		OutputState: i.ToGetConfigurationSetDeliveryOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetDeliveryOptionArrayInput is an input type that accepts GetConfigurationSetDeliveryOptionArray and GetConfigurationSetDeliveryOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetDeliveryOptionArrayInput` via:
 //
@@ -3293,12 +2854,6 @@ func (i GetConfigurationSetDeliveryOptionArray) ToGetConfigurationSetDeliveryOpt
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetDeliveryOptionArrayOutput)
 }
 
-func (i GetConfigurationSetDeliveryOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetDeliveryOption] {
-	return pulumix.Output[[]GetConfigurationSetDeliveryOption]{
-		OutputState: i.ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetDeliveryOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetDeliveryOptionOutput) ElementType() reflect.Type {
@@ -3311,12 +2866,6 @@ func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOp
 
 func (o GetConfigurationSetDeliveryOptionOutput) ToGetConfigurationSetDeliveryOptionOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetDeliveryOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetDeliveryOption] {
-	return pulumix.Output[GetConfigurationSetDeliveryOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the dedicated IP pool to associate with the configuration set.
@@ -3341,12 +2890,6 @@ func (o GetConfigurationSetDeliveryOptionArrayOutput) ToGetConfigurationSetDeliv
 
 func (o GetConfigurationSetDeliveryOptionArrayOutput) ToGetConfigurationSetDeliveryOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetDeliveryOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetDeliveryOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetDeliveryOption] {
-	return pulumix.Output[[]GetConfigurationSetDeliveryOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetDeliveryOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetDeliveryOptionOutput {
@@ -3392,12 +2935,6 @@ func (i GetConfigurationSetReputationOptionArgs) ToGetConfigurationSetReputation
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetReputationOptionOutput)
 }
 
-func (i GetConfigurationSetReputationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetReputationOption] {
-	return pulumix.Output[GetConfigurationSetReputationOption]{
-		OutputState: i.ToGetConfigurationSetReputationOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetReputationOptionArrayInput is an input type that accepts GetConfigurationSetReputationOptionArray and GetConfigurationSetReputationOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetReputationOptionArrayInput` via:
 //
@@ -3423,12 +2960,6 @@ func (i GetConfigurationSetReputationOptionArray) ToGetConfigurationSetReputatio
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetReputationOptionArrayOutput)
 }
 
-func (i GetConfigurationSetReputationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetReputationOption] {
-	return pulumix.Output[[]GetConfigurationSetReputationOption]{
-		OutputState: i.ToGetConfigurationSetReputationOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetReputationOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetReputationOptionOutput) ElementType() reflect.Type {
@@ -3441,12 +2972,6 @@ func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputati
 
 func (o GetConfigurationSetReputationOptionOutput) ToGetConfigurationSetReputationOptionOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetReputationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetReputationOption] {
-	return pulumix.Output[GetConfigurationSetReputationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date and time (in Unix time) when the reputation metrics were last given a fresh start.
@@ -3471,12 +2996,6 @@ func (o GetConfigurationSetReputationOptionArrayOutput) ToGetConfigurationSetRep
 
 func (o GetConfigurationSetReputationOptionArrayOutput) ToGetConfigurationSetReputationOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetReputationOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetReputationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetReputationOption] {
-	return pulumix.Output[[]GetConfigurationSetReputationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetReputationOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetReputationOptionOutput {
@@ -3518,12 +3037,6 @@ func (i GetConfigurationSetSendingOptionArgs) ToGetConfigurationSetSendingOption
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSendingOptionOutput)
 }
 
-func (i GetConfigurationSetSendingOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetSendingOption] {
-	return pulumix.Output[GetConfigurationSetSendingOption]{
-		OutputState: i.ToGetConfigurationSetSendingOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetSendingOptionArrayInput is an input type that accepts GetConfigurationSetSendingOptionArray and GetConfigurationSetSendingOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetSendingOptionArrayInput` via:
 //
@@ -3549,12 +3062,6 @@ func (i GetConfigurationSetSendingOptionArray) ToGetConfigurationSetSendingOptio
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSendingOptionArrayOutput)
 }
 
-func (i GetConfigurationSetSendingOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetSendingOption] {
-	return pulumix.Output[[]GetConfigurationSetSendingOption]{
-		OutputState: i.ToGetConfigurationSetSendingOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetSendingOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetSendingOptionOutput) ElementType() reflect.Type {
@@ -3567,12 +3074,6 @@ func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOpti
 
 func (o GetConfigurationSetSendingOptionOutput) ToGetConfigurationSetSendingOptionOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetSendingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetSendingOption] {
-	return pulumix.Output[GetConfigurationSetSendingOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether email sending is enabled.
@@ -3592,12 +3093,6 @@ func (o GetConfigurationSetSendingOptionArrayOutput) ToGetConfigurationSetSendin
 
 func (o GetConfigurationSetSendingOptionArrayOutput) ToGetConfigurationSetSendingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSendingOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetSendingOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetSendingOption] {
-	return pulumix.Output[[]GetConfigurationSetSendingOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetSendingOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetSendingOptionOutput {
@@ -3639,12 +3134,6 @@ func (i GetConfigurationSetSuppressionOptionArgs) ToGetConfigurationSetSuppressi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSuppressionOptionOutput)
 }
 
-func (i GetConfigurationSetSuppressionOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetSuppressionOption] {
-	return pulumix.Output[GetConfigurationSetSuppressionOption]{
-		OutputState: i.ToGetConfigurationSetSuppressionOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetSuppressionOptionArrayInput is an input type that accepts GetConfigurationSetSuppressionOptionArray and GetConfigurationSetSuppressionOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetSuppressionOptionArrayInput` via:
 //
@@ -3670,12 +3159,6 @@ func (i GetConfigurationSetSuppressionOptionArray) ToGetConfigurationSetSuppress
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetSuppressionOptionArrayOutput)
 }
 
-func (i GetConfigurationSetSuppressionOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetSuppressionOption] {
-	return pulumix.Output[[]GetConfigurationSetSuppressionOption]{
-		OutputState: i.ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetSuppressionOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetSuppressionOptionOutput) ElementType() reflect.Type {
@@ -3688,12 +3171,6 @@ func (o GetConfigurationSetSuppressionOptionOutput) ToGetConfigurationSetSuppres
 
 func (o GetConfigurationSetSuppressionOptionOutput) ToGetConfigurationSetSuppressionOptionOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetSuppressionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetSuppressionOption] {
-	return pulumix.Output[GetConfigurationSetSuppressionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
@@ -3713,12 +3190,6 @@ func (o GetConfigurationSetSuppressionOptionArrayOutput) ToGetConfigurationSetSu
 
 func (o GetConfigurationSetSuppressionOptionArrayOutput) ToGetConfigurationSetSuppressionOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetSuppressionOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetSuppressionOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetSuppressionOption] {
-	return pulumix.Output[[]GetConfigurationSetSuppressionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetSuppressionOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetSuppressionOptionOutput {
@@ -3760,12 +3231,6 @@ func (i GetConfigurationSetTrackingOptionArgs) ToGetConfigurationSetTrackingOpti
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetTrackingOptionOutput)
 }
 
-func (i GetConfigurationSetTrackingOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetTrackingOption] {
-	return pulumix.Output[GetConfigurationSetTrackingOption]{
-		OutputState: i.ToGetConfigurationSetTrackingOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetTrackingOptionArrayInput is an input type that accepts GetConfigurationSetTrackingOptionArray and GetConfigurationSetTrackingOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetTrackingOptionArrayInput` via:
 //
@@ -3791,12 +3256,6 @@ func (i GetConfigurationSetTrackingOptionArray) ToGetConfigurationSetTrackingOpt
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetTrackingOptionArrayOutput)
 }
 
-func (i GetConfigurationSetTrackingOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetTrackingOption] {
-	return pulumix.Output[[]GetConfigurationSetTrackingOption]{
-		OutputState: i.ToGetConfigurationSetTrackingOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetTrackingOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetTrackingOptionOutput) ElementType() reflect.Type {
@@ -3809,12 +3268,6 @@ func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOp
 
 func (o GetConfigurationSetTrackingOptionOutput) ToGetConfigurationSetTrackingOptionOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetTrackingOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetTrackingOption] {
-	return pulumix.Output[GetConfigurationSetTrackingOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The domain to use for tracking open and click events.
@@ -3834,12 +3287,6 @@ func (o GetConfigurationSetTrackingOptionArrayOutput) ToGetConfigurationSetTrack
 
 func (o GetConfigurationSetTrackingOptionArrayOutput) ToGetConfigurationSetTrackingOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetTrackingOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetTrackingOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetTrackingOption] {
-	return pulumix.Output[[]GetConfigurationSetTrackingOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetTrackingOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetTrackingOptionOutput {
@@ -3885,12 +3332,6 @@ func (i GetConfigurationSetVdmOptionArgs) ToGetConfigurationSetVdmOptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionOutput)
 }
 
-func (i GetConfigurationSetVdmOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOption] {
-	return pulumix.Output[GetConfigurationSetVdmOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetVdmOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionArray and GetConfigurationSetVdmOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetVdmOptionArrayInput` via:
 //
@@ -3916,12 +3357,6 @@ func (i GetConfigurationSetVdmOptionArray) ToGetConfigurationSetVdmOptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionArrayOutput)
 }
 
-func (i GetConfigurationSetVdmOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetVdmOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetVdmOptionOutput) ElementType() reflect.Type {
@@ -3934,12 +3369,6 @@ func (o GetConfigurationSetVdmOptionOutput) ToGetConfigurationSetVdmOptionOutput
 
 func (o GetConfigurationSetVdmOptionOutput) ToGetConfigurationSetVdmOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOption] {
-	return pulumix.Output[GetConfigurationSetVdmOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies additional settings for your VDM configuration as applicable to the Dashboard.
@@ -3968,12 +3397,6 @@ func (o GetConfigurationSetVdmOptionArrayOutput) ToGetConfigurationSetVdmOptionA
 
 func (o GetConfigurationSetVdmOptionArrayOutput) ToGetConfigurationSetVdmOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetVdmOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionOutput {
@@ -4015,12 +3438,6 @@ func (i GetConfigurationSetVdmOptionDashboardOptionArgs) ToGetConfigurationSetVd
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionDashboardOptionOutput)
 }
 
-func (i GetConfigurationSetVdmOptionDashboardOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOptionDashboardOption] {
-	return pulumix.Output[GetConfigurationSetVdmOptionDashboardOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetVdmOptionDashboardOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionDashboardOptionArray and GetConfigurationSetVdmOptionDashboardOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetVdmOptionDashboardOptionArrayInput` via:
 //
@@ -4046,12 +3463,6 @@ func (i GetConfigurationSetVdmOptionDashboardOptionArray) ToGetConfigurationSetV
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionDashboardOptionArrayOutput)
 }
 
-func (i GetConfigurationSetVdmOptionDashboardOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOptionDashboardOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOptionDashboardOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetVdmOptionDashboardOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetVdmOptionDashboardOptionOutput) ElementType() reflect.Type {
@@ -4064,12 +3475,6 @@ func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSet
 
 func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToGetConfigurationSetVdmOptionDashboardOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionDashboardOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOptionDashboardOption] {
-	return pulumix.Output[GetConfigurationSetVdmOptionDashboardOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the status of your VDM engagement metrics collection.
@@ -4089,12 +3494,6 @@ func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ToGetConfigurati
 
 func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ToGetConfigurationSetVdmOptionDashboardOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionDashboardOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOptionDashboardOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOptionDashboardOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetVdmOptionDashboardOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionDashboardOptionOutput {
@@ -4136,12 +3535,6 @@ func (i GetConfigurationSetVdmOptionGuardianOptionArgs) ToGetConfigurationSetVdm
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionGuardianOptionOutput)
 }
 
-func (i GetConfigurationSetVdmOptionGuardianOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOptionGuardianOption] {
-	return pulumix.Output[GetConfigurationSetVdmOptionGuardianOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationSetVdmOptionGuardianOptionArrayInput is an input type that accepts GetConfigurationSetVdmOptionGuardianOptionArray and GetConfigurationSetVdmOptionGuardianOptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationSetVdmOptionGuardianOptionArrayInput` via:
 //
@@ -4167,12 +3560,6 @@ func (i GetConfigurationSetVdmOptionGuardianOptionArray) ToGetConfigurationSetVd
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationSetVdmOptionGuardianOptionArrayOutput)
 }
 
-func (i GetConfigurationSetVdmOptionGuardianOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOptionGuardianOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOptionGuardianOption]{
-		OutputState: i.ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationSetVdmOptionGuardianOptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationSetVdmOptionGuardianOptionOutput) ElementType() reflect.Type {
@@ -4185,12 +3572,6 @@ func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetV
 
 func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToGetConfigurationSetVdmOptionGuardianOptionOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionGuardianOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationSetVdmOptionGuardianOption] {
-	return pulumix.Output[GetConfigurationSetVdmOptionGuardianOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the status of your VDM optimized shared delivery.
@@ -4210,12 +3591,6 @@ func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ToGetConfiguratio
 
 func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ToGetConfigurationSetVdmOptionGuardianOptionArrayOutputWithContext(ctx context.Context) GetConfigurationSetVdmOptionGuardianOptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationSetVdmOptionGuardianOption] {
-	return pulumix.Output[[]GetConfigurationSetVdmOptionGuardianOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationSetVdmOptionGuardianOptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationSetVdmOptionGuardianOptionOutput {
@@ -4265,12 +3640,6 @@ func (i GetDedicatedIpPoolDedicatedIpArgs) ToGetDedicatedIpPoolDedicatedIpOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedIpPoolDedicatedIpOutput)
 }
 
-func (i GetDedicatedIpPoolDedicatedIpArgs) ToOutput(ctx context.Context) pulumix.Output[GetDedicatedIpPoolDedicatedIp] {
-	return pulumix.Output[GetDedicatedIpPoolDedicatedIp]{
-		OutputState: i.ToGetDedicatedIpPoolDedicatedIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDedicatedIpPoolDedicatedIpArrayInput is an input type that accepts GetDedicatedIpPoolDedicatedIpArray and GetDedicatedIpPoolDedicatedIpArrayOutput values.
 // You can construct a concrete instance of `GetDedicatedIpPoolDedicatedIpArrayInput` via:
 //
@@ -4296,12 +3665,6 @@ func (i GetDedicatedIpPoolDedicatedIpArray) ToGetDedicatedIpPoolDedicatedIpArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedIpPoolDedicatedIpArrayOutput)
 }
 
-func (i GetDedicatedIpPoolDedicatedIpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDedicatedIpPoolDedicatedIp] {
-	return pulumix.Output[[]GetDedicatedIpPoolDedicatedIp]{
-		OutputState: i.ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDedicatedIpPoolDedicatedIpOutput struct{ *pulumi.OutputState }
 
 func (GetDedicatedIpPoolDedicatedIpOutput) ElementType() reflect.Type {
@@ -4314,12 +3677,6 @@ func (o GetDedicatedIpPoolDedicatedIpOutput) ToGetDedicatedIpPoolDedicatedIpOutp
 
 func (o GetDedicatedIpPoolDedicatedIpOutput) ToGetDedicatedIpPoolDedicatedIpOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpOutput {
 	return o
-}
-
-func (o GetDedicatedIpPoolDedicatedIpOutput) ToOutput(ctx context.Context) pulumix.Output[GetDedicatedIpPoolDedicatedIp] {
-	return pulumix.Output[GetDedicatedIpPoolDedicatedIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IPv4 address.
@@ -4349,12 +3706,6 @@ func (o GetDedicatedIpPoolDedicatedIpArrayOutput) ToGetDedicatedIpPoolDedicatedI
 
 func (o GetDedicatedIpPoolDedicatedIpArrayOutput) ToGetDedicatedIpPoolDedicatedIpArrayOutputWithContext(ctx context.Context) GetDedicatedIpPoolDedicatedIpArrayOutput {
 	return o
-}
-
-func (o GetDedicatedIpPoolDedicatedIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDedicatedIpPoolDedicatedIp] {
-	return pulumix.Output[[]GetDedicatedIpPoolDedicatedIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDedicatedIpPoolDedicatedIpOutput {
@@ -4420,12 +3771,6 @@ func (i GetEmailIdentityDkimSigningAttributeArgs) ToGetEmailIdentityDkimSigningA
 	return pulumi.ToOutputWithContext(ctx, i).(GetEmailIdentityDkimSigningAttributeOutput)
 }
 
-func (i GetEmailIdentityDkimSigningAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetEmailIdentityDkimSigningAttribute] {
-	return pulumix.Output[GetEmailIdentityDkimSigningAttribute]{
-		OutputState: i.ToGetEmailIdentityDkimSigningAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEmailIdentityDkimSigningAttributeArrayInput is an input type that accepts GetEmailIdentityDkimSigningAttributeArray and GetEmailIdentityDkimSigningAttributeArrayOutput values.
 // You can construct a concrete instance of `GetEmailIdentityDkimSigningAttributeArrayInput` via:
 //
@@ -4451,12 +3796,6 @@ func (i GetEmailIdentityDkimSigningAttributeArray) ToGetEmailIdentityDkimSigning
 	return pulumi.ToOutputWithContext(ctx, i).(GetEmailIdentityDkimSigningAttributeArrayOutput)
 }
 
-func (i GetEmailIdentityDkimSigningAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEmailIdentityDkimSigningAttribute] {
-	return pulumix.Output[[]GetEmailIdentityDkimSigningAttribute]{
-		OutputState: i.ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEmailIdentityDkimSigningAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetEmailIdentityDkimSigningAttributeOutput) ElementType() reflect.Type {
@@ -4469,12 +3808,6 @@ func (o GetEmailIdentityDkimSigningAttributeOutput) ToGetEmailIdentityDkimSignin
 
 func (o GetEmailIdentityDkimSigningAttributeOutput) ToGetEmailIdentityDkimSigningAttributeOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeOutput {
 	return o
-}
-
-func (o GetEmailIdentityDkimSigningAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetEmailIdentityDkimSigningAttribute] {
-	return pulumix.Output[GetEmailIdentityDkimSigningAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // [Easy DKIM] The key length of the DKIM key pair in use.
@@ -4527,12 +3860,6 @@ func (o GetEmailIdentityDkimSigningAttributeArrayOutput) ToGetEmailIdentityDkimS
 
 func (o GetEmailIdentityDkimSigningAttributeArrayOutput) ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeArrayOutput {
 	return o
-}
-
-func (o GetEmailIdentityDkimSigningAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEmailIdentityDkimSigningAttribute] {
-	return pulumix.Output[[]GetEmailIdentityDkimSigningAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEmailIdentityDkimSigningAttributeArrayOutput) Index(i pulumi.IntInput) GetEmailIdentityDkimSigningAttributeOutput {
