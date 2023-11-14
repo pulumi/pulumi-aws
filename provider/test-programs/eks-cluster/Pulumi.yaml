@@ -1,5 +1,4 @@
-name: resources
-description: A collection of resource configurations to thoroughly test.
+name: test
 
 runtime:
   name: yaml
@@ -11,27 +10,7 @@ resources:
     options:
       version: 5.42.0
 
-  s3-bucket-simple:
-    type: aws:s3/bucket:Bucket
-    properties:
-      bucket: testbucket-${pulumi.stack}
-    options:
-      provider: ${provider}
-
-  rds-instance-withname:
-    type: aws:rds/instance:Instance
-    properties:
-      engine: postgres
-      instanceClass: db.t4g.micro
-      allocatedStorage: 30
-      name: mydbname
-      username: mydbuser
-      password: mypassword
-      skipFinalSnapshot: true
-    options:
-      provider: ${provider}
-
-  "ekscluster1":
+  tested-resource:
     type: aws:eks:Cluster
     properties:
       roleArn: ${ekscluster1role.arn}
@@ -124,18 +103,5 @@ resources:
             - 0.0.0.0/0
           ipv6CidrBlocks:
             - ::/0
-    options:
-      provider: ${provider}
-
-  route53ResolverEndpoint1:
-    type: aws:route53:ResolverEndpoint
-    properties:
-      direction: INBOUND
-      securityGroupIds:
-        - ${securityGroupAllowTLS1.id}
-      ipAddresses:
-        - subnetId: ${subnet1.id}
-        - subnetId: ${subnet2.id}
-          ip: 10.192.21.4
     options:
       provider: ${provider}
