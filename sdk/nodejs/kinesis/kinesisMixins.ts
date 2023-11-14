@@ -42,7 +42,7 @@ export interface StreamEventSubscriptionArgs {
      * * `ReportBatchItemFailures`
      */
     readonly functionResponseTypes?: string[];
-    
+
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds. Records will continue to buffer
      * until either maximum_batching_window_in_seconds expires or batch_size has been met. Defaults to as soon as records
@@ -163,7 +163,7 @@ function createFunctionFromEventHandler(
             policies: [
                 iam.ManagedPolicy.AWSLambdaKinesisExecutionRole,
                 iam.ManagedPolicy.AmazonKinesisFullAccess,
-                iam.ManagedPolicy.CloudWatchFullAccess,
+                iam.ManagedPolicy.CloudWatchFullAccessV2,
                 iam.ManagedPolicy.CloudWatchEventsFullAccess,
                 iam.ManagedPolicy.LambdaFullAccess,
             ],

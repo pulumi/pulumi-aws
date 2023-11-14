@@ -968,7 +968,9 @@ class ManagedPolicy(str, Enum):
     CLOUD_WATCH_EVENTS_INVOCATION_ACCESS = "arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess"
     CLOUD_WATCH_EVENTS_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess"
     CLOUD_WATCH_EVENTS_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy"
+    # After December 7, 2023, "CloudWatchFullAccess" will no longer be supported. Use "CloudWatchFullAccessV2" instead.
     CLOUD_WATCH_FULL_ACCESS = "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+    CLOUD_WATCH_FULL_ACCESS_V2 = "arn:aws:iam::aws:policy/CloudWatchFullAccessV2"
     CLOUD_WATCH_INTERNET_MONITOR_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy"
     CLOUD_WATCH_LAMBDA_INSIGHTS_EXECUTION_ROLE_POLICY = "arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy"
     CLOUD_WATCH_LOGS_CROSS_ACCOUNT_SHARING_CONFIGURATION = "arn:aws:iam::aws:policy/CloudWatchLogsCrossAccountSharingConfiguration"

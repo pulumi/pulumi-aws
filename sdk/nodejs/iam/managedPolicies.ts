@@ -489,6 +489,8 @@ export module ManagedPolicies {
     export const CloudWatchEventsReadOnlyAccess: ARN = "arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess";
     /** Use ManagedPolicy.CloudWatchFullAccess instead. */
     export const CloudWatchFullAccess: ARN = "arn:aws:iam::aws:policy/CloudWatchFullAccess";
+    /** Use ManagedPolicy.CloudWatchFullAccessV2 instead. */
+    export const CloudWatchFullAccessV2: ARN = "arn:aws:iam::aws:policy/CloudWatchFullAccessV2";
     /** Use ManagedPolicy.CloudWatchLogsFullAccess instead. */
     export const CloudWatchLogsFullAccess: ARN = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess";
     /** Use ManagedPolicy.CloudWatchLogsReadOnlyAccess instead. */
