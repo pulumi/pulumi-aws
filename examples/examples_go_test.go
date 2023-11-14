@@ -83,7 +83,6 @@ func TestTagsCombinationsGo(t *testing.T) {
 	for _, tc := range testCases {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
-			t.Parallel()
 			tc.s1.validateTransitionTo(t, tc.s2)
 		})
 	}
@@ -128,7 +127,6 @@ func TestRandomTagsCombinationsGo(t *testing.T) {
 
 	for i := 0; i < 100; i++ {
 		t.Run(fmt.Sprintf("test-%d", i), func(t *testing.T) {
-			t.Parallel()
 			i := rand.Intn(len(states))
 			j := rand.Intn(len(states))
 			state1, state2 := states[i], states[j]
@@ -165,8 +163,7 @@ func (st tagsState) validateTransitionTo(t *testing.T, st2 tagsState) {
 			"state1":     st.serialize(t),
 			"state2":     st2.serialize(t),
 		},
-		Quick:            true,
-		DestroyOnCleanup: true,
+		Quick: true,
 	})
 }
 
