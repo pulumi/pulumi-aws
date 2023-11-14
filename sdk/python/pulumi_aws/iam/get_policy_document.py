@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPolicyDocumentResult:
+calass GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
     """
@@ -88,7 +88,7 @@ class GetPolicyDocumentResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
+calass AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -106,7 +106,7 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
 def get_policy_document(override_policy_documents: Optional[Sequence[str]] = None,
                         policy_id: Optional[str] = None,
                         source_policy_documents: Optional[Sequence[str]] = None,
-                        statements: Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']]] = None,
+                        statements: Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArrgs']]] = None,
                         version: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyDocumentResult:
     """
@@ -122,7 +122,7 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi_aws as aws
 
     example_policy_document = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="1",
             actions=[
                 "s3:ListAllMyBuckets",
@@ -130,10 +130,10 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
             ],
             resources=["arn:aws:s3:::*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:ListBucket"],
             resources=[f"arn:aws:s3:::{var['s3_bucket_name']}"],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="StringLike",
                 variable="s3:prefix",
                 values=[
@@ -143,7 +143,7 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
                 ],
             )],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:*"],
             resources=[
                 f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}",
@@ -163,23 +163,23 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=[
             "kms:Decrypt",
             "kms:GenerateDataKey",
         ],
         conditions=[
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=["pi"],
                 variable="kms:EncryptionContext:service",
             ),
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=["rds"],
                 variable="kms:EncryptionContext:aws:pi:service",
             ),
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=[
                     "db-AAAAABBBBBCCCCCDDDDDEEEEE",
@@ -205,18 +205,18 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=["sts:AssumeRole"],
         principals=[
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["firehose.amazonaws.com"],
             ),
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[var["trusted_role_arn"]],
             ),
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Federated",
                 identifiers=[
                     f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
@@ -233,18 +233,18 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi_aws as aws
 
     source = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="SidToOverride",
             actions=["s3:*"],
             resources=["*"],
         ),
     ])
     source_document_example = aws.iam.get_policy_document(source_policy_documents=[source.json],
-        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="SidToOverride",
             actions=["s3:*"],
             resources=[
@@ -265,18 +265,18 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="SidToOverride",
         actions=["s3:*"],
         resources=["*"],
     )])
     override_policy_document_example = aws.iam.get_policy_document(override_policy_documents=[override.json],
         statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=["ec2:*"],
                 resources=["*"],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="SidToOverride",
                 actions=["s3:*"],
                 resources=[
@@ -300,12 +300,12 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceholder",
         actions=["ec2:DescribeAccountAttributes"],
         resources=["*"],
     )])
-    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceholder",
         actions=["s3:GetObject"],
         resources=["*"],
@@ -328,23 +328,23 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi_aws as aws
 
     source_one = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="UniqueSidOne",
             actions=["s3:*"],
             resources=["*"],
         ),
     ])
     source_two = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="UniqueSidTwo",
             actions=["iam:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["lambda:*"],
             resources=["*"],
         ),
@@ -366,26 +366,26 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    policy_one = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    policy_one = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceHolderOne",
         effect="Allow",
         actions=["s3:*"],
         resources=["*"],
     )])
     policy_two = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OverridePlaceHolderTwo",
             effect="Allow",
             actions=["iam:*"],
             resources=["*"],
         ),
     ])
-    policy_three = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    policy_three = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceHolderOne",
         effect="Deny",
         actions=["logs:*"],
@@ -396,7 +396,7 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
             policy_two.json,
             policy_three.json,
         ],
-        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OverridePlaceHolderTwo",
             effect="Deny",
             actions=["*"],
@@ -414,7 +414,7 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     :param Sequence[str] override_policy_documents: List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
     :param str policy_id: ID for the policy document.
     :param Sequence[str] source_policy_documents: List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
-    :param Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']] statements: Configuration block for a policy statement. Detailed below.
+    :param Sequence[pulumi.InputType['GetPolicyDocumentStatementArrgs']] statements: Configuration block for a policy statement. Detailed below.
     :param str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
     __args__ = dict()
@@ -440,7 +440,7 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
 def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                policy_id: Optional[pulumi.Input[Optional[str]]] = None,
                                source_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                               statements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']]]]] = None,
+                               statements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArrgs']]]]] = None,
                                version: Optional[pulumi.Input[Optional[str]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDocumentResult]:
     """
@@ -456,7 +456,7 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi_aws as aws
 
     example_policy_document = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="1",
             actions=[
                 "s3:ListAllMyBuckets",
@@ -464,10 +464,10 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
             ],
             resources=["arn:aws:s3:::*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:ListBucket"],
             resources=[f"arn:aws:s3:::{var['s3_bucket_name']}"],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="StringLike",
                 variable="s3:prefix",
                 values=[
@@ -477,7 +477,7 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
                 ],
             )],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:*"],
             resources=[
                 f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}",
@@ -497,23 +497,23 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=[
             "kms:Decrypt",
             "kms:GenerateDataKey",
         ],
         conditions=[
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=["pi"],
                 variable="kms:EncryptionContext:service",
             ),
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=["rds"],
                 variable="kms:EncryptionContext:aws:pi:service",
             ),
-            aws.iam.GetPolicyDocumentStatementConditionArgs(
+            aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ForAnyValue:StringEquals",
                 values=[
                     "db-AAAAABBBBBCCCCCDDDDDEEEEE",
@@ -539,18 +539,18 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=["sts:AssumeRole"],
         principals=[
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["firehose.amazonaws.com"],
             ),
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[var["trusted_role_arn"]],
             ),
-            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Federated",
                 identifiers=[
                     f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
@@ -567,18 +567,18 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi_aws as aws
 
     source = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="SidToOverride",
             actions=["s3:*"],
             resources=["*"],
         ),
     ])
     source_document_example = aws.iam.get_policy_document(source_policy_documents=[source.json],
-        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="SidToOverride",
             actions=["s3:*"],
             resources=[
@@ -599,18 +599,18 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="SidToOverride",
         actions=["s3:*"],
         resources=["*"],
     )])
     override_policy_document_example = aws.iam.get_policy_document(override_policy_documents=[override.json],
         statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=["ec2:*"],
                 resources=["*"],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="SidToOverride",
                 actions=["s3:*"],
                 resources=[
@@ -634,12 +634,12 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    source = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceholder",
         actions=["ec2:DescribeAccountAttributes"],
         resources=["*"],
     )])
-    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceholder",
         actions=["s3:GetObject"],
         resources=["*"],
@@ -662,23 +662,23 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi_aws as aws
 
     source_one = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="UniqueSidOne",
             actions=["s3:*"],
             resources=["*"],
         ),
     ])
     source_two = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="UniqueSidTwo",
             actions=["iam:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["lambda:*"],
             resources=["*"],
         ),
@@ -700,26 +700,26 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    policy_one = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    policy_one = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceHolderOne",
         effect="Allow",
         actions=["s3:*"],
         resources=["*"],
     )])
     policy_two = aws.iam.get_policy_document(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:*"],
             resources=["*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OverridePlaceHolderTwo",
             effect="Allow",
             actions=["iam:*"],
             resources=["*"],
         ),
     ])
-    policy_three = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    policy_three = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         sid="OverridePlaceHolderOne",
         effect="Deny",
         actions=["logs:*"],
@@ -730,7 +730,7 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
             policy_two.json,
             policy_three.json,
         ],
-        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OverridePlaceHolderTwo",
             effect="Deny",
             actions=["*"],
@@ -748,7 +748,7 @@ def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[
     :param Sequence[str] override_policy_documents: List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
     :param str policy_id: ID for the policy document.
     :param Sequence[str] source_policy_documents: List of IAM policy documents that are merged together into the exported document. Statements defined in `source_policy_documents` must have unique `sid`s. Statements with the same `sid` from `override_policy_documents` will override source statements.
-    :param Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']] statements: Configuration block for a policy statement. Detailed below.
+    :param Sequence[pulumi.InputType['GetPolicyDocumentStatementArrgs']] statements: Configuration block for a policy statement. Detailed below.
     :param str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
     ...

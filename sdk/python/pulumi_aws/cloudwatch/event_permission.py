@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EventPermissionArgs', 'EventPermission']
+__all__ = ['EventPermissionArrgs', 'EventPermission']
 
 @pulumi.input_type
-class EventPermissionArgs:
+calass EventPermissionArrgs:
     def __init__(__self__, *,
                  principal: pulumi.Input[str],
                  statement_id: pulumi.Input[str],
                  action: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input['EventPermissionConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['EventPermissionConditionArrgs']] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventPermission resource.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         :param pulumi.Input[str] statement_id: An identifier string for the external account that you are granting permissions to.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-        :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input['EventPermissionConditionArrgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         """
@@ -77,14 +77,14 @@ class EventPermissionArgs:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArrgs']]:
         """
         Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['EventPermissionConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['EventPermissionConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -102,17 +102,17 @@ class EventPermissionArgs:
 
 
 @pulumi.input_type
-class _EventPermissionState:
+calass _EventPermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input['EventPermissionConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['EventPermissionConditionArrgs']] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventPermission resources.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-        :param pulumi.Input['EventPermissionConditionArgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input['EventPermissionConditionArrgs'] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
@@ -143,14 +143,14 @@ class _EventPermissionState:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['EventPermissionConditionArrgs']]:
         """
         Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['EventPermissionConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['EventPermissionConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -191,13 +191,13 @@ class _EventPermissionState:
         pulumi.set(self, "statement_id", value)
 
 
-class EventPermission(pulumi.CustomResource):
+calass EventPermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArrgs']]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
@@ -229,7 +229,7 @@ class EventPermission(pulumi.CustomResource):
         organization_access = aws.cloudwatch.EventPermission("organizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
-            condition=aws.cloudwatch.EventPermissionConditionArgs(
+            condition=aws.cloudwatch.EventPermissionConditionArrgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
                 value=aws_organizations_organization["example"]["id"],
@@ -247,7 +247,7 @@ class EventPermission(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArrgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
@@ -257,7 +257,7 @@ class EventPermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventPermissionArgs,
+                 args: EventPermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
@@ -286,7 +286,7 @@ class EventPermission(pulumi.CustomResource):
         organization_access = aws.cloudwatch.EventPermission("organizationAccess",
             principal="*",
             statement_id="OrganizationAccess",
-            condition=aws.cloudwatch.EventPermissionConditionArgs(
+            condition=aws.cloudwatch.EventPermissionConditionArrgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
                 value=aws_organizations_organization["example"]["id"],
@@ -302,12 +302,12 @@ class EventPermission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventPermissionArgs args: The arguments to use to populate this resource's properties.
+        :param EventPermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventPermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventPermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -317,7 +317,7 @@ class EventPermission(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArrgs']]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
                  statement_id: Optional[pulumi.Input[str]] = None,
@@ -328,7 +328,7 @@ class EventPermission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventPermissionArgs.__new__(EventPermissionArgs)
+            __props__ = EventPermissionArrgs.__new__(EventPermissionArrgs)
 
             __props__.__dict__["action"] = action
             __props__.__dict__["condition"] = condition
@@ -350,7 +350,7 @@ class EventPermission(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[str]] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[pulumi.InputType['EventPermissionConditionArrgs']]] = None,
             event_bus_name: Optional[pulumi.Input[str]] = None,
             principal: Optional[pulumi.Input[str]] = None,
             statement_id: Optional[pulumi.Input[str]] = None) -> 'EventPermission':
@@ -362,7 +362,7 @@ class EventPermission(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
+        :param pulumi.Input[pulumi.InputType['EventPermissionConditionArrgs']] condition: Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         :param pulumi.Input[str] event_bus_name: The name of the event bus to set the permissions on.
                If you omit this, the permissions are set on the `default` event bus.
         :param pulumi.Input[str] principal: The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.

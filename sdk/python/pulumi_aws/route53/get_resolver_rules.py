@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverRulesResult:
+calass GetResolverRulesResult:
     """
     A collection of values returned by getResolverRules.
     """
@@ -86,7 +86,7 @@ class GetResolverRulesResult:
         return pulumi.get(self, "share_status")
 
 
-class AwaitableGetResolverRulesResult(GetResolverRulesResult):
+calass AwaitableGetResolverRulesResult(GetResolverRulesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

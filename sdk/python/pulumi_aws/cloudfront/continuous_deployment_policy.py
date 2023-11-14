@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ContinuousDeploymentPolicyArgs', 'ContinuousDeploymentPolicy']
+__all__ = ['ContinuousDeploymentPolicyArrgs', 'ContinuousDeploymentPolicy']
 
 @pulumi.input_type
-class ContinuousDeploymentPolicyArgs:
+calass ContinuousDeploymentPolicyArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
-                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
+                 staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']] = None,
+                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']] = None):
         """
         The set of arguments for constructing a ContinuousDeploymentPolicy resource.
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
-        :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
-        :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if staging_distribution_dns_names is not None:
@@ -45,44 +45,44 @@ class ContinuousDeploymentPolicyArgs:
 
     @property
     @pulumi.getter(name="stagingDistributionDnsNames")
-    def staging_distribution_dns_names(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]:
+    def staging_distribution_dns_names(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]:
         """
         CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         """
         return pulumi.get(self, "staging_distribution_dns_names")
 
     @staging_distribution_dns_names.setter
-    def staging_distribution_dns_names(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]):
+    def staging_distribution_dns_names(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]):
         pulumi.set(self, "staging_distribution_dns_names", value)
 
     @property
     @pulumi.getter(name="trafficConfig")
-    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]:
+    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']]:
         """
         Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         return pulumi.get(self, "traffic_config")
 
     @traffic_config.setter
-    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]):
+    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']]):
         pulumi.set(self, "traffic_config", value)
 
 
 @pulumi.input_type
-class _ContinuousDeploymentPolicyState:
+calass _ContinuousDeploymentPolicyState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] = None,
-                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
+                 staging_distribution_dns_names: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']] = None,
+                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering ContinuousDeploymentPolicy resources.
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input[str] etag: Current version of the continuous distribution policy.
         :param pulumi.Input[str] last_modified_time: Date and time the continuous deployment policy was last modified.
-        :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
-        :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        :param pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs'] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        :param pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs'] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -133,37 +133,37 @@ class _ContinuousDeploymentPolicyState:
 
     @property
     @pulumi.getter(name="stagingDistributionDnsNames")
-    def staging_distribution_dns_names(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]:
+    def staging_distribution_dns_names(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]:
         """
         CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         """
         return pulumi.get(self, "staging_distribution_dns_names")
 
     @staging_distribution_dns_names.setter
-    def staging_distribution_dns_names(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]):
+    def staging_distribution_dns_names(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]):
         pulumi.set(self, "staging_distribution_dns_names", value)
 
     @property
     @pulumi.getter(name="trafficConfig")
-    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]:
+    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']]:
         """
         Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         return pulumi.get(self, "traffic_config")
 
     @traffic_config.setter
-    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]):
+    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArrgs']]):
         pulumi.set(self, "traffic_config", value)
 
 
-class ContinuousDeploymentPolicy(pulumi.CustomResource):
+calass ContinuousDeploymentPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]] = None,
-                 traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArgs']]] = None,
+                 staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]] = None,
+                 traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
@@ -181,13 +181,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[staging.domain_name],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
+                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArrgs(
                     weight=0.01,
                 ),
             ))
@@ -204,15 +204,15 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[aws_cloudfront_distribution["staging"]["domain_name"]],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
+                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArrgs(
                     weight=0.01,
-                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs(
+                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArrgs(
                         idle_ttl=300,
                         maximum_ttl=600,
                     ),
@@ -227,13 +227,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[aws_cloudfront_distribution["staging"]["domain_name"]],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleHeader",
-                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs(
+                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArrgs(
                     header="aws-cf-cd-example",
                     value="example",
                 ),
@@ -251,14 +251,14 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
-        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
-        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArgs']] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArrgs']] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContinuousDeploymentPolicyArgs,
+                 args: ContinuousDeploymentPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
@@ -276,13 +276,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[staging.domain_name],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
+                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArrgs(
                     weight=0.01,
                 ),
             ))
@@ -299,15 +299,15 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[aws_cloudfront_distribution["staging"]["domain_name"]],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleWeight",
-                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs(
+                single_weight_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArrgs(
                     weight=0.01,
-                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs(
+                    session_stickiness_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArrgs(
                         idle_ttl=300,
                         maximum_ttl=600,
                     ),
@@ -322,13 +322,13 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
 
         example = aws.cloudfront.ContinuousDeploymentPolicy("example",
             enabled=True,
-            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs(
+            staging_distribution_dns_names=aws.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs(
                 items=[aws_cloudfront_distribution["staging"]["domain_name"]],
                 quantity=1,
             ),
-            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs(
+            traffic_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigArrgs(
                 type="SingleHeader",
-                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs(
+                single_header_config=aws.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArrgs(
                     header="aws-cf-cd-example",
                     value="example",
                 ),
@@ -344,12 +344,12 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContinuousDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ContinuousDeploymentPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContinuousDeploymentPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContinuousDeploymentPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -359,8 +359,8 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]] = None,
-                 traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArgs']]] = None,
+                 staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]] = None,
+                 traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,7 +368,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContinuousDeploymentPolicyArgs.__new__(ContinuousDeploymentPolicyArgs)
+            __props__ = ContinuousDeploymentPolicyArrgs.__new__(ContinuousDeploymentPolicyArrgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
@@ -390,8 +390,8 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             last_modified_time: Optional[pulumi.Input[str]] = None,
-            staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']]] = None,
-            traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArgs']]] = None) -> 'ContinuousDeploymentPolicy':
+            staging_distribution_dns_names: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']]] = None,
+            traffic_config: Optional[pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArrgs']]] = None) -> 'ContinuousDeploymentPolicy':
         """
         Get an existing ContinuousDeploymentPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -402,8 +402,8 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether this continuous deployment policy is enabled.
         :param pulumi.Input[str] etag: Current version of the continuous distribution policy.
         :param pulumi.Input[str] last_modified_time: Date and time the continuous deployment policy was last modified.
-        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs']] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
-        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArgs']] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
+        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyStagingDistributionDnsNamesArrgs']] staging_distribution_dns_names: CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
+        :param pulumi.Input[pulumi.InputType['ContinuousDeploymentPolicyTrafficConfigArrgs']] traffic_config: Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

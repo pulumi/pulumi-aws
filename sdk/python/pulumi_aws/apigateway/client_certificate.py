@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClientCertificateArgs', 'ClientCertificate']
+__all__ = ['ClientCertificateArrgs', 'ClientCertificate']
 
 @pulumi.input_type
-class ClientCertificateArgs:
+calass ClientCertificateArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -52,7 +52,7 @@ class ClientCertificateArgs:
 
 
 @pulumi.input_type
-class _ClientCertificateState:
+calass _ClientCertificateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
@@ -177,7 +177,7 @@ class _ClientCertificateState:
         pulumi.set(self, "tags_all", value)
 
 
-class ClientCertificate(pulumi.CustomResource):
+calass ClientCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,7 +214,7 @@ class ClientCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ClientCertificateArgs] = None,
+                 args: Optional[ClientCertificateArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an API Gateway Client Certificate.
@@ -237,12 +237,12 @@ class ClientCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClientCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ClientCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClientCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClientCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -260,7 +260,7 @@ class ClientCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClientCertificateArgs.__new__(ClientCertificateArgs)
+            __props__ = ClientCertificateArrgs.__new__(ClientCertificateArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["tags"] = tags

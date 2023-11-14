@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointAuthenticationOption(dict):
+calass EndpointAuthenticationOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -111,7 +111,7 @@ class EndpointAuthenticationOption(dict):
 
 
 @pulumi.output_type
-class EndpointClientConnectOptions(dict):
+calass EndpointClientConnectOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -159,7 +159,7 @@ class EndpointClientConnectOptions(dict):
 
 
 @pulumi.output_type
-class EndpointClientLoginBannerOptions(dict):
+calass EndpointClientLoginBannerOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,7 +207,7 @@ class EndpointClientLoginBannerOptions(dict):
 
 
 @pulumi.output_type
-class EndpointConnectionLogOptions(dict):
+calass EndpointConnectionLogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -268,7 +268,7 @@ class EndpointConnectionLogOptions(dict):
 
 
 @pulumi.output_type
-class GetEndpointAuthenticationOptionResult(dict):
+calass GetEndpointAuthenticationOptionResult(dict):
     def __init__(__self__, *,
                  active_directory_id: str,
                  root_certificate_chain_arn: str,
@@ -308,7 +308,7 @@ class GetEndpointAuthenticationOptionResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointClientConnectOptionResult(dict):
+calass GetEndpointClientConnectOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  lambda_function_arn: str):
@@ -327,7 +327,7 @@ class GetEndpointClientConnectOptionResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointClientLoginBannerOptionResult(dict):
+calass GetEndpointClientLoginBannerOptionResult(dict):
     def __init__(__self__, *,
                  banner_text: str,
                  enabled: bool):
@@ -346,7 +346,7 @@ class GetEndpointClientLoginBannerOptionResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointConnectionLogOptionResult(dict):
+calass GetEndpointConnectionLogOptionResult(dict):
     def __init__(__self__, *,
                  cloudwatch_log_group: str,
                  cloudwatch_log_stream: str,
@@ -372,7 +372,7 @@ class GetEndpointConnectionLogOptionResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointFilterResult(dict):
+calass GetEndpointFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

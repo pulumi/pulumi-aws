@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResponsePlanResult:
+calass GetResponsePlanResult:
     """
     A collection of values returned by getResponsePlan.
     """
@@ -129,7 +129,7 @@ class GetResponsePlanResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetResponsePlanResult(GetResponsePlanResult):
+calass AwaitableGetResponsePlanResult(GetResponsePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

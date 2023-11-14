@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
-__all__ = ['PlacementGroupArgs', 'PlacementGroup']
+__all__ = ['PlacementGroupArrgs', 'PlacementGroup']
 
 @pulumi.input_type
-class PlacementGroupArgs:
+calass PlacementGroupArrgs:
     def __init__(__self__, *,
                  strategy: pulumi.Input[Union[str, 'PlacementStrategy']],
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class PlacementGroupArgs:
 
 
 @pulumi.input_type
-class _PlacementGroupState:
+calass _PlacementGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -253,7 +253,7 @@ class _PlacementGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class PlacementGroup(pulumi.CustomResource):
+calass PlacementGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -300,7 +300,7 @@ class PlacementGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PlacementGroupArgs,
+                 args: PlacementGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 placement group. Read more about placement groups
@@ -324,12 +324,12 @@ class PlacementGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PlacementGroupArgs args: The arguments to use to populate this resource's properties.
+        :param PlacementGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PlacementGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PlacementGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -350,7 +350,7 @@ class PlacementGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
+            __props__ = PlacementGroupArrgs.__new__(PlacementGroupArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["partition_count"] = partition_count

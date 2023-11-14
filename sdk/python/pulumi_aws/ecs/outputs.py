@@ -63,7 +63,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CapacityProviderAutoScalingGroupProvider(dict):
+calass CapacityProviderAutoScalingGroupProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,7 +91,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
                  managed_termination_protection: Optional[str] = None):
         """
         :param str auto_scaling_group_arn: ARN of the associated auto scaling group.
-        :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs' managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
+        :param 'CapacityProviderAutoScalingGroupProviderManagedScalingArrgs' managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
         :param str managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -126,7 +126,7 @@ class CapacityProviderAutoScalingGroupProvider(dict):
 
 
 @pulumi.output_type
-class CapacityProviderAutoScalingGroupProviderManagedScaling(dict):
+calass CapacityProviderAutoScalingGroupProviderManagedScaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -216,7 +216,7 @@ class CapacityProviderAutoScalingGroupProviderManagedScaling(dict):
 
 
 @pulumi.output_type
-class ClusterCapacityProvidersDefaultCapacityProviderStrategy(dict):
+calass ClusterCapacityProvidersDefaultCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -275,7 +275,7 @@ class ClusterCapacityProvidersDefaultCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class ClusterConfiguration(dict):
+calass ClusterConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -296,7 +296,7 @@ class ClusterConfiguration(dict):
     def __init__(__self__, *,
                  execute_command_configuration: Optional['outputs.ClusterConfigurationExecuteCommandConfiguration'] = None):
         """
-        :param 'ClusterConfigurationExecuteCommandConfigurationArgs' execute_command_configuration: The details of the execute command configuration. Detailed below.
+        :param 'ClusterConfigurationExecuteCommandConfigurationArrgs' execute_command_configuration: The details of the execute command configuration. Detailed below.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
@@ -311,7 +311,7 @@ class ClusterConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterConfigurationExecuteCommandConfiguration(dict):
+calass ClusterConfigurationExecuteCommandConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,7 +337,7 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
                  logging: Optional[str] = None):
         """
         :param str kms_key_id: The AWS Key Management Service key ID to encrypt the data between the local client and the container.
-        :param 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs' log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        :param 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs' log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
         :param str logging: The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
         """
         if kms_key_id is not None:
@@ -373,7 +373,7 @@ class ClusterConfigurationExecuteCommandConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
+calass ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -465,7 +465,7 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterServiceConnectDefaults(dict):
+calass ClusterServiceConnectDefaults(dict):
     def __init__(__self__, *,
                  namespace: str):
         """
@@ -483,7 +483,7 @@ class ClusterServiceConnectDefaults(dict):
 
 
 @pulumi.output_type
-class ClusterSetting(dict):
+calass ClusterSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -512,7 +512,7 @@ class ClusterSetting(dict):
 
 
 @pulumi.output_type
-class ServiceAlarms(dict):
+calass ServiceAlarms(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -569,7 +569,7 @@ class ServiceAlarms(dict):
 
 
 @pulumi.output_type
-class ServiceCapacityProviderStrategy(dict):
+calass ServiceCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -628,7 +628,7 @@ class ServiceCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class ServiceDeploymentCircuitBreaker(dict):
+calass ServiceDeploymentCircuitBreaker(dict):
     def __init__(__self__, *,
                  enable: bool,
                  rollback: bool):
@@ -657,7 +657,7 @@ class ServiceDeploymentCircuitBreaker(dict):
 
 
 @pulumi.output_type
-class ServiceDeploymentController(dict):
+calass ServiceDeploymentController(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
@@ -676,7 +676,7 @@ class ServiceDeploymentController(dict):
 
 
 @pulumi.output_type
-class ServiceLoadBalancer(dict):
+calass ServiceLoadBalancer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -756,7 +756,7 @@ class ServiceLoadBalancer(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkConfiguration(dict):
+calass ServiceNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -821,7 +821,7 @@ class ServiceNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceOrderedPlacementStrategy(dict):
+calass ServiceOrderedPlacementStrategy(dict):
     def __init__(__self__, *,
                  type: str,
                  field: Optional[str] = None):
@@ -861,7 +861,7 @@ class ServiceOrderedPlacementStrategy(dict):
 
 
 @pulumi.output_type
-class ServicePlacementConstraint(dict):
+calass ServicePlacementConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -891,7 +891,7 @@ class ServicePlacementConstraint(dict):
 
 
 @pulumi.output_type
-class ServiceServiceConnectConfiguration(dict):
+calass ServiceServiceConnectConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -916,9 +916,9 @@ class ServiceServiceConnectConfiguration(dict):
                  services: Optional[Sequence['outputs.ServiceServiceConnectConfigurationService']] = None):
         """
         :param bool enabled: Specifies whether to use Service Connect with this service.
-        :param 'ServiceServiceConnectConfigurationLogConfigurationArgs' log_configuration: The log configuration for the container. See below.
+        :param 'ServiceServiceConnectConfigurationLogConfigurationArrgs' log_configuration: The log configuration for the container. See below.
         :param str namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
-        :param Sequence['ServiceServiceConnectConfigurationServiceArgs'] services: The list of Service Connect service objects. See below.
+        :param Sequence['ServiceServiceConnectConfigurationServiceArrgs'] services: The list of Service Connect service objects. See below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_configuration is not None:
@@ -962,7 +962,7 @@ class ServiceServiceConnectConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceServiceConnectConfigurationLogConfiguration(dict):
+calass ServiceServiceConnectConfigurationLogConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -989,7 +989,7 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
         """
         :param str log_driver: The log driver to use for the container.
         :param Mapping[str, str] options: The configuration options to send to the log driver.
-        :param Sequence['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs'] secret_options: The secrets to pass to the log configuration. See below.
+        :param Sequence['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs'] secret_options: The secrets to pass to the log configuration. See below.
         """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -1023,7 +1023,7 @@ class ServiceServiceConnectConfigurationLogConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceServiceConnectConfigurationLogConfigurationSecretOption(dict):
+calass ServiceServiceConnectConfigurationLogConfigurationSecretOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1069,7 +1069,7 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOption(dict):
 
 
 @pulumi.output_type
-class ServiceServiceConnectConfigurationService(dict):
+calass ServiceServiceConnectConfigurationService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1100,7 +1100,7 @@ class ServiceServiceConnectConfigurationService(dict):
                  ingress_port_override: Optional[int] = None):
         """
         :param str port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArgs'] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param Sequence['ServiceServiceConnectConfigurationServiceClientAliasArrgs'] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param str discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param int ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
@@ -1146,7 +1146,7 @@ class ServiceServiceConnectConfigurationService(dict):
 
 
 @pulumi.output_type
-class ServiceServiceConnectConfigurationServiceClientAlias(dict):
+calass ServiceServiceConnectConfigurationServiceClientAlias(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1193,7 +1193,7 @@ class ServiceServiceConnectConfigurationServiceClientAlias(dict):
 
 
 @pulumi.output_type
-class ServiceServiceRegistries(dict):
+calass ServiceServiceRegistries(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1268,7 +1268,7 @@ class ServiceServiceRegistries(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionEphemeralStorage(dict):
+calass TaskDefinitionEphemeralStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1303,7 +1303,7 @@ class TaskDefinitionEphemeralStorage(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionInferenceAccelerator(dict):
+calass TaskDefinitionInferenceAccelerator(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1351,7 +1351,7 @@ class TaskDefinitionInferenceAccelerator(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionPlacementConstraint(dict):
+calass TaskDefinitionPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -1381,7 +1381,7 @@ class TaskDefinitionPlacementConstraint(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionProxyConfiguration(dict):
+calass TaskDefinitionProxyConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1440,7 +1440,7 @@ class TaskDefinitionProxyConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionRuntimePlatform(dict):
+calass TaskDefinitionRuntimePlatform(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1490,7 +1490,7 @@ class TaskDefinitionRuntimePlatform(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolume(dict):
+calass TaskDefinitionVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1523,9 +1523,9 @@ class TaskDefinitionVolume(dict):
         """
         :param str name: Name of the volume. This name is referenced in the `sourceVolume`
                parameter of container definition in the `mountPoints` section.
-        :param 'TaskDefinitionVolumeDockerVolumeConfigurationArgs' docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
-        :param 'TaskDefinitionVolumeEfsVolumeConfigurationArgs' efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
-        :param 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs' fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
+        :param 'TaskDefinitionVolumeDockerVolumeConfigurationArrgs' docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
+        :param 'TaskDefinitionVolumeEfsVolumeConfigurationArrgs' efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
+        :param 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs' fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param str host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         """
         pulumi.set(__self__, "name", name)
@@ -1581,7 +1581,7 @@ class TaskDefinitionVolume(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolumeDockerVolumeConfiguration(dict):
+calass TaskDefinitionVolumeDockerVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1665,7 +1665,7 @@ class TaskDefinitionVolumeDockerVolumeConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
+calass TaskDefinitionVolumeEfsVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1699,7 +1699,7 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
                  transit_encryption_port: Optional[int] = None):
         """
         :param str file_system_id: ID of the EFS File System.
-        :param 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs' authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
+        :param 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs' authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
         :param str root_directory: Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         :param str transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         :param int transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
@@ -1756,7 +1756,7 @@ class TaskDefinitionVolumeEfsVolumeConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(dict):
+calass TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1804,7 +1804,7 @@ class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(dict):
+calass TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1831,7 +1831,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(dict):
                  file_system_id: str,
                  root_directory: str):
         """
-        :param 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs' authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs' authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
         :param str file_system_id: The Amazon FSx for Windows File Server file system ID to use.
         :param str root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         """
@@ -1865,7 +1865,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig(dict):
+calass TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1911,7 +1911,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
 
 
 @pulumi.output_type
-class TaskSetCapacityProviderStrategy(dict):
+calass TaskSetCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1969,7 +1969,7 @@ class TaskSetCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class TaskSetLoadBalancer(dict):
+calass TaskSetLoadBalancer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2050,7 +2050,7 @@ class TaskSetLoadBalancer(dict):
 
 
 @pulumi.output_type
-class TaskSetNetworkConfiguration(dict):
+calass TaskSetNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2115,7 +2115,7 @@ class TaskSetNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class TaskSetScale(dict):
+calass TaskSetScale(dict):
     def __init__(__self__, *,
                  unit: Optional[str] = None,
                  value: Optional[float] = None):
@@ -2146,7 +2146,7 @@ class TaskSetScale(dict):
 
 
 @pulumi.output_type
-class TaskSetServiceRegistries(dict):
+calass TaskSetServiceRegistries(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2221,7 +2221,7 @@ class TaskSetServiceRegistries(dict):
 
 
 @pulumi.output_type
-class GetClusterServiceConnectDefaultResult(dict):
+calass GetClusterServiceConnectDefaultResult(dict):
     def __init__(__self__, *,
                  namespace: str):
         pulumi.set(__self__, "namespace", namespace)
@@ -2233,7 +2233,7 @@ class GetClusterServiceConnectDefaultResult(dict):
 
 
 @pulumi.output_type
-class GetClusterSettingResult(dict):
+calass GetClusterSettingResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2252,7 +2252,7 @@ class GetClusterSettingResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionCapacityProviderStrategyResult(dict):
+calass GetTaskExecutionCapacityProviderStrategyResult(dict):
     def __init__(__self__, *,
                  capacity_provider: str,
                  base: Optional[int] = None,
@@ -2294,7 +2294,7 @@ class GetTaskExecutionCapacityProviderStrategyResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionNetworkConfigurationResult(dict):
+calass GetTaskExecutionNetworkConfigurationResult(dict):
     def __init__(__self__, *,
                  subnets: Sequence[str],
                  assign_public_ip: Optional[bool] = None,
@@ -2340,7 +2340,7 @@ class GetTaskExecutionNetworkConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionOverridesResult(dict):
+calass GetTaskExecutionOverridesResult(dict):
     def __init__(__self__, *,
                  container_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResult']] = None,
                  cpu: Optional[str] = None,
@@ -2349,10 +2349,10 @@ class GetTaskExecutionOverridesResult(dict):
                  memory: Optional[str] = None,
                  task_role_arn: Optional[str] = None):
         """
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideArrgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param str cpu: The CPU override for the task.
         :param str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
-        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
+        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
         :param str memory: The memory override for the task.
         :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
@@ -2419,7 +2419,7 @@ class GetTaskExecutionOverridesResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionOverridesContainerOverrideResult(dict):
+calass GetTaskExecutionOverridesContainerOverrideResult(dict):
     def __init__(__self__, *,
                  name: str,
                  commands: Optional[Sequence[str]] = None,
@@ -2432,10 +2432,10 @@ class GetTaskExecutionOverridesContainerOverrideResult(dict):
         :param str name: The name of the container that receives the override. This parameter is required if any override is specified.
         :param Sequence[str] commands: The command to send to the container that overrides the default command from the Docker image or the task definition.
         :param int cpu: The number of cpu units reserved for the container, instead of the default value from the task definition.
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         :param int memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
         :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         """
         pulumi.set(__self__, "name", name)
         if commands is not None:
@@ -2509,7 +2509,7 @@ class GetTaskExecutionOverridesContainerOverrideResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionOverridesContainerOverrideEnvironmentResult(dict):
+calass GetTaskExecutionOverridesContainerOverrideEnvironmentResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -2538,7 +2538,7 @@ class GetTaskExecutionOverridesContainerOverrideEnvironmentResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
+calass GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -2567,7 +2567,7 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
+calass GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  device_type: Optional[str] = None):
@@ -2598,7 +2598,7 @@ class GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionPlacementConstraintResult(dict):
+calass GetTaskExecutionPlacementConstraintResult(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -2628,7 +2628,7 @@ class GetTaskExecutionPlacementConstraintResult(dict):
 
 
 @pulumi.output_type
-class GetTaskExecutionPlacementStrategyResult(dict):
+calass GetTaskExecutionPlacementStrategyResult(dict):
     def __init__(__self__, *,
                  type: str,
                  field: Optional[str] = None):

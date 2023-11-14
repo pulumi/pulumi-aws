@@ -12,20 +12,20 @@ __all__ = [
 ]
 
 
-class EngineMode(str, Enum):
+calass EngineMode(str, Enum):
     PROVISIONED = "provisioned"
     SERVERLESS = "serverless"
     PARALLEL_QUERY = "parallelquery"
     GLOBAL_ = "global"
 
 
-class EngineType(str, Enum):
+calass EngineType(str, Enum):
     AURORA = "aurora"
     AURORA_MYSQL = "aurora-mysql"
     AURORA_POSTGRESQL = "aurora-postgresql"
 
 
-class InstanceType(str, Enum):
+calass InstanceType(str, Enum):
     T4_G_MICRO = "db.t4g.micro"
     T4_G_SMALL = "db.t4g.small"
     T4_G_MEDIUM = "db.t4g.medium"
@@ -107,7 +107,7 @@ class InstanceType(str, Enum):
     X1_E_32_X_LARGE = "db.x1e.32xlarge"
 
 
-class StorageType(str, Enum):
+calass StorageType(str, Enum):
     STANDARD = "standard"
     GP2 = "gp2"
     GP3 = "gp3"

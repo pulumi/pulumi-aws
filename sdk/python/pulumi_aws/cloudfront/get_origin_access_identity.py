@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOriginAccessIdentityResult:
+calass GetOriginAccessIdentityResult:
     """
     A collection of values returned by getOriginAccessIdentity.
     """
@@ -105,7 +105,7 @@ class GetOriginAccessIdentityResult:
         return pulumi.get(self, "s3_canonical_user_id")
 
 
-class AwaitableGetOriginAccessIdentityResult(GetOriginAccessIdentityResult):
+calass AwaitableGetOriginAccessIdentityResult(GetOriginAccessIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

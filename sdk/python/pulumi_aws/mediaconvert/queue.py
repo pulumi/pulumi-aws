@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['QueueArgs', 'Queue']
+__all__ = ['QueueArrgs', 'Queue']
 
 @pulumi.input_type
-class QueueArgs:
+calass QueueArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
-                 reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
+                 reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -27,7 +27,7 @@ class QueueArgs:
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
+        :param pulumi.Input['QueueReservationPlanSettingsArrgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -82,14 +82,14 @@ class QueueArgs:
 
     @property
     @pulumi.getter(name="reservationPlanSettings")
-    def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]:
+    def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']]:
         """
         A detail pricing plan of the  reserved queue. See below.
         """
         return pulumi.get(self, "reservation_plan_settings")
 
     @reservation_plan_settings.setter
-    def reservation_plan_settings(self, value: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]):
+    def reservation_plan_settings(self, value: Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']]):
         pulumi.set(self, "reservation_plan_settings", value)
 
     @property
@@ -118,13 +118,13 @@ class QueueArgs:
 
 
 @pulumi.input_type
-class _QueueState:
+calass _QueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
-                 reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']] = None,
+                 reservation_plan_settings: Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -134,7 +134,7 @@ class _QueueState:
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-        :param pulumi.Input['QueueReservationPlanSettingsArgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
+        :param pulumi.Input['QueueReservationPlanSettingsArrgs'] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -209,14 +209,14 @@ class _QueueState:
 
     @property
     @pulumi.getter(name="reservationPlanSettings")
-    def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]:
+    def reservation_plan_settings(self) -> Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']]:
         """
         A detail pricing plan of the  reserved queue. See below.
         """
         return pulumi.get(self, "reservation_plan_settings")
 
     @reservation_plan_settings.setter
-    def reservation_plan_settings(self, value: Optional[pulumi.Input['QueueReservationPlanSettingsArgs']]):
+    def reservation_plan_settings(self, value: Optional[pulumi.Input['QueueReservationPlanSettingsArrgs']]):
         pulumi.set(self, "reservation_plan_settings", value)
 
     @property
@@ -259,7 +259,7 @@ class _QueueState:
         pulumi.set(self, "tags_all", value)
 
 
-class Queue(pulumi.CustomResource):
+calass Queue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class Queue(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
-                 reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArgs']]] = None,
+                 reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArrgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -296,7 +296,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-        :param pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArgs']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
+        :param pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArrgs']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -304,7 +304,7 @@ class Queue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[QueueArgs] = None,
+                 args: Optional[QueueArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Elemental MediaConvert Queue.
@@ -327,12 +327,12 @@ class Queue(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueueArgs args: The arguments to use to populate this resource's properties.
+        :param QueueArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueueArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -344,7 +344,7 @@ class Queue(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input[str]] = None,
-                 reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArgs']]] = None,
+                 reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArrgs']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -354,7 +354,7 @@ class Queue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueueArgs.__new__(QueueArgs)
+            __props__ = QueueArrgs.__new__(QueueArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -380,7 +380,7 @@ class Queue(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pricing_plan: Optional[pulumi.Input[str]] = None,
-            reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArgs']]] = None,
+            reservation_plan_settings: Optional[pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Queue':
@@ -395,7 +395,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the queue
         :param pulumi.Input[str] name: A unique identifier describing the queue
         :param pulumi.Input[str] pricing_plan: Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
-        :param pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArgs']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
+        :param pulumi.Input[pulumi.InputType['QueueReservationPlanSettingsArrgs']] reservation_plan_settings: A detail pricing plan of the  reserved queue. See below.
         :param pulumi.Input[str] status: A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

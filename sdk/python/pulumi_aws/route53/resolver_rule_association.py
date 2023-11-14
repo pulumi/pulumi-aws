@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverRuleAssociationArgs', 'ResolverRuleAssociation']
+__all__ = ['ResolverRuleAssociationArrgs', 'ResolverRuleAssociation']
 
 @pulumi.input_type
-class ResolverRuleAssociationArgs:
+calass ResolverRuleAssociationArrgs:
     def __init__(__self__, *,
                  resolver_rule_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ResolverRuleAssociationArgs:
 
 
 @pulumi.input_type
-class _ResolverRuleAssociationState:
+calass _ResolverRuleAssociationState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _ResolverRuleAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
-class ResolverRuleAssociation(pulumi.CustomResource):
+calass ResolverRuleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -162,7 +162,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverRuleAssociationArgs,
+                 args: ResolverRuleAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route53 Resolver rule association.
@@ -187,12 +187,12 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverRuleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverRuleAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverRuleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverRuleAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -211,7 +211,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverRuleAssociationArgs.__new__(ResolverRuleAssociationArgs)
+            __props__ = ResolverRuleAssociationArrgs.__new__(ResolverRuleAssociationArrgs)
 
             __props__.__dict__["name"] = name
             if resolver_rule_id is None and not opts.urn:

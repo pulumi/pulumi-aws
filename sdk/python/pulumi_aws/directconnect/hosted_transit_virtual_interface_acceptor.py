@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HostedTransitVirtualInterfaceAcceptorArgs', 'HostedTransitVirtualInterfaceAcceptor']
+__all__ = ['HostedTransitVirtualInterfaceAcceptorArrgs', 'HostedTransitVirtualInterfaceAcceptor']
 
 @pulumi.input_type
-class HostedTransitVirtualInterfaceAcceptorArgs:
+calass HostedTransitVirtualInterfaceAcceptorArrgs:
     def __init__(__self__, *,
                  dx_gateway_id: pulumi.Input[str],
                  virtual_interface_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class HostedTransitVirtualInterfaceAcceptorArgs:
 
 
 @pulumi.input_type
-class _HostedTransitVirtualInterfaceAcceptorState:
+calass _HostedTransitVirtualInterfaceAcceptorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class _HostedTransitVirtualInterfaceAcceptorState:
         pulumi.set(self, "virtual_interface_id", value)
 
 
-class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
+calass HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -221,7 +221,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedTransitVirtualInterfaceAcceptorArgs,
+                 args: HostedTransitVirtualInterfaceAcceptorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the accepter's side of a Direct Connect hosted transit virtual interface.
@@ -267,12 +267,12 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HostedTransitVirtualInterfaceAcceptorArgs args: The arguments to use to populate this resource's properties.
+        :param HostedTransitVirtualInterfaceAcceptorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HostedTransitVirtualInterfaceAcceptorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HostedTransitVirtualInterfaceAcceptorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HostedTransitVirtualInterfaceAcceptorArgs.__new__(HostedTransitVirtualInterfaceAcceptorArgs)
+            __props__ = HostedTransitVirtualInterfaceAcceptorArrgs.__new__(HostedTransitVirtualInterfaceAcceptorArrgs)
 
             if dx_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_id'")

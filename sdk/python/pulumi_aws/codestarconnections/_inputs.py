@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HostVpcConfigurationArgs',
+    'HostVpcConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class HostVpcConfigurationArgs:
+calass HostVpcConfigurationArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],

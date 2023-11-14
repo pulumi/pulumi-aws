@@ -10,45 +10,45 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs',
-    'ClusterAutoTerminationPolicyArgs',
-    'ClusterBootstrapActionArgs',
-    'ClusterCoreInstanceFleetArgs',
-    'ClusterCoreInstanceFleetInstanceTypeConfigArgs',
-    'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs',
-    'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs',
-    'ClusterCoreInstanceFleetLaunchSpecificationsArgs',
-    'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
-    'ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs',
-    'ClusterCoreInstanceGroupArgs',
-    'ClusterCoreInstanceGroupEbsConfigArgs',
-    'ClusterEc2AttributesArgs',
-    'ClusterKerberosAttributesArgs',
-    'ClusterMasterInstanceFleetArgs',
-    'ClusterMasterInstanceFleetInstanceTypeConfigArgs',
-    'ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs',
-    'ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs',
-    'ClusterMasterInstanceFleetLaunchSpecificationsArgs',
-    'ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
-    'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs',
-    'ClusterMasterInstanceGroupArgs',
-    'ClusterMasterInstanceGroupEbsConfigArgs',
-    'ClusterPlacementGroupConfigArgs',
-    'ClusterStepArgs',
-    'ClusterStepHadoopJarStepArgs',
-    'InstanceFleetInstanceTypeConfigArgs',
-    'InstanceFleetInstanceTypeConfigConfigurationArgs',
-    'InstanceFleetInstanceTypeConfigEbsConfigArgs',
-    'InstanceFleetLaunchSpecificationsArgs',
-    'InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
-    'InstanceFleetLaunchSpecificationsSpotSpecificationArgs',
-    'InstanceGroupEbsConfigArgs',
-    'ManagedScalingPolicyComputeLimitArgs',
-    'GetReleaseLabelsFiltersArgs',
+    'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrgs',
+    'ClusterAutoTerminationPolicyArrgs',
+    'ClusterBootstrapActionArrgs',
+    'ClusterCoreInstanceFleetArrgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigArrgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsArrgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs',
+    'ClusterCoreInstanceGroupArrgs',
+    'ClusterCoreInstanceGroupEbsConfigArrgs',
+    'ClusterEc2AttributesArrgs',
+    'ClusterKerberosAttributesArrgs',
+    'ClusterMasterInstanceFleetArrgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigArrgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsArrgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs',
+    'ClusterMasterInstanceGroupArrgs',
+    'ClusterMasterInstanceGroupEbsConfigArrgs',
+    'ClusterPlacementGroupConfigArrgs',
+    'ClusterStepArrgs',
+    'ClusterStepHadoopJarStepArrgs',
+    'InstanceFleetInstanceTypeConfigArrgs',
+    'InstanceFleetInstanceTypeConfigConfigurationArrgs',
+    'InstanceFleetInstanceTypeConfigEbsConfigArrgs',
+    'InstanceFleetLaunchSpecificationsArrgs',
+    'InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs',
+    'InstanceFleetLaunchSpecificationsSpotSpecificationArrgs',
+    'InstanceGroupEbsConfigArrgs',
+    'ManagedScalingPolicyComputeLimitArrgs',
+    'GetReleaseLabelsFiltersArrgs',
 ]
 
 @pulumi.input_type
-class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
+calass BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArrgs:
     def __init__(__self__, *,
                  max_range: pulumi.Input[int],
                  min_range: pulumi.Input[int]):
@@ -85,7 +85,7 @@ class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
 
 
 @pulumi.input_type
-class ClusterAutoTerminationPolicyArgs:
+calass ClusterAutoTerminationPolicyArrgs:
     def __init__(__self__, *,
                  idle_timeout: Optional[pulumi.Input[int]] = None):
         """
@@ -108,7 +108,7 @@ class ClusterAutoTerminationPolicyArgs:
 
 
 @pulumi.input_type
-class ClusterBootstrapActionArgs:
+calass ClusterBootstrapActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -161,11 +161,11 @@ class ClusterBootstrapActionArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetArgs:
+calass ClusterCoreInstanceFleetArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]] = None,
-                 launch_specifications: Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs']] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArrgs']]]] = None,
+                 launch_specifications: Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
@@ -173,8 +173,8 @@ class ClusterCoreInstanceFleetArgs:
                  target_spot_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet.
-        :param pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArrgs']]] instance_type_configs: Configuration block for instance fleet.
+        :param pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArrgs'] launch_specifications: Configuration block for launch specification.
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -210,26 +210,26 @@ class ClusterCoreInstanceFleetArgs:
 
     @property
     @pulumi.getter(name="instanceTypeConfigs")
-    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]]:
+    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArrgs']]]]:
         """
         Configuration block for instance fleet.
         """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
-    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]]):
+    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArrgs']]]]):
         pulumi.set(self, "instance_type_configs", value)
 
     @property
     @pulumi.getter(name="launchSpecifications")
-    def launch_specifications(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs']]:
+    def launch_specifications(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArrgs']]:
         """
         Configuration block for launch specification.
         """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
-    def launch_specifications(self, value: Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs']]):
+    def launch_specifications(self, value: Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArrgs']]):
         pulumi.set(self, "launch_specifications", value)
 
     @property
@@ -288,20 +288,20 @@ class ClusterCoreInstanceFleetArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
+calass ClusterCoreInstanceFleetInstanceTypeConfigArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  bid_price: Optional[pulumi.Input[str]] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs']]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
         :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -354,26 +354,26 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs']]]]:
         """
         Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]]):
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
+    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]:
         """
         Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]):
+    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @property
@@ -390,7 +390,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
+calass ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -429,7 +429,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
+calass ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -498,13 +498,13 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
+calass ClusterCoreInstanceFleetLaunchSpecificationsArrgs:
     def __init__(__self__, *,
-                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
-                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
+                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]] = None,
+                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]] spot_specifications: Configuration block for spot instances launch specifications.
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -513,31 +513,31 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
-    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
+    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]:
         """
         Configuration block for on demand instances launch specifications.
         """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
-    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]):
+    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]):
         pulumi.set(self, "on_demand_specifications", value)
 
     @property
     @pulumi.getter(name="spotSpecifications")
-    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
+    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]:
         """
         Configuration block for spot instances launch specifications.
         """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
-    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]):
+    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]):
         pulumi.set(self, "spot_specifications", value)
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
+calass ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
         """
@@ -559,7 +559,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
+calass ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str],
                  timeout_action: pulumi.Input[str],
@@ -627,12 +627,12 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceGroupArgs:
+calass ClusterCoreInstanceGroupArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  autoscaling_policy: Optional[pulumi.Input[str]] = None,
                  bid_price: Optional[pulumi.Input[str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArrgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -640,7 +640,7 @@ class ClusterCoreInstanceGroupArgs:
         :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
         :param pulumi.Input[str] autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArrgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[str] id: ID of the cluster.
         :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         :param pulumi.Input[str] name: Friendly name given to the instance group.
@@ -697,14 +697,14 @@ class ClusterCoreInstanceGroupArgs:
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]]:
+    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArrgs']]]]:
         """
         Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]]):
+    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArrgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @property
@@ -745,7 +745,7 @@ class ClusterCoreInstanceGroupArgs:
 
 
 @pulumi.input_type
-class ClusterCoreInstanceGroupEbsConfigArgs:
+calass ClusterCoreInstanceGroupEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -830,7 +830,7 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
 
 
 @pulumi.input_type
-class ClusterEc2AttributesArgs:
+calass ClusterEc2AttributesArrgs:
     def __init__(__self__, *,
                  instance_profile: pulumi.Input[str],
                  additional_master_security_groups: Optional[pulumi.Input[str]] = None,
@@ -984,7 +984,7 @@ class ClusterEc2AttributesArgs:
 
 
 @pulumi.input_type
-class ClusterKerberosAttributesArgs:
+calass ClusterKerberosAttributesArrgs:
     def __init__(__self__, *,
                  kdc_admin_password: pulumi.Input[str],
                  realm: pulumi.Input[str],
@@ -1069,11 +1069,11 @@ class ClusterKerberosAttributesArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetArgs:
+calass ClusterMasterInstanceFleetArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]] = None,
-                 launch_specifications: Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs']] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArrgs']]]] = None,
+                 launch_specifications: Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
@@ -1081,8 +1081,8 @@ class ClusterMasterInstanceFleetArgs:
                  target_spot_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet.
-        :param pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArrgs']]] instance_type_configs: Configuration block for instance fleet.
+        :param pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArrgs'] launch_specifications: Configuration block for launch specification.
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[int] target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -1118,26 +1118,26 @@ class ClusterMasterInstanceFleetArgs:
 
     @property
     @pulumi.getter(name="instanceTypeConfigs")
-    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]]:
+    def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArrgs']]]]:
         """
         Configuration block for instance fleet.
         """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
-    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]]):
+    def instance_type_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArrgs']]]]):
         pulumi.set(self, "instance_type_configs", value)
 
     @property
     @pulumi.getter(name="launchSpecifications")
-    def launch_specifications(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs']]:
+    def launch_specifications(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArrgs']]:
         """
         Configuration block for launch specification.
         """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
-    def launch_specifications(self, value: Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs']]):
+    def launch_specifications(self, value: Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArrgs']]):
         pulumi.set(self, "launch_specifications", value)
 
     @property
@@ -1196,20 +1196,20 @@ class ClusterMasterInstanceFleetArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
+calass ClusterMasterInstanceFleetInstanceTypeConfigArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  bid_price: Optional[pulumi.Input[str]] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs']]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
         :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1262,26 +1262,26 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs']]]]:
         """
         Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]]):
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
+    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]:
         """
         Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]):
+    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @property
@@ -1298,7 +1298,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
+calass ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -1337,7 +1337,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
+calass ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -1406,13 +1406,13 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
+calass ClusterMasterInstanceFleetLaunchSpecificationsArrgs:
     def __init__(__self__, *,
-                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
-                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
+                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]] = None,
+                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]] spot_specifications: Configuration block for spot instances launch specifications.
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -1421,31 +1421,31 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
-    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
+    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]:
         """
         Configuration block for on demand instances launch specifications.
         """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
-    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]):
+    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]):
         pulumi.set(self, "on_demand_specifications", value)
 
     @property
     @pulumi.getter(name="spotSpecifications")
-    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
+    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]:
         """
         Configuration block for spot instances launch specifications.
         """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
-    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]):
+    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]):
         pulumi.set(self, "spot_specifications", value)
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
+calass ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
         """
@@ -1467,7 +1467,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
+calass ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str],
                  timeout_action: pulumi.Input[str],
@@ -1535,18 +1535,18 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceGroupArgs:
+calass ClusterMasterInstanceGroupArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  bid_price: Optional[pulumi.Input[str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArrgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
         :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArrgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[str] id: ID of the cluster.
         :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         :param pulumi.Input[str] name: Friendly name given to the instance group.
@@ -1589,14 +1589,14 @@ class ClusterMasterInstanceGroupArgs:
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]]:
+    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArrgs']]]]:
         """
         Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]]):
+    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArrgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @property
@@ -1637,7 +1637,7 @@ class ClusterMasterInstanceGroupArgs:
 
 
 @pulumi.input_type
-class ClusterMasterInstanceGroupEbsConfigArgs:
+calass ClusterMasterInstanceGroupEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -1722,7 +1722,7 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
 
 
 @pulumi.input_type
-class ClusterPlacementGroupConfigArgs:
+calass ClusterPlacementGroupConfigArrgs:
     def __init__(__self__, *,
                  instance_role: pulumi.Input[str],
                  placement_strategy: Optional[pulumi.Input[str]] = None):
@@ -1760,14 +1760,14 @@ class ClusterPlacementGroupConfigArgs:
 
 
 @pulumi.input_type
-class ClusterStepArgs:
+calass ClusterStepArrgs:
     def __init__(__self__, *,
                  action_on_failure: pulumi.Input[str],
-                 hadoop_jar_step: pulumi.Input['ClusterStepHadoopJarStepArgs'],
+                 hadoop_jar_step: pulumi.Input['ClusterStepHadoopJarStepArrgs'],
                  name: pulumi.Input[str]):
         """
         :param pulumi.Input[str] action_on_failure: Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        :param pulumi.Input['ClusterStepHadoopJarStepArgs'] hadoop_jar_step: JAR file used for the step. See below.
+        :param pulumi.Input['ClusterStepHadoopJarStepArrgs'] hadoop_jar_step: JAR file used for the step. See below.
         :param pulumi.Input[str] name: Name of the step.
         """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
@@ -1788,14 +1788,14 @@ class ClusterStepArgs:
 
     @property
     @pulumi.getter(name="hadoopJarStep")
-    def hadoop_jar_step(self) -> pulumi.Input['ClusterStepHadoopJarStepArgs']:
+    def hadoop_jar_step(self) -> pulumi.Input['ClusterStepHadoopJarStepArrgs']:
         """
         JAR file used for the step. See below.
         """
         return pulumi.get(self, "hadoop_jar_step")
 
     @hadoop_jar_step.setter
-    def hadoop_jar_step(self, value: pulumi.Input['ClusterStepHadoopJarStepArgs']):
+    def hadoop_jar_step(self, value: pulumi.Input['ClusterStepHadoopJarStepArrgs']):
         pulumi.set(self, "hadoop_jar_step", value)
 
     @property
@@ -1812,7 +1812,7 @@ class ClusterStepArgs:
 
 
 @pulumi.input_type
-class ClusterStepHadoopJarStepArgs:
+calass ClusterStepHadoopJarStepArrgs:
     def __init__(__self__, *,
                  jar: pulumi.Input[str],
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1882,20 +1882,20 @@ class ClusterStepHadoopJarStepArgs:
 
 
 @pulumi.input_type
-class InstanceFleetInstanceTypeConfigArgs:
+calass InstanceFleetInstanceTypeConfigArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  bid_price: Optional[pulumi.Input[str]] = None,
                  bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArrgs']]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArrgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: An EC2 instance type, such as m4.xlarge.
         :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArrgs']]] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArrgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1948,26 +1948,26 @@ class InstanceFleetInstanceTypeConfigArgs:
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArrgs']]]]:
         """
         A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]]):
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArrgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @property
     @pulumi.getter(name="ebsConfigs")
-    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
+    def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]:
         """
         Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
-    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]]):
+    def ebs_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArrgs']]]]):
         pulumi.set(self, "ebs_configs", value)
 
     @property
@@ -1984,7 +1984,7 @@ class InstanceFleetInstanceTypeConfigArgs:
 
 
 @pulumi.input_type
-class InstanceFleetInstanceTypeConfigConfigurationArgs:
+calass InstanceFleetInstanceTypeConfigConfigurationArrgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -2023,7 +2023,7 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
 
 
 @pulumi.input_type
-class InstanceFleetInstanceTypeConfigEbsConfigArgs:
+calass InstanceFleetInstanceTypeConfigEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -2092,13 +2092,13 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 @pulumi.input_type
-class InstanceFleetLaunchSpecificationsArgs:
+calass InstanceFleetLaunchSpecificationsArrgs:
     def __init__(__self__, *,
-                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
-                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
+                 on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]] = None,
+                 spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]] spot_specifications: Configuration block for spot instances launch specifications
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -2107,31 +2107,31 @@ class InstanceFleetLaunchSpecificationsArgs:
 
     @property
     @pulumi.getter(name="onDemandSpecifications")
-    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
+    def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]:
         """
         Configuration block for on demand instances launch specifications
         """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
-    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]):
+    def on_demand_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs']]]]):
         pulumi.set(self, "on_demand_specifications", value)
 
     @property
     @pulumi.getter(name="spotSpecifications")
-    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
+    def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]:
         """
         Configuration block for spot instances launch specifications
         """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
-    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]):
+    def spot_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArrgs']]]]):
         pulumi.set(self, "spot_specifications", value)
 
 
 @pulumi.input_type
-class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
+calass InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
         """
@@ -2153,7 +2153,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
 
 
 @pulumi.input_type
-class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
+calass InstanceFleetLaunchSpecificationsSpotSpecificationArrgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str],
                  timeout_action: pulumi.Input[str],
@@ -2221,7 +2221,7 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
 
 
 @pulumi.input_type
-class InstanceGroupEbsConfigArgs:
+calass InstanceGroupEbsConfigArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
@@ -2290,7 +2290,7 @@ class InstanceGroupEbsConfigArgs:
 
 
 @pulumi.input_type
-class ManagedScalingPolicyComputeLimitArgs:
+calass ManagedScalingPolicyComputeLimitArrgs:
     def __init__(__self__, *,
                  maximum_capacity_units: pulumi.Input[int],
                  minimum_capacity_units: pulumi.Input[int],
@@ -2374,7 +2374,7 @@ class ManagedScalingPolicyComputeLimitArgs:
 
 
 @pulumi.input_type
-class GetReleaseLabelsFiltersArgs:
+calass GetReleaseLabelsFiltersArrgs:
     def __init__(__self__, *,
                  application: Optional[str] = None,
                  prefix: Optional[str] = None):

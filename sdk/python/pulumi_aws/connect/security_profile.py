@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecurityProfileArgs', 'SecurityProfile']
+__all__ = ['SecurityProfileArrgs', 'SecurityProfile']
 
 @pulumi.input_type
-class SecurityProfileArgs:
+calass SecurityProfileArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class SecurityProfileArgs:
 
 
 @pulumi.input_type
-class _SecurityProfileState:
+calass _SecurityProfileState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -260,7 +260,7 @@ class _SecurityProfileState:
         pulumi.set(self, "tags_all", value)
 
 
-class SecurityProfile(pulumi.CustomResource):
+calass SecurityProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -314,7 +314,7 @@ class SecurityProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityProfileArgs,
+                 args: SecurityProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect Security Profile resource. For more information see
@@ -347,12 +347,12 @@ class SecurityProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecurityProfileArgs args: The arguments to use to populate this resource's properties.
+        :param SecurityProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecurityProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -373,7 +373,7 @@ class SecurityProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecurityProfileArgs.__new__(SecurityProfileArgs)
+            __props__ = SecurityProfileArrgs.__new__(SecurityProfileArrgs)
 
             __props__.__dict__["description"] = description
             if instance_id is None and not opts.urn:

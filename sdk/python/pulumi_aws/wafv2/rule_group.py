@@ -11,29 +11,29 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RuleGroupArgs', 'RuleGroup']
+__all__ = ['RuleGroupArrgs', 'RuleGroup']
 
 @pulumi.input_type
-class RuleGroupArgs:
+calass RuleGroupArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  scope: pulumi.Input[str],
-                 visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
+                 visibility_config: pulumi.Input['RuleGroupVisibilityConfigArrgs'],
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input['RuleGroupVisibilityConfigArrgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -78,26 +78,26 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> pulumi.Input['RuleGroupVisibilityConfigArgs']:
+    def visibility_config(self) -> pulumi.Input['RuleGroupVisibilityConfigArrgs']:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: pulumi.Input['RuleGroupVisibilityConfigArgs']):
+    def visibility_config(self, value: pulumi.Input['RuleGroupVisibilityConfigArrgs']):
         pulumi.set(self, "visibility_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]]:
         """
         Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
@@ -135,14 +135,14 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -159,32 +159,32 @@ class RuleGroupArgs:
 
 
 @pulumi.input_type
-class _RuleGroupState:
+calass _RuleGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None):
+                 visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering RuleGroup resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['RuleGroupVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input['RuleGroupVisibilityConfigArrgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -240,14 +240,14 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]]:
         """
         Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         """
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArrgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @property
@@ -294,14 +294,14 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]]:
         """
         The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -345,60 +345,60 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter(name="visibilityConfig")
-    def visibility_config(self) -> Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']]:
+    def visibility_config(self) -> Optional[pulumi.Input['RuleGroupVisibilityConfigArrgs']]:
         """
         Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         return pulumi.get(self, "visibility_config")
 
     @visibility_config.setter
-    def visibility_config(self, value: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']]):
+    def visibility_config(self, value: Optional[pulumi.Input['RuleGroupVisibilityConfigArrgs']]):
         pulumi.set(self, "visibility_config", value)
 
 
-class RuleGroup(pulumi.CustomResource):
+calass RuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArrgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArrgs']]] = None,
                  __props__=None):
         """
         Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArrgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArrgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArrgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RuleGroupArgs,
+                 args: RuleGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a RuleGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param RuleGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RuleGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -408,14 +408,14 @@ class RuleGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArrgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,7 +423,7 @@ class RuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RuleGroupArgs.__new__(RuleGroupArgs)
+            __props__ = RuleGroupArrgs.__new__(RuleGroupArrgs)
 
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
@@ -457,16 +457,16 @@ class RuleGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
-            custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
+            custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArrgs']]]]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']]] = None) -> 'RuleGroup':
+            visibility_config: Optional[pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArrgs']]] = None) -> 'RuleGroup':
         """
         Get an existing RuleGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -476,14 +476,14 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArrgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the rule group.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArrgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupVisibilityConfigArrgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

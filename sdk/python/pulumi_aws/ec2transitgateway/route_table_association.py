@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteTableAssociationArgs', 'RouteTableAssociation']
+__all__ = ['RouteTableAssociationArrgs', 'RouteTableAssociation']
 
 @pulumi.input_type
-class RouteTableAssociationArgs:
+calass RouteTableAssociationArrgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[str],
                  transit_gateway_route_table_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class RouteTableAssociationArgs:
 
 
 @pulumi.input_type
-class _RouteTableAssociationState:
+calass _RouteTableAssociationState:
     def __init__(__self__, *,
                  replace_existing_association: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _RouteTableAssociationState:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
-class RouteTableAssociation(pulumi.CustomResource):
+calass RouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class RouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteTableAssociationArgs,
+                 args: RouteTableAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Route Table association.
@@ -219,12 +219,12 @@ class RouteTableAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param RouteTableAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteTableAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -243,7 +243,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteTableAssociationArgs.__new__(RouteTableAssociationArgs)
+            __props__ = RouteTableAssociationArrgs.__new__(RouteTableAssociationArrgs)
 
             __props__.__dict__["replace_existing_association"] = replace_existing_association
             if transit_gateway_attachment_id is None and not opts.urn:

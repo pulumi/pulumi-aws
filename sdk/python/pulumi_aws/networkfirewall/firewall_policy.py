@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
+__all__ = ['FirewallPolicyArrgs', 'FirewallPolicy']
 
 @pulumi.input_type
-class FirewallPolicyArgs:
+calass FirewallPolicyArrgs:
     def __init__(__self__, *,
-                 firewall_policy: pulumi.Input['FirewallPolicyFirewallPolicyArgs'],
+                 firewall_policy: pulumi.Input['FirewallPolicyFirewallPolicyArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
-        :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyArrgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -41,14 +41,14 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter(name="firewallPolicy")
-    def firewall_policy(self) -> pulumi.Input['FirewallPolicyFirewallPolicyArgs']:
+    def firewall_policy(self) -> pulumi.Input['FirewallPolicyFirewallPolicyArrgs']:
         """
         A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         """
         return pulumi.get(self, "firewall_policy")
 
     @firewall_policy.setter
-    def firewall_policy(self, value: pulumi.Input['FirewallPolicyFirewallPolicyArgs']):
+    def firewall_policy(self, value: pulumi.Input['FirewallPolicyFirewallPolicyArrgs']):
         pulumi.set(self, "firewall_policy", value)
 
     @property
@@ -65,14 +65,14 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']]:
         """
         KMS encryption configuration settings. See Encryption Configuration below for details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -101,12 +101,12 @@ class FirewallPolicyArgs:
 
 
 @pulumi.input_type
-class _FirewallPolicyState:
+calass _FirewallPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']] = None,
-                 firewall_policy: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']] = None,
+                 firewall_policy: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -115,8 +115,8 @@ class _FirewallPolicyState:
         Input properties used for looking up and filtering FirewallPolicy resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall policy.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyArrgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -168,26 +168,26 @@ class _FirewallPolicyState:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']]:
         """
         KMS encryption configuration settings. See Encryption Configuration below for details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="firewallPolicy")
-    def firewall_policy(self) -> Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']]:
+    def firewall_policy(self) -> Optional[pulumi.Input['FirewallPolicyFirewallPolicyArrgs']]:
         """
         A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         """
         return pulumi.get(self, "firewall_policy")
 
     @firewall_policy.setter
-    def firewall_policy(self, value: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']]):
+    def firewall_policy(self, value: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArrgs']]):
         pulumi.set(self, "firewall_policy", value)
 
     @property
@@ -242,14 +242,14 @@ class _FirewallPolicyState:
         pulumi.set(self, "update_token", value)
 
 
-class FirewallPolicy(pulumi.CustomResource):
+calass FirewallPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArrgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -263,10 +263,10 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArrgs(
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrgs(
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
@@ -283,11 +283,11 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArrgs(
+                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArrgs(
+                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrgs(
                         key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
+                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArrgs(
                             definitions=[
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
@@ -297,7 +297,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 ),
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrgs(
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
@@ -319,8 +319,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArrgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArrgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -328,7 +328,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FirewallPolicyArgs,
+                 args: FirewallPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Network Firewall Firewall Policy Resource
@@ -340,10 +340,10 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArrgs(
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrgs(
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
@@ -360,11 +360,11 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.FirewallPolicy("example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArrgs(
+                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArrgs(
+                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrgs(
                         key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
+                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArrgs(
                             definitions=[
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
@@ -374,7 +374,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 ),
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrgs(
                     priority=1,
                     resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
@@ -394,12 +394,12 @@ class FirewallPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param FirewallPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -409,8 +409,8 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArrgs']]] = None,
+                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -420,7 +420,7 @@ class FirewallPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
+            __props__ = FirewallPolicyArrgs.__new__(FirewallPolicyArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_configuration"] = encryption_configuration
@@ -446,8 +446,8 @@ class FirewallPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-            firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArrgs']]] = None,
+            firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -461,8 +461,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall policy.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArrgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArrgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

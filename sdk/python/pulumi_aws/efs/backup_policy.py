@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BackupPolicyArgs', 'BackupPolicy']
+__all__ = ['BackupPolicyArrgs', 'BackupPolicy']
 
 @pulumi.input_type
-class BackupPolicyArgs:
+calass BackupPolicyArrgs:
     def __init__(__self__, *,
-                 backup_policy: pulumi.Input['BackupPolicyBackupPolicyArgs'],
+                 backup_policy: pulumi.Input['BackupPolicyBackupPolicyArrgs'],
                  file_system_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a BackupPolicy resource.
-        :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input['BackupPolicyBackupPolicyArrgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         pulumi.set(__self__, "backup_policy", backup_policy)
@@ -28,14 +28,14 @@ class BackupPolicyArgs:
 
     @property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> pulumi.Input['BackupPolicyBackupPolicyArgs']:
+    def backup_policy(self) -> pulumi.Input['BackupPolicyBackupPolicyArrgs']:
         """
         A backup_policy object (documented below).
         """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
-    def backup_policy(self, value: pulumi.Input['BackupPolicyBackupPolicyArgs']):
+    def backup_policy(self, value: pulumi.Input['BackupPolicyBackupPolicyArrgs']):
         pulumi.set(self, "backup_policy", value)
 
     @property
@@ -52,13 +52,13 @@ class BackupPolicyArgs:
 
 
 @pulumi.input_type
-class _BackupPolicyState:
+calass _BackupPolicyState:
     def __init__(__self__, *,
-                 backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']] = None,
+                 backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArrgs']] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
-        :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input['BackupPolicyBackupPolicyArrgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         if backup_policy is not None:
@@ -68,14 +68,14 @@ class _BackupPolicyState:
 
     @property
     @pulumi.getter(name="backupPolicy")
-    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']]:
+    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyBackupPolicyArrgs']]:
         """
         A backup_policy object (documented below).
         """
         return pulumi.get(self, "backup_policy")
 
     @backup_policy.setter
-    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']]):
+    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyBackupPolicyArrgs']]):
         pulumi.set(self, "backup_policy", value)
 
     @property
@@ -91,12 +91,12 @@ class _BackupPolicyState:
         pulumi.set(self, "file_system_id", value)
 
 
-class BackupPolicy(pulumi.CustomResource):
+calass BackupPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArrgs']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -112,7 +112,7 @@ class BackupPolicy(pulumi.CustomResource):
         fs = aws.efs.FileSystem("fs")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
+            backup_policy=aws.efs.BackupPolicyBackupPolicyArrgs(
                 status="ENABLED",
             ))
         ```
@@ -127,14 +127,14 @@ class BackupPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArrgs']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupPolicyArgs,
+                 args: BackupPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic File System (EFS) Backup Policy resource.
@@ -149,7 +149,7 @@ class BackupPolicy(pulumi.CustomResource):
         fs = aws.efs.FileSystem("fs")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
+            backup_policy=aws.efs.BackupPolicyBackupPolicyArrgs(
                 status="ENABLED",
             ))
         ```
@@ -163,12 +163,12 @@ class BackupPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param BackupPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -177,7 +177,7 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArrgs']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -186,7 +186,7 @@ class BackupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
+            __props__ = BackupPolicyArrgs.__new__(BackupPolicyArrgs)
 
             if backup_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy'")
@@ -204,7 +204,7 @@ class BackupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+            backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArrgs']]] = None,
             file_system_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicy':
         """
         Get an existing BackupPolicy resource's state with the given name, id, and optional extra
@@ -213,7 +213,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArrgs']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

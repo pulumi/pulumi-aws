@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStateMachineResult:
+calass GetStateMachineResult:
     """
     A collection of values returned by getStateMachine.
     """
@@ -117,7 +117,7 @@ class GetStateMachineResult:
         return pulumi.get(self, "status")
 
 
-class AwaitableGetStateMachineResult(GetStateMachineResult):
+calass AwaitableGetStateMachineResult(GetStateMachineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQuicksightGroupResult:
+calass GetQuicksightGroupResult:
     """
     A collection of values returned by getQuicksightGroup.
     """
@@ -92,7 +92,7 @@ class GetQuicksightGroupResult:
         return pulumi.get(self, "principal_id")
 
 
-class AwaitableGetQuicksightGroupResult(GetQuicksightGroupResult):
+calass AwaitableGetQuicksightGroupResult(GetQuicksightGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

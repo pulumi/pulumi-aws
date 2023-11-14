@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PermissionSetInlinePolicyArgs', 'PermissionSetInlinePolicy']
+__all__ = ['PermissionSetInlinePolicyArrgs', 'PermissionSetInlinePolicy']
 
 @pulumi.input_type
-class PermissionSetInlinePolicyArgs:
+calass PermissionSetInlinePolicyArrgs:
     def __init__(__self__, *,
                  inline_policy: pulumi.Input[str],
                  instance_arn: pulumi.Input[str],
@@ -65,7 +65,7 @@ class PermissionSetInlinePolicyArgs:
 
 
 @pulumi.input_type
-class _PermissionSetInlinePolicyState:
+calass _PermissionSetInlinePolicyState:
     def __init__(__self__, *,
                  inline_policy: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _PermissionSetInlinePolicyState:
         pulumi.set(self, "permission_set_arn", value)
 
 
-class PermissionSetInlinePolicy(pulumi.CustomResource):
+calass PermissionSetInlinePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,7 +153,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PermissionSetInlinePolicyArgs,
+                 args: PermissionSetInlinePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
@@ -170,12 +170,12 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PermissionSetInlinePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param PermissionSetInlinePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PermissionSetInlinePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PermissionSetInlinePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -194,7 +194,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PermissionSetInlinePolicyArgs.__new__(PermissionSetInlinePolicyArgs)
+            __props__ = PermissionSetInlinePolicyArrgs.__new__(PermissionSetInlinePolicyArrgs)
 
             if inline_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'inline_policy'")

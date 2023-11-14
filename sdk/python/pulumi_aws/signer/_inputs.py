@@ -10,42 +10,42 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SigningJobDestinationArgs',
-    'SigningJobDestinationS3Args',
-    'SigningJobRevocationRecordArgs',
-    'SigningJobSignedObjectArgs',
-    'SigningJobSignedObjectS3Args',
-    'SigningJobSourceArgs',
-    'SigningJobSourceS3Args',
-    'SigningProfileRevocationRecordArgs',
-    'SigningProfileSignatureValidityPeriodArgs',
-    'SigningProfileSigningMaterialArgs',
+    'SigningJobDestinationArrgs',
+    'SigningJobDestinationS3Arrgs',
+    'SigningJobRevocationRecordArrgs',
+    'SigningJobSignedObjectArrgs',
+    'SigningJobSignedObjectS3Arrgs',
+    'SigningJobSourceArrgs',
+    'SigningJobSourceS3Arrgs',
+    'SigningProfileRevocationRecordArrgs',
+    'SigningProfileSignatureValidityPeriodArrgs',
+    'SigningProfileSigningMaterialArrgs',
 ]
 
 @pulumi.input_type
-class SigningJobDestinationArgs:
+calass SigningJobDestinationArrgs:
     def __init__(__self__, *,
-                 s3: pulumi.Input['SigningJobDestinationS3Args']):
+                 s3: pulumi.Input['SigningJobDestinationS3Arrgs']):
         """
-        :param pulumi.Input['SigningJobDestinationS3Args'] s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param pulumi.Input['SigningJobDestinationS3Arrgs'] s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> pulumi.Input['SigningJobDestinationS3Args']:
+    def s3(self) -> pulumi.Input['SigningJobDestinationS3Arrgs']:
         """
         A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: pulumi.Input['SigningJobDestinationS3Args']):
+    def s3(self, value: pulumi.Input['SigningJobDestinationS3Arrgs']):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class SigningJobDestinationS3Args:
+calass SigningJobDestinationS3Arrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -83,7 +83,7 @@ class SigningJobDestinationS3Args:
 
 
 @pulumi.input_type
-class SigningJobRevocationRecordArgs:
+calass SigningJobRevocationRecordArrgs:
     def __init__(__self__, *,
                  reason: Optional[pulumi.Input[str]] = None,
                  revoked_at: Optional[pulumi.Input[str]] = None,
@@ -124,30 +124,30 @@ class SigningJobRevocationRecordArgs:
 
 
 @pulumi.input_type
-class SigningJobSignedObjectArgs:
+calass SigningJobSignedObjectArrgs:
     def __init__(__self__, *,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]] = None):
+                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Arrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Arrgs']]] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
 
     @property
     @pulumi.getter
-    def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]:
+    def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Arrgs']]]]:
         """
         A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         return pulumi.get(self, "s3s")
 
     @s3s.setter
-    def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]):
+    def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Arrgs']]]]):
         pulumi.set(self, "s3s", value)
 
 
 @pulumi.input_type
-class SigningJobSignedObjectS3Args:
+calass SigningJobSignedObjectS3Arrgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
@@ -186,29 +186,29 @@ class SigningJobSignedObjectS3Args:
 
 
 @pulumi.input_type
-class SigningJobSourceArgs:
+calass SigningJobSourceArrgs:
     def __init__(__self__, *,
-                 s3: pulumi.Input['SigningJobSourceS3Args']):
+                 s3: pulumi.Input['SigningJobSourceS3Arrgs']):
         """
-        :param pulumi.Input['SigningJobSourceS3Args'] s3: A configuration block describing the S3 Source object: See S3 Source below for details.
+        :param pulumi.Input['SigningJobSourceS3Arrgs'] s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> pulumi.Input['SigningJobSourceS3Args']:
+    def s3(self) -> pulumi.Input['SigningJobSourceS3Arrgs']:
         """
         A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: pulumi.Input['SigningJobSourceS3Args']):
+    def s3(self, value: pulumi.Input['SigningJobSourceS3Arrgs']):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class SigningJobSourceS3Args:
+calass SigningJobSourceS3Arrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
@@ -260,7 +260,7 @@ class SigningJobSourceS3Args:
 
 
 @pulumi.input_type
-class SigningProfileRevocationRecordArgs:
+calass SigningProfileRevocationRecordArrgs:
     def __init__(__self__, *,
                  revocation_effective_from: Optional[pulumi.Input[str]] = None,
                  revoked_at: Optional[pulumi.Input[str]] = None,
@@ -301,7 +301,7 @@ class SigningProfileRevocationRecordArgs:
 
 
 @pulumi.input_type
-class SigningProfileSignatureValidityPeriodArgs:
+calass SigningProfileSignatureValidityPeriodArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[int]):
@@ -328,7 +328,7 @@ class SigningProfileSignatureValidityPeriodArgs:
 
 
 @pulumi.input_type
-class SigningProfileSigningMaterialArgs:
+calass SigningProfileSigningMaterialArrgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str]):
         pulumi.set(__self__, "certificate_arn", certificate_arn)

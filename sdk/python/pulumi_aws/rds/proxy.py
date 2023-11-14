@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProxyArgs', 'Proxy']
+__all__ = ['ProxyArrgs', 'Proxy']
 
 @pulumi.input_type
-class ProxyArgs:
+calass ProxyArrgs:
     def __init__(__self__, *,
-                 auths: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]],
+                 auths: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]],
                  engine_family: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -28,7 +28,7 @@ class ProxyArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Proxy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: One or more VPC subnet IDs to associate with the new proxy.
@@ -58,14 +58,14 @@ class ProxyArgs:
 
     @property
     @pulumi.getter
-    def auths(self) -> pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]:
+    def auths(self) -> pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]]:
         """
         Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         """
         return pulumi.get(self, "auths")
 
     @auths.setter
-    def auths(self, value: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]):
+    def auths(self, value: pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]]):
         pulumi.set(self, "auths", value)
 
     @property
@@ -178,10 +178,10 @@ class ProxyArgs:
 
 
 @pulumi.input_type
-class _ProxyState:
+calass _ProxyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 auths: Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine_family: Optional[pulumi.Input[str]] = None,
@@ -196,7 +196,7 @@ class _ProxyState:
         """
         Input properties used for looking up and filtering Proxy resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
@@ -253,14 +253,14 @@ class _ProxyState:
 
     @property
     @pulumi.getter
-    def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]]:
+    def auths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]]]:
         """
         Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         """
         return pulumi.get(self, "auths")
 
     @auths.setter
-    def auths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArgs']]]]):
+    def auths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProxyAuthArrgs']]]]):
         pulumi.set(self, "auths", value)
 
     @property
@@ -399,12 +399,12 @@ class _ProxyState:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
-class Proxy(pulumi.CustomResource):
+calass Proxy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]]] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArrgs']]]]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  engine_family: Optional[pulumi.Input[str]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
@@ -432,7 +432,7 @@ class Proxy(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"],
             vpc_security_group_ids=[aws_security_group["example"]["id"]],
             vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
+            auths=[aws.rds.ProxyAuthArrgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
@@ -454,7 +454,7 @@ class Proxy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArrgs']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         :param pulumi.Input[int] idle_client_timeout: The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
@@ -469,7 +469,7 @@ class Proxy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProxyArgs,
+                 args: ProxyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
@@ -488,7 +488,7 @@ class Proxy(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"],
             vpc_security_group_ids=[aws_security_group["example"]["id"]],
             vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
+            auths=[aws.rds.ProxyAuthArrgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
@@ -509,12 +509,12 @@ class Proxy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProxyArgs args: The arguments to use to populate this resource's properties.
+        :param ProxyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProxyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -523,7 +523,7 @@ class Proxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]]] = None,
+                 auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArrgs']]]]] = None,
                  debug_logging: Optional[pulumi.Input[bool]] = None,
                  engine_family: Optional[pulumi.Input[str]] = None,
                  idle_client_timeout: Optional[pulumi.Input[int]] = None,
@@ -540,7 +540,7 @@ class Proxy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProxyArgs.__new__(ProxyArgs)
+            __props__ = ProxyArrgs.__new__(ProxyArrgs)
 
             if auths is None and not opts.urn:
                 raise TypeError("Missing required property 'auths'")
@@ -576,7 +576,7 @@ class Proxy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]]] = None,
+            auths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArrgs']]]]] = None,
             debug_logging: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine_family: Optional[pulumi.Input[str]] = None,
@@ -596,7 +596,7 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArgs']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProxyAuthArrgs']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         :param pulumi.Input[bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[str] endpoint: The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         :param pulumi.Input[str] engine_family: The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.

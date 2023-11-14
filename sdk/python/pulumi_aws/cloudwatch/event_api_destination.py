@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventApiDestinationArgs', 'EventApiDestination']
+__all__ = ['EventApiDestinationArrgs', 'EventApiDestination']
 
 @pulumi.input_type
-class EventApiDestinationArgs:
+calass EventApiDestinationArrgs:
     def __init__(__self__, *,
                  connection_arn: pulumi.Input[str],
                  http_method: pulumi.Input[str],
@@ -113,7 +113,7 @@ class EventApiDestinationArgs:
 
 
 @pulumi.input_type
-class _EventApiDestinationState:
+calass _EventApiDestinationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _EventApiDestinationState:
         pulumi.set(self, "name", value)
 
 
-class EventApiDestination(pulumi.CustomResource):
+calass EventApiDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -284,7 +284,7 @@ class EventApiDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventApiDestinationArgs,
+                 args: EventApiDestinationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EventBridge event API Destination resource.
@@ -314,12 +314,12 @@ class EventApiDestination(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventApiDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param EventApiDestinationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventApiDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventApiDestinationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -341,7 +341,7 @@ class EventApiDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventApiDestinationArgs.__new__(EventApiDestinationArgs)
+            __props__ = EventApiDestinationArrgs.__new__(EventApiDestinationArrgs)
 
             if connection_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_arn'")

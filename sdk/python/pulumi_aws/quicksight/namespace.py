@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NamespaceArgs', 'Namespace']
+__all__ = ['NamespaceArrgs', 'Namespace']
 
 @pulumi.input_type
-class NamespaceArgs:
+calass NamespaceArrgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  identity_store: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['NamespaceTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] namespace: Name of the namespace.
@@ -92,16 +92,16 @@ class NamespaceArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['NamespaceTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['NamespaceTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['NamespaceTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['NamespaceTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _NamespaceState:
+calass _NamespaceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class _NamespaceState:
                  namespace: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['NamespaceTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['NamespaceTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
         :param pulumi.Input[str] arn: ARN of the Namespace.
@@ -250,15 +250,15 @@ class _NamespaceState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['NamespaceTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['NamespaceTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['NamespaceTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['NamespaceTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class Namespace(pulumi.CustomResource):
+calass Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class Namespace(pulumi.CustomResource):
                  identity_store: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Namespace.
@@ -303,7 +303,7 @@ class Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceArgs,
+                 args: NamespaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS QuickSight Namespace.
@@ -327,12 +327,12 @@ class Namespace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NamespaceArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class Namespace(pulumi.CustomResource):
                  identity_store: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -353,7 +353,7 @@ class Namespace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceArgs.__new__(NamespaceArgs)
+            __props__ = NamespaceArrgs.__new__(NamespaceArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["identity_store"] = identity_store
@@ -386,7 +386,7 @@ class Namespace(pulumi.CustomResource):
             namespace: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None) -> 'Namespace':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArrgs']]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

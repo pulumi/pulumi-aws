@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteResult:
+calass GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
@@ -147,7 +147,7 @@ class GetRouteResult:
         return pulumi.get(self, "vpc_peering_connection_id")
 
 
-class AwaitableGetRouteResult(GetRouteResult):
+calass AwaitableGetRouteResult(GetRouteResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

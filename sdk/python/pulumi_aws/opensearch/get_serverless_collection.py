@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerlessCollectionResult:
+calass GetServerlessCollectionResult:
     """
     A collection of values returned by getServerlessCollection.
     """
@@ -139,7 +139,7 @@ class GetServerlessCollectionResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
+calass AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

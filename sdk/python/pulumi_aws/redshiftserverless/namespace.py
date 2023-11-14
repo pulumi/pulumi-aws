@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NamespaceArgs', 'Namespace']
+__all__ = ['NamespaceArrgs', 'Namespace']
 
 @pulumi.input_type
-class NamespaceArgs:
+calass NamespaceArrgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  admin_user_password: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class NamespaceArgs:
 
 
 @pulumi.input_type
-class _NamespaceState:
+calass _NamespaceState:
     def __init__(__self__, *,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class _NamespaceState:
         pulumi.set(self, "tags_all", value)
 
 
-class Namespace(pulumi.CustomResource):
+calass Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -419,7 +419,7 @@ class Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceArgs,
+                 args: NamespaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Amazon Redshift Serverless Namespace.
@@ -442,12 +442,12 @@ class Namespace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NamespaceArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -472,7 +472,7 @@ class Namespace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceArgs.__new__(NamespaceArgs)
+            __props__ = NamespaceArrgs.__new__(NamespaceArrgs)
 
             __props__.__dict__["admin_user_password"] = None if admin_user_password is None else pulumi.Output.secret(admin_user_password)
             __props__.__dict__["admin_username"] = None if admin_username is None else pulumi.Output.secret(admin_username)

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SmbFileShareArgs', 'SmbFileShare']
+__all__ = ['SmbFileShareArrgs', 'SmbFileShare']
 
 @pulumi.input_type
-class SmbFileShareArgs:
+calass SmbFileShareArrgs:
     def __init__(__self__, *,
                  gateway_arn: pulumi.Input[str],
                  location_arn: pulumi.Input[str],
@@ -24,7 +24,7 @@ class SmbFileShareArgs:
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
+                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -51,7 +51,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['SmbFileShareCacheAttributesArrgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -215,14 +215,14 @@ class SmbFileShareArgs:
 
     @property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @property
@@ -419,7 +419,7 @@ class SmbFileShareArgs:
 
 
 @pulumi.input_type
-class _SmbFileShareState:
+calass _SmbFileShareState:
     def __init__(__self__, *,
                  access_based_enumeration: Optional[pulumi.Input[bool]] = None,
                  admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -427,7 +427,7 @@ class _SmbFileShareState:
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
+                 cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -458,7 +458,7 @@ class _SmbFileShareState:
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['SmbFileShareCacheAttributesArrgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -618,14 +618,14 @@ class _SmbFileShareState:
 
     @property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]:
+    def cache_attributes(self) -> Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']]):
+    def cache_attributes(self, value: Optional[pulumi.Input['SmbFileShareCacheAttributesArrgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @property
@@ -896,7 +896,7 @@ class _SmbFileShareState:
         pulumi.set(self, "vpc_endpoint_dns_name", value)
 
 
-class SmbFileShare(pulumi.CustomResource):
+calass SmbFileShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -906,7 +906,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArrgs']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -975,7 +975,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArrgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -1000,7 +1000,7 @@ class SmbFileShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SmbFileShareArgs,
+                 args: SmbFileShareArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Storage Gateway SMB File Share.
@@ -1044,12 +1044,12 @@ class SmbFileShare(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SmbFileShareArgs args: The arguments to use to populate this resource's properties.
+        :param SmbFileShareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SmbFileShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SmbFileShareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1063,7 +1063,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArrgs']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -1090,7 +1090,7 @@ class SmbFileShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SmbFileShareArgs.__new__(SmbFileShareArgs)
+            __props__ = SmbFileShareArrgs.__new__(SmbFileShareArrgs)
 
             __props__.__dict__["access_based_enumeration"] = access_based_enumeration
             __props__.__dict__["admin_user_lists"] = admin_user_lists
@@ -1145,7 +1145,7 @@ class SmbFileShare(pulumi.CustomResource):
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
             bucket_region: Optional[pulumi.Input[str]] = None,
-            cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+            cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArrgs']]] = None,
             case_sensitivity: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             file_share_name: Optional[pulumi.Input[str]] = None,
@@ -1181,7 +1181,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArrgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.

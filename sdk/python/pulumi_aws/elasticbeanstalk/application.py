@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationArgs', 'Application']
+__all__ = ['ApplicationArrgs', 'Application']
 
 @pulumi.input_type
-class ApplicationArgs:
+calass ApplicationArrgs:
     def __init__(__self__, *,
-                 appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']] = None,
+                 appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -37,11 +37,11 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="appversionLifecycle")
-    def appversion_lifecycle(self) -> Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']]:
+    def appversion_lifecycle(self) -> Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']]:
         return pulumi.get(self, "appversion_lifecycle")
 
     @appversion_lifecycle.setter
-    def appversion_lifecycle(self, value: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']]):
+    def appversion_lifecycle(self, value: Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']]):
         pulumi.set(self, "appversion_lifecycle", value)
 
     @property
@@ -82,9 +82,9 @@ class ApplicationArgs:
 
 
 @pulumi.input_type
-class _ApplicationState:
+calass _ApplicationState:
     def __init__(__self__, *,
-                 appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']] = None,
+                 appversion_lifecycle: Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -116,11 +116,11 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="appversionLifecycle")
-    def appversion_lifecycle(self) -> Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']]:
+    def appversion_lifecycle(self) -> Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']]:
         return pulumi.get(self, "appversion_lifecycle")
 
     @appversion_lifecycle.setter
-    def appversion_lifecycle(self, value: Optional[pulumi.Input['ApplicationAppversionLifecycleArgs']]):
+    def appversion_lifecycle(self, value: Optional[pulumi.Input['ApplicationAppversionLifecycleArrgs']]):
         pulumi.set(self, "appversion_lifecycle", value)
 
     @property
@@ -187,12 +187,12 @@ class _ApplicationState:
         pulumi.set(self, "tags_all", value)
 
 
-class Application(pulumi.CustomResource):
+calass Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -213,7 +213,7 @@ class Application(pulumi.CustomResource):
 
         tftest = aws.elasticbeanstalk.Application("tftest",
             description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
+            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArrgs(
                 service_role=aws_iam_role["beanstalk_service"]["arn"],
                 max_count=128,
                 delete_source_from_s3=True,
@@ -238,7 +238,7 @@ class Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ApplicationArgs] = None,
+                 args: Optional[ApplicationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Beanstalk Application Resource. Elastic Beanstalk allows
@@ -256,7 +256,7 @@ class Application(pulumi.CustomResource):
 
         tftest = aws.elasticbeanstalk.Application("tftest",
             description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
+            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArrgs(
                 service_role=aws_iam_role["beanstalk_service"]["arn"],
                 max_count=128,
                 delete_source_from_s3=True,
@@ -272,12 +272,12 @@ class Application(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -286,7 +286,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -297,7 +297,7 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationArgs.__new__(ApplicationArgs)
+            __props__ = ApplicationArrgs.__new__(ApplicationArrgs)
 
             __props__.__dict__["appversion_lifecycle"] = appversion_lifecycle
             __props__.__dict__["description"] = description
@@ -317,7 +317,7 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+            appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArrgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,

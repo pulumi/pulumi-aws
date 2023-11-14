@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccessPointPosixUserArgs',
-    'AccessPointRootDirectoryArgs',
-    'AccessPointRootDirectoryCreationInfoArgs',
-    'BackupPolicyBackupPolicyArgs',
-    'FileSystemLifecyclePolicyArgs',
-    'FileSystemSizeInByteArgs',
-    'ReplicationConfigurationDestinationArgs',
+    'AccessPointPosixUserArrgs',
+    'AccessPointRootDirectoryArrgs',
+    'AccessPointRootDirectoryCreationInfoArrgs',
+    'BackupPolicyBackupPolicyArrgs',
+    'FileSystemLifecyclePolicyArrgs',
+    'FileSystemSizeInByteArrgs',
+    'ReplicationConfigurationDestinationArrgs',
 ]
 
 @pulumi.input_type
-class AccessPointPosixUserArgs:
+calass AccessPointPosixUserArrgs:
     def __init__(__self__, *,
                  gid: pulumi.Input[int],
                  uid: pulumi.Input[int],
@@ -73,12 +73,12 @@ class AccessPointPosixUserArgs:
 
 
 @pulumi.input_type
-class AccessPointRootDirectoryArgs:
+calass AccessPointRootDirectoryArrgs:
     def __init__(__self__, *,
-                 creation_info: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']] = None,
+                 creation_info: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArrgs']] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['AccessPointRootDirectoryCreationInfoArgs'] creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+        :param pulumi.Input['AccessPointRootDirectoryCreationInfoArrgs'] creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         :param pulumi.Input[str] path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         if creation_info is not None:
@@ -88,14 +88,14 @@ class AccessPointRootDirectoryArgs:
 
     @property
     @pulumi.getter(name="creationInfo")
-    def creation_info(self) -> Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']]:
+    def creation_info(self) -> Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArrgs']]:
         """
         POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         """
         return pulumi.get(self, "creation_info")
 
     @creation_info.setter
-    def creation_info(self, value: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArgs']]):
+    def creation_info(self, value: Optional[pulumi.Input['AccessPointRootDirectoryCreationInfoArrgs']]):
         pulumi.set(self, "creation_info", value)
 
     @property
@@ -112,7 +112,7 @@ class AccessPointRootDirectoryArgs:
 
 
 @pulumi.input_type
-class AccessPointRootDirectoryCreationInfoArgs:
+calass AccessPointRootDirectoryCreationInfoArrgs:
     def __init__(__self__, *,
                  owner_gid: pulumi.Input[int],
                  owner_uid: pulumi.Input[int],
@@ -164,7 +164,7 @@ class AccessPointRootDirectoryCreationInfoArgs:
 
 
 @pulumi.input_type
-class BackupPolicyBackupPolicyArgs:
+calass BackupPolicyBackupPolicyArrgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
         """
@@ -186,7 +186,7 @@ class BackupPolicyBackupPolicyArgs:
 
 
 @pulumi.input_type
-class FileSystemLifecyclePolicyArgs:
+calass FileSystemLifecyclePolicyArrgs:
     def __init__(__self__, *,
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
@@ -225,7 +225,7 @@ class FileSystemLifecyclePolicyArgs:
 
 
 @pulumi.input_type
-class FileSystemSizeInByteArgs:
+calass FileSystemSizeInByteArrgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None,
                  value_in_ia: Optional[pulumi.Input[int]] = None,
@@ -280,7 +280,7 @@ class FileSystemSizeInByteArgs:
 
 
 @pulumi.input_type
-class ReplicationConfigurationDestinationArgs:
+calass ReplicationConfigurationDestinationArrgs:
     def __init__(__self__, *,
                  availability_zone_name: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,

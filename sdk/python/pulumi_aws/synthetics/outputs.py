@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CanaryArtifactConfig(dict):
+calass CanaryArtifactConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -41,7 +41,7 @@ class CanaryArtifactConfig(dict):
     def __init__(__self__, *,
                  s3_encryption: Optional['outputs.CanaryArtifactConfigS3Encryption'] = None):
         """
-        :param 'CanaryArtifactConfigS3EncryptionArgs' s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+        :param 'CanaryArtifactConfigS3EncryptionArrgs' s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
         if s3_encryption is not None:
             pulumi.set(__self__, "s3_encryption", s3_encryption)
@@ -56,7 +56,7 @@ class CanaryArtifactConfig(dict):
 
 
 @pulumi.output_type
-class CanaryArtifactConfigS3Encryption(dict):
+calass CanaryArtifactConfigS3Encryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -106,7 +106,7 @@ class CanaryArtifactConfigS3Encryption(dict):
 
 
 @pulumi.output_type
-class CanaryRunConfig(dict):
+calass CanaryRunConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class CanaryRunConfig(dict):
 
 
 @pulumi.output_type
-class CanarySchedule(dict):
+calass CanarySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -231,7 +231,7 @@ class CanarySchedule(dict):
 
 
 @pulumi.output_type
-class CanaryTimeline(dict):
+calass CanaryTimeline(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -307,7 +307,7 @@ class CanaryTimeline(dict):
 
 
 @pulumi.output_type
-class CanaryVpcConfig(dict):
+calass CanaryVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

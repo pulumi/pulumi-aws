@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationSetDeliveryOptionsArgs',
-    'ConfigurationSetTrackingOptionsArgs',
-    'EventDestinationCloudwatchDestinationArgs',
-    'EventDestinationKinesisDestinationArgs',
-    'EventDestinationSnsDestinationArgs',
-    'ReceiptRuleAddHeaderActionArgs',
-    'ReceiptRuleBounceActionArgs',
-    'ReceiptRuleLambdaActionArgs',
-    'ReceiptRuleS3ActionArgs',
-    'ReceiptRuleSnsActionArgs',
-    'ReceiptRuleStopActionArgs',
-    'ReceiptRuleWorkmailActionArgs',
+    'ConfigurationSetDeliveryOptionsArrgs',
+    'ConfigurationSetTrackingOptionsArrgs',
+    'EventDestinationCloudwatchDestinationArrgs',
+    'EventDestinationKinesisDestinationArrgs',
+    'EventDestinationSnsDestinationArrgs',
+    'ReceiptRuleAddHeaderActionArrgs',
+    'ReceiptRuleBounceActionArrgs',
+    'ReceiptRuleLambdaActionArrgs',
+    'ReceiptRuleS3ActionArrgs',
+    'ReceiptRuleSnsActionArrgs',
+    'ReceiptRuleStopActionArrgs',
+    'ReceiptRuleWorkmailActionArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationSetDeliveryOptionsArgs:
+calass ConfigurationSetDeliveryOptionsArrgs:
     def __init__(__self__, *,
                  tls_policy: Optional[pulumi.Input[str]] = None):
         """
@@ -48,7 +48,7 @@ class ConfigurationSetDeliveryOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetTrackingOptionsArgs:
+calass ConfigurationSetTrackingOptionsArrgs:
     def __init__(__self__, *,
                  custom_redirect_domain: Optional[pulumi.Input[str]] = None):
         """
@@ -71,7 +71,7 @@ class ConfigurationSetTrackingOptionsArgs:
 
 
 @pulumi.input_type
-class EventDestinationCloudwatchDestinationArgs:
+calass EventDestinationCloudwatchDestinationArrgs:
     def __init__(__self__, *,
                  default_value: pulumi.Input[str],
                  dimension_name: pulumi.Input[str],
@@ -123,7 +123,7 @@ class EventDestinationCloudwatchDestinationArgs:
 
 
 @pulumi.input_type
-class EventDestinationKinesisDestinationArgs:
+calass EventDestinationKinesisDestinationArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  stream_arn: pulumi.Input[str]):
@@ -160,7 +160,7 @@ class EventDestinationKinesisDestinationArgs:
 
 
 @pulumi.input_type
-class EventDestinationSnsDestinationArgs:
+calass EventDestinationSnsDestinationArrgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[str]):
         """
@@ -182,7 +182,7 @@ class EventDestinationSnsDestinationArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleAddHeaderActionArgs:
+calass ReceiptRuleAddHeaderActionArrgs:
     def __init__(__self__, *,
                  header_name: pulumi.Input[str],
                  header_value: pulumi.Input[str],
@@ -234,7 +234,7 @@ class ReceiptRuleAddHeaderActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleBounceActionArgs:
+calass ReceiptRuleBounceActionArrgs:
     def __init__(__self__, *,
                  message: pulumi.Input[str],
                  position: pulumi.Input[int],
@@ -333,7 +333,7 @@ class ReceiptRuleBounceActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleLambdaActionArgs:
+calass ReceiptRuleLambdaActionArrgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[str],
                  position: pulumi.Input[int],
@@ -402,7 +402,7 @@ class ReceiptRuleLambdaActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleS3ActionArgs:
+calass ReceiptRuleS3ActionArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  position: pulumi.Input[int],
@@ -487,7 +487,7 @@ class ReceiptRuleS3ActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleSnsActionArgs:
+calass ReceiptRuleSnsActionArrgs:
     def __init__(__self__, *,
                  position: pulumi.Input[int],
                  topic_arn: pulumi.Input[str],
@@ -540,7 +540,7 @@ class ReceiptRuleSnsActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleStopActionArgs:
+calass ReceiptRuleStopActionArrgs:
     def __init__(__self__, *,
                  position: pulumi.Input[int],
                  scope: pulumi.Input[str],
@@ -593,7 +593,7 @@ class ReceiptRuleStopActionArgs:
 
 
 @pulumi.input_type
-class ReceiptRuleWorkmailActionArgs:
+calass ReceiptRuleWorkmailActionArrgs:
     def __init__(__self__, *,
                  organization_arn: pulumi.Input[str],
                  position: pulumi.Input[int],

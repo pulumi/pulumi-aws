@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceLoggingConfigurationArgs', 'InstanceLoggingConfiguration']
+__all__ = ['InstanceLoggingConfigurationArrgs', 'InstanceLoggingConfiguration']
 
 @pulumi.input_type
-class InstanceLoggingConfigurationArgs:
+calass InstanceLoggingConfigurationArrgs:
     def __init__(__self__, *,
-                 access_logs: pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'],
+                 access_logs: pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs'],
                  verifiedaccess_instance_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         pulumi.set(__self__, "access_logs", access_logs)
@@ -28,14 +28,14 @@ class InstanceLoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']:
+    def access_logs(self) -> pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs']:
         """
         A block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']):
+    def access_logs(self, value: pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs']):
         pulumi.set(self, "access_logs", value)
 
     @property
@@ -52,13 +52,13 @@ class InstanceLoggingConfigurationArgs:
 
 
 @pulumi.input_type
-class _InstanceLoggingConfigurationState:
+calass _InstanceLoggingConfigurationState:
     def __init__(__self__, *,
-                 access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']] = None,
+                 access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs']] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         if access_logs is not None:
@@ -68,14 +68,14 @@ class _InstanceLoggingConfigurationState:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]:
+    def access_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs']]:
         """
         A block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
-    def access_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]):
+    def access_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArrgs']]):
         pulumi.set(self, "access_logs", value)
 
     @property
@@ -91,12 +91,12 @@ class _InstanceLoggingConfigurationState:
         pulumi.set(self, "verifiedaccess_instance_id", value)
 
 
-class InstanceLoggingConfiguration(pulumi.CustomResource):
+calass InstanceLoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArgs']]] = None,
+                 access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArrgs']]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -110,8 +110,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs(
                     enabled=True,
                     log_group=aws_cloudwatch_log_group["example"]["id"],
                 ),
@@ -125,8 +125,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs(
                     delivery_stream=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     enabled=True,
                 ),
@@ -140,8 +140,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Arrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     enabled=True,
                     prefix="example",
@@ -156,16 +156,16 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs(
                     enabled=True,
                     log_group=aws_cloudwatch_log_group["example"]["id"],
                 ),
-                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs(
+                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs(
                     delivery_stream=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     enabled=True,
                 ),
-                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args(
+                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Arrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     enabled=True,
                 ),
@@ -179,7 +179,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
                 include_trust_context=True,
             ),
             verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
@@ -191,7 +191,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
                 log_version="ocsf-1.0.0-rc.2",
             ),
             verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
@@ -207,14 +207,14 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArgs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArrgs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceLoggingConfigurationArgs,
+                 args: InstanceLoggingConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a Verified Access Logging Configuration.
@@ -227,8 +227,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs(
                     enabled=True,
                     log_group=aws_cloudwatch_log_group["example"]["id"],
                 ),
@@ -242,8 +242,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs(
                     delivery_stream=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     enabled=True,
                 ),
@@ -257,8 +257,8 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Arrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     enabled=True,
                     prefix="example",
@@ -273,16 +273,16 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
-                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
+                cloudwatch_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs(
                     enabled=True,
                     log_group=aws_cloudwatch_log_group["example"]["id"],
                 ),
-                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs(
+                kinesis_data_firehose=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs(
                     delivery_stream=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     enabled=True,
                 ),
-                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Args(
+                s3=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsS3Arrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     enabled=True,
                 ),
@@ -296,7 +296,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
                 include_trust_context=True,
             ),
             verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
@@ -308,7 +308,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.InstanceLoggingConfiguration("example",
-            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArgs(
+            access_logs=aws.verifiedaccess.InstanceLoggingConfigurationAccessLogsArrgs(
                 log_version="ocsf-1.0.0-rc.2",
             ),
             verifiedaccess_instance_id=aws_verifiedaccess_instance["example"]["id"])
@@ -323,12 +323,12 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceLoggingConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceLoggingConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceLoggingConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -337,7 +337,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArgs']]] = None,
+                 access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArrgs']]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -346,7 +346,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceLoggingConfigurationArgs.__new__(InstanceLoggingConfigurationArgs)
+            __props__ = InstanceLoggingConfigurationArrgs.__new__(InstanceLoggingConfigurationArrgs)
 
             if access_logs is None and not opts.urn:
                 raise TypeError("Missing required property 'access_logs'")
@@ -364,7 +364,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArgs']]] = None,
+            access_logs: Optional[pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArrgs']]] = None,
             verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None) -> 'InstanceLoggingConfiguration':
         """
         Get an existing InstanceLoggingConfiguration resource's state with the given name, id, and optional extra
@@ -373,7 +373,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArgs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[pulumi.InputType['InstanceLoggingConfigurationAccessLogsArrgs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

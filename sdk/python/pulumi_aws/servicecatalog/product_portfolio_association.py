@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProductPortfolioAssociationArgs', 'ProductPortfolioAssociation']
+__all__ = ['ProductPortfolioAssociationArrgs', 'ProductPortfolioAssociation']
 
 @pulumi.input_type
-class ProductPortfolioAssociationArgs:
+calass ProductPortfolioAssociationArrgs:
     def __init__(__self__, *,
                  portfolio_id: pulumi.Input[str],
                  product_id: pulumi.Input[str],
@@ -86,7 +86,7 @@ class ProductPortfolioAssociationArgs:
 
 
 @pulumi.input_type
-class _ProductPortfolioAssociationState:
+calass _ProductPortfolioAssociationState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
                  portfolio_id: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class _ProductPortfolioAssociationState:
         pulumi.set(self, "source_portfolio_id", value)
 
 
-class ProductPortfolioAssociation(pulumi.CustomResource):
+calass ProductPortfolioAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,7 +207,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProductPortfolioAssociationArgs,
+                 args: ProductPortfolioAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Product Portfolio Association.
@@ -233,12 +233,12 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProductPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ProductPortfolioAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProductPortfolioAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProductPortfolioAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -258,7 +258,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProductPortfolioAssociationArgs.__new__(ProductPortfolioAssociationArgs)
+            __props__ = ProductPortfolioAssociationArrgs.__new__(ProductPortfolioAssociationArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             if portfolio_id is None and not opts.urn:

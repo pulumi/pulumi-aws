@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationAppversionLifecycleArgs',
-    'ConfigurationTemplateSettingArgs',
-    'EnvironmentAllSettingArgs',
-    'EnvironmentSettingArgs',
+    'ApplicationAppversionLifecycleArrgs',
+    'ConfigurationTemplateSettingArrgs',
+    'EnvironmentAllSettingArrgs',
+    'EnvironmentSettingArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationAppversionLifecycleArgs:
+calass ApplicationAppversionLifecycleArrgs:
     def __init__(__self__, *,
                  service_role: pulumi.Input[str],
                  delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
@@ -87,7 +87,7 @@ class ApplicationAppversionLifecycleArgs:
 
 
 @pulumi.input_type
-class ConfigurationTemplateSettingArgs:
+calass ConfigurationTemplateSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  namespace: pulumi.Input[str],
@@ -143,7 +143,7 @@ class ConfigurationTemplateSettingArgs:
 
 
 @pulumi.input_type
-class EnvironmentAllSettingArgs:
+calass EnvironmentAllSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  namespace: pulumi.Input[str],
@@ -201,7 +201,7 @@ class EnvironmentAllSettingArgs:
 
 
 @pulumi.input_type
-class EnvironmentSettingArgs:
+calass EnvironmentSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  namespace: pulumi.Input[str],

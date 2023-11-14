@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomKeyStoreArgs', 'CustomKeyStore']
+__all__ = ['CustomKeyStoreArrgs', 'CustomKeyStore']
 
 @pulumi.input_type
-class CustomKeyStoreArgs:
+calass CustomKeyStoreArrgs:
     def __init__(__self__, *,
                  cloud_hsm_cluster_id: pulumi.Input[str],
                  custom_key_store_name: pulumi.Input[str],
@@ -80,7 +80,7 @@ class CustomKeyStoreArgs:
 
 
 @pulumi.input_type
-class _CustomKeyStoreState:
+calass _CustomKeyStoreState:
     def __init__(__self__, *,
                  cloud_hsm_cluster_id: Optional[pulumi.Input[str]] = None,
                  custom_key_store_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _CustomKeyStoreState:
         pulumi.set(self, "trust_anchor_certificate", value)
 
 
-class CustomKeyStore(pulumi.CustomResource):
+calass CustomKeyStore(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -197,7 +197,7 @@ class CustomKeyStore(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomKeyStoreArgs,
+                 args: CustomKeyStoreArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS KMS (Key Management) Custom Key Store.
@@ -225,12 +225,12 @@ class CustomKeyStore(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomKeyStoreArgs args: The arguments to use to populate this resource's properties.
+        :param CustomKeyStoreArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomKeyStoreArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomKeyStoreArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -250,7 +250,7 @@ class CustomKeyStore(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomKeyStoreArgs.__new__(CustomKeyStoreArgs)
+            __props__ = CustomKeyStoreArrgs.__new__(CustomKeyStoreArrgs)
 
             if cloud_hsm_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_hsm_cluster_id'")

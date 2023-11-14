@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActivityArgs', 'Activity']
+__all__ = ['ActivityArrgs', 'Activity']
 
 @pulumi.input_type
-class ActivityArgs:
+calass ActivityArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -52,7 +52,7 @@ class ActivityArgs:
 
 
 @pulumi.input_type
-class _ActivityState:
+calass _ActivityState:
     def __init__(__self__, *,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _ActivityState:
         pulumi.set(self, "tags_all", value)
 
 
-class Activity(pulumi.CustomResource):
+calass Activity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,7 +166,7 @@ class Activity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ActivityArgs] = None,
+                 args: Optional[ActivityArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Step Function Activity resource
@@ -189,12 +189,12 @@ class Activity(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActivityArgs args: The arguments to use to populate this resource's properties.
+        :param ActivityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActivityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActivityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class Activity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActivityArgs.__new__(ActivityArgs)
+            __props__ = ActivityArrgs.__new__(ActivityArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

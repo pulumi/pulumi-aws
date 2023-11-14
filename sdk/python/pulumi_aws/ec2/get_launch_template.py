@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLaunchTemplateResult:
+calass GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
@@ -341,7 +341,7 @@ class GetLaunchTemplateResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
+calass AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -388,7 +388,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']]] = None,
+def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArrgs']]] = None,
                         id: Optional[str] = None,
                         name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
@@ -410,14 +410,14 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
+    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArrgs(
         name="launch-template-name",
         values=["some-template"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the specific launch template to retrieve.
     :param str name: Name of the launch template.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
@@ -473,7 +473,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
 
 
 @_utilities.lift_output_func(get_launch_template)
-def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']]]]] = None,
+def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLaunchTemplateFilterArrgs']]]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                name: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -495,14 +495,14 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
+    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArrgs(
         name="launch-template-name",
         values=["some-template"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the specific launch template to retrieve.
     :param str name: Name of the launch template.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.

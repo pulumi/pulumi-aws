@@ -436,7 +436,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AmiCopyEbsBlockDevice(dict):
+calass AmiCopyEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -594,7 +594,7 @@ class AmiCopyEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class AmiCopyEphemeralBlockDevice(dict):
+calass AmiCopyEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -646,7 +646,7 @@ class AmiCopyEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class AmiEbsBlockDevice(dict):
+calass AmiEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -803,7 +803,7 @@ class AmiEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class AmiEphemeralBlockDevice(dict):
+calass AmiEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -853,7 +853,7 @@ class AmiEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class AmiFromInstanceEbsBlockDevice(dict):
+calass AmiFromInstanceEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1011,7 +1011,7 @@ class AmiFromInstanceEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class AmiFromInstanceEphemeralBlockDevice(dict):
+calass AmiFromInstanceEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1063,7 +1063,7 @@ class AmiFromInstanceEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class DefaultNetworkAclEgress(dict):
+calass DefaultNetworkAclEgress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1210,7 +1210,7 @@ class DefaultNetworkAclEgress(dict):
 
 
 @pulumi.output_type
-class DefaultNetworkAclIngress(dict):
+calass DefaultNetworkAclIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1357,7 +1357,7 @@ class DefaultNetworkAclIngress(dict):
 
 
 @pulumi.output_type
-class DefaultRouteTableRoute(dict):
+calass DefaultRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1555,7 +1555,7 @@ class DefaultRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class DefaultSecurityGroupEgress(dict):
+calass DefaultSecurityGroupEgress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1694,7 +1694,7 @@ class DefaultSecurityGroupEgress(dict):
 
 
 @pulumi.output_type
-class DefaultSecurityGroupIngress(dict):
+calass DefaultSecurityGroupIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1833,7 +1833,7 @@ class DefaultSecurityGroupIngress(dict):
 
 
 @pulumi.output_type
-class FleetFleetInstanceSet(dict):
+calass FleetFleetInstanceSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1907,7 +1907,7 @@ class FleetFleetInstanceSet(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfig(dict):
+calass FleetLaunchTemplateConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1929,8 +1929,8 @@ class FleetLaunchTemplateConfig(dict):
                  launch_template_specification: Optional['outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification'] = None,
                  overrides: Optional[Sequence['outputs.FleetLaunchTemplateConfigOverride']] = None):
         """
-        :param 'FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs' launch_template_specification: Nested argument containing EC2 Launch Template to use. Defined below.
-        :param Sequence['FleetLaunchTemplateConfigOverrideArgs'] overrides: Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+        :param 'FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs' launch_template_specification: Nested argument containing EC2 Launch Template to use. Defined below.
+        :param Sequence['FleetLaunchTemplateConfigOverrideArrgs'] overrides: Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -1955,7 +1955,7 @@ class FleetLaunchTemplateConfig(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigLaunchTemplateSpecification(dict):
+calass FleetLaunchTemplateConfigLaunchTemplateSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2016,7 +2016,7 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecification(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverride(dict):
+calass FleetLaunchTemplateConfigOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2054,7 +2054,7 @@ class FleetLaunchTemplateConfigOverride(dict):
                  weighted_capacity: Optional[float] = None):
         """
         :param str availability_zone: Availability Zone in which to launch the instances.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs' instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs' instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
         :param str instance_type: Instance type.
         :param str max_price: Maximum price per unit hour that you are willing to pay for a Spot Instance.
         :param float priority: Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
@@ -2134,7 +2134,7 @@ class FleetLaunchTemplateConfigOverride(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2221,18 +2221,18 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
                  total_local_storage_gb: Optional['outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb'] = None):
         """
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs' memory_mib: The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs' memory_mib: The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
         :param Sequence[str] accelerator_names: List of accelerator names. Default is any acclerator.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
                
                If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
@@ -2242,9 +2242,9 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param Sequence[str] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs' network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
@@ -2252,7 +2252,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
         pulumi.set(__self__, "vcpu_count", vcpu_count)
@@ -2494,7 +2494,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -2525,7 +2525,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -2556,7 +2556,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -2587,7 +2587,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -2618,7 +2618,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
     def __init__(__self__, *,
                  min: int,
                  max: Optional[int] = None):
@@ -2648,7 +2648,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -2679,7 +2679,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -2710,7 +2710,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -2741,7 +2741,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(d
 
 
 @pulumi.output_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(dict):
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(dict):
     def __init__(__self__, *,
                  min: int,
                  max: Optional[int] = None):
@@ -2771,7 +2771,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(dict):
 
 
 @pulumi.output_type
-class FleetOnDemandOptions(dict):
+calass FleetOnDemandOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2865,7 +2865,7 @@ class FleetOnDemandOptions(dict):
 
 
 @pulumi.output_type
-class FleetSpotOptions(dict):
+calass FleetSpotOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2898,7 +2898,7 @@ class FleetSpotOptions(dict):
         :param str allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         :param str instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param int instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-        :param 'FleetSpotOptionsMaintenanceStrategiesArgs' maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param 'FleetSpotOptionsMaintenanceStrategiesArrgs' maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -2943,7 +2943,7 @@ class FleetSpotOptions(dict):
 
 
 @pulumi.output_type
-class FleetSpotOptionsMaintenanceStrategies(dict):
+calass FleetSpotOptionsMaintenanceStrategies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2964,7 +2964,7 @@ class FleetSpotOptionsMaintenanceStrategies(dict):
     def __init__(__self__, *,
                  capacity_rebalance: Optional['outputs.FleetSpotOptionsMaintenanceStrategiesCapacityRebalance'] = None):
         """
-        :param 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        :param 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
@@ -2979,7 +2979,7 @@ class FleetSpotOptionsMaintenanceStrategies(dict):
 
 
 @pulumi.output_type
-class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(dict):
+calass FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3025,7 +3025,7 @@ class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance(dict):
 
 
 @pulumi.output_type
-class FleetTargetCapacitySpecification(dict):
+calass FleetTargetCapacitySpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3117,7 +3117,7 @@ class FleetTargetCapacitySpecification(dict):
 
 
 @pulumi.output_type
-class FlowLogDestinationOptions(dict):
+calass FlowLogDestinationOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3181,7 +3181,7 @@ class FlowLogDestinationOptions(dict):
 
 
 @pulumi.output_type
-class InstanceCapacityReservationSpecification(dict):
+calass InstanceCapacityReservationSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3206,7 +3206,7 @@ class InstanceCapacityReservationSpecification(dict):
                  capacity_reservation_target: Optional['outputs.InstanceCapacityReservationSpecificationCapacityReservationTarget'] = None):
         """
         :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
-        :param 'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        :param 'InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
                
                For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
@@ -3235,7 +3235,7 @@ class InstanceCapacityReservationSpecification(dict):
 
 
 @pulumi.output_type
-class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
+calass InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3285,7 +3285,7 @@ class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
 
 
 @pulumi.output_type
-class InstanceCpuOptions(dict):
+calass InstanceCpuOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3353,7 +3353,7 @@ class InstanceCpuOptions(dict):
 
 
 @pulumi.output_type
-class InstanceCreditSpecification(dict):
+calass InstanceCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3389,7 +3389,7 @@ class InstanceCreditSpecification(dict):
 
 
 @pulumi.output_type
-class InstanceEbsBlockDevice(dict):
+calass InstanceEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3560,7 +3560,7 @@ class InstanceEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class InstanceEnclaveOptions(dict):
+calass InstanceEnclaveOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -3583,7 +3583,7 @@ class InstanceEnclaveOptions(dict):
 
 
 @pulumi.output_type
-class InstanceEphemeralBlockDevice(dict):
+calass InstanceEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3650,7 +3650,7 @@ class InstanceEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class InstanceInstanceMarketOptions(dict):
+calass InstanceInstanceMarketOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3675,7 +3675,7 @@ class InstanceInstanceMarketOptions(dict):
                  spot_options: Optional['outputs.InstanceInstanceMarketOptionsSpotOptions'] = None):
         """
         :param str market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
-        :param 'InstanceInstanceMarketOptionsSpotOptionsArgs' spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        :param 'InstanceInstanceMarketOptionsSpotOptionsArrgs' spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
             pulumi.set(__self__, "market_type", market_type)
@@ -3700,7 +3700,7 @@ class InstanceInstanceMarketOptions(dict):
 
 
 @pulumi.output_type
-class InstanceInstanceMarketOptionsSpotOptions(dict):
+calass InstanceInstanceMarketOptionsSpotOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3778,7 +3778,7 @@ class InstanceInstanceMarketOptionsSpotOptions(dict):
 
 
 @pulumi.output_type
-class InstanceLaunchTemplate(dict):
+calass InstanceLaunchTemplate(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -3821,7 +3821,7 @@ class InstanceLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class InstanceMaintenanceOptions(dict):
+calass InstanceMaintenanceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3857,7 +3857,7 @@ class InstanceMaintenanceOptions(dict):
 
 
 @pulumi.output_type
-class InstanceMetadataOptions(dict):
+calass InstanceMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3953,7 +3953,7 @@ class InstanceMetadataOptions(dict):
 
 
 @pulumi.output_type
-class InstanceNetworkInterface(dict):
+calass InstanceNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4029,7 +4029,7 @@ class InstanceNetworkInterface(dict):
 
 
 @pulumi.output_type
-class InstancePrivateDnsNameOptions(dict):
+calass InstancePrivateDnsNameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4093,7 +4093,7 @@ class InstancePrivateDnsNameOptions(dict):
 
 
 @pulumi.output_type
-class InstanceRootBlockDevice(dict):
+calass InstanceRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4251,7 +4251,7 @@ class InstanceRootBlockDevice(dict):
 
 
 @pulumi.output_type
-class LaunchConfigurationEbsBlockDevice(dict):
+calass LaunchConfigurationEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4354,7 +4354,7 @@ class LaunchConfigurationEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class LaunchConfigurationEphemeralBlockDevice(dict):
+calass LaunchConfigurationEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4403,7 +4403,7 @@ class LaunchConfigurationEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class LaunchConfigurationMetadataOptions(dict):
+calass LaunchConfigurationMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4467,7 +4467,7 @@ class LaunchConfigurationMetadataOptions(dict):
 
 
 @pulumi.output_type
-class LaunchConfigurationRootBlockDevice(dict):
+calass LaunchConfigurationRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4541,7 +4541,7 @@ class LaunchConfigurationRootBlockDevice(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateBlockDeviceMapping(dict):
+calass LaunchTemplateBlockDeviceMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4570,7 +4570,7 @@ class LaunchTemplateBlockDeviceMapping(dict):
                  virtual_name: Optional[str] = None):
         """
         :param str device_name: The name of the device to mount.
-        :param 'LaunchTemplateBlockDeviceMappingEbsArgs' ebs: Configure EBS volume properties.
+        :param 'LaunchTemplateBlockDeviceMappingEbsArrgs' ebs: Configure EBS volume properties.
         :param str no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param str virtual_name: The [Instance Store Device
                Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
@@ -4621,7 +4621,7 @@ class LaunchTemplateBlockDeviceMapping(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateBlockDeviceMappingEbs(dict):
+calass LaunchTemplateBlockDeviceMappingEbs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4759,7 +4759,7 @@ class LaunchTemplateBlockDeviceMappingEbs(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateCapacityReservationSpecification(dict):
+calass LaunchTemplateCapacityReservationSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4784,7 +4784,7 @@ class LaunchTemplateCapacityReservationSpecification(dict):
                  capacity_reservation_target: Optional['outputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget'] = None):
         """
         :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        :param 'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Used to target a specific Capacity Reservation:
+        :param 'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs' capacity_reservation_target: Used to target a specific Capacity Reservation:
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -4809,7 +4809,7 @@ class LaunchTemplateCapacityReservationSpecification(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(dict):
+calass LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4859,7 +4859,7 @@ class LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget(di
 
 
 @pulumi.output_type
-class LaunchTemplateCpuOptions(dict):
+calass LaunchTemplateCpuOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4931,7 +4931,7 @@ class LaunchTemplateCpuOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateCreditSpecification(dict):
+calass LaunchTemplateCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4973,7 +4973,7 @@ class LaunchTemplateCreditSpecification(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateElasticGpuSpecification(dict):
+calass LaunchTemplateElasticGpuSpecification(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -4991,7 +4991,7 @@ class LaunchTemplateElasticGpuSpecification(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateElasticInferenceAccelerator(dict):
+calass LaunchTemplateElasticInferenceAccelerator(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -5009,7 +5009,7 @@ class LaunchTemplateElasticInferenceAccelerator(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateEnclaveOptions(dict):
+calass LaunchTemplateEnclaveOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -5032,7 +5032,7 @@ class LaunchTemplateEnclaveOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateHibernationOptions(dict):
+calass LaunchTemplateHibernationOptions(dict):
     def __init__(__self__, *,
                  configured: bool):
         """
@@ -5050,7 +5050,7 @@ class LaunchTemplateHibernationOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateIamInstanceProfile(dict):
+calass LaunchTemplateIamInstanceProfile(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  name: Optional[str] = None):
@@ -5081,7 +5081,7 @@ class LaunchTemplateIamInstanceProfile(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceMarketOptions(dict):
+calass LaunchTemplateInstanceMarketOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5106,7 +5106,7 @@ class LaunchTemplateInstanceMarketOptions(dict):
                  spot_options: Optional['outputs.LaunchTemplateInstanceMarketOptionsSpotOptions'] = None):
         """
         :param str market_type: The market type. Can be `spot`.
-        :param 'LaunchTemplateInstanceMarketOptionsSpotOptionsArgs' spot_options: The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        :param 'LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs' spot_options: The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         """
         if market_type is not None:
             pulumi.set(__self__, "market_type", market_type)
@@ -5131,7 +5131,7 @@ class LaunchTemplateInstanceMarketOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceMarketOptionsSpotOptions(dict):
+calass LaunchTemplateInstanceMarketOptionsSpotOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5225,7 +5225,7 @@ class LaunchTemplateInstanceMarketOptionsSpotOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirements(dict):
+calass LaunchTemplateInstanceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5312,9 +5312,9 @@ class LaunchTemplateInstanceRequirements(dict):
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
                  total_local_storage_gb: Optional['outputs.LaunchTemplateInstanceRequirementsTotalLocalStorageGb'] = None):
         """
-        :param 'LaunchTemplateInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param 'LaunchTemplateInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        :param 'LaunchTemplateInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsMemoryMibArrgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param 'LaunchTemplateInstanceRequirementsVcpuCountArrgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param 'LaunchTemplateInstanceRequirementsAcceleratorCountArrgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
                ```python
@@ -5325,7 +5325,7 @@ class LaunchTemplateInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
                
                ```python
@@ -5335,7 +5335,7 @@ class LaunchTemplateInstanceRequirements(dict):
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param 'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
@@ -5358,9 +5358,9 @@ class LaunchTemplateInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param 'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
@@ -5368,7 +5368,7 @@ class LaunchTemplateInstanceRequirements(dict):
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
         pulumi.set(__self__, "vcpu_count", vcpu_count)
@@ -5635,7 +5635,7 @@ class LaunchTemplateInstanceRequirements(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsAcceleratorCount(dict):
+calass LaunchTemplateInstanceRequirementsAcceleratorCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -5666,7 +5666,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCount(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib(dict):
+calass LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -5697,7 +5697,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps(dict):
+calass LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -5728,7 +5728,7 @@ class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
+calass LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -5759,7 +5759,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpu(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsMemoryMib(dict):
+calass LaunchTemplateInstanceRequirementsMemoryMib(dict):
     def __init__(__self__, *,
                  min: int,
                  max: Optional[int] = None):
@@ -5789,7 +5789,7 @@ class LaunchTemplateInstanceRequirementsMemoryMib(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsNetworkBandwidthGbps(dict):
+calass LaunchTemplateInstanceRequirementsNetworkBandwidthGbps(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -5820,7 +5820,7 @@ class LaunchTemplateInstanceRequirementsNetworkBandwidthGbps(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsNetworkInterfaceCount(dict):
+calass LaunchTemplateInstanceRequirementsNetworkInterfaceCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -5851,7 +5851,7 @@ class LaunchTemplateInstanceRequirementsNetworkInterfaceCount(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
+calass LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -5882,7 +5882,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGb(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateInstanceRequirementsVcpuCount(dict):
+calass LaunchTemplateInstanceRequirementsVcpuCount(dict):
     def __init__(__self__, *,
                  min: int,
                  max: Optional[int] = None):
@@ -5912,7 +5912,7 @@ class LaunchTemplateInstanceRequirementsVcpuCount(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateLicenseSpecification(dict):
+calass LaunchTemplateLicenseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5947,7 +5947,7 @@ class LaunchTemplateLicenseSpecification(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateMaintenanceOptions(dict):
+calass LaunchTemplateMaintenanceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5983,7 +5983,7 @@ class LaunchTemplateMaintenanceOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateMetadataOptions(dict):
+calass LaunchTemplateMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6079,7 +6079,7 @@ class LaunchTemplateMetadataOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateMonitoring(dict):
+calass LaunchTemplateMonitoring(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -6098,7 +6098,7 @@ class LaunchTemplateMonitoring(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateNetworkInterface(dict):
+calass LaunchTemplateNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6390,7 +6390,7 @@ class LaunchTemplateNetworkInterface(dict):
 
 
 @pulumi.output_type
-class LaunchTemplatePlacement(dict):
+calass LaunchTemplatePlacement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6520,7 +6520,7 @@ class LaunchTemplatePlacement(dict):
 
 
 @pulumi.output_type
-class LaunchTemplatePrivateDnsNameOptions(dict):
+calass LaunchTemplatePrivateDnsNameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6584,7 +6584,7 @@ class LaunchTemplatePrivateDnsNameOptions(dict):
 
 
 @pulumi.output_type
-class LaunchTemplateTagSpecification(dict):
+calass LaunchTemplateTagSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6632,7 +6632,7 @@ class LaunchTemplateTagSpecification(dict):
 
 
 @pulumi.output_type
-class ManagedPrefixListEntry(dict):
+calass ManagedPrefixListEntry(dict):
     def __init__(__self__, *,
                  cidr: str,
                  description: Optional[str] = None):
@@ -6662,7 +6662,7 @@ class ManagedPrefixListEntry(dict):
 
 
 @pulumi.output_type
-class NetworkAclEgress(dict):
+calass NetworkAclEgress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6809,7 +6809,7 @@ class NetworkAclEgress(dict):
 
 
 @pulumi.output_type
-class NetworkAclIngress(dict):
+calass NetworkAclIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6956,7 +6956,7 @@ class NetworkAclIngress(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisAlternatePathHint(dict):
+calass NetworkInsightsAnalysisAlternatePathHint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7006,7 +7006,7 @@ class NetworkInsightsAnalysisAlternatePathHint(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanation(dict):
+calass NetworkInsightsAnalysisExplanation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7482,7 +7482,7 @@ class NetworkInsightsAnalysisExplanation(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationAcl(dict):
+calass NetworkInsightsAnalysisExplanationAcl(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7521,7 +7521,7 @@ class NetworkInsightsAnalysisExplanationAcl(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationAclRule(dict):
+calass NetworkInsightsAnalysisExplanationAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7595,7 +7595,7 @@ class NetworkInsightsAnalysisExplanationAclRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationAclRulePortRange(dict):
+calass NetworkInsightsAnalysisExplanationAclRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7633,7 +7633,7 @@ class NetworkInsightsAnalysisExplanationAclRulePortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationAttachedTo(dict):
+calass NetworkInsightsAnalysisExplanationAttachedTo(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7672,7 +7672,7 @@ class NetworkInsightsAnalysisExplanationAttachedTo(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener(dict):
+calass NetworkInsightsAnalysisExplanationClassicLoadBalancerListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7712,7 +7712,7 @@ class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationComponent(dict):
+calass NetworkInsightsAnalysisExplanationComponent(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7751,7 +7751,7 @@ class NetworkInsightsAnalysisExplanationComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationCustomerGateway(dict):
+calass NetworkInsightsAnalysisExplanationCustomerGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7790,7 +7790,7 @@ class NetworkInsightsAnalysisExplanationCustomerGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationDestination(dict):
+calass NetworkInsightsAnalysisExplanationDestination(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7829,7 +7829,7 @@ class NetworkInsightsAnalysisExplanationDestination(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationDestinationVpc(dict):
+calass NetworkInsightsAnalysisExplanationDestinationVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7868,7 +7868,7 @@ class NetworkInsightsAnalysisExplanationDestinationVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationElasticLoadBalancerListener(dict):
+calass NetworkInsightsAnalysisExplanationElasticLoadBalancerListener(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7907,7 +7907,7 @@ class NetworkInsightsAnalysisExplanationElasticLoadBalancerListener(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationIngressRouteTable(dict):
+calass NetworkInsightsAnalysisExplanationIngressRouteTable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7946,7 +7946,7 @@ class NetworkInsightsAnalysisExplanationIngressRouteTable(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationInternetGateway(dict):
+calass NetworkInsightsAnalysisExplanationInternetGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -7985,7 +7985,7 @@ class NetworkInsightsAnalysisExplanationInternetGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup(dict):
+calass NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8024,7 +8024,7 @@ class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationNatGateway(dict):
+calass NetworkInsightsAnalysisExplanationNatGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8063,7 +8063,7 @@ class NetworkInsightsAnalysisExplanationNatGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationNetworkInterface(dict):
+calass NetworkInsightsAnalysisExplanationNetworkInterface(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8102,7 +8102,7 @@ class NetworkInsightsAnalysisExplanationNetworkInterface(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationPortRange(dict):
+calass NetworkInsightsAnalysisExplanationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8140,7 +8140,7 @@ class NetworkInsightsAnalysisExplanationPortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationPrefixList(dict):
+calass NetworkInsightsAnalysisExplanationPrefixList(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8179,7 +8179,7 @@ class NetworkInsightsAnalysisExplanationPrefixList(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationRouteTable(dict):
+calass NetworkInsightsAnalysisExplanationRouteTable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8218,7 +8218,7 @@ class NetworkInsightsAnalysisExplanationRouteTable(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationRouteTableRoute(dict):
+calass NetworkInsightsAnalysisExplanationRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8336,7 +8336,7 @@ class NetworkInsightsAnalysisExplanationRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSecurityGroup(dict):
+calass NetworkInsightsAnalysisExplanationSecurityGroup(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8375,7 +8375,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroup(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSecurityGroupRule(dict):
+calass NetworkInsightsAnalysisExplanationSecurityGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8449,7 +8449,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange(dict):
+calass NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8487,7 +8487,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSourceVpc(dict):
+calass NetworkInsightsAnalysisExplanationSourceVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8526,7 +8526,7 @@ class NetworkInsightsAnalysisExplanationSourceVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSubnet(dict):
+calass NetworkInsightsAnalysisExplanationSubnet(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8565,7 +8565,7 @@ class NetworkInsightsAnalysisExplanationSubnet(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationSubnetRouteTable(dict):
+calass NetworkInsightsAnalysisExplanationSubnetRouteTable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8604,7 +8604,7 @@ class NetworkInsightsAnalysisExplanationSubnetRouteTable(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationTransitGateway(dict):
+calass NetworkInsightsAnalysisExplanationTransitGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8643,7 +8643,7 @@ class NetworkInsightsAnalysisExplanationTransitGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationTransitGatewayAttachment(dict):
+calass NetworkInsightsAnalysisExplanationTransitGatewayAttachment(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8682,7 +8682,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayAttachment(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationTransitGatewayRouteTable(dict):
+calass NetworkInsightsAnalysisExplanationTransitGatewayRouteTable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8721,7 +8721,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTable(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute(dict):
+calass NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8809,7 +8809,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationVpc(dict):
+calass NetworkInsightsAnalysisExplanationVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8848,7 +8848,7 @@ class NetworkInsightsAnalysisExplanationVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationVpcEndpoint(dict):
+calass NetworkInsightsAnalysisExplanationVpcEndpoint(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8887,7 +8887,7 @@ class NetworkInsightsAnalysisExplanationVpcEndpoint(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationVpcPeeringConnection(dict):
+calass NetworkInsightsAnalysisExplanationVpcPeeringConnection(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8926,7 +8926,7 @@ class NetworkInsightsAnalysisExplanationVpcPeeringConnection(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationVpnConnection(dict):
+calass NetworkInsightsAnalysisExplanationVpnConnection(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -8965,7 +8965,7 @@ class NetworkInsightsAnalysisExplanationVpnConnection(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisExplanationVpnGateway(dict):
+calass NetworkInsightsAnalysisExplanationVpnGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -9004,7 +9004,7 @@ class NetworkInsightsAnalysisExplanationVpnGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponent(dict):
+calass NetworkInsightsAnalysisForwardPathComponent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9168,7 +9168,7 @@ class NetworkInsightsAnalysisForwardPathComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentAclRule(dict):
+calass NetworkInsightsAnalysisForwardPathComponentAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9242,7 +9242,7 @@ class NetworkInsightsAnalysisForwardPathComponentAclRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentAclRulePortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentAclRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9280,7 +9280,7 @@ class NetworkInsightsAnalysisForwardPathComponentAclRulePortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentAdditionalDetail(dict):
+calass NetworkInsightsAnalysisForwardPathComponentAdditionalDetail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9318,7 +9318,7 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetail(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent(dict):
+calass NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -9357,7 +9357,7 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponent(dict)
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentAttachedTo(dict):
+calass NetworkInsightsAnalysisForwardPathComponentAttachedTo(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -9396,7 +9396,7 @@ class NetworkInsightsAnalysisForwardPathComponentAttachedTo(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentComponent(dict):
+calass NetworkInsightsAnalysisForwardPathComponentComponent(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -9435,7 +9435,7 @@ class NetworkInsightsAnalysisForwardPathComponentComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentDestinationVpc(dict):
+calass NetworkInsightsAnalysisForwardPathComponentDestinationVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -9474,7 +9474,7 @@ class NetworkInsightsAnalysisForwardPathComponentDestinationVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeader(dict):
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9542,7 +9542,7 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeader(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9580,7 +9580,7 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRan
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9618,7 +9618,7 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange(di
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeader(dict):
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9686,7 +9686,7 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeader(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9724,7 +9724,7 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRa
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9762,7 +9762,7 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRange(d
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentRouteTableRoute(dict):
+calass NetworkInsightsAnalysisForwardPathComponentRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9880,7 +9880,7 @@ class NetworkInsightsAnalysisForwardPathComponentRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule(dict):
+calass NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9954,7 +9954,7 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange(dict):
+calass NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9992,7 +9992,7 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange(dict
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentSourceVpc(dict):
+calass NetworkInsightsAnalysisForwardPathComponentSourceVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10031,7 +10031,7 @@ class NetworkInsightsAnalysisForwardPathComponentSourceVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentSubnet(dict):
+calass NetworkInsightsAnalysisForwardPathComponentSubnet(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10070,7 +10070,7 @@ class NetworkInsightsAnalysisForwardPathComponentSubnet(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentTransitGateway(dict):
+calass NetworkInsightsAnalysisForwardPathComponentTransitGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10109,7 +10109,7 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute(dict):
+calass NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10197,7 +10197,7 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute(d
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisForwardPathComponentVpc(dict):
+calass NetworkInsightsAnalysisForwardPathComponentVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10236,7 +10236,7 @@ class NetworkInsightsAnalysisForwardPathComponentVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponent(dict):
+calass NetworkInsightsAnalysisReturnPathComponent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10400,7 +10400,7 @@ class NetworkInsightsAnalysisReturnPathComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentAclRule(dict):
+calass NetworkInsightsAnalysisReturnPathComponentAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10474,7 +10474,7 @@ class NetworkInsightsAnalysisReturnPathComponentAclRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentAclRulePortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentAclRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10512,7 +10512,7 @@ class NetworkInsightsAnalysisReturnPathComponentAclRulePortRange(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentAdditionalDetail(dict):
+calass NetworkInsightsAnalysisReturnPathComponentAdditionalDetail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10550,7 +10550,7 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetail(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent(dict):
+calass NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10589,7 +10589,7 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentAttachedTo(dict):
+calass NetworkInsightsAnalysisReturnPathComponentAttachedTo(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10628,7 +10628,7 @@ class NetworkInsightsAnalysisReturnPathComponentAttachedTo(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentComponent(dict):
+calass NetworkInsightsAnalysisReturnPathComponentComponent(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10667,7 +10667,7 @@ class NetworkInsightsAnalysisReturnPathComponentComponent(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentDestinationVpc(dict):
+calass NetworkInsightsAnalysisReturnPathComponentDestinationVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -10706,7 +10706,7 @@ class NetworkInsightsAnalysisReturnPathComponentDestinationVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeader(dict):
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10774,7 +10774,7 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeader(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10812,7 +10812,7 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRang
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10850,7 +10850,7 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange(dic
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeader(dict):
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10918,7 +10918,7 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeader(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10956,7 +10956,7 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRan
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10994,7 +10994,7 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange(di
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentRouteTableRoute(dict):
+calass NetworkInsightsAnalysisReturnPathComponentRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11112,7 +11112,7 @@ class NetworkInsightsAnalysisReturnPathComponentRouteTableRoute(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule(dict):
+calass NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11186,7 +11186,7 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRule(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange(dict):
+calass NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11224,7 +11224,7 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRange(dict)
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentSourceVpc(dict):
+calass NetworkInsightsAnalysisReturnPathComponentSourceVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -11263,7 +11263,7 @@ class NetworkInsightsAnalysisReturnPathComponentSourceVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentSubnet(dict):
+calass NetworkInsightsAnalysisReturnPathComponentSubnet(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -11302,7 +11302,7 @@ class NetworkInsightsAnalysisReturnPathComponentSubnet(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentTransitGateway(dict):
+calass NetworkInsightsAnalysisReturnPathComponentTransitGateway(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -11341,7 +11341,7 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGateway(dict):
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute(dict):
+calass NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11429,7 +11429,7 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute(di
 
 
 @pulumi.output_type
-class NetworkInsightsAnalysisReturnPathComponentVpc(dict):
+calass NetworkInsightsAnalysisReturnPathComponentVpc(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -11468,7 +11468,7 @@ class NetworkInsightsAnalysisReturnPathComponentVpc(dict):
 
 
 @pulumi.output_type
-class NetworkInterfaceAttachment(dict):
+calass NetworkInterfaceAttachment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11524,7 +11524,7 @@ class NetworkInterfaceAttachment(dict):
 
 
 @pulumi.output_type
-class PeeringConnectionOptionsAccepter(dict):
+calass PeeringConnectionOptionsAccepter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11560,7 +11560,7 @@ class PeeringConnectionOptionsAccepter(dict):
 
 
 @pulumi.output_type
-class PeeringConnectionOptionsRequester(dict):
+calass PeeringConnectionOptionsRequester(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11596,7 +11596,7 @@ class PeeringConnectionOptionsRequester(dict):
 
 
 @pulumi.output_type
-class RouteTableRoute(dict):
+calass RouteTableRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11808,7 +11808,7 @@ class RouteTableRoute(dict):
 
 
 @pulumi.output_type
-class SecurityGroupEgress(dict):
+calass SecurityGroupEgress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11955,7 +11955,7 @@ class SecurityGroupEgress(dict):
 
 
 @pulumi.output_type
-class SecurityGroupIngress(dict):
+calass SecurityGroupIngress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12102,7 +12102,7 @@ class SecurityGroupIngress(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchSpecification(dict):
+calass SpotFleetRequestLaunchSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12340,7 +12340,7 @@ class SpotFleetRequestLaunchSpecification(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
+calass SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12443,7 +12443,7 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchSpecificationEphemeralBlockDevice(dict):
+calass SpotFleetRequestLaunchSpecificationEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12481,7 +12481,7 @@ class SpotFleetRequestLaunchSpecificationEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
+calass SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12565,7 +12565,7 @@ class SpotFleetRequestLaunchSpecificationRootBlockDevice(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfig(dict):
+calass SpotFleetRequestLaunchTemplateConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12587,8 +12587,8 @@ class SpotFleetRequestLaunchTemplateConfig(dict):
                  launch_template_specification: 'outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification',
                  overrides: Optional[Sequence['outputs.SpotFleetRequestLaunchTemplateConfigOverride']] = None):
         """
-        :param 'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs' launch_template_specification: Launch template specification. See Launch Template Specification below for more details.
-        :param Sequence['SpotFleetRequestLaunchTemplateConfigOverrideArgs'] overrides: One or more override configurations. See Overrides below for more details.
+        :param 'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs' launch_template_specification: Launch template specification. See Launch Template Specification below for more details.
+        :param Sequence['SpotFleetRequestLaunchTemplateConfigOverrideArrgs'] overrides: One or more override configurations. See Overrides below for more details.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -12612,7 +12612,7 @@ class SpotFleetRequestLaunchTemplateConfig(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(dict):
+calass SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -12663,7 +12663,7 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverride(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12701,7 +12701,7 @@ class SpotFleetRequestLaunchTemplateConfigOverride(dict):
                  weighted_capacity: Optional[float] = None):
         """
         :param str availability_zone: The availability zone in which to place the request.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs' instance_requirements: The instance requirements. See below.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs' instance_requirements: The instance requirements. See below.
         :param str instance_type: The type of instance to request.
         :param float priority: The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
         :param str spot_price: The maximum spot bid for this override request.
@@ -12781,7 +12781,7 @@ class SpotFleetRequestLaunchTemplateConfigOverride(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12868,7 +12868,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
                  total_local_storage_gb: Optional['outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb'] = None,
                  vcpu_count: Optional['outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount'] = None):
         """
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
                ```python
@@ -12879,7 +12879,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
                
                ```python
@@ -12889,7 +12889,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
@@ -12912,10 +12912,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
@@ -12923,8 +12923,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -13193,7 +13193,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13224,7 +13224,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13255,7 +13255,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13286,7 +13286,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEb
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -13317,7 +13317,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13348,7 +13348,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib(
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -13379,7 +13379,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBan
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13410,7 +13410,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInt
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -13441,7 +13441,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
 
 
 @pulumi.output_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(dict):
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -13472,7 +13472,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount(
 
 
 @pulumi.output_type
-class SpotFleetRequestSpotMaintenanceStrategies(dict):
+calass SpotFleetRequestSpotMaintenanceStrategies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13493,7 +13493,7 @@ class SpotFleetRequestSpotMaintenanceStrategies(dict):
     def __init__(__self__, *,
                  capacity_rebalance: Optional['outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance'] = None):
         """
-        :param 'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        :param 'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs' capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
@@ -13508,7 +13508,7 @@ class SpotFleetRequestSpotMaintenanceStrategies(dict):
 
 
 @pulumi.output_type
-class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(dict):
+calass SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13544,7 +13544,7 @@ class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestCapacityReservationSpecification(dict):
+calass SpotInstanceRequestCapacityReservationSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13569,7 +13569,7 @@ class SpotInstanceRequestCapacityReservationSpecification(dict):
                  capacity_reservation_target: Optional['outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget'] = None):
         """
         :param str capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
-        :param 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        :param 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs' capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
                
                For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
@@ -13598,7 +13598,7 @@ class SpotInstanceRequestCapacityReservationSpecification(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget(dict):
+calass SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13648,7 +13648,7 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
 
 
 @pulumi.output_type
-class SpotInstanceRequestCpuOptions(dict):
+calass SpotInstanceRequestCpuOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13716,7 +13716,7 @@ class SpotInstanceRequestCpuOptions(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestCreditSpecification(dict):
+calass SpotInstanceRequestCreditSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13752,7 +13752,7 @@ class SpotInstanceRequestCreditSpecification(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestEbsBlockDevice(dict):
+calass SpotInstanceRequestEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13919,7 +13919,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestEnclaveOptions(dict):
+calass SpotInstanceRequestEnclaveOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -13942,7 +13942,7 @@ class SpotInstanceRequestEnclaveOptions(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestEphemeralBlockDevice(dict):
+calass SpotInstanceRequestEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14009,7 +14009,7 @@ class SpotInstanceRequestEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestLaunchTemplate(dict):
+calass SpotInstanceRequestLaunchTemplate(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -14052,7 +14052,7 @@ class SpotInstanceRequestLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestMaintenanceOptions(dict):
+calass SpotInstanceRequestMaintenanceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14088,7 +14088,7 @@ class SpotInstanceRequestMaintenanceOptions(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestMetadataOptions(dict):
+calass SpotInstanceRequestMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14184,7 +14184,7 @@ class SpotInstanceRequestMetadataOptions(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestNetworkInterface(dict):
+calass SpotInstanceRequestNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14260,7 +14260,7 @@ class SpotInstanceRequestNetworkInterface(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestPrivateDnsNameOptions(dict):
+calass SpotInstanceRequestPrivateDnsNameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14324,7 +14324,7 @@ class SpotInstanceRequestPrivateDnsNameOptions(dict):
 
 
 @pulumi.output_type
-class SpotInstanceRequestRootBlockDevice(dict):
+calass SpotInstanceRequestRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14478,7 +14478,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
 
 
 @pulumi.output_type
-class TrafficMirrorFilterRuleDestinationPortRange(dict):
+calass TrafficMirrorFilterRuleDestinationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14528,7 +14528,7 @@ class TrafficMirrorFilterRuleDestinationPortRange(dict):
 
 
 @pulumi.output_type
-class TrafficMirrorFilterRuleSourcePortRange(dict):
+calass TrafficMirrorFilterRuleSourcePortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14578,7 +14578,7 @@ class TrafficMirrorFilterRuleSourcePortRange(dict):
 
 
 @pulumi.output_type
-class VpcEndpointDnsEntry(dict):
+calass VpcEndpointDnsEntry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14628,7 +14628,7 @@ class VpcEndpointDnsEntry(dict):
 
 
 @pulumi.output_type
-class VpcEndpointDnsOptions(dict):
+calass VpcEndpointDnsOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14678,7 +14678,7 @@ class VpcEndpointDnsOptions(dict):
 
 
 @pulumi.output_type
-class VpcEndpointServicePrivateDnsNameConfiguration(dict):
+calass VpcEndpointServicePrivateDnsNameConfiguration(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  state: Optional[str] = None,
@@ -14733,7 +14733,7 @@ class VpcEndpointServicePrivateDnsNameConfiguration(dict):
 
 
 @pulumi.output_type
-class VpcIpamOperatingRegion(dict):
+calass VpcIpamOperatingRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14768,7 +14768,7 @@ class VpcIpamOperatingRegion(dict):
 
 
 @pulumi.output_type
-class VpcIpamPoolCidrCidrAuthorizationContext(dict):
+calass VpcIpamPoolCidrCidrAuthorizationContext(dict):
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  signature: Optional[str] = None):
@@ -14799,7 +14799,7 @@ class VpcIpamPoolCidrCidrAuthorizationContext(dict):
 
 
 @pulumi.output_type
-class VpcIpamResourceDiscoveryOperatingRegion(dict):
+calass VpcIpamResourceDiscoveryOperatingRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14834,7 +14834,7 @@ class VpcIpamResourceDiscoveryOperatingRegion(dict):
 
 
 @pulumi.output_type
-class VpcPeeringConnectionAccepter(dict):
+calass VpcPeeringConnectionAccepter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14872,7 +14872,7 @@ class VpcPeeringConnectionAccepter(dict):
 
 
 @pulumi.output_type
-class VpcPeeringConnectionAccepterAccepter(dict):
+calass VpcPeeringConnectionAccepterAccepter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14910,7 +14910,7 @@ class VpcPeeringConnectionAccepterAccepter(dict):
 
 
 @pulumi.output_type
-class VpcPeeringConnectionAccepterRequester(dict):
+calass VpcPeeringConnectionAccepterRequester(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14948,7 +14948,7 @@ class VpcPeeringConnectionAccepterRequester(dict):
 
 
 @pulumi.output_type
-class VpcPeeringConnectionRequester(dict):
+calass VpcPeeringConnectionRequester(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14986,7 +14986,7 @@ class VpcPeeringConnectionRequester(dict):
 
 
 @pulumi.output_type
-class VpnConnectionRoute(dict):
+calass VpnConnectionRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15046,7 +15046,7 @@ class VpnConnectionRoute(dict):
 
 
 @pulumi.output_type
-class VpnConnectionTunnel1LogOptions(dict):
+calass VpnConnectionTunnel1LogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15067,7 +15067,7 @@ class VpnConnectionTunnel1LogOptions(dict):
     def __init__(__self__, *,
                  cloudwatch_log_options: Optional['outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions'] = None):
         """
-        :param 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        :param 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         if cloudwatch_log_options is not None:
             pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
@@ -15082,7 +15082,7 @@ class VpnConnectionTunnel1LogOptions(dict):
 
 
 @pulumi.output_type
-class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
+calass VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15146,7 +15146,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions(dict):
 
 
 @pulumi.output_type
-class VpnConnectionTunnel2LogOptions(dict):
+calass VpnConnectionTunnel2LogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15167,7 +15167,7 @@ class VpnConnectionTunnel2LogOptions(dict):
     def __init__(__self__, *,
                  cloudwatch_log_options: Optional['outputs.VpnConnectionTunnel2LogOptionsCloudwatchLogOptions'] = None):
         """
-        :param 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        :param 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs' cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         if cloudwatch_log_options is not None:
             pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
@@ -15182,7 +15182,7 @@ class VpnConnectionTunnel2LogOptions(dict):
 
 
 @pulumi.output_type
-class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
+calass VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15246,7 +15246,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions(dict):
 
 
 @pulumi.output_type
-class VpnConnectionVgwTelemetry(dict):
+calass VpnConnectionVgwTelemetry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15350,7 +15350,7 @@ class VpnConnectionVgwTelemetry(dict):
 
 
 @pulumi.output_type
-class GetAmiBlockDeviceMappingResult(dict):
+calass GetAmiBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  ebs: Mapping[str, str],
@@ -15401,7 +15401,7 @@ class GetAmiBlockDeviceMappingResult(dict):
 
 
 @pulumi.output_type
-class GetAmiFilterResult(dict):
+calass GetAmiFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15426,7 +15426,7 @@ class GetAmiFilterResult(dict):
 
 
 @pulumi.output_type
-class GetAmiIdsFilterResult(dict):
+calass GetAmiIdsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15445,7 +15445,7 @@ class GetAmiIdsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetAmiProductCodeResult(dict):
+calass GetAmiProductCodeResult(dict):
     def __init__(__self__, *,
                  product_code_id: str,
                  product_code_type: str):
@@ -15464,7 +15464,7 @@ class GetAmiProductCodeResult(dict):
 
 
 @pulumi.output_type
-class GetCoipPoolFilterResult(dict):
+calass GetCoipPoolFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15497,7 +15497,7 @@ class GetCoipPoolFilterResult(dict):
 
 
 @pulumi.output_type
-class GetCoipPoolsFilterResult(dict):
+calass GetCoipPoolsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15530,7 +15530,7 @@ class GetCoipPoolsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetCustomerGatewayFilterResult(dict):
+calass GetCustomerGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15549,7 +15549,7 @@ class GetCustomerGatewayFilterResult(dict):
 
 
 @pulumi.output_type
-class GetDedicatedHostFilterResult(dict):
+calass GetDedicatedHostFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15578,7 +15578,7 @@ class GetDedicatedHostFilterResult(dict):
 
 
 @pulumi.output_type
-class GetEipsFilterResult(dict):
+calass GetEipsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15609,7 +15609,7 @@ class GetEipsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetElasticIpFilterResult(dict):
+calass GetElasticIpFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15628,7 +15628,7 @@ class GetElasticIpFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceCreditSpecificationResult(dict):
+calass GetInstanceCreditSpecificationResult(dict):
     def __init__(__self__, *,
                  cpu_credits: str):
         pulumi.set(__self__, "cpu_credits", cpu_credits)
@@ -15640,7 +15640,7 @@ class GetInstanceCreditSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceEbsBlockDeviceResult(dict):
+calass GetInstanceEbsBlockDeviceResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  device_name: str,
@@ -15760,7 +15760,7 @@ class GetInstanceEbsBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceEnclaveOptionResult(dict):
+calass GetInstanceEnclaveOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -15778,7 +15778,7 @@ class GetInstanceEnclaveOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceEphemeralBlockDeviceResult(dict):
+calass GetInstanceEphemeralBlockDeviceResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  no_device: Optional[bool] = None,
@@ -15820,7 +15820,7 @@ class GetInstanceEphemeralBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceFilterResult(dict):
+calass GetInstanceFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15839,7 +15839,7 @@ class GetInstanceFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceMaintenanceOptionResult(dict):
+calass GetInstanceMaintenanceOptionResult(dict):
     def __init__(__self__, *,
                  auto_recovery: str):
         """
@@ -15857,7 +15857,7 @@ class GetInstanceMaintenanceOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceMetadataOptionResult(dict):
+calass GetInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
                  http_protocol_ipv6: str,
@@ -15919,7 +15919,7 @@ class GetInstanceMetadataOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInstancePrivateDnsNameOptionResult(dict):
+calass GetInstancePrivateDnsNameOptionResult(dict):
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: bool,
                  enable_resource_name_dns_aaaa_record: bool,
@@ -15959,7 +15959,7 @@ class GetInstancePrivateDnsNameOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceRootBlockDeviceResult(dict):
+calass GetInstanceRootBlockDeviceResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  device_name: str,
@@ -16068,7 +16068,7 @@ class GetInstanceRootBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeFpgaResult(dict):
+calass GetInstanceTypeFpgaResult(dict):
     def __init__(__self__, *,
                  count: int,
                  manufacturer: str,
@@ -16107,7 +16107,7 @@ class GetInstanceTypeFpgaResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeGpusResult(dict):
+calass GetInstanceTypeGpusResult(dict):
     def __init__(__self__, *,
                  count: int,
                  manufacturer: str,
@@ -16146,7 +16146,7 @@ class GetInstanceTypeGpusResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeInferenceAcceleratorResult(dict):
+calass GetInstanceTypeInferenceAcceleratorResult(dict):
     def __init__(__self__, *,
                  count: int,
                  manufacturer: str,
@@ -16172,7 +16172,7 @@ class GetInstanceTypeInferenceAcceleratorResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeInstanceDiskResult(dict):
+calass GetInstanceTypeInstanceDiskResult(dict):
     def __init__(__self__, *,
                  count: int,
                  size: int,
@@ -16198,7 +16198,7 @@ class GetInstanceTypeInstanceDiskResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeOfferingFilterResult(dict):
+calass GetInstanceTypeOfferingFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16227,7 +16227,7 @@ class GetInstanceTypeOfferingFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeOfferingsFilterResult(dict):
+calass GetInstanceTypeOfferingsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16256,7 +16256,7 @@ class GetInstanceTypeOfferingsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypesFilterResult(dict):
+calass GetInstanceTypesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16285,7 +16285,7 @@ class GetInstanceTypesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstancesFilterResult(dict):
+calass GetInstancesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16304,7 +16304,7 @@ class GetInstancesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInternetGatewayAttachmentResult(dict):
+calass GetInternetGatewayAttachmentResult(dict):
     def __init__(__self__, *,
                  state: str,
                  vpc_id: str):
@@ -16333,7 +16333,7 @@ class GetInternetGatewayAttachmentResult(dict):
 
 
 @pulumi.output_type
-class GetInternetGatewayFilterResult(dict):
+calass GetInternetGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16366,7 +16366,7 @@ class GetInternetGatewayFilterResult(dict):
 
 
 @pulumi.output_type
-class GetKeyPairFilterResult(dict):
+calass GetKeyPairFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16395,7 +16395,7 @@ class GetKeyPairFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchConfigurationEbsBlockDeviceResult(dict):
+calass GetLaunchConfigurationEbsBlockDeviceResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  device_name: str,
@@ -16501,7 +16501,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
+calass GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  virtual_name: str):
@@ -16530,7 +16530,7 @@ class GetLaunchConfigurationEphemeralBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchConfigurationMetadataOptionResult(dict):
+calass GetLaunchConfigurationMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
                  http_put_response_hop_limit: int,
@@ -16570,7 +16570,7 @@ class GetLaunchConfigurationMetadataOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchConfigurationRootBlockDeviceResult(dict):
+calass GetLaunchConfigurationRootBlockDeviceResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  encrypted: bool,
@@ -16643,7 +16643,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateBlockDeviceMappingResult(dict):
+calass GetLaunchTemplateBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  ebs: Sequence['outputs.GetLaunchTemplateBlockDeviceMappingEbResult'],
@@ -16676,7 +16676,7 @@ class GetLaunchTemplateBlockDeviceMappingResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
+calass GetLaunchTemplateBlockDeviceMappingEbResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: str,
                  encrypted: str,
@@ -16737,7 +16737,7 @@ class GetLaunchTemplateBlockDeviceMappingEbResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateCapacityReservationSpecificationResult(dict):
+calass GetLaunchTemplateCapacityReservationSpecificationResult(dict):
     def __init__(__self__, *,
                  capacity_reservation_preference: str,
                  capacity_reservation_targets: Sequence['outputs.GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult']):
@@ -16756,7 +16756,7 @@ class GetLaunchTemplateCapacityReservationSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult(dict):
+calass GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult(dict):
     def __init__(__self__, *,
                  capacity_reservation_id: str,
                  capacity_reservation_resource_group_arn: str):
@@ -16775,7 +16775,7 @@ class GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
 
 
 @pulumi.output_type
-class GetLaunchTemplateCpuOptionResult(dict):
+calass GetLaunchTemplateCpuOptionResult(dict):
     def __init__(__self__, *,
                  amd_sev_snp: str,
                  core_count: int,
@@ -16801,7 +16801,7 @@ class GetLaunchTemplateCpuOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateCreditSpecificationResult(dict):
+calass GetLaunchTemplateCreditSpecificationResult(dict):
     def __init__(__self__, *,
                  cpu_credits: str):
         pulumi.set(__self__, "cpu_credits", cpu_credits)
@@ -16813,7 +16813,7 @@ class GetLaunchTemplateCreditSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateElasticGpuSpecificationResult(dict):
+calass GetLaunchTemplateElasticGpuSpecificationResult(dict):
     def __init__(__self__, *,
                  type: str):
         pulumi.set(__self__, "type", type)
@@ -16825,7 +16825,7 @@ class GetLaunchTemplateElasticGpuSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
+calass GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
     def __init__(__self__, *,
                  type: str):
         pulumi.set(__self__, "type", type)
@@ -16837,7 +16837,7 @@ class GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateEnclaveOptionResult(dict):
+calass GetLaunchTemplateEnclaveOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         pulumi.set(__self__, "enabled", enabled)
@@ -16849,7 +16849,7 @@ class GetLaunchTemplateEnclaveOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateFilterResult(dict):
+calass GetLaunchTemplateFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16878,7 +16878,7 @@ class GetLaunchTemplateFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateHibernationOptionResult(dict):
+calass GetLaunchTemplateHibernationOptionResult(dict):
     def __init__(__self__, *,
                  configured: bool):
         pulumi.set(__self__, "configured", configured)
@@ -16890,7 +16890,7 @@ class GetLaunchTemplateHibernationOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateIamInstanceProfileResult(dict):
+calass GetLaunchTemplateIamInstanceProfileResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  name: str):
@@ -16915,7 +16915,7 @@ class GetLaunchTemplateIamInstanceProfileResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceMarketOptionResult(dict):
+calass GetLaunchTemplateInstanceMarketOptionResult(dict):
     def __init__(__self__, *,
                  market_type: str,
                  spot_options: Sequence['outputs.GetLaunchTemplateInstanceMarketOptionSpotOptionResult']):
@@ -16934,7 +16934,7 @@ class GetLaunchTemplateInstanceMarketOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
+calass GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
     def __init__(__self__, *,
                  block_duration_minutes: int,
                  instance_interruption_behavior: str,
@@ -16974,7 +16974,7 @@ class GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementResult(dict):
+calass GetLaunchTemplateInstanceRequirementResult(dict):
     def __init__(__self__, *,
                  accelerator_counts: Sequence['outputs.GetLaunchTemplateInstanceRequirementAcceleratorCountResult'],
                  accelerator_manufacturers: Sequence[str],
@@ -17140,7 +17140,7 @@ class GetLaunchTemplateInstanceRequirementResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementAcceleratorCountResult(dict):
+calass GetLaunchTemplateInstanceRequirementAcceleratorCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17159,7 +17159,7 @@ class GetLaunchTemplateInstanceRequirementAcceleratorCountResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
+calass GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17178,7 +17178,7 @@ class GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
+calass GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17197,7 +17197,7 @@ class GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult(dict):
+calass GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -17216,7 +17216,7 @@ class GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementMemoryMibResult(dict):
+calass GetLaunchTemplateInstanceRequirementMemoryMibResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17235,7 +17235,7 @@ class GetLaunchTemplateInstanceRequirementMemoryMibResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult(dict):
+calass GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -17254,7 +17254,7 @@ class GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult(dict):
+calass GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17273,7 +17273,7 @@ class GetLaunchTemplateInstanceRequirementNetworkInterfaceCountResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult(dict):
+calass GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -17292,7 +17292,7 @@ class GetLaunchTemplateInstanceRequirementTotalLocalStorageGbResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateInstanceRequirementVcpuCountResult(dict):
+calass GetLaunchTemplateInstanceRequirementVcpuCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -17311,7 +17311,7 @@ class GetLaunchTemplateInstanceRequirementVcpuCountResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateLicenseSpecificationResult(dict):
+calass GetLaunchTemplateLicenseSpecificationResult(dict):
     def __init__(__self__, *,
                  license_configuration_arn: str):
         pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
@@ -17323,7 +17323,7 @@ class GetLaunchTemplateLicenseSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateMaintenanceOptionResult(dict):
+calass GetLaunchTemplateMaintenanceOptionResult(dict):
     def __init__(__self__, *,
                  auto_recovery: str):
         pulumi.set(__self__, "auto_recovery", auto_recovery)
@@ -17335,7 +17335,7 @@ class GetLaunchTemplateMaintenanceOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateMetadataOptionResult(dict):
+calass GetLaunchTemplateMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
                  http_protocol_ipv6: str,
@@ -17375,7 +17375,7 @@ class GetLaunchTemplateMetadataOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateMonitoringResult(dict):
+calass GetLaunchTemplateMonitoringResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         pulumi.set(__self__, "enabled", enabled)
@@ -17387,7 +17387,7 @@ class GetLaunchTemplateMonitoringResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateNetworkInterfaceResult(dict):
+calass GetLaunchTemplateNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  associate_carrier_ip_address: str,
                  description: str,
@@ -17527,7 +17527,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplatePlacementResult(dict):
+calass GetLaunchTemplatePlacementResult(dict):
     def __init__(__self__, *,
                  affinity: str,
                  availability_zone: str,
@@ -17588,7 +17588,7 @@ class GetLaunchTemplatePlacementResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplatePrivateDnsNameOptionResult(dict):
+calass GetLaunchTemplatePrivateDnsNameOptionResult(dict):
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: bool,
                  enable_resource_name_dns_aaaa_record: bool,
@@ -17614,7 +17614,7 @@ class GetLaunchTemplatePrivateDnsNameOptionResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateTagSpecificationResult(dict):
+calass GetLaunchTemplateTagSpecificationResult(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  tags: Mapping[str, str]):
@@ -17639,7 +17639,7 @@ class GetLaunchTemplateTagSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayFilterResult(dict):
+calass GetLocalGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17672,7 +17672,7 @@ class GetLocalGatewayFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayRouteTableFilterResult(dict):
+calass GetLocalGatewayRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17705,7 +17705,7 @@ class GetLocalGatewayRouteTableFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayRouteTablesFilterResult(dict):
+calass GetLocalGatewayRouteTablesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17738,7 +17738,7 @@ class GetLocalGatewayRouteTablesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayVirtualInterfaceFilterResult(dict):
+calass GetLocalGatewayVirtualInterfaceFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17767,7 +17767,7 @@ class GetLocalGatewayVirtualInterfaceFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayVirtualInterfaceGroupFilterResult(dict):
+calass GetLocalGatewayVirtualInterfaceGroupFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17796,7 +17796,7 @@ class GetLocalGatewayVirtualInterfaceGroupFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewayVirtualInterfaceGroupsFilterResult(dict):
+calass GetLocalGatewayVirtualInterfaceGroupsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17825,7 +17825,7 @@ class GetLocalGatewayVirtualInterfaceGroupsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetLocalGatewaysFilterResult(dict):
+calass GetLocalGatewaysFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17858,7 +17858,7 @@ class GetLocalGatewaysFilterResult(dict):
 
 
 @pulumi.output_type
-class GetManagedPrefixListEntryResult(dict):
+calass GetManagedPrefixListEntryResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  description: str):
@@ -17877,7 +17877,7 @@ class GetManagedPrefixListEntryResult(dict):
 
 
 @pulumi.output_type
-class GetManagedPrefixListFilterResult(dict):
+calass GetManagedPrefixListFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17906,7 +17906,7 @@ class GetManagedPrefixListFilterResult(dict):
 
 
 @pulumi.output_type
-class GetManagedPrefixListsFilterResult(dict):
+calass GetManagedPrefixListsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17939,7 +17939,7 @@ class GetManagedPrefixListsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNatGatewayFilterResult(dict):
+calass GetNatGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17972,7 +17972,7 @@ class GetNatGatewayFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNatGatewaysFilterResult(dict):
+calass GetNatGatewaysFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -18005,7 +18005,7 @@ class GetNatGatewaysFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkAclsFilterResult(dict):
+calass GetNetworkAclsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -18038,7 +18038,7 @@ class GetNetworkAclsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisAlternatePathHintResult(dict):
+calass GetNetworkInsightsAnalysisAlternatePathHintResult(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  component_id: str):
@@ -18057,7 +18057,7 @@ class GetNetworkInsightsAnalysisAlternatePathHintResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationResult(dict):
+calass GetNetworkInsightsAnalysisExplanationResult(dict):
     def __init__(__self__, *,
                  acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclRuleResult'],
                  acls: Sequence['outputs.GetNetworkInsightsAnalysisExplanationAclResult'],
@@ -18398,7 +18398,7 @@ class GetNetworkInsightsAnalysisExplanationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationAclResult(dict):
+calass GetNetworkInsightsAnalysisExplanationAclResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18434,7 +18434,7 @@ class GetNetworkInsightsAnalysisExplanationAclResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationAclRuleResult(dict):
+calass GetNetworkInsightsAnalysisExplanationAclRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  egress: bool,
@@ -18481,7 +18481,7 @@ class GetNetworkInsightsAnalysisExplanationAclRuleResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -18500,7 +18500,7 @@ class GetNetworkInsightsAnalysisExplanationAclRulePortRangeResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
+calass GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18536,7 +18536,7 @@ class GetNetworkInsightsAnalysisExplanationAttachedToResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult(dict):
+calass GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
                  instance_port: int,
                  load_balancer_port: int):
@@ -18555,7 +18555,7 @@ class GetNetworkInsightsAnalysisExplanationClassicLoadBalancerListenerResult(dic
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
+calass GetNetworkInsightsAnalysisExplanationComponentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18591,7 +18591,7 @@ class GetNetworkInsightsAnalysisExplanationComponentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
+calass GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18627,7 +18627,7 @@ class GetNetworkInsightsAnalysisExplanationCustomerGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
+calass GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18663,7 +18663,7 @@ class GetNetworkInsightsAnalysisExplanationDestinationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
+calass GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18699,7 +18699,7 @@ class GetNetworkInsightsAnalysisExplanationDestinationVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dict):
+calass GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18735,7 +18735,7 @@ class GetNetworkInsightsAnalysisExplanationElasticLoadBalancerListenerResult(dic
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
+calass GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18771,7 +18771,7 @@ class GetNetworkInsightsAnalysisExplanationIngressRouteTableResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
+calass GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18807,7 +18807,7 @@ class GetNetworkInsightsAnalysisExplanationInternetGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
+calass GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18843,7 +18843,7 @@ class GetNetworkInsightsAnalysisExplanationLoadBalancerTargetGroupResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
+calass GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18879,7 +18879,7 @@ class GetNetworkInsightsAnalysisExplanationNatGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
+calass GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18915,7 +18915,7 @@ class GetNetworkInsightsAnalysisExplanationNetworkInterfaceResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationPortRangeResult(dict):
+calass GetNetworkInsightsAnalysisExplanationPortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -18934,7 +18934,7 @@ class GetNetworkInsightsAnalysisExplanationPortRangeResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
+calass GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -18970,7 +18970,7 @@ class GetNetworkInsightsAnalysisExplanationPrefixListResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
+calass GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19006,7 +19006,7 @@ class GetNetworkInsightsAnalysisExplanationRouteTableResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisExplanationRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  destination_cidr: str,
                  destination_prefix_list_id: str,
@@ -19081,7 +19081,7 @@ class GetNetworkInsightsAnalysisExplanationRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19117,7 +19117,7 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  direction: str,
@@ -19164,7 +19164,7 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupRuleResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -19183,7 +19183,7 @@ class GetNetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeResult(dict
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19219,7 +19219,7 @@ class GetNetworkInsightsAnalysisExplanationSourceVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19255,7 +19255,7 @@ class GetNetworkInsightsAnalysisExplanationSubnetResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
+calass GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19291,7 +19291,7 @@ class GetNetworkInsightsAnalysisExplanationSubnetRouteTableResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
+calass GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19327,7 +19327,7 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
+calass GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19363,7 +19363,7 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayAttachmentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
+calass GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19399,7 +19399,7 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  attachment_id: str,
                  destination_cidr: str,
@@ -19453,7 +19453,7 @@ class GetNetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteResult(d
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
+calass GetNetworkInsightsAnalysisExplanationVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19489,7 +19489,7 @@ class GetNetworkInsightsAnalysisExplanationVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
+calass GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19525,7 +19525,7 @@ class GetNetworkInsightsAnalysisExplanationVpcEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
+calass GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19561,7 +19561,7 @@ class GetNetworkInsightsAnalysisExplanationVpcPeeringConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
+calass GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19597,7 +19597,7 @@ class GetNetworkInsightsAnalysisExplanationVpnConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
+calass GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19633,7 +19633,7 @@ class GetNetworkInsightsAnalysisExplanationVpnGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisFilterResult(dict):
+calass GetNetworkInsightsAnalysisFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -19662,7 +19662,7 @@ class GetNetworkInsightsAnalysisFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentResult(dict):
     def __init__(__self__, *,
                  acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult'],
                  additional_details: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult'],
@@ -19772,7 +19772,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  egress: bool,
@@ -19819,7 +19819,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -19838,7 +19838,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult(dict)
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult(dict):
     def __init__(__self__, *,
                  additional_detail_type: str,
                  components: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult']):
@@ -19857,7 +19857,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailResult(dict)
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19893,7 +19893,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentRes
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19929,7 +19929,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentAttachedToResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -19965,7 +19965,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentComponentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20001,7 +20001,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentDestinationVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult(dict):
     def __init__(__self__, *,
                  destination_addresses: Sequence[str],
                  destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult'],
@@ -20041,7 +20041,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20060,7 +20060,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPort
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20079,7 +20079,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRange
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult(dict):
     def __init__(__self__, *,
                  destination_addresses: Sequence[str],
                  destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult'],
@@ -20119,7 +20119,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20138,7 +20138,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPor
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20157,7 +20157,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRang
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  destination_cidr: str,
                  destination_prefix_list_id: str,
@@ -20232,7 +20232,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  direction: str,
@@ -20279,7 +20279,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleResult(dict
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20298,7 +20298,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeRe
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20334,7 +20334,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentSourceVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20370,7 +20370,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentSubnetResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20406,7 +20406,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  attachment_id: str,
                  destination_cidr: str,
@@ -20460,7 +20460,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRout
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
+calass GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20496,7 +20496,7 @@ class GetNetworkInsightsAnalysisForwardPathComponentVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentResult(dict):
     def __init__(__self__, *,
                  acl_rules: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult'],
                  additional_details: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult'],
@@ -20606,7 +20606,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  egress: bool,
@@ -20653,7 +20653,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentAclRuleResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20672,7 +20672,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentAclRulePortRangeResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult(dict):
     def __init__(__self__, *,
                  additional_detail_type: str,
                  components: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult']):
@@ -20691,7 +20691,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20727,7 +20727,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentResu
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20763,7 +20763,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentAttachedToResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20799,7 +20799,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentComponentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -20835,7 +20835,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentDestinationVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult(dict):
     def __init__(__self__, *,
                  destination_addresses: Sequence[str],
                  destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult'],
@@ -20875,7 +20875,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20894,7 +20894,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortR
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20913,7 +20913,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeR
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult(dict):
     def __init__(__self__, *,
                  destination_addresses: Sequence[str],
                  destination_port_ranges: Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult'],
@@ -20953,7 +20953,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20972,7 +20972,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPort
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -20991,7 +20991,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  destination_cidr: str,
                  destination_prefix_list_id: str,
@@ -21066,7 +21066,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  direction: str,
@@ -21113,7 +21113,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleResult(dict)
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeResult(dict):
     def __init__(__self__, *,
                  from_: int,
                  to: int):
@@ -21132,7 +21132,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeRes
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -21168,7 +21168,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentSourceVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -21204,7 +21204,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentSubnetResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -21240,7 +21240,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  attachment_id: str,
                  destination_cidr: str,
@@ -21294,7 +21294,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute
 
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
+calass GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -21330,7 +21330,7 @@ class GetNetworkInsightsAnalysisReturnPathComponentVpcResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInsightsPathFilterResult(dict):
+calass GetNetworkInsightsPathFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21359,7 +21359,7 @@ class GetNetworkInsightsPathFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInterfaceAssociationResult(dict):
+calass GetNetworkInterfaceAssociationResult(dict):
     def __init__(__self__, *,
                  allocation_id: str,
                  association_id: str,
@@ -21443,7 +21443,7 @@ class GetNetworkInterfaceAssociationResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInterfaceAttachmentResult(dict):
+calass GetNetworkInterfaceAttachmentResult(dict):
     def __init__(__self__, *,
                  attachment_id: str,
                  device_index: int,
@@ -21476,7 +21476,7 @@ class GetNetworkInterfaceAttachmentResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInterfaceFilterResult(dict):
+calass GetNetworkInterfaceFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21495,7 +21495,7 @@ class GetNetworkInterfaceFilterResult(dict):
 
 
 @pulumi.output_type
-class GetNetworkInterfacesFilterResult(dict):
+calass GetNetworkInterfacesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21526,7 +21526,7 @@ class GetNetworkInterfacesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPrefixListFilterResult(dict):
+calass GetPrefixListFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21555,7 +21555,7 @@ class GetPrefixListFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPublicIpv4PoolPoolAddressRangeResult(dict):
+calass GetPublicIpv4PoolPoolAddressRangeResult(dict):
     def __init__(__self__, *,
                  address_count: int,
                  available_address_count: int,
@@ -21606,7 +21606,7 @@ class GetPublicIpv4PoolPoolAddressRangeResult(dict):
 
 
 @pulumi.output_type
-class GetPublicIpv4PoolsFilterResult(dict):
+calass GetPublicIpv4PoolsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21635,7 +21635,7 @@ class GetPublicIpv4PoolsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableAssociationResult(dict):
+calass GetRouteTableAssociationResult(dict):
     def __init__(__self__, *,
                  gateway_id: str,
                  main: bool,
@@ -21697,7 +21697,7 @@ class GetRouteTableAssociationResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableFilterResult(dict):
+calass GetRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21726,7 +21726,7 @@ class GetRouteTableFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableRouteResult(dict):
+calass GetRouteTableRouteResult(dict):
     def __init__(__self__, *,
                  carrier_gateway_id: str,
                  cidr_block: str,
@@ -21887,7 +21887,7 @@ class GetRouteTableRouteResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTablesFilterResult(dict):
+calass GetRouteTablesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21920,7 +21920,7 @@ class GetRouteTablesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSecurityGroupFilterResult(dict):
+calass GetSecurityGroupFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21953,7 +21953,7 @@ class GetSecurityGroupFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSecurityGroupsFilterResult(dict):
+calass GetSecurityGroupsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -21972,7 +21972,7 @@ class GetSecurityGroupsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSpotPriceFilterResult(dict):
+calass GetSpotPriceFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22001,7 +22001,7 @@ class GetSpotPriceFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSubnetFilterResult(dict):
+calass GetSubnetFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22030,7 +22030,7 @@ class GetSubnetFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSubnetsFilterResult(dict):
+calass GetSubnetsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22043,7 +22043,7 @@ class GetSubnetsFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArrgs(
                    name="tag:Name",
                    values=[""],
                )])
@@ -22066,7 +22066,7 @@ class GetSubnetsFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArrgs(
             name="tag:Name",
             values=[""],
         )])
@@ -22085,7 +22085,7 @@ class GetSubnetsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetTransitGatewayRouteTablesFilterResult(dict):
+calass GetTransitGatewayRouteTablesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22118,7 +22118,7 @@ class GetTransitGatewayRouteTablesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcCidrBlockAssociationResult(dict):
+calass GetVpcCidrBlockAssociationResult(dict):
     def __init__(__self__, *,
                  association_id: str,
                  cidr_block: str,
@@ -22160,7 +22160,7 @@ class GetVpcCidrBlockAssociationResult(dict):
 
 
 @pulumi.output_type
-class GetVpcDhcpOptionsFilterResult(dict):
+calass GetVpcDhcpOptionsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22189,7 +22189,7 @@ class GetVpcDhcpOptionsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcEndpointDnsEntryResult(dict):
+calass GetVpcEndpointDnsEntryResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  hosted_zone_id: str):
@@ -22218,7 +22218,7 @@ class GetVpcEndpointDnsEntryResult(dict):
 
 
 @pulumi.output_type
-class GetVpcEndpointDnsOptionResult(dict):
+calass GetVpcEndpointDnsOptionResult(dict):
     def __init__(__self__, *,
                  dns_record_ip_type: str,
                  private_dns_only_for_inbound_resolver_endpoint: bool):
@@ -22247,7 +22247,7 @@ class GetVpcEndpointDnsOptionResult(dict):
 
 
 @pulumi.output_type
-class GetVpcEndpointFilterResult(dict):
+calass GetVpcEndpointFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22280,7 +22280,7 @@ class GetVpcEndpointFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcEndpointServiceFilterResult(dict):
+calass GetVpcEndpointServiceFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22309,7 +22309,7 @@ class GetVpcEndpointServiceFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcFilterResult(dict):
+calass GetVpcFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22342,7 +22342,7 @@ class GetVpcFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIamPoolCidrsFilterResult(dict):
+calass GetVpcIamPoolCidrsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22361,7 +22361,7 @@ class GetVpcIamPoolCidrsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
+calass GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  state: str):
@@ -22390,7 +22390,7 @@ class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIamPoolFilterResult(dict):
+calass GetVpcIamPoolFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22419,7 +22419,7 @@ class GetVpcIamPoolFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIamPoolsFilterResult(dict):
+calass GetVpcIamPoolsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22448,7 +22448,7 @@ class GetVpcIamPoolsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIamPoolsIpamPoolResult(dict):
+calass GetVpcIamPoolsIpamPoolResult(dict):
     def __init__(__self__, *,
                  address_family: str,
                  allocation_default_netmask_length: int,
@@ -22641,7 +22641,7 @@ class GetVpcIamPoolsIpamPoolResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIpamPoolCidrsFilterResult(dict):
+calass GetVpcIpamPoolCidrsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22660,7 +22660,7 @@ class GetVpcIpamPoolCidrsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIpamPoolCidrsIpamPoolCidrResult(dict):
+calass GetVpcIpamPoolCidrsIpamPoolCidrResult(dict):
     def __init__(__self__, *,
                  cidr: str,
                  state: str):
@@ -22689,7 +22689,7 @@ class GetVpcIpamPoolCidrsIpamPoolCidrResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIpamPoolFilterResult(dict):
+calass GetVpcIpamPoolFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22718,7 +22718,7 @@ class GetVpcIpamPoolFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIpamPoolsFilterResult(dict):
+calass GetVpcIpamPoolsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22747,7 +22747,7 @@ class GetVpcIpamPoolsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcIpamPoolsIpamPoolResult(dict):
+calass GetVpcIpamPoolsIpamPoolResult(dict):
     def __init__(__self__, *,
                  address_family: str,
                  allocation_default_netmask_length: int,
@@ -22940,7 +22940,7 @@ class GetVpcIpamPoolsIpamPoolResult(dict):
 
 
 @pulumi.output_type
-class GetVpcPeeringConnectionCidrBlockSetResult(dict):
+calass GetVpcPeeringConnectionCidrBlockSetResult(dict):
     def __init__(__self__, *,
                  cidr_block: str):
         """
@@ -22958,7 +22958,7 @@ class GetVpcPeeringConnectionCidrBlockSetResult(dict):
 
 
 @pulumi.output_type
-class GetVpcPeeringConnectionFilterResult(dict):
+calass GetVpcPeeringConnectionFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -22991,7 +22991,7 @@ class GetVpcPeeringConnectionFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
+calass GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
     def __init__(__self__, *,
                  cidr_block: str):
         """
@@ -23009,7 +23009,7 @@ class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
 
 
 @pulumi.output_type
-class GetVpcPeeringConnectionsFilterResult(dict):
+calass GetVpcPeeringConnectionsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -23042,7 +23042,7 @@ class GetVpcPeeringConnectionsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcsFilterResult(dict):
+calass GetVpcsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -23075,7 +23075,7 @@ class GetVpcsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpnGatewayFilterResult(dict):
+calass GetVpnGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

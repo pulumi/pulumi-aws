@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CodeRepositoryArgs', 'CodeRepository']
+__all__ = ['CodeRepositoryArrgs', 'CodeRepository']
 
 @pulumi.input_type
-class CodeRepositoryArgs:
+calass CodeRepositoryArrgs:
     def __init__(__self__, *,
                  code_repository_name: pulumi.Input[str],
-                 git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
+                 git_config: pulumi.Input['CodeRepositoryGitConfigArrgs'],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CodeRepository resource.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input['CodeRepositoryGitConfigArrgs'] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "code_repository_name", code_repository_name)
@@ -44,14 +44,14 @@ class CodeRepositoryArgs:
 
     @property
     @pulumi.getter(name="gitConfig")
-    def git_config(self) -> pulumi.Input['CodeRepositoryGitConfigArgs']:
+    def git_config(self) -> pulumi.Input['CodeRepositoryGitConfigArrgs']:
         """
         Specifies details about the repository. see Git Config details below.
         """
         return pulumi.get(self, "git_config")
 
     @git_config.setter
-    def git_config(self, value: pulumi.Input['CodeRepositoryGitConfigArgs']):
+    def git_config(self, value: pulumi.Input['CodeRepositoryGitConfigArrgs']):
         pulumi.set(self, "git_config", value)
 
     @property
@@ -68,18 +68,18 @@ class CodeRepositoryArgs:
 
 
 @pulumi.input_type
-class _CodeRepositoryState:
+calass _CodeRepositoryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
+                 git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CodeRepository resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input['CodeRepositoryGitConfigArrgs'] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -123,14 +123,14 @@ class _CodeRepositoryState:
 
     @property
     @pulumi.getter(name="gitConfig")
-    def git_config(self) -> Optional[pulumi.Input['CodeRepositoryGitConfigArgs']]:
+    def git_config(self) -> Optional[pulumi.Input['CodeRepositoryGitConfigArrgs']]:
         """
         Specifies details about the repository. see Git Config details below.
         """
         return pulumi.get(self, "git_config")
 
     @git_config.setter
-    def git_config(self, value: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']]):
+    def git_config(self, value: Optional[pulumi.Input['CodeRepositoryGitConfigArrgs']]):
         pulumi.set(self, "git_config", value)
 
     @property
@@ -161,13 +161,13 @@ class _CodeRepositoryState:
         pulumi.set(self, "tags_all", value)
 
 
-class CodeRepository(pulumi.CustomResource):
+calass CodeRepository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -182,7 +182,7 @@ class CodeRepository(pulumi.CustomResource):
 
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArrgs(
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
@@ -202,7 +202,7 @@ class CodeRepository(pulumi.CustomResource):
             }))
         example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArrgs(
                 repository_url="https://github.com/github/docs.git",
                 secret_arn=example_secret.arn,
             ),
@@ -220,14 +220,14 @@ class CodeRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArrgs']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CodeRepositoryArgs,
+                 args: CodeRepositoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Code Repository resource.
@@ -241,7 +241,7 @@ class CodeRepository(pulumi.CustomResource):
 
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArrgs(
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
@@ -261,7 +261,7 @@ class CodeRepository(pulumi.CustomResource):
             }))
         example_code_repository = aws.sagemaker.CodeRepository("exampleCodeRepository",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
+            git_config=aws.sagemaker.CodeRepositoryGitConfigArrgs(
                 repository_url="https://github.com/github/docs.git",
                 secret_arn=example_secret.arn,
             ),
@@ -277,12 +277,12 @@ class CodeRepository(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CodeRepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param CodeRepositoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CodeRepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CodeRepositoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -292,7 +292,7 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -301,7 +301,7 @@ class CodeRepository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CodeRepositoryArgs.__new__(CodeRepositoryArgs)
+            __props__ = CodeRepositoryArrgs.__new__(CodeRepositoryArrgs)
 
             if code_repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'code_repository_name'")
@@ -326,7 +326,7 @@ class CodeRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code_repository_name: Optional[pulumi.Input[str]] = None,
-            git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+            git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CodeRepository':
         """
@@ -338,7 +338,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArrgs']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

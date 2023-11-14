@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceSettingArgs', 'ServiceSetting']
+__all__ = ['ServiceSettingArrgs', 'ServiceSetting']
 
 @pulumi.input_type
-class ServiceSettingArgs:
+calass ServiceSettingArrgs:
     def __init__(__self__, *,
                  setting_id: pulumi.Input[str],
                  setting_value: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ServiceSettingArgs:
 
 
 @pulumi.input_type
-class _ServiceSettingState:
+calass _ServiceSettingState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  setting_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _ServiceSettingState:
         pulumi.set(self, "status", value)
 
 
-class ServiceSetting(pulumi.CustomResource):
+calass ServiceSetting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,7 +160,7 @@ class ServiceSetting(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceSettingArgs,
+                 args: ServiceSettingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This setting defines how a user interacts with or uses a service or a feature of a service.
@@ -185,12 +185,12 @@ class ServiceSetting(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceSettingArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceSettingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceSettingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceSettingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -208,7 +208,7 @@ class ServiceSetting(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceSettingArgs.__new__(ServiceSettingArgs)
+            __props__ = ServiceSettingArrgs.__new__(ServiceSettingArrgs)
 
             if setting_id is None and not opts.urn:
                 raise TypeError("Missing required property 'setting_id'")

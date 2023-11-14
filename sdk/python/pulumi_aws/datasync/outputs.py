@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EfsLocationEc2Config(dict):
+calass EfsLocationEc2Config(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -82,11 +82,11 @@ class EfsLocationEc2Config(dict):
 
 
 @pulumi.output_type
-class FsxOpenZfsFileSystemProtocol(dict):
+calass FsxOpenZfsFileSystemProtocol(dict):
     def __init__(__self__, *,
                  nfs: 'outputs.FsxOpenZfsFileSystemProtocolNfs'):
         """
-        :param 'FsxOpenZfsFileSystemProtocolNfsArgs' nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+        :param 'FsxOpenZfsFileSystemProtocolNfsArrgs' nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
         """
         pulumi.set(__self__, "nfs", nfs)
 
@@ -100,7 +100,7 @@ class FsxOpenZfsFileSystemProtocol(dict):
 
 
 @pulumi.output_type
-class FsxOpenZfsFileSystemProtocolNfs(dict):
+calass FsxOpenZfsFileSystemProtocolNfs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -121,7 +121,7 @@ class FsxOpenZfsFileSystemProtocolNfs(dict):
     def __init__(__self__, *,
                  mount_options: 'outputs.FsxOpenZfsFileSystemProtocolNfsMountOptions'):
         """
-        :param 'FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs' mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
+        :param 'FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs' mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
@@ -135,7 +135,7 @@ class FsxOpenZfsFileSystemProtocolNfs(dict):
 
 
 @pulumi.output_type
-class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
+calass FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
@@ -154,7 +154,7 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationAzureBlobSasConfiguration(dict):
+calass LocationAzureBlobSasConfiguration(dict):
     def __init__(__self__, *,
                  token: str):
         """
@@ -172,13 +172,13 @@ class LocationAzureBlobSasConfiguration(dict):
 
 
 @pulumi.output_type
-class LocationFsxOntapFileSystemProtocol(dict):
+calass LocationFsxOntapFileSystemProtocol(dict):
     def __init__(__self__, *,
                  nfs: Optional['outputs.LocationFsxOntapFileSystemProtocolNfs'] = None,
                  smb: Optional['outputs.LocationFsxOntapFileSystemProtocolSmb'] = None):
         """
-        :param 'LocationFsxOntapFileSystemProtocolNfsArgs' nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        :param 'LocationFsxOntapFileSystemProtocolSmbArgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        :param 'LocationFsxOntapFileSystemProtocolNfsArrgs' nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        :param 'LocationFsxOntapFileSystemProtocolSmbArrgs' smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -203,7 +203,7 @@ class LocationFsxOntapFileSystemProtocol(dict):
 
 
 @pulumi.output_type
-class LocationFsxOntapFileSystemProtocolNfs(dict):
+calass LocationFsxOntapFileSystemProtocolNfs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -224,7 +224,7 @@ class LocationFsxOntapFileSystemProtocolNfs(dict):
     def __init__(__self__, *,
                  mount_options: 'outputs.LocationFsxOntapFileSystemProtocolNfsMountOptions'):
         """
-        :param 'LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        :param 'LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs' mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
@@ -238,7 +238,7 @@ class LocationFsxOntapFileSystemProtocolNfs(dict):
 
 
 @pulumi.output_type
-class LocationFsxOntapFileSystemProtocolNfsMountOptions(dict):
+calass LocationFsxOntapFileSystemProtocolNfsMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
@@ -257,7 +257,7 @@ class LocationFsxOntapFileSystemProtocolNfsMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationFsxOntapFileSystemProtocolSmb(dict):
+calass LocationFsxOntapFileSystemProtocolSmb(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -281,7 +281,7 @@ class LocationFsxOntapFileSystemProtocolSmb(dict):
                  user: str,
                  domain: Optional[str] = None):
         """
-        :param 'LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs' mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        :param 'LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs' mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
         :param str password: Password of a user who has permission to access your SVM.
         :param str user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
         :param str domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
@@ -326,7 +326,7 @@ class LocationFsxOntapFileSystemProtocolSmb(dict):
 
 
 @pulumi.output_type
-class LocationFsxOntapFileSystemProtocolSmbMountOptions(dict):
+calass LocationFsxOntapFileSystemProtocolSmbMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
@@ -345,7 +345,7 @@ class LocationFsxOntapFileSystemProtocolSmbMountOptions(dict):
 
 
 @pulumi.output_type
-class LocationHdfsNameNode(dict):
+calass LocationHdfsNameNode(dict):
     def __init__(__self__, *,
                  hostname: str,
                  port: int):
@@ -374,7 +374,7 @@ class LocationHdfsNameNode(dict):
 
 
 @pulumi.output_type
-class LocationHdfsQopConfiguration(dict):
+calass LocationHdfsQopConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -424,7 +424,7 @@ class LocationHdfsQopConfiguration(dict):
 
 
 @pulumi.output_type
-class LocationSmbMountOptions(dict):
+calass LocationSmbMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
@@ -443,7 +443,7 @@ class LocationSmbMountOptions(dict):
 
 
 @pulumi.output_type
-class NfsLocationMountOptions(dict):
+calass NfsLocationMountOptions(dict):
     def __init__(__self__, *,
                  version: Optional[str] = None):
         """
@@ -462,7 +462,7 @@ class NfsLocationMountOptions(dict):
 
 
 @pulumi.output_type
-class NfsLocationOnPremConfig(dict):
+calass NfsLocationOnPremConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -497,7 +497,7 @@ class NfsLocationOnPremConfig(dict):
 
 
 @pulumi.output_type
-class S3LocationS3Config(dict):
+calass S3LocationS3Config(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -532,7 +532,7 @@ class S3LocationS3Config(dict):
 
 
 @pulumi.output_type
-class TaskExcludes(dict):
+calass TaskExcludes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -580,7 +580,7 @@ class TaskExcludes(dict):
 
 
 @pulumi.output_type
-class TaskIncludes(dict):
+calass TaskIncludes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -628,7 +628,7 @@ class TaskIncludes(dict):
 
 
 @pulumi.output_type
-class TaskOptions(dict):
+calass TaskOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -852,7 +852,7 @@ class TaskOptions(dict):
 
 
 @pulumi.output_type
-class TaskSchedule(dict):
+calass TaskSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

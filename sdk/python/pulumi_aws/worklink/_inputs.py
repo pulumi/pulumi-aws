@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FleetIdentityProviderArgs',
-    'FleetNetworkArgs',
+    'FleetIdentityProviderArrgs',
+    'FleetNetworkArrgs',
 ]
 
 @pulumi.input_type
-class FleetIdentityProviderArgs:
+calass FleetIdentityProviderArrgs:
     def __init__(__self__, *,
                  saml_metadata: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -52,7 +52,7 @@ class FleetIdentityProviderArgs:
 
 
 @pulumi.input_type
-class FleetNetworkArgs:
+calass FleetNetworkArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],

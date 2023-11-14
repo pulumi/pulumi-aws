@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogResourcePolicyArgs', 'LogResourcePolicy']
+__all__ = ['LogResourcePolicyArrgs', 'LogResourcePolicy']
 
 @pulumi.input_type
-class LogResourcePolicyArgs:
+calass LogResourcePolicyArrgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[str],
                  policy_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LogResourcePolicyArgs:
 
 
 @pulumi.input_type
-class _LogResourcePolicyState:
+calass _LogResourcePolicyState:
     def __init__(__self__, *,
                  policy_document: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LogResourcePolicyState:
         pulumi.set(self, "policy_name", value)
 
 
-class LogResourcePolicy(pulumi.CustomResource):
+calass LogResourcePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -107,14 +107,14 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
             ],
             resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["es.amazonaws.com"],
                 type="Service",
             )],
@@ -129,13 +129,13 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
             resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["route53.amazonaws.com"],
                 type="Service",
             )],
@@ -162,7 +162,7 @@ class LogResourcePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogResourcePolicyArgs,
+                 args: LogResourcePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a CloudWatch log resource policy.
@@ -174,14 +174,14 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        elasticsearch_log_publishing_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
             ],
             resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["es.amazonaws.com"],
                 type="Service",
             )],
@@ -196,13 +196,13 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
             resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["route53.amazonaws.com"],
                 type="Service",
             )],
@@ -221,12 +221,12 @@ class LogResourcePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogResourcePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LogResourcePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogResourcePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogResourcePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class LogResourcePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogResourcePolicyArgs.__new__(LogResourcePolicyArgs)
+            __props__ = LogResourcePolicyArrgs.__new__(LogResourcePolicyArrgs)
 
             if policy_document is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_document'")

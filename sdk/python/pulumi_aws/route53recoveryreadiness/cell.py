@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CellArgs', 'Cell']
+__all__ = ['CellArrgs', 'Cell']
 
 @pulumi.input_type
-class CellArgs:
+calass CellArrgs:
     def __init__(__self__, *,
                  cell_name: pulumi.Input[str],
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -71,7 +71,7 @@ class CellArgs:
 
 
 @pulumi.input_type
-class _CellState:
+calass _CellState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cell_name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _CellState:
         pulumi.set(self, "tags_all", value)
 
 
-class Cell(pulumi.CustomResource):
+calass Cell(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,7 +225,7 @@ class Cell(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CellArgs,
+                 args: CellArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Readiness Cell.
@@ -248,12 +248,12 @@ class Cell(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CellArgs args: The arguments to use to populate this resource's properties.
+        :param CellArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CellArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CellArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -272,7 +272,7 @@ class Cell(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CellArgs.__new__(CellArgs)
+            __props__ = CellArrgs.__new__(CellArrgs)
 
             if cell_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cell_name'")

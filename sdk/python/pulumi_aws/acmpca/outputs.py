@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CertificateAuthorityCertificateAuthorityConfiguration(dict):
+calass CertificateAuthorityCertificateAuthorityConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,7 +50,7 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
         """
         :param str key_algorithm: Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         :param str signing_algorithm: Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        :param 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs' subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
+        :param 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs' subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
@@ -82,7 +82,7 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
 
 
 @pulumi.output_type
-class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
+calass CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -270,7 +270,7 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
 
 
 @pulumi.output_type
-class CertificateAuthorityRevocationConfiguration(dict):
+calass CertificateAuthorityRevocationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -294,8 +294,8 @@ class CertificateAuthorityRevocationConfiguration(dict):
                  crl_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration'] = None,
                  ocsp_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration'] = None):
         """
-        :param 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs' crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        :param 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs' ocsp_configuration: Nested argument containing configuration of
+        :param 'CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs' crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
+        :param 'CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs' ocsp_configuration: Nested argument containing configuration of
                the custom OCSP responder endpoint. Defined below.
         """
         if crl_configuration is not None:
@@ -322,7 +322,7 @@ class CertificateAuthorityRevocationConfiguration(dict):
 
 
 @pulumi.output_type
-class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
+calass CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -412,7 +412,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
 
 
 @pulumi.output_type
-class CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
+calass CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
 
 
 @pulumi.output_type
-class CertificateValidity(dict):
+calass CertificateValidity(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -488,7 +488,7 @@ class CertificateValidity(dict):
 
 
 @pulumi.output_type
-class GetCertificateAuthorityRevocationConfigurationResult(dict):
+calass GetCertificateAuthorityRevocationConfigurationResult(dict):
     def __init__(__self__, *,
                  crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
                  ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']):
@@ -507,7 +507,7 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict):
+calass GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict):
     def __init__(__self__, *,
                  custom_cname: str,
                  enabled: bool,
@@ -547,7 +547,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
 
 
 @pulumi.output_type
-class GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult(dict):
+calass GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  ocsp_custom_cname: str):

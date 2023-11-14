@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStateMachineVersionsResult:
+calass GetStateMachineVersionsResult:
     """
     A collection of values returned by getStateMachineVersions.
     """
@@ -54,7 +54,7 @@ class GetStateMachineVersionsResult:
         return pulumi.get(self, "statemachine_versions")
 
 
-class AwaitableGetStateMachineVersionsResult(GetStateMachineVersionsResult):
+calass AwaitableGetStateMachineVersionsResult(GetStateMachineVersionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

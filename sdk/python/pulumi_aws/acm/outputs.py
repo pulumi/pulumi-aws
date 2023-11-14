@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CertificateDomainValidationOption(dict):
+calass CertificateDomainValidationOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class CertificateDomainValidationOption(dict):
 
 
 @pulumi.output_type
-class CertificateOptions(dict):
+calass CertificateOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -131,7 +131,7 @@ class CertificateOptions(dict):
 
 
 @pulumi.output_type
-class CertificateRenewalSummary(dict):
+calass CertificateRenewalSummary(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -191,7 +191,7 @@ class CertificateRenewalSummary(dict):
 
 
 @pulumi.output_type
-class CertificateValidationOption(dict):
+calass CertificateValidationOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

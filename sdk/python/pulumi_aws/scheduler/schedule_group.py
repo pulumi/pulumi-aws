@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ScheduleGroupArgs', 'ScheduleGroup']
+__all__ = ['ScheduleGroupArrgs', 'ScheduleGroup']
 
 @pulumi.input_type
-class ScheduleGroupArgs:
+calass ScheduleGroupArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class ScheduleGroupArgs:
 
 
 @pulumi.input_type
-class _ScheduleGroupState:
+calass _ScheduleGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
@@ -209,7 +209,7 @@ class _ScheduleGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class ScheduleGroup(pulumi.CustomResource):
+calass ScheduleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -252,7 +252,7 @@ class ScheduleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ScheduleGroupArgs] = None,
+                 args: Optional[ScheduleGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EventBridge Scheduler Schedule Group resource.
@@ -279,12 +279,12 @@ class ScheduleGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduleGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -303,7 +303,7 @@ class ScheduleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduleGroupArgs.__new__(ScheduleGroupArgs)
+            __props__ = ScheduleGroupArrgs.__new__(ScheduleGroupArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix

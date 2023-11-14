@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RegisteredDomainAdminContact(dict):
+calass RegisteredDomainAdminContact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -227,7 +227,7 @@ class RegisteredDomainAdminContact(dict):
 
 
 @pulumi.output_type
-class RegisteredDomainNameServer(dict):
+calass RegisteredDomainNameServer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -274,7 +274,7 @@ class RegisteredDomainNameServer(dict):
 
 
 @pulumi.output_type
-class RegisteredDomainRegistrantContact(dict):
+calass RegisteredDomainRegistrantContact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -484,7 +484,7 @@ class RegisteredDomainRegistrantContact(dict):
 
 
 @pulumi.output_type
-class RegisteredDomainTechContact(dict):
+calass RegisteredDomainTechContact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

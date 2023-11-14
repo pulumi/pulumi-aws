@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceStorageConfigResult:
+calass GetInstanceStorageConfigResult:
     """
     A collection of values returned by getInstanceStorageConfig.
     """
@@ -71,7 +71,7 @@ class GetInstanceStorageConfigResult:
         return pulumi.get(self, "storage_configs")
 
 
-class AwaitableGetInstanceStorageConfigResult(GetInstanceStorageConfigResult):
+calass AwaitableGetInstanceStorageConfigResult(GetInstanceStorageConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

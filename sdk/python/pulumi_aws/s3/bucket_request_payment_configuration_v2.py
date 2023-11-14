@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BucketRequestPaymentConfigurationV2Args', 'BucketRequestPaymentConfigurationV2']
+__all__ = ['BucketRequestPaymentConfigurationV2Arrgs', 'BucketRequestPaymentConfigurationV2']
 
 @pulumi.input_type
-class BucketRequestPaymentConfigurationV2Args:
+calass BucketRequestPaymentConfigurationV2Arrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  payer: pulumi.Input[str],
@@ -66,7 +66,7 @@ class BucketRequestPaymentConfigurationV2Args:
 
 
 @pulumi.input_type
-class _BucketRequestPaymentConfigurationV2State:
+calass _BucketRequestPaymentConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _BucketRequestPaymentConfigurationV2State:
         pulumi.set(self, "payer", value)
 
 
-class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
+calass BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,7 +173,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketRequestPaymentConfigurationV2Args,
+                 args: BucketRequestPaymentConfigurationV2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
@@ -209,12 +209,12 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketRequestPaymentConfigurationV2Args args: The arguments to use to populate this resource's properties.
+        :param BucketRequestPaymentConfigurationV2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketRequestPaymentConfigurationV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketRequestPaymentConfigurationV2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -233,7 +233,7 @@ class BucketRequestPaymentConfigurationV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketRequestPaymentConfigurationV2Args.__new__(BucketRequestPaymentConfigurationV2Args)
+            __props__ = BucketRequestPaymentConfigurationV2Arrgs.__new__(BucketRequestPaymentConfigurationV2Arrgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")

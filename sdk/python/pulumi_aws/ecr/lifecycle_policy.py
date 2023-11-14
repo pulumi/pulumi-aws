@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
+__all__ = ['LifecyclePolicyArrgs', 'LifecyclePolicy']
 
 @pulumi.input_type
-class LifecyclePolicyArgs:
+calass LifecyclePolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  repository: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LifecyclePolicyArgs:
 
 
 @pulumi.input_type
-class _LifecyclePolicyState:
+calass _LifecyclePolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _LifecyclePolicyState:
         pulumi.set(self, "repository", value)
 
 
-class LifecyclePolicy(pulumi.CustomResource):
+calass LifecyclePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -195,7 +195,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LifecyclePolicyArgs,
+                 args: LifecyclePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ECR repository lifecycle policy.
@@ -271,12 +271,12 @@ class LifecyclePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LifecyclePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -294,7 +294,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LifecyclePolicyArgs.__new__(LifecyclePolicyArgs)
+            __props__ = LifecyclePolicyArrgs.__new__(LifecyclePolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

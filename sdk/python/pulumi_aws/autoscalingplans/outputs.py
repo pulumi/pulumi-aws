@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ScalingPlanApplicationSource(dict):
+calass ScalingPlanApplicationSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -47,7 +47,7 @@ class ScalingPlanApplicationSource(dict):
                  tag_filters: Optional[Sequence['outputs.ScalingPlanApplicationSourceTagFilter']] = None):
         """
         :param str cloudformation_stack_arn: ARN of a AWS CloudFormation stack.
-        :param Sequence['ScalingPlanApplicationSourceTagFilterArgs'] tag_filters: Set of tags.
+        :param Sequence['ScalingPlanApplicationSourceTagFilterArrgs'] tag_filters: Set of tags.
         """
         if cloudformation_stack_arn is not None:
             pulumi.set(__self__, "cloudformation_stack_arn", cloudformation_stack_arn)
@@ -72,7 +72,7 @@ class ScalingPlanApplicationSource(dict):
 
 
 @pulumi.output_type
-class ScalingPlanApplicationSourceTagFilter(dict):
+calass ScalingPlanApplicationSourceTagFilter(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Optional[Sequence[str]] = None):
@@ -102,7 +102,7 @@ class ScalingPlanApplicationSourceTagFilter(dict):
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstruction(dict):
+calass ScalingPlanScalingInstruction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -167,12 +167,12 @@ class ScalingPlanScalingInstruction(dict):
         :param str resource_id: ID of the resource. This string consists of the resource type and unique identifier.
         :param str scalable_dimension: Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
         :param str service_namespace: Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
-        :param Sequence['ScalingPlanScalingInstructionTargetTrackingConfigurationArgs'] target_tracking_configurations: Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
+        :param Sequence['ScalingPlanScalingInstructionTargetTrackingConfigurationArrgs'] target_tracking_configurations: Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
-        :param 'ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
+        :param 'ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArrgs' customized_load_metric_specification: Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         :param bool disable_dynamic_scaling: Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
-        :param 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs' predefined_load_metric_specification: Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
+        :param 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArrgs' predefined_load_metric_specification: Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         :param str predictive_scaling_max_capacity_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
                Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
@@ -322,7 +322,7 @@ class ScalingPlanScalingInstruction(dict):
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
+calass ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -403,7 +403,7 @@ class ScalingPlanScalingInstructionCustomizedLoadMetricSpecification(dict):
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
+calass ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -452,7 +452,7 @@ class ScalingPlanScalingInstructionPredefinedLoadMetricSpecification(dict):
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
+calass ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,12 +492,12 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
                  scale_out_cooldown: Optional[int] = None):
         """
         :param float target_value: Target value for the metric.
-        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
+        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArrgs' customized_scaling_metric_specification: Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         :param bool disable_scale_in: Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
         :param int estimated_instance_warmup: Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
                This value is used only if the resource is an Auto Scaling group.
-        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs' predefined_scaling_metric_specification: Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
+        :param 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArrgs' predefined_scaling_metric_specification: Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
                More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
         :param int scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
                This value is not used if the scalable resource is an Auto Scaling group.
@@ -581,7 +581,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfiguration(dict):
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification(dict):
+calass ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -662,7 +662,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingM
 
 
 @pulumi.output_type
-class ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification(dict):
+calass ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

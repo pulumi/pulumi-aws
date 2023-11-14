@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHostedZoneIdResult:
+calass GetHostedZoneIdResult:
     """
     A collection of values returned by getHostedZoneId.
     """
@@ -43,7 +43,7 @@ class GetHostedZoneIdResult:
         return pulumi.get(self, "region")
 
 
-class AwaitableGetHostedZoneIdResult(GetHostedZoneIdResult):
+calass AwaitableGetHostedZoneIdResult(GetHostedZoneIdResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -70,7 +70,7 @@ def get_hosted_zone_id(region: Optional[str] = None,
         zone_id=aws_route53_zone["primary"]["zone_id"],
         name="example.com",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        aliases=[aws.route53.RecordAliasArrgs(
             name=aws_elb["main"]["dns_name"],
             zone_id=main.id,
             evaluate_target_health=True,
@@ -109,7 +109,7 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
         zone_id=aws_route53_zone["primary"]["zone_id"],
         name="example.com",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        aliases=[aws.route53.RecordAliasArrgs(
             name=aws_elb["main"]["dns_name"],
             zone_id=main.id,
             evaluate_target_health=True,

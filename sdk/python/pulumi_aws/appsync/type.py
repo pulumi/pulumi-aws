@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TypeArgs', 'Type']
+__all__ = ['TypeArrgs', 'Type']
 
 @pulumi.input_type
-class TypeArgs:
+calass TypeArrgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  definition: pulumi.Input[str],
@@ -65,7 +65,7 @@ class TypeArgs:
 
 
 @pulumi.input_type
-class _TypeState:
+calass _TypeState:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class _TypeState:
         pulumi.set(self, "name", value)
 
 
-class Type(pulumi.CustomResource):
+calass Type(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -217,7 +217,7 @@ class Type(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TypeArgs,
+                 args: TypeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppSync Type.
@@ -250,12 +250,12 @@ class Type(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TypeArgs args: The arguments to use to populate this resource's properties.
+        :param TypeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TypeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TypeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -274,7 +274,7 @@ class Type(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TypeArgs.__new__(TypeArgs)
+            __props__ = TypeArrgs.__new__(TypeArrgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")

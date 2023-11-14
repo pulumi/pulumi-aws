@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectionArgs', 'Connection']
+__all__ = ['ConnectionArrgs', 'Connection']
 
 @pulumi.input_type
-class ConnectionArgs:
+calass ConnectionArrgs:
     def __init__(__self__, *,
                  bandwidth: pulumi.Input[str],
                  location: pulumi.Input[str],
@@ -150,7 +150,7 @@ class ConnectionArgs:
 
 
 @pulumi.input_type
-class _ConnectionState:
+calass _ConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_device: Optional[pulumi.Input[str]] = None,
@@ -455,7 +455,7 @@ class _ConnectionState:
         pulumi.set(self, "vlan_id", value)
 
 
-class Connection(pulumi.CustomResource):
+calass Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -534,7 +534,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: ConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Connection of Direct Connect.
@@ -585,12 +585,12 @@ class Connection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -614,7 +614,7 @@ class Connection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionArgs.__new__(ConnectionArgs)
+            __props__ = ConnectionArrgs.__new__(ConnectionArrgs)
 
             if bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReplicationInstanceArgs', 'ReplicationInstance']
+__all__ = ['ReplicationInstanceArrgs', 'ReplicationInstance']
 
 @pulumi.input_type
-class ReplicationInstanceArgs:
+calass ReplicationInstanceArrgs:
     def __init__(__self__, *,
                  replication_instance_class: pulumi.Input[str],
                  replication_instance_id: pulumi.Input[str],
@@ -294,7 +294,7 @@ class ReplicationInstanceArgs:
 
 
 @pulumi.input_type
-class _ReplicationInstanceState:
+calass _ReplicationInstanceState:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -647,7 +647,7 @@ class _ReplicationInstanceState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-class ReplicationInstance(pulumi.CustomResource):
+calass ReplicationInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -680,9 +680,9 @@ class ReplicationInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["dms.amazonaws.com"],
                 type="Service",
             )],
@@ -765,7 +765,7 @@ class ReplicationInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationInstanceArgs,
+                 args: ReplicationInstanceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
@@ -778,9 +778,9 @@ class ReplicationInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["dms.amazonaws.com"],
                 type="Service",
             )],
@@ -831,12 +831,12 @@ class ReplicationInstance(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicationInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicationInstanceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicationInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationInstanceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -868,7 +868,7 @@ class ReplicationInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicationInstanceArgs.__new__(ReplicationInstanceArgs)
+            __props__ = ReplicationInstanceArrgs.__new__(ReplicationInstanceArrgs)
 
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade

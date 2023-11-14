@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOrderableDbInstanceResult:
+calass GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
@@ -94,7 +94,7 @@ class GetOrderableDbInstanceResult:
         return pulumi.get(self, "vpc")
 
 
-class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
+calass AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

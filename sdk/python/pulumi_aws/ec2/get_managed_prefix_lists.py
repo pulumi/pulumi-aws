@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetManagedPrefixListsResult:
+calass GetManagedPrefixListsResult:
     """
     A collection of values returned by getManagedPrefixLists.
     """
@@ -64,7 +64,7 @@ class GetManagedPrefixListsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetManagedPrefixListsResult(GetManagedPrefixListsResult):
+calass AwaitableGetManagedPrefixListsResult(GetManagedPrefixListsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,14 +76,14 @@ class AwaitableGetManagedPrefixListsResult(GetManagedPrefixListsResult):
             tags=self.tags)
 
 
-def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']]] = None,
+def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArrgs']]] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListsResult:
     """
     This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
            
@@ -104,14 +104,14 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
 
 
 @_utilities.lift_output_func(get_managed_prefix_lists)
-def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']]]]] = None,
+def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArrgs']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
     This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
            

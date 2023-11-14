@@ -177,7 +177,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AnalysisParameters(dict):
+calass AnalysisParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,10 +207,10 @@ class AnalysisParameters(dict):
                  integer_parameters: Optional[Sequence['outputs.AnalysisParametersIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.AnalysisParametersStringParameter']] = None):
         """
-        :param Sequence['AnalysisParametersDateTimeParameterArgs'] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        :param Sequence['AnalysisParametersDecimalParameterArgs'] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        :param Sequence['AnalysisParametersIntegerParameterArgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        :param Sequence['AnalysisParametersStringParameterArgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        :param Sequence['AnalysisParametersDateTimeParameterArrgs'] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param Sequence['AnalysisParametersDecimalParameterArrgs'] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param Sequence['AnalysisParametersIntegerParameterArrgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param Sequence['AnalysisParametersStringParameterArrgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -255,7 +255,7 @@ class AnalysisParameters(dict):
 
 
 @pulumi.output_type
-class AnalysisParametersDateTimeParameter(dict):
+calass AnalysisParametersDateTimeParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -284,7 +284,7 @@ class AnalysisParametersDateTimeParameter(dict):
 
 
 @pulumi.output_type
-class AnalysisParametersDecimalParameter(dict):
+calass AnalysisParametersDecimalParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
@@ -313,7 +313,7 @@ class AnalysisParametersDecimalParameter(dict):
 
 
 @pulumi.output_type
-class AnalysisParametersIntegerParameter(dict):
+calass AnalysisParametersIntegerParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[int]):
@@ -342,7 +342,7 @@ class AnalysisParametersIntegerParameter(dict):
 
 
 @pulumi.output_type
-class AnalysisParametersStringParameter(dict):
+calass AnalysisParametersStringParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -371,7 +371,7 @@ class AnalysisParametersStringParameter(dict):
 
 
 @pulumi.output_type
-class AnalysisPermission(dict):
+calass AnalysisPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -400,7 +400,7 @@ class AnalysisPermission(dict):
 
 
 @pulumi.output_type
-class AnalysisSourceEntity(dict):
+calass AnalysisSourceEntity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -421,7 +421,7 @@ class AnalysisSourceEntity(dict):
     def __init__(__self__, *,
                  source_template: Optional['outputs.AnalysisSourceEntitySourceTemplate'] = None):
         """
-        :param 'AnalysisSourceEntitySourceTemplateArgs' source_template: The source template. See source_template.
+        :param 'AnalysisSourceEntitySourceTemplateArrgs' source_template: The source template. See source_template.
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -436,7 +436,7 @@ class AnalysisSourceEntity(dict):
 
 
 @pulumi.output_type
-class AnalysisSourceEntitySourceTemplate(dict):
+calass AnalysisSourceEntitySourceTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class AnalysisSourceEntitySourceTemplate(dict):
                  data_set_references: Sequence['outputs.AnalysisSourceEntitySourceTemplateDataSetReference']):
         """
         :param str arn: The Amazon Resource Name (ARN) of the resource.
-        :param Sequence['AnalysisSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
+        :param Sequence['AnalysisSourceEntitySourceTemplateDataSetReferenceArrgs'] data_set_references: List of dataset references. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -482,7 +482,7 @@ class AnalysisSourceEntitySourceTemplate(dict):
 
 
 @pulumi.output_type
-class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
+calass AnalysisSourceEntitySourceTemplateDataSetReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -530,7 +530,7 @@ class AnalysisSourceEntitySourceTemplateDataSetReference(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptions(dict):
+calass DashboardDashboardPublishOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -578,16 +578,16 @@ class DashboardDashboardPublishOptions(dict):
                  visual_axis_sort_option: Optional['outputs.DashboardDashboardPublishOptionsVisualAxisSortOption'] = None,
                  visual_menu_option: Optional['outputs.DashboardDashboardPublishOptionsVisualMenuOption'] = None):
         """
-        :param 'DashboardDashboardPublishOptionsAdHocFilteringOptionArgs' ad_hoc_filtering_option: Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-        :param 'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs' data_point_drill_up_down_option: The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-        :param 'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs' data_point_menu_label_option: The data point menu label options of a dashboard. See data_point_menu_label_option.
-        :param 'DashboardDashboardPublishOptionsDataPointTooltipOptionArgs' data_point_tooltip_option: The data point tool tip options of a dashboard. See data_point_tooltip_option.
-        :param 'DashboardDashboardPublishOptionsExportToCsvOptionArgs' export_to_csv_option: Export to .csv option. See export_to_csv_option.
-        :param 'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs' export_with_hidden_fields_option: Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-        :param 'DashboardDashboardPublishOptionsSheetControlsOptionArgs' sheet_controls_option: Sheet controls option. See sheet_controls_option.
-        :param 'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs' sheet_layout_element_maximization_option: The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-        :param 'DashboardDashboardPublishOptionsVisualAxisSortOptionArgs' visual_axis_sort_option: The axis sort options of a dashboard. See visual_axis_sort_option.
-        :param 'DashboardDashboardPublishOptionsVisualMenuOptionArgs' visual_menu_option: The menu options of a visual in a dashboard. See visual_menu_option.
+        :param 'DashboardDashboardPublishOptionsAdHocFilteringOptionArrgs' ad_hoc_filtering_option: Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        :param 'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArrgs' data_point_drill_up_down_option: The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        :param 'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArrgs' data_point_menu_label_option: The data point menu label options of a dashboard. See data_point_menu_label_option.
+        :param 'DashboardDashboardPublishOptionsDataPointTooltipOptionArrgs' data_point_tooltip_option: The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        :param 'DashboardDashboardPublishOptionsExportToCsvOptionArrgs' export_to_csv_option: Export to .csv option. See export_to_csv_option.
+        :param 'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArrgs' export_with_hidden_fields_option: Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        :param 'DashboardDashboardPublishOptionsSheetControlsOptionArrgs' sheet_controls_option: Sheet controls option. See sheet_controls_option.
+        :param 'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArrgs' sheet_layout_element_maximization_option: The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        :param 'DashboardDashboardPublishOptionsVisualAxisSortOptionArrgs' visual_axis_sort_option: The axis sort options of a dashboard. See visual_axis_sort_option.
+        :param 'DashboardDashboardPublishOptionsVisualMenuOptionArrgs' visual_menu_option: The menu options of a visual in a dashboard. See visual_menu_option.
         """
         if ad_hoc_filtering_option is not None:
             pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
@@ -692,7 +692,7 @@ class DashboardDashboardPublishOptions(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsAdHocFilteringOption(dict):
+calass DashboardDashboardPublishOptionsAdHocFilteringOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -728,7 +728,7 @@ class DashboardDashboardPublishOptionsAdHocFilteringOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsDataPointDrillUpDownOption(dict):
+calass DashboardDashboardPublishOptionsDataPointDrillUpDownOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -764,7 +764,7 @@ class DashboardDashboardPublishOptionsDataPointDrillUpDownOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsDataPointMenuLabelOption(dict):
+calass DashboardDashboardPublishOptionsDataPointMenuLabelOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -800,7 +800,7 @@ class DashboardDashboardPublishOptionsDataPointMenuLabelOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsDataPointTooltipOption(dict):
+calass DashboardDashboardPublishOptionsDataPointTooltipOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -836,7 +836,7 @@ class DashboardDashboardPublishOptionsDataPointTooltipOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsExportToCsvOption(dict):
+calass DashboardDashboardPublishOptionsExportToCsvOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -872,7 +872,7 @@ class DashboardDashboardPublishOptionsExportToCsvOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsExportWithHiddenFieldsOption(dict):
+calass DashboardDashboardPublishOptionsExportWithHiddenFieldsOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -908,7 +908,7 @@ class DashboardDashboardPublishOptionsExportWithHiddenFieldsOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsSheetControlsOption(dict):
+calass DashboardDashboardPublishOptionsSheetControlsOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -944,7 +944,7 @@ class DashboardDashboardPublishOptionsSheetControlsOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption(dict):
+calass DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -980,7 +980,7 @@ class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption(dict)
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsVisualAxisSortOption(dict):
+calass DashboardDashboardPublishOptionsVisualAxisSortOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1016,7 +1016,7 @@ class DashboardDashboardPublishOptionsVisualAxisSortOption(dict):
 
 
 @pulumi.output_type
-class DashboardDashboardPublishOptionsVisualMenuOption(dict):
+calass DashboardDashboardPublishOptionsVisualMenuOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1052,7 +1052,7 @@ class DashboardDashboardPublishOptionsVisualMenuOption(dict):
 
 
 @pulumi.output_type
-class DashboardParameters(dict):
+calass DashboardParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1082,10 +1082,10 @@ class DashboardParameters(dict):
                  integer_parameters: Optional[Sequence['outputs.DashboardParametersIntegerParameter']] = None,
                  string_parameters: Optional[Sequence['outputs.DashboardParametersStringParameter']] = None):
         """
-        :param Sequence['DashboardParametersDateTimeParameterArgs'] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        :param Sequence['DashboardParametersDecimalParameterArgs'] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        :param Sequence['DashboardParametersIntegerParameterArgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        :param Sequence['DashboardParametersStringParameterArgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        :param Sequence['DashboardParametersDateTimeParameterArrgs'] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param Sequence['DashboardParametersDecimalParameterArrgs'] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param Sequence['DashboardParametersIntegerParameterArrgs'] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param Sequence['DashboardParametersStringParameterArrgs'] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -1130,7 +1130,7 @@ class DashboardParameters(dict):
 
 
 @pulumi.output_type
-class DashboardParametersDateTimeParameter(dict):
+calass DashboardParametersDateTimeParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1155,7 +1155,7 @@ class DashboardParametersDateTimeParameter(dict):
 
 
 @pulumi.output_type
-class DashboardParametersDecimalParameter(dict):
+calass DashboardParametersDecimalParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[float]):
@@ -1180,7 +1180,7 @@ class DashboardParametersDecimalParameter(dict):
 
 
 @pulumi.output_type
-class DashboardParametersIntegerParameter(dict):
+calass DashboardParametersIntegerParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[int]):
@@ -1205,7 +1205,7 @@ class DashboardParametersIntegerParameter(dict):
 
 
 @pulumi.output_type
-class DashboardParametersStringParameter(dict):
+calass DashboardParametersStringParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1230,7 +1230,7 @@ class DashboardParametersStringParameter(dict):
 
 
 @pulumi.output_type
-class DashboardPermission(dict):
+calass DashboardPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -1259,7 +1259,7 @@ class DashboardPermission(dict):
 
 
 @pulumi.output_type
-class DashboardSourceEntity(dict):
+calass DashboardSourceEntity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1280,7 +1280,7 @@ class DashboardSourceEntity(dict):
     def __init__(__self__, *,
                  source_template: Optional['outputs.DashboardSourceEntitySourceTemplate'] = None):
         """
-        :param 'DashboardSourceEntitySourceTemplateArgs' source_template: The source template. See source_template.
+        :param 'DashboardSourceEntitySourceTemplateArrgs' source_template: The source template. See source_template.
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -1295,7 +1295,7 @@ class DashboardSourceEntity(dict):
 
 
 @pulumi.output_type
-class DashboardSourceEntitySourceTemplate(dict):
+calass DashboardSourceEntitySourceTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1318,7 +1318,7 @@ class DashboardSourceEntitySourceTemplate(dict):
                  data_set_references: Sequence['outputs.DashboardSourceEntitySourceTemplateDataSetReference']):
         """
         :param str arn: The Amazon Resource Name (ARN) of the resource.
-        :param Sequence['DashboardSourceEntitySourceTemplateDataSetReferenceArgs'] data_set_references: List of dataset references. See data_set_references.
+        :param Sequence['DashboardSourceEntitySourceTemplateDataSetReferenceArrgs'] data_set_references: List of dataset references. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -1341,7 +1341,7 @@ class DashboardSourceEntitySourceTemplate(dict):
 
 
 @pulumi.output_type
-class DashboardSourceEntitySourceTemplateDataSetReference(dict):
+calass DashboardSourceEntitySourceTemplateDataSetReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1389,7 +1389,7 @@ class DashboardSourceEntitySourceTemplateDataSetReference(dict):
 
 
 @pulumi.output_type
-class DataSetColumnGroup(dict):
+calass DataSetColumnGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1410,7 +1410,7 @@ class DataSetColumnGroup(dict):
     def __init__(__self__, *,
                  geo_spatial_column_group: Optional['outputs.DataSetColumnGroupGeoSpatialColumnGroup'] = None):
         """
-        :param 'DataSetColumnGroupGeoSpatialColumnGroupArgs' geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        :param 'DataSetColumnGroupGeoSpatialColumnGroupArrgs' geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
         """
         if geo_spatial_column_group is not None:
             pulumi.set(__self__, "geo_spatial_column_group", geo_spatial_column_group)
@@ -1425,7 +1425,7 @@ class DataSetColumnGroup(dict):
 
 
 @pulumi.output_type
-class DataSetColumnGroupGeoSpatialColumnGroup(dict):
+calass DataSetColumnGroupGeoSpatialColumnGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1482,7 +1482,7 @@ class DataSetColumnGroupGeoSpatialColumnGroup(dict):
 
 
 @pulumi.output_type
-class DataSetColumnLevelPermissionRule(dict):
+calass DataSetColumnLevelPermissionRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1530,7 +1530,7 @@ class DataSetColumnLevelPermissionRule(dict):
 
 
 @pulumi.output_type
-class DataSetDataSetUsageConfiguration(dict):
+calass DataSetDataSetUsageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1580,7 +1580,7 @@ class DataSetDataSetUsageConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSetFieldFolder(dict):
+calass DataSetFieldFolder(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1639,7 +1639,7 @@ class DataSetFieldFolder(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMap(dict):
+calass DataSetLogicalTableMap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1667,8 +1667,8 @@ class DataSetLogicalTableMap(dict):
         """
         :param str alias: A display name for the logical table.
         :param str logical_table_map_id: Key of the logical table map.
-        :param 'DataSetLogicalTableMapSourceArgs' source: Source of this logical table. See source.
-        :param Sequence['DataSetLogicalTableMapDataTransformArgs'] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        :param 'DataSetLogicalTableMapSourceArrgs' source: Source of this logical table. See source.
+        :param Sequence['DataSetLogicalTableMapDataTransformArrgs'] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
@@ -1710,7 +1710,7 @@ class DataSetLogicalTableMap(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransform(dict):
+calass DataSetLogicalTableMapDataTransform(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1749,13 +1749,13 @@ class DataSetLogicalTableMapDataTransform(dict):
                  tag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperation'] = None,
                  untag_column_operation: Optional['outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation'] = None):
         """
-        :param 'DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs' cast_column_type_operation: A transform operation that casts a column to a different type. See cast_column_type_operation.
-        :param 'DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs' create_columns_operation: An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-        :param 'DataSetLogicalTableMapDataTransformFilterOperationArgs' filter_operation: An operation that filters rows based on some condition. See filter_operation.
-        :param 'DataSetLogicalTableMapDataTransformProjectOperationArgs' project_operation: An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-        :param 'DataSetLogicalTableMapDataTransformRenameColumnOperationArgs' rename_column_operation: An operation that renames a column. See rename_column_operation.
-        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationArgs' tag_column_operation: An operation that tags a column with additional information. See tag_column_operation.
-        :param 'DataSetLogicalTableMapDataTransformUntagColumnOperationArgs' untag_column_operation: A transform operation that removes tags associated with a column. See untag_column_operation.
+        :param 'DataSetLogicalTableMapDataTransformCastColumnTypeOperationArrgs' cast_column_type_operation: A transform operation that casts a column to a different type. See cast_column_type_operation.
+        :param 'DataSetLogicalTableMapDataTransformCreateColumnsOperationArrgs' create_columns_operation: An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        :param 'DataSetLogicalTableMapDataTransformFilterOperationArrgs' filter_operation: An operation that filters rows based on some condition. See filter_operation.
+        :param 'DataSetLogicalTableMapDataTransformProjectOperationArrgs' project_operation: An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        :param 'DataSetLogicalTableMapDataTransformRenameColumnOperationArrgs' rename_column_operation: An operation that renames a column. See rename_column_operation.
+        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationArrgs' tag_column_operation: An operation that tags a column with additional information. See tag_column_operation.
+        :param 'DataSetLogicalTableMapDataTransformUntagColumnOperationArrgs' untag_column_operation: A transform operation that removes tags associated with a column. See untag_column_operation.
         """
         if cast_column_type_operation is not None:
             pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
@@ -1830,7 +1830,7 @@ class DataSetLogicalTableMapDataTransform(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformCastColumnTypeOperation(dict):
+calass DataSetLogicalTableMapDataTransformCastColumnTypeOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1890,11 +1890,11 @@ class DataSetLogicalTableMapDataTransformCastColumnTypeOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformCreateColumnsOperation(dict):
+calass DataSetLogicalTableMapDataTransformCreateColumnsOperation(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn']):
         """
-        :param Sequence['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs'] columns: Calculated columns to create. See columns.
+        :param Sequence['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrgs'] columns: Calculated columns to create. See columns.
         """
         pulumi.set(__self__, "columns", columns)
 
@@ -1908,7 +1908,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn(dict):
+calass DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1967,7 +1967,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformFilterOperation(dict):
+calass DataSetLogicalTableMapDataTransformFilterOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2002,7 +2002,7 @@ class DataSetLogicalTableMapDataTransformFilterOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformProjectOperation(dict):
+calass DataSetLogicalTableMapDataTransformProjectOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2037,7 +2037,7 @@ class DataSetLogicalTableMapDataTransformProjectOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformRenameColumnOperation(dict):
+calass DataSetLogicalTableMapDataTransformRenameColumnOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2085,7 +2085,7 @@ class DataSetLogicalTableMapDataTransformRenameColumnOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
+calass DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2108,7 +2108,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
                  tags: Sequence['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag']):
         """
         :param str column_name: Column name.
-        :param Sequence['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs'] tags: The dataset column tag, currently only used for geospatial type tagging. See tags.
+        :param Sequence['DataSetLogicalTableMapDataTransformTagColumnOperationTagArrgs'] tags: The dataset column tag, currently only used for geospatial type tagging. See tags.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "tags", tags)
@@ -2131,7 +2131,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
+calass DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2155,7 +2155,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
                  column_description: Optional['outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription'] = None,
                  column_geographic_role: Optional[str] = None):
         """
-        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs' column_description: A description for a column. See column_description.
+        :param 'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArrgs' column_description: A description for a column. See column_description.
         :param str column_geographic_role: A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
         """
         if column_description is not None:
@@ -2181,7 +2181,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTag(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription(dict):
+calass DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription(dict):
     def __init__(__self__, *,
                  text: Optional[str] = None):
         """
@@ -2200,7 +2200,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription(
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapDataTransformUntagColumnOperation(dict):
+calass DataSetLogicalTableMapDataTransformUntagColumnOperation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2248,7 +2248,7 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperation(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapSource(dict):
+calass DataSetLogicalTableMapSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2276,7 +2276,7 @@ class DataSetLogicalTableMapSource(dict):
                  physical_table_id: Optional[str] = None):
         """
         :param str data_set_arn: ARN of the parent data set.
-        :param 'DataSetLogicalTableMapSourceJoinInstructionArgs' join_instruction: Specifies the result of a join of two logical tables. See join_instruction.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionArrgs' join_instruction: Specifies the result of a join of two logical tables. See join_instruction.
         :param str physical_table_id: Physical table ID.
         """
         if data_set_arn is not None:
@@ -2312,7 +2312,7 @@ class DataSetLogicalTableMapSource(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapSourceJoinInstruction(dict):
+calass DataSetLogicalTableMapSourceJoinInstruction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2350,8 +2350,8 @@ class DataSetLogicalTableMapSourceJoinInstruction(dict):
         :param str on_clause: Join instructions provided in the ON clause of a join.
         :param str right_operand: Operand on the right side of a join.
         :param str type: Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
-        :param 'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs' left_join_key_properties: Join key properties of the left operand. See left_join_key_properties.
-        :param 'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs' right_join_key_properties: Join key properties of the right operand. See right_join_key_properties.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArrgs' left_join_key_properties: Join key properties of the left operand. See left_join_key_properties.
+        :param 'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArrgs' right_join_key_properties: Join key properties of the right operand. See right_join_key_properties.
         """
         pulumi.set(__self__, "left_operand", left_operand)
         pulumi.set(__self__, "on_clause", on_clause)
@@ -2412,7 +2412,7 @@ class DataSetLogicalTableMapSourceJoinInstruction(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties(dict):
+calass DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2448,7 +2448,7 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties(dict):
 
 
 @pulumi.output_type
-class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
+calass DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2484,7 +2484,7 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties(dict):
 
 
 @pulumi.output_type
-class DataSetOutputColumn(dict):
+calass DataSetOutputColumn(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  name: Optional[str] = None,
@@ -2527,7 +2527,7 @@ class DataSetOutputColumn(dict):
 
 
 @pulumi.output_type
-class DataSetPermission(dict):
+calass DataSetPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -2556,7 +2556,7 @@ class DataSetPermission(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMap(dict):
+calass DataSetPhysicalTableMap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2587,9 +2587,9 @@ class DataSetPhysicalTableMap(dict):
                  s3_source: Optional['outputs.DataSetPhysicalTableMapS3Source'] = None):
         """
         :param str physical_table_map_id: Key of the physical table map.
-        :param 'DataSetPhysicalTableMapCustomSqlArgs' custom_sql: A physical table type built from the results of the custom SQL query. See custom_sql.
-        :param 'DataSetPhysicalTableMapRelationalTableArgs' relational_table: A physical table type for relational data sources. See relational_table.
-        :param 'DataSetPhysicalTableMapS3SourceArgs' s3_source: A physical table type for as S3 data source. See s3_source.
+        :param 'DataSetPhysicalTableMapCustomSqlArrgs' custom_sql: A physical table type built from the results of the custom SQL query. See custom_sql.
+        :param 'DataSetPhysicalTableMapRelationalTableArrgs' relational_table: A physical table type for relational data sources. See relational_table.
+        :param 'DataSetPhysicalTableMapS3SourceArrgs' s3_source: A physical table type for as S3 data source. See s3_source.
         """
         pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
         if custom_sql is not None:
@@ -2633,7 +2633,7 @@ class DataSetPhysicalTableMap(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapCustomSql(dict):
+calass DataSetPhysicalTableMapCustomSql(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2662,7 +2662,7 @@ class DataSetPhysicalTableMapCustomSql(dict):
         :param str data_source_arn: ARN of the data source.
         :param str name: Display name for the SQL query result.
         :param str sql_query: SQL query.
-        :param Sequence['DataSetPhysicalTableMapCustomSqlColumnArgs'] columns: Column schema from the SQL query result set. See columns.
+        :param Sequence['DataSetPhysicalTableMapCustomSqlColumnArrgs'] columns: Column schema from the SQL query result set. See columns.
         """
         pulumi.set(__self__, "data_source_arn", data_source_arn)
         pulumi.set(__self__, "name", name)
@@ -2704,7 +2704,7 @@ class DataSetPhysicalTableMapCustomSql(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapCustomSqlColumn(dict):
+calass DataSetPhysicalTableMapCustomSqlColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -2733,7 +2733,7 @@ class DataSetPhysicalTableMapCustomSqlColumn(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapRelationalTable(dict):
+calass DataSetPhysicalTableMapRelationalTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2761,7 +2761,7 @@ class DataSetPhysicalTableMapRelationalTable(dict):
                  schema: Optional[str] = None):
         """
         :param str data_source_arn: ARN of the data source.
-        :param Sequence['DataSetPhysicalTableMapRelationalTableInputColumnArgs'] input_columns: Column schema of the table. See input_columns.
+        :param Sequence['DataSetPhysicalTableMapRelationalTableInputColumnArrgs'] input_columns: Column schema of the table. See input_columns.
         :param str name: Name of the relational table.
         :param str catalog: Catalog associated with the table.
         :param str schema: Schema name. This name applies to certain relational database engines.
@@ -2816,7 +2816,7 @@ class DataSetPhysicalTableMapRelationalTable(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapRelationalTableInputColumn(dict):
+calass DataSetPhysicalTableMapRelationalTableInputColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -2845,7 +2845,7 @@ class DataSetPhysicalTableMapRelationalTableInputColumn(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapS3Source(dict):
+calass DataSetPhysicalTableMapS3Source(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2873,8 +2873,8 @@ class DataSetPhysicalTableMapS3Source(dict):
                  upload_settings: 'outputs.DataSetPhysicalTableMapS3SourceUploadSettings'):
         """
         :param str data_source_arn: ARN of the data source.
-        :param Sequence['DataSetPhysicalTableMapS3SourceInputColumnArgs'] input_columns: Column schema of the table. See input_columns.
-        :param 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs' upload_settings: Information about the format for the S3 source file or files. See upload_settings.
+        :param Sequence['DataSetPhysicalTableMapS3SourceInputColumnArrgs'] input_columns: Column schema of the table. See input_columns.
+        :param 'DataSetPhysicalTableMapS3SourceUploadSettingsArrgs' upload_settings: Information about the format for the S3 source file or files. See upload_settings.
         """
         pulumi.set(__self__, "data_source_arn", data_source_arn)
         pulumi.set(__self__, "input_columns", input_columns)
@@ -2906,7 +2906,7 @@ class DataSetPhysicalTableMapS3Source(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapS3SourceInputColumn(dict):
+calass DataSetPhysicalTableMapS3SourceInputColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -2935,7 +2935,7 @@ class DataSetPhysicalTableMapS3SourceInputColumn(dict):
 
 
 @pulumi.output_type
-class DataSetPhysicalTableMapS3SourceUploadSettings(dict):
+calass DataSetPhysicalTableMapS3SourceUploadSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3023,7 +3023,7 @@ class DataSetPhysicalTableMapS3SourceUploadSettings(dict):
 
 
 @pulumi.output_type
-class DataSetRefreshProperties(dict):
+calass DataSetRefreshProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3044,7 +3044,7 @@ class DataSetRefreshProperties(dict):
     def __init__(__self__, *,
                  refresh_configuration: 'outputs.DataSetRefreshPropertiesRefreshConfiguration'):
         """
-        :param 'DataSetRefreshPropertiesRefreshConfigurationArgs' refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
+        :param 'DataSetRefreshPropertiesRefreshConfigurationArrgs' refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
         """
         pulumi.set(__self__, "refresh_configuration", refresh_configuration)
 
@@ -3058,7 +3058,7 @@ class DataSetRefreshProperties(dict):
 
 
 @pulumi.output_type
-class DataSetRefreshPropertiesRefreshConfiguration(dict):
+calass DataSetRefreshPropertiesRefreshConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3079,7 +3079,7 @@ class DataSetRefreshPropertiesRefreshConfiguration(dict):
     def __init__(__self__, *,
                  incremental_refresh: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh'):
         """
-        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs' incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
+        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArrgs' incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
         """
         pulumi.set(__self__, "incremental_refresh", incremental_refresh)
 
@@ -3093,7 +3093,7 @@ class DataSetRefreshPropertiesRefreshConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
+calass DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3114,7 +3114,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
     def __init__(__self__, *,
                  lookback_window: 'outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow'):
         """
-        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs' lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
+        :param 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArrgs' lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
         """
         pulumi.set(__self__, "lookback_window", lookback_window)
 
@@ -3128,7 +3128,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh(dict):
 
 
 @pulumi.output_type
-class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow(dict):
+calass DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3187,7 +3187,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
 
 
 @pulumi.output_type
-class DataSetRowLevelPermissionDataSet(dict):
+calass DataSetRowLevelPermissionDataSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3271,7 +3271,7 @@ class DataSetRowLevelPermissionDataSet(dict):
 
 
 @pulumi.output_type
-class DataSetRowLevelPermissionTagConfiguration(dict):
+calass DataSetRowLevelPermissionTagConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3293,7 +3293,7 @@ class DataSetRowLevelPermissionTagConfiguration(dict):
                  tag_rules: Sequence['outputs.DataSetRowLevelPermissionTagConfigurationTagRule'],
                  status: Optional[str] = None):
         """
-        :param Sequence['DataSetRowLevelPermissionTagConfigurationTagRuleArgs'] tag_rules: A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        :param Sequence['DataSetRowLevelPermissionTagConfigurationTagRuleArrgs'] tag_rules: A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
         :param str status: The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         """
         pulumi.set(__self__, "tag_rules", tag_rules)
@@ -3318,7 +3318,7 @@ class DataSetRowLevelPermissionTagConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSetRowLevelPermissionTagConfigurationTagRule(dict):
+calass DataSetRowLevelPermissionTagConfigurationTagRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3394,7 +3394,7 @@ class DataSetRowLevelPermissionTagConfigurationTagRule(dict):
 
 
 @pulumi.output_type
-class DataSourceCredentials(dict):
+calass DataSourceCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3420,7 +3420,7 @@ class DataSourceCredentials(dict):
         """
         :param str copy_source_arn: The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
                When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        :param 'DataSourceCredentialsCredentialPairArgs' credential_pair: Credential pair. See Credential Pair below for more details.
+        :param 'DataSourceCredentialsCredentialPairArrgs' credential_pair: Credential pair. See Credential Pair below for more details.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -3446,7 +3446,7 @@ class DataSourceCredentials(dict):
 
 
 @pulumi.output_type
-class DataSourceCredentialsCredentialPair(dict):
+calass DataSourceCredentialsCredentialPair(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -3475,7 +3475,7 @@ class DataSourceCredentialsCredentialPair(dict):
 
 
 @pulumi.output_type
-class DataSourceParameters(dict):
+calass DataSourceParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3525,26 +3525,26 @@ class DataSourceParameters(dict):
                  teradata: Optional['outputs.DataSourceParametersTeradata'] = None,
                  twitter: Optional['outputs.DataSourceParametersTwitter'] = None):
         """
-        :param 'DataSourceParametersAmazonElasticsearchArgs' amazon_elasticsearch: Parameters for connecting to Amazon Elasticsearch.
-        :param 'DataSourceParametersAthenaArgs' athena: Parameters for connecting to Athena.
-        :param 'DataSourceParametersAuroraArgs' aurora: Parameters for connecting to Aurora MySQL.
-        :param 'DataSourceParametersAuroraPostgresqlArgs' aurora_postgresql: Parameters for connecting to Aurora Postgresql.
-        :param 'DataSourceParametersAwsIotAnalyticsArgs' aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
-        :param 'DataSourceParametersJiraArgs' jira: Parameters for connecting to Jira.
-        :param 'DataSourceParametersMariaDbArgs' maria_db: Parameters for connecting to MariaDB.
-        :param 'DataSourceParametersMysqlArgs' mysql: Parameters for connecting to MySQL.
-        :param 'DataSourceParametersOracleArgs' oracle: Parameters for connecting to Oracle.
-        :param 'DataSourceParametersPostgresqlArgs' postgresql: Parameters for connecting to Postgresql.
-        :param 'DataSourceParametersPrestoArgs' presto: Parameters for connecting to Presto.
-        :param 'DataSourceParametersRdsArgs' rds: Parameters for connecting to RDS.
-        :param 'DataSourceParametersRedshiftArgs' redshift: Parameters for connecting to Redshift.
-        :param 'DataSourceParametersS3Args' s3: Parameters for connecting to S3.
-        :param 'DataSourceParametersServiceNowArgs' service_now: Parameters for connecting to ServiceNow.
-        :param 'DataSourceParametersSnowflakeArgs' snowflake: Parameters for connecting to Snowflake.
-        :param 'DataSourceParametersSparkArgs' spark: Parameters for connecting to Spark.
-        :param 'DataSourceParametersSqlServerArgs' sql_server: Parameters for connecting to SQL Server.
-        :param 'DataSourceParametersTeradataArgs' teradata: Parameters for connecting to Teradata.
-        :param 'DataSourceParametersTwitterArgs' twitter: Parameters for connecting to Twitter.
+        :param 'DataSourceParametersAmazonElasticsearchArrgs' amazon_elasticsearch: Parameters for connecting to Amazon Elasticsearch.
+        :param 'DataSourceParametersAthenaArrgs' athena: Parameters for connecting to Athena.
+        :param 'DataSourceParametersAuroraArrgs' aurora: Parameters for connecting to Aurora MySQL.
+        :param 'DataSourceParametersAuroraPostgresqlArrgs' aurora_postgresql: Parameters for connecting to Aurora Postgresql.
+        :param 'DataSourceParametersAwsIotAnalyticsArrgs' aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
+        :param 'DataSourceParametersJiraArrgs' jira: Parameters for connecting to Jira.
+        :param 'DataSourceParametersMariaDbArrgs' maria_db: Parameters for connecting to MariaDB.
+        :param 'DataSourceParametersMysqlArrgs' mysql: Parameters for connecting to MySQL.
+        :param 'DataSourceParametersOracleArrgs' oracle: Parameters for connecting to Oracle.
+        :param 'DataSourceParametersPostgresqlArrgs' postgresql: Parameters for connecting to Postgresql.
+        :param 'DataSourceParametersPrestoArrgs' presto: Parameters for connecting to Presto.
+        :param 'DataSourceParametersRdsArrgs' rds: Parameters for connecting to RDS.
+        :param 'DataSourceParametersRedshiftArrgs' redshift: Parameters for connecting to Redshift.
+        :param 'DataSourceParametersS3Arrgs' s3: Parameters for connecting to S3.
+        :param 'DataSourceParametersServiceNowArrgs' service_now: Parameters for connecting to ServiceNow.
+        :param 'DataSourceParametersSnowflakeArrgs' snowflake: Parameters for connecting to Snowflake.
+        :param 'DataSourceParametersSparkArrgs' spark: Parameters for connecting to Spark.
+        :param 'DataSourceParametersSqlServerArrgs' sql_server: Parameters for connecting to SQL Server.
+        :param 'DataSourceParametersTeradataArrgs' teradata: Parameters for connecting to Teradata.
+        :param 'DataSourceParametersTwitterArrgs' twitter: Parameters for connecting to Twitter.
         """
         if amazon_elasticsearch is not None:
             pulumi.set(__self__, "amazon_elasticsearch", amazon_elasticsearch)
@@ -3749,7 +3749,7 @@ class DataSourceParameters(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersAmazonElasticsearch(dict):
+calass DataSourceParametersAmazonElasticsearch(dict):
     def __init__(__self__, *,
                  domain: str):
         """
@@ -3767,7 +3767,7 @@ class DataSourceParametersAmazonElasticsearch(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersAthena(dict):
+calass DataSourceParametersAthena(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3803,7 +3803,7 @@ class DataSourceParametersAthena(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersAurora(dict):
+calass DataSourceParametersAurora(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -3843,7 +3843,7 @@ class DataSourceParametersAurora(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersAuroraPostgresql(dict):
+calass DataSourceParametersAuroraPostgresql(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -3883,7 +3883,7 @@ class DataSourceParametersAuroraPostgresql(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersAwsIotAnalytics(dict):
+calass DataSourceParametersAwsIotAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3918,7 +3918,7 @@ class DataSourceParametersAwsIotAnalytics(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersJira(dict):
+calass DataSourceParametersJira(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3953,7 +3953,7 @@ class DataSourceParametersJira(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersMariaDb(dict):
+calass DataSourceParametersMariaDb(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -3993,7 +3993,7 @@ class DataSourceParametersMariaDb(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersMysql(dict):
+calass DataSourceParametersMysql(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -4033,7 +4033,7 @@ class DataSourceParametersMysql(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersOracle(dict):
+calass DataSourceParametersOracle(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -4073,7 +4073,7 @@ class DataSourceParametersOracle(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersPostgresql(dict):
+calass DataSourceParametersPostgresql(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -4113,7 +4113,7 @@ class DataSourceParametersPostgresql(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersPresto(dict):
+calass DataSourceParametersPresto(dict):
     def __init__(__self__, *,
                  catalog: str,
                  host: str,
@@ -4153,7 +4153,7 @@ class DataSourceParametersPresto(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersRds(dict):
+calass DataSourceParametersRds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4199,7 +4199,7 @@ class DataSourceParametersRds(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersRedshift(dict):
+calass DataSourceParametersRedshift(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4270,7 +4270,7 @@ class DataSourceParametersRedshift(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersS3(dict):
+calass DataSourceParametersS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4291,7 +4291,7 @@ class DataSourceParametersS3(dict):
     def __init__(__self__, *,
                  manifest_file_location: 'outputs.DataSourceParametersS3ManifestFileLocation'):
         """
-        :param 'DataSourceParametersS3ManifestFileLocationArgs' manifest_file_location: An object containing the S3 location of the S3 manifest file.
+        :param 'DataSourceParametersS3ManifestFileLocationArrgs' manifest_file_location: An object containing the S3 location of the S3 manifest file.
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
 
@@ -4305,7 +4305,7 @@ class DataSourceParametersS3(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersS3ManifestFileLocation(dict):
+calass DataSourceParametersS3ManifestFileLocation(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -4334,7 +4334,7 @@ class DataSourceParametersS3ManifestFileLocation(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersServiceNow(dict):
+calass DataSourceParametersServiceNow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4369,7 +4369,7 @@ class DataSourceParametersServiceNow(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersSnowflake(dict):
+calass DataSourceParametersSnowflake(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -4409,7 +4409,7 @@ class DataSourceParametersSnowflake(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersSpark(dict):
+calass DataSourceParametersSpark(dict):
     def __init__(__self__, *,
                  host: str,
                  port: int):
@@ -4438,47 +4438,7 @@ class DataSourceParametersSpark(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersSqlServer(dict):
-    def __init__(__self__, *,
-                 database: str,
-                 host: str,
-                 port: int):
-        """
-        :param str database: The database to which to connect.
-        :param str host: The host to which to connect.
-        :param int port: The warehouse to which to connect.
-        """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def database(self) -> str:
-        """
-        The database to which to connect.
-        """
-        return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter
-    def host(self) -> str:
-        """
-        The host to which to connect.
-        """
-        return pulumi.get(self, "host")
-
-    @property
-    @pulumi.getter
-    def port(self) -> int:
-        """
-        The warehouse to which to connect.
-        """
-        return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class DataSourceParametersTeradata(dict):
+calass DataSourceParametersSqlServer(dict):
     def __init__(__self__, *,
                  database: str,
                  host: str,
@@ -4518,7 +4478,47 @@ class DataSourceParametersTeradata(dict):
 
 
 @pulumi.output_type
-class DataSourceParametersTwitter(dict):
+calass DataSourceParametersTeradata(dict):
+    def __init__(__self__, *,
+                 database: str,
+                 host: str,
+                 port: int):
+        """
+        :param str database: The database to which to connect.
+        :param str host: The host to which to connect.
+        :param int port: The warehouse to which to connect.
+        """
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The database to which to connect.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        The host to which to connect.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        The warehouse to which to connect.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+calass DataSourceParametersTwitter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4564,7 +4564,7 @@ class DataSourceParametersTwitter(dict):
 
 
 @pulumi.output_type
-class DataSourcePermission(dict):
+calass DataSourcePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -4593,7 +4593,7 @@ class DataSourcePermission(dict):
 
 
 @pulumi.output_type
-class DataSourceSslProperties(dict):
+calass DataSourceSslProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4628,7 +4628,7 @@ class DataSourceSslProperties(dict):
 
 
 @pulumi.output_type
-class DataSourceVpcConnectionProperties(dict):
+calass DataSourceVpcConnectionProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4663,7 +4663,7 @@ class DataSourceVpcConnectionProperties(dict):
 
 
 @pulumi.output_type
-class FolderPermission(dict):
+calass FolderPermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -4692,7 +4692,7 @@ class FolderPermission(dict):
 
 
 @pulumi.output_type
-class IamPolicyAssignmentIdentities(dict):
+calass IamPolicyAssignmentIdentities(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence[str]] = None,
                  users: Optional[Sequence[str]] = None):
@@ -4719,7 +4719,7 @@ class IamPolicyAssignmentIdentities(dict):
 
 
 @pulumi.output_type
-class NamespaceTimeouts(dict):
+calass NamespaceTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
@@ -4740,7 +4740,7 @@ class NamespaceTimeouts(dict):
 
 
 @pulumi.output_type
-class RefreshScheduleSchedule(dict):
+calass RefreshScheduleSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4768,7 +4768,7 @@ class RefreshScheduleSchedule(dict):
                  start_after_date_time: Optional[str] = None):
         """
         :param str refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        :param 'RefreshScheduleScheduleScheduleFrequencyArgs' schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        :param 'RefreshScheduleScheduleScheduleFrequencyArrgs' schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         :param str start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         """
         pulumi.set(__self__, "refresh_type", refresh_type)
@@ -4803,7 +4803,7 @@ class RefreshScheduleSchedule(dict):
 
 
 @pulumi.output_type
-class RefreshScheduleScheduleScheduleFrequency(dict):
+calass RefreshScheduleScheduleScheduleFrequency(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4830,7 +4830,7 @@ class RefreshScheduleScheduleScheduleFrequency(dict):
                  timezone: Optional[str] = None):
         """
         :param str interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
-        :param 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs' refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        :param 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArrgs' refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
         :param str time_of_the_day: The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         :param str timezone: The timezone that you want the refresh schedule to use.
         """
@@ -4876,7 +4876,7 @@ class RefreshScheduleScheduleScheduleFrequency(dict):
 
 
 @pulumi.output_type
-class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay(dict):
+calass RefreshScheduleScheduleScheduleFrequencyRefreshOnDay(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4926,7 +4926,7 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDay(dict):
 
 
 @pulumi.output_type
-class TemplatePermission(dict):
+calass TemplatePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -4955,7 +4955,7 @@ class TemplatePermission(dict):
 
 
 @pulumi.output_type
-class TemplateSourceEntity(dict):
+calass TemplateSourceEntity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4979,8 +4979,8 @@ class TemplateSourceEntity(dict):
                  source_analysis: Optional['outputs.TemplateSourceEntitySourceAnalysis'] = None,
                  source_template: Optional['outputs.TemplateSourceEntitySourceTemplate'] = None):
         """
-        :param 'TemplateSourceEntitySourceAnalysisArgs' source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
-        :param 'TemplateSourceEntitySourceTemplateArgs' source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        :param 'TemplateSourceEntitySourceAnalysisArrgs' source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        :param 'TemplateSourceEntitySourceTemplateArrgs' source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
         """
         if source_analysis is not None:
             pulumi.set(__self__, "source_analysis", source_analysis)
@@ -5005,7 +5005,7 @@ class TemplateSourceEntity(dict):
 
 
 @pulumi.output_type
-class TemplateSourceEntitySourceAnalysis(dict):
+calass TemplateSourceEntitySourceAnalysis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5028,7 +5028,7 @@ class TemplateSourceEntitySourceAnalysis(dict):
                  data_set_references: Sequence['outputs.TemplateSourceEntitySourceAnalysisDataSetReference']):
         """
         :param str arn: The Amazon Resource Name (ARN) of the resource.
-        :param Sequence['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs'] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
+        :param Sequence['TemplateSourceEntitySourceAnalysisDataSetReferenceArrgs'] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -5051,7 +5051,7 @@ class TemplateSourceEntitySourceAnalysis(dict):
 
 
 @pulumi.output_type
-class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
+calass TemplateSourceEntitySourceAnalysisDataSetReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5099,7 +5099,7 @@ class TemplateSourceEntitySourceAnalysisDataSetReference(dict):
 
 
 @pulumi.output_type
-class TemplateSourceEntitySourceTemplate(dict):
+calass TemplateSourceEntitySourceTemplate(dict):
     def __init__(__self__, *,
                  arn: str):
         """
@@ -5117,7 +5117,7 @@ class TemplateSourceEntitySourceTemplate(dict):
 
 
 @pulumi.output_type
-class ThemeConfiguration(dict):
+calass ThemeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5143,10 +5143,10 @@ class ThemeConfiguration(dict):
                  typography: Optional['outputs.ThemeConfigurationTypography'] = None,
                  ui_color_palette: Optional['outputs.ThemeConfigurationUiColorPalette'] = None):
         """
-        :param 'ThemeConfigurationDataColorPaletteArgs' data_color_palette: Color properties that apply to chart data colors. See data_color_palette.
-        :param 'ThemeConfigurationSheetArgs' sheet: Display options related to sheets. See sheet.
-        :param 'ThemeConfigurationTypographyArgs' typography: Determines the typography options. See typography.
-        :param 'ThemeConfigurationUiColorPaletteArgs' ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        :param 'ThemeConfigurationDataColorPaletteArrgs' data_color_palette: Color properties that apply to chart data colors. See data_color_palette.
+        :param 'ThemeConfigurationSheetArrgs' sheet: Display options related to sheets. See sheet.
+        :param 'ThemeConfigurationTypographyArrgs' typography: Determines the typography options. See typography.
+        :param 'ThemeConfigurationUiColorPaletteArrgs' ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
@@ -5191,7 +5191,7 @@ class ThemeConfiguration(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationDataColorPalette(dict):
+calass ThemeConfigurationDataColorPalette(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5253,7 +5253,7 @@ class ThemeConfigurationDataColorPalette(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheet(dict):
+calass ThemeConfigurationSheet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5275,8 +5275,8 @@ class ThemeConfigurationSheet(dict):
                  tile: Optional['outputs.ThemeConfigurationSheetTile'] = None,
                  tile_layout: Optional['outputs.ThemeConfigurationSheetTileLayout'] = None):
         """
-        :param 'ThemeConfigurationSheetTileArgs' tile: The display options for tiles. See tile.
-        :param 'ThemeConfigurationSheetTileLayoutArgs' tile_layout: The layout options for tiles. See tile_layout.
+        :param 'ThemeConfigurationSheetTileArrgs' tile: The display options for tiles. See tile.
+        :param 'ThemeConfigurationSheetTileLayoutArrgs' tile_layout: The layout options for tiles. See tile_layout.
         """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
@@ -5301,11 +5301,11 @@ class ThemeConfigurationSheet(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheetTile(dict):
+calass ThemeConfigurationSheetTile(dict):
     def __init__(__self__, *,
                  border: Optional['outputs.ThemeConfigurationSheetTileBorder'] = None):
         """
-        :param 'ThemeConfigurationSheetTileBorderArgs' border: The border around a tile. See border.
+        :param 'ThemeConfigurationSheetTileBorderArrgs' border: The border around a tile. See border.
         """
         if border is not None:
             pulumi.set(__self__, "border", border)
@@ -5320,7 +5320,7 @@ class ThemeConfigurationSheetTile(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheetTileBorder(dict):
+calass ThemeConfigurationSheetTileBorder(dict):
     def __init__(__self__, *,
                  show: Optional[bool] = None):
         """
@@ -5339,13 +5339,13 @@ class ThemeConfigurationSheetTileBorder(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheetTileLayout(dict):
+calass ThemeConfigurationSheetTileLayout(dict):
     def __init__(__self__, *,
                  gutter: Optional['outputs.ThemeConfigurationSheetTileLayoutGutter'] = None,
                  margin: Optional['outputs.ThemeConfigurationSheetTileLayoutMargin'] = None):
         """
-        :param 'ThemeConfigurationSheetTileLayoutGutterArgs' gutter: The gutter settings that apply between tiles. See gutter.
-        :param 'ThemeConfigurationSheetTileLayoutMarginArgs' margin: The margin settings that apply around the outside edge of sheets. See margin.
+        :param 'ThemeConfigurationSheetTileLayoutGutterArrgs' gutter: The gutter settings that apply between tiles. See gutter.
+        :param 'ThemeConfigurationSheetTileLayoutMarginArrgs' margin: The margin settings that apply around the outside edge of sheets. See margin.
         """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
@@ -5370,7 +5370,7 @@ class ThemeConfigurationSheetTileLayout(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheetTileLayoutGutter(dict):
+calass ThemeConfigurationSheetTileLayoutGutter(dict):
     def __init__(__self__, *,
                  show: Optional[bool] = None):
         """
@@ -5389,7 +5389,7 @@ class ThemeConfigurationSheetTileLayoutGutter(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationSheetTileLayoutMargin(dict):
+calass ThemeConfigurationSheetTileLayoutMargin(dict):
     def __init__(__self__, *,
                  show: Optional[bool] = None):
         """
@@ -5408,7 +5408,7 @@ class ThemeConfigurationSheetTileLayoutMargin(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationTypography(dict):
+calass ThemeConfigurationTypography(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5429,7 +5429,7 @@ class ThemeConfigurationTypography(dict):
     def __init__(__self__, *,
                  font_families: Optional[Sequence['outputs.ThemeConfigurationTypographyFontFamily']] = None):
         """
-        :param Sequence['ThemeConfigurationTypographyFontFamilyArgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
+        :param Sequence['ThemeConfigurationTypographyFontFamilyArrgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
         """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
@@ -5444,7 +5444,7 @@ class ThemeConfigurationTypography(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationTypographyFontFamily(dict):
+calass ThemeConfigurationTypographyFontFamily(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5480,7 +5480,7 @@ class ThemeConfigurationTypographyFontFamily(dict):
 
 
 @pulumi.output_type
-class ThemeConfigurationUiColorPalette(dict):
+calass ThemeConfigurationUiColorPalette(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5714,7 +5714,7 @@ class ThemeConfigurationUiColorPalette(dict):
 
 
 @pulumi.output_type
-class ThemePermission(dict):
+calass ThemePermission(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -5743,7 +5743,7 @@ class ThemePermission(dict):
 
 
 @pulumi.output_type
-class VpcConnectionTimeouts(dict):
+calass VpcConnectionTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -5772,7 +5772,7 @@ class VpcConnectionTimeouts(dict):
 
 
 @pulumi.output_type
-class GetDataSetColumnGroupResult(dict):
+calass GetDataSetColumnGroupResult(dict):
     def __init__(__self__, *,
                  geo_spatial_column_groups: Sequence['outputs.GetDataSetColumnGroupGeoSpatialColumnGroupResult']):
         pulumi.set(__self__, "geo_spatial_column_groups", geo_spatial_column_groups)
@@ -5784,7 +5784,7 @@ class GetDataSetColumnGroupResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
+calass GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
     def __init__(__self__, *,
                  columns: Sequence[str],
                  country_code: str,
@@ -5810,7 +5810,7 @@ class GetDataSetColumnGroupGeoSpatialColumnGroupResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetColumnLevelPermissionRuleResult(dict):
+calass GetDataSetColumnLevelPermissionRuleResult(dict):
     def __init__(__self__, *,
                  column_names: Sequence[str],
                  principals: Sequence[str]):
@@ -5829,7 +5829,7 @@ class GetDataSetColumnLevelPermissionRuleResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetDataSetUsageConfigurationResult(dict):
+calass GetDataSetDataSetUsageConfigurationResult(dict):
     def __init__(__self__, *,
                  disable_use_as_direct_query_source: bool,
                  disable_use_as_imported_source: bool):
@@ -5848,7 +5848,7 @@ class GetDataSetDataSetUsageConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetFieldFolderResult(dict):
+calass GetDataSetFieldFolderResult(dict):
     def __init__(__self__, *,
                  columns: Sequence[str],
                  description: str,
@@ -5874,7 +5874,7 @@ class GetDataSetFieldFolderResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapResult(dict):
+calass GetDataSetLogicalTableMapResult(dict):
     def __init__(__self__, *,
                  alias: str,
                  data_transforms: Sequence['outputs.GetDataSetLogicalTableMapDataTransformResult'],
@@ -5907,7 +5907,7 @@ class GetDataSetLogicalTableMapResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformResult(dict):
+calass GetDataSetLogicalTableMapDataTransformResult(dict):
     def __init__(__self__, *,
                  cast_column_type_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult'],
                  create_columns_operations: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult'],
@@ -5961,7 +5961,7 @@ class GetDataSetLogicalTableMapDataTransformResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  format: str,
@@ -5987,7 +5987,7 @@ class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult']):
         pulumi.set(__self__, "columns", columns)
@@ -5999,7 +5999,7 @@ class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(dict):
+calass GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(dict):
     def __init__(__self__, *,
                  column_id: str,
                  column_name: str,
@@ -6025,7 +6025,7 @@ class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult(d
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
     def __init__(__self__, *,
                  condition_expression: str):
         pulumi.set(__self__, "condition_expression", condition_expression)
@@ -6037,7 +6037,7 @@ class GetDataSetLogicalTableMapDataTransformFilterOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
     def __init__(__self__, *,
                  projected_columns: Sequence[str]):
         pulumi.set(__self__, "projected_columns", projected_columns)
@@ -6049,7 +6049,7 @@ class GetDataSetLogicalTableMapDataTransformProjectOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  new_column_name: str):
@@ -6068,7 +6068,7 @@ class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  tags: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult']):
@@ -6087,7 +6087,7 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
+calass GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
     def __init__(__self__, *,
                  column_descriptions: Sequence['outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult'],
                  column_geographic_role: str):
@@ -6106,7 +6106,7 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(dict):
+calass GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult(dict):
     def __init__(__self__, *,
                  text: str):
         pulumi.set(__self__, "text", text)
@@ -6118,7 +6118,7 @@ class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescripti
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
+calass GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  tag_names: Sequence[str]):
@@ -6137,7 +6137,7 @@ class GetDataSetLogicalTableMapDataTransformUntagColumnOperationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapSourceResult(dict):
+calass GetDataSetLogicalTableMapSourceResult(dict):
     def __init__(__self__, *,
                  data_set_arn: str,
                  join_instructions: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionResult'],
@@ -6163,7 +6163,7 @@ class GetDataSetLogicalTableMapSourceResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
+calass GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
     def __init__(__self__, *,
                  left_join_key_properties: Sequence['outputs.GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult'],
                  left_operand: str,
@@ -6210,7 +6210,7 @@ class GetDataSetLogicalTableMapSourceJoinInstructionResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(dict):
+calass GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
                  unique_key: bool):
         pulumi.set(__self__, "unique_key", unique_key)
@@ -6222,7 +6222,7 @@ class GetDataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertyResult(di
 
 
 @pulumi.output_type
-class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(dict):
+calass GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(dict):
     def __init__(__self__, *,
                  unique_key: bool):
         pulumi.set(__self__, "unique_key", unique_key)
@@ -6234,7 +6234,7 @@ class GetDataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertyResult(d
 
 
 @pulumi.output_type
-class GetDataSetPermissionResult(dict):
+calass GetDataSetPermissionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):
@@ -6253,7 +6253,7 @@ class GetDataSetPermissionResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapResult(dict):
+calass GetDataSetPhysicalTableMapResult(dict):
     def __init__(__self__, *,
                  custom_sqls: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlResult'],
                  physical_table_map_id: str,
@@ -6286,7 +6286,7 @@ class GetDataSetPhysicalTableMapResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapCustomSqlResult(dict):
+calass GetDataSetPhysicalTableMapCustomSqlResult(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult'],
                  data_source_arn: str,
@@ -6319,7 +6319,7 @@ class GetDataSetPhysicalTableMapCustomSqlResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
+calass GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -6338,7 +6338,7 @@ class GetDataSetPhysicalTableMapCustomSqlColumnResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapRelationalTableResult(dict):
+calass GetDataSetPhysicalTableMapRelationalTableResult(dict):
     def __init__(__self__, *,
                  catalog: str,
                  data_source_arn: str,
@@ -6378,7 +6378,7 @@ class GetDataSetPhysicalTableMapRelationalTableResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
+calass GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -6397,7 +6397,7 @@ class GetDataSetPhysicalTableMapRelationalTableInputColumnResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapS3SourceResult(dict):
+calass GetDataSetPhysicalTableMapS3SourceResult(dict):
     def __init__(__self__, *,
                  data_source_arn: str,
                  input_columns: Sequence['outputs.GetDataSetPhysicalTableMapS3SourceInputColumnResult'],
@@ -6423,7 +6423,7 @@ class GetDataSetPhysicalTableMapS3SourceResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
+calass GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -6442,7 +6442,7 @@ class GetDataSetPhysicalTableMapS3SourceInputColumnResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
+calass GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
     def __init__(__self__, *,
                  contains_header: bool,
                  delimiter: str,
@@ -6482,7 +6482,7 @@ class GetDataSetPhysicalTableMapS3SourceUploadSettingResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetRowLevelPermissionDataSetResult(dict):
+calass GetDataSetRowLevelPermissionDataSetResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  format_version: str,
@@ -6522,7 +6522,7 @@ class GetDataSetRowLevelPermissionDataSetResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetRowLevelPermissionTagConfigurationResult(dict):
+calass GetDataSetRowLevelPermissionTagConfigurationResult(dict):
     def __init__(__self__, *,
                  status: str,
                  tag_rules: Sequence['outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult']):
@@ -6541,7 +6541,7 @@ class GetDataSetRowLevelPermissionTagConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
+calass GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
     def __init__(__self__, *,
                  column_name: str,
                  match_all_value: str,
@@ -6574,17 +6574,17 @@ class GetDataSetRowLevelPermissionTagConfigurationTagRuleResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationResult(dict):
+calass GetThemeConfigurationResult(dict):
     def __init__(__self__, *,
                  data_color_palettes: Sequence['outputs.GetThemeConfigurationDataColorPaletteResult'],
                  sheets: Sequence['outputs.GetThemeConfigurationSheetResult'],
                  typographies: Sequence['outputs.GetThemeConfigurationTypographyResult'],
                  ui_color_palettes: Sequence['outputs.GetThemeConfigurationUiColorPaletteResult']):
         """
-        :param Sequence['GetThemeConfigurationDataColorPaletteArgs'] data_color_palettes: Color properties that apply to chart data colors. See data_color_palette.
-        :param Sequence['GetThemeConfigurationSheetArgs'] sheets: Display options related to sheets. See sheet.
-        :param Sequence['GetThemeConfigurationTypographyArgs'] typographies: Determines the typography options. See typography.
-        :param Sequence['GetThemeConfigurationUiColorPaletteArgs'] ui_color_palettes: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        :param Sequence['GetThemeConfigurationDataColorPaletteArrgs'] data_color_palettes: Color properties that apply to chart data colors. See data_color_palette.
+        :param Sequence['GetThemeConfigurationSheetArrgs'] sheets: Display options related to sheets. See sheet.
+        :param Sequence['GetThemeConfigurationTypographyArrgs'] typographies: Determines the typography options. See typography.
+        :param Sequence['GetThemeConfigurationUiColorPaletteArrgs'] ui_color_palettes: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
         pulumi.set(__self__, "data_color_palettes", data_color_palettes)
         pulumi.set(__self__, "sheets", sheets)
@@ -6625,7 +6625,7 @@ class GetThemeConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationDataColorPaletteResult(dict):
+calass GetThemeConfigurationDataColorPaletteResult(dict):
     def __init__(__self__, *,
                  colors: Sequence[str],
                  empty_fill_color: str,
@@ -6665,13 +6665,13 @@ class GetThemeConfigurationDataColorPaletteResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetResult(dict):
+calass GetThemeConfigurationSheetResult(dict):
     def __init__(__self__, *,
                  tile_layouts: Sequence['outputs.GetThemeConfigurationSheetTileLayoutResult'],
                  tiles: Sequence['outputs.GetThemeConfigurationSheetTileResult']):
         """
-        :param Sequence['GetThemeConfigurationSheetTileLayoutArgs'] tile_layouts: The layout options for tiles. See tile_layout.
-        :param Sequence['GetThemeConfigurationSheetTileArgs'] tiles: The display options for tiles. See tile.
+        :param Sequence['GetThemeConfigurationSheetTileLayoutArrgs'] tile_layouts: The layout options for tiles. See tile_layout.
+        :param Sequence['GetThemeConfigurationSheetTileArrgs'] tiles: The display options for tiles. See tile.
         """
         pulumi.set(__self__, "tile_layouts", tile_layouts)
         pulumi.set(__self__, "tiles", tiles)
@@ -6694,11 +6694,11 @@ class GetThemeConfigurationSheetResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetTileResult(dict):
+calass GetThemeConfigurationSheetTileResult(dict):
     def __init__(__self__, *,
                  borders: Sequence['outputs.GetThemeConfigurationSheetTileBorderResult']):
         """
-        :param Sequence['GetThemeConfigurationSheetTileBorderArgs'] borders: The border around a tile. See border.
+        :param Sequence['GetThemeConfigurationSheetTileBorderArrgs'] borders: The border around a tile. See border.
         """
         pulumi.set(__self__, "borders", borders)
 
@@ -6712,7 +6712,7 @@ class GetThemeConfigurationSheetTileResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetTileBorderResult(dict):
+calass GetThemeConfigurationSheetTileBorderResult(dict):
     def __init__(__self__, *,
                  show: bool):
         """
@@ -6730,13 +6730,13 @@ class GetThemeConfigurationSheetTileBorderResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetTileLayoutResult(dict):
+calass GetThemeConfigurationSheetTileLayoutResult(dict):
     def __init__(__self__, *,
                  gutters: Sequence['outputs.GetThemeConfigurationSheetTileLayoutGutterResult'],
                  margins: Sequence['outputs.GetThemeConfigurationSheetTileLayoutMarginResult']):
         """
-        :param Sequence['GetThemeConfigurationSheetTileLayoutGutterArgs'] gutters: The gutter settings that apply between tiles. See gutter.
-        :param Sequence['GetThemeConfigurationSheetTileLayoutMarginArgs'] margins: The margin settings that apply around the outside edge of sheets. See margin.
+        :param Sequence['GetThemeConfigurationSheetTileLayoutGutterArrgs'] gutters: The gutter settings that apply between tiles. See gutter.
+        :param Sequence['GetThemeConfigurationSheetTileLayoutMarginArrgs'] margins: The margin settings that apply around the outside edge of sheets. See margin.
         """
         pulumi.set(__self__, "gutters", gutters)
         pulumi.set(__self__, "margins", margins)
@@ -6759,7 +6759,7 @@ class GetThemeConfigurationSheetTileLayoutResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetTileLayoutGutterResult(dict):
+calass GetThemeConfigurationSheetTileLayoutGutterResult(dict):
     def __init__(__self__, *,
                  show: bool):
         """
@@ -6777,7 +6777,7 @@ class GetThemeConfigurationSheetTileLayoutGutterResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationSheetTileLayoutMarginResult(dict):
+calass GetThemeConfigurationSheetTileLayoutMarginResult(dict):
     def __init__(__self__, *,
                  show: bool):
         """
@@ -6795,11 +6795,11 @@ class GetThemeConfigurationSheetTileLayoutMarginResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationTypographyResult(dict):
+calass GetThemeConfigurationTypographyResult(dict):
     def __init__(__self__, *,
                  font_families: Sequence['outputs.GetThemeConfigurationTypographyFontFamilyResult']):
         """
-        :param Sequence['GetThemeConfigurationTypographyFontFamilyArgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
+        :param Sequence['GetThemeConfigurationTypographyFontFamilyArrgs'] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
         """
         pulumi.set(__self__, "font_families", font_families)
 
@@ -6813,7 +6813,7 @@ class GetThemeConfigurationTypographyResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationTypographyFontFamilyResult(dict):
+calass GetThemeConfigurationTypographyFontFamilyResult(dict):
     def __init__(__self__, *,
                  font_family: str):
         """
@@ -6831,7 +6831,7 @@ class GetThemeConfigurationTypographyFontFamilyResult(dict):
 
 
 @pulumi.output_type
-class GetThemeConfigurationUiColorPaletteResult(dict):
+calass GetThemeConfigurationUiColorPaletteResult(dict):
     def __init__(__self__, *,
                  accent: str,
                  accent_foreground: str,
@@ -7014,7 +7014,7 @@ class GetThemeConfigurationUiColorPaletteResult(dict):
 
 
 @pulumi.output_type
-class GetThemePermissionResult(dict):
+calass GetThemePermissionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  principal: str):

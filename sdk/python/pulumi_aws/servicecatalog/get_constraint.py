@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConstraintResult:
+calass GetConstraintResult:
     """
     A collection of values returned by getConstraint.
     """
@@ -117,7 +117,7 @@ class GetConstraintResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetConstraintResult(GetConstraintResult):
+calass AwaitableGetConstraintResult(GetConstraintResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

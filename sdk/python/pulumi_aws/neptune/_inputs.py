@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterParameterGroupParameterArgs',
-    'ClusterServerlessV2ScalingConfigurationArgs',
-    'GlobalClusterGlobalClusterMemberArgs',
-    'ParameterGroupParameterArgs',
+    'ClusterParameterGroupParameterArrgs',
+    'ClusterServerlessV2ScalingConfigurationArrgs',
+    'GlobalClusterGlobalClusterMemberArrgs',
+    'ParameterGroupParameterArrgs',
 ]
 
 @pulumi.input_type
-class ClusterParameterGroupParameterArgs:
+calass ClusterParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -70,7 +70,7 @@ class ClusterParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class ClusterServerlessV2ScalingConfigurationArgs:
+calass ClusterServerlessV2ScalingConfigurationArrgs:
     def __init__(__self__, *,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None):
@@ -109,7 +109,7 @@ class ClusterServerlessV2ScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class GlobalClusterGlobalClusterMemberArgs:
+calass GlobalClusterGlobalClusterMemberArrgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[str]] = None,
                  is_writer: Optional[pulumi.Input[bool]] = None):
@@ -148,7 +148,7 @@ class GlobalClusterGlobalClusterMemberArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],

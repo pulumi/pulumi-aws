@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubscribedRuleGroupResult:
+calass GetSubscribedRuleGroupResult:
     """
     A collection of values returned by getSubscribedRuleGroup.
     """
@@ -51,7 +51,7 @@ class GetSubscribedRuleGroupResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetSubscribedRuleGroupResult(GetSubscribedRuleGroupResult):
+calass AwaitableGetSubscribedRuleGroupResult(GetSubscribedRuleGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -78,12 +78,12 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
     # ...
     acl = aws.waf.WebAcl("acl", rules=[
-        aws.waf.WebAclRuleArgs(
+        aws.waf.WebAclRuleArrgs(
             priority=1,
             rule_id=by_name.id,
             type="GROUP",
         ),
-        aws.waf.WebAclRuleArgs(
+        aws.waf.WebAclRuleArrgs(
             priority=2,
             rule_id=by_metric_name.id,
             type="GROUP",
@@ -124,12 +124,12 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
     # ...
     acl = aws.waf.WebAcl("acl", rules=[
-        aws.waf.WebAclRuleArgs(
+        aws.waf.WebAclRuleArrgs(
             priority=1,
             rule_id=by_name.id,
             type="GROUP",
         ),
-        aws.waf.WebAclRuleArgs(
+        aws.waf.WebAclRuleArrgs(
             priority=2,
             rule_id=by_metric_name.id,
             type="GROUP",

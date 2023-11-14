@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VoiceConnectorLoggingArgs', 'VoiceConnectorLogging']
+__all__ = ['VoiceConnectorLoggingArrgs', 'VoiceConnectorLogging']
 
 @pulumi.input_type
-class VoiceConnectorLoggingArgs:
+calass VoiceConnectorLoggingArrgs:
     def __init__(__self__, *,
                  voice_connector_id: pulumi.Input[str],
                  enable_media_metric_logs: Optional[pulumi.Input[bool]] = None,
@@ -67,7 +67,7 @@ class VoiceConnectorLoggingArgs:
 
 
 @pulumi.input_type
-class _VoiceConnectorLoggingState:
+calass _VoiceConnectorLoggingState:
     def __init__(__self__, *,
                  enable_media_metric_logs: Optional[pulumi.Input[bool]] = None,
                  enable_sip_logs: Optional[pulumi.Input[bool]] = None,
@@ -122,7 +122,7 @@ class _VoiceConnectorLoggingState:
         pulumi.set(self, "voice_connector_id", value)
 
 
-class VoiceConnectorLogging(pulumi.CustomResource):
+calass VoiceConnectorLogging(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,7 +165,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VoiceConnectorLoggingArgs,
+                 args: VoiceConnectorLoggingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging configuration specifies whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
@@ -192,12 +192,12 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VoiceConnectorLoggingArgs args: The arguments to use to populate this resource's properties.
+        :param VoiceConnectorLoggingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorLoggingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorLoggingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VoiceConnectorLoggingArgs.__new__(VoiceConnectorLoggingArgs)
+            __props__ = VoiceConnectorLoggingArrgs.__new__(VoiceConnectorLoggingArrgs)
 
             __props__.__dict__["enable_media_metric_logs"] = enable_media_metric_logs
             __props__.__dict__["enable_sip_logs"] = enable_sip_logs

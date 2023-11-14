@@ -10,40 +10,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DetectorDatasourcesArgs',
-    'DetectorDatasourcesKubernetesArgs',
-    'DetectorDatasourcesKubernetesAuditLogsArgs',
-    'DetectorDatasourcesMalwareProtectionArgs',
-    'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs',
-    'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs',
-    'DetectorDatasourcesS3LogsArgs',
-    'DetectorFeatureAdditionalConfigurationArgs',
-    'FilterFindingCriteriaArgs',
-    'FilterFindingCriteriaCriterionArgs',
-    'OrganizationConfigurationDatasourcesArgs',
-    'OrganizationConfigurationDatasourcesKubernetesArgs',
-    'OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs',
-    'OrganizationConfigurationDatasourcesMalwareProtectionArgs',
-    'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs',
-    'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs',
-    'OrganizationConfigurationDatasourcesS3LogsArgs',
-    'OrganizationConfigurationFeatureAdditionalConfigurationArgs',
+    'DetectorDatasourcesArrgs',
+    'DetectorDatasourcesKubernetesArrgs',
+    'DetectorDatasourcesKubernetesAuditLogsArrgs',
+    'DetectorDatasourcesMalwareProtectionArrgs',
+    'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs',
+    'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs',
+    'DetectorDatasourcesS3LogsArrgs',
+    'DetectorFeatureAdditionalConfigurationArrgs',
+    'FilterFindingCriteriaArrgs',
+    'FilterFindingCriteriaCriterionArrgs',
+    'OrganizationConfigurationDatasourcesArrgs',
+    'OrganizationConfigurationDatasourcesKubernetesArrgs',
+    'OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs',
+    'OrganizationConfigurationDatasourcesMalwareProtectionArrgs',
+    'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs',
+    'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs',
+    'OrganizationConfigurationDatasourcesS3LogsArrgs',
+    'OrganizationConfigurationFeatureAdditionalConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class DetectorDatasourcesArgs:
+calass DetectorDatasourcesArrgs:
     def __init__(__self__, *,
-                 kubernetes: Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']] = None,
-                 malware_protection: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']] = None):
+                 kubernetes: Optional[pulumi.Input['DetectorDatasourcesKubernetesArrgs']] = None,
+                 malware_protection: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArrgs']] = None,
+                 s3_logs: Optional[pulumi.Input['DetectorDatasourcesS3LogsArrgs']] = None):
         """
-        :param pulumi.Input['DetectorDatasourcesKubernetesArgs'] kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param pulumi.Input['DetectorDatasourcesKubernetesArrgs'] kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes and Kubernetes Audit Logs below for more details.
-        :param pulumi.Input['DetectorDatasourcesMalwareProtectionArgs'] malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+        :param pulumi.Input['DetectorDatasourcesMalwareProtectionArrgs'] malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
                See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
                
                The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
-        :param pulumi.Input['DetectorDatasourcesS3LogsArgs'] s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        :param pulumi.Input['DetectorDatasourcesS3LogsArrgs'] s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
         if kubernetes is not None:
@@ -55,7 +55,7 @@ class DetectorDatasourcesArgs:
 
     @property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']]:
+    def kubernetes(self) -> Optional[pulumi.Input['DetectorDatasourcesKubernetesArrgs']]:
         """
         Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         See Kubernetes and Kubernetes Audit Logs below for more details.
@@ -63,12 +63,12 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['DetectorDatasourcesKubernetesArgs']]):
+    def kubernetes(self, value: Optional[pulumi.Input['DetectorDatasourcesKubernetesArrgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @property
     @pulumi.getter(name="malwareProtection")
-    def malware_protection(self) -> Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']]:
+    def malware_protection(self) -> Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArrgs']]:
         """
         Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
@@ -78,12 +78,12 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "malware_protection")
 
     @malware_protection.setter
-    def malware_protection(self, value: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArgs']]):
+    def malware_protection(self, value: Optional[pulumi.Input['DetectorDatasourcesMalwareProtectionArrgs']]):
         pulumi.set(self, "malware_protection", value)
 
     @property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]:
+    def s3_logs(self) -> Optional[pulumi.Input['DetectorDatasourcesS3LogsArrgs']]:
         """
         Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
         See S3 Logs below for more details.
@@ -91,23 +91,23 @@ class DetectorDatasourcesArgs:
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]):
+    def s3_logs(self, value: Optional[pulumi.Input['DetectorDatasourcesS3LogsArrgs']]):
         pulumi.set(self, "s3_logs", value)
 
 
 @pulumi.input_type
-class DetectorDatasourcesKubernetesArgs:
+calass DetectorDatasourcesKubernetesArrgs:
     def __init__(__self__, *,
-                 audit_logs: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs']):
+                 audit_logs: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArrgs']):
         """
-        :param pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs'] audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArrgs'] audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
-    def audit_logs(self) -> pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs']:
+    def audit_logs(self) -> pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArrgs']:
         """
         Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         See Kubernetes Audit Logs below for more details.
@@ -115,12 +115,12 @@ class DetectorDatasourcesKubernetesArgs:
         return pulumi.get(self, "audit_logs")
 
     @audit_logs.setter
-    def audit_logs(self, value: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgs']):
+    def audit_logs(self, value: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArrgs']):
         pulumi.set(self, "audit_logs", value)
 
 
 @pulumi.input_type
-class DetectorDatasourcesKubernetesAuditLogsArgs:
+calass DetectorDatasourcesKubernetesAuditLogsArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
         """
@@ -144,18 +144,18 @@ class DetectorDatasourcesKubernetesAuditLogsArgs:
 
 
 @pulumi.input_type
-class DetectorDatasourcesMalwareProtectionArgs:
+calass DetectorDatasourcesMalwareProtectionArrgs:
     def __init__(__self__, *,
-                 scan_ec2_instance_with_findings: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']):
+                 scan_ec2_instance_with_findings: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']):
         """
-        :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+        :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
                See Scan EC2 instance with findings below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
-    def scan_ec2_instance_with_findings(self) -> pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']:
+    def scan_ec2_instance_with_findings(self) -> pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']:
         """
         Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
         See Scan EC2 instance with findings below for more details.
@@ -163,23 +163,23 @@ class DetectorDatasourcesMalwareProtectionArgs:
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
     @scan_ec2_instance_with_findings.setter
-    def scan_ec2_instance_with_findings(self, value: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']):
+    def scan_ec2_instance_with_findings(self, value: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']):
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
 @pulumi.input_type
-class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
+calass DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs:
     def __init__(__self__, *,
-                 ebs_volumes: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']):
+                 ebs_volumes: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']):
         """
-        :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs'] ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+        :param pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs'] ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
                See EBS volumes below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']:
+    def ebs_volumes(self) -> pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']:
         """
         Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
         See EBS volumes below for more details.
@@ -187,12 +187,12 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']):
+    def ebs_volumes(self, value: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']):
         pulumi.set(self, "ebs_volumes", value)
 
 
 @pulumi.input_type
-class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs:
+calass DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
         """
@@ -216,7 +216,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesA
 
 
 @pulumi.input_type
-class DetectorDatasourcesS3LogsArgs:
+calass DetectorDatasourcesS3LogsArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
         """
@@ -238,7 +238,7 @@ class DetectorDatasourcesS3LogsArgs:
 
 
 @pulumi.input_type
-class DetectorFeatureAdditionalConfigurationArgs:
+calass DetectorFeatureAdditionalConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  status: pulumi.Input[str]):
@@ -275,23 +275,23 @@ class DetectorFeatureAdditionalConfigurationArgs:
 
 
 @pulumi.input_type
-class FilterFindingCriteriaArgs:
+calass FilterFindingCriteriaArrgs:
     def __init__(__self__, *,
-                 criterions: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgs']]]):
+                 criterions: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArrgs']]]):
         pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
-    def criterions(self) -> pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgs']]]:
+    def criterions(self) -> pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArrgs']]]:
         return pulumi.get(self, "criterions")
 
     @criterions.setter
-    def criterions(self, value: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgs']]]):
+    def criterions(self, value: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArrgs']]]):
         pulumi.set(self, "criterions", value)
 
 
 @pulumi.input_type
-class FilterFindingCriteriaCriterionArgs:
+calass FilterFindingCriteriaCriterionArrgs:
     def __init__(__self__, *,
                  field: pulumi.Input[str],
                  equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -409,15 +409,15 @@ class FilterFindingCriteriaCriterionArgs:
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesArgs:
+calass OrganizationConfigurationDatasourcesArrgs:
     def __init__(__self__, *,
-                 kubernetes: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']] = None,
-                 malware_protection: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']] = None):
+                 kubernetes: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArrgs']] = None,
+                 malware_protection: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArrgs']] = None,
+                 s3_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArrgs']] = None):
         """
-        :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs'] kubernetes: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs'] malware_protection: Enable Malware Protection automatically for new member accounts.
-        :param pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs'] s3_logs: Enable S3 Protection automatically for new member accounts.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArrgs'] kubernetes: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArrgs'] malware_protection: Enable Malware Protection automatically for new member accounts.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArrgs'] s3_logs: Enable S3 Protection automatically for new member accounts.
         """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
@@ -428,54 +428,54 @@ class OrganizationConfigurationDatasourcesArgs:
 
     @property
     @pulumi.getter
-    def kubernetes(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']]:
+    def kubernetes(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArrgs']]:
         """
         Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
         """
         return pulumi.get(self, "kubernetes")
 
     @kubernetes.setter
-    def kubernetes(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgs']]):
+    def kubernetes(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArrgs']]):
         pulumi.set(self, "kubernetes", value)
 
     @property
     @pulumi.getter(name="malwareProtection")
-    def malware_protection(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]:
+    def malware_protection(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArrgs']]:
         """
         Enable Malware Protection automatically for new member accounts.
         """
         return pulumi.get(self, "malware_protection")
 
     @malware_protection.setter
-    def malware_protection(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]):
+    def malware_protection(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArrgs']]):
         pulumi.set(self, "malware_protection", value)
 
     @property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]:
+    def s3_logs(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArrgs']]:
         """
         Enable S3 Protection automatically for new member accounts.
         """
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]):
+    def s3_logs(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArrgs']]):
         pulumi.set(self, "s3_logs", value)
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesKubernetesArgs:
+calass OrganizationConfigurationDatasourcesKubernetesArrgs:
     def __init__(__self__, *,
-                 audit_logs: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs']):
+                 audit_logs: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs']):
         """
-        :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs'] audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs'] audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
     @property
     @pulumi.getter(name="auditLogs")
-    def audit_logs(self) -> pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs']:
+    def audit_logs(self) -> pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs']:
         """
         Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         See Kubernetes Audit Logs below for more details.
@@ -483,12 +483,12 @@ class OrganizationConfigurationDatasourcesKubernetesArgs:
         return pulumi.get(self, "audit_logs")
 
     @audit_logs.setter
-    def audit_logs(self, value: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs']):
+    def audit_logs(self, value: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs']):
         pulumi.set(self, "audit_logs", value)
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs:
+calass OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool]):
         """
@@ -512,18 +512,18 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs:
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesMalwareProtectionArgs:
+calass OrganizationConfigurationDatasourcesMalwareProtectionArrgs:
     def __init__(__self__, *,
-                 scan_ec2_instance_with_findings: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']):
+                 scan_ec2_instance_with_findings: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']):
         """
-        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs'] scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
                See Scan EC2 instance with findings below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
     @property
     @pulumi.getter(name="scanEc2InstanceWithFindings")
-    def scan_ec2_instance_with_findings(self) -> pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']:
+    def scan_ec2_instance_with_findings(self) -> pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']:
         """
         Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
         See Scan EC2 instance with findings below for more details.
@@ -531,23 +531,23 @@ class OrganizationConfigurationDatasourcesMalwareProtectionArgs:
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 
     @scan_ec2_instance_with_findings.setter
-    def scan_ec2_instance_with_findings(self, value: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs']):
+    def scan_ec2_instance_with_findings(self, value: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs']):
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
+calass OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs:
     def __init__(__self__, *,
-                 ebs_volumes: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']):
+                 ebs_volumes: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']):
         """
-        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs'] ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+        :param pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs'] ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
                See EBS volumes below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']:
+    def ebs_volumes(self) -> pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']:
         """
         Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
         See EBS volumes below for more details.
@@ -555,12 +555,12 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs']):
+    def ebs_volumes(self, value: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs']):
         pulumi.set(self, "ebs_volumes", value)
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs:
+calass OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[bool]):
         """
@@ -584,7 +584,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
 
 
 @pulumi.input_type
-class OrganizationConfigurationDatasourcesS3LogsArgs:
+calass OrganizationConfigurationDatasourcesS3LogsArrgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[bool]):
         """
@@ -606,7 +606,7 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
 
 
 @pulumi.input_type
-class OrganizationConfigurationFeatureAdditionalConfigurationArgs:
+calass OrganizationConfigurationFeatureAdditionalConfigurationArrgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[str],
                  name: pulumi.Input[str]):

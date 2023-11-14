@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHttpNamespaceResult:
+calass GetHttpNamespaceResult:
     """
     A collection of values returned by getHttpNamespace.
     """
@@ -87,7 +87,7 @@ class GetHttpNamespaceResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetHttpNamespaceResult(GetHttpNamespaceResult):
+calass AwaitableGetHttpNamespaceResult(GetHttpNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
+__all__ = ['TargetGroupAttachmentArrgs', 'TargetGroupAttachment']
 
 @pulumi.input_type
-class TargetGroupAttachmentArgs:
+calass TargetGroupAttachmentArrgs:
     def __init__(__self__, *,
                  target_group_arn: pulumi.Input[str],
                  target_id: pulumi.Input[str],
@@ -86,7 +86,7 @@ class TargetGroupAttachmentArgs:
 
 
 @pulumi.input_type
-class _TargetGroupAttachmentState:
+calass _TargetGroupAttachmentState:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -161,7 +161,7 @@ class _TargetGroupAttachmentState:
         pulumi.set(self, "target_id", value)
 
 
-class TargetGroupAttachment(pulumi.CustomResource):
+calass TargetGroupAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -251,7 +251,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TargetGroupAttachmentArgs,
+                 args: TargetGroupAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `elb.Attachment` resource.
@@ -321,12 +321,12 @@ class TargetGroupAttachment(pulumi.CustomResource):
         You cannot import Target Group Attachments.
 
         :param str resource_name: The name of the resource.
-        :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param TargetGroupAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -346,7 +346,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TargetGroupAttachmentArgs.__new__(TargetGroupAttachmentArgs)
+            __props__ = TargetGroupAttachmentArrgs.__new__(TargetGroupAttachmentArrgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["port"] = port

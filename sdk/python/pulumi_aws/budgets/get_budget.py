@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBudgetResult:
+calass GetBudgetResult:
     """
     A collection of values returned by getBudget.
     """
@@ -200,7 +200,7 @@ class GetBudgetResult:
         return pulumi.get(self, "time_unit")
 
 
-class AwaitableGetBudgetResult(GetBudgetResult):
+calass AwaitableGetBudgetResult(GetBudgetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

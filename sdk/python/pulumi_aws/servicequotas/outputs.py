@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServiceQuotaUsageMetric(dict):
+calass ServiceQuotaUsageMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -49,7 +49,7 @@ class ServiceQuotaUsageMetric(dict):
                  metric_namespace: Optional[str] = None,
                  metric_statistic_recommendation: Optional[str] = None):
         """
-        :param Sequence['ServiceQuotaUsageMetricMetricDimensionArgs'] metric_dimensions: The metric dimensions.
+        :param Sequence['ServiceQuotaUsageMetricMetricDimensionArrgs'] metric_dimensions: The metric dimensions.
         :param str metric_name: The name of the metric.
         :param str metric_namespace: The namespace of the metric.
         :param str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
@@ -97,7 +97,7 @@ class ServiceQuotaUsageMetric(dict):
 
 
 @pulumi.output_type
-class ServiceQuotaUsageMetricMetricDimension(dict):
+calass ServiceQuotaUsageMetricMetricDimension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -151,14 +151,14 @@ class ServiceQuotaUsageMetricMetricDimension(dict):
 
 
 @pulumi.output_type
-class GetServiceQuotaUsageMetricResult(dict):
+calass GetServiceQuotaUsageMetricResult(dict):
     def __init__(__self__, *,
                  metric_dimensions: Sequence['outputs.GetServiceQuotaUsageMetricMetricDimensionResult'],
                  metric_name: str,
                  metric_namespace: str,
                  metric_statistic_recommendation: str):
         """
-        :param Sequence['GetServiceQuotaUsageMetricMetricDimensionArgs'] metric_dimensions: The metric dimensions.
+        :param Sequence['GetServiceQuotaUsageMetricMetricDimensionArrgs'] metric_dimensions: The metric dimensions.
         :param str metric_name: The name of the metric.
         :param str metric_namespace: The namespace of the metric.
         :param str metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
@@ -202,7 +202,7 @@ class GetServiceQuotaUsageMetricResult(dict):
 
 
 @pulumi.output_type
-class GetServiceQuotaUsageMetricMetricDimensionResult(dict):
+calass GetServiceQuotaUsageMetricMetricDimensionResult(dict):
     def __init__(__self__, *,
                  class_: str,
                  resource: str,
@@ -235,7 +235,7 @@ class GetServiceQuotaUsageMetricMetricDimensionResult(dict):
 
 
 @pulumi.output_type
-class GetTemplatesTemplateResult(dict):
+calass GetTemplatesTemplateResult(dict):
     def __init__(__self__, *,
                  global_quota: bool,
                  quota_code: str,

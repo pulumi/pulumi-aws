@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RepositoryExternalConnections(dict):
+calass RepositoryExternalConnections(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -68,7 +68,7 @@ class RepositoryExternalConnections(dict):
 
 
 @pulumi.output_type
-class RepositoryUpstream(dict):
+calass RepositoryUpstream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

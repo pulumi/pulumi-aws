@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DevicePoolArgs', 'DevicePool']
+__all__ = ['DevicePoolArrgs', 'DevicePool']
 
 @pulumi.input_type
-class DevicePoolArgs:
+calass DevicePoolArrgs:
     def __init__(__self__, *,
                  project_arn: pulumi.Input[str],
-                 rules: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]],
+                 rules: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class DevicePoolArgs:
         """
         The set of arguments for constructing a DevicePool resource.
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[str] description: The device pool's description.
         :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[str] name: The name of the Device Pool
@@ -56,14 +56,14 @@ class DevicePoolArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]]:
         """
         The device pool's rules. See Rule.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -116,14 +116,14 @@ class DevicePoolArgs:
 
 
 @pulumi.input_type
-class _DevicePoolState:
+calass _DevicePoolState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -134,7 +134,7 @@ class _DevicePoolState:
         :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[str] name: The name of the Device Pool
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -222,14 +222,14 @@ class _DevicePoolState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]]]:
         """
         The device pool's rules. See Rule.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
     @property
@@ -269,7 +269,7 @@ class _DevicePoolState:
         pulumi.set(self, "type", value)
 
 
-class DevicePool(pulumi.CustomResource):
+calass DevicePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -278,7 +278,7 @@ class DevicePool(pulumi.CustomResource):
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -292,7 +292,7 @@ class DevicePool(pulumi.CustomResource):
 
         example = aws.devicefarm.DevicePool("example",
             project_arn=aws_devicefarm_project["example"]["arn"],
-            rules=[aws.devicefarm.DevicePoolRuleArgs(
+            rules=[aws.devicefarm.DevicePoolRuleArrgs(
                 attribute="OS_VERSION",
                 operator="EQUALS",
                 value="\\"AVAILABLE\\"",
@@ -313,14 +313,14 @@ class DevicePool(pulumi.CustomResource):
         :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[str] name: The name of the Device Pool
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArrgs']]]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DevicePoolArgs,
+                 args: DevicePoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Device Farm Device Pools.
@@ -333,7 +333,7 @@ class DevicePool(pulumi.CustomResource):
 
         example = aws.devicefarm.DevicePool("example",
             project_arn=aws_devicefarm_project["example"]["arn"],
-            rules=[aws.devicefarm.DevicePoolRuleArgs(
+            rules=[aws.devicefarm.DevicePoolRuleArrgs(
                 attribute="OS_VERSION",
                 operator="EQUALS",
                 value="\\"AVAILABLE\\"",
@@ -349,12 +349,12 @@ class DevicePool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DevicePoolArgs args: The arguments to use to populate this resource's properties.
+        :param DevicePoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DevicePoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DevicePoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class DevicePool(pulumi.CustomResource):
                  max_devices: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_arn: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -376,7 +376,7 @@ class DevicePool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DevicePoolArgs.__new__(DevicePoolArgs)
+            __props__ = DevicePoolArrgs.__new__(DevicePoolArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["max_devices"] = max_devices
@@ -408,7 +408,7 @@ class DevicePool(pulumi.CustomResource):
             max_devices: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_arn: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DevicePool':
@@ -424,7 +424,7 @@ class DevicePool(pulumi.CustomResource):
         :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[str] name: The name of the Device Pool
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: The device pool's rules. See Rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArrgs']]]] rules: The device pool's rules. See Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerlessVpcEndpointArgs', 'ServerlessVpcEndpoint']
+__all__ = ['ServerlessVpcEndpointArrgs', 'ServerlessVpcEndpoint']
 
 @pulumi.input_type
-class ServerlessVpcEndpointArgs:
+calass ServerlessVpcEndpointArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a ServerlessVpcEndpoint resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
@@ -91,21 +91,21 @@ class ServerlessVpcEndpointArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _ServerlessVpcEndpointState:
+calass _ServerlessVpcEndpointState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerlessVpcEndpoint resources.
@@ -165,11 +165,11 @@ class _ServerlessVpcEndpointState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -187,7 +187,7 @@ class _ServerlessVpcEndpointState:
         pulumi.set(self, "vpc_id", value)
 
 
-class ServerlessVpcEndpoint(pulumi.CustomResource):
+calass ServerlessVpcEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -195,7 +195,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArrgs']]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -234,7 +234,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerlessVpcEndpointArgs,
+                 args: ServerlessVpcEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearchServerless VPC Endpoint.
@@ -260,12 +260,12 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerlessVpcEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param ServerlessVpcEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerlessVpcEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerlessVpcEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -277,7 +277,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArrgs']]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -286,7 +286,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerlessVpcEndpointArgs.__new__(ServerlessVpcEndpointArgs)
+            __props__ = ServerlessVpcEndpointArrgs.__new__(ServerlessVpcEndpointArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -310,7 +310,7 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessVpcEndpointTimeoutsArrgs']]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'ServerlessVpcEndpoint':
         """
         Get an existing ServerlessVpcEndpoint resource's state with the given name, id, and optional extra

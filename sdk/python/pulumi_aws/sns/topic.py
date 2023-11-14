@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TopicArgs', 'Topic']
+__all__ = ['TopicArrgs', 'Topic']
 
 @pulumi.input_type
-class TopicArgs:
+calass TopicArrgs:
     def __init__(__self__, *,
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
@@ -436,7 +436,7 @@ class TopicArgs:
 
 
 @pulumi.input_type
-class _TopicState:
+calass _TopicState:
     def __init__(__self__, *,
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
@@ -913,7 +913,7 @@ class _TopicState:
         pulumi.set(self, "tracing_config", value)
 
 
-class Topic(pulumi.CustomResource):
+calass Topic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1048,7 +1048,7 @@ class Topic(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TopicArgs] = None,
+                 args: Optional[TopicArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SNS topic resource
@@ -1121,12 +1121,12 @@ class Topic(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TopicArgs args: The arguments to use to populate this resource's properties.
+        :param TopicArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TopicArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TopicArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1168,7 +1168,7 @@ class Topic(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TopicArgs.__new__(TopicArgs)
+            __props__ = TopicArrgs.__new__(TopicArrgs)
 
             __props__.__dict__["application_failure_feedback_role_arn"] = application_failure_feedback_role_arn
             __props__.__dict__["application_success_feedback_role_arn"] = application_success_feedback_role_arn

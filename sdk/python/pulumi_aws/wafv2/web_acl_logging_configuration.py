@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfiguration']
+__all__ = ['WebAclLoggingConfigurationArrgs', 'WebAclLoggingConfiguration']
 
 @pulumi.input_type
-class WebAclLoggingConfigurationArgs:
+calass WebAclLoggingConfigurationArrgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_arn: pulumi.Input[str],
-                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None):
+                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]] = None):
         """
         The set of arguments for constructing a WebAclLoggingConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
-        :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs'] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs'] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -60,41 +60,41 @@ class WebAclLoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]:
+    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']]:
         """
         Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]):
+    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
+    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]]:
         """
         Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
+    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]]):
         pulumi.set(self, "redacted_fields", value)
 
 
 @pulumi.input_type
-class _WebAclLoggingConfigurationState:
+calass _WebAclLoggingConfigurationState:
     def __init__(__self__, *,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]] = None,
+                 logging_filter: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WebAclLoggingConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
-        :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs'] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        :param pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs'] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         """
         if log_destination_configs is not None:
@@ -120,26 +120,26 @@ class _WebAclLoggingConfigurationState:
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]:
+    def logging_filter(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']]:
         """
         Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArgs']]):
+    def logging_filter(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationLoggingFilterArrgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]:
+    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]]:
         """
         Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArgs']]]]):
+    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldArrgs']]]]):
         pulumi.set(self, "redacted_fields", value)
 
     @property
@@ -155,14 +155,14 @@ class _WebAclLoggingConfigurationState:
         pulumi.set(self, "resource_arn", value)
 
 
-class WebAclLoggingConfiguration(pulumi.CustomResource):
+calass WebAclLoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
+                 logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArrgs']]] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArrgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -180,8 +180,8 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         example = aws.wafv2.WebAclLoggingConfiguration("example",
             log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
             resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArgs(
-                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs(
+            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArrgs(
+                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArrgs(
                     name="user-agent",
                 ),
             )])
@@ -195,29 +195,29 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         example = aws.wafv2.WebAclLoggingConfiguration("example",
             log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
             resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArgs(
+            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArrgs(
                 default_behavior="KEEP",
                 filters=[
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
+                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArrgs(
                         behavior="DROP",
                         conditions=[
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArrgs(
                                     action="COUNT",
                                 ),
                             ),
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs(
+                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArrgs(
                                     label_name="awswaf:111122223333:rulegroup:testRules:LabelNameZ",
                                 ),
                             ),
                         ],
                         requirement="MEETS_ALL",
                     ),
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
+                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArrgs(
                         behavior="KEEP",
-                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArrgs(
                                 action="ALLOW",
                             ),
                         )],
@@ -238,15 +238,15 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
-        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArrgs']] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArrgs']]]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAclLoggingConfigurationArgs,
+                 args: WebAclLoggingConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource creates a WAFv2 Web ACL Logging Configuration.
@@ -263,8 +263,8 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         example = aws.wafv2.WebAclLoggingConfiguration("example",
             log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
             resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArgs(
-                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs(
+            redacted_fields=[aws.wafv2.WebAclLoggingConfigurationRedactedFieldArrgs(
+                single_header=aws.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArrgs(
                     name="user-agent",
                 ),
             )])
@@ -278,29 +278,29 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         example = aws.wafv2.WebAclLoggingConfiguration("example",
             log_destination_configs=[aws_kinesis_firehose_delivery_stream["example"]["arn"]],
             resource_arn=aws_wafv2_web_acl["example"]["arn"],
-            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArgs(
+            logging_filter=aws.wafv2.WebAclLoggingConfigurationLoggingFilterArrgs(
                 default_behavior="KEEP",
                 filters=[
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
+                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArrgs(
                         behavior="DROP",
                         conditions=[
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                                action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArrgs(
                                     action="COUNT",
                                 ),
                             ),
-                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs(
+                            aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                                label_name_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArrgs(
                                     label_name="awswaf:111122223333:rulegroup:testRules:LabelNameZ",
                                 ),
                             ),
                         ],
                         requirement="MEETS_ALL",
                     ),
-                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs(
+                    aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterArrgs(
                         behavior="KEEP",
-                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(
-                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs(
+                        conditions=[aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs(
+                            action_condition=aws.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArrgs(
                                 action="ALLOW",
                             ),
                         )],
@@ -319,12 +319,12 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAclLoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param WebAclLoggingConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAclLoggingConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclLoggingConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -334,8 +334,8 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
+                 logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArrgs']]] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArrgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -344,7 +344,7 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAclLoggingConfigurationArgs.__new__(WebAclLoggingConfigurationArgs)
+            __props__ = WebAclLoggingConfigurationArrgs.__new__(WebAclLoggingConfigurationArrgs)
 
             if log_destination_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'log_destination_configs'")
@@ -365,8 +365,8 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']]] = None,
-            redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]]] = None,
+            logging_filter: Optional[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArrgs']]] = None,
+            redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArrgs']]]]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None) -> 'WebAclLoggingConfiguration':
         """
         Get an existing WebAclLoggingConfiguration resource's state with the given name, id, and optional extra
@@ -376,8 +376,8 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
-        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArgs']] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArgs']]]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        :param pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationLoggingFilterArrgs']] logging_filter: Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclLoggingConfigurationRedactedFieldArrgs']]]] redacted_fields: Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
         :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpnGatewayRoutePropagationArgs', 'VpnGatewayRoutePropagation']
+__all__ = ['VpnGatewayRoutePropagationArrgs', 'VpnGatewayRoutePropagation']
 
 @pulumi.input_type
-class VpnGatewayRoutePropagationArgs:
+calass VpnGatewayRoutePropagationArrgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[str],
                  vpn_gateway_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class VpnGatewayRoutePropagationArgs:
 
 
 @pulumi.input_type
-class _VpnGatewayRoutePropagationState:
+calass _VpnGatewayRoutePropagationState:
     def __init__(__self__, *,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _VpnGatewayRoutePropagationState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-class VpnGatewayRoutePropagation(pulumi.CustomResource):
+calass VpnGatewayRoutePropagation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -124,7 +124,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpnGatewayRoutePropagationArgs,
+                 args: VpnGatewayRoutePropagationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Requests automatic route propagation between a VPN gateway and a route table.
@@ -145,12 +145,12 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpnGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.
+        :param VpnGatewayRoutePropagationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayRoutePropagationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayRoutePropagationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -168,7 +168,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpnGatewayRoutePropagationArgs.__new__(VpnGatewayRoutePropagationArgs)
+            __props__ = VpnGatewayRoutePropagationArrgs.__new__(VpnGatewayRoutePropagationArrgs)
 
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")

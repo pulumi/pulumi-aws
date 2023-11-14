@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetControlResult:
+calass GetControlResult:
     """
     A collection of values returned by getControl.
     """
@@ -106,7 +106,7 @@ class GetControlResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetControlResult(GetControlResult):
+calass AwaitableGetControlResult(GetControlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -124,7 +124,7 @@ class AwaitableGetControlResult(GetControlResult):
             type=self.type)
 
 
-def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArgs']]] = None,
+def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArrgs']]] = None,
                 name: Optional[str] = None,
                 type: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlResult:
@@ -152,15 +152,15 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
     example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
-        aws.auditmanager.FrameworkControlSetArgs(
+        aws.auditmanager.FrameworkControlSetArrgs(
             name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+            controls=[aws.auditmanager.FrameworkControlSetControlArrgs(
                 id=example_control.id,
             )],
         ),
-        aws.auditmanager.FrameworkControlSetArgs(
+        aws.auditmanager.FrameworkControlSetArrgs(
             name="example2",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+            controls=[aws.auditmanager.FrameworkControlSetControlArrgs(
                 id=example2.id,
             )],
         ),
@@ -192,7 +192,7 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
 
 
 @_utilities.lift_output_func(get_control)
-def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArgs']]]]] = None,
+def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArrgs']]]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        type: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlResult]:
@@ -220,15 +220,15 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     example2 = aws.auditmanager.get_control(name="2. Personnel",
         type="Standard")
     example_framework = aws.auditmanager.Framework("exampleFramework", control_sets=[
-        aws.auditmanager.FrameworkControlSetArgs(
+        aws.auditmanager.FrameworkControlSetArrgs(
             name="example",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+            controls=[aws.auditmanager.FrameworkControlSetControlArrgs(
                 id=example_control.id,
             )],
         ),
-        aws.auditmanager.FrameworkControlSetArgs(
+        aws.auditmanager.FrameworkControlSetArrgs(
             name="example2",
-            controls=[aws.auditmanager.FrameworkControlSetControlArgs(
+            controls=[aws.auditmanager.FrameworkControlSetControlArrgs(
                 id=example2.id,
             )],
         ),

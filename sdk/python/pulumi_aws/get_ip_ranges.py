@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIpRangesResult:
+calass GetIpRangesResult:
     """
     A collection of values returned by getIpRanges.
     """
@@ -101,7 +101,7 @@ class GetIpRangesResult:
         return pulumi.get(self, "url")
 
 
-class AwaitableGetIpRangesResult(GetIpRangesResult):
+calass AwaitableGetIpRangesResult(GetIpRangesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -137,7 +137,7 @@ def get_ip_ranges(id: Optional[str] = None,
         ],
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("fromEurope",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
+        ingress=[aws.ec2.SecurityGroupIngressArrgs(
             from_port=443,
             to_port=443,
             protocol="tcp",
@@ -204,7 +204,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         ],
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("fromEurope",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
+        ingress=[aws.ec2.SecurityGroupIngressArrgs(
             from_port=443,
             to_port=443,
             protocol="tcp",

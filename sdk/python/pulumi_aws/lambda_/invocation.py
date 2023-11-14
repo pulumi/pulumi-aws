@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InvocationArgs', 'Invocation']
+__all__ = ['InvocationArrgs', 'Invocation']
 
 @pulumi.input_type
-class InvocationArgs:
+calass InvocationArrgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[str],
                  input: pulumi.Input[str],
@@ -114,7 +114,7 @@ class InvocationArgs:
 
 
 @pulumi.input_type
-class _InvocationState:
+calass _InvocationState:
     def __init__(__self__, *,
                  function_name: Optional[pulumi.Input[str]] = None,
                  input: Optional[pulumi.Input[str]] = None,
@@ -233,7 +233,7 @@ class _InvocationState:
         pulumi.set(self, "triggers", value)
 
 
-class Invocation(pulumi.CustomResource):
+calass Invocation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -326,7 +326,7 @@ class Invocation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InvocationArgs,
+                 args: InvocationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
@@ -396,12 +396,12 @@ class Invocation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InvocationArgs args: The arguments to use to populate this resource's properties.
+        :param InvocationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InvocationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InvocationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -423,7 +423,7 @@ class Invocation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InvocationArgs.__new__(InvocationArgs)
+            __props__ = InvocationArrgs.__new__(InvocationArrgs)
 
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")

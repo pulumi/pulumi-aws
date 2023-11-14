@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouterConfigurationRouterResult(dict):
+calass GetRouterConfigurationRouterResult(dict):
     def __init__(__self__, *,
                  platform: str,
                  router_type_identifier: str,

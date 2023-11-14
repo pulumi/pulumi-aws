@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEventConnectionResult:
+calass GetEventConnectionResult:
     """
     A collection of values returned by getEventConnection.
     """
@@ -79,7 +79,7 @@ class GetEventConnectionResult:
         return pulumi.get(self, "secret_arn")
 
 
-class AwaitableGetEventConnectionResult(GetEventConnectionResult):
+calass AwaitableGetEventConnectionResult(GetEventConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

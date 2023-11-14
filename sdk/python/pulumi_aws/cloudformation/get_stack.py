@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStackResult:
+calass GetStackResult:
     """
     A collection of values returned by getStack.
     """
@@ -153,7 +153,7 @@ class GetStackResult:
         return pulumi.get(self, "timeout_in_minutes")
 
 
-class AwaitableGetStackResult(GetStackResult):
+calass AwaitableGetStackResult(GetStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

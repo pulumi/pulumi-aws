@@ -10,180 +10,180 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ChannelCdiInputSpecificationArgs',
-    'ChannelDestinationArgs',
-    'ChannelDestinationMediaPackageSettingArgs',
-    'ChannelDestinationMultiplexSettingsArgs',
-    'ChannelDestinationSettingArgs',
-    'ChannelEncoderSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionArgs',
-    'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs',
-    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs',
-    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs',
-    'ChannelEncoderSettingsAvailBlankingArgs',
-    'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs',
-    'ChannelEncoderSettingsCaptionDescriptionArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs',
-    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs',
-    'ChannelEncoderSettingsGlobalConfigurationArgs',
-    'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs',
-    'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs',
-    'ChannelEncoderSettingsMotionGraphicsConfigurationArgs',
-    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs',
-    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs',
-    'ChannelEncoderSettingsNielsenConfigurationArgs',
-    'ChannelEncoderSettingsOutputGroupArgs',
-    'ChannelEncoderSettingsOutputGroupOutputArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs',
-    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs',
-    'ChannelEncoderSettingsTimecodeConfigArgs',
-    'ChannelEncoderSettingsVideoDescriptionArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs',
-    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs',
-    'ChannelInputAttachmentArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs',
-    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs',
-    'ChannelInputAttachmentInputSettingsArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs',
-    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs',
-    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs',
-    'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs',
-    'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs',
-    'ChannelInputAttachmentInputSettingsVideoSelectorArgs',
-    'ChannelInputSpecificationArgs',
-    'ChannelMaintenanceArgs',
-    'ChannelVpcArgs',
-    'InputDestinationArgs',
-    'InputInputDeviceArgs',
-    'InputMediaConnectFlowArgs',
-    'InputSecurityGroupWhitelistRuleArgs',
-    'InputSourceArgs',
-    'InputVpcArgs',
-    'MultiplexMultiplexSettingsArgs',
-    'MultiplexProgramMultiplexProgramSettingsArgs',
-    'MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs',
-    'MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs',
-    'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs',
+    'ChannelCdiInputSpecificationArrgs',
+    'ChannelDestinationArrgs',
+    'ChannelDestinationMediaPackageSettingArrgs',
+    'ChannelDestinationMultiplexSettingsArrgs',
+    'ChannelDestinationSettingArrgs',
+    'ChannelEncoderSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionArrgs',
+    'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettingsArrgs',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArrgs',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArrgs',
+    'ChannelEncoderSettingsAvailBlankingArrgs',
+    'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs',
+    'ChannelEncoderSettingsGlobalConfigurationArrgs',
+    'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs',
+    'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArrgs',
+    'ChannelEncoderSettingsMotionGraphicsConfigurationArrgs',
+    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs',
+    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs',
+    'ChannelEncoderSettingsNielsenConfigurationArrgs',
+    'ChannelEncoderSettingsOutputGroupArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArrgs',
+    'ChannelEncoderSettingsTimecodeConfigArrgs',
+    'ChannelEncoderSettingsVideoDescriptionArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs',
+    'ChannelInputAttachmentArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs',
+    'ChannelInputAttachmentInputSettingsVideoSelectorArrgs',
+    'ChannelInputSpecificationArrgs',
+    'ChannelMaintenanceArrgs',
+    'ChannelVpcArrgs',
+    'InputDestinationArrgs',
+    'InputInputDeviceArrgs',
+    'InputMediaConnectFlowArrgs',
+    'InputSecurityGroupWhitelistRuleArrgs',
+    'InputSourceArrgs',
+    'InputVpcArrgs',
+    'MultiplexMultiplexSettingsArrgs',
+    'MultiplexProgramMultiplexProgramSettingsArrgs',
+    'MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs',
+    'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs',
 ]
 
 @pulumi.input_type
-class ChannelCdiInputSpecificationArgs:
+calass ChannelCdiInputSpecificationArrgs:
     def __init__(__self__, *,
                  resolution: pulumi.Input[str]):
         """
@@ -205,17 +205,17 @@ class ChannelCdiInputSpecificationArgs:
 
 
 @pulumi.input_type
-class ChannelDestinationArgs:
+calass ChannelDestinationArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 media_package_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]]] = None,
-                 multiplex_settings: Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArgs']] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]] = None):
+                 media_package_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArrgs']]]] = None,
+                 multiplex_settings: Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArrgs']] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: User-specified id. Ths is used in an output group or an output.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
-        :param pulumi.Input['ChannelDestinationMultiplexSettingsArgs'] multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArrgs']]] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        :param pulumi.Input['ChannelDestinationMultiplexSettingsArrgs'] multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArrgs']]] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
         """
         pulumi.set(__self__, "id", id)
         if media_package_settings is not None:
@@ -239,43 +239,43 @@ class ChannelDestinationArgs:
 
     @property
     @pulumi.getter(name="mediaPackageSettings")
-    def media_package_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]]]:
+    def media_package_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArrgs']]]]:
         """
         Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
         """
         return pulumi.get(self, "media_package_settings")
 
     @media_package_settings.setter
-    def media_package_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]]]):
+    def media_package_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArrgs']]]]):
         pulumi.set(self, "media_package_settings", value)
 
     @property
     @pulumi.getter(name="multiplexSettings")
-    def multiplex_settings(self) -> Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArgs']]:
+    def multiplex_settings(self) -> Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArrgs']]:
         """
         Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
     @multiplex_settings.setter
-    def multiplex_settings(self, value: Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArgs']]):
+    def multiplex_settings(self, value: Optional[pulumi.Input['ChannelDestinationMultiplexSettingsArrgs']]):
         pulumi.set(self, "multiplex_settings", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArrgs']]]]:
         """
         Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDestinationSettingArrgs']]]]):
         pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type
-class ChannelDestinationMediaPackageSettingArgs:
+calass ChannelDestinationMediaPackageSettingArrgs:
     def __init__(__self__, *,
                  channel_id: pulumi.Input[str]):
         """
@@ -297,7 +297,7 @@ class ChannelDestinationMediaPackageSettingArgs:
 
 
 @pulumi.input_type
-class ChannelDestinationMultiplexSettingsArgs:
+calass ChannelDestinationMultiplexSettingsArrgs:
     def __init__(__self__, *,
                  multiplex_id: pulumi.Input[str],
                  program_name: pulumi.Input[str]):
@@ -334,7 +334,7 @@ class ChannelDestinationMultiplexSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelDestinationSettingArgs:
+calass ChannelDestinationSettingArrgs:
     def __init__(__self__, *,
                  password_param: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
@@ -405,27 +405,27 @@ class ChannelDestinationSettingArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsArgs:
+calass ChannelEncoderSettingsArrgs:
     def __init__(__self__, *,
-                 output_groups: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]],
-                 timecode_config: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'],
-                 audio_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]] = None,
-                 avail_blanking: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']] = None,
-                 caption_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]]] = None,
-                 global_configuration: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs']] = None,
-                 motion_graphics_configuration: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']] = None,
-                 nielsen_configuration: Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs']] = None,
-                 video_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]] = None):
+                 output_groups: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArrgs']]],
+                 timecode_config: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArrgs'],
+                 audio_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArrgs']]]] = None,
+                 avail_blanking: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArrgs']] = None,
+                 caption_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArrgs']]]] = None,
+                 global_configuration: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArrgs']] = None,
+                 motion_graphics_configuration: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArrgs']] = None,
+                 nielsen_configuration: Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArrgs']] = None,
+                 video_descriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]] output_groups: Output groups for the channel. See Output Groups for more details.
-        :param pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs'] timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs'] avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
-        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs'] global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs'] motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
-        :param pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs'] nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]] video_descriptions: Video Descriptions. See Video Descriptions for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArrgs']]] output_groups: Output groups for the channel. See Output Groups for more details.
+        :param pulumi.Input['ChannelEncoderSettingsTimecodeConfigArrgs'] timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArrgs']]] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingArrgs'] avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArrgs']]] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
+        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArrgs'] global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArrgs'] motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
+        :param pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArrgs'] nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArrgs']]] video_descriptions: Video Descriptions. See Video Descriptions for more details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
         pulumi.set(__self__, "timecode_config", timecode_config)
@@ -446,135 +446,135 @@ class ChannelEncoderSettingsArgs:
 
     @property
     @pulumi.getter(name="outputGroups")
-    def output_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]]:
+    def output_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArrgs']]]:
         """
         Output groups for the channel. See Output Groups for more details.
         """
         return pulumi.get(self, "output_groups")
 
     @output_groups.setter
-    def output_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArgs']]]):
+    def output_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupArrgs']]]):
         pulumi.set(self, "output_groups", value)
 
     @property
     @pulumi.getter(name="timecodeConfig")
-    def timecode_config(self) -> pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs']:
+    def timecode_config(self) -> pulumi.Input['ChannelEncoderSettingsTimecodeConfigArrgs']:
         """
         Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
         """
         return pulumi.get(self, "timecode_config")
 
     @timecode_config.setter
-    def timecode_config(self, value: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArgs']):
+    def timecode_config(self, value: pulumi.Input['ChannelEncoderSettingsTimecodeConfigArrgs']):
         pulumi.set(self, "timecode_config", value)
 
     @property
     @pulumi.getter(name="audioDescriptions")
-    def audio_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]]:
+    def audio_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArrgs']]]]:
         """
         Audio descriptions for the channel. See Audio Descriptions for more details.
         """
         return pulumi.get(self, "audio_descriptions")
 
     @audio_descriptions.setter
-    def audio_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]]):
+    def audio_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArrgs']]]]):
         pulumi.set(self, "audio_descriptions", value)
 
     @property
     @pulumi.getter(name="availBlanking")
-    def avail_blanking(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']]:
+    def avail_blanking(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArrgs']]:
         """
         Settings for ad avail blanking. See Avail Blanking for more details.
         """
         return pulumi.get(self, "avail_blanking")
 
     @avail_blanking.setter
-    def avail_blanking(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArgs']]):
+    def avail_blanking(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingArrgs']]):
         pulumi.set(self, "avail_blanking", value)
 
     @property
     @pulumi.getter(name="captionDescriptions")
-    def caption_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]]]:
+    def caption_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArrgs']]]]:
         """
         Caption Descriptions. See Caption Descriptions for more details.
         """
         return pulumi.get(self, "caption_descriptions")
 
     @caption_descriptions.setter
-    def caption_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]]]):
+    def caption_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArrgs']]]]):
         pulumi.set(self, "caption_descriptions", value)
 
     @property
     @pulumi.getter(name="globalConfiguration")
-    def global_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs']]:
+    def global_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArrgs']]:
         """
         Configuration settings that apply to the event as a whole. See Global Configuration for more details.
         """
         return pulumi.get(self, "global_configuration")
 
     @global_configuration.setter
-    def global_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArgs']]):
+    def global_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationArrgs']]):
         pulumi.set(self, "global_configuration", value)
 
     @property
     @pulumi.getter(name="motionGraphicsConfiguration")
-    def motion_graphics_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']]:
+    def motion_graphics_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArrgs']]:
         """
         Settings for motion graphics. See Motion Graphics Configuration for more details.
         """
         return pulumi.get(self, "motion_graphics_configuration")
 
     @motion_graphics_configuration.setter
-    def motion_graphics_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']]):
+    def motion_graphics_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationArrgs']]):
         pulumi.set(self, "motion_graphics_configuration", value)
 
     @property
     @pulumi.getter(name="nielsenConfiguration")
-    def nielsen_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs']]:
+    def nielsen_configuration(self) -> Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArrgs']]:
         """
         Nielsen configuration settings. See Nielsen Configuration for more details.
         """
         return pulumi.get(self, "nielsen_configuration")
 
     @nielsen_configuration.setter
-    def nielsen_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArgs']]):
+    def nielsen_configuration(self, value: Optional[pulumi.Input['ChannelEncoderSettingsNielsenConfigurationArrgs']]):
         pulumi.set(self, "nielsen_configuration", value)
 
     @property
     @pulumi.getter(name="videoDescriptions")
-    def video_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]]:
+    def video_descriptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArrgs']]]]:
         """
         Video Descriptions. See Video Descriptions for more details.
         """
         return pulumi.get(self, "video_descriptions")
 
     @video_descriptions.setter
-    def video_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]]):
+    def video_descriptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArrgs']]]]):
         pulumi.set(self, "video_descriptions", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionArgs:
+calass ChannelEncoderSettingsAudioDescriptionArrgs:
     def __init__(__self__, *,
                  audio_selector_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 audio_normalization_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs']] = None,
+                 audio_normalization_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs']] = None,
                  audio_type: Optional[pulumi.Input[str]] = None,
                  audio_type_control: Optional[pulumi.Input[str]] = None,
-                 audio_watermark_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs']] = None,
-                 codec_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']] = None,
+                 audio_watermark_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs']] = None,
+                 codec_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  language_code_control: Optional[pulumi.Input[str]] = None,
-                 remix_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']] = None,
+                 remix_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArrgs']] = None,
                  stream_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
         :param pulumi.Input[str] name: The name of this audio description.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs'] audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs'] audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
         :param pulumi.Input[str] audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
         :param pulumi.Input[str] audio_type_control: Determined how audio type is determined.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs'] codec_settings: Audio codec settings. See Audio Codec Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs'] audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs'] codec_settings: Audio codec settings. See Audio Codec Settings for more details.
         :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
         :param pulumi.Input[str] stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         """
@@ -625,14 +625,14 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
 
     @property
     @pulumi.getter(name="audioNormalizationSettings")
-    def audio_normalization_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs']]:
+    def audio_normalization_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs']]:
         """
         Advanced audio normalization settings. See Audio Normalization Settings for more details.
         """
         return pulumi.get(self, "audio_normalization_settings")
 
     @audio_normalization_settings.setter
-    def audio_normalization_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs']]):
+    def audio_normalization_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs']]):
         pulumi.set(self, "audio_normalization_settings", value)
 
     @property
@@ -661,26 +661,26 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
 
     @property
     @pulumi.getter(name="audioWatermarkSettings")
-    def audio_watermark_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs']]:
+    def audio_watermark_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs']]:
         """
         Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
         """
         return pulumi.get(self, "audio_watermark_settings")
 
     @audio_watermark_settings.setter
-    def audio_watermark_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs']]):
+    def audio_watermark_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs']]):
         pulumi.set(self, "audio_watermark_settings", value)
 
     @property
     @pulumi.getter(name="codecSettings")
-    def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']]:
+    def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs']]:
         """
         Audio codec settings. See Audio Codec Settings for more details.
         """
         return pulumi.get(self, "codec_settings")
 
     @codec_settings.setter
-    def codec_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']]):
+    def codec_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs']]):
         pulumi.set(self, "codec_settings", value)
 
     @property
@@ -706,11 +706,11 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
 
     @property
     @pulumi.getter(name="remixSettings")
-    def remix_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']]:
+    def remix_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArrgs']]:
         return pulumi.get(self, "remix_settings")
 
     @remix_settings.setter
-    def remix_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']]):
+    def remix_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsArrgs']]):
         pulumi.set(self, "remix_settings", value)
 
     @property
@@ -727,7 +727,7 @@ class ChannelEncoderSettingsAudioDescriptionArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs:
     def __init__(__self__, *,
                  algorithm: Optional[pulumi.Input[str]] = None,
                  algorithm_control: Optional[pulumi.Input[str]] = None,
@@ -782,32 +782,32 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs:
     def __init__(__self__, *,
-                 nielsen_watermarks_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']] = None):
+                 nielsen_watermarks_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArrgs']] = None):
         if nielsen_watermarks_settings is not None:
             pulumi.set(__self__, "nielsen_watermarks_settings", nielsen_watermarks_settings)
 
     @property
     @pulumi.getter(name="nielsenWatermarksSettings")
-    def nielsen_watermarks_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']]:
+    def nielsen_watermarks_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArrgs']]:
         return pulumi.get(self, "nielsen_watermarks_settings")
 
     @nielsen_watermarks_settings.setter
-    def nielsen_watermarks_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']]):
+    def nielsen_watermarks_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArrgs']]):
         pulumi.set(self, "nielsen_watermarks_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArrgs:
     def __init__(__self__, *,
-                 nielsen_cbet_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs']] = None,
+                 nielsen_cbet_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs']] = None,
                  nielsen_distribution_type: Optional[pulumi.Input[str]] = None,
-                 nielsen_naes_ii_nw_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]] = None):
+                 nielsen_naes_ii_nw_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs']]]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs'] nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs'] nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
         :param pulumi.Input[str] nielsen_distribution_type: Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs']]] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
         """
         if nielsen_cbet_settings is not None:
             pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
@@ -818,14 +818,14 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
     @property
     @pulumi.getter(name="nielsenCbetSettings")
-    def nielsen_cbet_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs']]:
+    def nielsen_cbet_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs']]:
         """
         Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
         """
         return pulumi.get(self, "nielsen_cbet_settings")
 
     @nielsen_cbet_settings.setter
-    def nielsen_cbet_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs']]):
+    def nielsen_cbet_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs']]):
         pulumi.set(self, "nielsen_cbet_settings", value)
 
     @property
@@ -842,19 +842,19 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
     @property
     @pulumi.getter(name="nielsenNaesIiNwSettings")
-    def nielsen_naes_ii_nw_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]]:
+    def nielsen_naes_ii_nw_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs']]]]:
         """
         Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
         """
         return pulumi.get(self, "nielsen_naes_ii_nw_settings")
 
     @nielsen_naes_ii_nw_settings.setter
-    def nielsen_naes_ii_nw_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]]):
+    def nielsen_naes_ii_nw_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs']]]]):
         pulumi.set(self, "nielsen_naes_ii_nw_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs:
     def __init__(__self__, *,
                  cbet_check_digit_string: pulumi.Input[str],
                  cbet_stepaside: pulumi.Input[str],
@@ -902,7 +902,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs:
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs:
     def __init__(__self__, *,
                  check_digit_string: pulumi.Input[str],
                  sid: pulumi.Input[float]):
@@ -935,20 +935,20 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs:
     def __init__(__self__, *,
-                 aac_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']] = None,
-                 ac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']] = None,
-                 eac3_atmos_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']] = None,
-                 eac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']] = None,
-                 mp2_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']] = None,
-                 pass_through_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']] = None,
-                 wav_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']] = None):
+                 aac_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs']] = None,
+                 ac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs']] = None,
+                 eac3_atmos_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs']] = None,
+                 eac3_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs']] = None,
+                 mp2_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArrgs']] = None,
+                 pass_through_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArrgs']] = None,
+                 wav_settings: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs'] aac_settings: Aac Settings. See AAC Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs'] ac3_settings: Ac3 Settings. See AC3 Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs'] eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
-        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs'] eac3_settings: Eac3 Settings. See EAC3 Settings
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs'] aac_settings: Aac Settings. See AAC Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs'] ac3_settings: Ac3 Settings. See AC3 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs'] eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
+        :param pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs'] eac3_settings: Eac3 Settings. See EAC3 Settings
         """
         if aac_settings is not None:
             pulumi.set(__self__, "aac_settings", aac_settings)
@@ -967,82 +967,82 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
 
     @property
     @pulumi.getter(name="aacSettings")
-    def aac_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']]:
+    def aac_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs']]:
         """
         Aac Settings. See AAC Settings for more details.
         """
         return pulumi.get(self, "aac_settings")
 
     @aac_settings.setter
-    def aac_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']]):
+    def aac_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs']]):
         pulumi.set(self, "aac_settings", value)
 
     @property
     @pulumi.getter(name="ac3Settings")
-    def ac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']]:
+    def ac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs']]:
         """
         Ac3 Settings. See AC3 Settings for more details.
         """
         return pulumi.get(self, "ac3_settings")
 
     @ac3_settings.setter
-    def ac3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']]):
+    def ac3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs']]):
         pulumi.set(self, "ac3_settings", value)
 
     @property
     @pulumi.getter(name="eac3AtmosSettings")
-    def eac3_atmos_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]:
+    def eac3_atmos_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs']]:
         """
         Eac3 Atmos Settings. See EAC3 Atmos Settings
         """
         return pulumi.get(self, "eac3_atmos_settings")
 
     @eac3_atmos_settings.setter
-    def eac3_atmos_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]):
+    def eac3_atmos_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs']]):
         pulumi.set(self, "eac3_atmos_settings", value)
 
     @property
     @pulumi.getter(name="eac3Settings")
-    def eac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']]:
+    def eac3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs']]:
         """
         Eac3 Settings. See EAC3 Settings
         """
         return pulumi.get(self, "eac3_settings")
 
     @eac3_settings.setter
-    def eac3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']]):
+    def eac3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs']]):
         pulumi.set(self, "eac3_settings", value)
 
     @property
     @pulumi.getter(name="mp2Settings")
-    def mp2_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']]:
+    def mp2_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArrgs']]:
         return pulumi.get(self, "mp2_settings")
 
     @mp2_settings.setter
-    def mp2_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']]):
+    def mp2_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArrgs']]):
         pulumi.set(self, "mp2_settings", value)
 
     @property
     @pulumi.getter(name="passThroughSettings")
-    def pass_through_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]:
+    def pass_through_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArrgs']]:
         return pulumi.get(self, "pass_through_settings")
 
     @pass_through_settings.setter
-    def pass_through_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]):
+    def pass_through_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArrgs']]):
         pulumi.set(self, "pass_through_settings", value)
 
     @property
     @pulumi.getter(name="wavSettings")
-    def wav_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']]:
+    def wav_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArrgs']]:
         return pulumi.get(self, "wav_settings")
 
     @wav_settings.setter
-    def wav_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']]):
+    def wav_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArrgs']]):
         pulumi.set(self, "wav_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
@@ -1193,7 +1193,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[float]] = None,
                  bitstream_mode: Optional[pulumi.Input[str]] = None,
@@ -1312,7 +1312,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
@@ -1431,7 +1431,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs:
     def __init__(__self__, *,
                  attenuation_control: Optional[pulumi.Input[str]] = None,
                  bitrate: Optional[pulumi.Input[float]] = None,
@@ -1714,7 +1714,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArrgs:
     def __init__(__self__, *,
                  bitrate: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
@@ -1769,13 +1769,13 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArrgs:
     def __init__(__self__, *,
                  bit_depth: Optional[pulumi.Input[float]] = None,
                  coding_mode: Optional[pulumi.Input[str]] = None,
@@ -1826,9 +1826,9 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
+calass ChannelEncoderSettingsAudioDescriptionRemixSettingsArrgs:
     def __init__(__self__, *,
-                 channel_mappings: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]],
+                 channel_mappings: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArrgs']]],
                  channels_in: Optional[pulumi.Input[int]] = None,
                  channels_out: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "channel_mappings", channel_mappings)
@@ -1839,11 +1839,11 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
 
     @property
     @pulumi.getter(name="channelMappings")
-    def channel_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]]:
+    def channel_mappings(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArrgs']]]:
         return pulumi.get(self, "channel_mappings")
 
     @channel_mappings.setter
-    def channel_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs']]]):
+    def channel_mappings(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArrgs']]]):
         pulumi.set(self, "channel_mappings", value)
 
     @property
@@ -1866,20 +1866,20 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs:
+calass ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArrgs:
     def __init__(__self__, *,
-                 input_channel_levels: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]],
+                 input_channel_levels: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArrgs']]],
                  output_channel: pulumi.Input[int]):
         pulumi.set(__self__, "input_channel_levels", input_channel_levels)
         pulumi.set(__self__, "output_channel", output_channel)
 
     @property
     @pulumi.getter(name="inputChannelLevels")
-    def input_channel_levels(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]]:
+    def input_channel_levels(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArrgs']]]:
         return pulumi.get(self, "input_channel_levels")
 
     @input_channel_levels.setter
-    def input_channel_levels(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs']]]):
+    def input_channel_levels(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArrgs']]]):
         pulumi.set(self, "input_channel_levels", value)
 
     @property
@@ -1893,7 +1893,7 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs:
+calass ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArrgs:
     def __init__(__self__, *,
                  gain: pulumi.Input[int],
                  input_channel: pulumi.Input[int]):
@@ -1920,12 +1920,12 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAvailBlankingArgs:
+calass ChannelEncoderSettingsAvailBlankingArrgs:
     def __init__(__self__, *,
-                 avail_blanking_image: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']] = None,
+                 avail_blanking_image: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs']] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs'] avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
+        :param pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs'] avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
         :param pulumi.Input[str] state: When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
         """
         if avail_blanking_image is not None:
@@ -1935,14 +1935,14 @@ class ChannelEncoderSettingsAvailBlankingArgs:
 
     @property
     @pulumi.getter(name="availBlankingImage")
-    def avail_blanking_image(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]:
+    def avail_blanking_image(self) -> Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs']]:
         """
         Blanking image to be used. See Avail Blanking Image for more details.
         """
         return pulumi.get(self, "avail_blanking_image")
 
     @avail_blanking_image.setter
-    def avail_blanking_image(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]):
+    def avail_blanking_image(self, value: Optional[pulumi.Input['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs']]):
         pulumi.set(self, "avail_blanking_image", value)
 
     @property
@@ -1959,7 +1959,7 @@ class ChannelEncoderSettingsAvailBlankingArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
+calass ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -2013,19 +2013,19 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionArgs:
+calass ChannelEncoderSettingsCaptionDescriptionArrgs:
     def __init__(__self__, *,
                  caption_selector_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  accessibility: Optional[pulumi.Input[str]] = None,
-                 destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs']] = None,
+                 destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  language_description: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] caption_selector_name: Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
         :param pulumi.Input[str] name: Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
         :param pulumi.Input[str] accessibility: Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs'] destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs'] destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
         :param pulumi.Input[str] language_code: ISO 639-2 three-digit code.
         :param pulumi.Input[str] language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
         """
@@ -2078,14 +2078,14 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
 
     @property
     @pulumi.getter(name="destinationSettings")
-    def destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs']]:
+    def destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs']]:
         """
         Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
         """
         return pulumi.get(self, "destination_settings")
 
     @destination_settings.setter
-    def destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs']]):
+    def destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs']]):
         pulumi.set(self, "destination_settings", value)
 
     @property
@@ -2114,35 +2114,35 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs:
     def __init__(__self__, *,
-                 arib_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs']] = None,
-                 burn_in_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs']] = None,
-                 dvb_sub_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']] = None,
-                 ebu_tt_d_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']] = None,
-                 embedded_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs']] = None,
-                 embedded_plus_scte20_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']] = None,
-                 rtmp_caption_info_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']] = None,
-                 scte20_plus_embedded_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']] = None,
-                 scte27_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']] = None,
-                 smpte_tt_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']] = None,
-                 teletext_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs']] = None,
-                 ttml_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']] = None,
-                 webvtt_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']] = None):
+                 arib_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs']] = None,
+                 burn_in_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs']] = None,
+                 dvb_sub_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs']] = None,
+                 ebu_tt_d_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs']] = None,
+                 embedded_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs']] = None,
+                 embedded_plus_scte20_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs']] = None,
+                 rtmp_caption_info_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs']] = None,
+                 scte20_plus_embedded_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs']] = None,
+                 scte27_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs']] = None,
+                 smpte_tt_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs']] = None,
+                 teletext_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs']] = None,
+                 ttml_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs']] = None,
+                 webvtt_destination_settings: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs'] arib_destination_settings: ARIB Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs'] burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs'] dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs'] ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs'] embedded_destination_settings: Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs'] embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs'] rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs'] scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs'] scte27_destination_settings: SCTE27 Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs'] smpte_tt_destination_settings: SMPTE TT Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs'] teletext_destination_settings: Teletext Destination Settings.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs'] ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs'] webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs'] arib_destination_settings: ARIB Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs'] burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs'] dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs'] ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs'] embedded_destination_settings: Embedded Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs'] embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs'] rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs'] scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs'] scte27_destination_settings: SCTE27 Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs'] smpte_tt_destination_settings: SMPTE TT Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs'] teletext_destination_settings: Teletext Destination Settings.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs'] ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs'] webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         """
         if arib_destination_settings is not None:
             pulumi.set(__self__, "arib_destination_settings", arib_destination_settings)
@@ -2173,176 +2173,176 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs:
 
     @property
     @pulumi.getter(name="aribDestinationSettings")
-    def arib_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs']]:
+    def arib_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs']]:
         """
         ARIB Destination Settings.
         """
         return pulumi.get(self, "arib_destination_settings")
 
     @arib_destination_settings.setter
-    def arib_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs']]):
+    def arib_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs']]):
         pulumi.set(self, "arib_destination_settings", value)
 
     @property
     @pulumi.getter(name="burnInDestinationSettings")
-    def burn_in_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs']]:
+    def burn_in_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs']]:
         """
         Burn In Destination Settings. See Burn In Destination Settings for more details.
         """
         return pulumi.get(self, "burn_in_destination_settings")
 
     @burn_in_destination_settings.setter
-    def burn_in_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs']]):
+    def burn_in_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs']]):
         pulumi.set(self, "burn_in_destination_settings", value)
 
     @property
     @pulumi.getter(name="dvbSubDestinationSettings")
-    def dvb_sub_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']]:
+    def dvb_sub_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs']]:
         """
         DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
         """
         return pulumi.get(self, "dvb_sub_destination_settings")
 
     @dvb_sub_destination_settings.setter
-    def dvb_sub_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']]):
+    def dvb_sub_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs']]):
         pulumi.set(self, "dvb_sub_destination_settings", value)
 
     @property
     @pulumi.getter(name="ebuTtDDestinationSettings")
-    def ebu_tt_d_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']]:
+    def ebu_tt_d_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs']]:
         """
         EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
         """
         return pulumi.get(self, "ebu_tt_d_destination_settings")
 
     @ebu_tt_d_destination_settings.setter
-    def ebu_tt_d_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']]):
+    def ebu_tt_d_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs']]):
         pulumi.set(self, "ebu_tt_d_destination_settings", value)
 
     @property
     @pulumi.getter(name="embeddedDestinationSettings")
-    def embedded_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs']]:
+    def embedded_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs']]:
         """
         Embedded Destination Settings.
         """
         return pulumi.get(self, "embedded_destination_settings")
 
     @embedded_destination_settings.setter
-    def embedded_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs']]):
+    def embedded_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs']]):
         pulumi.set(self, "embedded_destination_settings", value)
 
     @property
     @pulumi.getter(name="embeddedPlusScte20DestinationSettings")
-    def embedded_plus_scte20_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']]:
+    def embedded_plus_scte20_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs']]:
         """
         Embedded Plus SCTE20 Destination Settings.
         """
         return pulumi.get(self, "embedded_plus_scte20_destination_settings")
 
     @embedded_plus_scte20_destination_settings.setter
-    def embedded_plus_scte20_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']]):
+    def embedded_plus_scte20_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs']]):
         pulumi.set(self, "embedded_plus_scte20_destination_settings", value)
 
     @property
     @pulumi.getter(name="rtmpCaptionInfoDestinationSettings")
-    def rtmp_caption_info_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']]:
+    def rtmp_caption_info_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs']]:
         """
         RTMP Caption Info Destination Settings.
         """
         return pulumi.get(self, "rtmp_caption_info_destination_settings")
 
     @rtmp_caption_info_destination_settings.setter
-    def rtmp_caption_info_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']]):
+    def rtmp_caption_info_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs']]):
         pulumi.set(self, "rtmp_caption_info_destination_settings", value)
 
     @property
     @pulumi.getter(name="scte20PlusEmbeddedDestinationSettings")
-    def scte20_plus_embedded_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']]:
+    def scte20_plus_embedded_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs']]:
         """
         SCTE20 Plus Embedded Destination Settings.
         """
         return pulumi.get(self, "scte20_plus_embedded_destination_settings")
 
     @scte20_plus_embedded_destination_settings.setter
-    def scte20_plus_embedded_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']]):
+    def scte20_plus_embedded_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs']]):
         pulumi.set(self, "scte20_plus_embedded_destination_settings", value)
 
     @property
     @pulumi.getter(name="scte27DestinationSettings")
-    def scte27_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']]:
+    def scte27_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs']]:
         """
         SCTE27 Destination Settings.
         """
         return pulumi.get(self, "scte27_destination_settings")
 
     @scte27_destination_settings.setter
-    def scte27_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']]):
+    def scte27_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs']]):
         pulumi.set(self, "scte27_destination_settings", value)
 
     @property
     @pulumi.getter(name="smpteTtDestinationSettings")
-    def smpte_tt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']]:
+    def smpte_tt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs']]:
         """
         SMPTE TT Destination Settings.
         """
         return pulumi.get(self, "smpte_tt_destination_settings")
 
     @smpte_tt_destination_settings.setter
-    def smpte_tt_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']]):
+    def smpte_tt_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs']]):
         pulumi.set(self, "smpte_tt_destination_settings", value)
 
     @property
     @pulumi.getter(name="teletextDestinationSettings")
-    def teletext_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs']]:
+    def teletext_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs']]:
         """
         Teletext Destination Settings.
         """
         return pulumi.get(self, "teletext_destination_settings")
 
     @teletext_destination_settings.setter
-    def teletext_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs']]):
+    def teletext_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs']]):
         pulumi.set(self, "teletext_destination_settings", value)
 
     @property
     @pulumi.getter(name="ttmlDestinationSettings")
-    def ttml_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']]:
+    def ttml_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs']]:
         """
         TTML Destination Settings. See TTML Destination Settings for more details.
         """
         return pulumi.get(self, "ttml_destination_settings")
 
     @ttml_destination_settings.setter
-    def ttml_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']]):
+    def ttml_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs']]):
         pulumi.set(self, "ttml_destination_settings", value)
 
     @property
     @pulumi.getter(name="webvttDestinationSettings")
-    def webvtt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']]:
+    def webvtt_destination_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs']]:
         """
         WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         """
         return pulumi.get(self, "webvtt_destination_settings")
 
     @webvtt_destination_settings.setter
-    def webvtt_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']]):
+    def webvtt_destination_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs']]):
         pulumi.set(self, "webvtt_destination_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs:
     def __init__(__self__, *,
                  outline_color: pulumi.Input[str],
                  teletext_grid_control: pulumi.Input[str],
                  alignment: Optional[pulumi.Input[str]] = None,
                  background_color: Optional[pulumi.Input[str]] = None,
                  background_opacity: Optional[pulumi.Input[int]] = None,
-                 font: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs']] = None,
+                 font: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs']] = None,
                  font_color: Optional[pulumi.Input[str]] = None,
                  font_opacity: Optional[pulumi.Input[int]] = None,
                  font_resolution: Optional[pulumi.Input[int]] = None,
@@ -2360,7 +2360,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
         :param pulumi.Input[str] alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[str] background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         :param pulumi.Input[str] font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
@@ -2468,14 +2468,14 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 
     @property
     @pulumi.getter
-    def font(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs']]:
+    def font(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs']]:
         """
         External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         """
         return pulumi.get(self, "font")
 
     @font.setter
-    def font(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs']]):
+    def font(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs']]):
         pulumi.set(self, "font", value)
 
     @property
@@ -2612,7 +2612,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -2666,12 +2666,12 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs:
     def __init__(__self__, *,
                  alignment: Optional[pulumi.Input[str]] = None,
                  background_color: Optional[pulumi.Input[str]] = None,
                  background_opacity: Optional[pulumi.Input[int]] = None,
-                 font: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs']] = None,
+                 font: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs']] = None,
                  font_color: Optional[pulumi.Input[str]] = None,
                  font_opacity: Optional[pulumi.Input[int]] = None,
                  font_resolution: Optional[pulumi.Input[int]] = None,
@@ -2689,7 +2689,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
         :param pulumi.Input[str] alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[str] background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs'] font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         :param pulumi.Input[str] font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
         :param pulumi.Input[int] font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
@@ -2777,14 +2777,14 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 
     @property
     @pulumi.getter
-    def font(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs']]:
+    def font(self) -> Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs']]:
         """
         External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         """
         return pulumi.get(self, "font")
 
     @font.setter
-    def font(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs']]):
+    def font(self, value: Optional[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs']]):
         pulumi.set(self, "font", value)
 
     @property
@@ -2945,7 +2945,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -2999,7 +2999,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs:
     def __init__(__self__, *,
                  copyright_holder: Optional[pulumi.Input[str]] = None,
                  fill_line_gap: Optional[pulumi.Input[str]] = None,
@@ -3070,49 +3070,49 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs:
     def __init__(__self__, *,
                  style_control: pulumi.Input[str]):
         """
@@ -3134,7 +3134,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestination
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs:
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs:
     def __init__(__self__, *,
                  style_control: pulumi.Input[str]):
         """
@@ -3156,18 +3156,18 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinati
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsGlobalConfigurationArgs:
+calass ChannelEncoderSettingsGlobalConfigurationArrgs:
     def __init__(__self__, *,
                  initial_audio_gain: Optional[pulumi.Input[int]] = None,
                  input_end_action: Optional[pulumi.Input[str]] = None,
-                 input_loss_behavior: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs']] = None,
+                 input_loss_behavior: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs']] = None,
                  output_locking_mode: Optional[pulumi.Input[str]] = None,
                  output_timing_source: Optional[pulumi.Input[str]] = None,
                  support_low_framerate_inputs: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] initial_audio_gain: Value to set the initial audio gain for the Live Event.
         :param pulumi.Input[str] input_end_action: Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs'] input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        :param pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs'] input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
         :param pulumi.Input[str] output_locking_mode: Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
         :param pulumi.Input[str] output_timing_source: Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
         :param pulumi.Input[str] support_low_framerate_inputs: Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
@@ -3211,14 +3211,14 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
 
     @property
     @pulumi.getter(name="inputLossBehavior")
-    def input_loss_behavior(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs']]:
+    def input_loss_behavior(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs']]:
         """
         Settings for system actions when input is lost. See Input Loss Behavior for more details.
         """
         return pulumi.get(self, "input_loss_behavior")
 
     @input_loss_behavior.setter
-    def input_loss_behavior(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs']]):
+    def input_loss_behavior(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs']]):
         pulumi.set(self, "input_loss_behavior", value)
 
     @property
@@ -3259,11 +3259,11 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
+calass ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs:
     def __init__(__self__, *,
                  black_frame_msec: Optional[pulumi.Input[int]] = None,
                  input_loss_image_color: Optional[pulumi.Input[str]] = None,
-                 input_loss_image_slate: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']] = None,
+                 input_loss_image_slate: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArrgs']] = None,
                  input_loss_image_type: Optional[pulumi.Input[str]] = None,
                  repeat_frame_msec: Optional[pulumi.Input[int]] = None):
         if black_frame_msec is not None:
@@ -3297,11 +3297,11 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
 
     @property
     @pulumi.getter(name="inputLossImageSlate")
-    def input_loss_image_slate(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']]:
+    def input_loss_image_slate(self) -> Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArrgs']]:
         return pulumi.get(self, "input_loss_image_slate")
 
     @input_loss_image_slate.setter
-    def input_loss_image_slate(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']]):
+    def input_loss_image_slate(self, value: Optional[pulumi.Input['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArrgs']]):
         pulumi.set(self, "input_loss_image_slate", value)
 
     @property
@@ -3324,7 +3324,7 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs:
+calass ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -3378,12 +3378,12 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
+calass ChannelEncoderSettingsMotionGraphicsConfigurationArrgs:
     def __init__(__self__, *,
-                 motion_graphics_settings: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs'],
+                 motion_graphics_settings: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs'],
                  motion_graphics_insertion: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs'] motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs'] motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
         :param pulumi.Input[str] motion_graphics_insertion: Motion Graphics Insertion.
         """
         pulumi.set(__self__, "motion_graphics_settings", motion_graphics_settings)
@@ -3392,14 +3392,14 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
 
     @property
     @pulumi.getter(name="motionGraphicsSettings")
-    def motion_graphics_settings(self) -> pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs']:
+    def motion_graphics_settings(self) -> pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs']:
         """
         Motion Graphics Settings. See Motion Graphics Settings for more details.
         """
         return pulumi.get(self, "motion_graphics_settings")
 
     @motion_graphics_settings.setter
-    def motion_graphics_settings(self, value: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs']):
+    def motion_graphics_settings(self, value: pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs']):
         pulumi.set(self, "motion_graphics_settings", value)
 
     @property
@@ -3416,36 +3416,36 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs:
+calass ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs:
     def __init__(__self__, *,
-                 html_motion_graphics_settings: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']] = None):
+                 html_motion_graphics_settings: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs'] html_motion_graphics_settings: Html Motion Graphics Settings.
+        :param pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs'] html_motion_graphics_settings: Html Motion Graphics Settings.
         """
         if html_motion_graphics_settings is not None:
             pulumi.set(__self__, "html_motion_graphics_settings", html_motion_graphics_settings)
 
     @property
     @pulumi.getter(name="htmlMotionGraphicsSettings")
-    def html_motion_graphics_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']]:
+    def html_motion_graphics_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs']]:
         """
         Html Motion Graphics Settings.
         """
         return pulumi.get(self, "html_motion_graphics_settings")
 
     @html_motion_graphics_settings.setter
-    def html_motion_graphics_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']]):
+    def html_motion_graphics_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs']]):
         pulumi.set(self, "html_motion_graphics_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs:
+calass ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsNielsenConfigurationArgs:
+calass ChannelEncoderSettingsNielsenConfigurationArrgs:
     def __init__(__self__, *,
                  distributor_id: Optional[pulumi.Input[str]] = None,
                  nielsen_pcm_to_id3_tagging: Optional[pulumi.Input[str]] = None):
@@ -3484,14 +3484,14 @@ class ChannelEncoderSettingsNielsenConfigurationArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupArgs:
+calass ChannelEncoderSettingsOutputGroupArrgs:
     def __init__(__self__, *,
-                 output_group_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'],
-                 outputs: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]],
+                 output_group_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs'],
+                 outputs: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs'] output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]] outputs: List of outputs. See Outputs for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs'] output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArrgs']]] outputs: List of outputs. See Outputs for more details.
         :param pulumi.Input[str] name: Custom output group name defined by the user.
         """
         pulumi.set(__self__, "output_group_settings", output_group_settings)
@@ -3501,26 +3501,26 @@ class ChannelEncoderSettingsOutputGroupArgs:
 
     @property
     @pulumi.getter(name="outputGroupSettings")
-    def output_group_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs']:
+    def output_group_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs']:
         """
         Settings associated with the output group. See Output Group Settings for more details.
         """
         return pulumi.get(self, "output_group_settings")
 
     @output_group_settings.setter
-    def output_group_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs']):
+    def output_group_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs']):
         pulumi.set(self, "output_group_settings", value)
 
     @property
     @pulumi.getter
-    def outputs(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]]:
+    def outputs(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArrgs']]]:
         """
         List of outputs. See Outputs for more details.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArgs']]]):
+    def outputs(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputArrgs']]]):
         pulumi.set(self, "outputs", value)
 
     @property
@@ -3537,15 +3537,15 @@ class ChannelEncoderSettingsOutputGroupArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputArgs:
+calass ChannelEncoderSettingsOutputGroupOutputArrgs:
     def __init__(__self__, *,
-                 output_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs'],
+                 output_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs'],
                  audio_description_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  caption_description_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  video_description_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs'] output_settings: Settings for output. See Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs'] output_settings: Settings for output. See Output Settings for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audio_description_names: The names of the audio descriptions used as audio sources for the output.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] caption_description_names: The names of the caption descriptions used as caption sources for the output.
         :param pulumi.Input[str] output_name: The name used to identify an output.
@@ -3563,14 +3563,14 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
 
     @property
     @pulumi.getter(name="outputSettings")
-    def output_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs']:
+    def output_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs']:
         """
         Settings for output. See Output Settings for more details.
         """
         return pulumi.get(self, "output_settings")
 
     @output_settings.setter
-    def output_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs']):
+    def output_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs']):
         pulumi.set(self, "output_settings", value)
 
     @property
@@ -3623,20 +3623,20 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs:
     def __init__(__self__, *,
-                 archive_group_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]]] = None,
-                 frame_capture_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs']] = None,
-                 hls_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs']] = None,
-                 media_package_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs']] = None,
-                 ms_smooth_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs']] = None,
-                 multiplex_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs']] = None,
-                 rtmp_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']] = None,
-                 udp_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']] = None):
+                 archive_group_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs']]]] = None,
+                 frame_capture_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArrgs']] = None,
+                 hls_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArrgs']] = None,
+                 media_package_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs']] = None,
+                 ms_smooth_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArrgs']] = None,
+                 multiplex_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArrgs']] = None,
+                 rtmp_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs']] = None,
+                 udp_group_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs'] media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs'] rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs']]] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs'] media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs'] rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
         """
         if archive_group_settings is not None:
             pulumi.set(__self__, "archive_group_settings", archive_group_settings)
@@ -3657,95 +3657,95 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
 
     @property
     @pulumi.getter(name="archiveGroupSettings")
-    def archive_group_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]]]:
+    def archive_group_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs']]]]:
         """
         Archive group settings. See Archive Group Settings for more details.
         """
         return pulumi.get(self, "archive_group_settings")
 
     @archive_group_settings.setter
-    def archive_group_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]]]):
+    def archive_group_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs']]]]):
         pulumi.set(self, "archive_group_settings", value)
 
     @property
     @pulumi.getter(name="frameCaptureGroupSettings")
-    def frame_capture_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs']]:
+    def frame_capture_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArrgs']]:
         return pulumi.get(self, "frame_capture_group_settings")
 
     @frame_capture_group_settings.setter
-    def frame_capture_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs']]):
+    def frame_capture_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArrgs']]):
         pulumi.set(self, "frame_capture_group_settings", value)
 
     @property
     @pulumi.getter(name="hlsGroupSettings")
-    def hls_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs']]:
+    def hls_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArrgs']]:
         return pulumi.get(self, "hls_group_settings")
 
     @hls_group_settings.setter
-    def hls_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs']]):
+    def hls_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArrgs']]):
         pulumi.set(self, "hls_group_settings", value)
 
     @property
     @pulumi.getter(name="mediaPackageGroupSettings")
-    def media_package_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs']]:
+    def media_package_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs']]:
         """
         Media package group settings. See Media Package Group Settings for more details.
         """
         return pulumi.get(self, "media_package_group_settings")
 
     @media_package_group_settings.setter
-    def media_package_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs']]):
+    def media_package_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs']]):
         pulumi.set(self, "media_package_group_settings", value)
 
     @property
     @pulumi.getter(name="msSmoothGroupSettings")
-    def ms_smooth_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs']]:
+    def ms_smooth_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArrgs']]:
         return pulumi.get(self, "ms_smooth_group_settings")
 
     @ms_smooth_group_settings.setter
-    def ms_smooth_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs']]):
+    def ms_smooth_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArrgs']]):
         pulumi.set(self, "ms_smooth_group_settings", value)
 
     @property
     @pulumi.getter(name="multiplexGroupSettings")
-    def multiplex_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs']]:
+    def multiplex_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArrgs']]:
         return pulumi.get(self, "multiplex_group_settings")
 
     @multiplex_group_settings.setter
-    def multiplex_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs']]):
+    def multiplex_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArrgs']]):
         pulumi.set(self, "multiplex_group_settings", value)
 
     @property
     @pulumi.getter(name="rtmpGroupSettings")
-    def rtmp_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']]:
+    def rtmp_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs']]:
         """
         RTMP group settings. See RTMP Group Settings for more details.
         """
         return pulumi.get(self, "rtmp_group_settings")
 
     @rtmp_group_settings.setter
-    def rtmp_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']]):
+    def rtmp_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs']]):
         pulumi.set(self, "rtmp_group_settings", value)
 
     @property
     @pulumi.getter(name="udpGroupSettings")
-    def udp_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']]:
+    def udp_group_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArrgs']]:
         return pulumi.get(self, "udp_group_settings")
 
     @udp_group_settings.setter
-    def udp_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']]):
+    def udp_group_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArrgs']]):
         pulumi.set(self, "udp_group_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs'],
-                 archive_cdn_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']] = None,
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs'],
+                 archive_cdn_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs']] = None,
                  rollover_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs'] archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs'] archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
         :param pulumi.Input[int] rollover_interval: Number of seconds to write to archive file before closing and starting a new one.
         """
         pulumi.set(__self__, "destination", destination)
@@ -3756,26 +3756,26 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs']:
         """
         A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter(name="archiveCdnSettings")
-    def archive_cdn_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']]:
+    def archive_cdn_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs']]:
         """
         Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
         """
         return pulumi.get(self, "archive_cdn_settings")
 
     @archive_cdn_settings.setter
-    def archive_cdn_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']]):
+    def archive_cdn_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs']]):
         pulumi.set(self, "archive_cdn_settings", value)
 
     @property
@@ -3792,30 +3792,30 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs:
     def __init__(__self__, *,
-                 archive_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']] = None):
+                 archive_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs'] archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs'] archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
         """
         if archive_s3_settings is not None:
             pulumi.set(__self__, "archive_s3_settings", archive_s3_settings)
 
     @property
     @pulumi.getter(name="archiveS3Settings")
-    def archive_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']]:
+    def archive_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs']]:
         """
         Archive S3 Settings. See Archive S3 Settings for more details.
         """
         return pulumi.get(self, "archive_s3_settings")
 
     @archive_s3_settings.setter
-    def archive_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']]):
+    def archive_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs']]):
         pulumi.set(self, "archive_s3_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs:
     def __init__(__self__, *,
                  canned_acl: Optional[pulumi.Input[str]] = None):
         """
@@ -3838,7 +3838,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -3860,12 +3860,12 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDes
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs'],
-                 frame_capture_cdn_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']] = None):
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs'],
+                 frame_capture_cdn_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
         if frame_capture_cdn_settings is not None:
@@ -3873,28 +3873,28 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs']:
         """
         A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter(name="frameCaptureCdnSettings")
-    def frame_capture_cdn_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']]:
+    def frame_capture_cdn_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArrgs']]:
         return pulumi.get(self, "frame_capture_cdn_settings")
 
     @frame_capture_cdn_settings.setter
-    def frame_capture_cdn_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']]):
+    def frame_capture_cdn_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArrgs']]):
         pulumi.set(self, "frame_capture_cdn_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -3916,24 +3916,24 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArrgs:
     def __init__(__self__, *,
-                 frame_capture_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']] = None):
+                 frame_capture_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArrgs']] = None):
         if frame_capture_s3_settings is not None:
             pulumi.set(__self__, "frame_capture_s3_settings", frame_capture_s3_settings)
 
     @property
     @pulumi.getter(name="frameCaptureS3Settings")
-    def frame_capture_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']]:
+    def frame_capture_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArrgs']]:
         return pulumi.get(self, "frame_capture_s3_settings")
 
     @frame_capture_s3_settings.setter
-    def frame_capture_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']]):
+    def frame_capture_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArrgs']]):
         pulumi.set(self, "frame_capture_s3_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArrgs:
     def __init__(__self__, *,
                  canned_acl: Optional[pulumi.Input[str]] = None):
         """
@@ -3956,15 +3956,15 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs'],
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs'],
                  ad_markers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  base_url_content: Optional[pulumi.Input[str]] = None,
                  base_url_content1: Optional[pulumi.Input[str]] = None,
                  base_url_manifest: Optional[pulumi.Input[str]] = None,
                  base_url_manifest1: Optional[pulumi.Input[str]] = None,
-                 caption_language_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]]] = None,
+                 caption_language_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrgs']]]] = None,
                  caption_language_setting: Optional[pulumi.Input[str]] = None,
                  client_cache: Optional[pulumi.Input[str]] = None,
                  codec_specification: Optional[pulumi.Input[str]] = None,
@@ -3972,7 +3972,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  directory_structure: Optional[pulumi.Input[str]] = None,
                  discontinuity_tags: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
-                 hls_cdn_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]] = None,
+                 hls_cdn_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrgs']]]] = None,
                  hls_id3_segment_tagging: Optional[pulumi.Input[str]] = None,
                  iframe_only_playlists: Optional[pulumi.Input[str]] = None,
                  incomplete_segment_behavior: Optional[pulumi.Input[str]] = None,
@@ -3983,7 +3983,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  keep_segments: Optional[pulumi.Input[int]] = None,
                  key_format: Optional[pulumi.Input[str]] = None,
                  key_format_versions: Optional[pulumi.Input[str]] = None,
-                 key_provider_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']] = None,
+                 key_provider_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArrgs']] = None,
                  manifest_compression: Optional[pulumi.Input[str]] = None,
                  manifest_duration_format: Optional[pulumi.Input[str]] = None,
                  min_segment_length: Optional[pulumi.Input[int]] = None,
@@ -4001,7 +4001,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
                  timestamp_delta_milliseconds: Optional[pulumi.Input[int]] = None,
                  ts_file_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_markers: The ad marker type for this output group.
         :param pulumi.Input[str] input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
         :param pulumi.Input[str] timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
@@ -4092,14 +4092,14 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs']:
         """
         A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -4152,11 +4152,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
     @property
     @pulumi.getter(name="captionLanguageMappings")
-    def caption_language_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]]]:
+    def caption_language_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrgs']]]]:
         return pulumi.get(self, "caption_language_mappings")
 
     @caption_language_mappings.setter
-    def caption_language_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]]]):
+    def caption_language_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrgs']]]]):
         pulumi.set(self, "caption_language_mappings", value)
 
     @property
@@ -4224,11 +4224,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
     @property
     @pulumi.getter(name="hlsCdnSettings")
-    def hls_cdn_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]]:
+    def hls_cdn_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrgs']]]]:
         return pulumi.get(self, "hls_cdn_settings")
 
     @hls_cdn_settings.setter
-    def hls_cdn_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]]):
+    def hls_cdn_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrgs']]]]):
         pulumi.set(self, "hls_cdn_settings", value)
 
     @property
@@ -4326,11 +4326,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
     @property
     @pulumi.getter(name="keyProviderSettings")
-    def key_provider_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]:
+    def key_provider_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArrgs']]:
         return pulumi.get(self, "key_provider_settings")
 
     @key_provider_settings.setter
-    def key_provider_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]):
+    def key_provider_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArrgs']]):
         pulumi.set(self, "key_provider_settings", value)
 
     @property
@@ -4482,7 +4482,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArrgs:
     def __init__(__self__, *,
                  caption_channel: pulumi.Input[int],
                  language_code: pulumi.Input[str],
@@ -4530,7 +4530,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -4552,13 +4552,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestin
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArrgs:
     def __init__(__self__, *,
-                 hls_akamai_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs']] = None,
-                 hls_basic_put_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs']] = None,
-                 hls_media_store_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']] = None,
-                 hls_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']] = None,
-                 hls_webdav_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']] = None):
+                 hls_akamai_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArrgs']] = None,
+                 hls_basic_put_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArrgs']] = None,
+                 hls_media_store_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArrgs']] = None,
+                 hls_s3_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArrgs']] = None,
+                 hls_webdav_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArrgs']] = None):
         if hls_akamai_settings is not None:
             pulumi.set(__self__, "hls_akamai_settings", hls_akamai_settings)
         if hls_basic_put_settings is not None:
@@ -4572,52 +4572,52 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
     @property
     @pulumi.getter(name="hlsAkamaiSettings")
-    def hls_akamai_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs']]:
+    def hls_akamai_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArrgs']]:
         return pulumi.get(self, "hls_akamai_settings")
 
     @hls_akamai_settings.setter
-    def hls_akamai_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs']]):
+    def hls_akamai_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArrgs']]):
         pulumi.set(self, "hls_akamai_settings", value)
 
     @property
     @pulumi.getter(name="hlsBasicPutSettings")
-    def hls_basic_put_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs']]:
+    def hls_basic_put_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArrgs']]:
         return pulumi.get(self, "hls_basic_put_settings")
 
     @hls_basic_put_settings.setter
-    def hls_basic_put_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs']]):
+    def hls_basic_put_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArrgs']]):
         pulumi.set(self, "hls_basic_put_settings", value)
 
     @property
     @pulumi.getter(name="hlsMediaStoreSettings")
-    def hls_media_store_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']]:
+    def hls_media_store_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArrgs']]:
         return pulumi.get(self, "hls_media_store_settings")
 
     @hls_media_store_settings.setter
-    def hls_media_store_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']]):
+    def hls_media_store_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArrgs']]):
         pulumi.set(self, "hls_media_store_settings", value)
 
     @property
     @pulumi.getter(name="hlsS3Settings")
-    def hls_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']]:
+    def hls_s3_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArrgs']]:
         return pulumi.get(self, "hls_s3_settings")
 
     @hls_s3_settings.setter
-    def hls_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']]):
+    def hls_s3_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArrgs']]):
         pulumi.set(self, "hls_s3_settings", value)
 
     @property
     @pulumi.getter(name="hlsWebdavSettings")
-    def hls_webdav_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']]:
+    def hls_webdav_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArrgs']]:
         return pulumi.get(self, "hls_webdav_settings")
 
     @hls_webdav_settings.setter
-    def hls_webdav_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']]):
+    def hls_webdav_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArrgs']]):
         pulumi.set(self, "hls_webdav_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArrgs:
     def __init__(__self__, *,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -4720,7 +4720,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArrgs:
     def __init__(__self__, *,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -4787,7 +4787,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArrgs:
     def __init__(__self__, *,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -4866,7 +4866,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArrgs:
     def __init__(__self__, *,
                  canned_acl: Optional[pulumi.Input[str]] = None):
         """
@@ -4889,7 +4889,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArrgs:
     def __init__(__self__, *,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  filecache_duration: Optional[pulumi.Input[int]] = None,
@@ -4968,27 +4968,27 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArrgs:
     def __init__(__self__, *,
-                 static_key_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]] = None):
+                 static_key_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArrgs']]]] = None):
         if static_key_settings is not None:
             pulumi.set(__self__, "static_key_settings", static_key_settings)
 
     @property
     @pulumi.getter(name="staticKeySettings")
-    def static_key_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]:
+    def static_key_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArrgs']]]]:
         return pulumi.get(self, "static_key_settings")
 
     @static_key_settings.setter
-    def static_key_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]):
+    def static_key_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArrgs']]]]):
         pulumi.set(self, "static_key_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArrgs:
     def __init__(__self__, *,
                  static_key_value: pulumi.Input[str],
-                 key_provider_server: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']] = None):
+                 key_provider_server: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArrgs']] = None):
         pulumi.set(__self__, "static_key_value", static_key_value)
         if key_provider_server is not None:
             pulumi.set(__self__, "key_provider_server", key_provider_server)
@@ -5004,16 +5004,16 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
     @property
     @pulumi.getter(name="keyProviderServer")
-    def key_provider_server(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]:
+    def key_provider_server(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArrgs']]:
         return pulumi.get(self, "key_provider_server")
 
     @key_provider_server.setter
-    def key_provider_server(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]):
+    def key_provider_server(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArrgs']]):
         pulumi.set(self, "key_provider_server", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -5067,29 +5067,29 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs']):
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs']):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs']:
         """
         A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -5111,9 +5111,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs'],
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs'],
                  acquisition_point_id: Optional[pulumi.Input[str]] = None,
                  audio_only_timecode_control: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
@@ -5133,7 +5133,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
                  timestamp_offset: Optional[pulumi.Input[str]] = None,
                  timestamp_offset_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs'] destination: A director and base filename where archive files should be written. See Destination for more details.
         :param pulumi.Input[str] certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param pulumi.Input[int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param pulumi.Input[str] input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
@@ -5180,14 +5180,14 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs']:
         """
         A director and base filename where archive files should be written. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -5369,7 +5369,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsA
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -5391,13 +5391,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsD
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs:
     def __init__(__self__, *,
                  ad_markers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  authentication_scheme: Optional[pulumi.Input[str]] = None,
@@ -5516,7 +5516,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArrgs:
     def __init__(__self__, *,
                  input_loss_action: Optional[pulumi.Input[str]] = None,
                  timed_metadata_id3_frame: Optional[pulumi.Input[str]] = None,
@@ -5567,22 +5567,22 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs:
     def __init__(__self__, *,
-                 archive_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs']] = None,
-                 frame_capture_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs']] = None,
-                 hls_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs']] = None,
-                 media_package_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs']] = None,
-                 ms_smooth_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs']] = None,
-                 multiplex_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs']] = None,
-                 rtmp_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']] = None,
-                 udp_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']] = None):
+                 archive_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs']] = None,
+                 frame_capture_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArrgs']] = None,
+                 hls_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArrgs']] = None,
+                 media_package_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs']] = None,
+                 ms_smooth_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArrgs']] = None,
+                 multiplex_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs']] = None,
+                 rtmp_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs']] = None,
+                 udp_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs'] archive_output_settings: Archive output settings. See Archive Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs'] media_package_output_settings: Media package output settings. This can be set as an empty block.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs'] multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs'] rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs'] udp_output_settings: UDP output settings. See UDP Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs'] archive_output_settings: Archive output settings. See Archive Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs'] media_package_output_settings: Media package output settings. This can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs'] multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs'] rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs'] udp_output_settings: UDP output settings. See UDP Output Settings for more details.
         """
         if archive_output_settings is not None:
             pulumi.set(__self__, "archive_output_settings", archive_output_settings)
@@ -5603,100 +5603,100 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
 
     @property
     @pulumi.getter(name="archiveOutputSettings")
-    def archive_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs']]:
+    def archive_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs']]:
         """
         Archive output settings. See Archive Output Settings for more details.
         """
         return pulumi.get(self, "archive_output_settings")
 
     @archive_output_settings.setter
-    def archive_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs']]):
+    def archive_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs']]):
         pulumi.set(self, "archive_output_settings", value)
 
     @property
     @pulumi.getter(name="frameCaptureOutputSettings")
-    def frame_capture_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs']]:
+    def frame_capture_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArrgs']]:
         return pulumi.get(self, "frame_capture_output_settings")
 
     @frame_capture_output_settings.setter
-    def frame_capture_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs']]):
+    def frame_capture_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArrgs']]):
         pulumi.set(self, "frame_capture_output_settings", value)
 
     @property
     @pulumi.getter(name="hlsOutputSettings")
-    def hls_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs']]:
+    def hls_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArrgs']]:
         return pulumi.get(self, "hls_output_settings")
 
     @hls_output_settings.setter
-    def hls_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs']]):
+    def hls_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArrgs']]):
         pulumi.set(self, "hls_output_settings", value)
 
     @property
     @pulumi.getter(name="mediaPackageOutputSettings")
-    def media_package_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs']]:
+    def media_package_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs']]:
         """
         Media package output settings. This can be set as an empty block.
         """
         return pulumi.get(self, "media_package_output_settings")
 
     @media_package_output_settings.setter
-    def media_package_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs']]):
+    def media_package_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs']]):
         pulumi.set(self, "media_package_output_settings", value)
 
     @property
     @pulumi.getter(name="msSmoothOutputSettings")
-    def ms_smooth_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs']]:
+    def ms_smooth_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArrgs']]:
         return pulumi.get(self, "ms_smooth_output_settings")
 
     @ms_smooth_output_settings.setter
-    def ms_smooth_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs']]):
+    def ms_smooth_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArrgs']]):
         pulumi.set(self, "ms_smooth_output_settings", value)
 
     @property
     @pulumi.getter(name="multiplexOutputSettings")
-    def multiplex_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs']]:
+    def multiplex_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs']]:
         """
         Multiplex output settings. See Multiplex Output Settings for more details.
         """
         return pulumi.get(self, "multiplex_output_settings")
 
     @multiplex_output_settings.setter
-    def multiplex_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs']]):
+    def multiplex_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs']]):
         pulumi.set(self, "multiplex_output_settings", value)
 
     @property
     @pulumi.getter(name="rtmpOutputSettings")
-    def rtmp_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']]:
+    def rtmp_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs']]:
         """
         RTMP output settings. See RTMP Output Settings for more details.
         """
         return pulumi.get(self, "rtmp_output_settings")
 
     @rtmp_output_settings.setter
-    def rtmp_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']]):
+    def rtmp_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs']]):
         pulumi.set(self, "rtmp_output_settings", value)
 
     @property
     @pulumi.getter(name="udpOutputSettings")
-    def udp_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']]:
+    def udp_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs']]:
         """
         UDP output settings. See UDP Output Settings for more details.
         """
         return pulumi.get(self, "udp_output_settings")
 
     @udp_output_settings.setter
-    def udp_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']]):
+    def udp_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs']]):
         pulumi.set(self, "udp_output_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs:
     def __init__(__self__, *,
-                 container_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs']] = None,
+                 container_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs']] = None,
                  extension: Optional[pulumi.Input[str]] = None,
                  name_modifier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs'] container_settings: Settings specific to the container type of the file. See Container Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs'] container_settings: Settings specific to the container type of the file. See Container Settings for more details.
         :param pulumi.Input[str] extension: Output file extension.
         :param pulumi.Input[str] name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         """
@@ -5709,14 +5709,14 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
     @property
     @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs']]:
+    def container_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs']]:
         """
         Settings specific to the container type of the file. See Container Settings for more details.
         """
         return pulumi.get(self, "container_settings")
 
     @container_settings.setter
-    def container_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs']]):
+    def container_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs']]):
         pulumi.set(self, "container_settings", value)
 
     @property
@@ -5745,13 +5745,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs:
     def __init__(__self__, *,
-                 m2ts_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']] = None,
-                 raw_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']] = None):
+                 m2ts_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs']] = None,
+                 raw_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs'] raw_settings: Raw Settings. This can be set as an empty block.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs'] raw_settings: Raw Settings. This can be set as an empty block.
         """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
@@ -5760,31 +5760,31 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
     @property
     @pulumi.getter(name="m2tsSettings")
-    def m2ts_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']]:
+    def m2ts_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs']]:
         """
         M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         """
         return pulumi.get(self, "m2ts_settings")
 
     @m2ts_settings.setter
-    def m2ts_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']]):
+    def m2ts_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs']]):
         pulumi.set(self, "m2ts_settings", value)
 
     @property
     @pulumi.getter(name="rawSettings")
-    def raw_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']]:
+    def raw_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs']]:
         """
         Raw Settings. This can be set as an empty block.
         """
         return pulumi.get(self, "raw_settings")
 
     @raw_settings.setter
-    def raw_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']]):
+    def raw_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs']]):
         pulumi.set(self, "raw_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs:
     def __init__(__self__, *,
                  absent_input_audio_behavior: Optional[pulumi.Input[str]] = None,
                  arib: Optional[pulumi.Input[str]] = None,
@@ -5797,10 +5797,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  bitrate: Optional[pulumi.Input[int]] = None,
                  buffer_model: Optional[pulumi.Input[str]] = None,
                  cc_descriptor: Optional[pulumi.Input[str]] = None,
-                 dvb_nit_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']] = None,
-                 dvb_sdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']] = None,
+                 dvb_nit_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']] = None,
+                 dvb_sdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']] = None,
                  dvb_sub_pids: Optional[pulumi.Input[str]] = None,
-                 dvb_tdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']] = None,
+                 dvb_tdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']] = None,
                  dvb_teletext_pid: Optional[pulumi.Input[str]] = None,
                  ebif: Optional[pulumi.Input[str]] = None,
                  ebp_audio_interval: Optional[pulumi.Input[str]] = None,
@@ -6036,20 +6036,20 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
     @property
     @pulumi.getter(name="dvbNitSettings")
-    def dvb_nit_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]:
+    def dvb_nit_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']]:
         return pulumi.get(self, "dvb_nit_settings")
 
     @dvb_nit_settings.setter
-    def dvb_nit_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]):
+    def dvb_nit_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']]):
         pulumi.set(self, "dvb_nit_settings", value)
 
     @property
     @pulumi.getter(name="dvbSdtSettings")
-    def dvb_sdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]:
+    def dvb_sdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']]:
         return pulumi.get(self, "dvb_sdt_settings")
 
     @dvb_sdt_settings.setter
-    def dvb_sdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]):
+    def dvb_sdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']]):
         pulumi.set(self, "dvb_sdt_settings", value)
 
     @property
@@ -6063,11 +6063,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
     @property
     @pulumi.getter(name="dvbTdtSettings")
-    def dvb_tdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]:
+    def dvb_tdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']]:
         return pulumi.get(self, "dvb_tdt_settings")
 
     @dvb_tdt_settings.setter
-    def dvb_tdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]):
+    def dvb_tdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']]):
         pulumi.set(self, "dvb_tdt_settings", value)
 
     @property
@@ -6363,7 +6363,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs:
     def __init__(__self__, *,
                  network_id: pulumi.Input[int],
                  network_name: pulumi.Input[str],
@@ -6402,7 +6402,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs:
     def __init__(__self__, *,
                  output_sdt: Optional[pulumi.Input[str]] = None,
                  rep_interval: Optional[pulumi.Input[int]] = None,
@@ -6455,7 +6455,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs:
     def __init__(__self__, *,
                  rep_interval: Optional[pulumi.Input[int]] = None):
         if rep_interval is not None:
@@ -6472,13 +6472,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArrgs:
     def __init__(__self__, *,
                  name_modifier: Optional[pulumi.Input[str]] = None):
         """
@@ -6501,9 +6501,9 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSet
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArrgs:
     def __init__(__self__, *,
-                 hls_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs'],
+                 hls_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArrgs'],
                  h265_packaging_type: Optional[pulumi.Input[str]] = None,
                  name_modifier: Optional[pulumi.Input[str]] = None,
                  segment_modifier: Optional[pulumi.Input[str]] = None):
@@ -6520,11 +6520,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
 
     @property
     @pulumi.getter(name="hlsSettings")
-    def hls_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs']:
+    def hls_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArrgs']:
         return pulumi.get(self, "hls_settings")
 
     @hls_settings.setter
-    def hls_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs']):
+    def hls_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArrgs']):
         pulumi.set(self, "hls_settings", value)
 
     @property
@@ -6559,12 +6559,12 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArrgs:
     def __init__(__self__, *,
-                 audio_only_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs']] = None,
-                 fmp4_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']] = None,
-                 frame_capture_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']] = None,
-                 standard_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']] = None):
+                 audio_only_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArrgs']] = None,
+                 fmp4_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArrgs']] = None,
+                 frame_capture_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArrgs']] = None,
+                 standard_hls_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArrgs']] = None):
         if audio_only_hls_settings is not None:
             pulumi.set(__self__, "audio_only_hls_settings", audio_only_hls_settings)
         if fmp4_hls_settings is not None:
@@ -6576,46 +6576,46 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
     @property
     @pulumi.getter(name="audioOnlyHlsSettings")
-    def audio_only_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs']]:
+    def audio_only_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArrgs']]:
         return pulumi.get(self, "audio_only_hls_settings")
 
     @audio_only_hls_settings.setter
-    def audio_only_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs']]):
+    def audio_only_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArrgs']]):
         pulumi.set(self, "audio_only_hls_settings", value)
 
     @property
     @pulumi.getter(name="fmp4HlsSettings")
-    def fmp4_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']]:
+    def fmp4_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArrgs']]:
         return pulumi.get(self, "fmp4_hls_settings")
 
     @fmp4_hls_settings.setter
-    def fmp4_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']]):
+    def fmp4_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArrgs']]):
         pulumi.set(self, "fmp4_hls_settings", value)
 
     @property
     @pulumi.getter(name="frameCaptureHlsSettings")
-    def frame_capture_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']]:
+    def frame_capture_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArrgs']]:
         return pulumi.get(self, "frame_capture_hls_settings")
 
     @frame_capture_hls_settings.setter
-    def frame_capture_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']]):
+    def frame_capture_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArrgs']]):
         pulumi.set(self, "frame_capture_hls_settings", value)
 
     @property
     @pulumi.getter(name="standardHlsSettings")
-    def standard_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']]:
+    def standard_hls_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArrgs']]:
         return pulumi.get(self, "standard_hls_settings")
 
     @standard_hls_settings.setter
-    def standard_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']]):
+    def standard_hls_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArrgs']]):
         pulumi.set(self, "standard_hls_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArrgs:
     def __init__(__self__, *,
                  audio_group_id: Optional[pulumi.Input[str]] = None,
-                 audio_only_image: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']] = None,
+                 audio_only_image: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArrgs']] = None,
                  audio_track_type: Optional[pulumi.Input[str]] = None,
                  segment_type: Optional[pulumi.Input[str]] = None):
         if audio_group_id is not None:
@@ -6638,11 +6638,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
     @property
     @pulumi.getter(name="audioOnlyImage")
-    def audio_only_image(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']]:
+    def audio_only_image(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArrgs']]:
         return pulumi.get(self, "audio_only_image")
 
     @audio_only_image.setter
-    def audio_only_image(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']]):
+    def audio_only_image(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArrgs']]):
         pulumi.set(self, "audio_only_image", value)
 
     @property
@@ -6665,7 +6665,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
                  password_param: Optional[pulumi.Input[str]] = None,
@@ -6719,7 +6719,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArrgs:
     def __init__(__self__, *,
                  audio_rendition_sets: Optional[pulumi.Input[str]] = None,
                  nielsen_id3_behavior: Optional[pulumi.Input[str]] = None,
@@ -6760,15 +6760,15 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArrgs:
     def __init__(__self__, *,
-                 m3u8_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs'],
+                 m3u8_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArrgs'],
                  audio_rendition_sets: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "m3u8_settings", m3u8_settings)
         if audio_rendition_sets is not None:
@@ -6776,11 +6776,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
     @property
     @pulumi.getter(name="m3u8Settings")
-    def m3u8_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs']:
+    def m3u8_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArrgs']:
         return pulumi.get(self, "m3u8_settings")
 
     @m3u8_settings.setter
-    def m3u8_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs']):
+    def m3u8_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArrgs']):
         pulumi.set(self, "m3u8_settings", value)
 
     @property
@@ -6794,7 +6794,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArrgs:
     def __init__(__self__, *,
                  audio_frames_per_pes: Optional[pulumi.Input[int]] = None,
                  audio_pids: Optional[pulumi.Input[str]] = None,
@@ -7009,13 +7009,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArrgs:
     def __init__(__self__, *,
                  h265_packaging_type: Optional[pulumi.Input[str]] = None,
                  name_modifier: Optional[pulumi.Input[str]] = None):
@@ -7050,29 +7050,29 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs']):
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs']):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs'] destination: Destination is a multiplex. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs'] destination: Destination is a multiplex. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs']:
         """
         Destination is a multiplex. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -7094,14 +7094,14 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'],
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs'],
                  certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_retry_interval: Optional[pulumi.Input[int]] = None,
                  num_retries: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs'] destination: The RTMP endpoint excluding the stream name. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs'] destination: The RTMP endpoint excluding the stream name. See Destination for more details.
         :param pulumi.Input[str] certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param pulumi.Input[int] connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param pulumi.Input[int] num_retries: Number of retry attempts.
@@ -7116,14 +7116,14 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs']:
         """
         The RTMP endpoint excluding the stream name. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -7164,7 +7164,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArg
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -7186,15 +7186,15 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDes
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs:
     def __init__(__self__, *,
-                 container_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs'],
-                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs'],
+                 container_settings: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs'],
+                 destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs'],
                  buffer_msec: Optional[pulumi.Input[int]] = None,
-                 fec_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']] = None):
+                 fec_output_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs'] container_settings: UDP container settings. See Container Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs'] destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs'] container_settings: UDP container settings. See Container Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs'] destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
         :param pulumi.Input[int] buffer_msec: UDP output buffering in milliseconds.
         """
         pulumi.set(__self__, "container_settings", container_settings)
@@ -7206,26 +7206,26 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
 
     @property
     @pulumi.getter(name="containerSettings")
-    def container_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs']:
+    def container_settings(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs']:
         """
         UDP container settings. See Container Settings for more details.
         """
         return pulumi.get(self, "container_settings")
 
     @container_settings.setter
-    def container_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs']):
+    def container_settings(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs']):
         pulumi.set(self, "container_settings", value)
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs']:
+    def destination(self) -> pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs']:
         """
         Destination address and port number for RTP or UDP packets. See Destination for more details.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs']):
+    def destination(self, value: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs']):
         pulumi.set(self, "destination", value)
 
     @property
@@ -7242,39 +7242,39 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
 
     @property
     @pulumi.getter(name="fecOutputSettings")
-    def fec_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']]:
+    def fec_output_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArrgs']]:
         return pulumi.get(self, "fec_output_settings")
 
     @fec_output_settings.setter
-    def fec_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']]):
+    def fec_output_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArrgs']]):
         pulumi.set(self, "fec_output_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs:
     def __init__(__self__, *,
-                 m2ts_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']] = None):
+                 m2ts_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        :param pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs'] m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
 
     @property
     @pulumi.getter(name="m2tsSettings")
-    def m2ts_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']]:
+    def m2ts_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs']]:
         """
         M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         """
         return pulumi.get(self, "m2ts_settings")
 
     @m2ts_settings.setter
-    def m2ts_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']]):
+    def m2ts_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs']]):
         pulumi.set(self, "m2ts_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs:
     def __init__(__self__, *,
                  absent_input_audio_behavior: Optional[pulumi.Input[str]] = None,
                  arib: Optional[pulumi.Input[str]] = None,
@@ -7287,10 +7287,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
                  bitrate: Optional[pulumi.Input[int]] = None,
                  buffer_model: Optional[pulumi.Input[str]] = None,
                  cc_descriptor: Optional[pulumi.Input[str]] = None,
-                 dvb_nit_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']] = None,
-                 dvb_sdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']] = None,
+                 dvb_nit_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']] = None,
+                 dvb_sdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']] = None,
                  dvb_sub_pids: Optional[pulumi.Input[str]] = None,
-                 dvb_tdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']] = None,
+                 dvb_tdt_settings: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']] = None,
                  dvb_teletext_pid: Optional[pulumi.Input[str]] = None,
                  ebif: Optional[pulumi.Input[str]] = None,
                  ebp_audio_interval: Optional[pulumi.Input[str]] = None,
@@ -7526,20 +7526,20 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
     @property
     @pulumi.getter(name="dvbNitSettings")
-    def dvb_nit_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]:
+    def dvb_nit_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']]:
         return pulumi.get(self, "dvb_nit_settings")
 
     @dvb_nit_settings.setter
-    def dvb_nit_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]):
+    def dvb_nit_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs']]):
         pulumi.set(self, "dvb_nit_settings", value)
 
     @property
     @pulumi.getter(name="dvbSdtSettings")
-    def dvb_sdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]:
+    def dvb_sdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']]:
         return pulumi.get(self, "dvb_sdt_settings")
 
     @dvb_sdt_settings.setter
-    def dvb_sdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]):
+    def dvb_sdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs']]):
         pulumi.set(self, "dvb_sdt_settings", value)
 
     @property
@@ -7553,11 +7553,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
     @property
     @pulumi.getter(name="dvbTdtSettings")
-    def dvb_tdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]:
+    def dvb_tdt_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']]:
         return pulumi.get(self, "dvb_tdt_settings")
 
     @dvb_tdt_settings.setter
-    def dvb_tdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]):
+    def dvb_tdt_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs']]):
         pulumi.set(self, "dvb_tdt_settings", value)
 
     @property
@@ -7853,7 +7853,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArrgs:
     def __init__(__self__, *,
                  network_id: pulumi.Input[int],
                  network_name: pulumi.Input[str],
@@ -7892,7 +7892,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArrgs:
     def __init__(__self__, *,
                  output_sdt: Optional[pulumi.Input[str]] = None,
                  rep_interval: Optional[pulumi.Input[int]] = None,
@@ -7945,7 +7945,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArrgs:
     def __init__(__self__, *,
                  rep_interval: Optional[pulumi.Input[int]] = None):
         if rep_interval is not None:
@@ -7962,7 +7962,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs:
     def __init__(__self__, *,
                  destination_ref_id: pulumi.Input[str]):
         """
@@ -7984,7 +7984,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDest
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs:
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArrgs:
     def __init__(__self__, *,
                  column_depth: Optional[pulumi.Input[int]] = None,
                  include_fec: Optional[pulumi.Input[str]] = None,
@@ -8039,7 +8039,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsTimecodeConfigArgs:
+calass ChannelEncoderSettingsTimecodeConfigArrgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  sync_threshold: Optional[pulumi.Input[int]] = None):
@@ -8077,10 +8077,10 @@ class ChannelEncoderSettingsTimecodeConfigArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionArgs:
+calass ChannelEncoderSettingsVideoDescriptionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 codec_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']] = None,
+                 codec_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs']] = None,
                  height: Optional[pulumi.Input[int]] = None,
                  respond_to_afd: Optional[pulumi.Input[str]] = None,
                  scaling_behavior: Optional[pulumi.Input[str]] = None,
@@ -8088,7 +8088,7 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
                  width: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] name: The name of the video description.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs'] codec_settings: The video codec settings. See Video Codec Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs'] codec_settings: The video codec settings. See Video Codec Settings for more details.
         :param pulumi.Input[int] height: Output video height in pixels.
         :param pulumi.Input[str] respond_to_afd: Indicate how to respond to the AFD values that might be in the input video.
         :param pulumi.Input[str] scaling_behavior: Behavior on how to scale.
@@ -8123,14 +8123,14 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
 
     @property
     @pulumi.getter(name="codecSettings")
-    def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']]:
+    def codec_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs']]:
         """
         The video codec settings. See Video Codec Settings for more details.
         """
         return pulumi.get(self, "codec_settings")
 
     @codec_settings.setter
-    def codec_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']]):
+    def codec_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs']]):
         pulumi.set(self, "codec_settings", value)
 
     @property
@@ -8195,14 +8195,14 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs:
     def __init__(__self__, *,
-                 frame_capture_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']] = None,
-                 h264_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']] = None,
-                 h265_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']] = None):
+                 frame_capture_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs']] = None,
+                 h264_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs']] = None,
+                 h265_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs'] frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs'] h264_settings: H264 settings. See H264 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs'] frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs'] h264_settings: H264 settings. See H264 Settings for more details.
         """
         if frame_capture_settings is not None:
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
@@ -8213,40 +8213,40 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
 
     @property
     @pulumi.getter(name="frameCaptureSettings")
-    def frame_capture_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']]:
+    def frame_capture_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs']]:
         """
         Frame capture settings. See Frame Capture Settings for more details.
         """
         return pulumi.get(self, "frame_capture_settings")
 
     @frame_capture_settings.setter
-    def frame_capture_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']]):
+    def frame_capture_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs']]):
         pulumi.set(self, "frame_capture_settings", value)
 
     @property
     @pulumi.getter(name="h264Settings")
-    def h264_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]:
+    def h264_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs']]:
         """
         H264 settings. See H264 Settings for more details.
         """
         return pulumi.get(self, "h264_settings")
 
     @h264_settings.setter
-    def h264_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]):
+    def h264_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs']]):
         pulumi.set(self, "h264_settings", value)
 
     @property
     @pulumi.getter(name="h265Settings")
-    def h265_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]:
+    def h265_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArrgs']]:
         return pulumi.get(self, "h265_settings")
 
     @h265_settings.setter
-    def h265_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]):
+    def h265_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArrgs']]):
         pulumi.set(self, "h265_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs:
     def __init__(__self__, *,
                  capture_interval: Optional[pulumi.Input[int]] = None,
                  capture_interval_units: Optional[pulumi.Input[str]] = None):
@@ -8285,7 +8285,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArg
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs:
     def __init__(__self__, *,
                  adaptive_quantization: Optional[pulumi.Input[str]] = None,
                  afd_signaling: Optional[pulumi.Input[str]] = None,
@@ -8294,7 +8294,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
                  buf_size: Optional[pulumi.Input[int]] = None,
                  color_metadata: Optional[pulumi.Input[str]] = None,
                  entropy_encoding: Optional[pulumi.Input[str]] = None,
-                 filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']] = None,
+                 filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs']] = None,
                  fixed_afd: Optional[pulumi.Input[str]] = None,
                  flicker_aq: Optional[pulumi.Input[str]] = None,
                  force_field_pictures: Optional[pulumi.Input[str]] = None,
@@ -8334,7 +8334,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
         :param pulumi.Input[int] buf_size: Size of buffer in bits.
         :param pulumi.Input[str] color_metadata: Includes color space metadata in the output.
         :param pulumi.Input[str] entropy_encoding: Entropy encoding mode.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs'] filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
         :param pulumi.Input[str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
         :param pulumi.Input[str] force_field_pictures: Controls whether coding is performed on a field basis or on a frame basis.
         :param pulumi.Input[str] framerate_control: Indicates how the output video frame rate is specified.
@@ -8530,14 +8530,14 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
 
     @property
     @pulumi.getter(name="filterSettings")
-    def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']]:
+    def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs']]:
         """
         Filters to apply to an encode. See H265 Filter Settings for more details.
         """
         return pulumi.get(self, "filter_settings")
 
     @filter_settings.setter
-    def filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']]):
+    def filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs']]):
         pulumi.set(self, "filter_settings", value)
 
     @property
@@ -8920,30 +8920,30 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs:
     def __init__(__self__, *,
-                 temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+                 temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
         """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
 
     @property
     @pulumi.getter(name="temporalFilterSettings")
-    def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+    def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs']]:
         """
         Temporal filter settings. See Temporal Filter Settings
         """
         return pulumi.get(self, "temporal_filter_settings")
 
     @temporal_filter_settings.setter
-    def temporal_filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']]):
+    def temporal_filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs']]):
         pulumi.set(self, "temporal_filter_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs:
     def __init__(__self__, *,
                  post_filter_sharpening: Optional[pulumi.Input[str]] = None,
                  strength: Optional[pulumi.Input[str]] = None):
@@ -8982,7 +8982,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArrgs:
     def __init__(__self__, *,
                  bitrate: pulumi.Input[int],
                  framerate_denominator: pulumi.Input[int],
@@ -8992,8 +8992,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
                  alternative_transfer_function: Optional[pulumi.Input[str]] = None,
                  buf_size: Optional[pulumi.Input[int]] = None,
                  color_metadata: Optional[pulumi.Input[str]] = None,
-                 color_space_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']] = None,
-                 filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']] = None,
+                 color_space_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs']] = None,
+                 filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs']] = None,
                  fixed_afd: Optional[pulumi.Input[str]] = None,
                  flicker_aq: Optional[pulumi.Input[str]] = None,
                  gop_closed_cadence: Optional[pulumi.Input[int]] = None,
@@ -9012,7 +9012,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
                  scene_change_detect: Optional[pulumi.Input[str]] = None,
                  slices: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
-                 timecode_burnin_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']] = None,
+                 timecode_burnin_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs']] = None,
                  timecode_insertion: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] bitrate: Average bitrate in bits/second.
@@ -9023,8 +9023,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
         :param pulumi.Input[str] alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
         :param pulumi.Input[int] buf_size: Size of buffer in bits.
         :param pulumi.Input[str] color_metadata: Includes color space metadata in the output.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs'] color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs'] filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs'] color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs'] filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
         :param pulumi.Input[str] fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
         :param pulumi.Input[int] gop_closed_cadence: Frequency of closed GOPs.
         :param pulumi.Input[float] gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
@@ -9041,7 +9041,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
         :param pulumi.Input[str] scene_change_detect: Scene change detection.
         :param pulumi.Input[int] slices: Number of slices per picture.
         :param pulumi.Input[str] tier: Set the H265 tier in the output.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs'] timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs'] timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         :param pulumi.Input[str] timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
         """
         pulumi.set(__self__, "bitrate", bitrate)
@@ -9200,26 +9200,26 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
 
     @property
     @pulumi.getter(name="colorSpaceSettings")
-    def color_space_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]:
+    def color_space_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs']]:
         """
         Define the color metadata for the output. H265 Color Space Settings for more details.
         """
         return pulumi.get(self, "color_space_settings")
 
     @color_space_settings.setter
-    def color_space_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]):
+    def color_space_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs']]):
         pulumi.set(self, "color_space_settings", value)
 
     @property
     @pulumi.getter(name="filterSettings")
-    def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]:
+    def filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs']]:
         """
         Filters to apply to an encode. See H265 Filter Settings for more details.
         """
         return pulumi.get(self, "filter_settings")
 
     @filter_settings.setter
-    def filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]):
+    def filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs']]):
         pulumi.set(self, "filter_settings", value)
 
     @property
@@ -9434,14 +9434,14 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
 
     @property
     @pulumi.getter(name="timecodeBurninSettings")
-    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]:
+    def timecode_burnin_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs']]:
         """
         Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         """
         return pulumi.get(self, "timecode_burnin_settings")
 
     @timecode_burnin_settings.setter
-    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]):
+    def timecode_burnin_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs']]):
         pulumi.set(self, "timecode_burnin_settings", value)
 
     @property
@@ -9458,19 +9458,19 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs:
     def __init__(__self__, *,
-                 color_space_passthrough_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']] = None,
-                 dolby_vision81_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']] = None,
-                 hdr10_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']] = None,
-                 rec601_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']] = None,
-                 rec709_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']] = None):
+                 color_space_passthrough_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs']] = None,
+                 dolby_vision81_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs']] = None,
+                 hdr10_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs']] = None,
+                 rec601_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs']] = None,
+                 rec709_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs'] color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs'] dolby_vision81_settings: Set the colorspace to Dolby Vision81.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs'] hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs'] rec601_settings: Set the colorspace to Rec. 601.
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs'] rec709_settings: Set the colorspace to Rec. 709.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs'] color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs'] dolby_vision81_settings: Set the colorspace to Dolby Vision81.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs'] hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs'] rec601_settings: Set the colorspace to Rec. 601.
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs'] rec709_settings: Set the colorspace to Rec. 709.
         """
         if color_space_passthrough_settings is not None:
             pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
@@ -9485,79 +9485,79 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
     @property
     @pulumi.getter(name="colorSpacePassthroughSettings")
-    def color_space_passthrough_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]:
+    def color_space_passthrough_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs']]:
         """
         Sets the colorspace metadata to be passed through.
         """
         return pulumi.get(self, "color_space_passthrough_settings")
 
     @color_space_passthrough_settings.setter
-    def color_space_passthrough_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]):
+    def color_space_passthrough_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs']]):
         pulumi.set(self, "color_space_passthrough_settings", value)
 
     @property
     @pulumi.getter(name="dolbyVision81Settings")
-    def dolby_vision81_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]:
+    def dolby_vision81_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs']]:
         """
         Set the colorspace to Dolby Vision81.
         """
         return pulumi.get(self, "dolby_vision81_settings")
 
     @dolby_vision81_settings.setter
-    def dolby_vision81_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]):
+    def dolby_vision81_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs']]):
         pulumi.set(self, "dolby_vision81_settings", value)
 
     @property
     @pulumi.getter(name="hdr10Settings")
-    def hdr10_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]:
+    def hdr10_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs']]:
         """
         Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
         """
         return pulumi.get(self, "hdr10_settings")
 
     @hdr10_settings.setter
-    def hdr10_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]):
+    def hdr10_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs']]):
         pulumi.set(self, "hdr10_settings", value)
 
     @property
     @pulumi.getter(name="rec601Settings")
-    def rec601_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]:
+    def rec601_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs']]:
         """
         Set the colorspace to Rec. 601.
         """
         return pulumi.get(self, "rec601_settings")
 
     @rec601_settings.setter
-    def rec601_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]):
+    def rec601_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs']]):
         pulumi.set(self, "rec601_settings", value)
 
     @property
     @pulumi.getter(name="rec709Settings")
-    def rec709_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]:
+    def rec709_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs']]:
         """
         Set the colorspace to Rec. 709.
         """
         return pulumi.get(self, "rec709_settings")
 
     @rec709_settings.setter
-    def rec709_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]):
+    def rec709_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs']]):
         pulumi.set(self, "rec709_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs:
     def __init__(__self__, *,
                  max_cll: Optional[pulumi.Input[int]] = None,
                  max_fall: Optional[pulumi.Input[int]] = None):
@@ -9596,42 +9596,42 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs:
     def __init__(__self__, *,
-                 temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']] = None):
+                 temporal_filter_settings: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        :param pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs'] temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
         """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
 
     @property
     @pulumi.getter(name="temporalFilterSettings")
-    def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]:
+    def temporal_filter_settings(self) -> Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs']]:
         """
         Temporal filter settings. See Temporal Filter Settings
         """
         return pulumi.get(self, "temporal_filter_settings")
 
     @temporal_filter_settings.setter
-    def temporal_filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]):
+    def temporal_filter_settings(self, value: Optional[pulumi.Input['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs']]):
         pulumi.set(self, "temporal_filter_settings", value)
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs:
     def __init__(__self__, *,
                  post_filter_sharpening: Optional[pulumi.Input[str]] = None,
                  strength: Optional[pulumi.Input[str]] = None):
@@ -9670,7 +9670,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSetti
 
 
 @pulumi.input_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs:
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs:
     def __init__(__self__, *,
                  prefix: Optional[pulumi.Input[str]] = None,
                  timecode_burnin_font_size: Optional[pulumi.Input[str]] = None,
@@ -9725,17 +9725,17 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
 
 
 @pulumi.input_type
-class ChannelInputAttachmentArgs:
+calass ChannelInputAttachmentArrgs:
     def __init__(__self__, *,
                  input_attachment_name: pulumi.Input[str],
                  input_id: pulumi.Input[str],
-                 automatic_input_failover_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs']] = None,
-                 input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArgs']] = None):
+                 automatic_input_failover_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs']] = None,
+                 input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArrgs']] = None):
         """
         :param pulumi.Input[str] input_attachment_name: User-specified name for the attachment.
         :param pulumi.Input[str] input_id: The ID of the input.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs'] automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsArgs'] input_settings: Settings of an input. See Input Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs'] automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsArrgs'] input_settings: Settings of an input. See Input Settings for more details.
         """
         pulumi.set(__self__, "input_attachment_name", input_attachment_name)
         pulumi.set(__self__, "input_id", input_id)
@@ -9770,35 +9770,35 @@ class ChannelInputAttachmentArgs:
 
     @property
     @pulumi.getter(name="automaticInputFailoverSettings")
-    def automatic_input_failover_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs']]:
+    def automatic_input_failover_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs']]:
         """
         User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
         """
         return pulumi.get(self, "automatic_input_failover_settings")
 
     @automatic_input_failover_settings.setter
-    def automatic_input_failover_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs']]):
+    def automatic_input_failover_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs']]):
         pulumi.set(self, "automatic_input_failover_settings", value)
 
     @property
     @pulumi.getter(name="inputSettings")
-    def input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArgs']]:
+    def input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArrgs']]:
         """
         Settings of an input. See Input Settings for more details.
         """
         return pulumi.get(self, "input_settings")
 
     @input_settings.setter
-    def input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArgs']]):
+    def input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsArrgs']]):
         pulumi.set(self, "input_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs:
     def __init__(__self__, *,
                  secondary_input_id: pulumi.Input[str],
                  error_clear_time_msec: Optional[pulumi.Input[int]] = None,
-                 failover_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]] = None,
+                 failover_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrgs']]]] = None,
                  input_preference: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] secondary_input_id: The input ID of the secondary input in the automatic input failover pair.
@@ -9839,11 +9839,11 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
 
     @property
     @pulumi.getter(name="failoverConditions")
-    def failover_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]]:
+    def failover_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrgs']]]]:
         return pulumi.get(self, "failover_conditions")
 
     @failover_conditions.setter
-    def failover_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]]):
+    def failover_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrgs']]]]):
         pulumi.set(self, "failover_conditions", value)
 
     @property
@@ -9860,38 +9860,38 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrgs:
     def __init__(__self__, *,
-                 failover_condition_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']] = None):
+                 failover_condition_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs'] failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs'] failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
         """
         if failover_condition_settings is not None:
             pulumi.set(__self__, "failover_condition_settings", failover_condition_settings)
 
     @property
     @pulumi.getter(name="failoverConditionSettings")
-    def failover_condition_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']]:
+    def failover_condition_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs']]:
         """
         Failover condition type-specific settings. See Failover Condition Settings for more details.
         """
         return pulumi.get(self, "failover_condition_settings")
 
     @failover_condition_settings.setter
-    def failover_condition_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']]):
+    def failover_condition_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs']]):
         pulumi.set(self, "failover_condition_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs:
     def __init__(__self__, *,
-                 audio_silence_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs']] = None,
-                 input_loss_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']] = None,
-                 video_black_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']] = None):
+                 audio_silence_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs']] = None,
+                 input_loss_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs']] = None,
+                 video_black_settings: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs'] audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs'] input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs'] video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs'] audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs'] input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs'] video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
         """
         if audio_silence_settings is not None:
             pulumi.set(__self__, "audio_silence_settings", audio_silence_settings)
@@ -9902,43 +9902,43 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
     @property
     @pulumi.getter(name="audioSilenceSettings")
-    def audio_silence_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs']]:
+    def audio_silence_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs']]:
         """
         MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
         """
         return pulumi.get(self, "audio_silence_settings")
 
     @audio_silence_settings.setter
-    def audio_silence_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs']]):
+    def audio_silence_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs']]):
         pulumi.set(self, "audio_silence_settings", value)
 
     @property
     @pulumi.getter(name="inputLossSettings")
-    def input_loss_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']]:
+    def input_loss_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs']]:
         """
         MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
         """
         return pulumi.get(self, "input_loss_settings")
 
     @input_loss_settings.setter
-    def input_loss_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']]):
+    def input_loss_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs']]):
         pulumi.set(self, "input_loss_settings", value)
 
     @property
     @pulumi.getter(name="videoBlackSettings")
-    def video_black_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']]:
+    def video_black_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs']]:
         """
         MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
         """
         return pulumi.get(self, "video_black_settings")
 
     @video_black_settings.setter
-    def video_black_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']]):
+    def video_black_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs']]):
         pulumi.set(self, "video_black_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs:
     def __init__(__self__, *,
                  audio_selector_name: pulumi.Input[str],
                  audio_silence_threshold_msec: Optional[pulumi.Input[int]] = None):
@@ -9976,7 +9976,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs:
     def __init__(__self__, *,
                  input_loss_threshold_msec: Optional[pulumi.Input[int]] = None):
         """
@@ -9999,7 +9999,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.input_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs:
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs:
     def __init__(__self__, *,
                  black_detect_threshold: Optional[pulumi.Input[float]] = None,
                  video_black_threshold_msec: Optional[pulumi.Input[int]] = None):
@@ -10038,25 +10038,25 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsArgs:
+calass ChannelInputAttachmentInputSettingsArrgs:
     def __init__(__self__, *,
-                 audio_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]] = None,
-                 caption_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]] = None,
+                 audio_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArrgs']]]] = None,
+                 caption_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArrgs']]]] = None,
                  deblock_filter: Optional[pulumi.Input[str]] = None,
                  denoise_filter: Optional[pulumi.Input[str]] = None,
                  filter_strength: Optional[pulumi.Input[int]] = None,
                  input_filter: Optional[pulumi.Input[str]] = None,
-                 network_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']] = None,
+                 network_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs']] = None,
                  scte35_pid: Optional[pulumi.Input[int]] = None,
                  smpte2038_data_preference: Optional[pulumi.Input[str]] = None,
                  source_end_behavior: Optional[pulumi.Input[str]] = None,
-                 video_selector: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']] = None):
+                 video_selector: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArrgs']] = None):
         """
         :param pulumi.Input[str] deblock_filter: Enable or disable the deblock filter when filtering.
         :param pulumi.Input[str] denoise_filter: Enable or disable the denoise filter when filtering.
         :param pulumi.Input[int] filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
         :param pulumi.Input[str] input_filter: Turns on the filter for the input.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs'] network_input_settings: Input settings. See Network Input Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs'] network_input_settings: Input settings. See Network Input Settings for more details.
         :param pulumi.Input[int] scte35_pid: PID from which to read SCTE-35 messages.
         :param pulumi.Input[str] smpte2038_data_preference: Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         :param pulumi.Input[str] source_end_behavior: Loop input if it is a file.
@@ -10086,20 +10086,20 @@ class ChannelInputAttachmentInputSettingsArgs:
 
     @property
     @pulumi.getter(name="audioSelectors")
-    def audio_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]]:
+    def audio_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArrgs']]]]:
         return pulumi.get(self, "audio_selectors")
 
     @audio_selectors.setter
-    def audio_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]]):
+    def audio_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArrgs']]]]):
         pulumi.set(self, "audio_selectors", value)
 
     @property
     @pulumi.getter(name="captionSelectors")
-    def caption_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]:
+    def caption_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArrgs']]]]:
         return pulumi.get(self, "caption_selectors")
 
     @caption_selectors.setter
-    def caption_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]):
+    def caption_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArrgs']]]]):
         pulumi.set(self, "caption_selectors", value)
 
     @property
@@ -10152,14 +10152,14 @@ class ChannelInputAttachmentInputSettingsArgs:
 
     @property
     @pulumi.getter(name="networkInputSettings")
-    def network_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]:
+    def network_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs']]:
         """
         Input settings. See Network Input Settings for more details.
         """
         return pulumi.get(self, "network_input_settings")
 
     @network_input_settings.setter
-    def network_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]):
+    def network_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs']]):
         pulumi.set(self, "network_input_settings", value)
 
     @property
@@ -10200,24 +10200,24 @@ class ChannelInputAttachmentInputSettingsArgs:
 
     @property
     @pulumi.getter(name="videoSelector")
-    def video_selector(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]:
+    def video_selector(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArrgs']]:
         return pulumi.get(self, "video_selector")
 
     @video_selector.setter
-    def video_selector(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]):
+    def video_selector(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArrgs']]):
         pulumi.set(self, "video_selector", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']] = None):
+                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs']] = None):
         """
         :param pulumi.Input[str] name: Name of the Channel.
                
                The following arguments are optional:
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -10239,29 +10239,29 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
 
     @property
     @pulumi.getter(name="selectorSettings")
-    def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']]:
+    def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs']]:
         """
         The audio selector settings. See Audio Selector Settings for more details.
         """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
-    def selector_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']]):
+    def selector_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs']]):
         pulumi.set(self, "selector_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs:
     def __init__(__self__, *,
-                 audio_hls_rendition_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']] = None,
-                 audio_language_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']] = None,
-                 audio_pid_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']] = None,
-                 audio_track_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']] = None):
+                 audio_hls_rendition_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs']] = None,
+                 audio_language_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs']] = None,
+                 audio_pid_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs']] = None,
+                 audio_track_selection: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs'] audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs'] audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs'] audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs'] audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs'] audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs'] audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs'] audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs'] audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
         """
         if audio_hls_rendition_selection is not None:
             pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
@@ -10274,55 +10274,55 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs:
 
     @property
     @pulumi.getter(name="audioHlsRenditionSelection")
-    def audio_hls_rendition_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']]:
+    def audio_hls_rendition_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs']]:
         """
         Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
         """
         return pulumi.get(self, "audio_hls_rendition_selection")
 
     @audio_hls_rendition_selection.setter
-    def audio_hls_rendition_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']]):
+    def audio_hls_rendition_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs']]):
         pulumi.set(self, "audio_hls_rendition_selection", value)
 
     @property
     @pulumi.getter(name="audioLanguageSelection")
-    def audio_language_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']]:
+    def audio_language_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs']]:
         """
         Audio Language Selection. See Audio Language Selection for more details.
         """
         return pulumi.get(self, "audio_language_selection")
 
     @audio_language_selection.setter
-    def audio_language_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']]):
+    def audio_language_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs']]):
         pulumi.set(self, "audio_language_selection", value)
 
     @property
     @pulumi.getter(name="audioPidSelection")
-    def audio_pid_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']]:
+    def audio_pid_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs']]:
         """
         Audio Pid Selection. See Audio PID Selection for more details.
         """
         return pulumi.get(self, "audio_pid_selection")
 
     @audio_pid_selection.setter
-    def audio_pid_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']]):
+    def audio_pid_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs']]):
         pulumi.set(self, "audio_pid_selection", value)
 
     @property
     @pulumi.getter(name="audioTrackSelection")
-    def audio_track_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']]:
+    def audio_track_selection(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs']]:
         """
         Audio Track Selection. See Audio Track Selection for more details.
         """
         return pulumi.get(self, "audio_track_selection")
 
     @audio_track_selection.setter
-    def audio_track_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']]):
+    def audio_track_selection(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs']]):
         pulumi.set(self, "audio_track_selection", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[str],
                  name: pulumi.Input[str]):
@@ -10359,7 +10359,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs:
     def __init__(__self__, *,
                  language_code: pulumi.Input[str],
                  language_selection_policy: Optional[pulumi.Input[str]] = None):
@@ -10397,7 +10397,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs:
     def __init__(__self__, *,
                  pid: pulumi.Input[int]):
         """
@@ -10419,13 +10419,13 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs:
     def __init__(__self__, *,
-                 tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]],
-                 dolby_e_decode: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']] = None):
+                 tracks: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs']]],
+                 dolby_e_decode: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs'] dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs']]] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs'] dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
         """
         pulumi.set(__self__, "tracks", tracks)
         if dolby_e_decode is not None:
@@ -10433,31 +10433,31 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
     @property
     @pulumi.getter
-    def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]:
+    def tracks(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs']]]:
         """
         Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
         """
         return pulumi.get(self, "tracks")
 
     @tracks.setter
-    def tracks(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs']]]):
+    def tracks(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs']]]):
         pulumi.set(self, "tracks", value)
 
     @property
     @pulumi.getter(name="dolbyEDecode")
-    def dolby_e_decode(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]:
+    def dolby_e_decode(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs']]:
         """
         Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
         """
         return pulumi.get(self, "dolby_e_decode")
 
     @dolby_e_decode.setter
-    def dolby_e_decode(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]):
+    def dolby_e_decode(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs']]):
         pulumi.set(self, "dolby_e_decode", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs:
     def __init__(__self__, *,
                  program_selection: pulumi.Input[str]):
         """
@@ -10479,7 +10479,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs:
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs:
     def __init__(__self__, *,
                  track: pulumi.Input[int]):
         """
@@ -10501,17 +10501,17 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  language_code: Optional[pulumi.Input[str]] = None,
-                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']] = None):
+                 selector_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs']] = None):
         """
         :param pulumi.Input[str] name: Name of the Channel.
                
                The following arguments are optional:
         :param pulumi.Input[str] language_code: Selects a specific three-letter language code from within an audio source.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs'] selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if language_code is not None:
@@ -10547,35 +10547,35 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
 
     @property
     @pulumi.getter(name="selectorSettings")
-    def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]:
+    def selector_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs']]:
         """
         The audio selector settings. See Audio Selector Settings for more details.
         """
         return pulumi.get(self, "selector_settings")
 
     @selector_settings.setter
-    def selector_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]):
+    def selector_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs']]):
         pulumi.set(self, "selector_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs:
     def __init__(__self__, *,
-                 ancillary_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']] = None,
-                 arib_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']] = None,
-                 dvb_sub_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']] = None,
-                 embedded_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']] = None,
-                 scte20_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']] = None,
-                 scte27_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']] = None,
-                 teletext_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']] = None):
+                 ancillary_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs']] = None,
+                 arib_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs']] = None,
+                 dvb_sub_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs']] = None,
+                 embedded_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs']] = None,
+                 scte20_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs']] = None,
+                 scte27_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs']] = None,
+                 teletext_source_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs']] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs'] ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs'] arib_source_settings: ARIB Source Settings.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs'] dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs'] embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs'] scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs'] scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs'] teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs'] ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs'] arib_source_settings: ARIB Source Settings.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs'] dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs'] embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs'] scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs'] scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs'] teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
         """
         if ancillary_source_settings is not None:
             pulumi.set(__self__, "ancillary_source_settings", ancillary_source_settings)
@@ -10594,91 +10594,91 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs:
 
     @property
     @pulumi.getter(name="ancillarySourceSettings")
-    def ancillary_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']]:
+    def ancillary_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs']]:
         """
         Ancillary Source Settings. See Ancillary Source Settings for more details.
         """
         return pulumi.get(self, "ancillary_source_settings")
 
     @ancillary_source_settings.setter
-    def ancillary_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']]):
+    def ancillary_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs']]):
         pulumi.set(self, "ancillary_source_settings", value)
 
     @property
     @pulumi.getter(name="aribSourceSettings")
-    def arib_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]:
+    def arib_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs']]:
         """
         ARIB Source Settings.
         """
         return pulumi.get(self, "arib_source_settings")
 
     @arib_source_settings.setter
-    def arib_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]):
+    def arib_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs']]):
         pulumi.set(self, "arib_source_settings", value)
 
     @property
     @pulumi.getter(name="dvbSubSourceSettings")
-    def dvb_sub_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]:
+    def dvb_sub_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs']]:
         """
         DVB Sub Source Settings. See DVB Sub Source Settings for more details.
         """
         return pulumi.get(self, "dvb_sub_source_settings")
 
     @dvb_sub_source_settings.setter
-    def dvb_sub_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]):
+    def dvb_sub_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs']]):
         pulumi.set(self, "dvb_sub_source_settings", value)
 
     @property
     @pulumi.getter(name="embeddedSourceSettings")
-    def embedded_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']]:
+    def embedded_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs']]:
         """
         Embedded Source Settings. See Embedded Source Settings for more details.
         """
         return pulumi.get(self, "embedded_source_settings")
 
     @embedded_source_settings.setter
-    def embedded_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']]):
+    def embedded_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs']]):
         pulumi.set(self, "embedded_source_settings", value)
 
     @property
     @pulumi.getter(name="scte20SourceSettings")
-    def scte20_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']]:
+    def scte20_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs']]:
         """
         SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
         """
         return pulumi.get(self, "scte20_source_settings")
 
     @scte20_source_settings.setter
-    def scte20_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']]):
+    def scte20_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs']]):
         pulumi.set(self, "scte20_source_settings", value)
 
     @property
     @pulumi.getter(name="scte27SourceSettings")
-    def scte27_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']]:
+    def scte27_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs']]:
         """
         SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
         """
         return pulumi.get(self, "scte27_source_settings")
 
     @scte27_source_settings.setter
-    def scte27_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']]):
+    def scte27_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs']]):
         pulumi.set(self, "scte27_source_settings", value)
 
     @property
     @pulumi.getter(name="teletextSourceSettings")
-    def teletext_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']]:
+    def teletext_source_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs']]:
         """
         Teletext Source Settings. See Teletext Source Settings for more details.
         """
         return pulumi.get(self, "teletext_source_settings")
 
     @teletext_source_settings.setter
-    def teletext_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']]):
+    def teletext_source_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs']]):
         pulumi.set(self, "teletext_source_settings", value)
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs:
     def __init__(__self__, *,
                  source_ancillary_channel_number: Optional[pulumi.Input[int]] = None):
         """
@@ -10701,13 +10701,13 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillar
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs:
     def __init__(__self__):
         pass
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs:
     def __init__(__self__, *,
                  ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
@@ -10746,7 +10746,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs:
     def __init__(__self__, *,
                  convert608_to708: Optional[pulumi.Input[str]] = None,
                  scte20_detection: Optional[pulumi.Input[str]] = None,
@@ -10801,7 +10801,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs:
     def __init__(__self__, *,
                  convert608_to708: Optional[pulumi.Input[str]] = None,
                  source608_channel_number: Optional[pulumi.Input[int]] = None):
@@ -10840,7 +10840,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs:
     def __init__(__self__, *,
                  ocr_language: Optional[pulumi.Input[str]] = None,
                  pid: Optional[pulumi.Input[int]] = None):
@@ -10879,12 +10879,12 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs:
     def __init__(__self__, *,
-                 output_rectangle: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']] = None,
+                 output_rectangle: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs']] = None,
                  page_number: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs'] output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs'] output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
         :param pulumi.Input[str] page_number: Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
         """
         if output_rectangle is not None:
@@ -10894,14 +10894,14 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
     @property
     @pulumi.getter(name="outputRectangle")
-    def output_rectangle(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']]:
+    def output_rectangle(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs']]:
         """
         Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
         """
         return pulumi.get(self, "output_rectangle")
 
     @output_rectangle.setter
-    def output_rectangle(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']]):
+    def output_rectangle(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs']]):
         pulumi.set(self, "output_rectangle", value)
 
     @property
@@ -10918,7 +10918,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs:
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs:
     def __init__(__self__, *,
                  height: pulumi.Input[float],
                  left_offset: pulumi.Input[float],
@@ -10985,12 +10985,12 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
+calass ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs:
     def __init__(__self__, *,
-                 hls_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']] = None,
+                 hls_input_settings: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs']] = None,
                  server_validation: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs'] hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        :param pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs'] hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
         :param pulumi.Input[str] server_validation: Check HTTPS server certificates.
         """
         if hls_input_settings is not None:
@@ -11000,14 +11000,14 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
 
     @property
     @pulumi.getter(name="hlsInputSettings")
-    def hls_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]:
+    def hls_input_settings(self) -> Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs']]:
         """
         Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
         """
         return pulumi.get(self, "hls_input_settings")
 
     @hls_input_settings.setter
-    def hls_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]):
+    def hls_input_settings(self, value: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs']]):
         pulumi.set(self, "hls_input_settings", value)
 
     @property
@@ -11024,7 +11024,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs:
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs:
+calass ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs:
     def __init__(__self__, *,
                  bandwidth: Optional[pulumi.Input[int]] = None,
                  buffer_segments: Optional[pulumi.Input[int]] = None,
@@ -11107,7 +11107,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArg
 
 
 @pulumi.input_type
-class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
+calass ChannelInputAttachmentInputSettingsVideoSelectorArrgs:
     def __init__(__self__, *,
                  color_space: Optional[pulumi.Input[str]] = None,
                  color_space_usage: Optional[pulumi.Input[str]] = None):
@@ -11136,7 +11136,7 @@ class ChannelInputAttachmentInputSettingsVideoSelectorArgs:
 
 
 @pulumi.input_type
-class ChannelInputSpecificationArgs:
+calass ChannelInputSpecificationArrgs:
     def __init__(__self__, *,
                  codec: pulumi.Input[str],
                  input_resolution: pulumi.Input[str],
@@ -11174,7 +11174,7 @@ class ChannelInputSpecificationArgs:
 
 
 @pulumi.input_type
-class ChannelMaintenanceArgs:
+calass ChannelMaintenanceArrgs:
     def __init__(__self__, *,
                  maintenance_day: pulumi.Input[str],
                  maintenance_start_time: pulumi.Input[str]):
@@ -11211,7 +11211,7 @@ class ChannelMaintenanceArgs:
 
 
 @pulumi.input_type
-class ChannelVpcArgs:
+calass ChannelVpcArrgs:
     def __init__(__self__, *,
                  public_address_allocation_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -11288,7 +11288,7 @@ class ChannelVpcArgs:
 
 
 @pulumi.input_type
-class InputDestinationArgs:
+calass InputDestinationArrgs:
     def __init__(__self__, *,
                  stream_name: pulumi.Input[str]):
         """
@@ -11310,7 +11310,7 @@ class InputDestinationArgs:
 
 
 @pulumi.input_type
-class InputInputDeviceArgs:
+calass InputInputDeviceArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
@@ -11332,7 +11332,7 @@ class InputInputDeviceArgs:
 
 
 @pulumi.input_type
-class InputMediaConnectFlowArgs:
+calass InputMediaConnectFlowArrgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[str]):
         """
@@ -11354,7 +11354,7 @@ class InputMediaConnectFlowArgs:
 
 
 @pulumi.input_type
-class InputSecurityGroupWhitelistRuleArgs:
+calass InputSecurityGroupWhitelistRuleArrgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str]):
         """
@@ -11376,7 +11376,7 @@ class InputSecurityGroupWhitelistRuleArgs:
 
 
 @pulumi.input_type
-class InputSourceArgs:
+calass InputSourceArrgs:
     def __init__(__self__, *,
                  password_param: pulumi.Input[str],
                  url: pulumi.Input[str],
@@ -11428,7 +11428,7 @@ class InputSourceArgs:
 
 
 @pulumi.input_type
-class InputVpcArgs:
+calass InputVpcArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -11466,7 +11466,7 @@ class InputVpcArgs:
 
 
 @pulumi.input_type
-class MultiplexMultiplexSettingsArgs:
+calass MultiplexMultiplexSettingsArrgs:
     def __init__(__self__, *,
                  transport_stream_bitrate: pulumi.Input[int],
                  transport_stream_id: pulumi.Input[int],
@@ -11535,17 +11535,17 @@ class MultiplexMultiplexSettingsArgs:
 
 
 @pulumi.input_type
-class MultiplexProgramMultiplexProgramSettingsArgs:
+calass MultiplexProgramMultiplexProgramSettingsArrgs:
     def __init__(__self__, *,
                  preferred_channel_pipeline: pulumi.Input[str],
                  program_number: pulumi.Input[int],
-                 service_descriptor: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']] = None,
-                 video_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs']] = None):
+                 service_descriptor: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs']] = None,
+                 video_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs']] = None):
         """
         :param pulumi.Input[str] preferred_channel_pipeline: Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
         :param pulumi.Input[int] program_number: Unique program number.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs'] service_descriptor: Service Descriptor. See Service Descriptor for more details.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs'] video_settings: Video settings. See Video Settings for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs'] service_descriptor: Service Descriptor. See Service Descriptor for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs'] video_settings: Video settings. See Video Settings for more details.
         """
         pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
         pulumi.set(__self__, "program_number", program_number)
@@ -11580,31 +11580,31 @@ class MultiplexProgramMultiplexProgramSettingsArgs:
 
     @property
     @pulumi.getter(name="serviceDescriptor")
-    def service_descriptor(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]:
+    def service_descriptor(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs']]:
         """
         Service Descriptor. See Service Descriptor for more details.
         """
         return pulumi.get(self, "service_descriptor")
 
     @service_descriptor.setter
-    def service_descriptor(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]):
+    def service_descriptor(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs']]):
         pulumi.set(self, "service_descriptor", value)
 
     @property
     @pulumi.getter(name="videoSettings")
-    def video_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs']]:
+    def video_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs']]:
         """
         Video settings. See Video Settings for more details.
         """
         return pulumi.get(self, "video_settings")
 
     @video_settings.setter
-    def video_settings(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs']]):
+    def video_settings(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs']]):
         pulumi.set(self, "video_settings", value)
 
 
 @pulumi.input_type
-class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs:
+calass MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs:
     def __init__(__self__, *,
                  provider_name: pulumi.Input[str],
                  service_name: pulumi.Input[str]):
@@ -11641,13 +11641,13 @@ class MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs:
 
 
 @pulumi.input_type
-class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs:
+calass MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs:
     def __init__(__self__, *,
                  constant_bitrate: Optional[pulumi.Input[int]] = None,
-                 statmux_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']] = None):
+                 statmux_settings: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs']] = None):
         """
         :param pulumi.Input[int] constant_bitrate: Constant bitrate value.
-        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs'] statmux_settings: Statmux settings. See Statmux Settings for more details.
+        :param pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs'] statmux_settings: Statmux settings. See Statmux Settings for more details.
         """
         if constant_bitrate is not None:
             pulumi.set(__self__, "constant_bitrate", constant_bitrate)
@@ -11668,19 +11668,19 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs:
 
     @property
     @pulumi.getter(name="statmuxSettings")
-    def statmux_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']]:
+    def statmux_settings(self) -> Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs']]:
         """
         Statmux settings. See Statmux Settings for more details.
         """
         return pulumi.get(self, "statmux_settings")
 
     @statmux_settings.setter
-    def statmux_settings(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']]):
+    def statmux_settings(self, value: Optional[pulumi.Input['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs']]):
         pulumi.set(self, "statmux_settings", value)
 
 
 @pulumi.input_type
-class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs:
+calass MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs:
     def __init__(__self__, *,
                  maximum_bitrate: Optional[pulumi.Input[int]] = None,
                  minimum_bitrate: Optional[pulumi.Input[int]] = None,

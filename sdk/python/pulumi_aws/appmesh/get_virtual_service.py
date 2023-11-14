@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualServiceResult:
+calass GetVirtualServiceResult:
     """
     A collection of values returned by getVirtualService.
     """
@@ -126,7 +126,7 @@ class GetVirtualServiceResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVirtualServiceResult(GetVirtualServiceResult):
+calass AwaitableGetVirtualServiceResult(GetVirtualServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

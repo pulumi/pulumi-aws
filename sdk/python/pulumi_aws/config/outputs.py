@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AssumeRole(dict):
+calass AssumeRole(dict):
     def __init__(__self__, *,
                  duration: Optional[str] = None,
                  external_id: Optional[str] = None,
@@ -95,7 +95,7 @@ class AssumeRole(dict):
 
 
 @pulumi.output_type
-class AssumeRoleWithWebIdentity(dict):
+calass AssumeRoleWithWebIdentity(dict):
     def __init__(__self__, *,
                  duration: Optional[str] = None,
                  policy: Optional[str] = None,
@@ -156,7 +156,7 @@ class AssumeRoleWithWebIdentity(dict):
 
 
 @pulumi.output_type
-class DefaultTags(dict):
+calass DefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, str]] = None):
         if tags is not None:
@@ -169,7 +169,7 @@ class DefaultTags(dict):
 
 
 @pulumi.output_type
-class Endpoints(dict):
+calass Endpoints(dict):
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
                  account: Optional[str] = None,
@@ -2174,7 +2174,7 @@ class Endpoints(dict):
 
 
 @pulumi.output_type
-class IgnoreTags(dict):
+calass IgnoreTags(dict):
     def __init__(__self__, *,
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  hsm_type: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -84,9 +84,9 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
-                 cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]]] = None,
+                 cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArrgs']]]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_state: Optional[pulumi.Input[str]] = None,
                  hsm_type: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class _ClusterState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]] cluster_certificates: The list of cluster certificates.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArrgs']]] cluster_certificates: The list of cluster certificates.
                * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
                * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
                * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
@@ -140,7 +140,7 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="clusterCertificates")
-    def cluster_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]]]:
+    def cluster_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArrgs']]]]:
         """
         The list of cluster certificates.
         * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
@@ -152,7 +152,7 @@ class _ClusterState:
         return pulumi.get(self, "cluster_certificates")
 
     @cluster_certificates.setter
-    def cluster_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArgs']]]]):
+    def cluster_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterCertificateArrgs']]]]):
         pulumi.set(self, "cluster_certificates", value)
 
     @property
@@ -267,7 +267,7 @@ class _ClusterState:
         pulumi.set(self, "vpc_id", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -308,7 +308,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterArgs,
+                 args: ClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an Amazon CloudHSM v2 cluster.
@@ -331,12 +331,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -356,7 +356,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             if hsm_type is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_type'")
@@ -384,7 +384,7 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArgs']]]]] = None,
+            cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArrgs']]]]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             cluster_state: Optional[pulumi.Input[str]] = None,
             hsm_type: Optional[pulumi.Input[str]] = None,
@@ -401,7 +401,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArgs']]]] cluster_certificates: The list of cluster certificates.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArrgs']]]] cluster_certificates: The list of cluster certificates.
                * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
                * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
                * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.

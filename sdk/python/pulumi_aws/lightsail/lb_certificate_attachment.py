@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LbCertificateAttachmentArgs', 'LbCertificateAttachment']
+__all__ = ['LbCertificateAttachmentArrgs', 'LbCertificateAttachment']
 
 @pulumi.input_type
-class LbCertificateAttachmentArgs:
+calass LbCertificateAttachmentArrgs:
     def __init__(__self__, *,
                  certificate_name: pulumi.Input[str],
                  lb_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LbCertificateAttachmentArgs:
 
 
 @pulumi.input_type
-class _LbCertificateAttachmentState:
+calass _LbCertificateAttachmentState:
     def __init__(__self__, *,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  lb_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LbCertificateAttachmentState:
         pulumi.set(self, "lb_name", value)
 
 
-class LbCertificateAttachment(pulumi.CustomResource):
+calass LbCertificateAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -137,7 +137,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbCertificateAttachmentArgs,
+                 args: LbCertificateAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
@@ -171,12 +171,12 @@ class LbCertificateAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbCertificateAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param LbCertificateAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbCertificateAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbCertificateAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -194,7 +194,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbCertificateAttachmentArgs.__new__(LbCertificateAttachmentArgs)
+            __props__ = LbCertificateAttachmentArrgs.__new__(LbCertificateAttachmentArrgs)
 
             if certificate_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_name'")

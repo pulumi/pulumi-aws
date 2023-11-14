@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ParameterGroupArgs', 'ParameterGroup']
+__all__ = ['ParameterGroupArrgs', 'ParameterGroup']
 
 @pulumi.input_type
-class ParameterGroupArgs:
+calass ParameterGroupArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]] parameters: The parameters of the parameter group.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -58,28 +58,28 @@ class ParameterGroupArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]]:
         """
         The parameters of the parameter group.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class _ParameterGroupState:
+calass _ParameterGroupState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]] parameters: The parameters of the parameter group.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -114,25 +114,25 @@ class _ParameterGroupState:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]]:
         """
         The parameters of the parameter group.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
-class ParameterGroup(pulumi.CustomResource):
+calass ParameterGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArrgs']]]]] = None,
                  __props__=None):
         """
         Provides a DAX Parameter Group resource.
@@ -144,11 +144,11 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dax.ParameterGroup("example", parameters=[
-            aws.dax.ParameterGroupParameterArgs(
+            aws.dax.ParameterGroupParameterArrgs(
                 name="query-ttl-millis",
                 value="100000",
             ),
-            aws.dax.ParameterGroupParameterArgs(
+            aws.dax.ParameterGroupParameterArrgs(
                 name="record-ttl-millis",
                 value="100000",
             ),
@@ -167,13 +167,13 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArrgs']]]] parameters: The parameters of the parameter group.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ParameterGroupArgs] = None,
+                 args: Optional[ParameterGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DAX Parameter Group resource.
@@ -185,11 +185,11 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dax.ParameterGroup("example", parameters=[
-            aws.dax.ParameterGroupParameterArgs(
+            aws.dax.ParameterGroupParameterArrgs(
                 name="query-ttl-millis",
                 value="100000",
             ),
-            aws.dax.ParameterGroupParameterArgs(
+            aws.dax.ParameterGroupParameterArrgs(
                 name="record-ttl-millis",
                 value="100000",
             ),
@@ -205,12 +205,12 @@ class ParameterGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ParameterGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ParameterGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ParameterGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -221,7 +221,7 @@ class ParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,7 +229,7 @@ class ParameterGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ParameterGroupArgs.__new__(ParameterGroupArgs)
+            __props__ = ParameterGroupArrgs.__new__(ParameterGroupArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -246,7 +246,7 @@ class ParameterGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None) -> 'ParameterGroup':
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArrgs']]]]] = None) -> 'ParameterGroup':
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -256,7 +256,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArrgs']]]] parameters: The parameters of the parameter group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

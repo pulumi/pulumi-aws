@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFunctionUrlResult:
+calass GetFunctionUrlResult:
     """
     A collection of values returned by getFunctionUrl.
     """
@@ -140,7 +140,7 @@ class GetFunctionUrlResult:
         return pulumi.get(self, "url_id")
 
 
-class AwaitableGetFunctionUrlResult(GetFunctionUrlResult):
+calass AwaitableGetFunctionUrlResult(GetFunctionUrlResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

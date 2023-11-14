@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LbStickinessPolicyArgs', 'LbStickinessPolicy']
+__all__ = ['LbStickinessPolicyArrgs', 'LbStickinessPolicy']
 
 @pulumi.input_type
-class LbStickinessPolicyArgs:
+calass LbStickinessPolicyArrgs:
     def __init__(__self__, *,
                  cookie_duration: pulumi.Input[int],
                  enabled: pulumi.Input[bool],
@@ -65,7 +65,7 @@ class LbStickinessPolicyArgs:
 
 
 @pulumi.input_type
-class _LbStickinessPolicyState:
+calass _LbStickinessPolicyState:
     def __init__(__self__, *,
                  cookie_duration: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -120,7 +120,7 @@ class _LbStickinessPolicyState:
         pulumi.set(self, "lb_name", value)
 
 
-class LbStickinessPolicy(pulumi.CustomResource):
+calass LbStickinessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,7 +168,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbStickinessPolicyArgs,
+                 args: LbStickinessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Session Stickiness for a Lightsail Load Balancer.
@@ -200,12 +200,12 @@ class LbStickinessPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbStickinessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LbStickinessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbStickinessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbStickinessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -224,7 +224,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbStickinessPolicyArgs.__new__(LbStickinessPolicyArgs)
+            __props__ = LbStickinessPolicyArrgs.__new__(LbStickinessPolicyArrgs)
 
             if cookie_duration is None and not opts.urn:
                 raise TypeError("Missing required property 'cookie_duration'")

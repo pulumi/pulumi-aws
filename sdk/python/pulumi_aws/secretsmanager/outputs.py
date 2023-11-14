@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class SecretReplica(dict):
+calass SecretReplica(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -104,7 +104,7 @@ class SecretReplica(dict):
 
 
 @pulumi.output_type
-class SecretRotationRotationRules(dict):
+calass SecretRotationRotationRules(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -166,7 +166,7 @@ class SecretRotationRotationRules(dict):
 
 
 @pulumi.output_type
-class GetSecretRotationRotationRuleResult(dict):
+calass GetSecretRotationRotationRuleResult(dict):
     def __init__(__self__, *,
                  automatically_after_days: int,
                  duration: str,
@@ -192,7 +192,7 @@ class GetSecretRotationRotationRuleResult(dict):
 
 
 @pulumi.output_type
-class GetSecretsFilterResult(dict):
+calass GetSecretsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -10,18 +10,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointElasticsearchSettingsArgs',
-    'EndpointKafkaSettingsArgs',
-    'EndpointKinesisSettingsArgs',
-    'EndpointMongodbSettingsArgs',
-    'EndpointRedisSettingsArgs',
-    'EndpointRedshiftSettingsArgs',
-    'EndpointS3SettingsArgs',
-    'ReplicationConfigComputeConfigArgs',
+    'EndpointElasticsearchSettingsArrgs',
+    'EndpointKafkaSettingsArrgs',
+    'EndpointKinesisSettingsArrgs',
+    'EndpointMongodbSettingsArrgs',
+    'EndpointRedisSettingsArrgs',
+    'EndpointRedshiftSettingsArrgs',
+    'EndpointS3SettingsArrgs',
+    'ReplicationConfigComputeConfigArrgs',
 ]
 
 @pulumi.input_type
-class EndpointElasticsearchSettingsArgs:
+calass EndpointElasticsearchSettingsArrgs:
     def __init__(__self__, *,
                  endpoint_uri: pulumi.Input[str],
                  service_access_role_arn: pulumi.Input[str],
@@ -90,7 +90,7 @@ class EndpointElasticsearchSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointKafkaSettingsArgs:
+calass EndpointKafkaSettingsArrgs:
     def __init__(__self__, *,
                  broker: pulumi.Input[str],
                  include_control_details: Optional[pulumi.Input[bool]] = None,
@@ -384,7 +384,7 @@ class EndpointKafkaSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointKinesisSettingsArgs:
+calass EndpointKinesisSettingsArrgs:
     def __init__(__self__, *,
                  include_control_details: Optional[pulumi.Input[bool]] = None,
                  include_null_and_empty: Optional[pulumi.Input[bool]] = None,
@@ -535,7 +535,7 @@ class EndpointKinesisSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointMongodbSettingsArgs:
+calass EndpointMongodbSettingsArrgs:
     def __init__(__self__, *,
                  auth_mechanism: Optional[pulumi.Input[str]] = None,
                  auth_source: Optional[pulumi.Input[str]] = None,
@@ -638,7 +638,7 @@ class EndpointMongodbSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointRedisSettingsArgs:
+calass EndpointRedisSettingsArrgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
                  port: pulumi.Input[int],
@@ -754,7 +754,7 @@ class EndpointRedisSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointRedshiftSettingsArgs:
+calass EndpointRedshiftSettingsArrgs:
     def __init__(__self__, *,
                  bucket_folder: Optional[pulumi.Input[str]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -841,7 +841,7 @@ class EndpointRedshiftSettingsArgs:
 
 
 @pulumi.input_type
-class EndpointS3SettingsArgs:
+calass EndpointS3SettingsArrgs:
     def __init__(__self__, *,
                  add_column_name: Optional[pulumi.Input[bool]] = None,
                  bucket_folder: Optional[pulumi.Input[str]] = None,
@@ -1456,7 +1456,7 @@ class EndpointS3SettingsArgs:
 
 
 @pulumi.input_type
-class ReplicationConfigComputeConfigArgs:
+calass ReplicationConfigComputeConfigArrgs:
     def __init__(__self__, *,
                  replication_subnet_group_id: pulumi.Input[str],
                  availability_zone: Optional[pulumi.Input[str]] = None,

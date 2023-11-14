@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConfigurationProfilesResult:
+calass GetConfigurationProfilesResult:
     """
     A collection of values returned by getConfigurationProfiles.
     """
@@ -54,7 +54,7 @@ class GetConfigurationProfilesResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetConfigurationProfilesResult(GetConfigurationProfilesResult):
+calass AwaitableGetConfigurationProfilesResult(GetConfigurationProfilesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReplicaExternalKeyArgs', 'ReplicaExternalKey']
+__all__ = ['ReplicaExternalKeyArrgs', 'ReplicaExternalKey']
 
 @pulumi.input_type
-class ReplicaExternalKeyArgs:
+calass ReplicaExternalKeyArrgs:
     def __init__(__self__, *,
                  primary_key_arn: pulumi.Input[str],
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
@@ -171,7 +171,7 @@ class ReplicaExternalKeyArgs:
 
 
 @pulumi.input_type
-class _ReplicaExternalKeyState:
+calass _ReplicaExternalKeyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
@@ -432,7 +432,7 @@ class _ReplicaExternalKeyState:
         pulumi.set(self, "valid_to", value)
 
 
-class ReplicaExternalKey(pulumi.CustomResource):
+calass ReplicaExternalKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -501,7 +501,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicaExternalKeyArgs,
+                 args: ReplicaExternalKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a KMS multi-Region replica key that uses external key material.
@@ -538,12 +538,12 @@ class ReplicaExternalKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicaExternalKeyArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicaExternalKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicaExternalKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicaExternalKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -568,7 +568,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicaExternalKeyArgs.__new__(ReplicaExternalKeyArgs)
+            __props__ = ReplicaExternalKeyArrgs.__new__(ReplicaExternalKeyArrgs)
 
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["deletion_window_in_days"] = deletion_window_in_days

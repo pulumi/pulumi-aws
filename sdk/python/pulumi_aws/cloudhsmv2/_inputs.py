@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterClusterCertificateArgs',
+    'ClusterClusterCertificateArrgs',
 ]
 
 @pulumi.input_type
-class ClusterClusterCertificateArgs:
+calass ClusterClusterCertificateArrgs:
     def __init__(__self__, *,
                  aws_hardware_certificate: Optional[pulumi.Input[str]] = None,
                  cluster_certificate: Optional[pulumi.Input[str]] = None,

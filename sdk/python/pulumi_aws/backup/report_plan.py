@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReportPlanArgs', 'ReportPlan']
+__all__ = ['ReportPlanArrgs', 'ReportPlan']
 
 @pulumi.input_type
-class ReportPlanArgs:
+calass ReportPlanArrgs:
     def __init__(__self__, *,
-                 report_delivery_channel: pulumi.Input['ReportPlanReportDeliveryChannelArgs'],
-                 report_setting: pulumi.Input['ReportPlanReportSettingArgs'],
+                 report_delivery_channel: pulumi.Input['ReportPlanReportDeliveryChannelArrgs'],
+                 report_setting: pulumi.Input['ReportPlanReportSettingArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
-        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input['ReportPlanReportDeliveryChannelArrgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input['ReportPlanReportSettingArrgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[str] description: The description of the report plan with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,26 +40,26 @@ class ReportPlanArgs:
 
     @property
     @pulumi.getter(name="reportDeliveryChannel")
-    def report_delivery_channel(self) -> pulumi.Input['ReportPlanReportDeliveryChannelArgs']:
+    def report_delivery_channel(self) -> pulumi.Input['ReportPlanReportDeliveryChannelArrgs']:
         """
         An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channel")
 
     @report_delivery_channel.setter
-    def report_delivery_channel(self, value: pulumi.Input['ReportPlanReportDeliveryChannelArgs']):
+    def report_delivery_channel(self, value: pulumi.Input['ReportPlanReportDeliveryChannelArrgs']):
         pulumi.set(self, "report_delivery_channel", value)
 
     @property
     @pulumi.getter(name="reportSetting")
-    def report_setting(self) -> pulumi.Input['ReportPlanReportSettingArgs']:
+    def report_setting(self) -> pulumi.Input['ReportPlanReportSettingArrgs']:
         """
         An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_setting")
 
     @report_setting.setter
-    def report_setting(self, value: pulumi.Input['ReportPlanReportSettingArgs']):
+    def report_setting(self, value: pulumi.Input['ReportPlanReportSettingArrgs']):
         pulumi.set(self, "report_setting", value)
 
     @property
@@ -100,15 +100,15 @@ class ReportPlanArgs:
 
 
 @pulumi.input_type
-class _ReportPlanState:
+calass _ReportPlanState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  deployment_status: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 report_delivery_channel: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArgs']] = None,
-                 report_setting: Optional[pulumi.Input['ReportPlanReportSettingArgs']] = None,
+                 report_delivery_channel: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArrgs']] = None,
+                 report_setting: Optional[pulumi.Input['ReportPlanReportSettingArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -118,8 +118,8 @@ class _ReportPlanState:
         :param pulumi.Input[str] deployment_status: The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         :param pulumi.Input[str] description: The description of the report plan with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input['ReportPlanReportSettingArgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input['ReportPlanReportDeliveryChannelArrgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input['ReportPlanReportSettingArrgs'] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -207,26 +207,26 @@ class _ReportPlanState:
 
     @property
     @pulumi.getter(name="reportDeliveryChannel")
-    def report_delivery_channel(self) -> Optional[pulumi.Input['ReportPlanReportDeliveryChannelArgs']]:
+    def report_delivery_channel(self) -> Optional[pulumi.Input['ReportPlanReportDeliveryChannelArrgs']]:
         """
         An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channel")
 
     @report_delivery_channel.setter
-    def report_delivery_channel(self, value: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArgs']]):
+    def report_delivery_channel(self, value: Optional[pulumi.Input['ReportPlanReportDeliveryChannelArrgs']]):
         pulumi.set(self, "report_delivery_channel", value)
 
     @property
     @pulumi.getter(name="reportSetting")
-    def report_setting(self) -> Optional[pulumi.Input['ReportPlanReportSettingArgs']]:
+    def report_setting(self) -> Optional[pulumi.Input['ReportPlanReportSettingArrgs']]:
         """
         An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_setting")
 
     @report_setting.setter
-    def report_setting(self, value: Optional[pulumi.Input['ReportPlanReportSettingArgs']]):
+    def report_setting(self, value: Optional[pulumi.Input['ReportPlanReportSettingArrgs']]):
         pulumi.set(self, "report_setting", value)
 
     @property
@@ -257,15 +257,15 @@ class _ReportPlanState:
         pulumi.set(self, "tags_all", value)
 
 
-class ReportPlan(pulumi.CustomResource):
+calass ReportPlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArgs']]] = None,
-                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArgs']]] = None,
+                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArrgs']]] = None,
+                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -279,14 +279,14 @@ class ReportPlan(pulumi.CustomResource):
 
         example = aws.backup.ReportPlan("example",
             description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
+            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArrgs(
                 formats=[
                     "CSV",
                     "JSON",
                 ],
                 s3_bucket_name="example-bucket-name",
             ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
+            report_setting=aws.backup.ReportPlanReportSettingArrgs(
                 report_template="RESTORE_JOB_REPORT",
             ),
             tags={
@@ -306,15 +306,15 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the report plan with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArgs']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ReportPlanReportSettingArgs']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArrgs']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ReportPlanReportSettingArrgs']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReportPlanArgs,
+                 args: ReportPlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup Report Plan resource.
@@ -327,14 +327,14 @@ class ReportPlan(pulumi.CustomResource):
 
         example = aws.backup.ReportPlan("example",
             description="example description",
-            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArgs(
+            report_delivery_channel=aws.backup.ReportPlanReportDeliveryChannelArrgs(
                 formats=[
                     "CSV",
                     "JSON",
                 ],
                 s3_bucket_name="example-bucket-name",
             ),
-            report_setting=aws.backup.ReportPlanReportSettingArgs(
+            report_setting=aws.backup.ReportPlanReportSettingArrgs(
                 report_template="RESTORE_JOB_REPORT",
             ),
             tags={
@@ -351,12 +351,12 @@ class ReportPlan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReportPlanArgs args: The arguments to use to populate this resource's properties.
+        :param ReportPlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReportPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReportPlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,8 +367,8 @@ class ReportPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArgs']]] = None,
-                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArgs']]] = None,
+                 report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArrgs']]] = None,
+                 report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,7 +377,7 @@ class ReportPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReportPlanArgs.__new__(ReportPlanArgs)
+            __props__ = ReportPlanArrgs.__new__(ReportPlanArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -409,8 +409,8 @@ class ReportPlan(pulumi.CustomResource):
             deployment_status: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArgs']]] = None,
-            report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArgs']]] = None,
+            report_delivery_channel: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArrgs']]] = None,
+            report_setting: Optional[pulumi.Input[pulumi.InputType['ReportPlanReportSettingArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ReportPlan':
         """
@@ -425,8 +425,8 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_status: The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         :param pulumi.Input[str] description: The description of the report plan with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        :param pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArgs']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ReportPlanReportSettingArgs']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ReportPlanReportDeliveryChannelArrgs']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ReportPlanReportSettingArrgs']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

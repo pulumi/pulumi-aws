@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ContainerServiceArgs', 'ContainerService']
+__all__ = ['ContainerServiceArrgs', 'ContainerService']
 
 @pulumi.input_type
-class ContainerServiceArgs:
+calass ContainerServiceArrgs:
     def __init__(__self__, *,
                  power: pulumi.Input[str],
                  scale: pulumi.Input[int],
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
-                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']] = None,
+                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ContainerService resource.
@@ -33,8 +33,8 @@ class ContainerServiceArgs:
         :param pulumi.Input[bool] is_disabled: A Boolean value indicating whether the container service is disabled. Defaults to `false`.
         :param pulumi.Input[str] name: The name for the container service. Names must be of length 1 to 63, and be
                unique within each AWS Region in your Lightsail account.
-        :param pulumi.Input['ContainerServicePrivateRegistryAccessArgs'] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
-        :param pulumi.Input['ContainerServicePublicDomainNamesArgs'] public_domain_names: The public domain names to use with the container service, such as example.com
+        :param pulumi.Input['ContainerServicePrivateRegistryAccessArrgs'] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        :param pulumi.Input['ContainerServicePublicDomainNamesArrgs'] public_domain_names: The public domain names to use with the container service, such as example.com
                and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
@@ -111,19 +111,19 @@ class ContainerServiceArgs:
 
     @property
     @pulumi.getter(name="privateRegistryAccess")
-    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
+    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']]:
         """
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
-    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]):
+    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']]):
         pulumi.set(self, "private_registry_access", value)
 
     @property
     @pulumi.getter(name="publicDomainNames")
-    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
+    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']]:
         """
         The public domain names to use with the container service, such as example.com
         and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -134,7 +134,7 @@ class ContainerServiceArgs:
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
-    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]):
+    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']]):
         pulumi.set(self, "public_domain_names", value)
 
     @property
@@ -154,7 +154,7 @@ class ContainerServiceArgs:
 
 
 @pulumi.input_type
-class _ContainerServiceState:
+calass _ContainerServiceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -165,8 +165,8 @@ class _ContainerServiceState:
                  power_id: Optional[pulumi.Input[str]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
                  private_domain_name: Optional[pulumi.Input[str]] = None,
-                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']] = None,
-                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']] = None,
+                 private_registry_access: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']] = None,
+                 public_domain_names: Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -189,8 +189,8 @@ class _ContainerServiceState:
                service permission to access resources in your standard AWS account.
         :param pulumi.Input[str] private_domain_name: The private domain name of the container service. The private domain name is accessible only
                by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        :param pulumi.Input['ContainerServicePrivateRegistryAccessArgs'] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
-        :param pulumi.Input['ContainerServicePublicDomainNamesArgs'] public_domain_names: The public domain names to use with the container service, such as example.com
+        :param pulumi.Input['ContainerServicePrivateRegistryAccessArrgs'] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        :param pulumi.Input['ContainerServicePublicDomainNamesArrgs'] public_domain_names: The public domain names to use with the container service, such as example.com
                and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
@@ -359,19 +359,19 @@ class _ContainerServiceState:
 
     @property
     @pulumi.getter(name="privateRegistryAccess")
-    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]:
+    def private_registry_access(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']]:
         """
         An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         """
         return pulumi.get(self, "private_registry_access")
 
     @private_registry_access.setter
-    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArgs']]):
+    def private_registry_access(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessArrgs']]):
         pulumi.set(self, "private_registry_access", value)
 
     @property
     @pulumi.getter(name="publicDomainNames")
-    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]:
+    def public_domain_names(self) -> Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']]:
         """
         The public domain names to use with the container service, such as example.com
         and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
@@ -382,7 +382,7 @@ class _ContainerServiceState:
         return pulumi.get(self, "public_domain_names")
 
     @public_domain_names.setter
-    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArgs']]):
+    def public_domain_names(self, value: Optional[pulumi.Input['ContainerServicePublicDomainNamesArrgs']]):
         pulumi.set(self, "public_domain_names", value)
 
     @property
@@ -467,7 +467,7 @@ class _ContainerServiceState:
         pulumi.set(self, "url", value)
 
 
-class ContainerService(pulumi.CustomResource):
+calass ContainerService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -475,8 +475,8 @@ class ContainerService(pulumi.CustomResource):
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  power: Optional[pulumi.Input[str]] = None,
-                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArgs']]] = None,
-                 public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']]] = None,
+                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArrgs']]] = None,
+                 public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArrgs']]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -510,8 +510,8 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArgs(
-            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArgs(
+        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArrgs(
+            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArrgs(
                 certificate_name="example-certificate",
                 domain_names=["www.example.com"],
             )],
@@ -524,14 +524,14 @@ class ContainerService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArgs(
-            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(
+        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArrgs(
+            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs(
                 is_active=True,
             ),
         ))
-        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
             )],
@@ -561,8 +561,8 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[str] power: The power specification for the container service. The power specifies the amount of memory,
                the number of vCPUs, and the monthly price of each node of the container service.
                Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
-        :param pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArgs']] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
-        :param pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']] public_domain_names: The public domain names to use with the container service, such as example.com
+        :param pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArrgs']] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        :param pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArrgs']] public_domain_names: The public domain names to use with the container service, such as example.com
                and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.
@@ -578,7 +578,7 @@ class ContainerService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerServiceArgs,
+                 args: ContainerServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run,
@@ -610,8 +610,8 @@ class ContainerService(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArgs(
-            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArgs(
+        my_container_service = aws.lightsail.ContainerService("myContainerService", public_domain_names=aws.lightsail.ContainerServicePublicDomainNamesArrgs(
+            certificates=[aws.lightsail.ContainerServicePublicDomainNamesCertificateArrgs(
                 certificate_name="example-certificate",
                 domain_names=["www.example.com"],
             )],
@@ -624,14 +624,14 @@ class ContainerService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArgs(
-            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(
+        default_container_service = aws.lightsail.ContainerService("defaultContainerService", private_registry_access=aws.lightsail.ContainerServicePrivateRegistryAccessArrgs(
+            ecr_image_puller_role=aws.lightsail.ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs(
                 is_active=True,
             ),
         ))
-        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        default_policy_document = default_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[private_registry_access.ecr_image_puller_role.principal_arn],
             )],
@@ -654,12 +654,12 @@ class ContainerService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.
+        :param ContainerServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContainerServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -671,8 +671,8 @@ class ContainerService(pulumi.CustomResource):
                  is_disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  power: Optional[pulumi.Input[str]] = None,
-                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArgs']]] = None,
-                 public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']]] = None,
+                 private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArrgs']]] = None,
+                 public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArrgs']]] = None,
                  scale: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -682,7 +682,7 @@ class ContainerService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContainerServiceArgs.__new__(ContainerServiceArgs)
+            __props__ = ContainerServiceArrgs.__new__(ContainerServiceArrgs)
 
             __props__.__dict__["is_disabled"] = is_disabled
             __props__.__dict__["name"] = name
@@ -726,8 +726,8 @@ class ContainerService(pulumi.CustomResource):
             power_id: Optional[pulumi.Input[str]] = None,
             principal_arn: Optional[pulumi.Input[str]] = None,
             private_domain_name: Optional[pulumi.Input[str]] = None,
-            private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArgs']]] = None,
-            public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']]] = None,
+            private_registry_access: Optional[pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArrgs']]] = None,
+            public_domain_names: Optional[pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArrgs']]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             scale: Optional[pulumi.Input[int]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -755,8 +755,8 @@ class ContainerService(pulumi.CustomResource):
                service permission to access resources in your standard AWS account.
         :param pulumi.Input[str] private_domain_name: The private domain name of the container service. The private domain name is accessible only
                by other resources within the default virtual private cloud (VPC) of your Lightsail account.
-        :param pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArgs']] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
-        :param pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArgs']] public_domain_names: The public domain names to use with the container service, such as example.com
+        :param pulumi.Input[pulumi.InputType['ContainerServicePrivateRegistryAccessArrgs']] private_registry_access: An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
+        :param pulumi.Input[pulumi.InputType['ContainerServicePublicDomainNamesArrgs']] public_domain_names: The public domain names to use with the container service, such as example.com
                and www.example.com. You can specify up to four public domain names for a container service. The domain names that you
                specify are used when you create a deployment with a container configured as the public endpoint of your container
                service. If you don't specify public domain names, then you can use the default domain of the container service.

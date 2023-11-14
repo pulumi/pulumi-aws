@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQueuesResult:
+calass GetQueuesResult:
     """
     A collection of values returned by getQueues.
     """
@@ -54,7 +54,7 @@ class GetQueuesResult:
         return pulumi.get(self, "queue_urls")
 
 
-class AwaitableGetQueuesResult(GetQueuesResult):
+calass AwaitableGetQueuesResult(GetQueuesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

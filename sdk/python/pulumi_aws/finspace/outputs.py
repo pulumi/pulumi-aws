@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class KxClusterAutoScalingConfiguration(dict):
+calass KxClusterAutoScalingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,7 +127,7 @@ class KxClusterAutoScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class KxClusterCacheStorageConfiguration(dict):
+calass KxClusterCacheStorageConfiguration(dict):
     def __init__(__self__, *,
                  size: int,
                  type: str):
@@ -162,7 +162,7 @@ class KxClusterCacheStorageConfiguration(dict):
 
 
 @pulumi.output_type
-class KxClusterCapacityConfiguration(dict):
+calass KxClusterCapacityConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -228,7 +228,7 @@ class KxClusterCapacityConfiguration(dict):
 
 
 @pulumi.output_type
-class KxClusterCode(dict):
+calass KxClusterCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -290,7 +290,7 @@ class KxClusterCode(dict):
 
 
 @pulumi.output_type
-class KxClusterDatabase(dict):
+calass KxClusterDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -318,7 +318,7 @@ class KxClusterDatabase(dict):
                  changeset_id: Optional[str] = None):
         """
         :param str database_name: Name of the KX database.
-        :param Sequence['KxClusterDatabaseCacheConfigurationArgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+        :param Sequence['KxClusterDatabaseCacheConfigurationArrgs'] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param str changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
         pulumi.set(__self__, "database_name", database_name)
@@ -353,7 +353,7 @@ class KxClusterDatabase(dict):
 
 
 @pulumi.output_type
-class KxClusterDatabaseCacheConfiguration(dict):
+calass KxClusterDatabaseCacheConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -402,7 +402,7 @@ class KxClusterDatabaseCacheConfiguration(dict):
 
 
 @pulumi.output_type
-class KxClusterSavedownStorageConfiguration(dict):
+calass KxClusterSavedownStorageConfiguration(dict):
     def __init__(__self__, *,
                  size: int,
                  type: str):
@@ -433,7 +433,7 @@ class KxClusterSavedownStorageConfiguration(dict):
 
 
 @pulumi.output_type
-class KxClusterVpcConfiguration(dict):
+calass KxClusterVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -505,7 +505,7 @@ class KxClusterVpcConfiguration(dict):
 
 
 @pulumi.output_type
-class KxEnvironmentCustomDnsConfiguration(dict):
+calass KxEnvironmentCustomDnsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -553,7 +553,7 @@ class KxEnvironmentCustomDnsConfiguration(dict):
 
 
 @pulumi.output_type
-class KxEnvironmentTransitGatewayConfiguration(dict):
+calass KxEnvironmentTransitGatewayConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -582,7 +582,7 @@ class KxEnvironmentTransitGatewayConfiguration(dict):
         """
         :param str routable_cidr_space: Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         :param str transit_gateway_id: Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
-        :param Sequence['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs'] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+        :param Sequence['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs'] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
         pulumi.set(__self__, "routable_cidr_space", routable_cidr_space)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -615,7 +615,7 @@ class KxEnvironmentTransitGatewayConfiguration(dict):
 
 
 @pulumi.output_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration(dict):
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -653,8 +653,8 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration(
         :param str protocol: Protocol number. A value of `1` means all the protocols.
         :param str rule_action: Indicates whether to `allow` or `deny` the traffic that matches the rule.
         :param int rule_number: Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
-        :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs' icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
-        :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs' port_range: Range of ports the rule applies to. Defined below.
+        :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs' icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        :param 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs' port_range: Range of ports the rule applies to. Defined below.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "protocol", protocol)
@@ -715,7 +715,7 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration(
 
 
 @pulumi.output_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode(dict):
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode(dict):
     def __init__(__self__, *,
                  code: int,
                  type: int):
@@ -744,7 +744,7 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationI
 
 
 @pulumi.output_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange(dict):
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcConnectionArgs', 'VpcConnection']
+__all__ = ['VpcConnectionArrgs', 'VpcConnection']
 
 @pulumi.input_type
-class VpcConnectionArgs:
+calass VpcConnectionArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -24,7 +24,7 @@ class VpcConnectionArgs:
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
         :param pulumi.Input[str] role_arn: The IAM role to associate with the VPC connection.
@@ -153,16 +153,16 @@ class VpcConnectionArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcConnectionTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _VpcConnectionState:
+calass _VpcConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_status: Optional[pulumi.Input[str]] = None,
@@ -174,7 +174,7 @@ class _VpcConnectionState:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcConnection resources.
@@ -347,11 +347,11 @@ class _VpcConnectionState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['VpcConnectionTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['VpcConnectionTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -367,7 +367,7 @@ class _VpcConnectionState:
         pulumi.set(self, "vpc_connection_id", value)
 
 
-class VpcConnection(pulumi.CustomResource):
+calass VpcConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -379,7 +379,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArrgs']]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -404,7 +404,7 @@ class VpcConnection(pulumi.CustomResource):
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
+            inline_policies=[aws.iam.RoleInlinePolicyArrgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
                     "Version": "2012-10-17",
@@ -456,7 +456,7 @@ class VpcConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcConnectionArgs,
+                 args: VpcConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS QuickSight VPC Connection.
@@ -480,7 +480,7 @@ class VpcConnection(pulumi.CustomResource):
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
+            inline_policies=[aws.iam.RoleInlinePolicyArrgs(
                 name="QuickSightVPCConnectionRolePolicy",
                 policy=json.dumps({
                     "Version": "2012-10-17",
@@ -516,12 +516,12 @@ class VpcConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VpcConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -537,7 +537,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArrgs']]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -546,7 +546,7 @@ class VpcConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcConnectionArgs.__new__(VpcConnectionArgs)
+            __props__ = VpcConnectionArrgs.__new__(VpcConnectionArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["dns_resolvers"] = dns_resolvers
@@ -590,7 +590,7 @@ class VpcConnection(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArrgs']]] = None,
             vpc_connection_id: Optional[pulumi.Input[str]] = None) -> 'VpcConnection':
         """
         Get an existing VpcConnection resource's state with the given name, id, and optional extra

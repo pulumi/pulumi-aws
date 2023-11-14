@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventArchiveArgs', 'EventArchive']
+__all__ = ['EventArchiveArrgs', 'EventArchive']
 
 @pulumi.input_type
-class EventArchiveArgs:
+calass EventArchiveArrgs:
     def __init__(__self__, *,
                  event_source_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class EventArchiveArgs:
 
 
 @pulumi.input_type
-class _EventArchiveState:
+calass _EventArchiveState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _EventArchiveState:
         pulumi.set(self, "retention_days", value)
 
 
-class EventArchive(pulumi.CustomResource):
+calass EventArchive(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,7 +264,7 @@ class EventArchive(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventArchiveArgs,
+                 args: EventArchiveArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EventBridge event archive resource.
@@ -306,12 +306,12 @@ class EventArchive(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventArchiveArgs args: The arguments to use to populate this resource's properties.
+        :param EventArchiveArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventArchiveArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventArchiveArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -332,7 +332,7 @@ class EventArchive(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventArchiveArgs.__new__(EventArchiveArgs)
+            __props__ = EventArchiveArrgs.__new__(EventArchiveArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["event_pattern"] = event_pattern

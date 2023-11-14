@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertificateAuthorityArgs', 'CertificateAuthority']
+__all__ = ['CertificateAuthorityArrgs', 'CertificateAuthority']
 
 @pulumi.input_type
-class CertificateAuthorityArgs:
+calass CertificateAuthorityArrgs:
     def __init__(__self__, *,
-                 certificate_authority_configuration: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'],
+                 certificate_authority_configuration: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs'],
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
-                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
-        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
+        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
@@ -53,14 +53,14 @@ class CertificateAuthorityArgs:
 
     @property
     @pulumi.getter(name="certificateAuthorityConfiguration")
-    def certificate_authority_configuration(self) -> pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']:
+    def certificate_authority_configuration(self) -> pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs']:
         """
         Nested argument containing algorithms and certificate subject information. Defined below.
         """
         return pulumi.get(self, "certificate_authority_configuration")
 
     @certificate_authority_configuration.setter
-    def certificate_authority_configuration(self, value: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']):
+    def certificate_authority_configuration(self, value: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs']):
         pulumi.set(self, "certificate_authority_configuration", value)
 
     @property
@@ -101,14 +101,14 @@ class CertificateAuthorityArgs:
 
     @property
     @pulumi.getter(name="revocationConfiguration")
-    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
+    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']]:
         """
         Nested argument containing revocation configuration. Defined below.
         """
         return pulumi.get(self, "revocation_configuration")
 
     @revocation_configuration.setter
-    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]):
+    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']]):
         pulumi.set(self, "revocation_configuration", value)
 
     @property
@@ -149,11 +149,11 @@ class CertificateAuthorityArgs:
 
 
 @pulumi.input_type
-class _CertificateAuthorityState:
+calass _CertificateAuthorityState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
-                 certificate_authority_configuration: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']] = None,
+                 certificate_authority_configuration: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs']] = None,
                  certificate_chain: Optional[pulumi.Input[str]] = None,
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -161,7 +161,7 @@ class _CertificateAuthorityState:
                  not_after: Optional[pulumi.Input[str]] = None,
                  not_before: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
-                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
+                 revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']] = None,
                  serial: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -171,7 +171,7 @@ class _CertificateAuthorityState:
         Input properties used for looking up and filtering CertificateAuthority resources.
         :param pulumi.Input[str] arn: ARN of the certificate authority.
         :param pulumi.Input[str] certificate: Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
+        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
@@ -179,7 +179,7 @@ class _CertificateAuthorityState:
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -248,14 +248,14 @@ class _CertificateAuthorityState:
 
     @property
     @pulumi.getter(name="certificateAuthorityConfiguration")
-    def certificate_authority_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']]:
+    def certificate_authority_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs']]:
         """
         Nested argument containing algorithms and certificate subject information. Defined below.
         """
         return pulumi.get(self, "certificate_authority_configuration")
 
     @certificate_authority_configuration.setter
-    def certificate_authority_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs']]):
+    def certificate_authority_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArrgs']]):
         pulumi.set(self, "certificate_authority_configuration", value)
 
     @property
@@ -344,14 +344,14 @@ class _CertificateAuthorityState:
 
     @property
     @pulumi.getter(name="revocationConfiguration")
-    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]:
+    def revocation_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']]:
         """
         Nested argument containing revocation configuration. Defined below.
         """
         return pulumi.get(self, "revocation_configuration")
 
     @revocation_configuration.setter
-    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']]):
+    def revocation_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArrgs']]):
         pulumi.set(self, "revocation_configuration", value)
 
     @property
@@ -418,16 +418,16 @@ class _CertificateAuthorityState:
         pulumi.set(self, "usage_mode", value)
 
 
-class CertificateAuthority(pulumi.CustomResource):
+calass CertificateAuthority(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
+                 certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
-                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
@@ -445,10 +445,10 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
@@ -461,10 +461,10 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
@@ -477,7 +477,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -488,7 +488,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 example_bucket_v2.arn,
                 example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
@@ -497,15 +497,15 @@ class CertificateAuthority(pulumi.CustomResource):
             bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
+            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArrgs(
+                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs(
                     custom_cname="crl.example.com",
                     enabled=True,
                     expiration_in_days=7,
@@ -526,11 +526,11 @@ class CertificateAuthority(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArrgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         :param pulumi.Input[str] key_storage_security_standard: Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArrgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         :param pulumi.Input[str] usage_mode: Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
@@ -539,7 +539,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateAuthorityArgs,
+                 args: CertificateAuthorityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
@@ -554,10 +554,10 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
@@ -570,10 +570,10 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
@@ -586,7 +586,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -597,7 +597,7 @@ class CertificateAuthority(pulumi.CustomResource):
                 example_bucket_v2.arn,
                 example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["acm-pca.amazonaws.com"],
                 type="Service",
             )],
@@ -606,15 +606,15 @@ class CertificateAuthority(pulumi.CustomResource):
             bucket=example_bucket_v2.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ),
-            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArgs(
-                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(
+            revocation_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationArrgs(
+                crl_configuration=aws.acmpca.CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs(
                     custom_cname="crl.example.com",
                     enabled=True,
                     expiration_in_days=7,
@@ -634,12 +634,12 @@ class CertificateAuthority(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateAuthorityArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateAuthorityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateAuthorityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateAuthorityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -648,11 +648,11 @@ class CertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
+                 certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
-                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+                 revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  usage_mode: Optional[pulumi.Input[str]] = None,
@@ -663,7 +663,7 @@ class CertificateAuthority(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
+            __props__ = CertificateAuthorityArrgs.__new__(CertificateAuthorityArrgs)
 
             if certificate_authority_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_configuration'")
@@ -697,7 +697,7 @@ class CertificateAuthority(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate: Optional[pulumi.Input[str]] = None,
-            certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']]] = None,
+            certificate_authority_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArrgs']]] = None,
             certificate_chain: Optional[pulumi.Input[str]] = None,
             certificate_signing_request: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -705,7 +705,7 @@ class CertificateAuthority(pulumi.CustomResource):
             not_after: Optional[pulumi.Input[str]] = None,
             not_before: Optional[pulumi.Input[str]] = None,
             permanent_deletion_time_in_days: Optional[pulumi.Input[int]] = None,
-            revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']]] = None,
+            revocation_configuration: Optional[pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArrgs']]] = None,
             serial: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -720,7 +720,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the certificate authority.
         :param pulumi.Input[str] certificate: Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArrgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         :param pulumi.Input[bool] enabled: Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
@@ -728,7 +728,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArrgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[str] serial: Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

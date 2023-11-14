@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDefaultTagsResult:
+calass GetDefaultTagsResult:
     """
     A collection of values returned by getDefaultTags.
     """
@@ -43,7 +43,7 @@ class GetDefaultTagsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
+calass AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

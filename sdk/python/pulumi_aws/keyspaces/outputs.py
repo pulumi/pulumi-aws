@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class TableCapacitySpecification(dict):
+calass TableCapacitySpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -89,7 +89,7 @@ class TableCapacitySpecification(dict):
 
 
 @pulumi.output_type
-class TableClientSideTimestamps(dict):
+calass TableClientSideTimestamps(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -107,7 +107,7 @@ class TableClientSideTimestamps(dict):
 
 
 @pulumi.output_type
-class TableComment(dict):
+calass TableComment(dict):
     def __init__(__self__, *,
                  message: Optional[str] = None):
         """
@@ -126,7 +126,7 @@ class TableComment(dict):
 
 
 @pulumi.output_type
-class TableEncryptionSpecification(dict):
+calass TableEncryptionSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -174,7 +174,7 @@ class TableEncryptionSpecification(dict):
 
 
 @pulumi.output_type
-class TablePointInTimeRecovery(dict):
+calass TablePointInTimeRecovery(dict):
     def __init__(__self__, *,
                  status: Optional[str] = None):
         """
@@ -193,7 +193,7 @@ class TablePointInTimeRecovery(dict):
 
 
 @pulumi.output_type
-class TableSchemaDefinition(dict):
+calass TableSchemaDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -221,10 +221,10 @@ class TableSchemaDefinition(dict):
                  clustering_keys: Optional[Sequence['outputs.TableSchemaDefinitionClusteringKey']] = None,
                  static_columns: Optional[Sequence['outputs.TableSchemaDefinitionStaticColumn']] = None):
         """
-        :param Sequence['TableSchemaDefinitionColumnArgs'] columns: The regular columns of the table.
-        :param Sequence['TableSchemaDefinitionPartitionKeyArgs'] partition_keys: The columns that are part of the partition key of the table .
-        :param Sequence['TableSchemaDefinitionClusteringKeyArgs'] clustering_keys: The columns that are part of the clustering key of the table.
-        :param Sequence['TableSchemaDefinitionStaticColumnArgs'] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        :param Sequence['TableSchemaDefinitionColumnArrgs'] columns: The regular columns of the table.
+        :param Sequence['TableSchemaDefinitionPartitionKeyArrgs'] partition_keys: The columns that are part of the partition key of the table .
+        :param Sequence['TableSchemaDefinitionClusteringKeyArrgs'] clustering_keys: The columns that are part of the clustering key of the table.
+        :param Sequence['TableSchemaDefinitionStaticColumnArrgs'] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
@@ -267,7 +267,7 @@ class TableSchemaDefinition(dict):
 
 
 @pulumi.output_type
-class TableSchemaDefinitionClusteringKey(dict):
+calass TableSchemaDefinitionClusteringKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -313,7 +313,7 @@ class TableSchemaDefinitionClusteringKey(dict):
 
 
 @pulumi.output_type
-class TableSchemaDefinitionColumn(dict):
+calass TableSchemaDefinitionColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -342,7 +342,7 @@ class TableSchemaDefinitionColumn(dict):
 
 
 @pulumi.output_type
-class TableSchemaDefinitionPartitionKey(dict):
+calass TableSchemaDefinitionPartitionKey(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -360,7 +360,7 @@ class TableSchemaDefinitionPartitionKey(dict):
 
 
 @pulumi.output_type
-class TableSchemaDefinitionStaticColumn(dict):
+calass TableSchemaDefinitionStaticColumn(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -378,7 +378,7 @@ class TableSchemaDefinitionStaticColumn(dict):
 
 
 @pulumi.output_type
-class TableTtl(dict):
+calass TableTtl(dict):
     def __init__(__self__, *,
                  status: str):
         """

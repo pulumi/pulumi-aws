@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublicIpv4PoolResult:
+calass GetPublicIpv4PoolResult:
     """
     A collection of values returned by getPublicIpv4Pool.
     """
@@ -108,7 +108,7 @@ class GetPublicIpv4PoolResult:
         return pulumi.get(self, "total_available_address_count")
 
 
-class AwaitableGetPublicIpv4PoolResult(GetPublicIpv4PoolResult):
+calass AwaitableGetPublicIpv4PoolResult(GetPublicIpv4PoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
@@ -39,7 +39,7 @@ class ClusterArgs:
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -70,7 +70,7 @@ class ClusterArgs:
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
@@ -414,14 +414,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']]:
         """
         If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @property
@@ -486,7 +486,7 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
@@ -517,7 +517,7 @@ class _ClusterState:
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  reader_endpoint: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -555,7 +555,7 @@ class _ClusterState:
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
@@ -989,14 +989,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="serverlessV2ScalingConfiguration")
-    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]:
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']]:
         """
         If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         """
         return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @serverless_v2_scaling_configuration.setter
-    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']]):
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArrgs']]):
         pulumi.set(self, "serverless_v2_scaling_configuration", value)
 
     @property
@@ -1075,7 +1075,7 @@ class _ClusterState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1103,7 +1103,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArrgs']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1173,7 +1173,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArgs']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArrgs']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
@@ -1184,7 +1184,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ClusterArgs] = None,
+                 args: Optional[ClusterArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Neptune Cluster Resource. A Cluster Resource defines attributes that are
@@ -1225,12 +1225,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1262,7 +1262,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArrgs']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1275,7 +1275,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["apply_immediately"] = apply_immediately
@@ -1354,7 +1354,7 @@ class Cluster(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             reader_endpoint: Optional[pulumi.Input[str]] = None,
             replication_source_identifier: Optional[pulumi.Input[str]] = None,
-            serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArgs']]] = None,
+            serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArrgs']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1397,7 +1397,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArgs']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input[pulumi.InputType['ClusterServerlessV2ScalingConfigurationArrgs']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.

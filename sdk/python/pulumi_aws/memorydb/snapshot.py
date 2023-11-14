@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SnapshotArgs', 'Snapshot']
+__all__ = ['SnapshotArrgs', 'Snapshot']
 
 @pulumi.input_type
-class SnapshotArgs:
+calass SnapshotArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -101,10 +101,10 @@ class SnapshotArgs:
 
 
 @pulumi.input_type
-class _SnapshotState:
+calass _SnapshotState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]]] = None,
+                 cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArrgs']]]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class _SnapshotState:
         """
         Input properties used for looking up and filtering Snapshot resources.
         :param pulumi.Input[str] arn: The ARN of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
+        :param pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArrgs']]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -160,14 +160,14 @@ class _SnapshotState:
 
     @property
     @pulumi.getter(name="clusterConfigurations")
-    def cluster_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]]]:
+    def cluster_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArrgs']]]]:
         """
         The configuration of the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "cluster_configurations")
 
     @cluster_configurations.setter
-    def cluster_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArgs']]]]):
+    def cluster_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SnapshotClusterConfigurationArrgs']]]]):
         pulumi.set(self, "cluster_configurations", value)
 
     @property
@@ -258,7 +258,7 @@ class _SnapshotState:
         pulumi.set(self, "tags_all", value)
 
 
-class Snapshot(pulumi.CustomResource):
+calass Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -303,7 +303,7 @@ class Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotArgs,
+                 args: SnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a MemoryDB Snapshot.
@@ -328,12 +328,12 @@ class Snapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -354,7 +354,7 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotArgs.__new__(SnapshotArgs)
+            __props__ = SnapshotArrgs.__new__(SnapshotArrgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
@@ -380,7 +380,7 @@ class Snapshot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArgs']]]]] = None,
+            cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArrgs']]]]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -396,7 +396,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArgs']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArrgs']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

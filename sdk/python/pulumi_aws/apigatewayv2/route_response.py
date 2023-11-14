@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteResponseArgs', 'RouteResponse']
+__all__ = ['RouteResponseArrgs', 'RouteResponse']
 
 @pulumi.input_type
-class RouteResponseArgs:
+calass RouteResponseArrgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  route_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class RouteResponseArgs:
 
 
 @pulumi.input_type
-class _RouteResponseState:
+calass _RouteResponseState:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _RouteResponseState:
         pulumi.set(self, "route_response_key", value)
 
 
-class RouteResponse(pulumi.CustomResource):
+calass RouteResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -232,7 +232,7 @@ class RouteResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteResponseArgs,
+                 args: RouteResponseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon API Gateway Version 2 route response.
@@ -260,12 +260,12 @@ class RouteResponse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteResponseArgs args: The arguments to use to populate this resource's properties.
+        :param RouteResponseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteResponseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -286,7 +286,7 @@ class RouteResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteResponseArgs.__new__(RouteResponseArgs)
+            __props__ = RouteResponseArrgs.__new__(RouteResponseArrgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RuleLockConfiguration(dict):
+calass RuleLockConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -39,7 +39,7 @@ class RuleLockConfiguration(dict):
     def __init__(__self__, *,
                  unlock_delay: 'outputs.RuleLockConfigurationUnlockDelay'):
         """
-        :param 'RuleLockConfigurationUnlockDelayArgs' unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
+        :param 'RuleLockConfigurationUnlockDelayArrgs' unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
         """
         pulumi.set(__self__, "unlock_delay", unlock_delay)
 
@@ -53,7 +53,7 @@ class RuleLockConfiguration(dict):
 
 
 @pulumi.output_type
-class RuleLockConfigurationUnlockDelay(dict):
+calass RuleLockConfigurationUnlockDelay(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -101,7 +101,7 @@ class RuleLockConfigurationUnlockDelay(dict):
 
 
 @pulumi.output_type
-class RuleResourceTag(dict):
+calass RuleResourceTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -154,7 +154,7 @@ class RuleResourceTag(dict):
 
 
 @pulumi.output_type
-class RuleRetentionPeriod(dict):
+calass RuleRetentionPeriod(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

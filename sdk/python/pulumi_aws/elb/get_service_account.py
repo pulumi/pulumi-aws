@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServiceAccountResult:
+calass GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
     """
@@ -54,7 +54,7 @@ class GetServiceAccountResult:
         return pulumi.get(self, "region")
 
 
-class AwaitableGetServiceAccountResult(GetServiceAccountResult):
+calass AwaitableGetServiceAccountResult(GetServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -84,9 +84,9 @@ def get_service_account(region: Optional[str] = None,
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         effect="Allow",
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
             type="AWS",
             identifiers=[main.arn],
         )],
@@ -98,11 +98,11 @@ def get_service_account(region: Optional[str] = None,
         policy=allow_elb_logging_policy_document.json)
     bar = aws.elb.LoadBalancer("bar",
         availability_zones=["us-west-2a"],
-        access_logs=aws.elb.LoadBalancerAccessLogsArgs(
+        access_logs=aws.elb.LoadBalancerAccessLogsArrgs(
             bucket=elb_logs.id,
             interval=5,
         ),
-        listeners=[aws.elb.LoadBalancerListenerArgs(
+        listeners=[aws.elb.LoadBalancerListenerArrgs(
             instance_port=8000,
             instance_protocol="http",
             lb_port=80,
@@ -145,9 +145,9 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     elb_logs_acl = aws.s3.BucketAclV2("elbLogsAcl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    allow_elb_logging_policy_document = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         effect="Allow",
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
             type="AWS",
             identifiers=[main.arn],
         )],
@@ -159,11 +159,11 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
         policy=allow_elb_logging_policy_document.json)
     bar = aws.elb.LoadBalancer("bar",
         availability_zones=["us-west-2a"],
-        access_logs=aws.elb.LoadBalancerAccessLogsArgs(
+        access_logs=aws.elb.LoadBalancerAccessLogsArrgs(
             bucket=elb_logs.id,
             interval=5,
         ),
-        listeners=[aws.elb.LoadBalancerListenerArgs(
+        listeners=[aws.elb.LoadBalancerListenerArrgs(
             instance_port=8000,
             instance_protocol="http",
             lb_port=80,

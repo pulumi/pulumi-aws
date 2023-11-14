@@ -55,7 +55,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ListenerDefaultAction(dict):
+calass ListenerDefaultAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -92,12 +92,12 @@ class ListenerDefaultAction(dict):
         :param str type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
                
                The following arguments are optional:
-        :param 'ListenerDefaultActionAuthenticateCognitoArgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
-        :param 'ListenerDefaultActionAuthenticateOidcArgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
-        :param 'ListenerDefaultActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param 'ListenerDefaultActionForwardArgs' forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
+        :param 'ListenerDefaultActionAuthenticateCognitoArrgs' authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        :param 'ListenerDefaultActionAuthenticateOidcArrgs' authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        :param 'ListenerDefaultActionFixedResponseArrgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        :param 'ListenerDefaultActionForwardArrgs' forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
         :param int order: Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
-        :param 'ListenerDefaultActionRedirectArgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        :param 'ListenerDefaultActionRedirectArrgs' redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
         :param str target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
@@ -184,7 +184,7 @@ class ListenerDefaultAction(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionAuthenticateCognito(dict):
+calass ListenerDefaultActionAuthenticateCognito(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -317,7 +317,7 @@ class ListenerDefaultActionAuthenticateCognito(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionAuthenticateOidc(dict):
+calass ListenerDefaultActionAuthenticateOidc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -487,7 +487,7 @@ class ListenerDefaultActionAuthenticateOidc(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionFixedResponse(dict):
+calass ListenerDefaultActionFixedResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -554,7 +554,7 @@ class ListenerDefaultActionFixedResponse(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionForward(dict):
+calass ListenerDefaultActionForward(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -576,10 +576,10 @@ class ListenerDefaultActionForward(dict):
                  target_groups: Sequence['outputs.ListenerDefaultActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerDefaultActionForwardStickiness'] = None):
         """
-        :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: Set of 1-5 target group blocks. Detailed below.
+        :param Sequence['ListenerDefaultActionForwardTargetGroupArrgs'] target_groups: Set of 1-5 target group blocks. Detailed below.
                
                The following arguments are optional:
-        :param 'ListenerDefaultActionForwardStickinessArgs' stickiness: Configuration block for target group stickiness for the rule. Detailed below.
+        :param 'ListenerDefaultActionForwardStickinessArrgs' stickiness: Configuration block for target group stickiness for the rule. Detailed below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -605,7 +605,7 @@ class ListenerDefaultActionForward(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionForwardStickiness(dict):
+calass ListenerDefaultActionForwardStickiness(dict):
     def __init__(__self__, *,
                  duration: int,
                  enabled: Optional[bool] = None):
@@ -639,7 +639,7 @@ class ListenerDefaultActionForwardStickiness(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionForwardTargetGroup(dict):
+calass ListenerDefaultActionForwardTargetGroup(dict):
     def __init__(__self__, *,
                  arn: str,
                  weight: Optional[int] = None):
@@ -673,7 +673,7 @@ class ListenerDefaultActionForwardTargetGroup(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionRedirect(dict):
+calass ListenerDefaultActionRedirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -772,7 +772,7 @@ class ListenerDefaultActionRedirect(dict):
 
 
 @pulumi.output_type
-class ListenerRuleAction(dict):
+calass ListenerRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -807,11 +807,11 @@ class ListenerRuleAction(dict):
                  target_group_arn: Optional[str] = None):
         """
         :param str type: The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-        :param 'ListenerRuleActionAuthenticateCognitoArgs' authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-        :param 'ListenerRuleActionAuthenticateOidcArgs' authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-        :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param 'ListenerRuleActionForwardArgs' forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-        :param 'ListenerRuleActionRedirectArgs' redirect: Information for creating a redirect action. Required if `type` is `redirect`.
+        :param 'ListenerRuleActionAuthenticateCognitoArrgs' authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+        :param 'ListenerRuleActionAuthenticateOidcArrgs' authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+        :param 'ListenerRuleActionFixedResponseArrgs' fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        :param 'ListenerRuleActionForwardArrgs' forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        :param 'ListenerRuleActionRedirectArrgs' redirect: Information for creating a redirect action. Required if `type` is `redirect`.
         :param str target_group_arn: The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
@@ -893,7 +893,7 @@ class ListenerRuleAction(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionAuthenticateCognito(dict):
+calass ListenerRuleActionAuthenticateCognito(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1022,7 +1022,7 @@ class ListenerRuleActionAuthenticateCognito(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionAuthenticateOidc(dict):
+calass ListenerRuleActionAuthenticateOidc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1188,7 +1188,7 @@ class ListenerRuleActionAuthenticateOidc(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionFixedResponse(dict):
+calass ListenerRuleActionFixedResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1251,7 +1251,7 @@ class ListenerRuleActionFixedResponse(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionForward(dict):
+calass ListenerRuleActionForward(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1273,8 +1273,8 @@ class ListenerRuleActionForward(dict):
                  target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup'],
                  stickiness: Optional['outputs.ListenerRuleActionForwardStickiness'] = None):
         """
-        :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: One or more target groups block.
-        :param 'ListenerRuleActionForwardStickinessArgs' stickiness: The target group stickiness for the rule.
+        :param Sequence['ListenerRuleActionForwardTargetGroupArrgs'] target_groups: One or more target groups block.
+        :param 'ListenerRuleActionForwardStickinessArrgs' stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -1298,7 +1298,7 @@ class ListenerRuleActionForward(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionForwardStickiness(dict):
+calass ListenerRuleActionForwardStickiness(dict):
     def __init__(__self__, *,
                  duration: int,
                  enabled: Optional[bool] = None):
@@ -1328,7 +1328,7 @@ class ListenerRuleActionForwardStickiness(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionForwardTargetGroup(dict):
+calass ListenerRuleActionForwardTargetGroup(dict):
     def __init__(__self__, *,
                  arn: str,
                  weight: Optional[int] = None):
@@ -1358,7 +1358,7 @@ class ListenerRuleActionForwardTargetGroup(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionRedirect(dict):
+calass ListenerRuleActionRedirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1453,7 +1453,7 @@ class ListenerRuleActionRedirect(dict):
 
 
 @pulumi.output_type
-class ListenerRuleCondition(dict):
+calass ListenerRuleCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1489,12 +1489,12 @@ class ListenerRuleCondition(dict):
                  query_strings: Optional[Sequence['outputs.ListenerRuleConditionQueryString']] = None,
                  source_ip: Optional['outputs.ListenerRuleConditionSourceIp'] = None):
         """
-        :param 'ListenerRuleConditionHostHeaderArgs' host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
-        :param 'ListenerRuleConditionHttpHeaderArgs' http_header: HTTP headers to match. HTTP Header block fields documented below.
-        :param 'ListenerRuleConditionHttpRequestMethodArgs' http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-        :param 'ListenerRuleConditionPathPatternArgs' path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-        :param Sequence['ListenerRuleConditionQueryStringArgs'] query_strings: Query strings to match. Query String block fields documented below.
-        :param 'ListenerRuleConditionSourceIpArgs' source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        :param 'ListenerRuleConditionHostHeaderArrgs' host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        :param 'ListenerRuleConditionHttpHeaderArrgs' http_header: HTTP headers to match. HTTP Header block fields documented below.
+        :param 'ListenerRuleConditionHttpRequestMethodArrgs' http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+        :param 'ListenerRuleConditionPathPatternArrgs' path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
+        :param Sequence['ListenerRuleConditionQueryStringArrgs'] query_strings: Query strings to match. Query String block fields documented below.
+        :param 'ListenerRuleConditionSourceIpArrgs' source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
                
                > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
@@ -1563,7 +1563,7 @@ class ListenerRuleCondition(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionHostHeader(dict):
+calass ListenerRuleConditionHostHeader(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
         """
@@ -1581,7 +1581,7 @@ class ListenerRuleConditionHostHeader(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionHttpHeader(dict):
+calass ListenerRuleConditionHttpHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1627,7 +1627,7 @@ class ListenerRuleConditionHttpHeader(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionHttpRequestMethod(dict):
+calass ListenerRuleConditionHttpRequestMethod(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
         """
@@ -1645,7 +1645,7 @@ class ListenerRuleConditionHttpRequestMethod(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionPathPattern(dict):
+calass ListenerRuleConditionPathPattern(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
         """
@@ -1663,7 +1663,7 @@ class ListenerRuleConditionPathPattern(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionQueryString(dict):
+calass ListenerRuleConditionQueryString(dict):
     def __init__(__self__, *,
                  value: str,
                  key: Optional[str] = None):
@@ -1693,7 +1693,7 @@ class ListenerRuleConditionQueryString(dict):
 
 
 @pulumi.output_type
-class ListenerRuleConditionSourceIp(dict):
+calass ListenerRuleConditionSourceIp(dict):
     def __init__(__self__, *,
                  values: Sequence[str]):
         """
@@ -1711,7 +1711,7 @@ class ListenerRuleConditionSourceIp(dict):
 
 
 @pulumi.output_type
-class LoadBalancerAccessLogs(dict):
+calass LoadBalancerAccessLogs(dict):
     def __init__(__self__, *,
                  bucket: str,
                  enabled: Optional[bool] = None,
@@ -1753,7 +1753,7 @@ class LoadBalancerAccessLogs(dict):
 
 
 @pulumi.output_type
-class LoadBalancerSubnetMapping(dict):
+calass LoadBalancerSubnetMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1840,7 +1840,7 @@ class LoadBalancerSubnetMapping(dict):
 
 
 @pulumi.output_type
-class TargetGroupHealthCheck(dict):
+calass TargetGroupHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1974,7 +1974,7 @@ class TargetGroupHealthCheck(dict):
 
 
 @pulumi.output_type
-class TargetGroupStickiness(dict):
+calass TargetGroupStickiness(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2047,7 +2047,7 @@ class TargetGroupStickiness(dict):
 
 
 @pulumi.output_type
-class TargetGroupTargetFailover(dict):
+calass TargetGroupTargetFailover(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2095,7 +2095,7 @@ class TargetGroupTargetFailover(dict):
 
 
 @pulumi.output_type
-class TargetGroupTargetHealthState(dict):
+calass TargetGroupTargetHealthState(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2130,7 +2130,7 @@ class TargetGroupTargetHealthState(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionResult(dict):
+calass GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
                  authenticate_cognitos: Sequence['outputs.GetListenerDefaultActionAuthenticateCognitoResult'],
                  authenticate_oidcs: Sequence['outputs.GetListenerDefaultActionAuthenticateOidcResult'],
@@ -2191,7 +2191,7 @@ class GetListenerDefaultActionResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionAuthenticateCognitoResult(dict):
+calass GetListenerDefaultActionAuthenticateCognitoResult(dict):
     def __init__(__self__, *,
                  authentication_request_extra_params: Mapping[str, str],
                  on_unauthenticated_request: str,
@@ -2252,7 +2252,7 @@ class GetListenerDefaultActionAuthenticateCognitoResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionAuthenticateOidcResult(dict):
+calass GetListenerDefaultActionAuthenticateOidcResult(dict):
     def __init__(__self__, *,
                  authentication_request_extra_params: Mapping[str, str],
                  authorization_endpoint: str,
@@ -2334,7 +2334,7 @@ class GetListenerDefaultActionAuthenticateOidcResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionFixedResponseResult(dict):
+calass GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
                  content_type: str,
                  message_body: str,
@@ -2360,7 +2360,7 @@ class GetListenerDefaultActionFixedResponseResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionForwardResult(dict):
+calass GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
                  stickinesses: Sequence['outputs.GetListenerDefaultActionForwardStickinessResult'],
                  target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
@@ -2379,7 +2379,7 @@ class GetListenerDefaultActionForwardResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionForwardStickinessResult(dict):
+calass GetListenerDefaultActionForwardStickinessResult(dict):
     def __init__(__self__, *,
                  duration: int,
                  enabled: bool):
@@ -2398,7 +2398,7 @@ class GetListenerDefaultActionForwardStickinessResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionForwardTargetGroupResult(dict):
+calass GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  weight: int):
@@ -2423,7 +2423,7 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionRedirectResult(dict):
+calass GetListenerDefaultActionRedirectResult(dict):
     def __init__(__self__, *,
                  host: str,
                  path: str,
@@ -2476,7 +2476,7 @@ class GetListenerDefaultActionRedirectResult(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerAccessLogsResult(dict):
+calass GetLoadBalancerAccessLogsResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  enabled: bool,
@@ -2502,7 +2502,7 @@ class GetLoadBalancerAccessLogsResult(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerSubnetMappingResult(dict):
+calass GetLoadBalancerSubnetMappingResult(dict):
     def __init__(__self__, *,
                  allocation_id: str,
                  ipv6_address: str,
@@ -2542,7 +2542,7 @@ class GetLoadBalancerSubnetMappingResult(dict):
 
 
 @pulumi.output_type
-class GetTargetGroupHealthCheckResult(dict):
+calass GetTargetGroupHealthCheckResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  healthy_threshold: int,
@@ -2610,7 +2610,7 @@ class GetTargetGroupHealthCheckResult(dict):
 
 
 @pulumi.output_type
-class GetTargetGroupStickinessResult(dict):
+calass GetTargetGroupStickinessResult(dict):
     def __init__(__self__, *,
                  cookie_duration: int,
                  cookie_name: str,

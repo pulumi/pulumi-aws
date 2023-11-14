@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationAggregatorAccountAggregationSource(dict):
+calass ConfigurationAggregatorAccountAggregationSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class ConfigurationAggregatorAccountAggregationSource(dict):
 
 
 @pulumi.output_type
-class ConfigurationAggregatorOrganizationAggregationSource(dict):
+calass ConfigurationAggregatorOrganizationAggregationSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -160,7 +160,7 @@ class ConfigurationAggregatorOrganizationAggregationSource(dict):
 
 
 @pulumi.output_type
-class ConformancePackInputParameter(dict):
+calass ConformancePackInputParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -208,7 +208,7 @@ class ConformancePackInputParameter(dict):
 
 
 @pulumi.output_type
-class DeliveryChannelSnapshotDeliveryProperties(dict):
+calass DeliveryChannelSnapshotDeliveryProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -244,7 +244,7 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
 
 
 @pulumi.output_type
-class OrganizationConformancePackInputParameter(dict):
+calass OrganizationConformancePackInputParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,7 +292,7 @@ class OrganizationConformancePackInputParameter(dict):
 
 
 @pulumi.output_type
-class RecorderRecordingGroup(dict):
+calass RecorderRecordingGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -326,9 +326,9 @@ class RecorderRecordingGroup(dict):
                  resource_types: Optional[Sequence[str]] = None):
         """
         :param bool all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-        :param Sequence['RecorderRecordingGroupExclusionByResourceTypeArgs'] exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        :param Sequence['RecorderRecordingGroupExclusionByResourceTypeArrgs'] exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
         :param bool include_global_resource_types: Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        :param Sequence['RecorderRecordingGroupRecordingStrategyArgs'] recording_strategies: Recording Strategy. Detailed below.
+        :param Sequence['RecorderRecordingGroupRecordingStrategyArrgs'] recording_strategies: Recording Strategy. Detailed below.
         :param Sequence[str] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         if all_supported is not None:
@@ -384,7 +384,7 @@ class RecorderRecordingGroup(dict):
 
 
 @pulumi.output_type
-class RecorderRecordingGroupExclusionByResourceType(dict):
+calass RecorderRecordingGroupExclusionByResourceType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -420,7 +420,7 @@ class RecorderRecordingGroupExclusionByResourceType(dict):
 
 
 @pulumi.output_type
-class RecorderRecordingGroupRecordingStrategy(dict):
+calass RecorderRecordingGroupRecordingStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -450,7 +450,7 @@ class RecorderRecordingGroupRecordingStrategy(dict):
 
 
 @pulumi.output_type
-class RemediationConfigurationExecutionControls(dict):
+calass RemediationConfigurationExecutionControls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -471,7 +471,7 @@ class RemediationConfigurationExecutionControls(dict):
     def __init__(__self__, *,
                  ssm_controls: Optional['outputs.RemediationConfigurationExecutionControlsSsmControls'] = None):
         """
-        :param 'RemediationConfigurationExecutionControlsSsmControlsArgs' ssm_controls: Configuration block for SSM controls. See below.
+        :param 'RemediationConfigurationExecutionControlsSsmControlsArrgs' ssm_controls: Configuration block for SSM controls. See below.
         """
         if ssm_controls is not None:
             pulumi.set(__self__, "ssm_controls", ssm_controls)
@@ -486,7 +486,7 @@ class RemediationConfigurationExecutionControls(dict):
 
 
 @pulumi.output_type
-class RemediationConfigurationExecutionControlsSsmControls(dict):
+calass RemediationConfigurationExecutionControlsSsmControls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -536,7 +536,7 @@ class RemediationConfigurationExecutionControlsSsmControls(dict):
 
 
 @pulumi.output_type
-class RemediationConfigurationParameter(dict):
+calass RemediationConfigurationParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -611,7 +611,7 @@ class RemediationConfigurationParameter(dict):
 
 
 @pulumi.output_type
-class RuleEvaluationMode(dict):
+calass RuleEvaluationMode(dict):
     def __init__(__self__, *,
                  mode: Optional[str] = None):
         """
@@ -630,7 +630,7 @@ class RuleEvaluationMode(dict):
 
 
 @pulumi.output_type
-class RuleScope(dict):
+calass RuleScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -708,7 +708,7 @@ class RuleScope(dict):
 
 
 @pulumi.output_type
-class RuleSource(dict):
+calass RuleSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -737,8 +737,8 @@ class RuleSource(dict):
                  source_identifier: Optional[str] = None):
         """
         :param str owner: Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
-        :param 'RuleSourceCustomPolicyDetailsArgs' custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
-        :param Sequence['RuleSourceSourceDetailArgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+        :param 'RuleSourceCustomPolicyDetailsArrgs' custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+        :param Sequence['RuleSourceSourceDetailArrgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         :param str source_identifier: For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
         """
         pulumi.set(__self__, "owner", owner)
@@ -783,7 +783,7 @@ class RuleSource(dict):
 
 
 @pulumi.output_type
-class RuleSourceCustomPolicyDetails(dict):
+calass RuleSourceCustomPolicyDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -845,7 +845,7 @@ class RuleSourceCustomPolicyDetails(dict):
 
 
 @pulumi.output_type
-class RuleSourceSourceDetail(dict):
+calass RuleSourceSourceDetail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

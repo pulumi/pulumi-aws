@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkflowArgs', 'Workflow']
+__all__ = ['WorkflowArrgs', 'Workflow']
 
 @pulumi.input_type
-class WorkflowArgs:
+calass WorkflowArrgs:
     def __init__(__self__, *,
-                 steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
+                 steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]],
                  description: Optional[pulumi.Input[str]] = None,
-                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]] = None,
+                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[str] description: A textual description for the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "steps", steps)
@@ -37,14 +37,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]:
+    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]]:
         """
         Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]):
+    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]]):
         pulumi.set(self, "steps", value)
 
     @property
@@ -61,14 +61,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="onExceptionSteps")
-    def on_exception_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]]:
+    def on_exception_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]]:
         """
         Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         """
         return pulumi.get(self, "on_exception_steps")
 
     @on_exception_steps.setter
-    def on_exception_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]]):
+    def on_exception_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]]):
         pulumi.set(self, "on_exception_steps", value)
 
     @property
@@ -85,20 +85,20 @@ class WorkflowArgs:
 
 
 @pulumi.input_type
-class _WorkflowState:
+calass _WorkflowState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
+                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
         :param pulumi.Input[str] arn: The Workflow ARN.
         :param pulumi.Input[str] description: A textual description for the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -144,26 +144,26 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="onExceptionSteps")
-    def on_exception_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]]:
+    def on_exception_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]]:
         """
         Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         """
         return pulumi.get(self, "on_exception_steps")
 
     @on_exception_steps.setter
-    def on_exception_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArgs']]]]):
+    def on_exception_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowOnExceptionStepArrgs']]]]):
         pulumi.set(self, "on_exception_steps", value)
 
     @property
     @pulumi.getter
-    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]]:
+    def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]]]:
         """
         Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]]):
+    def steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArrgs']]]]):
         pulumi.set(self, "steps", value)
 
     @property
@@ -194,14 +194,14 @@ class _WorkflowState:
         pulumi.set(self, "tags_all", value)
 
 
-class Workflow(pulumi.CustomResource):
+calass Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
+                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArrgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -214,8 +214,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
-            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
+        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArrgs(
+            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArrgs(
                 name="example",
                 source_file_location="${original.file}",
             ),
@@ -229,8 +229,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Workflow("example", steps=[
-            aws.transfer.WorkflowStepArgs(
-                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
+            aws.transfer.WorkflowStepArrgs(
+                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArrgs(
                     name="example",
                     source_file_location="${original.file}",
                     target=aws_lambda_function["example"]["arn"],
@@ -238,11 +238,11 @@ class Workflow(pulumi.CustomResource):
                 ),
                 type="CUSTOM",
             ),
-            aws.transfer.WorkflowStepArgs(
-                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
+            aws.transfer.WorkflowStepArrgs(
+                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArrgs(
                     name="example",
                     source_file_location="${original.file}",
-                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
+                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArrgs(
                         key="Name",
                         value="Hello World",
                     )],
@@ -263,15 +263,15 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A textual description for the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArrgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArrgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkflowArgs,
+                 args: WorkflowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer Workflow resource.
@@ -283,8 +283,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArgs(
-            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArgs(
+        example = aws.transfer.Workflow("example", steps=[aws.transfer.WorkflowStepArrgs(
+            delete_step_details=aws.transfer.WorkflowStepDeleteStepDetailsArrgs(
                 name="example",
                 source_file_location="${original.file}",
             ),
@@ -298,8 +298,8 @@ class Workflow(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Workflow("example", steps=[
-            aws.transfer.WorkflowStepArgs(
-                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArgs(
+            aws.transfer.WorkflowStepArrgs(
+                custom_step_details=aws.transfer.WorkflowStepCustomStepDetailsArrgs(
                     name="example",
                     source_file_location="${original.file}",
                     target=aws_lambda_function["example"]["arn"],
@@ -307,11 +307,11 @@ class Workflow(pulumi.CustomResource):
                 ),
                 type="CUSTOM",
             ),
-            aws.transfer.WorkflowStepArgs(
-                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArgs(
+            aws.transfer.WorkflowStepArrgs(
+                tag_step_details=aws.transfer.WorkflowStepTagStepDetailsArrgs(
                     name="example",
                     source_file_location="${original.file}",
-                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArgs(
+                    tags=[aws.transfer.WorkflowStepTagStepDetailsTagArrgs(
                         key="Name",
                         value="Hello World",
                     )],
@@ -330,12 +330,12 @@ class Workflow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkflowArgs args: The arguments to use to populate this resource's properties.
+        :param WorkflowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,8 +345,8 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]]] = None,
-                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
+                 on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArrgs']]]]] = None,
+                 steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -355,7 +355,7 @@ class Workflow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkflowArgs.__new__(WorkflowArgs)
+            __props__ = WorkflowArrgs.__new__(WorkflowArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["on_exception_steps"] = on_exception_steps
@@ -379,8 +379,8 @@ class Workflow(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]]] = None,
-            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]]] = None,
+            on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArrgs']]]]] = None,
+            steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workflow':
         """
@@ -392,8 +392,8 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Workflow ARN.
         :param pulumi.Input[str] description: A textual description for the workflow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowOnExceptionStepArrgs']]]] on_exception_steps: Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkflowStepArrgs']]]] steps: Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -43,7 +43,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BotAbortStatement(dict):
+calass BotAbortStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -65,7 +65,7 @@ class BotAbortStatement(dict):
                  messages: Sequence['outputs.BotAbortStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['BotAbortStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['BotAbortStatementMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -98,7 +98,7 @@ class BotAbortStatement(dict):
 
 
 @pulumi.output_type
-class BotAbortStatementMessage(dict):
+calass BotAbortStatementMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -160,7 +160,7 @@ class BotAbortStatementMessage(dict):
 
 
 @pulumi.output_type
-class BotAliasConversationLogs(dict):
+calass BotAliasConversationLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,7 +185,7 @@ class BotAliasConversationLogs(dict):
                  log_settings: Optional[Sequence['outputs.BotAliasConversationLogsLogSetting']] = None):
         """
         :param str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-        :param Sequence['BotAliasConversationLogsLogSettingArgs'] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+        :param Sequence['BotAliasConversationLogsLogSettingArrgs'] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if log_settings is not None:
@@ -209,7 +209,7 @@ class BotAliasConversationLogs(dict):
 
 
 @pulumi.output_type
-class BotAliasConversationLogsLogSetting(dict):
+calass BotAliasConversationLogsLogSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -296,7 +296,7 @@ class BotAliasConversationLogsLogSetting(dict):
 
 
 @pulumi.output_type
-class BotClarificationPrompt(dict):
+calass BotClarificationPrompt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -322,7 +322,7 @@ class BotClarificationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information.
-        :param Sequence['BotClarificationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['BotClarificationPromptMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -364,7 +364,7 @@ class BotClarificationPrompt(dict):
 
 
 @pulumi.output_type
-class BotClarificationPromptMessage(dict):
+calass BotClarificationPromptMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -426,7 +426,7 @@ class BotClarificationPromptMessage(dict):
 
 
 @pulumi.output_type
-class BotIntent(dict):
+calass BotIntent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class BotIntent(dict):
 
 
 @pulumi.output_type
-class IntentConclusionStatement(dict):
+calass IntentConclusionStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -496,7 +496,7 @@ class IntentConclusionStatement(dict):
                  messages: Sequence['outputs.IntentConclusionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentConclusionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentConclusionStatementMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -529,7 +529,7 @@ class IntentConclusionStatement(dict):
 
 
 @pulumi.output_type
-class IntentConclusionStatementMessage(dict):
+calass IntentConclusionStatementMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -591,7 +591,7 @@ class IntentConclusionStatementMessage(dict):
 
 
 @pulumi.output_type
-class IntentConfirmationPrompt(dict):
+calass IntentConfirmationPrompt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -617,7 +617,7 @@ class IntentConfirmationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param Sequence['IntentConfirmationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentConfirmationPromptMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -659,7 +659,7 @@ class IntentConfirmationPrompt(dict):
 
 
 @pulumi.output_type
-class IntentConfirmationPromptMessage(dict):
+calass IntentConfirmationPromptMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -721,7 +721,7 @@ class IntentConfirmationPromptMessage(dict):
 
 
 @pulumi.output_type
-class IntentDialogCodeHook(dict):
+calass IntentDialogCodeHook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -771,7 +771,7 @@ class IntentDialogCodeHook(dict):
 
 
 @pulumi.output_type
-class IntentFollowUpPrompt(dict):
+calass IntentFollowUpPrompt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -793,8 +793,8 @@ class IntentFollowUpPrompt(dict):
                  prompt: 'outputs.IntentFollowUpPromptPrompt',
                  rejection_statement: 'outputs.IntentFollowUpPromptRejectionStatement'):
         """
-        :param 'IntentFollowUpPromptPromptArgs' prompt: Prompts for information from the user. Attributes are documented under prompt.
-        :param 'IntentFollowUpPromptRejectionStatementArgs' rejection_statement: If the user answers "no" to the question defined in the prompt field,
+        :param 'IntentFollowUpPromptPromptArrgs' prompt: Prompts for information from the user. Attributes are documented under prompt.
+        :param 'IntentFollowUpPromptRejectionStatementArrgs' rejection_statement: If the user answers "no" to the question defined in the prompt field,
                Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
                documented below under statement.
         """
@@ -821,7 +821,7 @@ class IntentFollowUpPrompt(dict):
 
 
 @pulumi.output_type
-class IntentFollowUpPromptPrompt(dict):
+calass IntentFollowUpPromptPrompt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -847,7 +847,7 @@ class IntentFollowUpPromptPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param Sequence['IntentFollowUpPromptPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentFollowUpPromptPromptMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -889,7 +889,7 @@ class IntentFollowUpPromptPrompt(dict):
 
 
 @pulumi.output_type
-class IntentFollowUpPromptPromptMessage(dict):
+calass IntentFollowUpPromptPromptMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -951,7 +951,7 @@ class IntentFollowUpPromptPromptMessage(dict):
 
 
 @pulumi.output_type
-class IntentFollowUpPromptRejectionStatement(dict):
+calass IntentFollowUpPromptRejectionStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -973,7 +973,7 @@ class IntentFollowUpPromptRejectionStatement(dict):
                  messages: Sequence['outputs.IntentFollowUpPromptRejectionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentFollowUpPromptRejectionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentFollowUpPromptRejectionStatementMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -1006,7 +1006,7 @@ class IntentFollowUpPromptRejectionStatement(dict):
 
 
 @pulumi.output_type
-class IntentFollowUpPromptRejectionStatementMessage(dict):
+calass IntentFollowUpPromptRejectionStatementMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1068,7 +1068,7 @@ class IntentFollowUpPromptRejectionStatementMessage(dict):
 
 
 @pulumi.output_type
-class IntentFulfillmentActivity(dict):
+calass IntentFulfillmentActivity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1092,7 +1092,7 @@ class IntentFulfillmentActivity(dict):
         """
         :param str type: How the intent should be fulfilled, either by running a Lambda function or by
                returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
-        :param 'IntentFulfillmentActivityCodeHookArgs' code_hook: A description of the Lambda function that is run to fulfill the intent.
+        :param 'IntentFulfillmentActivityCodeHookArrgs' code_hook: A description of the Lambda function that is run to fulfill the intent.
                Required if type is CodeHook. Attributes are documented under code_hook.
         """
         pulumi.set(__self__, "type", type)
@@ -1119,7 +1119,7 @@ class IntentFulfillmentActivity(dict):
 
 
 @pulumi.output_type
-class IntentFulfillmentActivityCodeHook(dict):
+calass IntentFulfillmentActivityCodeHook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1169,7 +1169,7 @@ class IntentFulfillmentActivityCodeHook(dict):
 
 
 @pulumi.output_type
-class IntentRejectionStatement(dict):
+calass IntentRejectionStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1191,7 +1191,7 @@ class IntentRejectionStatement(dict):
                  messages: Sequence['outputs.IntentRejectionStatementMessage'],
                  response_card: Optional[str] = None):
         """
-        :param Sequence['IntentRejectionStatementMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentRejectionStatementMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -1224,7 +1224,7 @@ class IntentRejectionStatement(dict):
 
 
 @pulumi.output_type
-class IntentRejectionStatementMessage(dict):
+calass IntentRejectionStatementMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1286,7 +1286,7 @@ class IntentRejectionStatementMessage(dict):
 
 
 @pulumi.output_type
-class IntentSlot(dict):
+calass IntentSlot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1341,7 +1341,7 @@ class IntentSlot(dict):
                an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
                is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         :param str slot_type_version: The version of the slot type. Must be less than or equal to 64 characters in length.
-        :param 'IntentSlotValueElicitationPromptArgs' value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
+        :param 'IntentSlotValueElicitationPromptArrgs' value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
                from the user. Attributes are documented under prompt.
         """
         pulumi.set(__self__, "name", name)
@@ -1443,7 +1443,7 @@ class IntentSlot(dict):
 
 
 @pulumi.output_type
-class IntentSlotValueElicitationPrompt(dict):
+calass IntentSlotValueElicitationPrompt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1469,7 +1469,7 @@ class IntentSlotValueElicitationPrompt(dict):
                  response_card: Optional[str] = None):
         """
         :param int max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param Sequence['IntentSlotValueElicitationPromptMessageArgs'] messages: A set of messages, each of which provides a message string and its type.
+        :param Sequence['IntentSlotValueElicitationPromptMessageArrgs'] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param str response_card: The response card. Amazon Lex will substitute session attributes and
@@ -1511,7 +1511,7 @@ class IntentSlotValueElicitationPrompt(dict):
 
 
 @pulumi.output_type
-class IntentSlotValueElicitationPromptMessage(dict):
+calass IntentSlotValueElicitationPromptMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1573,7 +1573,7 @@ class IntentSlotValueElicitationPromptMessage(dict):
 
 
 @pulumi.output_type
-class SlotTypeEnumerationValue(dict):
+calass SlotTypeEnumerationValue(dict):
     def __init__(__self__, *,
                  value: str,
                  synonyms: Optional[Sequence[str]] = None):
@@ -1603,7 +1603,7 @@ class SlotTypeEnumerationValue(dict):
 
 
 @pulumi.output_type
-class V2modelsBotDataPrivacy(dict):
+calass V2modelsBotDataPrivacy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1638,7 +1638,7 @@ class V2modelsBotDataPrivacy(dict):
 
 
 @pulumi.output_type
-class V2modelsBotMember(dict):
+calass V2modelsBotMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1719,7 +1719,7 @@ class V2modelsBotMember(dict):
 
 
 @pulumi.output_type
-class V2modelsBotTimeouts(dict):
+calass V2modelsBotTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -1748,7 +1748,7 @@ class V2modelsBotTimeouts(dict):
 
 
 @pulumi.output_type
-class GetSlotTypeEnumerationValueResult(dict):
+calass GetSlotTypeEnumerationValueResult(dict):
     def __init__(__self__, *,
                  synonyms: Sequence[str],
                  value: str):

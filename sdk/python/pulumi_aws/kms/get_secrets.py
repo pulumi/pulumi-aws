@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecretsResult:
+calass GetSecretsResult:
     """
     A collection of values returned by getSecrets.
     """
@@ -56,7 +56,7 @@ class GetSecretsResult:
         return pulumi.get(self, "secrets")
 
 
-class AwaitableGetSecretsResult(GetSecretsResult):
+calass AwaitableGetSecretsResult(GetSecretsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -67,13 +67,13 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             secrets=self.secrets)
 
 
-def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArgs']]] = None,
+def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArrgs']]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
 
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param Sequence[pulumi.InputType['GetSecretsSecretArrgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
     __args__['secrets'] = secrets
@@ -87,12 +87,12 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
 
 
 @_utilities.lift_output_func(get_secrets)
-def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretsSecretArgs']]]] = None,
+def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretsSecretArrgs']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
 
 
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param Sequence[pulumi.InputType['GetSecretsSecretArrgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     ...

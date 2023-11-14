@@ -132,7 +132,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccessPointPublicAccessBlockConfiguration(dict):
+calass AccessPointPublicAccessBlockConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -222,7 +222,7 @@ class AccessPointPublicAccessBlockConfiguration(dict):
 
 
 @pulumi.output_type
-class AccessPointVpcConfiguration(dict):
+calass AccessPointVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -257,7 +257,7 @@ class AccessPointVpcConfiguration(dict):
 
 
 @pulumi.output_type
-class AnalyticsConfigurationFilter(dict):
+calass AnalyticsConfigurationFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -288,7 +288,7 @@ class AnalyticsConfigurationFilter(dict):
 
 
 @pulumi.output_type
-class AnalyticsConfigurationStorageClassAnalysis(dict):
+calass AnalyticsConfigurationStorageClassAnalysis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -309,7 +309,7 @@ class AnalyticsConfigurationStorageClassAnalysis(dict):
     def __init__(__self__, *,
                  data_export: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExport'):
         """
-        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportArgs' data_export: Data export configuration (documented below).
+        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportArrgs' data_export: Data export configuration (documented below).
         """
         pulumi.set(__self__, "data_export", data_export)
 
@@ -323,7 +323,7 @@ class AnalyticsConfigurationStorageClassAnalysis(dict):
 
 
 @pulumi.output_type
-class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
+calass AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -345,7 +345,7 @@ class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
                  destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestination',
                  output_schema_version: Optional[str] = None):
         """
-        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs' destination: Specifies the destination for the exported analytics data (documented below).
+        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArrgs' destination: Specifies the destination for the exported analytics data (documented below).
         :param str output_schema_version: Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
         """
         pulumi.set(__self__, "destination", destination)
@@ -370,7 +370,7 @@ class AnalyticsConfigurationStorageClassAnalysisDataExport(dict):
 
 
 @pulumi.output_type
-class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
+calass AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -391,7 +391,7 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
     def __init__(__self__, *,
                  s3_bucket_destination: 'outputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination'):
         """
-        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs' s3_bucket_destination: Analytics data export currently only supports an S3 bucket destination (documented below).
+        :param 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArrgs' s3_bucket_destination: Analytics data export currently only supports an S3 bucket destination (documented below).
                
                The `s3_bucket_destination` configuration supports the following:
         """
@@ -409,7 +409,7 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestination(dict):
 
 
 @pulumi.output_type
-class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(dict):
+calass AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -482,13 +482,13 @@ class AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDes
 
 
 @pulumi.output_type
-class BucketAclV2AccessControlPolicy(dict):
+calass BucketAclV2AccessControlPolicy(dict):
     def __init__(__self__, *,
                  owner: 'outputs.BucketAclV2AccessControlPolicyOwner',
                  grants: Optional[Sequence['outputs.BucketAclV2AccessControlPolicyGrant']] = None):
         """
-        :param 'BucketAclV2AccessControlPolicyOwnerArgs' owner: Configuration block of the bucket owner's display name and ID. See below.
-        :param Sequence['BucketAclV2AccessControlPolicyGrantArgs'] grants: Set of `grant` configuration blocks. See below.
+        :param 'BucketAclV2AccessControlPolicyOwnerArrgs' owner: Configuration block of the bucket owner's display name and ID. See below.
+        :param Sequence['BucketAclV2AccessControlPolicyGrantArrgs'] grants: Set of `grant` configuration blocks. See below.
         """
         pulumi.set(__self__, "owner", owner)
         if grants is not None:
@@ -512,13 +512,13 @@ class BucketAclV2AccessControlPolicy(dict):
 
 
 @pulumi.output_type
-class BucketAclV2AccessControlPolicyGrant(dict):
+calass BucketAclV2AccessControlPolicyGrant(dict):
     def __init__(__self__, *,
                  permission: str,
                  grantee: Optional['outputs.BucketAclV2AccessControlPolicyGrantGrantee'] = None):
         """
         :param str permission: Logging permissions assigned to the grantee for the bucket.
-        :param 'BucketAclV2AccessControlPolicyGrantGranteeArgs' grantee: Configuration block for the person being granted permissions. See below.
+        :param 'BucketAclV2AccessControlPolicyGrantGranteeArrgs' grantee: Configuration block for the person being granted permissions. See below.
         """
         pulumi.set(__self__, "permission", permission)
         if grantee is not None:
@@ -542,7 +542,7 @@ class BucketAclV2AccessControlPolicyGrant(dict):
 
 
 @pulumi.output_type
-class BucketAclV2AccessControlPolicyGrantGrantee(dict):
+calass BucketAclV2AccessControlPolicyGrantGrantee(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -627,7 +627,7 @@ class BucketAclV2AccessControlPolicyGrantGrantee(dict):
 
 
 @pulumi.output_type
-class BucketAclV2AccessControlPolicyOwner(dict):
+calass BucketAclV2AccessControlPolicyOwner(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -674,7 +674,7 @@ class BucketAclV2AccessControlPolicyOwner(dict):
 
 
 @pulumi.output_type
-class BucketCorsConfigurationV2CorsRule(dict):
+calass BucketCorsConfigurationV2CorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -776,7 +776,7 @@ class BucketCorsConfigurationV2CorsRule(dict):
 
 
 @pulumi.output_type
-class BucketCorsRule(dict):
+calass BucketCorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -866,7 +866,7 @@ class BucketCorsRule(dict):
 
 
 @pulumi.output_type
-class BucketGrant(dict):
+calass BucketGrant(dict):
     def __init__(__self__, *,
                  permissions: Sequence[str],
                  type: str,
@@ -919,7 +919,7 @@ class BucketGrant(dict):
 
 
 @pulumi.output_type
-class BucketIntelligentTieringConfigurationFilter(dict):
+calass BucketIntelligentTieringConfigurationFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -950,7 +950,7 @@ class BucketIntelligentTieringConfigurationFilter(dict):
 
 
 @pulumi.output_type
-class BucketIntelligentTieringConfigurationTiering(dict):
+calass BucketIntelligentTieringConfigurationTiering(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -996,7 +996,7 @@ class BucketIntelligentTieringConfigurationTiering(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2Rule(dict):
+calass BucketLifecycleConfigurationV2Rule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1031,13 +1031,13 @@ class BucketLifecycleConfigurationV2Rule(dict):
         """
         :param str id: Unique identifier for the rule. The value cannot be longer than 255 characters.
         :param str status: Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-        :param 'BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs' abort_incomplete_multipart_upload: Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
-        :param 'BucketLifecycleConfigurationV2RuleExpirationArgs' expiration: Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
-        :param 'BucketLifecycleConfigurationV2RuleFilterArgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
-        :param 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Configuration block that specifies when noncurrent object versions expire. See below.
-        :param Sequence['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
+        :param 'BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArrgs' abort_incomplete_multipart_upload: Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
+        :param 'BucketLifecycleConfigurationV2RuleExpirationArrgs' expiration: Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
+        :param 'BucketLifecycleConfigurationV2RuleFilterArrgs' filter: Configuration block used to identify objects that a Lifecycle Rule applies to. See below. If not specified, the `rule` will default to using `prefix`.
+        :param 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArrgs' noncurrent_version_expiration: Configuration block that specifies when noncurrent object versions expire. See below.
+        :param Sequence['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrgs'] noncurrent_version_transitions: Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
         :param str prefix: **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
-        :param Sequence['BucketLifecycleConfigurationV2RuleTransitionArgs'] transitions: Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
+        :param Sequence['BucketLifecycleConfigurationV2RuleTransitionArrgs'] transitions: Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "status", status)
@@ -1133,7 +1133,7 @@ class BucketLifecycleConfigurationV2Rule(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(dict):
+calass BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1169,7 +1169,7 @@ class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleExpiration(dict):
+calass BucketLifecycleConfigurationV2RuleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1229,7 +1229,7 @@ class BucketLifecycleConfigurationV2RuleExpiration(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleFilter(dict):
+calass BucketLifecycleConfigurationV2RuleFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1258,11 +1258,11 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
                  prefix: Optional[str] = None,
                  tag: Optional['outputs.BucketLifecycleConfigurationV2RuleFilterTag'] = None):
         """
-        :param 'BucketLifecycleConfigurationV2RuleFilterAndArgs' and_: Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
+        :param 'BucketLifecycleConfigurationV2RuleFilterAndArrgs' and_: Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
         :param str object_size_greater_than: Minimum object size (in bytes) to which the rule applies.
         :param str object_size_less_than: Maximum object size (in bytes) to which the rule applies.
         :param str prefix: Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
-        :param 'BucketLifecycleConfigurationV2RuleFilterTagArgs' tag: Configuration block for specifying a tag key and value. See below.
+        :param 'BucketLifecycleConfigurationV2RuleFilterTagArrgs' tag: Configuration block for specifying a tag key and value. See below.
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -1317,7 +1317,7 @@ class BucketLifecycleConfigurationV2RuleFilter(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
+calass BucketLifecycleConfigurationV2RuleFilterAnd(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1391,7 +1391,7 @@ class BucketLifecycleConfigurationV2RuleFilterAnd(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleFilterTag(dict):
+calass BucketLifecycleConfigurationV2RuleFilterTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1420,7 +1420,7 @@ class BucketLifecycleConfigurationV2RuleFilterTag(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
+calass BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1470,7 +1470,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
+calass BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1533,7 +1533,7 @@ class BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationV2RuleTransition(dict):
+calass BucketLifecycleConfigurationV2RuleTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1592,7 +1592,7 @@ class BucketLifecycleConfigurationV2RuleTransition(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleRule(dict):
+calass BucketLifecycleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1627,15 +1627,15 @@ class BucketLifecycleRule(dict):
         """
         :param bool enabled: Specifies lifecycle rule status.
         :param int abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-        :param 'BucketLifecycleRuleExpirationArgs' expiration: Specifies a period in the object's expire (documented below).
+        :param 'BucketLifecycleRuleExpirationArrgs' expiration: Specifies a period in the object's expire (documented below).
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        :param 'BucketLifecycleRuleNoncurrentVersionExpirationArgs' noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
-        :param Sequence['BucketLifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
+        :param 'BucketLifecycleRuleNoncurrentVersionExpirationArrgs' noncurrent_version_expiration: Specifies when noncurrent object versions expire (documented below).
+        :param Sequence['BucketLifecycleRuleNoncurrentVersionTransitionArrgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions (documented below).
                
                At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
         :param str prefix: Object key prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Specifies object tags key and value.
-        :param Sequence['BucketLifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions (documented below).
+        :param Sequence['BucketLifecycleRuleTransitionArrgs'] transitions: Specifies a period in the object's transitions (documented below).
         """
         pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
@@ -1731,7 +1731,7 @@ class BucketLifecycleRule(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleRuleExpiration(dict):
+calass BucketLifecycleRuleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1791,7 +1791,7 @@ class BucketLifecycleRuleExpiration(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
+calass BucketLifecycleRuleNoncurrentVersionExpiration(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
@@ -1810,7 +1810,7 @@ class BucketLifecycleRuleNoncurrentVersionExpiration(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleRuleNoncurrentVersionTransition(dict):
+calass BucketLifecycleRuleNoncurrentVersionTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1857,7 +1857,7 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleRuleTransition(dict):
+calass BucketLifecycleRuleTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1916,7 +1916,7 @@ class BucketLifecycleRuleTransition(dict):
 
 
 @pulumi.output_type
-class BucketLogging(dict):
+calass BucketLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1965,12 +1965,12 @@ class BucketLogging(dict):
 
 
 @pulumi.output_type
-class BucketLoggingV2TargetGrant(dict):
+calass BucketLoggingV2TargetGrant(dict):
     def __init__(__self__, *,
                  grantee: 'outputs.BucketLoggingV2TargetGrantGrantee',
                  permission: str):
         """
-        :param 'BucketLoggingV2TargetGrantGranteeArgs' grantee: Configuration block for the person being granted permissions. See below.
+        :param 'BucketLoggingV2TargetGrantGranteeArrgs' grantee: Configuration block for the person being granted permissions. See below.
         :param str permission: Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
         """
         pulumi.set(__self__, "grantee", grantee)
@@ -1994,7 +1994,7 @@ class BucketLoggingV2TargetGrant(dict):
 
 
 @pulumi.output_type
-class BucketLoggingV2TargetGrantGrantee(dict):
+calass BucketLoggingV2TargetGrantGrantee(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2075,7 +2075,7 @@ class BucketLoggingV2TargetGrantGrantee(dict):
 
 
 @pulumi.output_type
-class BucketMetricFilter(dict):
+calass BucketMetricFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -2106,7 +2106,7 @@ class BucketMetricFilter(dict):
 
 
 @pulumi.output_type
-class BucketNotificationLambdaFunction(dict):
+calass BucketNotificationLambdaFunction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2193,7 +2193,7 @@ class BucketNotificationLambdaFunction(dict):
 
 
 @pulumi.output_type
-class BucketNotificationQueue(dict):
+calass BucketNotificationQueue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2279,7 +2279,7 @@ class BucketNotificationQueue(dict):
 
 
 @pulumi.output_type
-class BucketNotificationTopic(dict):
+calass BucketNotificationTopic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2365,7 +2365,7 @@ class BucketNotificationTopic(dict):
 
 
 @pulumi.output_type
-class BucketObjectLockConfiguration(dict):
+calass BucketObjectLockConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2388,7 +2388,7 @@ class BucketObjectLockConfiguration(dict):
                  rule: Optional['outputs.BucketObjectLockConfigurationRule'] = None):
         """
         :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-        :param 'BucketObjectLockConfigurationRuleArgs' rule: The Object Lock rule in place for this bucket.
+        :param 'BucketObjectLockConfigurationRuleArrgs' rule: The Object Lock rule in place for this bucket.
         """
         pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rule is not None:
@@ -2412,7 +2412,7 @@ class BucketObjectLockConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketObjectLockConfigurationRule(dict):
+calass BucketObjectLockConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2433,7 +2433,7 @@ class BucketObjectLockConfigurationRule(dict):
     def __init__(__self__, *,
                  default_retention: 'outputs.BucketObjectLockConfigurationRuleDefaultRetention'):
         """
-        :param 'BucketObjectLockConfigurationRuleDefaultRetentionArgs' default_retention: The default retention period that you want to apply to new objects placed in this bucket.
+        :param 'BucketObjectLockConfigurationRuleDefaultRetentionArrgs' default_retention: The default retention period that you want to apply to new objects placed in this bucket.
         """
         pulumi.set(__self__, "default_retention", default_retention)
 
@@ -2447,7 +2447,7 @@ class BucketObjectLockConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketObjectLockConfigurationRuleDefaultRetention(dict):
+calass BucketObjectLockConfigurationRuleDefaultRetention(dict):
     def __init__(__self__, *,
                  mode: str,
                  days: Optional[int] = None,
@@ -2501,7 +2501,7 @@ class BucketObjectLockConfigurationRuleDefaultRetention(dict):
 
 
 @pulumi.output_type
-class BucketObjectLockConfigurationV2Rule(dict):
+calass BucketObjectLockConfigurationV2Rule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2522,7 +2522,7 @@ class BucketObjectLockConfigurationV2Rule(dict):
     def __init__(__self__, *,
                  default_retention: 'outputs.BucketObjectLockConfigurationV2RuleDefaultRetention'):
         """
-        :param 'BucketObjectLockConfigurationV2RuleDefaultRetentionArgs' default_retention: Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
+        :param 'BucketObjectLockConfigurationV2RuleDefaultRetentionArrgs' default_retention: Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
         """
         pulumi.set(__self__, "default_retention", default_retention)
 
@@ -2536,7 +2536,7 @@ class BucketObjectLockConfigurationV2Rule(dict):
 
 
 @pulumi.output_type
-class BucketObjectLockConfigurationV2RuleDefaultRetention(dict):
+calass BucketObjectLockConfigurationV2RuleDefaultRetention(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  mode: Optional[str] = None,
@@ -2579,7 +2579,7 @@ class BucketObjectLockConfigurationV2RuleDefaultRetention(dict):
 
 
 @pulumi.output_type
-class BucketObjectv2OverrideProvider(dict):
+calass BucketObjectv2OverrideProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2600,7 +2600,7 @@ class BucketObjectv2OverrideProvider(dict):
     def __init__(__self__, *,
                  default_tags: Optional['outputs.BucketObjectv2OverrideProviderDefaultTags'] = None):
         """
-        :param 'BucketObjectv2OverrideProviderDefaultTagsArgs' default_tags: Override the provider `default_tags` configuration block.
+        :param 'BucketObjectv2OverrideProviderDefaultTagsArrgs' default_tags: Override the provider `default_tags` configuration block.
         """
         if default_tags is not None:
             pulumi.set(__self__, "default_tags", default_tags)
@@ -2615,7 +2615,7 @@ class BucketObjectv2OverrideProvider(dict):
 
 
 @pulumi.output_type
-class BucketObjectv2OverrideProviderDefaultTags(dict):
+calass BucketObjectv2OverrideProviderDefaultTags(dict):
     def __init__(__self__, *,
                  tags: Optional[Mapping[str, str]] = None):
         """
@@ -2634,7 +2634,7 @@ class BucketObjectv2OverrideProviderDefaultTags(dict):
 
 
 @pulumi.output_type
-class BucketOwnershipControlsRule(dict):
+calass BucketOwnershipControlsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2669,7 +2669,7 @@ class BucketOwnershipControlsRule(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRule(dict):
+calass BucketReplicationConfigRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2702,15 +2702,15 @@ class BucketReplicationConfigRule(dict):
                  priority: Optional[int] = None,
                  source_selection_criteria: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteria'] = None):
         """
-        :param 'BucketReplicationConfigRuleDestinationArgs' destination: Specifies the destination for the rule. See below.
+        :param 'BucketReplicationConfigRuleDestinationArrgs' destination: Specifies the destination for the rule. See below.
         :param str status: Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
-        :param 'BucketReplicationConfigRuleDeleteMarkerReplicationArgs' delete_marker_replication: Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
-        :param 'BucketReplicationConfigRuleExistingObjectReplicationArgs' existing_object_replication: Replicate existing objects in the source bucket according to the rule configurations. See below.
-        :param 'BucketReplicationConfigRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
+        :param 'BucketReplicationConfigRuleDeleteMarkerReplicationArrgs' delete_marker_replication: Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+        :param 'BucketReplicationConfigRuleExistingObjectReplicationArrgs' existing_object_replication: Replicate existing objects in the source bucket according to the rule configurations. See below.
+        :param 'BucketReplicationConfigRuleFilterArrgs' filter: Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param str prefix: Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         :param int priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria. See below.
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaArrgs' source_selection_criteria: Specifies special object selection criteria. See below.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "status", status)
@@ -2806,7 +2806,7 @@ class BucketReplicationConfigRule(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDeleteMarkerReplication(dict):
+calass BucketReplicationConfigRuleDeleteMarkerReplication(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -2824,7 +2824,7 @@ class BucketReplicationConfigRuleDeleteMarkerReplication(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestination(dict):
+calass BucketReplicationConfigRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2858,11 +2858,11 @@ class BucketReplicationConfigRuleDestination(dict):
                  storage_class: Optional[str] = None):
         """
         :param str bucket: ARN of the bucket where you want Amazon S3 to store the results.
-        :param 'BucketReplicationConfigRuleDestinationAccessControlTranslationArgs' access_control_translation: Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+        :param 'BucketReplicationConfigRuleDestinationAccessControlTranslationArrgs' access_control_translation: Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
         :param str account: Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
-        :param 'BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs' encryption_configuration: Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
-        :param 'BucketReplicationConfigRuleDestinationMetricsArgs' metrics: Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
-        :param 'BucketReplicationConfigRuleDestinationReplicationTimeArgs' replication_time: Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
+        :param 'BucketReplicationConfigRuleDestinationEncryptionConfigurationArrgs' encryption_configuration: Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
+        :param 'BucketReplicationConfigRuleDestinationMetricsArrgs' metrics: Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
+        :param 'BucketReplicationConfigRuleDestinationReplicationTimeArrgs' replication_time: Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -2937,7 +2937,7 @@ class BucketReplicationConfigRuleDestination(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationAccessControlTranslation(dict):
+calass BucketReplicationConfigRuleDestinationAccessControlTranslation(dict):
     def __init__(__self__, *,
                  owner: str):
         """
@@ -2955,7 +2955,7 @@ class BucketReplicationConfigRuleDestinationAccessControlTranslation(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
+calass BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2990,7 +2990,7 @@ class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationMetrics(dict):
+calass BucketReplicationConfigRuleDestinationMetrics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3013,7 +3013,7 @@ class BucketReplicationConfigRuleDestinationMetrics(dict):
                  event_threshold: Optional['outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold'] = None):
         """
         :param str status: Status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
-        :param 'BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs' event_threshold: Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
+        :param 'BucketReplicationConfigRuleDestinationMetricsEventThresholdArrgs' event_threshold: Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
         """
         pulumi.set(__self__, "status", status)
         if event_threshold is not None:
@@ -3037,7 +3037,7 @@ class BucketReplicationConfigRuleDestinationMetrics(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationMetricsEventThreshold(dict):
+calass BucketReplicationConfigRuleDestinationMetricsEventThreshold(dict):
     def __init__(__self__, *,
                  minutes: int):
         """
@@ -3055,13 +3055,13 @@ class BucketReplicationConfigRuleDestinationMetricsEventThreshold(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationReplicationTime(dict):
+calass BucketReplicationConfigRuleDestinationReplicationTime(dict):
     def __init__(__self__, *,
                  status: str,
                  time: 'outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime'):
         """
         :param str status: Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
-        :param 'BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs' time: Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
+        :param 'BucketReplicationConfigRuleDestinationReplicationTimeTimeArrgs' time: Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
         """
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "time", time)
@@ -3084,7 +3084,7 @@ class BucketReplicationConfigRuleDestinationReplicationTime(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleDestinationReplicationTimeTime(dict):
+calass BucketReplicationConfigRuleDestinationReplicationTimeTime(dict):
     def __init__(__self__, *,
                  minutes: int):
         """
@@ -3102,7 +3102,7 @@ class BucketReplicationConfigRuleDestinationReplicationTimeTime(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleExistingObjectReplication(dict):
+calass BucketReplicationConfigRuleExistingObjectReplication(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -3120,7 +3120,7 @@ class BucketReplicationConfigRuleExistingObjectReplication(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleFilter(dict):
+calass BucketReplicationConfigRuleFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3143,9 +3143,9 @@ class BucketReplicationConfigRuleFilter(dict):
                  prefix: Optional[str] = None,
                  tag: Optional['outputs.BucketReplicationConfigRuleFilterTag'] = None):
         """
-        :param 'BucketReplicationConfigRuleFilterAndArgs' and_: Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+        :param 'BucketReplicationConfigRuleFilterAndArrgs' and_: Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
         :param str prefix: Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-        :param 'BucketReplicationConfigRuleFilterTagArgs' tag: Configuration block for specifying a tag key and value. See below.
+        :param 'BucketReplicationConfigRuleFilterTagArrgs' tag: Configuration block for specifying a tag key and value. See below.
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -3180,7 +3180,7 @@ class BucketReplicationConfigRuleFilter(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleFilterAnd(dict):
+calass BucketReplicationConfigRuleFilterAnd(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -3211,7 +3211,7 @@ class BucketReplicationConfigRuleFilterAnd(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleFilterTag(dict):
+calass BucketReplicationConfigRuleFilterTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -3240,7 +3240,7 @@ class BucketReplicationConfigRuleFilterTag(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleSourceSelectionCriteria(dict):
+calass BucketReplicationConfigRuleSourceSelectionCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3264,8 +3264,8 @@ class BucketReplicationConfigRuleSourceSelectionCriteria(dict):
                  replica_modifications: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications'] = None,
                  sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None):
         """
-        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs' replica_modifications: Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
-        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs' sse_kms_encrypted_objects: Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArrgs' replica_modifications: Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArrgs' sse_kms_encrypted_objects: Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
         """
         if replica_modifications is not None:
             pulumi.set(__self__, "replica_modifications", replica_modifications)
@@ -3290,7 +3290,7 @@ class BucketReplicationConfigRuleSourceSelectionCriteria(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications(dict):
+calass BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -3308,7 +3308,7 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications(dic
 
 
 @pulumi.output_type
-class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(dict):
+calass BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -3326,13 +3326,13 @@ class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(d
 
 
 @pulumi.output_type
-class BucketReplicationConfiguration(dict):
+calass BucketReplicationConfiguration(dict):
     def __init__(__self__, *,
                  role: str,
                  rules: Sequence['outputs.BucketReplicationConfigurationRule']):
         """
         :param str role: The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param Sequence['BucketReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
+        :param Sequence['BucketReplicationConfigurationRuleArrgs'] rules: Specifies the rules managing the replication (documented below).
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
@@ -3355,7 +3355,7 @@ class BucketReplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRule(dict):
+calass BucketReplicationConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3385,16 +3385,16 @@ class BucketReplicationConfigurationRule(dict):
                  priority: Optional[int] = None,
                  source_selection_criteria: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteria'] = None):
         """
-        :param 'BucketReplicationConfigurationRuleDestinationArgs' destination: Specifies the destination for the rule (documented below).
+        :param 'BucketReplicationConfigurationRuleDestinationArrgs' destination: Specifies the destination for the rule (documented below).
         :param str status: The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
                
                > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rules` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
         :param str delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
-        :param 'BucketReplicationConfigurationRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
+        :param 'BucketReplicationConfigurationRuleFilterArrgs' filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param int priority: The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-        :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria (documented below).
+        :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaArrgs' source_selection_criteria: Specifies special object selection criteria (documented below).
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "status", status)
@@ -3479,7 +3479,7 @@ class BucketReplicationConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleDestination(dict):
+calass BucketReplicationConfigurationRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3515,12 +3515,12 @@ class BucketReplicationConfigurationRuleDestination(dict):
                  storage_class: Optional[str] = None):
         """
         :param str bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        :param 'BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs' access_control_translation: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        :param 'BucketReplicationConfigurationRuleDestinationAccessControlTranslationArrgs' access_control_translation: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         :param str account_id: The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
-        :param 'BucketReplicationConfigurationRuleDestinationMetricsArgs' metrics: Enables replication metrics (required for S3 RTC) (documented below).
+        :param 'BucketReplicationConfigurationRuleDestinationMetricsArrgs' metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param str replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                `sse_kms_encrypted_objects` source selection criteria.
-        :param 'BucketReplicationConfigurationRuleDestinationReplicationTimeArgs' replication_time: Enables S3 Replication Time Control (S3 RTC) (documented below).
+        :param 'BucketReplicationConfigurationRuleDestinationReplicationTimeArrgs' replication_time: Enables S3 Replication Time Control (S3 RTC) (documented below).
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -3596,7 +3596,7 @@ class BucketReplicationConfigurationRuleDestination(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
+calass BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
     def __init__(__self__, *,
                  owner: str):
         """
@@ -3614,7 +3614,7 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslation(dict
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleDestinationMetrics(dict):
+calass BucketReplicationConfigurationRuleDestinationMetrics(dict):
     def __init__(__self__, *,
                  minutes: Optional[int] = None,
                  status: Optional[str] = None):
@@ -3645,7 +3645,7 @@ class BucketReplicationConfigurationRuleDestinationMetrics(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleDestinationReplicationTime(dict):
+calass BucketReplicationConfigurationRuleDestinationReplicationTime(dict):
     def __init__(__self__, *,
                  minutes: Optional[int] = None,
                  status: Optional[str] = None):
@@ -3676,7 +3676,7 @@ class BucketReplicationConfigurationRuleDestinationReplicationTime(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleFilter(dict):
+calass BucketReplicationConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -3709,7 +3709,7 @@ class BucketReplicationConfigurationRuleFilter(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
+calass BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3730,7 +3730,7 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
     def __init__(__self__, *,
                  sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None):
         """
-        :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs' sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+        :param 'BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArrgs' sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                in `destination` must be specified as well.
         """
         if sse_kms_encrypted_objects is not None:
@@ -3747,7 +3747,7 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteria(dict):
 
 
 @pulumi.output_type
-class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects(dict):
+calass BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -3765,11 +3765,11 @@ class BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedOb
 
 
 @pulumi.output_type
-class BucketServerSideEncryptionConfiguration(dict):
+calass BucketServerSideEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  rule: 'outputs.BucketServerSideEncryptionConfigurationRule'):
         """
-        :param 'BucketServerSideEncryptionConfigurationRuleArgs' rule: A single object for server-side encryption by default configuration. (documented below)
+        :param 'BucketServerSideEncryptionConfigurationRuleArrgs' rule: A single object for server-side encryption by default configuration. (documented below)
         """
         pulumi.set(__self__, "rule", rule)
 
@@ -3783,7 +3783,7 @@ class BucketServerSideEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketServerSideEncryptionConfigurationRule(dict):
+calass BucketServerSideEncryptionConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3807,7 +3807,7 @@ class BucketServerSideEncryptionConfigurationRule(dict):
                  apply_server_side_encryption_by_default: 'outputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault',
                  bucket_key_enabled: Optional[bool] = None):
         """
-        :param 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
+        :param 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrgs' apply_server_side_encryption_by_default: A single object for setting server-side encryption by default. (documented below)
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         pulumi.set(__self__, "apply_server_side_encryption_by_default", apply_server_side_encryption_by_default)
@@ -3832,7 +3832,7 @@ class BucketServerSideEncryptionConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
+calass BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3881,7 +3881,7 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
 
 
 @pulumi.output_type
-class BucketServerSideEncryptionConfigurationV2Rule(dict):
+calass BucketServerSideEncryptionConfigurationV2Rule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3905,7 +3905,7 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
                  apply_server_side_encryption_by_default: Optional['outputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault'] = None,
                  bucket_key_enabled: Optional[bool] = None):
         """
-        :param 'BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs' apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
+        :param 'BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArrgs' apply_server_side_encryption_by_default: Single object for setting server-side encryption by default. See below.
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         if apply_server_side_encryption_by_default is not None:
@@ -3931,7 +3931,7 @@ class BucketServerSideEncryptionConfigurationV2Rule(dict):
 
 
 @pulumi.output_type
-class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault(dict):
+calass BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3980,7 +3980,7 @@ class BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDe
 
 
 @pulumi.output_type
-class BucketV2CorsRule(dict):
+calass BucketV2CorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4070,7 +4070,7 @@ class BucketV2CorsRule(dict):
 
 
 @pulumi.output_type
-class BucketV2Grant(dict):
+calass BucketV2Grant(dict):
     def __init__(__self__, *,
                  permissions: Sequence[str],
                  type: str,
@@ -4123,7 +4123,7 @@ class BucketV2Grant(dict):
 
 
 @pulumi.output_type
-class BucketV2LifecycleRule(dict):
+calass BucketV2LifecycleRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4158,13 +4158,13 @@ class BucketV2LifecycleRule(dict):
         """
         :param bool enabled: Specifies lifecycle rule status.
         :param int abort_incomplete_multipart_upload_days: Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
-        :param Sequence['BucketV2LifecycleRuleExpirationArgs'] expirations: Specifies a period in the object's expire. See Expiration below for details.
+        :param Sequence['BucketV2LifecycleRuleExpirationArrgs'] expirations: Specifies a period in the object's expire. See Expiration below for details.
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
-        :param Sequence['BucketV2LifecycleRuleNoncurrentVersionExpirationArgs'] noncurrent_version_expirations: Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
-        :param Sequence['BucketV2LifecycleRuleNoncurrentVersionTransitionArgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
+        :param Sequence['BucketV2LifecycleRuleNoncurrentVersionExpirationArrgs'] noncurrent_version_expirations: Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
+        :param Sequence['BucketV2LifecycleRuleNoncurrentVersionTransitionArrgs'] noncurrent_version_transitions: Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         :param str prefix: Object key prefix identifying one or more objects to which the rule applies.
         :param Mapping[str, str] tags: Specifies object tags key and value.
-        :param Sequence['BucketV2LifecycleRuleTransitionArgs'] transitions: Specifies a period in the object's transitions. See Transition below for details.
+        :param Sequence['BucketV2LifecycleRuleTransitionArrgs'] transitions: Specifies a period in the object's transitions. See Transition below for details.
         """
         pulumi.set(__self__, "enabled", enabled)
         if abort_incomplete_multipart_upload_days is not None:
@@ -4258,7 +4258,7 @@ class BucketV2LifecycleRule(dict):
 
 
 @pulumi.output_type
-class BucketV2LifecycleRuleExpiration(dict):
+calass BucketV2LifecycleRuleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4318,7 +4318,7 @@ class BucketV2LifecycleRuleExpiration(dict):
 
 
 @pulumi.output_type
-class BucketV2LifecycleRuleNoncurrentVersionExpiration(dict):
+calass BucketV2LifecycleRuleNoncurrentVersionExpiration(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
@@ -4337,7 +4337,7 @@ class BucketV2LifecycleRuleNoncurrentVersionExpiration(dict):
 
 
 @pulumi.output_type
-class BucketV2LifecycleRuleNoncurrentVersionTransition(dict):
+calass BucketV2LifecycleRuleNoncurrentVersionTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4384,7 +4384,7 @@ class BucketV2LifecycleRuleNoncurrentVersionTransition(dict):
 
 
 @pulumi.output_type
-class BucketV2LifecycleRuleTransition(dict):
+calass BucketV2LifecycleRuleTransition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4443,7 +4443,7 @@ class BucketV2LifecycleRuleTransition(dict):
 
 
 @pulumi.output_type
-class BucketV2Logging(dict):
+calass BucketV2Logging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4492,7 +4492,7 @@ class BucketV2Logging(dict):
 
 
 @pulumi.output_type
-class BucketV2ObjectLockConfiguration(dict):
+calass BucketV2ObjectLockConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4515,7 +4515,7 @@ class BucketV2ObjectLockConfiguration(dict):
                  rules: Optional[Sequence['outputs.BucketV2ObjectLockConfigurationRule']] = None):
         """
         :param str object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-        :param Sequence['BucketV2ObjectLockConfigurationRuleArgs'] rules: Object Lock rule in place for this bucket (documented below).
+        :param Sequence['BucketV2ObjectLockConfigurationRuleArrgs'] rules: Object Lock rule in place for this bucket (documented below).
         """
         if object_lock_enabled is not None:
             pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
@@ -4546,7 +4546,7 @@ class BucketV2ObjectLockConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketV2ObjectLockConfigurationRule(dict):
+calass BucketV2ObjectLockConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4567,7 +4567,7 @@ class BucketV2ObjectLockConfigurationRule(dict):
     def __init__(__self__, *,
                  default_retentions: Sequence['outputs.BucketV2ObjectLockConfigurationRuleDefaultRetention']):
         """
-        :param Sequence['BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs'] default_retentions: Default retention period that you want to apply to new objects placed in this bucket (documented below).
+        :param Sequence['BucketV2ObjectLockConfigurationRuleDefaultRetentionArrgs'] default_retentions: Default retention period that you want to apply to new objects placed in this bucket (documented below).
         """
         pulumi.set(__self__, "default_retentions", default_retentions)
 
@@ -4581,7 +4581,7 @@ class BucketV2ObjectLockConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketV2ObjectLockConfigurationRuleDefaultRetention(dict):
+calass BucketV2ObjectLockConfigurationRuleDefaultRetention(dict):
     def __init__(__self__, *,
                  mode: str,
                  days: Optional[int] = None,
@@ -4623,13 +4623,13 @@ class BucketV2ObjectLockConfigurationRuleDefaultRetention(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfiguration(dict):
+calass BucketV2ReplicationConfiguration(dict):
     def __init__(__self__, *,
                  role: str,
                  rules: Sequence['outputs.BucketV2ReplicationConfigurationRule']):
         """
         :param str role: ARN of the IAM role for Amazon S3 to assume when replicating the objects.
-        :param Sequence['BucketV2ReplicationConfigurationRuleArgs'] rules: Specifies the rules managing the replication (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleArrgs'] rules: Specifies the rules managing the replication (documented below).
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "rules", rules)
@@ -4652,7 +4652,7 @@ class BucketV2ReplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRule(dict):
+calass BucketV2ReplicationConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4682,14 +4682,14 @@ class BucketV2ReplicationConfigurationRule(dict):
                  priority: Optional[int] = None,
                  source_selection_criterias: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria']] = None):
         """
-        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationArgs'] destinations: Specifies the destination for the rule (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationArrgs'] destinations: Specifies the destination for the rule (documented below).
         :param str status: Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         :param str delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
-        :param Sequence['BucketV2ReplicationConfigurationRuleFilterArgs'] filters: Filter that identifies subset of objects to which the replication rule applies (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleFilterArrgs'] filters: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         :param int priority: Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
-        :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs'] source_selection_criterias: Specifies special object selection criteria (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrgs'] source_selection_criterias: Specifies special object selection criteria (documented below).
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "status", status)
@@ -4772,7 +4772,7 @@ class BucketV2ReplicationConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleDestination(dict):
+calass BucketV2ReplicationConfigurationRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4808,12 +4808,12 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
                  storage_class: Optional[str] = None):
         """
         :param str bucket: ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
-        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translations: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
+        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrgs'] access_control_translations: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         :param str account_id: Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
-        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationMetricArgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationMetricArrgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param str replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                `sse_kms_encrypted_objects` source selection criteria.
-        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs'] replication_times: Enables S3 Replication Time Control (S3 RTC) (documented below).
+        :param Sequence['BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrgs'] replication_times: Enables S3 Replication Time Control (S3 RTC) (documented below).
         :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -4889,7 +4889,7 @@ class BucketV2ReplicationConfigurationRuleDestination(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
+calass BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(dict):
     def __init__(__self__, *,
                  owner: str):
         pulumi.set(__self__, "owner", owner)
@@ -4901,7 +4901,7 @@ class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(di
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleDestinationMetric(dict):
+calass BucketV2ReplicationConfigurationRuleDestinationMetric(dict):
     def __init__(__self__, *,
                  minutes: Optional[int] = None,
                  status: Optional[str] = None):
@@ -4932,7 +4932,7 @@ class BucketV2ReplicationConfigurationRuleDestinationMetric(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleDestinationReplicationTime(dict):
+calass BucketV2ReplicationConfigurationRuleDestinationReplicationTime(dict):
     def __init__(__self__, *,
                  minutes: Optional[int] = None,
                  status: Optional[str] = None):
@@ -4963,7 +4963,7 @@ class BucketV2ReplicationConfigurationRuleDestinationReplicationTime(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleFilter(dict):
+calass BucketV2ReplicationConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -4996,7 +4996,7 @@ class BucketV2ReplicationConfigurationRuleFilter(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria(dict):
+calass BucketV2ReplicationConfigurationRuleSourceSelectionCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5017,7 +5017,7 @@ class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria(dict):
     def __init__(__self__, *,
                  sse_kms_encrypted_objects: Optional[Sequence['outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject']] = None):
         """
-        :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs'] sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
+        :param Sequence['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrgs'] sse_kms_encrypted_objects: Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
                in `destination` must be specified as well.
         """
         if sse_kms_encrypted_objects is not None:
@@ -5034,7 +5034,7 @@ class BucketV2ReplicationConfigurationRuleSourceSelectionCriteria(dict):
 
 
 @pulumi.output_type
-class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(dict):
+calass BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -5052,11 +5052,11 @@ class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 
 
 @pulumi.output_type
-class BucketV2ServerSideEncryptionConfiguration(dict):
+calass BucketV2ServerSideEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.BucketV2ServerSideEncryptionConfigurationRule']):
         """
-        :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleArgs'] rules: Single object for server-side encryption by default configuration. (documented below)
+        :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleArrgs'] rules: Single object for server-side encryption by default configuration. (documented below)
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -5070,7 +5070,7 @@ class BucketV2ServerSideEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketV2ServerSideEncryptionConfigurationRule(dict):
+calass BucketV2ServerSideEncryptionConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5094,7 +5094,7 @@ class BucketV2ServerSideEncryptionConfigurationRule(dict):
                  apply_server_side_encryption_by_defaults: Sequence['outputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault'],
                  bucket_key_enabled: Optional[bool] = None):
         """
-        :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs'] apply_server_side_encryption_by_defaults: Single object for setting server-side encryption by default. (documented below)
+        :param Sequence['BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrgs'] apply_server_side_encryption_by_defaults: Single object for setting server-side encryption by default. (documented below)
         :param bool bucket_key_enabled: Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         """
         pulumi.set(__self__, "apply_server_side_encryption_by_defaults", apply_server_side_encryption_by_defaults)
@@ -5119,7 +5119,7 @@ class BucketV2ServerSideEncryptionConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
+calass BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5168,7 +5168,7 @@ class BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 
 
 @pulumi.output_type
-class BucketV2Versioning(dict):
+calass BucketV2Versioning(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5216,7 +5216,7 @@ class BucketV2Versioning(dict):
 
 
 @pulumi.output_type
-class BucketV2Website(dict):
+calass BucketV2Website(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5296,7 +5296,7 @@ class BucketV2Website(dict):
 
 
 @pulumi.output_type
-class BucketVersioning(dict):
+calass BucketVersioning(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5344,7 +5344,7 @@ class BucketVersioning(dict):
 
 
 @pulumi.output_type
-class BucketVersioningV2VersioningConfiguration(dict):
+calass BucketVersioningV2VersioningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5391,7 +5391,7 @@ class BucketVersioningV2VersioningConfiguration(dict):
 
 
 @pulumi.output_type
-class BucketWebsite(dict):
+calass BucketWebsite(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5475,7 +5475,7 @@ class BucketWebsite(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2ErrorDocument(dict):
+calass BucketWebsiteConfigurationV2ErrorDocument(dict):
     def __init__(__self__, *,
                  key: str):
         """
@@ -5493,7 +5493,7 @@ class BucketWebsiteConfigurationV2ErrorDocument(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2IndexDocument(dict):
+calass BucketWebsiteConfigurationV2IndexDocument(dict):
     def __init__(__self__, *,
                  suffix: str):
         """
@@ -5515,7 +5515,7 @@ class BucketWebsiteConfigurationV2IndexDocument(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2RedirectAllRequestsTo(dict):
+calass BucketWebsiteConfigurationV2RedirectAllRequestsTo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5562,13 +5562,13 @@ class BucketWebsiteConfigurationV2RedirectAllRequestsTo(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2RoutingRule(dict):
+calass BucketWebsiteConfigurationV2RoutingRule(dict):
     def __init__(__self__, *,
                  redirect: 'outputs.BucketWebsiteConfigurationV2RoutingRuleRedirect',
                  condition: Optional['outputs.BucketWebsiteConfigurationV2RoutingRuleCondition'] = None):
         """
-        :param 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs' redirect: Configuration block for redirect information. See below.
-        :param 'BucketWebsiteConfigurationV2RoutingRuleConditionArgs' condition: Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
+        :param 'BucketWebsiteConfigurationV2RoutingRuleRedirectArrgs' redirect: Configuration block for redirect information. See below.
+        :param 'BucketWebsiteConfigurationV2RoutingRuleConditionArrgs' condition: Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
         """
         pulumi.set(__self__, "redirect", redirect)
         if condition is not None:
@@ -5592,7 +5592,7 @@ class BucketWebsiteConfigurationV2RoutingRule(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2RoutingRuleCondition(dict):
+calass BucketWebsiteConfigurationV2RoutingRuleCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5642,7 +5642,7 @@ class BucketWebsiteConfigurationV2RoutingRuleCondition(dict):
 
 
 @pulumi.output_type
-class BucketWebsiteConfigurationV2RoutingRuleRedirect(dict):
+calass BucketWebsiteConfigurationV2RoutingRuleRedirect(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5732,11 +5732,11 @@ class BucketWebsiteConfigurationV2RoutingRuleRedirect(dict):
 
 
 @pulumi.output_type
-class InventoryDestination(dict):
+calass InventoryDestination(dict):
     def __init__(__self__, *,
                  bucket: 'outputs.InventoryDestinationBucket'):
         """
-        :param 'InventoryDestinationBucketArgs' bucket: S3 bucket configuration where inventory results are published (documented below).
+        :param 'InventoryDestinationBucketArrgs' bucket: S3 bucket configuration where inventory results are published (documented below).
         """
         pulumi.set(__self__, "bucket", bucket)
 
@@ -5750,7 +5750,7 @@ class InventoryDestination(dict):
 
 
 @pulumi.output_type
-class InventoryDestinationBucket(dict):
+calass InventoryDestinationBucket(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5780,7 +5780,7 @@ class InventoryDestinationBucket(dict):
         :param str bucket_arn: Amazon S3 bucket ARN of the destination.
         :param str format: Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
         :param str account_id: ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-        :param 'InventoryDestinationBucketEncryptionArgs' encryption: Contains the type of server-side encryption to use to encrypt the inventory (documented below).
+        :param 'InventoryDestinationBucketEncryptionArrgs' encryption: Contains the type of server-side encryption to use to encrypt the inventory (documented below).
         :param str prefix: Prefix that is prepended to all inventory results.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -5834,7 +5834,7 @@ class InventoryDestinationBucket(dict):
 
 
 @pulumi.output_type
-class InventoryDestinationBucketEncryption(dict):
+calass InventoryDestinationBucketEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5858,8 +5858,8 @@ class InventoryDestinationBucketEncryption(dict):
                  sse_kms: Optional['outputs.InventoryDestinationBucketEncryptionSseKms'] = None,
                  sse_s3: Optional['outputs.InventoryDestinationBucketEncryptionSseS3'] = None):
         """
-        :param 'InventoryDestinationBucketEncryptionSseKmsArgs' sse_kms: Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
-        :param 'InventoryDestinationBucketEncryptionSseS3Args' sse_s3: Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
+        :param 'InventoryDestinationBucketEncryptionSseKmsArrgs' sse_kms: Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
+        :param 'InventoryDestinationBucketEncryptionSseS3Arrgs' sse_s3: Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
         """
         if sse_kms is not None:
             pulumi.set(__self__, "sse_kms", sse_kms)
@@ -5884,7 +5884,7 @@ class InventoryDestinationBucketEncryption(dict):
 
 
 @pulumi.output_type
-class InventoryDestinationBucketEncryptionSseKms(dict):
+calass InventoryDestinationBucketEncryptionSseKms(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5919,13 +5919,13 @@ class InventoryDestinationBucketEncryptionSseKms(dict):
 
 
 @pulumi.output_type
-class InventoryDestinationBucketEncryptionSseS3(dict):
+calass InventoryDestinationBucketEncryptionSseS3(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class InventoryFilter(dict):
+calass InventoryFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None):
         """
@@ -5944,7 +5944,7 @@ class InventoryFilter(dict):
 
 
 @pulumi.output_type
-class InventorySchedule(dict):
+calass InventorySchedule(dict):
     def __init__(__self__, *,
                  frequency: str):
         """
@@ -5962,7 +5962,7 @@ class InventorySchedule(dict):
 
 
 @pulumi.output_type
-class ObjectCopyGrant(dict):
+calass ObjectCopyGrant(dict):
     def __init__(__self__, *,
                  permissions: Sequence[str],
                  type: str,

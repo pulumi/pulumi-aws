@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnablerArgs', 'Enabler']
+__all__ = ['EnablerArrgs', 'Enabler']
 
 @pulumi.input_type
-class EnablerArgs:
+calass EnablerArrgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -56,7 +56,7 @@ class EnablerArgs:
 
 
 @pulumi.input_type
-class _EnablerState:
+calass _EnablerState:
     def __init__(__self__, *,
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -101,7 +101,7 @@ class _EnablerState:
         pulumi.set(self, "resource_types", value)
 
 
-class Enabler(pulumi.CustomResource):
+calass Enabler(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,7 +152,7 @@ class Enabler(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnablerArgs,
+                 args: EnablerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for enabling Amazon Inspector resource scans.
@@ -186,12 +186,12 @@ class Enabler(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnablerArgs args: The arguments to use to populate this resource's properties.
+        :param EnablerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnablerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnablerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -209,7 +209,7 @@ class Enabler(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnablerArgs.__new__(EnablerArgs)
+            __props__ = EnablerArrgs.__new__(EnablerArrgs)
 
             if account_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'account_ids'")

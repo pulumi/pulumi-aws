@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLogGroupsResult:
+calass GetLogGroupsResult:
     """
     A collection of values returned by getLogGroups.
     """
@@ -65,7 +65,7 @@ class GetLogGroupsResult:
         return pulumi.get(self, "log_group_names")
 
 
-class AwaitableGetLogGroupsResult(GetLogGroupsResult):
+calass AwaitableGetLogGroupsResult(GetLogGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

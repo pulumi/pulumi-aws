@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserGroupArgs', 'UserGroup']
+__all__ = ['UserGroupArrgs', 'UserGroup']
 
 @pulumi.input_type
-class UserGroupArgs:
+calass UserGroupArrgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class UserGroupArgs:
 
 
 @pulumi.input_type
-class _UserGroupState:
+calass _UserGroupState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _UserGroupState:
         pulumi.set(self, "user_pool_id", value)
 
 
-class UserGroup(pulumi.CustomResource):
+calass UserGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -207,20 +207,20 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Federated",
                 identifiers=["cognito-identity.amazonaws.com"],
             )],
             actions=["sts:AssumeRoleWithWebIdentity"],
             conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="cognito-identity.amazonaws.com:aud",
                     values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
                 ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="ForAnyValue:StringLike",
                     variable="cognito-identity.amazonaws.com:amr",
                     values=["authenticated"],
@@ -255,7 +255,7 @@ class UserGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserGroupArgs,
+                 args: UserGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cognito User Group resource.
@@ -267,20 +267,20 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        group_role_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Federated",
                 identifiers=["cognito-identity.amazonaws.com"],
             )],
             actions=["sts:AssumeRoleWithWebIdentity"],
             conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="cognito-identity.amazonaws.com:aud",
                     values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
                 ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
+                aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="ForAnyValue:StringLike",
                     variable="cognito-identity.amazonaws.com:amr",
                     values=["authenticated"],
@@ -304,12 +304,12 @@ class UserGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserGroupArgs args: The arguments to use to populate this resource's properties.
+        :param UserGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -330,7 +330,7 @@ class UserGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserGroupArgs.__new__(UserGroupArgs)
+            __props__ = UserGroupArrgs.__new__(UserGroupArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

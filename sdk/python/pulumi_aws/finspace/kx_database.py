@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KxDatabaseArgs', 'KxDatabase']
+__all__ = ['KxDatabaseArrgs', 'KxDatabase']
 
 @pulumi.input_type
-class KxDatabaseArgs:
+calass KxDatabaseArrgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class KxDatabaseArgs:
 
 
 @pulumi.input_type
-class _KxDatabaseState:
+calass _KxDatabaseState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_timestamp: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _KxDatabaseState:
         pulumi.set(self, "tags_all", value)
 
 
-class KxDatabase(pulumi.CustomResource):
+calass KxDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -282,7 +282,7 @@ class KxDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KxDatabaseArgs,
+                 args: KxDatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS FinSpace Kx Database.
@@ -312,12 +312,12 @@ class KxDatabase(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KxDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param KxDatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KxDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KxDatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -337,7 +337,7 @@ class KxDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KxDatabaseArgs.__new__(KxDatabaseArgs)
+            __props__ = KxDatabaseArrgs.__new__(KxDatabaseArrgs)
 
             __props__.__dict__["description"] = description
             if environment_id is None and not opts.urn:

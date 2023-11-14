@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VaultArgs', 'Vault']
+__all__ = ['VaultArrgs', 'Vault']
 
 @pulumi.input_type
-class VaultArgs:
+calass VaultArrgs:
     def __init__(__self__, *,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -84,7 +84,7 @@ class VaultArgs:
 
 
 @pulumi.input_type
-class _VaultState:
+calass _VaultState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -209,7 +209,7 @@ class _VaultState:
         pulumi.set(self, "tags_all", value)
 
 
-class Vault(pulumi.CustomResource):
+calass Vault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class Vault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VaultArgs] = None,
+                 args: Optional[VaultArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup vault resource.
@@ -273,12 +273,12 @@ class Vault(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultArgs args: The arguments to use to populate this resource's properties.
+        :param VaultArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -298,7 +298,7 @@ class Vault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultArgs.__new__(VaultArgs)
+            __props__ = VaultArrgs.__new__(VaultArrgs)
 
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["kms_key_arn"] = kms_key_arn

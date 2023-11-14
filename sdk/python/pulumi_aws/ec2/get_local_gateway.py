@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLocalGatewayResult:
+calass GetLocalGatewayResult:
     """
     A collection of values returned by getLocalGateway.
     """
@@ -83,7 +83,7 @@ class GetLocalGatewayResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
+calass AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -97,7 +97,7 @@ class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
             tags=self.tags)
 
 
-def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']]] = None,
+def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayFilterArrgs']]] = None,
                       id: Optional[str] = None,
                       state: Optional[str] = None,
                       tags: Optional[Mapping[str, str]] = None,
@@ -119,7 +119,7 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArrgs']] filters: Custom filter block as described below.
     :param str id: Id of the specific Local Gateway to retrieve.
     :param str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.
@@ -147,7 +147,7 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
 
 
 @_utilities.lift_output_func(get_local_gateway)
-def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']]]]] = None,
+def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayFilterArrgs']]]]] = None,
                              id: Optional[pulumi.Input[Optional[str]]] = None,
                              state: Optional[pulumi.Input[Optional[str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -169,7 +169,7 @@ def get_local_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetLocalGatewayFilterArrgs']] filters: Custom filter block as described below.
     :param str id: Id of the specific Local Gateway to retrieve.
     :param str state: Current state of the desired Local Gateway.
            Can be either `"pending"` or `"available"`.

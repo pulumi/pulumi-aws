@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
+__all__ = ['WebAclAssociationArrgs', 'WebAclAssociation']
 
 @pulumi.input_type
-class WebAclAssociationArgs:
+calass WebAclAssociationArrgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  web_acl_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class WebAclAssociationArgs:
 
 
 @pulumi.input_type
-class _WebAclAssociationState:
+calass _WebAclAssociationState:
     def __init__(__self__, *,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _WebAclAssociationState:
         pulumi.set(self, "web_acl_id", value)
 
 
-class WebAclAssociation(pulumi.CustomResource):
+calass WebAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,24 +109,24 @@ class WebAclAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
         foo_rule = aws.wafregional.Rule("fooRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
+            predicates=[aws.wafregional.RulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
             )])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
+            default_action=aws.wafregional.WebAclDefaultActionArrgs(
                 type="ALLOW",
             ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
+            rules=[aws.wafregional.WebAclRuleArrgs(
+                action=aws.wafregional.WebAclRuleActionArrgs(
                     type="BLOCK",
                 ),
                 priority=1,
@@ -160,24 +160,24 @@ class WebAclAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
         foo_rule = aws.wafregional.Rule("fooRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
+            predicates=[aws.wafregional.RulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
             )])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
+            default_action=aws.wafregional.WebAclDefaultActionArrgs(
                 type="ALLOW",
             ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
+            rules=[aws.wafregional.WebAclRuleArrgs(
+                action=aws.wafregional.WebAclRuleActionArrgs(
                     type="BLOCK",
                 ),
                 priority=1,
@@ -233,7 +233,7 @@ class WebAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAclAssociationArgs,
+                 args: WebAclAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an association with WAF Regional Web ACL.
@@ -247,24 +247,24 @@ class WebAclAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
         foo_rule = aws.wafregional.Rule("fooRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
+            predicates=[aws.wafregional.RulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
             )])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
+            default_action=aws.wafregional.WebAclDefaultActionArrgs(
                 type="ALLOW",
             ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
+            rules=[aws.wafregional.WebAclRuleArrgs(
+                action=aws.wafregional.WebAclRuleActionArrgs(
                     type="BLOCK",
                 ),
                 priority=1,
@@ -298,24 +298,24 @@ class WebAclAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
         foo_rule = aws.wafregional.Rule("fooRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
+            predicates=[aws.wafregional.RulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
             )])
         foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
+            default_action=aws.wafregional.WebAclDefaultActionArrgs(
                 type="ALLOW",
             ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
+            rules=[aws.wafregional.WebAclRuleArrgs(
+                action=aws.wafregional.WebAclRuleActionArrgs(
                     type="BLOCK",
                 ),
                 priority=1,
@@ -363,12 +363,12 @@ class WebAclAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param WebAclAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAclAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -386,7 +386,7 @@ class WebAclAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAclAssociationArgs.__new__(WebAclAssociationArgs)
+            __props__ = WebAclAssociationArrgs.__new__(WebAclAssociationArrgs)
 
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")

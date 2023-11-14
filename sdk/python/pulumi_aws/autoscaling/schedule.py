@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ScheduleArgs', 'Schedule']
+__all__ = ['ScheduleArrgs', 'Schedule']
 
 @pulumi.input_type
-class ScheduleArgs:
+calass ScheduleArrgs:
     def __init__(__self__, *,
                  autoscaling_group_name: pulumi.Input[str],
                  scheduled_action_name: pulumi.Input[str],
@@ -170,7 +170,7 @@ class ScheduleArgs:
 
 
 @pulumi.input_type
-class _ScheduleState:
+calass _ScheduleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
@@ -345,7 +345,7 @@ class _ScheduleState:
         pulumi.set(self, "time_zone", value)
 
 
-class Schedule(pulumi.CustomResource):
+calass Schedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -415,7 +415,7 @@ class Schedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduleArgs,
+                 args: ScheduleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AutoScaling Schedule resource.
@@ -453,12 +453,12 @@ class Schedule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -483,7 +483,7 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduleArgs.__new__(ScheduleArgs)
+            __props__ = ScheduleArrgs.__new__(ScheduleArrgs)
 
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")

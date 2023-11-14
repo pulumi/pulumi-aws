@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class NotificationRuleTarget(dict):
+calass NotificationRuleTarget(dict):
     def __init__(__self__, *,
                  address: str,
                  status: Optional[str] = None,

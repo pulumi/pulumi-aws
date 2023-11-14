@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountAssignmentArgs', 'AccountAssignment']
+__all__ = ['AccountAssignmentArrgs', 'AccountAssignment']
 
 @pulumi.input_type
-class AccountAssignmentArgs:
+calass AccountAssignmentArrgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
                  permission_set_arn: pulumi.Input[str],
@@ -111,7 +111,7 @@ class AccountAssignmentArgs:
 
 
 @pulumi.input_type
-class _AccountAssignmentState:
+calass _AccountAssignmentState:
     def __init__(__self__, *,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _AccountAssignmentState:
         pulumi.set(self, "target_type", value)
 
 
-class AccountAssignment(pulumi.CustomResource):
+calass AccountAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class AccountAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountAssignmentArgs,
+                 args: AccountAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Single Sign-On (SSO) Account Assignment resource
@@ -264,12 +264,12 @@ class AccountAssignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param AccountAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class AccountAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountAssignmentArgs.__new__(AccountAssignmentArgs)
+            __props__ = AccountAssignmentArrgs.__new__(AccountAssignmentArrgs)
 
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")

@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LifecyclePolicyArgs', 'LifecyclePolicy']
+__all__ = ['LifecyclePolicyArrgs', 'LifecyclePolicy']
 
 @pulumi.input_type
-class LifecyclePolicyArgs:
+calass LifecyclePolicyArrgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  execution_role_arn: pulumi.Input[str],
-                 policy_details: pulumi.Input['LifecyclePolicyPolicyDetailsArgs'],
+                 policy_details: pulumi.Input['LifecyclePolicyPolicyDetailsArrgs'],
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsArrgs'] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -63,14 +63,14 @@ class LifecyclePolicyArgs:
 
     @property
     @pulumi.getter(name="policyDetails")
-    def policy_details(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsArgs']:
+    def policy_details(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsArrgs']:
         """
         See the `policy_details` configuration block. Max of 1.
         """
         return pulumi.get(self, "policy_details")
 
     @policy_details.setter
-    def policy_details(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsArgs']):
+    def policy_details(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsArrgs']):
         pulumi.set(self, "policy_details", value)
 
     @property
@@ -99,12 +99,12 @@ class LifecyclePolicyArgs:
 
 
 @pulumi.input_type
-class _LifecyclePolicyState:
+calass _LifecyclePolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']] = None,
+                 policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArrgs']] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -113,7 +113,7 @@ class _LifecyclePolicyState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsArrgs'] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -174,14 +174,14 @@ class _LifecyclePolicyState:
 
     @property
     @pulumi.getter(name="policyDetails")
-    def policy_details(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']]:
+    def policy_details(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArrgs']]:
         """
         See the `policy_details` configuration block. Max of 1.
         """
         return pulumi.get(self, "policy_details")
 
     @policy_details.setter
-    def policy_details(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']]):
+    def policy_details(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArrgs']]):
         pulumi.set(self, "policy_details", value)
 
     @property
@@ -224,14 +224,14 @@ class _LifecyclePolicyState:
         pulumi.set(self, "tags_all", value)
 
 
-class LifecyclePolicy(pulumi.CustomResource):
+calass LifecyclePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArrgs']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -249,22 +249,22 @@ class LifecyclePolicy(pulumi.CustomResource):
         example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
             description="tf-acc-basic",
             execution_role_arn=aws_iam_role["example"]["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArrgs(
                 policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
+                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArrgs(
                     name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
+                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs(
+                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs(),
+                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs(
                             interval=15,
                             interval_unit="MONTHS",
                         ),
                         target="us-east-1",
                     )],
                 ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
+                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArrgs(
                     type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
+                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArrgs(
                         description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
                         event_type="shareSnapshot",
                         snapshot_owners=[current.account_id],
@@ -289,7 +289,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArrgs']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -297,7 +297,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LifecyclePolicyArgs,
+                 args: LifecyclePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
@@ -313,22 +313,22 @@ class LifecyclePolicy(pulumi.CustomResource):
         example_lifecycle_policy = aws.dlm.LifecyclePolicy("exampleLifecyclePolicy",
             description="tf-acc-basic",
             execution_role_arn=aws_iam_role["example"]["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
+            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArrgs(
                 policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
+                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArrgs(
                     name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
+                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs(
+                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs(),
+                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs(
                             interval=15,
                             interval_unit="MONTHS",
                         ),
                         target="us-east-1",
                     )],
                 ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
+                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArrgs(
                     type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
+                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArrgs(
                         description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
                         event_type="shareSnapshot",
                         snapshot_owners=[current.account_id],
@@ -350,12 +350,12 @@ class LifecyclePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LifecyclePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LifecyclePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -366,7 +366,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArrgs']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -376,7 +376,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LifecyclePolicyArgs.__new__(LifecyclePolicyArgs)
+            __props__ = LifecyclePolicyArrgs.__new__(LifecyclePolicyArrgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
@@ -406,7 +406,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
-            policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+            policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArrgs']]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LifecyclePolicy':
@@ -420,7 +420,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArrgs']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

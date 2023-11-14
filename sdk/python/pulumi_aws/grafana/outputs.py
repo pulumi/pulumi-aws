@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class WorkspaceNetworkAccessControl(dict):
+calass WorkspaceNetworkAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -63,7 +63,7 @@ class WorkspaceNetworkAccessControl(dict):
 
 
 @pulumi.output_type
-class WorkspaceVpcConfiguration(dict):
+calass WorkspaceVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

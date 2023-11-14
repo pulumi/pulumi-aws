@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDefaultKmsKeyResult:
+calass GetDefaultKmsKeyResult:
     """
     A collection of values returned by getDefaultKmsKey.
     """
@@ -46,7 +46,7 @@ class GetDefaultKmsKeyResult:
         return pulumi.get(self, "key_arn")
 
 
-class AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
+calass AwaitableGetDefaultKmsKeyResult(GetDefaultKmsKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

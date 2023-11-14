@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkInterfaceAttachmentInitArgs', 'NetworkInterfaceAttachment']
+__all__ = ['NetworkInterfaceAttachmentInitArrgs', 'NetworkInterfaceAttachment']
 
 @pulumi.input_type
-class NetworkInterfaceAttachmentInitArgs:
+calass NetworkInterfaceAttachmentInitArrgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  instance_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class NetworkInterfaceAttachmentInitArgs:
 
 
 @pulumi.input_type
-class _NetworkInterfaceAttachmentState:
+calass _NetworkInterfaceAttachmentState:
     def __init__(__self__, *,
                  attachment_id: Optional[pulumi.Input[str]] = None,
                  device_index: Optional[pulumi.Input[int]] = None,
@@ -152,7 +152,7 @@ class _NetworkInterfaceAttachmentState:
         pulumi.set(self, "status", value)
 
 
-class NetworkInterfaceAttachment(pulumi.CustomResource):
+calass NetworkInterfaceAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkInterfaceAttachmentInitArgs,
+                 args: NetworkInterfaceAttachmentInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
@@ -220,12 +220,12 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkInterfaceAttachmentInitArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkInterfaceAttachmentInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceAttachmentInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInterfaceAttachmentInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkInterfaceAttachmentInitArgs.__new__(NetworkInterfaceAttachmentInitArgs)
+            __props__ = NetworkInterfaceAttachmentInitArrgs.__new__(NetworkInterfaceAttachmentInitArrgs)
 
             if device_index is None and not opts.urn:
                 raise TypeError("Missing required property 'device_index'")

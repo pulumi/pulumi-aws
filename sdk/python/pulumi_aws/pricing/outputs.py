@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProductFilterResult(dict):
+calass GetProductFilterResult(dict):
     def __init__(__self__, *,
                  field: str,
                  value: str):

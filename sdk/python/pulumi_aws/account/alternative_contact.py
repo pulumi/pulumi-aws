@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AlternativeContactArgs', 'AlternativeContact']
+__all__ = ['AlternativeContactArrgs', 'AlternativeContact']
 
 @pulumi.input_type
-class AlternativeContactArgs:
+calass AlternativeContactArrgs:
     def __init__(__self__, *,
                  alternate_contact_type: pulumi.Input[str],
                  email_address: pulumi.Input[str],
@@ -112,7 +112,7 @@ class AlternativeContactArgs:
 
 
 @pulumi.input_type
-class _AlternativeContactState:
+calass _AlternativeContactState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  alternate_contact_type: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _AlternativeContactState:
         pulumi.set(self, "title", value)
 
 
-class AlternativeContact(pulumi.CustomResource):
+calass AlternativeContact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -273,7 +273,7 @@ class AlternativeContact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlternativeContactArgs,
+                 args: AlternativeContactArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the specified alternate contact attached to an AWS Account.
@@ -309,12 +309,12 @@ class AlternativeContact(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AlternativeContactArgs args: The arguments to use to populate this resource's properties.
+        :param AlternativeContactArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlternativeContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlternativeContactArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -336,7 +336,7 @@ class AlternativeContact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlternativeContactArgs.__new__(AlternativeContactArgs)
+            __props__ = AlternativeContactArrgs.__new__(AlternativeContactArrgs)
 
             __props__.__dict__["account_id"] = account_id
             if alternate_contact_type is None and not opts.urn:

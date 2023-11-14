@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConnectResult:
+calass GetConnectResult:
     """
     A collection of values returned by getConnect.
     """
@@ -97,7 +97,7 @@ class GetConnectResult:
         return pulumi.get(self, "transport_attachment_id")
 
 
-class AwaitableGetConnectResult(GetConnectResult):
+calass AwaitableGetConnectResult(GetConnectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -112,7 +112,7 @@ class AwaitableGetConnectResult(GetConnectResult):
             transport_attachment_id=self.transport_attachment_id)
 
 
-def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArgs']]] = None,
+def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArrgs']]] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 transit_gateway_connect_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectResult:
@@ -126,7 +126,7 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArgs(
+    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArrgs(
         name="transport-transit-gateway-attachment-id",
         values=["tgw-attach-12345678"],
     )])
@@ -141,7 +141,7 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
     ```
 
 
-    :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetConnectFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """
@@ -163,7 +163,7 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
 
 
 @_utilities.lift_output_func(get_connect)
-def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetConnectFilterArgs']]]]] = None,
+def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetConnectFilterArrgs']]]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        transit_gateway_connect_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectResult]:
@@ -177,7 +177,7 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArgs(
+    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArrgs(
         name="transport-transit-gateway-attachment-id",
         values=["tgw-attach-12345678"],
     )])
@@ -192,7 +192,7 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     ```
 
 
-    :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetConnectFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """

@@ -125,7 +125,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfig(dict):
+calass ConnectorProfileConnectorProfileConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,8 +149,8 @@ class ConnectorProfileConnectorProfileConfig(dict):
                  connector_profile_credentials: 'outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials',
                  connector_profile_properties: 'outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties'):
         """
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs' connector_profile_credentials: The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs' connector_profile_properties: The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArrgs' connector_profile_credentials: The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArrgs' connector_profile_properties: The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
         """
         pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
         pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
@@ -173,7 +173,7 @@ class ConnectorProfileConnectorProfileConfig(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -219,24 +219,24 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials(dict):
                  veeva: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva'] = None,
                  zendesk: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk'] = None):
         """
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs' amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs' custom_connector: The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs' datadog: Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs' dynatrace: The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs' google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs' honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs' infor_nexus: The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs' marketo: Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs' redshift: Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs' salesforce: The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs' sapo_data: The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs' service_now: The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs' singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs' slack: Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs' snowflake: The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs' trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs' veeva: Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs' zendesk: Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArrgs' amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArrgs' custom_connector: The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArrgs' datadog: Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArrgs' dynatrace: The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArrgs' google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArrgs' honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArrgs' infor_nexus: The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArrgs' marketo: Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArrgs' redshift: Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArrgs' salesforce: The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArrgs' sapo_data: The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArrgs' service_now: The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArrgs' singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArrgs' slack: Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArrgs' snowflake: The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArrgs' trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArrgs' veeva: Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArrgs' zendesk: Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -421,7 +421,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentials(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -469,7 +469,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -497,10 +497,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
                  oauth2: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2'] = None):
         """
         :param str authentication_type: The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs' api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs' basic: Basic credentials that are required for the authentication of the user.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs' custom: If the connector uses the custom authentication mechanism, this holds the required credentials.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args' oauth2: OAuth 2.0 credentials required for the authentication of the user.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArrgs' api_key: Unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArrgs' basic: Basic credentials that are required for the authentication of the user.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArrgs' custom: If the connector uses the custom authentication mechanism, this holds the required credentials.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Arrgs' oauth2: OAuth 2.0 credentials required for the authentication of the user.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if api_key is not None:
@@ -554,7 +554,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -603,7 +603,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -632,7 +632,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -681,7 +681,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -717,7 +717,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         :param str access_token: The access token used to access the connector on your behalf.
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
@@ -773,7 +773,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -823,7 +823,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -871,7 +871,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog(d
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -906,7 +906,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -942,7 +942,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -996,7 +996,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1046,7 +1046,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1074,7 +1074,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
                  refresh_token: Optional[str] = None):
         """
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
@@ -1110,7 +1110,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1160,7 +1160,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1232,7 +1232,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexu
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1265,7 +1265,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(d
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1308,7 +1308,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo(d
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1358,7 +1358,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOa
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -1387,7 +1387,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift(
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1419,7 +1419,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
         """
         :param str access_token: The access token used to access the connector on your behalf.
         :param str client_credentials_arn: The secret manager ARN, which contains the client ID and client secret of the connected app.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
         if access_token is not None:
@@ -1465,7 +1465,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1515,7 +1515,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1539,8 +1539,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
                  basic_auth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials'] = None,
                  oauth_credentials: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials'] = None):
         """
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs' basic_auth_credentials: The SAPOData basic authentication credentials.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs' oauth_credentials: The SAPOData OAuth type authentication credentials.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArrgs' basic_auth_credentials: The SAPOData basic authentication credentials.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArrgs' oauth_credentials: The SAPOData OAuth type authentication credentials.
         """
         if basic_auth_credentials is not None:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
@@ -1565,7 +1565,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData(
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -1594,7 +1594,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1630,7 +1630,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         :param str refresh_token: The refresh token used to refresh an expired access token.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -1684,7 +1684,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1734,7 +1734,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -1763,7 +1763,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1798,7 +1798,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular(
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1831,7 +1831,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack(dic
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -1874,7 +1874,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack(dic
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1924,7 +1924,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOaut
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -1953,7 +1953,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1988,7 +1988,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicr
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -2017,7 +2017,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva(dic
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2050,7 +2050,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk(d
         :param str client_id: The identifier for the desired client.
         :param str client_secret: The client secret used by the OAuth client to authenticate to the authorization server.
         :param str access_token: The access token used to access the connector on your behalf.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArrgs' oauth_request: Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
@@ -2093,7 +2093,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk(d
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2143,7 +2143,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOa
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2189,24 +2189,24 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
                  veeva: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva'] = None,
                  zendesk: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk'] = None):
         """
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs' amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs' custom_connector: The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs' datadog: Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs' dynatrace: The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs' google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs' honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs' infor_nexus: The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs' marketo: Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs' redshift: Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs' salesforce: The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs' sapo_data: The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs' service_now: The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs' singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs' slack: Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs' snowflake: The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs' trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs' veeva: Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs' zendesk: Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArrgs' amplitude: The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArrgs' custom_connector: The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArrgs' datadog: Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArrgs' dynatrace: The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArrgs' google_analytics: The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArrgs' honeycode: The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArrgs' infor_nexus: The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArrgs' marketo: Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArrgs' redshift: Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArrgs' salesforce: The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArrgs' sapo_data: The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArrgs' service_now: The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArrgs' singular: Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArrgs' slack: Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArrgs' snowflake: The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArrgs' trendmicro: The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArrgs' veeva: Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArrgs' zendesk: Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -2391,13 +2391,13 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileProperties(dict):
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2421,7 +2421,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
                  oauth2_properties: Optional['outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties'] = None,
                  profile_properties: Optional[Mapping[str, str]] = None):
         """
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs' oauth2_properties: The OAuth 2.0 properties required for OAuth 2.0 authentication.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArrgs' oauth2_properties: The OAuth 2.0 properties required for OAuth 2.0 authentication.
         :param Mapping[str, str] profile_properties: A map of properties that are required to create a profile for the custom connector.
         """
         if oauth2_properties is not None:
@@ -2447,7 +2447,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2509,7 +2509,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2544,7 +2544,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog(di
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2579,19 +2579,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace(
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2626,7 +2626,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2661,7 +2661,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo(di
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2779,7 +2779,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift(d
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2829,7 +2829,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2873,7 +2873,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(d
         :param str client_number: The client number for the client creating the connection.
         :param int port_number: The port number of the SAPOData instance.
         :param str logon_language: The logon language of SAPOData instance.
-        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs' oauth_properties: The SAPOData OAuth properties required for OAuth type authentication.
+        :param 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArrgs' oauth_properties: The SAPOData OAuth properties required for OAuth type authentication.
         :param str private_link_service_name: The SAPOData Private Link service name to be used for private data transfers.
         """
         pulumi.set(__self__, "application_host_url", application_host_url)
@@ -2945,7 +2945,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData(d
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3006,7 +3006,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3041,13 +3041,13 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3082,7 +3082,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack(dict
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3193,13 +3193,13 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3234,7 +3234,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva(dict
 
 
 @pulumi.output_type
-class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk(dict):
+calass ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3269,7 +3269,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk(di
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfig(dict):
+calass FlowDestinationFlowConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3300,7 +3300,7 @@ class FlowDestinationFlowConfig(dict):
                  connector_profile_name: Optional[str] = None):
         """
         :param str connector_type: Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesArgs' destination_connector_properties: This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesArrgs' destination_connector_properties: This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
         :param str api_version: API version that the destination connector uses.
         :param str connector_profile_name: Name of the connector profile. This name must be unique for each connector profile in the AWS account.
         """
@@ -3345,7 +3345,7 @@ class FlowDestinationFlowConfig(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorProperties(dict):
+calass FlowDestinationFlowConfigDestinationConnectorProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3386,18 +3386,18 @@ class FlowDestinationFlowConfigDestinationConnectorProperties(dict):
                  upsolver: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver'] = None,
                  zendesk: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk'] = None):
         """
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs' custom_connector: Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs' customer_profiles: Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs' event_bridge: Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs' honeycode: Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs' marketo: Properties that are required to query Marketo. See Generic Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs' redshift: Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args' s3: Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs' salesforce: Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs' sapo_data: Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs' snowflake: Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs' upsolver: Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs' zendesk: Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArrgs' custom_connector: Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArrgs' customer_profiles: Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArrgs' event_bridge: Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArrgs' honeycode: Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArrgs' marketo: Properties that are required to query Marketo. See Generic Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArrgs' redshift: Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Arrgs' s3: Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArrgs' salesforce: Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArrgs' sapo_data: Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArrgs' snowflake: Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArrgs' upsolver: Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArrgs' zendesk: Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
         """
         if custom_connector is not None:
             pulumi.set(__self__, "custom_connector", custom_connector)
@@ -3529,7 +3529,7 @@ class FlowDestinationFlowConfigDestinationConnectorProperties(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3564,7 +3564,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dic
         """
         :param str entity_name: Entity specified in the custom connector as a destination in the flow.
         :param Mapping[str, str] custom_properties: Custom properties that are specific to the connector when it's used as a destination in the flow. Maximum of 50 items.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
@@ -3620,7 +3620,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector(dic
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3684,7 +3684,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3733,7 +3733,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles(di
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3756,7 +3756,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -3780,7 +3780,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3844,7 +3844,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3867,7 +3867,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -3891,7 +3891,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3955,13 +3955,13 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3984,7 +3984,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
                  error_handling_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig'] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "object", object)
         if error_handling_config is not None:
@@ -4008,7 +4008,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4072,7 +4072,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4103,7 +4103,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
         :param str intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         :param str object: Object specified in the flow destination.
         :param str bucket_prefix: Amazon S3 bucket prefix.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
         pulumi.set(__self__, "object", object)
@@ -4146,7 +4146,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4210,7 +4210,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4239,7 +4239,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
         """
         :param str bucket_name: Name of the Amazon S3 bucket.
         :param str bucket_prefix: Amazon S3 bucket prefix.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArrgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -4273,7 +4273,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4303,9 +4303,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
                  prefix_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig'] = None,
                  preserve_source_data_typing: Optional[bool] = None):
         """
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArrgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         :param str file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArrgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         :param bool preserve_source_data_typing: Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
         """
         if aggregation_config is not None:
@@ -4351,7 +4351,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4387,7 +4387,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4437,7 +4437,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4466,7 +4466,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
@@ -4512,7 +4512,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4576,7 +4576,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4610,9 +4610,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object_path: Object path specified in the SAPOData flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs' success_response_handling_config: Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArrgs' success_response_handling_config: Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
         pulumi.set(__self__, "object_path", object_path)
@@ -4667,7 +4667,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4731,7 +4731,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4781,7 +4781,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4812,7 +4812,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
         :param str intermediate_bucket_name: Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         :param str object: Object specified in the flow destination.
         :param str bucket_prefix: Amazon S3 bucket prefix.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         """
         pulumi.set(__self__, "intermediate_bucket_name", intermediate_bucket_name)
         pulumi.set(__self__, "object", object)
@@ -4855,7 +4855,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4919,7 +4919,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4947,7 +4947,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
                  bucket_prefix: Optional[str] = None):
         """
         :param str bucket_name: Name of the Amazon S3 bucket.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArrgs' s3_output_format_config: Configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination. See S3 Output Format Config for more details.
         :param str bucket_prefix: Amazon S3 bucket prefix.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -4981,7 +4981,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5008,8 +5008,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
                  aggregation_config: Optional['outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig'] = None,
                  file_type: Optional[str] = None):
         """
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArrgs' prefix_config: Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArrgs' aggregation_config: Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         :param str file_type: File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         """
         pulumi.set(__self__, "prefix_config", prefix_config)
@@ -5044,7 +5044,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5080,7 +5080,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5129,7 +5129,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5158,7 +5158,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
                  write_operation_type: Optional[str] = None):
         """
         :param str object: Object specified in the flow destination.
-        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
+        :param 'FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArrgs' error_handling_config: Settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination. See Error Handling Config for more details.
         :param Sequence[str] id_field_names: Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update, delete, or upsert.
         :param str write_operation_type: Type of write operation to be performed in the custom connector when it's used as destination. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
         """
@@ -5204,7 +5204,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk(dict):
 
 
 @pulumi.output_type
-class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig(dict):
+calass FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5268,7 +5268,7 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
 
 
 @pulumi.output_type
-class FlowSourceFlowConfig(dict):
+calass FlowSourceFlowConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5302,10 +5302,10 @@ class FlowSourceFlowConfig(dict):
                  incremental_pull_config: Optional['outputs.FlowSourceFlowConfigIncrementalPullConfig'] = None):
         """
         :param str connector_type: Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesArgs' source_connector_properties: Information that is required to query a particular source connector. See Source Connector Properties for details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesArrgs' source_connector_properties: Information that is required to query a particular source connector. See Source Connector Properties for details.
         :param str api_version: API version that the destination connector uses.
         :param str connector_profile_name: Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-        :param 'FlowSourceFlowConfigIncrementalPullConfigArgs' incremental_pull_config: Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+        :param 'FlowSourceFlowConfigIncrementalPullConfigArrgs' incremental_pull_config: Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
         """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
@@ -5358,7 +5358,7 @@ class FlowSourceFlowConfig(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigIncrementalPullConfig(dict):
+calass FlowSourceFlowConfigIncrementalPullConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5394,7 +5394,7 @@ class FlowSourceFlowConfigIncrementalPullConfig(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorProperties(dict):
+calass FlowSourceFlowConfigSourceConnectorProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5438,22 +5438,22 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
                  veeva: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesVeeva'] = None,
                  zendesk: Optional['outputs.FlowSourceFlowConfigSourceConnectorPropertiesZendesk'] = None):
         """
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs' amplitude: Information that is required for querying Amplitude. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs' custom_connector: Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs' datadog: Information that is required for querying Datadog. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs' dynatrace: Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs' google_analytics: Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs' infor_nexus: Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs' marketo: Information that is required for querying Marketo. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3Args' s3: Information that is required for querying Amazon S3. See S3 Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs' salesforce: Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs' sapo_data: Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs' service_now: Information that is required for querying ServiceNow. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs' singular: Information that is required for querying Singular. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs' slack: Information that is required for querying Slack. See Generic Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs' trendmicro: Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs' veeva: Information that is required for querying Veeva. See Veeva Source Properties for more details.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs' zendesk: Information that is required for querying Zendesk. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArrgs' amplitude: Information that is required for querying Amplitude. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArrgs' custom_connector: Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesDatadogArrgs' datadog: Information that is required for querying Datadog. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArrgs' dynatrace: Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArrgs' google_analytics: Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArrgs' infor_nexus: Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesMarketoArrgs' marketo: Information that is required for querying Marketo. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3Arrgs' s3: Information that is required for querying Amazon S3. See S3 Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArrgs' salesforce: Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArrgs' sapo_data: Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArrgs' service_now: Information that is required for querying ServiceNow. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSingularArrgs' singular: Information that is required for querying Singular. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesSlackArrgs' slack: Information that is required for querying Slack. See Generic Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArrgs' trendmicro: Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesVeevaArrgs' veeva: Information that is required for querying Veeva. See Veeva Source Properties for more details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesZendeskArrgs' zendesk: Information that is required for querying Zendesk. See Generic Source Properties for more details.
         """
         if amplitude is not None:
             pulumi.set(__self__, "amplitude", amplitude)
@@ -5618,7 +5618,7 @@ class FlowSourceFlowConfigSourceConnectorProperties(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesAmplitude(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesAmplitude(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5636,7 +5636,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesAmplitude(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5685,7 +5685,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesDatadog(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesDatadog(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5703,7 +5703,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDatadog(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5721,7 +5721,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDynatrace(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5739,7 +5739,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5757,7 +5757,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesInforNexus(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesMarketo(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesMarketo(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5775,7 +5775,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketo(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5804,7 +5804,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
         """
         :param str bucket_name: Name of the Amazon S3 bucket.
         :param str bucket_prefix: Amazon S3 bucket prefix.
-        :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs' s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+        :param 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArrgs' s3_input_format_config: When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -5838,7 +5838,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5874,7 +5874,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5935,7 +5935,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforce(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5970,7 +5970,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoData(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -5988,7 +5988,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesServiceNow(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesSingular(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesSingular(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -6006,7 +6006,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSingular(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesSlack(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesSlack(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -6024,7 +6024,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSlack(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -6042,7 +6042,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6131,7 +6131,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeeva(dict):
 
 
 @pulumi.output_type
-class FlowSourceFlowConfigSourceConnectorPropertiesZendesk(dict):
+calass FlowSourceFlowConfigSourceConnectorPropertiesZendesk(dict):
     def __init__(__self__, *,
                  object: str):
         """
@@ -6149,7 +6149,7 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendesk(dict):
 
 
 @pulumi.output_type
-class FlowTask(dict):
+calass FlowTask(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6184,7 +6184,7 @@ class FlowTask(dict):
         """
         :param Sequence[str] source_fields: Source fields to which a particular task is applied.
         :param str task_type: Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-        :param Sequence['FlowTaskConnectorOperatorArgs'] connector_operators: Operation to be performed on the provided source fields. See Connector Operator for details.
+        :param Sequence['FlowTaskConnectorOperatorArrgs'] connector_operators: Operation to be performed on the provided source fields. See Connector Operator for details.
         :param str destination_field: Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
         :param Mapping[str, str] task_properties: Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
         """
@@ -6239,7 +6239,7 @@ class FlowTask(dict):
 
 
 @pulumi.output_type
-class FlowTaskConnectorOperator(dict):
+calass FlowTaskConnectorOperator(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6463,7 +6463,7 @@ class FlowTaskConnectorOperator(dict):
 
 
 @pulumi.output_type
-class FlowTriggerConfig(dict):
+calass FlowTriggerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6488,7 +6488,7 @@ class FlowTriggerConfig(dict):
                  trigger_properties: Optional['outputs.FlowTriggerConfigTriggerProperties'] = None):
         """
         :param str trigger_type: Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
-        :param 'FlowTriggerConfigTriggerPropertiesArgs' trigger_properties: Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+        :param 'FlowTriggerConfigTriggerPropertiesArrgs' trigger_properties: Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
@@ -6512,7 +6512,7 @@ class FlowTriggerConfig(dict):
 
 
 @pulumi.output_type
-class FlowTriggerConfigTriggerProperties(dict):
+calass FlowTriggerConfigTriggerProperties(dict):
     def __init__(__self__, *,
                  scheduled: Optional['outputs.FlowTriggerConfigTriggerPropertiesScheduled'] = None):
         if scheduled is not None:
@@ -6525,7 +6525,7 @@ class FlowTriggerConfigTriggerProperties(dict):
 
 
 @pulumi.output_type
-class FlowTriggerConfigTriggerPropertiesScheduled(dict):
+calass FlowTriggerConfigTriggerPropertiesScheduled(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

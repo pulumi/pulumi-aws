@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLayerVersionResult:
+calass GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
@@ -191,7 +191,7 @@ class GetLayerVersionResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetLayerVersionResult(GetLayerVersionResult):
+calass AwaitableGetLayerVersionResult(GetLayerVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

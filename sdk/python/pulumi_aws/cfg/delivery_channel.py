@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeliveryChannelArgs', 'DeliveryChannel']
+__all__ = ['DeliveryChannelArrgs', 'DeliveryChannel']
 
 @pulumi.input_type
-class DeliveryChannelArgs:
+calass DeliveryChannelArrgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DeliveryChannel resource.
@@ -28,7 +28,7 @@ class DeliveryChannelArgs:
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-        :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
+        :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -93,14 +93,14 @@ class DeliveryChannelArgs:
 
     @property
     @pulumi.getter(name="snapshotDeliveryProperties")
-    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
+    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]:
         """
         Options for how AWS Config delivers configuration snapshots. See below
         """
         return pulumi.get(self, "snapshot_delivery_properties")
 
     @snapshot_delivery_properties.setter
-    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
+    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]):
         pulumi.set(self, "snapshot_delivery_properties", value)
 
     @property
@@ -117,13 +117,13 @@ class DeliveryChannelArgs:
 
 
 @pulumi.input_type
-class _DeliveryChannelState:
+calass _DeliveryChannelState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DeliveryChannel resources.
@@ -131,7 +131,7 @@ class _DeliveryChannelState:
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-        :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
+        :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         if name is not None:
@@ -197,14 +197,14 @@ class _DeliveryChannelState:
 
     @property
     @pulumi.getter(name="snapshotDeliveryProperties")
-    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
+    def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]:
         """
         Options for how AWS Config delivers configuration snapshots. See below
         """
         return pulumi.get(self, "snapshot_delivery_properties")
 
     @snapshot_delivery_properties.setter
-    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]):
+    def snapshot_delivery_properties(self, value: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]):
         pulumi.set(self, "snapshot_delivery_properties", value)
 
     @property
@@ -220,7 +220,7 @@ class _DeliveryChannelState:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-class DeliveryChannel(pulumi.CustomResource):
+calass DeliveryChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -229,7 +229,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -244,9 +244,9 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -256,7 +256,7 @@ class DeliveryChannel(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket,
         opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
@@ -283,14 +283,14 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-        :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
+        :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArrgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeliveryChannelArgs,
+                 args: DeliveryChannelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Config Delivery Channel.
@@ -304,9 +304,9 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         bucket_v2 = aws.s3.BucketV2("bucketV2", force_destroy=True)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -316,7 +316,7 @@ class DeliveryChannel(pulumi.CustomResource):
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket,
         opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
@@ -338,12 +338,12 @@ class DeliveryChannel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DeliveryChannelArgs args: The arguments to use to populate this resource's properties.
+        :param DeliveryChannelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeliveryChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeliveryChannelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -356,7 +356,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
+                 snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -365,7 +365,7 @@ class DeliveryChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
+            __props__ = DeliveryChannelArrgs.__new__(DeliveryChannelArrgs)
 
             __props__.__dict__["name"] = name
             if s3_bucket_name is None and not opts.urn:
@@ -389,7 +389,7 @@ class DeliveryChannel(pulumi.CustomResource):
             s3_bucket_name: Optional[pulumi.Input[str]] = None,
             s3_key_prefix: Optional[pulumi.Input[str]] = None,
             s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
-            snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
+            snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArrgs']]] = None,
             sns_topic_arn: Optional[pulumi.Input[str]] = None) -> 'DeliveryChannel':
         """
         Get an existing DeliveryChannel resource's state with the given name, id, and optional extra
@@ -402,7 +402,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-        :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
+        :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArrgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

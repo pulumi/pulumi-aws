@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UploadArgs', 'Upload']
+__all__ = ['UploadArrgs', 'Upload']
 
 @pulumi.input_type
-class UploadArgs:
+calass UploadArrgs:
     def __init__(__self__, *,
                  project_arn: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -82,7 +82,7 @@ class UploadArgs:
 
 
 @pulumi.input_type
-class _UploadState:
+calass _UploadState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _UploadState:
         pulumi.set(self, "url", value)
 
 
-class Upload(pulumi.CustomResource):
+calass Upload(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -263,7 +263,7 @@ class Upload(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UploadArgs,
+                 args: UploadArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Device Farm Uploads.
@@ -291,12 +291,12 @@ class Upload(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UploadArgs args: The arguments to use to populate this resource's properties.
+        :param UploadArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UploadArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UploadArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,7 +316,7 @@ class Upload(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UploadArgs.__new__(UploadArgs)
+            __props__ = UploadArrgs.__new__(UploadArrgs)
 
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["name"] = name

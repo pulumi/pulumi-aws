@@ -114,7 +114,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class InsightFilters(dict):
+calass InsightFilters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -382,94 +382,94 @@ class InsightFilters(dict):
                  verification_states: Optional[Sequence['outputs.InsightFiltersVerificationState']] = None,
                  workflow_statuses: Optional[Sequence['outputs.InsightFiltersWorkflowStatus']] = None):
         """
-        :param Sequence['InsightFiltersAwsAccountIdArgs'] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
-        :param Sequence['InsightFiltersCompanyNameArgs'] company_names: The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
-        :param Sequence['InsightFiltersComplianceStatusArgs'] compliance_statuses: Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
-        :param Sequence['InsightFiltersConfidenceArgs'] confidences: A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-        :param Sequence['InsightFiltersCreatedAtArgs'] created_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
-        :param Sequence['InsightFiltersCriticalityArgs'] criticalities: The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-        :param Sequence['InsightFiltersDescriptionArgs'] descriptions: A finding's description. See String Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsConfidenceArgs'] finding_provider_fields_confidences: The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsCriticalityArgs'] finding_provider_fields_criticalities: The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs'] finding_provider_fields_related_findings_ids: The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs'] finding_provider_fields_related_findings_product_arns: The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsSeverityLabelArgs'] finding_provider_fields_severity_labels: The finding provider value for the severity label. See String Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsSeverityOriginalArgs'] finding_provider_fields_severity_originals: The finding provider's original value for the severity. See String Filter below for more details.
-        :param Sequence['InsightFiltersFindingProviderFieldsTypeArgs'] finding_provider_fields_types: One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
-        :param Sequence['InsightFiltersFirstObservedAtArgs'] first_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
-        :param Sequence['InsightFiltersGeneratorIdArgs'] generator_ids: The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersIdArgs'] ids: The security findings provider-specific identifier for a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersKeywordArgs'] keywords: A keyword for a finding. See Keyword Filter below for more details.
-        :param Sequence['InsightFiltersLastObservedAtArgs'] last_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
-        :param Sequence['InsightFiltersMalwareNameArgs'] malware_names: The name of the malware that was observed. See String Filter below for more details.
-        :param Sequence['InsightFiltersMalwarePathArgs'] malware_paths: The filesystem path of the malware that was observed. See String Filter below for more details.
-        :param Sequence['InsightFiltersMalwareStateArgs'] malware_states: The state of the malware that was observed. See String Filter below for more details.
-        :param Sequence['InsightFiltersMalwareTypeArgs'] malware_types: The type of the malware that was observed. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationDomainArgs'] network_destination_domains: The destination domain of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationIpv4Args'] network_destination_ipv4s: The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationIpv6Args'] network_destination_ipv6s: The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDestinationPortArgs'] network_destination_ports: The destination port of network-related information about a finding. See Number Filter below for more details.
-        :param Sequence['InsightFiltersNetworkDirectionArgs'] network_directions: Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkProtocolArgs'] network_protocols: The protocol of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceDomainArgs'] network_source_domains: The source domain of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceIpv4Args'] network_source_ipv4s: The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceIpv6Args'] network_source_ipv6s: The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourceMacArgs'] network_source_macs: The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersNetworkSourcePortArgs'] network_source_ports: The source port of network-related information about a finding. See Number Filter below for more details.
-        :param Sequence['InsightFiltersNoteTextArgs'] note_texts: The text of a note. See String Filter below for more details.
-        :param Sequence['InsightFiltersNoteUpdatedAtArgs'] note_updated_ats: The timestamp of when the note was updated. See Date Filter below for more details.
-        :param Sequence['InsightFiltersNoteUpdatedByArgs'] note_updated_bies: The principal that created a note. See String Filter below for more details.
-        :param Sequence['InsightFiltersProcessLaunchedAtArgs'] process_launched_ats: The date/time that the process was launched. See Date Filter below for more details.
-        :param Sequence['InsightFiltersProcessNameArgs'] process_names: The name of the process. See String Filter below for more details.
-        :param Sequence['InsightFiltersProcessParentPidArgs'] process_parent_pids: The parent process ID. See Number Filter below for more details.
-        :param Sequence['InsightFiltersProcessPathArgs'] process_paths: The path to the process executable. See String Filter below for more details.
-        :param Sequence['InsightFiltersProcessPidArgs'] process_pids: The process ID. See Number Filter below for more details.
-        :param Sequence['InsightFiltersProcessTerminatedAtArgs'] process_terminated_ats: The date/time that the process was terminated. See Date Filter below for more details.
-        :param Sequence['InsightFiltersProductArnArgs'] product_arns: The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
-        :param Sequence['InsightFiltersProductFieldArgs'] product_fields: A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
-        :param Sequence['InsightFiltersProductNameArgs'] product_names: The name of the solution (product) that generates findings. See String Filter below for more details.
-        :param Sequence['InsightFiltersRecommendationTextArgs'] recommendation_texts: The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersRecordStateArgs'] record_states: The updated record state for the finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersRelatedFindingsIdArgs'] related_findings_ids: The solution-generated identifier for a related finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersRelatedFindingsProductArnArgs'] related_findings_product_arns: The ARN of the solution that generated a related finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs'] resource_aws_ec2_instance_iam_instance_profile_arns: The IAM profile ARN of the instance. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceImageIdArgs'] resource_aws_ec2_instance_image_ids: The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs'] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs'] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See Ip Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceKeyNameArgs'] resource_aws_ec2_instance_key_names: The key name associated with the instance. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs'] resource_aws_ec2_instance_launched_ats: The date and time the instance was launched. See Date Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs'] resource_aws_ec2_instance_subnet_ids: The identifier of the subnet that the instance was launched in. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceTypeArgs'] resource_aws_ec2_instance_types: The instance type of the instance. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsEc2InstanceVpcIdArgs'] resource_aws_ec2_instance_vpc_ids: The identifier of the VPC that the instance was launched in. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs'] resource_aws_iam_access_key_created_ats: The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsIamAccessKeyStatusArgs'] resource_aws_iam_access_key_statuses: The status of the IAM access key related to a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsIamAccessKeyUserNameArgs'] resource_aws_iam_access_key_user_names: The user associated with the IAM access key related to a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsS3BucketOwnerIdArgs'] resource_aws_s3_bucket_owner_ids: The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceAwsS3BucketOwnerNameArgs'] resource_aws_s3_bucket_owner_names: The display name of the owner of the S3 bucket. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceContainerImageIdArgs'] resource_container_image_ids: The identifier of the image related to a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceContainerImageNameArgs'] resource_container_image_names: The name of the image related to a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceContainerLaunchedAtArgs'] resource_container_launched_ats: The date/time that the container was started. See Date Filter below for more details.
-        :param Sequence['InsightFiltersResourceContainerNameArgs'] resource_container_names: The name of the container related to a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceDetailsOtherArgs'] resource_details_others: The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
-        :param Sequence['InsightFiltersResourceIdArgs'] resource_ids: The canonical identifier for the given resource type. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourcePartitionArgs'] resource_partitions: The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceRegionArgs'] resource_regions: The canonical AWS external Region name where this resource is located. See String Filter below for more details.
-        :param Sequence['InsightFiltersResourceTagArgs'] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
-        :param Sequence['InsightFiltersResourceTypeArgs'] resource_types: Specifies the type of the resource that details are provided for. See String Filter below for more details.
-        :param Sequence['InsightFiltersSeverityLabelArgs'] severity_labels: The label of a finding's severity. See String Filter below for more details.
-        :param Sequence['InsightFiltersSourceUrlArgs'] source_urls: A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorCategoryArgs'] threat_intel_indicator_categories: The category of a threat intelligence indicator. See String Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorLastObservedAtArgs'] threat_intel_indicator_last_observed_ats: The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorSourceUrlArgs'] threat_intel_indicator_source_urls: The URL for more details from the source of the threat intelligence. See String Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorSourceArgs'] threat_intel_indicator_sources: The source of the threat intelligence. See String Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorTypeArgs'] threat_intel_indicator_types: The type of a threat intelligence indicator. See String Filter below for more details.
-        :param Sequence['InsightFiltersThreatIntelIndicatorValueArgs'] threat_intel_indicator_values: The value of a threat intelligence indicator. See String Filter below for more details.
-        :param Sequence['InsightFiltersTitleArgs'] titles: A finding's title. See String Filter below for more details.
-        :param Sequence['InsightFiltersTypeArgs'] types: A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersUpdatedAtArgs'] updated_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
-        :param Sequence['InsightFiltersUserDefinedValueArgs'] user_defined_values: A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
-        :param Sequence['InsightFiltersVerificationStateArgs'] verification_states: The veracity of a finding. See String Filter below for more details.
-        :param Sequence['InsightFiltersWorkflowStatusArgs'] workflow_statuses: The status of the investigation into a finding. See Workflow Status Filter below for more details.
+        :param Sequence['InsightFiltersAwsAccountIdArrgs'] aws_account_ids: AWS account ID that a finding is generated in. See String_Filter below for more details.
+        :param Sequence['InsightFiltersCompanyNameArrgs'] company_names: The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        :param Sequence['InsightFiltersComplianceStatusArrgs'] compliance_statuses: Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
+        :param Sequence['InsightFiltersConfidenceArrgs'] confidences: A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        :param Sequence['InsightFiltersCreatedAtArrgs'] created_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
+        :param Sequence['InsightFiltersCriticalityArrgs'] criticalities: The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        :param Sequence['InsightFiltersDescriptionArrgs'] descriptions: A finding's description. See String Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsConfidenceArrgs'] finding_provider_fields_confidences: The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsCriticalityArrgs'] finding_provider_fields_criticalities: The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsRelatedFindingsIdArrgs'] finding_provider_fields_related_findings_ids: The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArrgs'] finding_provider_fields_related_findings_product_arns: The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsSeverityLabelArrgs'] finding_provider_fields_severity_labels: The finding provider value for the severity label. See String Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsSeverityOriginalArrgs'] finding_provider_fields_severity_originals: The finding provider's original value for the severity. See String Filter below for more details.
+        :param Sequence['InsightFiltersFindingProviderFieldsTypeArrgs'] finding_provider_fields_types: One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
+        :param Sequence['InsightFiltersFirstObservedAtArrgs'] first_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
+        :param Sequence['InsightFiltersGeneratorIdArrgs'] generator_ids: The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersIdArrgs'] ids: The security findings provider-specific identifier for a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersKeywordArrgs'] keywords: A keyword for a finding. See Keyword Filter below for more details.
+        :param Sequence['InsightFiltersLastObservedAtArrgs'] last_observed_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
+        :param Sequence['InsightFiltersMalwareNameArrgs'] malware_names: The name of the malware that was observed. See String Filter below for more details.
+        :param Sequence['InsightFiltersMalwarePathArrgs'] malware_paths: The filesystem path of the malware that was observed. See String Filter below for more details.
+        :param Sequence['InsightFiltersMalwareStateArrgs'] malware_states: The state of the malware that was observed. See String Filter below for more details.
+        :param Sequence['InsightFiltersMalwareTypeArrgs'] malware_types: The type of the malware that was observed. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationDomainArrgs'] network_destination_domains: The destination domain of network-related information about a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationIpv4Arrgs'] network_destination_ipv4s: The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationIpv6Arrgs'] network_destination_ipv6s: The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDestinationPortArrgs'] network_destination_ports: The destination port of network-related information about a finding. See Number Filter below for more details.
+        :param Sequence['InsightFiltersNetworkDirectionArrgs'] network_directions: Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkProtocolArrgs'] network_protocols: The protocol of network-related information about a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceDomainArrgs'] network_source_domains: The source domain of network-related information about a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceIpv4Arrgs'] network_source_ipv4s: The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceIpv6Arrgs'] network_source_ipv6s: The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourceMacArrgs'] network_source_macs: The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersNetworkSourcePortArrgs'] network_source_ports: The source port of network-related information about a finding. See Number Filter below for more details.
+        :param Sequence['InsightFiltersNoteTextArrgs'] note_texts: The text of a note. See String Filter below for more details.
+        :param Sequence['InsightFiltersNoteUpdatedAtArrgs'] note_updated_ats: The timestamp of when the note was updated. See Date Filter below for more details.
+        :param Sequence['InsightFiltersNoteUpdatedByArrgs'] note_updated_bies: The principal that created a note. See String Filter below for more details.
+        :param Sequence['InsightFiltersProcessLaunchedAtArrgs'] process_launched_ats: The date/time that the process was launched. See Date Filter below for more details.
+        :param Sequence['InsightFiltersProcessNameArrgs'] process_names: The name of the process. See String Filter below for more details.
+        :param Sequence['InsightFiltersProcessParentPidArrgs'] process_parent_pids: The parent process ID. See Number Filter below for more details.
+        :param Sequence['InsightFiltersProcessPathArrgs'] process_paths: The path to the process executable. See String Filter below for more details.
+        :param Sequence['InsightFiltersProcessPidArrgs'] process_pids: The process ID. See Number Filter below for more details.
+        :param Sequence['InsightFiltersProcessTerminatedAtArrgs'] process_terminated_ats: The date/time that the process was terminated. See Date Filter below for more details.
+        :param Sequence['InsightFiltersProductArnArrgs'] product_arns: The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
+        :param Sequence['InsightFiltersProductFieldArrgs'] product_fields: A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
+        :param Sequence['InsightFiltersProductNameArrgs'] product_names: The name of the solution (product) that generates findings. See String Filter below for more details.
+        :param Sequence['InsightFiltersRecommendationTextArrgs'] recommendation_texts: The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersRecordStateArrgs'] record_states: The updated record state for the finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersRelatedFindingsIdArrgs'] related_findings_ids: The solution-generated identifier for a related finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersRelatedFindingsProductArnArrgs'] related_findings_product_arns: The ARN of the solution that generated a related finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArrgs'] resource_aws_ec2_instance_iam_instance_profile_arns: The IAM profile ARN of the instance. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceImageIdArrgs'] resource_aws_ec2_instance_image_ids: The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv4AddressArrgs'] resource_aws_ec2_instance_ipv4_addresses: The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceIpv6AddressArrgs'] resource_aws_ec2_instance_ipv6_addresses: The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceKeyNameArrgs'] resource_aws_ec2_instance_key_names: The key name associated with the instance. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceLaunchedAtArrgs'] resource_aws_ec2_instance_launched_ats: The date and time the instance was launched. See Date Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceSubnetIdArrgs'] resource_aws_ec2_instance_subnet_ids: The identifier of the subnet that the instance was launched in. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceTypeArrgs'] resource_aws_ec2_instance_types: The instance type of the instance. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsEc2InstanceVpcIdArrgs'] resource_aws_ec2_instance_vpc_ids: The identifier of the VPC that the instance was launched in. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsIamAccessKeyCreatedAtArrgs'] resource_aws_iam_access_key_created_ats: The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsIamAccessKeyStatusArrgs'] resource_aws_iam_access_key_statuses: The status of the IAM access key related to a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsIamAccessKeyUserNameArrgs'] resource_aws_iam_access_key_user_names: The user associated with the IAM access key related to a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsS3BucketOwnerIdArrgs'] resource_aws_s3_bucket_owner_ids: The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceAwsS3BucketOwnerNameArrgs'] resource_aws_s3_bucket_owner_names: The display name of the owner of the S3 bucket. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceContainerImageIdArrgs'] resource_container_image_ids: The identifier of the image related to a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceContainerImageNameArrgs'] resource_container_image_names: The name of the image related to a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceContainerLaunchedAtArrgs'] resource_container_launched_ats: The date/time that the container was started. See Date Filter below for more details.
+        :param Sequence['InsightFiltersResourceContainerNameArrgs'] resource_container_names: The name of the container related to a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceDetailsOtherArrgs'] resource_details_others: The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
+        :param Sequence['InsightFiltersResourceIdArrgs'] resource_ids: The canonical identifier for the given resource type. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourcePartitionArrgs'] resource_partitions: The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceRegionArrgs'] resource_regions: The canonical AWS external Region name where this resource is located. See String Filter below for more details.
+        :param Sequence['InsightFiltersResourceTagArrgs'] resource_tags: A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
+        :param Sequence['InsightFiltersResourceTypeArrgs'] resource_types: Specifies the type of the resource that details are provided for. See String Filter below for more details.
+        :param Sequence['InsightFiltersSeverityLabelArrgs'] severity_labels: The label of a finding's severity. See String Filter below for more details.
+        :param Sequence['InsightFiltersSourceUrlArrgs'] source_urls: A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorCategoryArrgs'] threat_intel_indicator_categories: The category of a threat intelligence indicator. See String Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorLastObservedAtArrgs'] threat_intel_indicator_last_observed_ats: The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorSourceUrlArrgs'] threat_intel_indicator_source_urls: The URL for more details from the source of the threat intelligence. See String Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorSourceArrgs'] threat_intel_indicator_sources: The source of the threat intelligence. See String Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorTypeArrgs'] threat_intel_indicator_types: The type of a threat intelligence indicator. See String Filter below for more details.
+        :param Sequence['InsightFiltersThreatIntelIndicatorValueArrgs'] threat_intel_indicator_values: The value of a threat intelligence indicator. See String Filter below for more details.
+        :param Sequence['InsightFiltersTitleArrgs'] titles: A finding's title. See String Filter below for more details.
+        :param Sequence['InsightFiltersTypeArrgs'] types: A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersUpdatedAtArrgs'] updated_ats: An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
+        :param Sequence['InsightFiltersUserDefinedValueArrgs'] user_defined_values: A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
+        :param Sequence['InsightFiltersVerificationStateArrgs'] verification_states: The veracity of a finding. See String Filter below for more details.
+        :param Sequence['InsightFiltersWorkflowStatusArrgs'] workflow_statuses: The status of the investigation into a finding. See Workflow Status Filter below for more details.
         """
         if aws_account_ids is not None:
             pulumi.set(__self__, "aws_account_ids", aws_account_ids)
@@ -1354,7 +1354,7 @@ class InsightFilters(dict):
 
 
 @pulumi.output_type
-class InsightFiltersAwsAccountId(dict):
+calass InsightFiltersAwsAccountId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1383,7 +1383,7 @@ class InsightFiltersAwsAccountId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersCompanyName(dict):
+calass InsightFiltersCompanyName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1412,7 +1412,7 @@ class InsightFiltersCompanyName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersComplianceStatus(dict):
+calass InsightFiltersComplianceStatus(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1441,7 +1441,7 @@ class InsightFiltersComplianceStatus(dict):
 
 
 @pulumi.output_type
-class InsightFiltersConfidence(dict):
+calass InsightFiltersConfidence(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -1484,7 +1484,7 @@ class InsightFiltersConfidence(dict):
 
 
 @pulumi.output_type
-class InsightFiltersCreatedAt(dict):
+calass InsightFiltersCreatedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1507,7 +1507,7 @@ class InsightFiltersCreatedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersCreatedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -1544,7 +1544,7 @@ class InsightFiltersCreatedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersCreatedAtDateRange(dict):
+calass InsightFiltersCreatedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -1573,7 +1573,7 @@ class InsightFiltersCreatedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersCriticality(dict):
+calass InsightFiltersCriticality(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -1616,7 +1616,7 @@ class InsightFiltersCriticality(dict):
 
 
 @pulumi.output_type
-class InsightFiltersDescription(dict):
+calass InsightFiltersDescription(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1645,7 +1645,7 @@ class InsightFiltersDescription(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsConfidence(dict):
+calass InsightFiltersFindingProviderFieldsConfidence(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -1688,7 +1688,7 @@ class InsightFiltersFindingProviderFieldsConfidence(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsCriticality(dict):
+calass InsightFiltersFindingProviderFieldsCriticality(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -1731,7 +1731,7 @@ class InsightFiltersFindingProviderFieldsCriticality(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsRelatedFindingsId(dict):
+calass InsightFiltersFindingProviderFieldsRelatedFindingsId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1760,7 +1760,7 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsRelatedFindingsProductArn(dict):
+calass InsightFiltersFindingProviderFieldsRelatedFindingsProductArn(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1789,7 +1789,7 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsProductArn(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsSeverityLabel(dict):
+calass InsightFiltersFindingProviderFieldsSeverityLabel(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1818,7 +1818,7 @@ class InsightFiltersFindingProviderFieldsSeverityLabel(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsSeverityOriginal(dict):
+calass InsightFiltersFindingProviderFieldsSeverityOriginal(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1847,7 +1847,7 @@ class InsightFiltersFindingProviderFieldsSeverityOriginal(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFindingProviderFieldsType(dict):
+calass InsightFiltersFindingProviderFieldsType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1876,7 +1876,7 @@ class InsightFiltersFindingProviderFieldsType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFirstObservedAt(dict):
+calass InsightFiltersFirstObservedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1899,7 +1899,7 @@ class InsightFiltersFirstObservedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersFirstObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersFirstObservedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -1936,7 +1936,7 @@ class InsightFiltersFirstObservedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersFirstObservedAtDateRange(dict):
+calass InsightFiltersFirstObservedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -1965,7 +1965,7 @@ class InsightFiltersFirstObservedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersGeneratorId(dict):
+calass InsightFiltersGeneratorId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -1994,7 +1994,7 @@ class InsightFiltersGeneratorId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersId(dict):
+calass InsightFiltersId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2023,7 +2023,7 @@ class InsightFiltersId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersKeyword(dict):
+calass InsightFiltersKeyword(dict):
     def __init__(__self__, *,
                  value: str):
         """
@@ -2041,7 +2041,7 @@ class InsightFiltersKeyword(dict):
 
 
 @pulumi.output_type
-class InsightFiltersLastObservedAt(dict):
+calass InsightFiltersLastObservedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2064,7 +2064,7 @@ class InsightFiltersLastObservedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersLastObservedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -2101,7 +2101,7 @@ class InsightFiltersLastObservedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersLastObservedAtDateRange(dict):
+calass InsightFiltersLastObservedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2130,7 +2130,7 @@ class InsightFiltersLastObservedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersMalwareName(dict):
+calass InsightFiltersMalwareName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2159,7 +2159,7 @@ class InsightFiltersMalwareName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersMalwarePath(dict):
+calass InsightFiltersMalwarePath(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2188,7 +2188,7 @@ class InsightFiltersMalwarePath(dict):
 
 
 @pulumi.output_type
-class InsightFiltersMalwareState(dict):
+calass InsightFiltersMalwareState(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2217,7 +2217,7 @@ class InsightFiltersMalwareState(dict):
 
 
 @pulumi.output_type
-class InsightFiltersMalwareType(dict):
+calass InsightFiltersMalwareType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2246,7 +2246,7 @@ class InsightFiltersMalwareType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkDestinationDomain(dict):
+calass InsightFiltersNetworkDestinationDomain(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2275,7 +2275,7 @@ class InsightFiltersNetworkDestinationDomain(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkDestinationIpv4(dict):
+calass InsightFiltersNetworkDestinationIpv4(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -2293,7 +2293,7 @@ class InsightFiltersNetworkDestinationIpv4(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkDestinationIpv6(dict):
+calass InsightFiltersNetworkDestinationIpv6(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -2311,7 +2311,7 @@ class InsightFiltersNetworkDestinationIpv6(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkDestinationPort(dict):
+calass InsightFiltersNetworkDestinationPort(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -2354,7 +2354,7 @@ class InsightFiltersNetworkDestinationPort(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkDirection(dict):
+calass InsightFiltersNetworkDirection(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2383,7 +2383,7 @@ class InsightFiltersNetworkDirection(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkProtocol(dict):
+calass InsightFiltersNetworkProtocol(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2412,7 +2412,7 @@ class InsightFiltersNetworkProtocol(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkSourceDomain(dict):
+calass InsightFiltersNetworkSourceDomain(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2441,7 +2441,7 @@ class InsightFiltersNetworkSourceDomain(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkSourceIpv4(dict):
+calass InsightFiltersNetworkSourceIpv4(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -2459,7 +2459,7 @@ class InsightFiltersNetworkSourceIpv4(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkSourceIpv6(dict):
+calass InsightFiltersNetworkSourceIpv6(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -2477,7 +2477,7 @@ class InsightFiltersNetworkSourceIpv6(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkSourceMac(dict):
+calass InsightFiltersNetworkSourceMac(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2506,7 +2506,7 @@ class InsightFiltersNetworkSourceMac(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNetworkSourcePort(dict):
+calass InsightFiltersNetworkSourcePort(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -2549,7 +2549,7 @@ class InsightFiltersNetworkSourcePort(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNoteText(dict):
+calass InsightFiltersNoteText(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2578,7 +2578,7 @@ class InsightFiltersNoteText(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNoteUpdatedAt(dict):
+calass InsightFiltersNoteUpdatedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2601,7 +2601,7 @@ class InsightFiltersNoteUpdatedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersNoteUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersNoteUpdatedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -2638,7 +2638,7 @@ class InsightFiltersNoteUpdatedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNoteUpdatedAtDateRange(dict):
+calass InsightFiltersNoteUpdatedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2667,7 +2667,7 @@ class InsightFiltersNoteUpdatedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersNoteUpdatedBy(dict):
+calass InsightFiltersNoteUpdatedBy(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2696,7 +2696,7 @@ class InsightFiltersNoteUpdatedBy(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessLaunchedAt(dict):
+calass InsightFiltersProcessLaunchedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2719,7 +2719,7 @@ class InsightFiltersProcessLaunchedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersProcessLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersProcessLaunchedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -2756,7 +2756,7 @@ class InsightFiltersProcessLaunchedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessLaunchedAtDateRange(dict):
+calass InsightFiltersProcessLaunchedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2785,7 +2785,7 @@ class InsightFiltersProcessLaunchedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessName(dict):
+calass InsightFiltersProcessName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2814,7 +2814,7 @@ class InsightFiltersProcessName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessParentPid(dict):
+calass InsightFiltersProcessParentPid(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -2857,7 +2857,7 @@ class InsightFiltersProcessParentPid(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessPath(dict):
+calass InsightFiltersProcessPath(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -2886,7 +2886,7 @@ class InsightFiltersProcessPath(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessPid(dict):
+calass InsightFiltersProcessPid(dict):
     def __init__(__self__, *,
                  eq: Optional[str] = None,
                  gte: Optional[str] = None,
@@ -2929,7 +2929,7 @@ class InsightFiltersProcessPid(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessTerminatedAt(dict):
+calass InsightFiltersProcessTerminatedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2952,7 +2952,7 @@ class InsightFiltersProcessTerminatedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersProcessTerminatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersProcessTerminatedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -2989,7 +2989,7 @@ class InsightFiltersProcessTerminatedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProcessTerminatedAtDateRange(dict):
+calass InsightFiltersProcessTerminatedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3018,7 +3018,7 @@ class InsightFiltersProcessTerminatedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProductArn(dict):
+calass InsightFiltersProductArn(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3047,7 +3047,7 @@ class InsightFiltersProductArn(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProductField(dict):
+calass InsightFiltersProductField(dict):
     def __init__(__self__, *,
                  comparison: str,
                  key: str,
@@ -3087,7 +3087,7 @@ class InsightFiltersProductField(dict):
 
 
 @pulumi.output_type
-class InsightFiltersProductName(dict):
+calass InsightFiltersProductName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3116,7 +3116,7 @@ class InsightFiltersProductName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersRecommendationText(dict):
+calass InsightFiltersRecommendationText(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3145,7 +3145,7 @@ class InsightFiltersRecommendationText(dict):
 
 
 @pulumi.output_type
-class InsightFiltersRecordState(dict):
+calass InsightFiltersRecordState(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3174,7 +3174,7 @@ class InsightFiltersRecordState(dict):
 
 
 @pulumi.output_type
-class InsightFiltersRelatedFindingsId(dict):
+calass InsightFiltersRelatedFindingsId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3203,7 +3203,7 @@ class InsightFiltersRelatedFindingsId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersRelatedFindingsProductArn(dict):
+calass InsightFiltersRelatedFindingsProductArn(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3232,7 +3232,7 @@ class InsightFiltersRelatedFindingsProductArn(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn(dict):
+calass InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3261,7 +3261,7 @@ class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceImageId(dict):
+calass InsightFiltersResourceAwsEc2InstanceImageId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3290,7 +3290,7 @@ class InsightFiltersResourceAwsEc2InstanceImageId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceIpv4Address(dict):
+calass InsightFiltersResourceAwsEc2InstanceIpv4Address(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -3308,7 +3308,7 @@ class InsightFiltersResourceAwsEc2InstanceIpv4Address(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceIpv6Address(dict):
+calass InsightFiltersResourceAwsEc2InstanceIpv6Address(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -3326,7 +3326,7 @@ class InsightFiltersResourceAwsEc2InstanceIpv6Address(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceKeyName(dict):
+calass InsightFiltersResourceAwsEc2InstanceKeyName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3355,7 +3355,7 @@ class InsightFiltersResourceAwsEc2InstanceKeyName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
+calass InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3378,7 +3378,7 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -3415,7 +3415,7 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange(dict):
+calass InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3444,7 +3444,7 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceSubnetId(dict):
+calass InsightFiltersResourceAwsEc2InstanceSubnetId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3473,7 +3473,7 @@ class InsightFiltersResourceAwsEc2InstanceSubnetId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceType(dict):
+calass InsightFiltersResourceAwsEc2InstanceType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3502,7 +3502,7 @@ class InsightFiltersResourceAwsEc2InstanceType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsEc2InstanceVpcId(dict):
+calass InsightFiltersResourceAwsEc2InstanceVpcId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3531,7 +3531,7 @@ class InsightFiltersResourceAwsEc2InstanceVpcId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
+calass InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3554,7 +3554,7 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -3591,7 +3591,7 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange(dict):
+calass InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3620,7 +3620,7 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsIamAccessKeyStatus(dict):
+calass InsightFiltersResourceAwsIamAccessKeyStatus(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3649,7 +3649,7 @@ class InsightFiltersResourceAwsIamAccessKeyStatus(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsIamAccessKeyUserName(dict):
+calass InsightFiltersResourceAwsIamAccessKeyUserName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3678,7 +3678,7 @@ class InsightFiltersResourceAwsIamAccessKeyUserName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsS3BucketOwnerId(dict):
+calass InsightFiltersResourceAwsS3BucketOwnerId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3707,7 +3707,7 @@ class InsightFiltersResourceAwsS3BucketOwnerId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceAwsS3BucketOwnerName(dict):
+calass InsightFiltersResourceAwsS3BucketOwnerName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3736,7 +3736,7 @@ class InsightFiltersResourceAwsS3BucketOwnerName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceContainerImageId(dict):
+calass InsightFiltersResourceContainerImageId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3765,7 +3765,7 @@ class InsightFiltersResourceContainerImageId(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceContainerImageName(dict):
+calass InsightFiltersResourceContainerImageName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3794,7 +3794,7 @@ class InsightFiltersResourceContainerImageName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceContainerLaunchedAt(dict):
+calass InsightFiltersResourceContainerLaunchedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3817,7 +3817,7 @@ class InsightFiltersResourceContainerLaunchedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersResourceContainerLaunchedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersResourceContainerLaunchedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -3854,7 +3854,7 @@ class InsightFiltersResourceContainerLaunchedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceContainerLaunchedAtDateRange(dict):
+calass InsightFiltersResourceContainerLaunchedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3883,7 +3883,7 @@ class InsightFiltersResourceContainerLaunchedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceContainerName(dict):
+calass InsightFiltersResourceContainerName(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -3912,134 +3912,7 @@ class InsightFiltersResourceContainerName(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceDetailsOther(dict):
-    def __init__(__self__, *,
-                 comparison: str,
-                 key: str,
-                 value: str):
-        """
-        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-        :param str value: A date range value for the date filter, provided as an Integer.
-        """
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> str:
-        """
-        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        """
-        return pulumi.get(self, "comparison")
-
-    @property
-    @pulumi.getter
-    def key(self) -> str:
-        """
-        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
-        """
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A date range value for the date filter, provided as an Integer.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InsightFiltersResourceId(dict):
-    def __init__(__self__, *,
-                 comparison: str,
-                 value: str):
-        """
-        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        :param str value: A date range value for the date filter, provided as an Integer.
-        """
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> str:
-        """
-        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        """
-        return pulumi.get(self, "comparison")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A date range value for the date filter, provided as an Integer.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InsightFiltersResourcePartition(dict):
-    def __init__(__self__, *,
-                 comparison: str,
-                 value: str):
-        """
-        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        :param str value: A date range value for the date filter, provided as an Integer.
-        """
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> str:
-        """
-        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        """
-        return pulumi.get(self, "comparison")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A date range value for the date filter, provided as an Integer.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InsightFiltersResourceRegion(dict):
-    def __init__(__self__, *,
-                 comparison: str,
-                 value: str):
-        """
-        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        :param str value: A date range value for the date filter, provided as an Integer.
-        """
-        pulumi.set(__self__, "comparison", comparison)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def comparison(self) -> str:
-        """
-        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
-        """
-        return pulumi.get(self, "comparison")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        A date range value for the date filter, provided as an Integer.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class InsightFiltersResourceTag(dict):
+calass InsightFiltersResourceDetailsOther(dict):
     def __init__(__self__, *,
                  comparison: str,
                  key: str,
@@ -4079,7 +3952,7 @@ class InsightFiltersResourceTag(dict):
 
 
 @pulumi.output_type
-class InsightFiltersResourceType(dict):
+calass InsightFiltersResourceId(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4108,7 +3981,7 @@ class InsightFiltersResourceType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersSeverityLabel(dict):
+calass InsightFiltersResourcePartition(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4137,7 +4010,7 @@ class InsightFiltersSeverityLabel(dict):
 
 
 @pulumi.output_type
-class InsightFiltersSourceUrl(dict):
+calass InsightFiltersResourceRegion(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4166,7 +4039,47 @@ class InsightFiltersSourceUrl(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorCategory(dict):
+calass InsightFiltersResourceTag(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 key: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str key: The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+calass InsightFiltersResourceType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4195,7 +4108,94 @@ class InsightFiltersThreatIntelIndicatorCategory(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
+calass InsightFiltersSeverityLabel(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+calass InsightFiltersSourceUrl(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+calass InsightFiltersThreatIntelIndicatorCategory(dict):
+    def __init__(__self__, *,
+                 comparison: str,
+                 value: str):
+        """
+        :param str comparison: The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        :param str value: A date range value for the date filter, provided as an Integer.
+        """
+        pulumi.set(__self__, "comparison", comparison)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def comparison(self) -> str:
+        """
+        The condition to apply to a string value when querying for findings. Valid values include: `EQUALS` and `NOT_EQUALS`.
+        """
+        return pulumi.get(self, "comparison")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+calass InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4218,7 +4218,7 @@ class InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -4255,7 +4255,7 @@ class InsightFiltersThreatIntelIndicatorLastObservedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorLastObservedAtDateRange(dict):
+calass InsightFiltersThreatIntelIndicatorLastObservedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4284,7 +4284,7 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorSource(dict):
+calass InsightFiltersThreatIntelIndicatorSource(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4313,7 +4313,7 @@ class InsightFiltersThreatIntelIndicatorSource(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorSourceUrl(dict):
+calass InsightFiltersThreatIntelIndicatorSourceUrl(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4342,7 +4342,7 @@ class InsightFiltersThreatIntelIndicatorSourceUrl(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorType(dict):
+calass InsightFiltersThreatIntelIndicatorType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4371,7 +4371,7 @@ class InsightFiltersThreatIntelIndicatorType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersThreatIntelIndicatorValue(dict):
+calass InsightFiltersThreatIntelIndicatorValue(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4400,7 +4400,7 @@ class InsightFiltersThreatIntelIndicatorValue(dict):
 
 
 @pulumi.output_type
-class InsightFiltersTitle(dict):
+calass InsightFiltersTitle(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4429,7 +4429,7 @@ class InsightFiltersTitle(dict):
 
 
 @pulumi.output_type
-class InsightFiltersType(dict):
+calass InsightFiltersType(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4458,7 +4458,7 @@ class InsightFiltersType(dict):
 
 
 @pulumi.output_type
-class InsightFiltersUpdatedAt(dict):
+calass InsightFiltersUpdatedAt(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4481,7 +4481,7 @@ class InsightFiltersUpdatedAt(dict):
                  end: Optional[str] = None,
                  start: Optional[str] = None):
         """
-        :param 'InsightFiltersUpdatedAtDateRangeArgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
+        :param 'InsightFiltersUpdatedAtDateRangeArrgs' date_range: A configuration block of the date range for the date filter. See date_range below for more details.
         :param str end: An end date for the date filter. Required with `start` if `date_range` is not specified.
         :param str start: A start date for the date filter. Required with `end` if `date_range` is not specified.
         """
@@ -4518,7 +4518,7 @@ class InsightFiltersUpdatedAt(dict):
 
 
 @pulumi.output_type
-class InsightFiltersUpdatedAtDateRange(dict):
+calass InsightFiltersUpdatedAtDateRange(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4547,7 +4547,7 @@ class InsightFiltersUpdatedAtDateRange(dict):
 
 
 @pulumi.output_type
-class InsightFiltersUserDefinedValue(dict):
+calass InsightFiltersUserDefinedValue(dict):
     def __init__(__self__, *,
                  comparison: str,
                  key: str,
@@ -4587,7 +4587,7 @@ class InsightFiltersUserDefinedValue(dict):
 
 
 @pulumi.output_type
-class InsightFiltersVerificationState(dict):
+calass InsightFiltersVerificationState(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):
@@ -4616,7 +4616,7 @@ class InsightFiltersVerificationState(dict):
 
 
 @pulumi.output_type
-class InsightFiltersWorkflowStatus(dict):
+calass InsightFiltersWorkflowStatus(dict):
     def __init__(__self__, *,
                  comparison: str,
                  value: str):

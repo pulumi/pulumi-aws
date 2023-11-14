@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GroupMembershipArgs', 'GroupMembership']
+__all__ = ['GroupMembershipArrgs', 'GroupMembership']
 
 @pulumi.input_type
-class GroupMembershipArgs:
+calass GroupMembershipArrgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
                  member_name: pulumi.Input[str],
@@ -82,7 +82,7 @@ class GroupMembershipArgs:
 
 
 @pulumi.input_type
-class _GroupMembershipState:
+calass _GroupMembershipState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
@@ -165,7 +165,7 @@ class _GroupMembershipState:
         pulumi.set(self, "namespace", value)
 
 
-class GroupMembership(pulumi.CustomResource):
+calass GroupMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,7 +208,7 @@ class GroupMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupMembershipArgs,
+                 args: GroupMembershipArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing QuickSight Group Membership
@@ -233,12 +233,12 @@ class GroupMembership(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param GroupMembershipArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupMembershipArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -258,7 +258,7 @@ class GroupMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupMembershipArgs.__new__(GroupMembershipArgs)
+            __props__ = GroupMembershipArrgs.__new__(GroupMembershipArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             if group_name is None and not opts.urn:

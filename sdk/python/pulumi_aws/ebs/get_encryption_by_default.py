@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEncryptionByDefaultResult:
+calass GetEncryptionByDefaultResult:
     """
     A collection of values returned by getEncryptionByDefault.
     """
@@ -46,7 +46,7 @@ class GetEncryptionByDefaultResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
+calass AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

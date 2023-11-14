@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OrganizationsAccessArgs', 'OrganizationsAccess']
+__all__ = ['OrganizationsAccessArrgs', 'OrganizationsAccess']
 
 @pulumi.input_type
-class OrganizationsAccessArgs:
+calass OrganizationsAccessArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -35,7 +35,7 @@ class OrganizationsAccessArgs:
 
 
 @pulumi.input_type
-class _OrganizationsAccessState:
+calass _OrganizationsAccessState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -58,7 +58,7 @@ class _OrganizationsAccessState:
         pulumi.set(self, "enabled", value)
 
 
-class OrganizationsAccess(pulumi.CustomResource):
+calass OrganizationsAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -88,7 +88,7 @@ class OrganizationsAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationsAccessArgs,
+                 args: OrganizationsAccessArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
@@ -106,12 +106,12 @@ class OrganizationsAccess(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationsAccessArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationsAccessArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationsAccessArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationsAccessArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -128,7 +128,7 @@ class OrganizationsAccess(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationsAccessArgs.__new__(OrganizationsAccessArgs)
+            __props__ = OrganizationsAccessArrgs.__new__(OrganizationsAccessArrgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")

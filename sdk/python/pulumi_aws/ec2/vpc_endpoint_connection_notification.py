@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcEndpointConnectionNotificationArgs', 'VpcEndpointConnectionNotification']
+__all__ = ['VpcEndpointConnectionNotificationArrgs', 'VpcEndpointConnectionNotification']
 
 @pulumi.input_type
-class VpcEndpointConnectionNotificationArgs:
+calass VpcEndpointConnectionNotificationArrgs:
     def __init__(__self__, *,
                  connection_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_notification_arn: pulumi.Input[str],
@@ -86,7 +86,7 @@ class VpcEndpointConnectionNotificationArgs:
 
 
 @pulumi.input_type
-class _VpcEndpointConnectionNotificationState:
+calass _VpcEndpointConnectionNotificationState:
     def __init__(__self__, *,
                  connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connection_notification_arn: Optional[pulumi.Input[str]] = None,
@@ -193,7 +193,7 @@ class _VpcEndpointConnectionNotificationState:
         pulumi.set(self, "vpc_endpoint_service_id", value)
 
 
-class VpcEndpointConnectionNotification(pulumi.CustomResource):
+calass VpcEndpointConnectionNotification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -213,9 +213,9 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["vpce.amazonaws.com"],
             )],
@@ -256,7 +256,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcEndpointConnectionNotificationArgs,
+                 args: VpcEndpointConnectionNotificationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC Endpoint connection notification resource.
@@ -268,9 +268,9 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        topic_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["vpce.amazonaws.com"],
             )],
@@ -299,12 +299,12 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcEndpointConnectionNotificationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointConnectionNotificationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointConnectionNotificationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointConnectionNotificationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -324,7 +324,7 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcEndpointConnectionNotificationArgs.__new__(VpcEndpointConnectionNotificationArgs)
+            __props__ = VpcEndpointConnectionNotificationArrgs.__new__(VpcEndpointConnectionNotificationArrgs)
 
             if connection_events is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_events'")

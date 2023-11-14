@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccountPublicAccessBlockResult:
+calass GetAccountPublicAccessBlockResult:
     """
     A collection of values returned by getAccountPublicAccessBlock.
     """
@@ -87,7 +87,7 @@ class GetAccountPublicAccessBlockResult:
         return pulumi.get(self, "restrict_public_buckets")
 
 
-class AwaitableGetAccountPublicAccessBlockResult(GetAccountPublicAccessBlockResult):
+calass AwaitableGetAccountPublicAccessBlockResult(GetAccountPublicAccessBlockResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

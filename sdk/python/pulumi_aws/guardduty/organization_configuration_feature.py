@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OrganizationConfigurationFeatureArgs', 'OrganizationConfigurationFeature']
+__all__ = ['OrganizationConfigurationFeatureArrgs', 'OrganizationConfigurationFeature']
 
 @pulumi.input_type
-class OrganizationConfigurationFeatureArgs:
+calass OrganizationConfigurationFeatureArrgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[str],
                  detector_id: pulumi.Input[str],
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OrganizationConfigurationFeature resource.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: The additional information that will be configured for the organization See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
@@ -60,14 +60,14 @@ class OrganizationConfigurationFeatureArgs:
 
     @property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]:
         """
         The additional information that will be configured for the organization See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @property
@@ -84,15 +84,15 @@ class OrganizationConfigurationFeatureArgs:
 
 
 @pulumi.input_type
-class _OrganizationConfigurationFeatureState:
+calass _OrganizationConfigurationFeatureState:
     def __init__(__self__, *,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]] = None,
                  auto_enable: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: The additional information that will be configured for the organization See below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
@@ -108,14 +108,14 @@ class _OrganizationConfigurationFeatureState:
 
     @property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]:
         """
         The additional information that will be configured for the organization See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @property
@@ -155,12 +155,12 @@ class _OrganizationConfigurationFeatureState:
         pulumi.set(self, "name", value)
 
 
-class OrganizationConfigurationFeature(pulumi.CustomResource):
+calass OrganizationConfigurationFeature(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]] = None,
                  auto_enable: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
             detector_id=example.id,
             auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
+            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArrgs(
                 name="EKS_ADDON_MANAGEMENT",
                 auto_enable="NEW",
             )])
@@ -188,7 +188,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] additional_configurations: The additional information that will be configured for the organization See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
@@ -197,7 +197,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationConfigurationFeatureArgs,
+                 args: OrganizationConfigurationFeatureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
@@ -214,19 +214,19 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         eks_runtime_monitoring = aws.guardduty.OrganizationConfigurationFeature("eksRuntimeMonitoring",
             detector_id=example.id,
             auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
+            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArrgs(
                 name="EKS_ADDON_MANAGEMENT",
                 auto_enable="NEW",
             )])
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationConfigurationFeatureArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationConfigurationFeatureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationConfigurationFeatureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationConfigurationFeatureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -235,7 +235,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]] = None,
                  auto_enable: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationConfigurationFeatureArgs.__new__(OrganizationConfigurationFeatureArgs)
+            __props__ = OrganizationConfigurationFeatureArrgs.__new__(OrganizationConfigurationFeatureArrgs)
 
             __props__.__dict__["additional_configurations"] = additional_configurations
             if auto_enable is None and not opts.urn:
@@ -266,7 +266,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]]] = None,
             auto_enable: Optional[pulumi.Input[str]] = None,
             detector_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'OrganizationConfigurationFeature':
@@ -277,7 +277,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] additional_configurations: The additional information that will be configured for the organization See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArrgs']]]] additional_configurations: The additional information that will be configured for the organization See below.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.

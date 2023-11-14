@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AliasRoutingStrategyArgs',
-    'BuildStorageLocationArgs',
-    'FleetCertificateConfigurationArgs',
-    'FleetEc2InboundPermissionArgs',
-    'FleetResourceCreationLimitPolicyArgs',
-    'FleetRuntimeConfigurationArgs',
-    'FleetRuntimeConfigurationServerProcessArgs',
-    'GameServerGroupAutoScalingPolicyArgs',
-    'GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs',
-    'GameServerGroupInstanceDefinitionArgs',
-    'GameServerGroupLaunchTemplateArgs',
-    'GameSessionQueuePlayerLatencyPolicyArgs',
-    'MatchmakingConfigurationGamePropertyArgs',
-    'ScriptStorageLocationArgs',
+    'AliasRoutingStrategyArrgs',
+    'BuildStorageLocationArrgs',
+    'FleetCertificateConfigurationArrgs',
+    'FleetEc2InboundPermissionArrgs',
+    'FleetResourceCreationLimitPolicyArrgs',
+    'FleetRuntimeConfigurationArrgs',
+    'FleetRuntimeConfigurationServerProcessArrgs',
+    'GameServerGroupAutoScalingPolicyArrgs',
+    'GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArrgs',
+    'GameServerGroupInstanceDefinitionArrgs',
+    'GameServerGroupLaunchTemplateArrgs',
+    'GameSessionQueuePlayerLatencyPolicyArrgs',
+    'MatchmakingConfigurationGamePropertyArrgs',
+    'ScriptStorageLocationArrgs',
 ]
 
 @pulumi.input_type
-class AliasRoutingStrategyArgs:
+calass AliasRoutingStrategyArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  fleet_id: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,7 @@ class AliasRoutingStrategyArgs:
 
 
 @pulumi.input_type
-class BuildStorageLocationArgs:
+calass BuildStorageLocationArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
@@ -149,7 +149,7 @@ class BuildStorageLocationArgs:
 
 
 @pulumi.input_type
-class FleetCertificateConfigurationArgs:
+calass FleetCertificateConfigurationArrgs:
     def __init__(__self__, *,
                  certificate_type: Optional[pulumi.Input[str]] = None):
         """
@@ -172,7 +172,7 @@ class FleetCertificateConfigurationArgs:
 
 
 @pulumi.input_type
-class FleetEc2InboundPermissionArgs:
+calass FleetEc2InboundPermissionArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  ip_range: pulumi.Input[str],
@@ -239,7 +239,7 @@ class FleetEc2InboundPermissionArgs:
 
 
 @pulumi.input_type
-class FleetResourceCreationLimitPolicyArgs:
+calass FleetResourceCreationLimitPolicyArrgs:
     def __init__(__self__, *,
                  new_game_sessions_per_creator: Optional[pulumi.Input[int]] = None,
                  policy_period_in_minutes: Optional[pulumi.Input[int]] = None):
@@ -278,15 +278,15 @@ class FleetResourceCreationLimitPolicyArgs:
 
 
 @pulumi.input_type
-class FleetRuntimeConfigurationArgs:
+calass FleetRuntimeConfigurationArrgs:
     def __init__(__self__, *,
                  game_session_activation_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  max_concurrent_game_session_activations: Optional[pulumi.Input[int]] = None,
-                 server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]] = None):
+                 server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArrgs']]]] = None):
         """
         :param pulumi.Input[int] game_session_activation_timeout_seconds: Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         :param pulumi.Input[int] max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArrgs']]] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
         if game_session_activation_timeout_seconds is not None:
             pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
@@ -321,19 +321,19 @@ class FleetRuntimeConfigurationArgs:
 
     @property
     @pulumi.getter(name="serverProcesses")
-    def server_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]:
+    def server_processes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArrgs']]]]:
         """
         Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
         return pulumi.get(self, "server_processes")
 
     @server_processes.setter
-    def server_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]):
+    def server_processes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArrgs']]]]):
         pulumi.set(self, "server_processes", value)
 
 
 @pulumi.input_type
-class FleetRuntimeConfigurationServerProcessArgs:
+calass FleetRuntimeConfigurationServerProcessArrgs:
     def __init__(__self__, *,
                  concurrent_executions: pulumi.Input[int],
                  launch_path: pulumi.Input[str],
@@ -386,9 +386,9 @@ class FleetRuntimeConfigurationServerProcessArgs:
 
 
 @pulumi.input_type
-class GameServerGroupAutoScalingPolicyArgs:
+calass GameServerGroupAutoScalingPolicyArrgs:
     def __init__(__self__, *,
-                 target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs'],
+                 target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArrgs'],
                  estimated_instance_warmup: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] estimated_instance_warmup: Length of time, in seconds, it takes for a new instance to start
@@ -402,11 +402,11 @@ class GameServerGroupAutoScalingPolicyArgs:
 
     @property
     @pulumi.getter(name="targetTrackingConfiguration")
-    def target_tracking_configuration(self) -> pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs']:
+    def target_tracking_configuration(self) -> pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArrgs']:
         return pulumi.get(self, "target_tracking_configuration")
 
     @target_tracking_configuration.setter
-    def target_tracking_configuration(self, value: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs']):
+    def target_tracking_configuration(self, value: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArrgs']):
         pulumi.set(self, "target_tracking_configuration", value)
 
     @property
@@ -426,7 +426,7 @@ class GameServerGroupAutoScalingPolicyArgs:
 
 
 @pulumi.input_type
-class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
+calass GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArrgs:
     def __init__(__self__, *,
                  target_value: pulumi.Input[float]):
         """
@@ -448,7 +448,7 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
 
 
 @pulumi.input_type
-class GameServerGroupInstanceDefinitionArgs:
+calass GameServerGroupInstanceDefinitionArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  weighted_capacity: Optional[pulumi.Input[str]] = None):
@@ -492,7 +492,7 @@ class GameServerGroupInstanceDefinitionArgs:
 
 
 @pulumi.input_type
-class GameServerGroupLaunchTemplateArgs:
+calass GameServerGroupLaunchTemplateArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -547,7 +547,7 @@ class GameServerGroupLaunchTemplateArgs:
 
 
 @pulumi.input_type
-class GameSessionQueuePlayerLatencyPolicyArgs:
+calass GameSessionQueuePlayerLatencyPolicyArrgs:
     def __init__(__self__, *,
                  maximum_individual_player_latency_milliseconds: pulumi.Input[int],
                  policy_duration_seconds: Optional[pulumi.Input[int]] = None):
@@ -585,7 +585,7 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
 
 
 @pulumi.input_type
-class MatchmakingConfigurationGamePropertyArgs:
+calass MatchmakingConfigurationGamePropertyArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -622,7 +622,7 @@ class MatchmakingConfigurationGamePropertyArgs:
 
 
 @pulumi.input_type
-class ScriptStorageLocationArgs:
+calass ScriptStorageLocationArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StaticIpArgs', 'StaticIp']
+__all__ = ['StaticIpArrgs', 'StaticIp']
 
 @pulumi.input_type
-class StaticIpArgs:
+calass StaticIpArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -36,7 +36,7 @@ class StaticIpArgs:
 
 
 @pulumi.input_type
-class _StaticIpState:
+calass _StaticIpState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class _StaticIpState:
         pulumi.set(self, "support_code", value)
 
 
-class StaticIp(pulumi.CustomResource):
+calass StaticIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -136,7 +136,7 @@ class StaticIp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[StaticIpArgs] = None,
+                 args: Optional[StaticIpArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allocates a static IP address.
@@ -153,12 +153,12 @@ class StaticIp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StaticIpArgs args: The arguments to use to populate this resource's properties.
+        :param StaticIpArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StaticIpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StaticIpArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -175,7 +175,7 @@ class StaticIp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StaticIpArgs.__new__(StaticIpArgs)
+            __props__ = StaticIpArrgs.__new__(StaticIpArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None

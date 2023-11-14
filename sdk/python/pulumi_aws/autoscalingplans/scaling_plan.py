@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScalingPlanArgs', 'ScalingPlan']
+__all__ = ['ScalingPlanArrgs', 'ScalingPlan']
 
 @pulumi.input_type
-class ScalingPlanArgs:
+calass ScalingPlanArrgs:
     def __init__(__self__, *,
-                 application_source: pulumi.Input['ScalingPlanApplicationSourceArgs'],
-                 scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]],
+                 application_source: pulumi.Input['ScalingPlanApplicationSourceArrgs'],
+                 scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
-        :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
-        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        :param pulumi.Input['ScalingPlanApplicationSourceArrgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         """
         pulumi.set(__self__, "application_source", application_source)
@@ -32,26 +32,26 @@ class ScalingPlanArgs:
 
     @property
     @pulumi.getter(name="applicationSource")
-    def application_source(self) -> pulumi.Input['ScalingPlanApplicationSourceArgs']:
+    def application_source(self) -> pulumi.Input['ScalingPlanApplicationSourceArrgs']:
         """
         CloudFormation stack or set of tags. You can create one scaling plan per application source.
         """
         return pulumi.get(self, "application_source")
 
     @application_source.setter
-    def application_source(self, value: pulumi.Input['ScalingPlanApplicationSourceArgs']):
+    def application_source(self, value: pulumi.Input['ScalingPlanApplicationSourceArrgs']):
         pulumi.set(self, "application_source", value)
 
     @property
     @pulumi.getter(name="scalingInstructions")
-    def scaling_instructions(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]:
+    def scaling_instructions(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]]:
         """
         Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         return pulumi.get(self, "scaling_instructions")
 
     @scaling_instructions.setter
-    def scaling_instructions(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]):
+    def scaling_instructions(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]]):
         pulumi.set(self, "scaling_instructions", value)
 
     @property
@@ -68,17 +68,17 @@ class ScalingPlanArgs:
 
 
 @pulumi.input_type
-class _ScalingPlanState:
+calass _ScalingPlanState:
     def __init__(__self__, *,
-                 application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
+                 application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]]] = None,
                  scaling_plan_version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
-        :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        :param pulumi.Input['ScalingPlanApplicationSourceArrgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
         if application_source is not None:
@@ -92,14 +92,14 @@ class _ScalingPlanState:
 
     @property
     @pulumi.getter(name="applicationSource")
-    def application_source(self) -> Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]:
+    def application_source(self) -> Optional[pulumi.Input['ScalingPlanApplicationSourceArrgs']]:
         """
         CloudFormation stack or set of tags. You can create one scaling plan per application source.
         """
         return pulumi.get(self, "application_source")
 
     @application_source.setter
-    def application_source(self, value: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']]):
+    def application_source(self, value: Optional[pulumi.Input['ScalingPlanApplicationSourceArrgs']]):
         pulumi.set(self, "application_source", value)
 
     @property
@@ -116,14 +116,14 @@ class _ScalingPlanState:
 
     @property
     @pulumi.getter(name="scalingInstructions")
-    def scaling_instructions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]:
+    def scaling_instructions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]]]:
         """
         Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         return pulumi.get(self, "scaling_instructions")
 
     @scaling_instructions.setter
-    def scaling_instructions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]]):
+    def scaling_instructions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArrgs']]]]):
         pulumi.set(self, "scaling_instructions", value)
 
     @property
@@ -139,14 +139,14 @@ class _ScalingPlanState:
         pulumi.set(self, "scaling_plan_version", value)
 
 
-class ScalingPlan(pulumi.CustomResource):
+calass ScalingPlan(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
+                 application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
+                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an AWS Auto Scaling scaling plan.
@@ -168,15 +168,15 @@ class ScalingPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        :param pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArrgs']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArrgs']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScalingPlanArgs,
+                 args: ScalingPlanArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Auto Scaling scaling plan.
@@ -197,12 +197,12 @@ class ScalingPlan(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.
+        :param ScalingPlanArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScalingPlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScalingPlanArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -211,9 +211,9 @@ class ScalingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
+                 application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
+                 scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -221,7 +221,7 @@ class ScalingPlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScalingPlanArgs.__new__(ScalingPlanArgs)
+            __props__ = ScalingPlanArrgs.__new__(ScalingPlanArrgs)
 
             if application_source is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source'")
@@ -241,9 +241,9 @@ class ScalingPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']]] = None,
+            application_source: Optional[pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]]] = None,
+            scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArrgs']]]]] = None,
             scaling_plan_version: Optional[pulumi.Input[int]] = None) -> 'ScalingPlan':
         """
         Get an existing ScalingPlan resource's state with the given name, id, and optional extra
@@ -252,9 +252,9 @@ class ScalingPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArgs']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
+        :param pulumi.Input[pulumi.InputType['ScalingPlanApplicationSourceArrgs']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArgs']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScalingInstructionArrgs']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

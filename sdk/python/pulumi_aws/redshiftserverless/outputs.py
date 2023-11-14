@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointAccessVpcEndpoint(dict):
+calass EndpointAccessVpcEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,7 +50,7 @@ class EndpointAccessVpcEndpoint(dict):
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
+        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArrgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
         :param str vpc_endpoint_id: The DNS address of the VPC endpoint.
         :param str vpc_id: The port that Amazon Redshift Serverless listens on.
         """
@@ -87,7 +87,7 @@ class EndpointAccessVpcEndpoint(dict):
 
 
 @pulumi.output_type
-class EndpointAccessVpcEndpointNetworkInterface(dict):
+calass EndpointAccessVpcEndpointNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -165,7 +165,7 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfigParameter(dict):
+calass WorkgroupConfigParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -213,7 +213,7 @@ class WorkgroupConfigParameter(dict):
 
 
 @pulumi.output_type
-class WorkgroupEndpoint(dict):
+calass WorkgroupEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -238,7 +238,7 @@ class WorkgroupEndpoint(dict):
         """
         :param str address: The DNS address of the VPC endpoint.
         :param int port: The port that Amazon Redshift Serverless listens on.
-        :param Sequence['WorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+        :param Sequence['WorkgroupEndpointVpcEndpointArrgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -273,7 +273,7 @@ class WorkgroupEndpoint(dict):
 
 
 @pulumi.output_type
-class WorkgroupEndpointVpcEndpoint(dict):
+calass WorkgroupEndpointVpcEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -300,7 +300,7 @@ class WorkgroupEndpointVpcEndpoint(dict):
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence['WorkgroupEndpointVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
+        :param Sequence['WorkgroupEndpointVpcEndpointNetworkInterfaceArrgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
         :param str vpc_endpoint_id: The DNS address of the VPC endpoint.
         :param str vpc_id: The port that Amazon Redshift Serverless listens on.
         """
@@ -337,7 +337,7 @@ class WorkgroupEndpointVpcEndpoint(dict):
 
 
 @pulumi.output_type
-class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
+calass WorkgroupEndpointVpcEndpointNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -415,7 +415,7 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
 
 
 @pulumi.output_type
-class GetWorkgroupEndpointResult(dict):
+calass GetWorkgroupEndpointResult(dict):
     def __init__(__self__, *,
                  address: str,
                  port: int,
@@ -423,7 +423,7 @@ class GetWorkgroupEndpointResult(dict):
         """
         :param str address: The DNS address of the VPC endpoint.
         :param int port: The port that Amazon Redshift Serverless listens on.
-        :param Sequence['GetWorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+        :param Sequence['GetWorkgroupEndpointVpcEndpointArrgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "port", port)
@@ -455,13 +455,13 @@ class GetWorkgroupEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetWorkgroupEndpointVpcEndpointResult(dict):
+calass GetWorkgroupEndpointVpcEndpointResult(dict):
     def __init__(__self__, *,
                  network_interfaces: Sequence['outputs.GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult'],
                  vpc_endpoint_id: str,
                  vpc_id: str):
         """
-        :param Sequence['GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
+        :param Sequence['GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
         :param str vpc_endpoint_id: The DNS address of the VPC endpoint.
         :param str vpc_id: The port that Amazon Redshift Serverless listens on.
         """
@@ -495,7 +495,7 @@ class GetWorkgroupEndpointVpcEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult(dict):
+calass GetWorkgroupEndpointVpcEndpointNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  availability_zone: str,
                  network_interface_id: str,

@@ -75,7 +75,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DataSourceConfiguration(dict):
+calass DataSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,8 +99,8 @@ class DataSourceConfiguration(dict):
                  s3_configuration: Optional['outputs.DataSourceConfigurationS3Configuration'] = None,
                  web_crawler_configuration: Optional['outputs.DataSourceConfigurationWebCrawlerConfiguration'] = None):
         """
-        :param 'DataSourceConfigurationS3ConfigurationArgs' s3_configuration: A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-        :param 'DataSourceConfigurationWebCrawlerConfigurationArgs' web_crawler_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        :param 'DataSourceConfigurationS3ConfigurationArrgs' s3_configuration: A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationArrgs' web_crawler_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -125,7 +125,7 @@ class DataSourceConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationS3Configuration(dict):
+calass DataSourceConfigurationS3Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -162,8 +162,8 @@ class DataSourceConfigurationS3Configuration(dict):
                  inclusion_prefixes: Optional[Sequence[str]] = None):
         """
         :param str bucket_name: The name of the bucket that contains the documents.
-        :param 'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs' access_control_list_configuration: A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
-        :param 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs' documents_metadata_configuration: A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+        :param 'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs' access_control_list_configuration: A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+        :param 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs' documents_metadata_configuration: A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         :param Sequence[str] exclusion_patterns: A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
         :param Sequence[str] inclusion_patterns: A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
         :param Sequence[str] inclusion_prefixes: A list of S3 prefixes for the documents that should be included in the index.
@@ -230,7 +230,7 @@ class DataSourceConfigurationS3Configuration(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationS3ConfigurationAccessControlListConfiguration(dict):
+calass DataSourceConfigurationS3ConfigurationAccessControlListConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -266,7 +266,7 @@ class DataSourceConfigurationS3ConfigurationAccessControlListConfiguration(dict)
 
 
 @pulumi.output_type
-class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration(dict):
+calass DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -302,7 +302,7 @@ class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration(dict)
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfiguration(dict):
+calass DataSourceConfigurationWebCrawlerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -345,13 +345,13 @@ class DataSourceConfigurationWebCrawlerConfiguration(dict):
                  url_exclusion_patterns: Optional[Sequence[str]] = None,
                  url_inclusion_patterns: Optional[Sequence[str]] = None):
         """
-        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs' urls: A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
-        :param 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs' authentication_configuration: A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs' urls: A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs' authentication_configuration: A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
         :param int crawl_depth: Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
         :param float max_content_size_per_page_in_mega_bytes: The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
         :param int max_links_per_page: The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
         :param int max_urls_per_minute_crawl_rate: The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
-        :param 'DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs' proxy_configuration: Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs' proxy_configuration: Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
         :param Sequence[str] url_exclusion_patterns: A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
         :param Sequence[str] url_inclusion_patterns: A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
         """
@@ -447,7 +447,7 @@ class DataSourceConfigurationWebCrawlerConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -468,7 +468,7 @@ class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(
     def __init__(__self__, *,
                  basic_authentications: Optional[Sequence['outputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication']] = None):
         """
-        :param Sequence['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs'] basic_authentications: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+        :param Sequence['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs'] basic_authentications: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
         """
         if basic_authentications is not None:
             pulumi.set(__self__, "basic_authentications", basic_authentications)
@@ -483,7 +483,7 @@ class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration(
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication(dict):
     def __init__(__self__, *,
                  credentials: str,
                  host: str,
@@ -523,7 +523,7 @@ class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationB
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration(dict):
     def __init__(__self__, *,
                  host: str,
                  port: int,
@@ -564,7 +564,7 @@ class DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationUrls(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationUrls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -588,8 +588,8 @@ class DataSourceConfigurationWebCrawlerConfigurationUrls(dict):
                  seed_url_configuration: Optional['outputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration'] = None,
                  site_maps_configuration: Optional['outputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration'] = None):
         """
-        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs' seed_url_configuration: A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs' site_maps_configuration: A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs' seed_url_configuration: A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+        :param 'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs' site_maps_configuration: A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
         """
         if seed_url_configuration is not None:
             pulumi.set(__self__, "seed_url_configuration", seed_url_configuration)
@@ -614,7 +614,7 @@ class DataSourceConfigurationWebCrawlerConfigurationUrls(dict):
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -663,7 +663,7 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration(dic
 
 
 @pulumi.output_type
-class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration(dict):
+calass DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -698,7 +698,7 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration(di
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfiguration(dict):
+calass DataSourceCustomDocumentEnrichmentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -728,9 +728,9 @@ class DataSourceCustomDocumentEnrichmentConfiguration(dict):
                  pre_extraction_hook_configuration: Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration'] = None,
                  role_arn: Optional[str] = None):
         """
-        :param Sequence['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs'] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs' post_extraction_hook_configuration: A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs' pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+        :param Sequence['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs'] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs' post_extraction_hook_configuration: A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs' pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         :param str role_arn: The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         if inline_configurations is not None:
@@ -776,7 +776,7 @@ class DataSourceCustomDocumentEnrichmentConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -799,9 +799,9 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
                  document_content_deletion: Optional[bool] = None,
                  target: Optional['outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget'] = None):
         """
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs' condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs' condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         :param bool document_content_deletion: `TRUE` to delete content if the condition used for the target attribute is met.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs' target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs' target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -836,7 +836,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration(dict):
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -863,7 +863,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -896,7 +896,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -970,7 +970,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -998,7 +998,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(d
                  target_document_attribute_value_deletion: Optional[bool] = None):
         """
         :param str target_document_attribute_key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs' target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs' target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         :param bool target_document_attribute_value_deletion: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
         """
         if target_document_attribute_key is not None:
@@ -1034,7 +1034,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget(d
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1108,7 +1108,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTa
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1137,7 +1137,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
         """
         :param str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1170,7 +1170,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1197,7 +1197,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1230,7 +1230,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1304,7 +1304,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1333,7 +1333,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
         """
         :param str lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param str s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs' invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1366,7 +1366,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1393,7 +1393,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
         """
         :param str condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param str operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs' condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1426,7 +1426,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
 
 @pulumi.output_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue(dict):
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1500,7 +1500,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
 
 @pulumi.output_type
-class ExperienceConfiguration(dict):
+calass ExperienceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1524,8 +1524,8 @@ class ExperienceConfiguration(dict):
                  content_source_configuration: Optional['outputs.ExperienceConfigurationContentSourceConfiguration'] = None,
                  user_identity_configuration: Optional['outputs.ExperienceConfigurationUserIdentityConfiguration'] = None):
         """
-        :param 'ExperienceConfigurationContentSourceConfigurationArgs' content_source_configuration: The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-        :param 'ExperienceConfigurationUserIdentityConfigurationArgs' user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+        :param 'ExperienceConfigurationContentSourceConfigurationArrgs' content_source_configuration: The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param 'ExperienceConfigurationUserIdentityConfigurationArrgs' user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
         """
         if content_source_configuration is not None:
             pulumi.set(__self__, "content_source_configuration", content_source_configuration)
@@ -1550,7 +1550,7 @@ class ExperienceConfiguration(dict):
 
 
 @pulumi.output_type
-class ExperienceConfigurationContentSourceConfiguration(dict):
+calass ExperienceConfigurationContentSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1614,7 +1614,7 @@ class ExperienceConfigurationContentSourceConfiguration(dict):
 
 
 @pulumi.output_type
-class ExperienceConfigurationUserIdentityConfiguration(dict):
+calass ExperienceConfigurationUserIdentityConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1649,7 +1649,7 @@ class ExperienceConfigurationUserIdentityConfiguration(dict):
 
 
 @pulumi.output_type
-class ExperienceEndpoint(dict):
+calass ExperienceEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1697,7 +1697,7 @@ class ExperienceEndpoint(dict):
 
 
 @pulumi.output_type
-class FaqS3Path(dict):
+calass FaqS3Path(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -1730,7 +1730,7 @@ class FaqS3Path(dict):
 
 
 @pulumi.output_type
-class IndexCapacityUnits(dict):
+calass IndexCapacityUnits(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1780,7 +1780,7 @@ class IndexCapacityUnits(dict):
 
 
 @pulumi.output_type
-class IndexDocumentMetadataConfigurationUpdate(dict):
+calass IndexDocumentMetadataConfigurationUpdate(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -1789,8 +1789,8 @@ class IndexDocumentMetadataConfigurationUpdate(dict):
         """
         :param str name: The name of the index field. Minimum length of 1. Maximum length of 30.
         :param str type: The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-        :param 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs' relevance: A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
-        :param 'IndexDocumentMetadataConfigurationUpdateSearchArgs' search: A block that provides information about how the field is used during a search. Documented below. Detailed below
+        :param 'IndexDocumentMetadataConfigurationUpdateRelevanceArrgs' relevance: A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+        :param 'IndexDocumentMetadataConfigurationUpdateSearchArrgs' search: A block that provides information about how the field is used during a search. Documented below. Detailed below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -1833,7 +1833,7 @@ class IndexDocumentMetadataConfigurationUpdate(dict):
 
 
 @pulumi.output_type
-class IndexDocumentMetadataConfigurationUpdateRelevance(dict):
+calass IndexDocumentMetadataConfigurationUpdateRelevance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1919,7 +1919,7 @@ class IndexDocumentMetadataConfigurationUpdateRelevance(dict):
 
 
 @pulumi.output_type
-class IndexDocumentMetadataConfigurationUpdateSearch(dict):
+calass IndexDocumentMetadataConfigurationUpdateSearch(dict):
     def __init__(__self__, *,
                  displayable: Optional[bool] = None,
                  facetable: Optional[bool] = None,
@@ -1974,7 +1974,7 @@ class IndexDocumentMetadataConfigurationUpdateSearch(dict):
 
 
 @pulumi.output_type
-class IndexIndexStatistic(dict):
+calass IndexIndexStatistic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1998,8 +1998,8 @@ class IndexIndexStatistic(dict):
                  faq_statistics: Optional[Sequence['outputs.IndexIndexStatisticFaqStatistic']] = None,
                  text_document_statistics: Optional[Sequence['outputs.IndexIndexStatisticTextDocumentStatistic']] = None):
         """
-        :param Sequence['IndexIndexStatisticFaqStatisticArgs'] faq_statistics: A block that specifies the number of question and answer topics in the index. Detailed below.
-        :param Sequence['IndexIndexStatisticTextDocumentStatisticArgs'] text_document_statistics: A block that specifies the number of text documents indexed. Detailed below.
+        :param Sequence['IndexIndexStatisticFaqStatisticArrgs'] faq_statistics: A block that specifies the number of question and answer topics in the index. Detailed below.
+        :param Sequence['IndexIndexStatisticTextDocumentStatisticArrgs'] text_document_statistics: A block that specifies the number of text documents indexed. Detailed below.
         """
         if faq_statistics is not None:
             pulumi.set(__self__, "faq_statistics", faq_statistics)
@@ -2024,7 +2024,7 @@ class IndexIndexStatistic(dict):
 
 
 @pulumi.output_type
-class IndexIndexStatisticFaqStatistic(dict):
+calass IndexIndexStatisticFaqStatistic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2060,7 +2060,7 @@ class IndexIndexStatisticFaqStatistic(dict):
 
 
 @pulumi.output_type
-class IndexIndexStatisticTextDocumentStatistic(dict):
+calass IndexIndexStatisticTextDocumentStatistic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2110,7 +2110,7 @@ class IndexIndexStatisticTextDocumentStatistic(dict):
 
 
 @pulumi.output_type
-class IndexServerSideEncryptionConfiguration(dict):
+calass IndexServerSideEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2146,7 +2146,7 @@ class IndexServerSideEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class IndexUserGroupResolutionConfiguration(dict):
+calass IndexUserGroupResolutionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2181,7 +2181,7 @@ class IndexUserGroupResolutionConfiguration(dict):
 
 
 @pulumi.output_type
-class IndexUserTokenConfigurations(dict):
+calass IndexUserTokenConfigurations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2205,8 +2205,8 @@ class IndexUserTokenConfigurations(dict):
                  json_token_type_configuration: Optional['outputs.IndexUserTokenConfigurationsJsonTokenTypeConfiguration'] = None,
                  jwt_token_type_configuration: Optional['outputs.IndexUserTokenConfigurationsJwtTokenTypeConfiguration'] = None):
         """
-        :param 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs' json_token_type_configuration: A block that specifies the information about the JSON token type configuration. Detailed below.
-        :param 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs' jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration. Detailed below.
+        :param 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs' json_token_type_configuration: A block that specifies the information about the JSON token type configuration. Detailed below.
+        :param 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs' jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration. Detailed below.
         """
         if json_token_type_configuration is not None:
             pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
@@ -2231,7 +2231,7 @@ class IndexUserTokenConfigurations(dict):
 
 
 @pulumi.output_type
-class IndexUserTokenConfigurationsJsonTokenTypeConfiguration(dict):
+calass IndexUserTokenConfigurationsJsonTokenTypeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2279,7 +2279,7 @@ class IndexUserTokenConfigurationsJsonTokenTypeConfiguration(dict):
 
 
 @pulumi.output_type
-class IndexUserTokenConfigurationsJwtTokenTypeConfiguration(dict):
+calass IndexUserTokenConfigurationsJwtTokenTypeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2394,7 +2394,7 @@ class IndexUserTokenConfigurationsJwtTokenTypeConfiguration(dict):
 
 
 @pulumi.output_type
-class QuerySuggestionsBlockListSourceS3Path(dict):
+calass QuerySuggestionsBlockListSourceS3Path(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -2427,7 +2427,7 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
 
 
 @pulumi.output_type
-class ThesaurusSourceS3Path(dict):
+calass ThesaurusSourceS3Path(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -2460,13 +2460,13 @@ class ThesaurusSourceS3Path(dict):
 
 
 @pulumi.output_type
-class GetExperienceConfigurationResult(dict):
+calass GetExperienceConfigurationResult(dict):
     def __init__(__self__, *,
                  content_source_configurations: Sequence['outputs.GetExperienceConfigurationContentSourceConfigurationResult'],
                  user_identity_configurations: Sequence['outputs.GetExperienceConfigurationUserIdentityConfigurationResult']):
         """
-        :param Sequence['GetExperienceConfigurationContentSourceConfigurationArgs'] content_source_configurations: The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
-        :param Sequence['GetExperienceConfigurationUserIdentityConfigurationArgs'] user_identity_configurations: The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+        :param Sequence['GetExperienceConfigurationContentSourceConfigurationArrgs'] content_source_configurations: The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+        :param Sequence['GetExperienceConfigurationUserIdentityConfigurationArrgs'] user_identity_configurations: The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
         """
         pulumi.set(__self__, "content_source_configurations", content_source_configurations)
         pulumi.set(__self__, "user_identity_configurations", user_identity_configurations)
@@ -2489,7 +2489,7 @@ class GetExperienceConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetExperienceConfigurationContentSourceConfigurationResult(dict):
+calass GetExperienceConfigurationContentSourceConfigurationResult(dict):
     def __init__(__self__, *,
                  data_source_ids: Sequence[str],
                  direct_put_content: bool,
@@ -2529,7 +2529,7 @@ class GetExperienceConfigurationContentSourceConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetExperienceConfigurationUserIdentityConfigurationResult(dict):
+calass GetExperienceConfigurationUserIdentityConfigurationResult(dict):
     def __init__(__self__, *,
                  identity_attribute_name: str):
         """
@@ -2547,7 +2547,7 @@ class GetExperienceConfigurationUserIdentityConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetExperienceEndpointResult(dict):
+calass GetExperienceEndpointResult(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  endpoint_type: str):
@@ -2576,7 +2576,7 @@ class GetExperienceEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetFaqS3PathResult(dict):
+calass GetFaqS3PathResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -2605,7 +2605,7 @@ class GetFaqS3PathResult(dict):
 
 
 @pulumi.output_type
-class GetIndexCapacityUnitResult(dict):
+calass GetIndexCapacityUnitResult(dict):
     def __init__(__self__, *,
                  query_capacity_units: int,
                  storage_capacity_units: int):
@@ -2634,7 +2634,7 @@ class GetIndexCapacityUnitResult(dict):
 
 
 @pulumi.output_type
-class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
+calass GetIndexDocumentMetadataConfigurationUpdateResult(dict):
     def __init__(__self__, *,
                  name: str,
                  relevances: Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateRelevanceResult'],
@@ -2642,8 +2642,8 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
                  type: str):
         """
         :param str name: Name of the index field. Minimum length of 1. Maximum length of 30.
-        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs'] relevances: Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
-        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateSearchArgs'] searches: Block that provides information about how the field is used during a search. Documented below.
+        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateRelevanceArrgs'] relevances: Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+        :param Sequence['GetIndexDocumentMetadataConfigurationUpdateSearchArrgs'] searches: Block that provides information about how the field is used during a search. Documented below.
         :param str type: Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         """
         pulumi.set(__self__, "name", name)
@@ -2685,7 +2685,7 @@ class GetIndexDocumentMetadataConfigurationUpdateResult(dict):
 
 
 @pulumi.output_type
-class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
+calass GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
     def __init__(__self__, *,
                  duration: str,
                  freshness: bool,
@@ -2747,7 +2747,7 @@ class GetIndexDocumentMetadataConfigurationUpdateRelevanceResult(dict):
 
 
 @pulumi.output_type
-class GetIndexDocumentMetadataConfigurationUpdateSearchResult(dict):
+calass GetIndexDocumentMetadataConfigurationUpdateSearchResult(dict):
     def __init__(__self__, *,
                  displayable: bool,
                  facetable: bool,
@@ -2798,13 +2798,13 @@ class GetIndexDocumentMetadataConfigurationUpdateSearchResult(dict):
 
 
 @pulumi.output_type
-class GetIndexIndexStatisticResult(dict):
+calass GetIndexIndexStatisticResult(dict):
     def __init__(__self__, *,
                  faq_statistics: Sequence['outputs.GetIndexIndexStatisticFaqStatisticResult'],
                  text_document_statistics: Sequence['outputs.GetIndexIndexStatisticTextDocumentStatisticResult']):
         """
-        :param Sequence['GetIndexIndexStatisticFaqStatisticArgs'] faq_statistics: Block that specifies the number of question and answer topics in the index. Documented below.
-        :param Sequence['GetIndexIndexStatisticTextDocumentStatisticArgs'] text_document_statistics: A block that specifies the number of text documents indexed.
+        :param Sequence['GetIndexIndexStatisticFaqStatisticArrgs'] faq_statistics: Block that specifies the number of question and answer topics in the index. Documented below.
+        :param Sequence['GetIndexIndexStatisticTextDocumentStatisticArrgs'] text_document_statistics: A block that specifies the number of text documents indexed.
         """
         pulumi.set(__self__, "faq_statistics", faq_statistics)
         pulumi.set(__self__, "text_document_statistics", text_document_statistics)
@@ -2827,7 +2827,7 @@ class GetIndexIndexStatisticResult(dict):
 
 
 @pulumi.output_type
-class GetIndexIndexStatisticFaqStatisticResult(dict):
+calass GetIndexIndexStatisticFaqStatisticResult(dict):
     def __init__(__self__, *,
                  indexed_question_answers_count: int):
         """
@@ -2845,7 +2845,7 @@ class GetIndexIndexStatisticFaqStatisticResult(dict):
 
 
 @pulumi.output_type
-class GetIndexIndexStatisticTextDocumentStatisticResult(dict):
+calass GetIndexIndexStatisticTextDocumentStatisticResult(dict):
     def __init__(__self__, *,
                  indexed_text_bytes: int,
                  indexed_text_documents_count: int):
@@ -2874,7 +2874,7 @@ class GetIndexIndexStatisticTextDocumentStatisticResult(dict):
 
 
 @pulumi.output_type
-class GetIndexServerSideEncryptionConfigurationResult(dict):
+calass GetIndexServerSideEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str):
         """
@@ -2892,7 +2892,7 @@ class GetIndexServerSideEncryptionConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetIndexUserGroupResolutionConfigurationResult(dict):
+calass GetIndexUserGroupResolutionConfigurationResult(dict):
     def __init__(__self__, *,
                  user_group_resolution_mode: str):
         """
@@ -2910,13 +2910,13 @@ class GetIndexUserGroupResolutionConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetIndexUserTokenConfigurationResult(dict):
+calass GetIndexUserTokenConfigurationResult(dict):
     def __init__(__self__, *,
                  json_token_type_configurations: Sequence['outputs.GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult'],
                  jwt_token_type_configurations: Sequence['outputs.GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult']):
         """
-        :param Sequence['GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs'] json_token_type_configurations: A block that specifies the information about the JSON token type configuration.
-        :param Sequence['GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs'] jwt_token_type_configurations: A block that specifies the information about the JWT token type configuration.
+        :param Sequence['GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrgs'] json_token_type_configurations: A block that specifies the information about the JSON token type configuration.
+        :param Sequence['GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrgs'] jwt_token_type_configurations: A block that specifies the information about the JWT token type configuration.
         """
         pulumi.set(__self__, "json_token_type_configurations", json_token_type_configurations)
         pulumi.set(__self__, "jwt_token_type_configurations", jwt_token_type_configurations)
@@ -2939,7 +2939,7 @@ class GetIndexUserTokenConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult(dict):
+calass GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult(dict):
     def __init__(__self__, *,
                  group_attribute_field: str,
                  user_name_attribute_field: str):
@@ -2968,7 +2968,7 @@ class GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
+calass GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
     def __init__(__self__, *,
                  claim_regex: str,
                  group_attribute_field: str,
@@ -3052,7 +3052,7 @@ class GetIndexUserTokenConfigurationJwtTokenTypeConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetQuerySuggestionsBlockListSourceS3PathResult(dict):
+calass GetQuerySuggestionsBlockListSourceS3PathResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -3081,7 +3081,7 @@ class GetQuerySuggestionsBlockListSourceS3PathResult(dict):
 
 
 @pulumi.output_type
-class GetThesaurusSourceS3PathResult(dict):
+calass GetThesaurusSourceS3PathResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):

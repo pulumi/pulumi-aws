@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SnapshotCopyGrantArgs', 'SnapshotCopyGrant']
+__all__ = ['SnapshotCopyGrantArrgs', 'SnapshotCopyGrant']
 
 @pulumi.input_type
-class SnapshotCopyGrantArgs:
+calass SnapshotCopyGrantArrgs:
     def __init__(__self__, *,
                  snapshot_copy_grant_name: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class SnapshotCopyGrantArgs:
 
 
 @pulumi.input_type
-class _SnapshotCopyGrantState:
+calass _SnapshotCopyGrantState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class _SnapshotCopyGrantState:
         pulumi.set(self, "tags_all", value)
 
 
-class SnapshotCopyGrant(pulumi.CustomResource):
+calass SnapshotCopyGrant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -181,7 +181,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArrgs(
             destination_region="us-east-2",
             grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
         ))
@@ -205,7 +205,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotCopyGrantArgs,
+                 args: SnapshotCopyGrantArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
@@ -219,7 +219,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_snapshot_copy_grant = aws.redshift.SnapshotCopyGrant("testSnapshotCopyGrant", snapshot_copy_grant_name="my-grant")
-        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArgs(
+        test_cluster = aws.redshift.Cluster("testCluster", snapshot_copy=aws.redshift.ClusterSnapshotCopyArrgs(
             destination_region="us-east-2",
             grant_name=test_snapshot_copy_grant.snapshot_copy_grant_name,
         ))
@@ -234,12 +234,12 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotCopyGrantArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotCopyGrantArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCopyGrantArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCopyGrantArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -258,7 +258,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotCopyGrantArgs.__new__(SnapshotCopyGrantArgs)
+            __props__ = SnapshotCopyGrantArrgs.__new__(SnapshotCopyGrantArrgs)
 
             __props__.__dict__["kms_key_id"] = kms_key_id
             if snapshot_copy_grant_name is None and not opts.urn:

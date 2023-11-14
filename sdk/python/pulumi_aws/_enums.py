@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class Region(str, Enum):
+calass Region(str, Enum):
     """
     A Region represents any valid Amazon region that may be targeted with deployments.
     """

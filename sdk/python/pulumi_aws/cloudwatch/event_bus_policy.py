@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventBusPolicyArgs', 'EventBusPolicy']
+__all__ = ['EventBusPolicyArrgs', 'EventBusPolicy']
 
 @pulumi.input_type
-class EventBusPolicyArgs:
+calass EventBusPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  event_bus_name: Optional[pulumi.Input[str]] = None):
@@ -53,7 +53,7 @@ class EventBusPolicyArgs:
 
 
 @pulumi.input_type
-class _EventBusPolicyState:
+calass _EventBusPolicyState:
     def __init__(__self__, *,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
@@ -94,7 +94,7 @@ class _EventBusPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class EventBusPolicy(pulumi.CustomResource):
+calass EventBusPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,12 +116,12 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="DevAccountAccess",
             effect="Allow",
             actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -136,7 +136,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OrganizationAccess",
             effect="Allow",
             actions=[
@@ -149,11 +149,11 @@ class EventBusPolicy(pulumi.CustomResource):
                 "arn:aws:events:eu-west-1:123456789012:rule/*",
                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
                 values=[aws_organizations_organization["example"]["id"]],
@@ -170,17 +170,17 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="DevAccountAccess",
                 effect="Allow",
                 actions=["events:PutEvents"],
                 resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["123456789012"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="OrganizationAccess",
                 effect="Allow",
                 actions=[
@@ -193,11 +193,11 @@ class EventBusPolicy(pulumi.CustomResource):
                     "arn:aws:events:eu-west-1:123456789012:rule/*",
                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
                 ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
                     values=[aws_organizations_organization["example"]["id"]],
@@ -227,7 +227,7 @@ class EventBusPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventBusPolicyArgs,
+                 args: EventBusPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create an EventBridge resource policy to support cross-account events.
@@ -243,12 +243,12 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="DevAccountAccess",
             effect="Allow",
             actions=["events:PutEvents"],
             resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -263,7 +263,7 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="OrganizationAccess",
             effect="Allow",
             actions=[
@@ -276,11 +276,11 @@ class EventBusPolicy(pulumi.CustomResource):
                 "arn:aws:events:eu-west-1:123456789012:rule/*",
                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
                 values=[aws_organizations_organization["example"]["id"]],
@@ -297,17 +297,17 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="DevAccountAccess",
                 effect="Allow",
                 actions=["events:PutEvents"],
                 resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["123456789012"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="OrganizationAccess",
                 effect="Allow",
                 actions=[
@@ -320,11 +320,11 @@ class EventBusPolicy(pulumi.CustomResource):
                     "arn:aws:events:eu-west-1:123456789012:rule/*",
                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
                 ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
                     values=[aws_organizations_organization["example"]["id"]],
@@ -345,12 +345,12 @@ class EventBusPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventBusPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param EventBusPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventBusPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventBusPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -368,7 +368,7 @@ class EventBusPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventBusPolicyArgs.__new__(EventBusPolicyArgs)
+            __props__ = EventBusPolicyArrgs.__new__(EventBusPolicyArrgs)
 
             __props__.__dict__["event_bus_name"] = event_bus_name
             if policy is None and not opts.urn:

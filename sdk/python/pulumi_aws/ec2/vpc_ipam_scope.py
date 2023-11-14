@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpamScopeArgs', 'VpcIpamScope']
+__all__ = ['VpcIpamScopeArrgs', 'VpcIpamScope']
 
 @pulumi.input_type
-class VpcIpamScopeArgs:
+calass VpcIpamScopeArrgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class VpcIpamScopeArgs:
 
 
 @pulumi.input_type
-class _VpcIpamScopeState:
+calass _VpcIpamScopeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _VpcIpamScopeState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcIpamScope(pulumi.CustomResource):
+calass VpcIpamScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -237,7 +237,7 @@ class VpcIpamScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
@@ -263,7 +263,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamScopeArgs,
+                 args: VpcIpamScopeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a scope for AWS IPAM.
@@ -277,7 +277,7 @@ class VpcIpamScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
@@ -294,12 +294,12 @@ class VpcIpamScope(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamScopeArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamScopeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamScopeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -318,7 +318,7 @@ class VpcIpamScope(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamScopeArgs.__new__(VpcIpamScopeArgs)
+            __props__ = VpcIpamScopeArrgs.__new__(VpcIpamScopeArrgs)
 
             __props__.__dict__["description"] = description
             if ipam_id is None and not opts.urn:

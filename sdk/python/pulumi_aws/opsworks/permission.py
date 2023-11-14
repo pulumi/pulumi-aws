@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PermissionArgs', 'Permission']
+__all__ = ['PermissionArrgs', 'Permission']
 
 @pulumi.input_type
-class PermissionArgs:
+calass PermissionArrgs:
     def __init__(__self__, *,
                  stack_id: pulumi.Input[str],
                  user_arn: pulumi.Input[str],
@@ -98,7 +98,7 @@ class PermissionArgs:
 
 
 @pulumi.input_type
-class _PermissionState:
+calass _PermissionState:
     def __init__(__self__, *,
                  allow_ssh: Optional[pulumi.Input[bool]] = None,
                  allow_sudo: Optional[pulumi.Input[bool]] = None,
@@ -185,7 +185,7 @@ class _PermissionState:
         pulumi.set(self, "user_arn", value)
 
 
-class Permission(pulumi.CustomResource):
+calass Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,7 +225,7 @@ class Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PermissionArgs,
+                 args: PermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks permission resource.
@@ -245,12 +245,12 @@ class Permission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PermissionArgs args: The arguments to use to populate this resource's properties.
+        :param PermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -271,7 +271,7 @@ class Permission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PermissionArgs.__new__(PermissionArgs)
+            __props__ = PermissionArrgs.__new__(PermissionArrgs)
 
             __props__.__dict__["allow_ssh"] = allow_ssh
             __props__.__dict__["allow_sudo"] = allow_sudo

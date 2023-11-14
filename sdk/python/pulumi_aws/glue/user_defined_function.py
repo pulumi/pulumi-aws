@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserDefinedFunctionArgs', 'UserDefinedFunction']
+__all__ = ['UserDefinedFunctionArrgs', 'UserDefinedFunction']
 
 @pulumi.input_type
-class UserDefinedFunctionArgs:
+calass UserDefinedFunctionArrgs:
     def __init__(__self__, *,
                  class_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
@@ -22,7 +22,7 @@ class UserDefinedFunctionArgs:
                  owner_type: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]] = None):
         """
         The set of arguments for constructing a UserDefinedFunction resource.
         :param pulumi.Input[str] class_name: The Java class that contains the function code.
@@ -31,7 +31,7 @@ class UserDefinedFunctionArgs:
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         :param pulumi.Input[str] name: The name of the function.
-        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         pulumi.set(__self__, "class_name", class_name)
         pulumi.set(__self__, "database_name", database_name)
@@ -118,19 +118,19 @@ class UserDefinedFunctionArgs:
 
     @property
     @pulumi.getter(name="resourceUris")
-    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]]:
         """
         The configuration block for Resource URIs. See resource uris below for more details.
         """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
-    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]]):
         pulumi.set(self, "resource_uris", value)
 
 
 @pulumi.input_type
-class _UserDefinedFunctionState:
+calass _UserDefinedFunctionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class _UserDefinedFunctionState:
                  name: Optional[pulumi.Input[str]] = None,
                  owner_name: Optional[pulumi.Input[str]] = None,
                  owner_type: Optional[pulumi.Input[str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]] = None):
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]] = None):
         """
         Input properties used for looking up and filtering UserDefinedFunction resources.
         :param pulumi.Input[str] arn: The ARN of the Glue User Defined Function.
@@ -151,7 +151,7 @@ class _UserDefinedFunctionState:
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[str] owner_name: The owner of the function.
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -270,18 +270,18 @@ class _UserDefinedFunctionState:
 
     @property
     @pulumi.getter(name="resourceUris")
-    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]:
+    def resource_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]]:
         """
         The configuration block for Resource URIs. See resource uris below for more details.
         """
         return pulumi.get(self, "resource_uris")
 
     @resource_uris.setter
-    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArgs']]]]):
+    def resource_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserDefinedFunctionResourceUriArrgs']]]]):
         pulumi.set(self, "resource_uris", value)
 
 
-class UserDefinedFunction(pulumi.CustomResource):
+calass UserDefinedFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,7 +292,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner_name: Optional[pulumi.Input[str]] = None,
                  owner_type: Optional[pulumi.Input[str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None,
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArrgs']]]]] = None,
                  __props__=None):
         """
         Provides a Glue User Defined Function Resource.
@@ -310,7 +310,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",
-            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArgs(
+            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArrgs(
                 resource_type="ARCHIVE",
                 uri="uri",
             )])
@@ -332,13 +332,13 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[str] owner_name: The owner of the function.
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArrgs']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserDefinedFunctionArgs,
+                 args: UserDefinedFunctionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue User Defined Function Resource.
@@ -356,7 +356,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             class_name="class",
             owner_name="owner",
             owner_type="GROUP",
-            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArgs(
+            resource_uris=[aws.glue.UserDefinedFunctionResourceUriArrgs(
                 resource_type="ARCHIVE",
                 uri="uri",
             )])
@@ -371,12 +371,12 @@ class UserDefinedFunction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserDefinedFunctionArgs args: The arguments to use to populate this resource's properties.
+        :param UserDefinedFunctionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserDefinedFunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserDefinedFunctionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -391,7 +391,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  owner_name: Optional[pulumi.Input[str]] = None,
                  owner_type: Optional[pulumi.Input[str]] = None,
-                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None,
+                 resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -399,7 +399,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserDefinedFunctionArgs.__new__(UserDefinedFunctionArgs)
+            __props__ = UserDefinedFunctionArrgs.__new__(UserDefinedFunctionArrgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
             if class_name is None and not opts.urn:
@@ -436,7 +436,7 @@ class UserDefinedFunction(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             owner_name: Optional[pulumi.Input[str]] = None,
             owner_type: Optional[pulumi.Input[str]] = None,
-            resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]]] = None) -> 'UserDefinedFunction':
+            resource_uris: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArrgs']]]]] = None) -> 'UserDefinedFunction':
         """
         Get an existing UserDefinedFunction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -452,7 +452,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the function.
         :param pulumi.Input[str] owner_name: The owner of the function.
         :param pulumi.Input[str] owner_type: The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArgs']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserDefinedFunctionResourceUriArrgs']]]] resource_uris: The configuration block for Resource URIs. See resource uris below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSpotPriceResult:
+calass GetSpotPriceResult:
     """
     A collection of values returned by getSpotPrice.
     """
@@ -83,7 +83,7 @@ class GetSpotPriceResult:
         return pulumi.get(self, "spot_price_timestamp")
 
 
-class AwaitableGetSpotPriceResult(GetSpotPriceResult):
+calass AwaitableGetSpotPriceResult(GetSpotPriceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -98,7 +98,7 @@ class AwaitableGetSpotPriceResult(GetSpotPriceResult):
 
 
 def get_spot_price(availability_zone: Optional[str] = None,
-                   filters: Optional[Sequence[pulumi.InputType['GetSpotPriceFilterArgs']]] = None,
+                   filters: Optional[Sequence[pulumi.InputType['GetSpotPriceFilterArrgs']]] = None,
                    instance_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotPriceResult:
     """
@@ -111,7 +111,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.ec2.get_spot_price(availability_zone="us-west-2a",
-        filters=[aws.ec2.GetSpotPriceFilterArgs(
+        filters=[aws.ec2.GetSpotPriceFilterArrgs(
             name="product-description",
             values=["Linux/UNIX"],
         )],
@@ -120,7 +120,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
 
 
     :param str availability_zone: Availability zone in which to query Spot price information.
-    :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetSpotPriceFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param str instance_type: Type of instance for which to query Spot Price information.
     """
     __args__ = dict()
@@ -141,7 +141,7 @@ def get_spot_price(availability_zone: Optional[str] = None,
 
 @_utilities.lift_output_func(get_spot_price)
 def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
-                          filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSpotPriceFilterArgs']]]]] = None,
+                          filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSpotPriceFilterArrgs']]]]] = None,
                           instance_type: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpotPriceResult]:
     """
@@ -154,7 +154,7 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
     import pulumi_aws as aws
 
     example = aws.ec2.get_spot_price(availability_zone="us-west-2a",
-        filters=[aws.ec2.GetSpotPriceFilterArgs(
+        filters=[aws.ec2.GetSpotPriceFilterArrgs(
             name="product-description",
             values=["Linux/UNIX"],
         )],
@@ -163,7 +163,7 @@ def get_spot_price_output(availability_zone: Optional[pulumi.Input[Optional[str]
 
 
     :param str availability_zone: Availability zone in which to query Spot price information.
-    :param Sequence[pulumi.InputType['GetSpotPriceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetSpotPriceFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
     :param str instance_type: Type of instance for which to query Spot Price information.
     """
     ...

@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BudgetActionActionThresholdArgs',
-    'BudgetActionDefinitionArgs',
-    'BudgetActionDefinitionIamActionDefinitionArgs',
-    'BudgetActionDefinitionScpActionDefinitionArgs',
-    'BudgetActionDefinitionSsmActionDefinitionArgs',
-    'BudgetActionSubscriberArgs',
-    'BudgetAutoAdjustDataArgs',
-    'BudgetAutoAdjustDataHistoricalOptionsArgs',
-    'BudgetCostFilterArgs',
-    'BudgetCostTypesArgs',
-    'BudgetNotificationArgs',
-    'BudgetPlannedLimitArgs',
+    'BudgetActionActionThresholdArrgs',
+    'BudgetActionDefinitionArrgs',
+    'BudgetActionDefinitionIamActionDefinitionArrgs',
+    'BudgetActionDefinitionScpActionDefinitionArrgs',
+    'BudgetActionDefinitionSsmActionDefinitionArrgs',
+    'BudgetActionSubscriberArrgs',
+    'BudgetAutoAdjustDataArrgs',
+    'BudgetAutoAdjustDataHistoricalOptionsArrgs',
+    'BudgetCostFilterArrgs',
+    'BudgetCostTypesArrgs',
+    'BudgetNotificationArrgs',
+    'BudgetPlannedLimitArrgs',
 ]
 
 @pulumi.input_type
-class BudgetActionActionThresholdArgs:
+calass BudgetActionActionThresholdArrgs:
     def __init__(__self__, *,
                  action_threshold_type: pulumi.Input[str],
                  action_threshold_value: pulumi.Input[float]):
@@ -62,15 +62,15 @@ class BudgetActionActionThresholdArgs:
 
 
 @pulumi.input_type
-class BudgetActionDefinitionArgs:
+calass BudgetActionDefinitionArrgs:
     def __init__(__self__, *,
-                 iam_action_definition: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']] = None,
-                 scp_action_definition: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']] = None,
-                 ssm_action_definition: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']] = None):
+                 iam_action_definition: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArrgs']] = None,
+                 scp_action_definition: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArrgs']] = None,
+                 ssm_action_definition: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArrgs']] = None):
         """
-        :param pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs'] iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        :param pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs'] scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
-        :param pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs'] ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        :param pulumi.Input['BudgetActionDefinitionIamActionDefinitionArrgs'] iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        :param pulumi.Input['BudgetActionDefinitionScpActionDefinitionArrgs'] scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
+        :param pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArrgs'] ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
@@ -81,43 +81,43 @@ class BudgetActionDefinitionArgs:
 
     @property
     @pulumi.getter(name="iamActionDefinition")
-    def iam_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']]:
+    def iam_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArrgs']]:
         """
         The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
         """
         return pulumi.get(self, "iam_action_definition")
 
     @iam_action_definition.setter
-    def iam_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgs']]):
+    def iam_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArrgs']]):
         pulumi.set(self, "iam_action_definition", value)
 
     @property
     @pulumi.getter(name="scpActionDefinition")
-    def scp_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']]:
+    def scp_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArrgs']]:
         """
         The service control policies (SCPs) action definition details. See SCP Action Definition.
         """
         return pulumi.get(self, "scp_action_definition")
 
     @scp_action_definition.setter
-    def scp_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgs']]):
+    def scp_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArrgs']]):
         pulumi.set(self, "scp_action_definition", value)
 
     @property
     @pulumi.getter(name="ssmActionDefinition")
-    def ssm_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']]:
+    def ssm_action_definition(self) -> Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArrgs']]:
         """
         The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
         return pulumi.get(self, "ssm_action_definition")
 
     @ssm_action_definition.setter
-    def ssm_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgs']]):
+    def ssm_action_definition(self, value: Optional[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArrgs']]):
         pulumi.set(self, "ssm_action_definition", value)
 
 
 @pulumi.input_type
-class BudgetActionDefinitionIamActionDefinitionArgs:
+calass BudgetActionDefinitionIamActionDefinitionArrgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[str],
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -187,7 +187,7 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
 
 
 @pulumi.input_type
-class BudgetActionDefinitionScpActionDefinitionArgs:
+calass BudgetActionDefinitionScpActionDefinitionArrgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[str],
                  target_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -224,7 +224,7 @@ class BudgetActionDefinitionScpActionDefinitionArgs:
 
 
 @pulumi.input_type
-class BudgetActionDefinitionSsmActionDefinitionArgs:
+calass BudgetActionDefinitionSsmActionDefinitionArrgs:
     def __init__(__self__, *,
                  action_sub_type: pulumi.Input[str],
                  instance_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -276,7 +276,7 @@ class BudgetActionDefinitionSsmActionDefinitionArgs:
 
 
 @pulumi.input_type
-class BudgetActionSubscriberArgs:
+calass BudgetActionSubscriberArrgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  subscription_type: pulumi.Input[str]):
@@ -313,10 +313,10 @@ class BudgetActionSubscriberArgs:
 
 
 @pulumi.input_type
-class BudgetAutoAdjustDataArgs:
+calass BudgetAutoAdjustDataArrgs:
     def __init__(__self__, *,
                  auto_adjust_type: pulumi.Input[str],
-                 historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']] = None,
+                 historical_options: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArrgs']] = None,
                  last_auto_adjust_time: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
@@ -335,11 +335,11 @@ class BudgetAutoAdjustDataArgs:
 
     @property
     @pulumi.getter(name="historicalOptions")
-    def historical_options(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]:
+    def historical_options(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArrgs']]:
         return pulumi.get(self, "historical_options")
 
     @historical_options.setter
-    def historical_options(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgs']]):
+    def historical_options(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArrgs']]):
         pulumi.set(self, "historical_options", value)
 
     @property
@@ -353,7 +353,7 @@ class BudgetAutoAdjustDataArgs:
 
 
 @pulumi.input_type
-class BudgetAutoAdjustDataHistoricalOptionsArgs:
+calass BudgetAutoAdjustDataHistoricalOptionsArrgs:
     def __init__(__self__, *,
                  budget_adjustment_period: pulumi.Input[int],
                  lookback_available_periods: Optional[pulumi.Input[int]] = None):
@@ -381,7 +381,7 @@ class BudgetAutoAdjustDataHistoricalOptionsArgs:
 
 
 @pulumi.input_type
-class BudgetCostFilterArgs:
+calass BudgetCostFilterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -414,7 +414,7 @@ class BudgetCostFilterArgs:
 
 
 @pulumi.input_type
-class BudgetCostTypesArgs:
+calass BudgetCostTypesArrgs:
     def __init__(__self__, *,
                  include_credit: Optional[pulumi.Input[bool]] = None,
                  include_discount: Optional[pulumi.Input[bool]] = None,
@@ -597,7 +597,7 @@ class BudgetCostTypesArgs:
 
 
 @pulumi.input_type
-class BudgetNotificationArgs:
+calass BudgetNotificationArrgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input[str],
                  notification_type: pulumi.Input[str],
@@ -696,7 +696,7 @@ class BudgetNotificationArgs:
 
 
 @pulumi.input_type
-class BudgetPlannedLimitArgs:
+calass BudgetPlannedLimitArrgs:
     def __init__(__self__, *,
                  amount: pulumi.Input[str],
                  start_time: pulumi.Input[str],

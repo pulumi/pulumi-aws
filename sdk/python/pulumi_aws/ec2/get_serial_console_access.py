@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSerialConsoleAccessResult:
+calass GetSerialConsoleAccessResult:
     """
     A collection of values returned by getSerialConsoleAccess.
     """
@@ -46,7 +46,7 @@ class GetSerialConsoleAccessResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
+calass AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

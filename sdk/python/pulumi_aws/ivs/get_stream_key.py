@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStreamKeyResult:
+calass GetStreamKeyResult:
     """
     A collection of values returned by getStreamKey.
     """
@@ -76,7 +76,7 @@ class GetStreamKeyResult:
         return pulumi.get(self, "value")
 
 
-class AwaitableGetStreamKeyResult(GetStreamKeyResult):
+calass AwaitableGetStreamKeyResult(GetStreamKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

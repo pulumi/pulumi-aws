@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
+__all__ = ['OrganizationConfigurationArrgs', 'OrganizationConfiguration']
 
 @pulumi.input_type
-class OrganizationConfigurationArgs:
+calass OrganizationConfigurationArrgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[bool],
                  graph_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class OrganizationConfigurationArgs:
 
 
 @pulumi.input_type
-class _OrganizationConfigurationState:
+calass _OrganizationConfigurationState:
     def __init__(__self__, *,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  graph_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _OrganizationConfigurationState:
         pulumi.set(self, "graph_arn", value)
 
 
-class OrganizationConfiguration(pulumi.CustomResource):
+calass OrganizationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +115,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationConfigurationArgs,
+                 args: OrganizationConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -127,12 +127,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -150,7 +150,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationConfigurationArgs.__new__(OrganizationConfigurationArgs)
+            __props__ = OrganizationConfigurationArrgs.__new__(OrganizationConfigurationArrgs)
 
             if auto_enable is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_enable'")

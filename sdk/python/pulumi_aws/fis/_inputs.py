@@ -10,34 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ExperimentTemplateActionArgs',
-    'ExperimentTemplateActionParameterArgs',
-    'ExperimentTemplateActionTargetArgs',
-    'ExperimentTemplateLogConfigurationArgs',
-    'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs',
-    'ExperimentTemplateLogConfigurationS3ConfigurationArgs',
-    'ExperimentTemplateStopConditionArgs',
-    'ExperimentTemplateTargetArgs',
-    'ExperimentTemplateTargetFilterArgs',
-    'ExperimentTemplateTargetResourceTagArgs',
+    'ExperimentTemplateActionArrgs',
+    'ExperimentTemplateActionParameterArrgs',
+    'ExperimentTemplateActionTargetArrgs',
+    'ExperimentTemplateLogConfigurationArrgs',
+    'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs',
+    'ExperimentTemplateLogConfigurationS3ConfigurationArrgs',
+    'ExperimentTemplateStopConditionArrgs',
+    'ExperimentTemplateTargetArrgs',
+    'ExperimentTemplateTargetFilterArrgs',
+    'ExperimentTemplateTargetResourceTagArrgs',
 ]
 
 @pulumi.input_type
-class ExperimentTemplateActionArgs:
+calass ExperimentTemplateActionArrgs:
     def __init__(__self__, *,
                  action_id: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArrgs']]]] = None,
                  start_afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 target: Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']] = None):
+                 target: Optional[pulumi.Input['ExperimentTemplateActionTargetArrgs']] = None):
         """
         :param pulumi.Input[str] action_id: ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         :param pulumi.Input[str] name: Friendly name of the action.
         :param pulumi.Input[str] description: Description of the action.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]] parameters: Parameter(s) for the action, if applicable. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArrgs']]] parameters: Parameter(s) for the action, if applicable. See below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] start_afters: Set of action names that must complete before this action can be executed.
-        :param pulumi.Input['ExperimentTemplateActionTargetArgs'] target: Action's target, if applicable. See below.
+        :param pulumi.Input['ExperimentTemplateActionTargetArrgs'] target: Action's target, if applicable. See below.
         """
         pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "name", name)
@@ -88,14 +88,14 @@ class ExperimentTemplateActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArrgs']]]]:
         """
         Parameter(s) for the action, if applicable. See below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -112,19 +112,19 @@ class ExperimentTemplateActionArgs:
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']]:
+    def target(self) -> Optional[pulumi.Input['ExperimentTemplateActionTargetArrgs']]:
         """
         Action's target, if applicable. See below.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']]):
+    def target(self, value: Optional[pulumi.Input['ExperimentTemplateActionTargetArrgs']]):
         pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
-class ExperimentTemplateActionParameterArgs:
+calass ExperimentTemplateActionParameterArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -165,7 +165,7 @@ class ExperimentTemplateActionParameterArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateActionTargetArgs:
+calass ExperimentTemplateActionTargetArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -202,15 +202,15 @@ class ExperimentTemplateActionTargetArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateLogConfigurationArgs:
+calass ExperimentTemplateLogConfigurationArrgs:
     def __init__(__self__, *,
                  log_schema_version: pulumi.Input[int],
-                 cloudwatch_logs_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']] = None,
-                 s3_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs']] = None):
+                 cloudwatch_logs_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs']] = None,
+                 s3_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArrgs']] = None):
         """
         :param pulumi.Input[int] log_schema_version: The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs'] cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs'] s3_configuration: The configuration for experiment logging to Amazon S3. See below.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs'] cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArrgs'] s3_configuration: The configuration for experiment logging to Amazon S3. See below.
         """
         pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloudwatch_logs_configuration is not None:
@@ -232,31 +232,31 @@ class ExperimentTemplateLogConfigurationArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogsConfiguration")
-    def cloudwatch_logs_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']]:
+    def cloudwatch_logs_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs']]:
         """
         The configuration for experiment logging to Amazon CloudWatch Logs. See below.
         """
         return pulumi.get(self, "cloudwatch_logs_configuration")
 
     @cloudwatch_logs_configuration.setter
-    def cloudwatch_logs_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']]):
+    def cloudwatch_logs_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_logs_configuration", value)
 
     @property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs']]:
+    def s3_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArrgs']]:
         """
         The configuration for experiment logging to Amazon S3. See below.
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArgs']]):
+    def s3_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationArrgs']]):
         pulumi.set(self, "s3_configuration", value)
 
 
 @pulumi.input_type
-class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
+calass ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[str]):
         """
@@ -278,7 +278,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
+calass ExperimentTemplateLogConfigurationS3ConfigurationArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -316,7 +316,7 @@ class ExperimentTemplateLogConfigurationS3ConfigurationArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateStopConditionArgs:
+calass ExperimentTemplateStopConditionArrgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
@@ -354,25 +354,25 @@ class ExperimentTemplateStopConditionArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateTargetArgs:
+calass ExperimentTemplateTargetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
                  selection_mode: pulumi.Input[str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArrgs']]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]] = None):
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArrgs']]]] = None):
         """
         :param pulumi.Input[str] name: Friendly name given to the target.
         :param pulumi.Input[str] resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
         :param pulumi.Input[str] selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArrgs']]] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The resource type parameters.
                
                > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArrgs']]] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -424,14 +424,14 @@ class ExperimentTemplateTargetArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArrgs']]]]:
         """
         Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -462,19 +462,19 @@ class ExperimentTemplateTargetArgs:
 
     @property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]]:
+    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArrgs']]]]:
         """
         Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]]):
+    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArrgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
 
 @pulumi.input_type
-class ExperimentTemplateTargetFilterArgs:
+calass ExperimentTemplateTargetFilterArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -515,7 +515,7 @@ class ExperimentTemplateTargetFilterArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateTargetResourceTagArgs:
+calass ExperimentTemplateTargetResourceTagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

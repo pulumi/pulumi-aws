@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTrackerAssociationResult:
+calass GetTrackerAssociationResult:
     """
     A collection of values returned by getTrackerAssociation.
     """
@@ -51,7 +51,7 @@ class GetTrackerAssociationResult:
         return pulumi.get(self, "tracker_name")
 
 
-class AwaitableGetTrackerAssociationResult(GetTrackerAssociationResult):
+calass AwaitableGetTrackerAssociationResult(GetTrackerAssociationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

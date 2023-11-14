@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkspaceArgs', 'Workspace']
+__all__ = ['WorkspaceArrgs', 'Workspace']
 
 @pulumi.input_type
-class WorkspaceArgs:
+calass WorkspaceArrgs:
     def __init__(__self__, *,
                  account_access_type: pulumi.Input[str],
                  authentication_providers: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -24,14 +24,14 @@ class WorkspaceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
+                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
@@ -44,14 +44,14 @@ class WorkspaceArgs:
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         :param pulumi.Input[str] name: The Grafana workspace name.
-        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input['WorkspaceNetworkAccessControlArrgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input['WorkspaceVpcConfigurationArrgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         pulumi.set(__self__, "account_access_type", account_access_type)
         pulumi.set(__self__, "authentication_providers", authentication_providers)
@@ -183,14 +183,14 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']]:
         """
         Configuration for network access to your workspace.See Network Access Control below.
         """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']]):
         pulumi.set(self, "network_access_control", value)
 
     @property
@@ -267,19 +267,19 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']]:
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
 @pulumi.input_type
-class _WorkspaceState:
+calass _WorkspaceState:
     def __init__(__self__, *,
                  account_access_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -290,7 +290,7 @@ class _WorkspaceState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']] = None,
+                 network_access_control: Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -300,7 +300,7 @@ class _WorkspaceState:
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
@@ -312,7 +312,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         :param pulumi.Input[str] name: The Grafana workspace name.
-        :param pulumi.Input['WorkspaceNetworkAccessControlArgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input['WorkspaceNetworkAccessControlArrgs'] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -323,7 +323,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input['WorkspaceVpcConfigurationArrgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         if account_access_type is not None:
             pulumi.set(__self__, "account_access_type", account_access_type)
@@ -479,14 +479,14 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="networkAccessControl")
-    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]:
+    def network_access_control(self) -> Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']]:
         """
         Configuration for network access to your workspace.See Network Access Control below.
         """
         return pulumi.get(self, "network_access_control")
 
     @network_access_control.setter
-    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArgs']]):
+    def network_access_control(self, value: Optional[pulumi.Input['WorkspaceNetworkAccessControlArrgs']]):
         pulumi.set(self, "network_access_control", value)
 
     @property
@@ -601,18 +601,18 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']]:
         """
         The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArrgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
-class Workspace(pulumi.CustomResource):
+calass Workspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -624,7 +624,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArrgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -632,7 +632,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArrgs']]] = None,
                  __props__=None):
         """
         Provides an Amazon Managed Grafana workspace resource.
@@ -680,7 +680,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The workspace description.
         :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         :param pulumi.Input[str] name: The Grafana workspace name.
-        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArrgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -690,13 +690,13 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArrgs']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceArgs,
+                 args: WorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Managed Grafana workspace resource.
@@ -736,12 +736,12 @@ class Workspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -757,7 +757,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
+                 network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArrgs']]] = None,
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -765,7 +765,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -773,7 +773,7 @@ class Workspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
+            __props__ = WorkspaceArrgs.__new__(WorkspaceArrgs)
 
             if account_access_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_access_type'")
@@ -822,7 +822,7 @@ class Workspace(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             grafana_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']]] = None,
+            network_access_control: Optional[pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArrgs']]] = None,
             notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             organization_role_name: Optional[pulumi.Input[str]] = None,
             organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -832,7 +832,7 @@ class Workspace(pulumi.CustomResource):
             stack_set_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None) -> 'Workspace':
+            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArrgs']]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -849,7 +849,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `8.4` and `9.4`. If not specified, defaults to `8.4`.
         :param pulumi.Input[str] name: The Grafana workspace name.
-        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceNetworkAccessControlArrgs']] network_access_control: Configuration for network access to your workspace.See Network Access Control below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_destinations: The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         :param pulumi.Input[str] organization_role_name: The role name that the workspace uses to access resources through Amazon Organizations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
@@ -860,7 +860,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
+        :param pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArrgs']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

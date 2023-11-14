@@ -10,58 +10,58 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterBrokerNodeGroupInfoArgs',
-    'ClusterBrokerNodeGroupInfoConnectivityInfoArgs',
-    'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs',
-    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs',
-    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs',
-    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs',
-    'ClusterBrokerNodeGroupInfoStorageInfoArgs',
-    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs',
-    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs',
-    'ClusterClientAuthenticationArgs',
-    'ClusterClientAuthenticationSaslArgs',
-    'ClusterClientAuthenticationTlsArgs',
-    'ClusterConfigurationInfoArgs',
-    'ClusterEncryptionInfoArgs',
-    'ClusterEncryptionInfoEncryptionInTransitArgs',
-    'ClusterLoggingInfoArgs',
-    'ClusterLoggingInfoBrokerLogsArgs',
-    'ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs',
-    'ClusterLoggingInfoBrokerLogsFirehoseArgs',
-    'ClusterLoggingInfoBrokerLogsS3Args',
-    'ClusterOpenMonitoringArgs',
-    'ClusterOpenMonitoringPrometheusArgs',
-    'ClusterOpenMonitoringPrometheusJmxExporterArgs',
-    'ClusterOpenMonitoringPrometheusNodeExporterArgs',
-    'ReplicatorKafkaClusterArgs',
-    'ReplicatorKafkaClusterAmazonMskClusterArgs',
-    'ReplicatorKafkaClusterVpcConfigArgs',
-    'ReplicatorReplicationInfoListArgs',
-    'ReplicatorReplicationInfoListConsumerGroupReplicationArgs',
-    'ReplicatorReplicationInfoListTopicReplicationArgs',
-    'ServerlessClusterClientAuthenticationArgs',
-    'ServerlessClusterClientAuthenticationSaslArgs',
-    'ServerlessClusterClientAuthenticationSaslIamArgs',
-    'ServerlessClusterVpcConfigArgs',
+    'ClusterBrokerNodeGroupInfoArrgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoArrgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoArrgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs',
+    'ClusterClientAuthenticationArrgs',
+    'ClusterClientAuthenticationSaslArrgs',
+    'ClusterClientAuthenticationTlsArrgs',
+    'ClusterConfigurationInfoArrgs',
+    'ClusterEncryptionInfoArrgs',
+    'ClusterEncryptionInfoEncryptionInTransitArrgs',
+    'ClusterLoggingInfoArrgs',
+    'ClusterLoggingInfoBrokerLogsArrgs',
+    'ClusterLoggingInfoBrokerLogsCloudwatchLogsArrgs',
+    'ClusterLoggingInfoBrokerLogsFirehoseArrgs',
+    'ClusterLoggingInfoBrokerLogsS3Arrgs',
+    'ClusterOpenMonitoringArrgs',
+    'ClusterOpenMonitoringPrometheusArrgs',
+    'ClusterOpenMonitoringPrometheusJmxExporterArrgs',
+    'ClusterOpenMonitoringPrometheusNodeExporterArrgs',
+    'ReplicatorKafkaClusterArrgs',
+    'ReplicatorKafkaClusterAmazonMskClusterArrgs',
+    'ReplicatorKafkaClusterVpcConfigArrgs',
+    'ReplicatorReplicationInfoListArrgs',
+    'ReplicatorReplicationInfoListConsumerGroupReplicationArrgs',
+    'ReplicatorReplicationInfoListTopicReplicationArrgs',
+    'ServerlessClusterClientAuthenticationArrgs',
+    'ServerlessClusterClientAuthenticationSaslArrgs',
+    'ServerlessClusterClientAuthenticationSaslIamArrgs',
+    'ServerlessClusterVpcConfigArrgs',
 ]
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoArgs:
+calass ClusterBrokerNodeGroupInfoArrgs:
     def __init__(__self__, *,
                  client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  instance_type: pulumi.Input[str],
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  az_distribution: Optional[pulumi.Input[str]] = None,
-                 connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
-                 storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
+                 connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArrgs']] = None,
+                 storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         :param pulumi.Input[str] instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param pulumi.Input[str] az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs'] connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs'] storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArrgs'] connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArrgs'] storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -123,37 +123,37 @@ class ClusterBrokerNodeGroupInfoArgs:
 
     @property
     @pulumi.getter(name="connectivityInfo")
-    def connectivity_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]:
+    def connectivity_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArrgs']]:
         """
         Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         """
         return pulumi.get(self, "connectivity_info")
 
     @connectivity_info.setter
-    def connectivity_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]):
+    def connectivity_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArrgs']]):
         pulumi.set(self, "connectivity_info", value)
 
     @property
     @pulumi.getter(name="storageInfo")
-    def storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]:
+    def storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArrgs']]:
         """
         A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         return pulumi.get(self, "storage_info")
 
     @storage_info.setter
-    def storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]):
+    def storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArrgs']]):
         pulumi.set(self, "storage_info", value)
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
+calass ClusterBrokerNodeGroupInfoConnectivityInfoArrgs:
     def __init__(__self__, *,
-                 public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']] = None,
-                 vpc_connectivity: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']] = None):
+                 public_access: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs']] = None,
+                 vpc_connectivity: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs']] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs'] public_access: Access control settings for brokers. See below.
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs'] vpc_connectivity: VPC connectivity access control for brokers. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs'] public_access: Access control settings for brokers. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs'] vpc_connectivity: VPC connectivity access control for brokers. See below.
         """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
@@ -162,31 +162,31 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
 
     @property
     @pulumi.getter(name="publicAccess")
-    def public_access(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]:
+    def public_access(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs']]:
         """
         Access control settings for brokers. See below.
         """
         return pulumi.get(self, "public_access")
 
     @public_access.setter
-    def public_access(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]):
+    def public_access(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs']]):
         pulumi.set(self, "public_access", value)
 
     @property
     @pulumi.getter(name="vpcConnectivity")
-    def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]:
+    def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs']]:
         """
         VPC connectivity access control for brokers. See below.
         """
         return pulumi.get(self, "vpc_connectivity")
 
     @vpc_connectivity.setter
-    def vpc_connectivity(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]):
+    def vpc_connectivity(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs']]):
         pulumi.set(self, "vpc_connectivity", value)
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
+calass ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -209,35 +209,35 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs:
     def __init__(__self__, *,
-                 client_authentication: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']] = None):
+                 client_authentication: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs']] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs'] client_authentication: Configuration block for specifying a client authentication. See below.
         """
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
 
     @property
     @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]:
+    def client_authentication(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs']]:
         """
         Configuration block for specifying a client authentication. See below.
         """
         return pulumi.get(self, "client_authentication")
 
     @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]):
+    def client_authentication(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs']]):
         pulumi.set(self, "client_authentication", value)
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs:
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs:
     def __init__(__self__, *,
-                 sasl: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']] = None,
+                 sasl: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs']] = None,
                  tls: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs'] sasl: Configuration block for specifying SASL client authentication. See below.
         :param pulumi.Input[bool] tls: Configuration block for specifying TLS client authentication. See below.
         """
         if sasl is not None:
@@ -247,14 +247,14 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
     @property
     @pulumi.getter
-    def sasl(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]:
+    def sasl(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs']]:
         """
         Configuration block for specifying SASL client authentication. See below.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]):
+    def sasl(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs']]):
         pulumi.set(self, "sasl", value)
 
     @property
@@ -271,7 +271,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs:
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input[bool]] = None,
                  scram: Optional[pulumi.Input[bool]] = None):
@@ -310,35 +310,35 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoStorageInfoArgs:
+calass ClusterBrokerNodeGroupInfoStorageInfoArrgs:
     def __init__(__self__, *,
-                 ebs_storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']] = None):
+                 ebs_storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs']] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs'] ebs_storage_info: A block that contains EBS volume information. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs'] ebs_storage_info: A block that contains EBS volume information. See below.
         """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
-    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]:
+    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs']]:
         """
         A block that contains EBS volume information. See below.
         """
         return pulumi.get(self, "ebs_storage_info")
 
     @ebs_storage_info.setter
-    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]):
+    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs']]):
         pulumi.set(self, "ebs_storage_info", value)
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
+calass ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs:
     def __init__(__self__, *,
-                 provisioned_throughput: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']] = None,
+                 provisioned_throughput: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs']] = None,
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs'] provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs'] provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
         :param pulumi.Input[int] volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         """
         if provisioned_throughput is not None:
@@ -348,14 +348,14 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
 
     @property
     @pulumi.getter(name="provisionedThroughput")
-    def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]:
+    def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs']]:
         """
         A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
         """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
-    def provisioned_throughput(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]):
+    def provisioned_throughput(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs']]):
         pulumi.set(self, "provisioned_throughput", value)
 
     @property
@@ -372,7 +372,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
 
 
 @pulumi.input_type
-class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs:
+calass ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  volume_throughput: Optional[pulumi.Input[int]] = None):
@@ -411,14 +411,14 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
 
 
 @pulumi.input_type
-class ClusterClientAuthenticationArgs:
+calass ClusterClientAuthenticationArrgs:
     def __init__(__self__, *,
-                 sasl: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']] = None,
-                 tls: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']] = None,
+                 sasl: Optional[pulumi.Input['ClusterClientAuthenticationSaslArrgs']] = None,
+                 tls: Optional[pulumi.Input['ClusterClientAuthenticationTlsArrgs']] = None,
                  unauthenticated: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['ClusterClientAuthenticationSaslArgs'] sasl: Configuration block for specifying SASL client authentication. See below.
-        :param pulumi.Input['ClusterClientAuthenticationTlsArgs'] tls: Configuration block for specifying TLS client authentication. See below.
+        :param pulumi.Input['ClusterClientAuthenticationSaslArrgs'] sasl: Configuration block for specifying SASL client authentication. See below.
+        :param pulumi.Input['ClusterClientAuthenticationTlsArrgs'] tls: Configuration block for specifying TLS client authentication. See below.
         :param pulumi.Input[bool] unauthenticated: Enables unauthenticated access.
         """
         if sasl is not None:
@@ -430,26 +430,26 @@ class ClusterClientAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def sasl(self) -> Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]:
+    def sasl(self) -> Optional[pulumi.Input['ClusterClientAuthenticationSaslArrgs']]:
         """
         Configuration block for specifying SASL client authentication. See below.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: Optional[pulumi.Input['ClusterClientAuthenticationSaslArgs']]):
+    def sasl(self, value: Optional[pulumi.Input['ClusterClientAuthenticationSaslArrgs']]):
         pulumi.set(self, "sasl", value)
 
     @property
     @pulumi.getter
-    def tls(self) -> Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']]:
+    def tls(self) -> Optional[pulumi.Input['ClusterClientAuthenticationTlsArrgs']]:
         """
         Configuration block for specifying TLS client authentication. See below.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: Optional[pulumi.Input['ClusterClientAuthenticationTlsArgs']]):
+    def tls(self, value: Optional[pulumi.Input['ClusterClientAuthenticationTlsArrgs']]):
         pulumi.set(self, "tls", value)
 
     @property
@@ -466,7 +466,7 @@ class ClusterClientAuthenticationArgs:
 
 
 @pulumi.input_type
-class ClusterClientAuthenticationSaslArgs:
+calass ClusterClientAuthenticationSaslArrgs:
     def __init__(__self__, *,
                  iam: Optional[pulumi.Input[bool]] = None,
                  scram: Optional[pulumi.Input[bool]] = None):
@@ -505,7 +505,7 @@ class ClusterClientAuthenticationSaslArgs:
 
 
 @pulumi.input_type
-class ClusterClientAuthenticationTlsArgs:
+calass ClusterClientAuthenticationTlsArrgs:
     def __init__(__self__, *,
                  certificate_authority_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -528,7 +528,7 @@ class ClusterClientAuthenticationTlsArgs:
 
 
 @pulumi.input_type
-class ClusterConfigurationInfoArgs:
+calass ClusterConfigurationInfoArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  revision: pulumi.Input[int]):
@@ -565,13 +565,13 @@ class ClusterConfigurationInfoArgs:
 
 
 @pulumi.input_type
-class ClusterEncryptionInfoArgs:
+calass ClusterEncryptionInfoArrgs:
     def __init__(__self__, *,
                  encryption_at_rest_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']] = None):
+                 encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArrgs']] = None):
         """
         :param pulumi.Input[str] encryption_at_rest_kms_key_arn: You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        :param pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs'] encryption_in_transit: Configuration block to specify encryption in transit. See below.
+        :param pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArrgs'] encryption_in_transit: Configuration block to specify encryption in transit. See below.
         """
         if encryption_at_rest_kms_key_arn is not None:
             pulumi.set(__self__, "encryption_at_rest_kms_key_arn", encryption_at_rest_kms_key_arn)
@@ -592,19 +592,19 @@ class ClusterEncryptionInfoArgs:
 
     @property
     @pulumi.getter(name="encryptionInTransit")
-    def encryption_in_transit(self) -> Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']]:
+    def encryption_in_transit(self) -> Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArrgs']]:
         """
         Configuration block to specify encryption in transit. See below.
         """
         return pulumi.get(self, "encryption_in_transit")
 
     @encryption_in_transit.setter
-    def encryption_in_transit(self, value: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgs']]):
+    def encryption_in_transit(self, value: Optional[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArrgs']]):
         pulumi.set(self, "encryption_in_transit", value)
 
 
 @pulumi.input_type
-class ClusterEncryptionInfoEncryptionInTransitArgs:
+calass ClusterEncryptionInfoEncryptionInTransitArrgs:
     def __init__(__self__, *,
                  client_broker: Optional[pulumi.Input[str]] = None,
                  in_cluster: Optional[pulumi.Input[bool]] = None):
@@ -643,33 +643,33 @@ class ClusterEncryptionInfoEncryptionInTransitArgs:
 
 
 @pulumi.input_type
-class ClusterLoggingInfoArgs:
+calass ClusterLoggingInfoArrgs:
     def __init__(__self__, *,
-                 broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArgs']):
+                 broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArrgs']):
         """
-        :param pulumi.Input['ClusterLoggingInfoBrokerLogsArgs'] broker_logs: Configuration block for Broker Logs settings for logging info. See below.
+        :param pulumi.Input['ClusterLoggingInfoBrokerLogsArrgs'] broker_logs: Configuration block for Broker Logs settings for logging info. See below.
         """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
     @property
     @pulumi.getter(name="brokerLogs")
-    def broker_logs(self) -> pulumi.Input['ClusterLoggingInfoBrokerLogsArgs']:
+    def broker_logs(self) -> pulumi.Input['ClusterLoggingInfoBrokerLogsArrgs']:
         """
         Configuration block for Broker Logs settings for logging info. See below.
         """
         return pulumi.get(self, "broker_logs")
 
     @broker_logs.setter
-    def broker_logs(self, value: pulumi.Input['ClusterLoggingInfoBrokerLogsArgs']):
+    def broker_logs(self, value: pulumi.Input['ClusterLoggingInfoBrokerLogsArrgs']):
         pulumi.set(self, "broker_logs", value)
 
 
 @pulumi.input_type
-class ClusterLoggingInfoBrokerLogsArgs:
+calass ClusterLoggingInfoBrokerLogsArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']] = None,
-                 firehose: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']] = None,
-                 s3: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']] = None):
+                 cloudwatch_logs: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArrgs']] = None,
+                 firehose: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArrgs']] = None,
+                 s3: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Arrgs']] = None):
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
@@ -679,34 +679,34 @@ class ClusterLoggingInfoBrokerLogsArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArrgs']]:
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']]:
+    def firehose(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArrgs']]:
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgs']]):
+    def firehose(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArrgs']]):
         pulumi.set(self, "firehose", value)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']]:
+    def s3(self) -> Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Arrgs']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Args']]):
+    def s3(self, value: Optional[pulumi.Input['ClusterLoggingInfoBrokerLogsS3Arrgs']]):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
+calass ClusterLoggingInfoBrokerLogsCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
@@ -744,7 +744,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class ClusterLoggingInfoBrokerLogsFirehoseArgs:
+calass ClusterLoggingInfoBrokerLogsFirehoseArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
@@ -782,7 +782,7 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
 
 
 @pulumi.input_type
-class ClusterLoggingInfoBrokerLogsS3Args:
+calass ClusterLoggingInfoBrokerLogsS3Arrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  bucket: Optional[pulumi.Input[str]] = None,
@@ -836,35 +836,35 @@ class ClusterLoggingInfoBrokerLogsS3Args:
 
 
 @pulumi.input_type
-class ClusterOpenMonitoringArgs:
+calass ClusterOpenMonitoringArrgs:
     def __init__(__self__, *,
-                 prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArgs']):
+                 prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArrgs']):
         """
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusArgs'] prometheus: Configuration block for Prometheus settings for open monitoring. See below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusArrgs'] prometheus: Configuration block for Prometheus settings for open monitoring. See below.
         """
         pulumi.set(__self__, "prometheus", prometheus)
 
     @property
     @pulumi.getter
-    def prometheus(self) -> pulumi.Input['ClusterOpenMonitoringPrometheusArgs']:
+    def prometheus(self) -> pulumi.Input['ClusterOpenMonitoringPrometheusArrgs']:
         """
         Configuration block for Prometheus settings for open monitoring. See below.
         """
         return pulumi.get(self, "prometheus")
 
     @prometheus.setter
-    def prometheus(self, value: pulumi.Input['ClusterOpenMonitoringPrometheusArgs']):
+    def prometheus(self, value: pulumi.Input['ClusterOpenMonitoringPrometheusArrgs']):
         pulumi.set(self, "prometheus", value)
 
 
 @pulumi.input_type
-class ClusterOpenMonitoringPrometheusArgs:
+calass ClusterOpenMonitoringPrometheusArrgs:
     def __init__(__self__, *,
-                 jmx_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']] = None,
-                 node_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']] = None):
+                 jmx_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArrgs']] = None,
+                 node_exporter: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArrgs']] = None):
         """
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs'] jmx_exporter: Configuration block for JMX Exporter. See below.
-        :param pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs'] node_exporter: Configuration block for Node Exporter. See below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArrgs'] jmx_exporter: Configuration block for JMX Exporter. See below.
+        :param pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArrgs'] node_exporter: Configuration block for Node Exporter. See below.
         """
         if jmx_exporter is not None:
             pulumi.set(__self__, "jmx_exporter", jmx_exporter)
@@ -873,31 +873,31 @@ class ClusterOpenMonitoringPrometheusArgs:
 
     @property
     @pulumi.getter(name="jmxExporter")
-    def jmx_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']]:
+    def jmx_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArrgs']]:
         """
         Configuration block for JMX Exporter. See below.
         """
         return pulumi.get(self, "jmx_exporter")
 
     @jmx_exporter.setter
-    def jmx_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgs']]):
+    def jmx_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArrgs']]):
         pulumi.set(self, "jmx_exporter", value)
 
     @property
     @pulumi.getter(name="nodeExporter")
-    def node_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']]:
+    def node_exporter(self) -> Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArrgs']]:
         """
         Configuration block for Node Exporter. See below.
         """
         return pulumi.get(self, "node_exporter")
 
     @node_exporter.setter
-    def node_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgs']]):
+    def node_exporter(self, value: Optional[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArrgs']]):
         pulumi.set(self, "node_exporter", value)
 
 
 @pulumi.input_type
-class ClusterOpenMonitoringPrometheusJmxExporterArgs:
+calass ClusterOpenMonitoringPrometheusJmxExporterArrgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[bool]):
         """
@@ -919,7 +919,7 @@ class ClusterOpenMonitoringPrometheusJmxExporterArgs:
 
 
 @pulumi.input_type
-class ClusterOpenMonitoringPrometheusNodeExporterArgs:
+calass ClusterOpenMonitoringPrometheusNodeExporterArrgs:
     def __init__(__self__, *,
                  enabled_in_broker: pulumi.Input[bool]):
         """
@@ -941,44 +941,44 @@ class ClusterOpenMonitoringPrometheusNodeExporterArgs:
 
 
 @pulumi.input_type
-class ReplicatorKafkaClusterArgs:
+calass ReplicatorKafkaClusterArrgs:
     def __init__(__self__, *,
-                 amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'],
-                 vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']):
+                 amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArrgs'],
+                 vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArrgs']):
         """
-        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs'] amazon_msk_cluster: Details of an Amazon MSK cluster.
-        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        :param pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArrgs'] amazon_msk_cluster: Details of an Amazon MSK cluster.
+        :param pulumi.Input['ReplicatorKafkaClusterVpcConfigArrgs'] vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
         pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="amazonMskCluster")
-    def amazon_msk_cluster(self) -> pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs']:
+    def amazon_msk_cluster(self) -> pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArrgs']:
         """
         Details of an Amazon MSK cluster.
         """
         return pulumi.get(self, "amazon_msk_cluster")
 
     @amazon_msk_cluster.setter
-    def amazon_msk_cluster(self, value: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgs']):
+    def amazon_msk_cluster(self, value: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArrgs']):
         pulumi.set(self, "amazon_msk_cluster", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']:
+    def vpc_config(self) -> pulumi.Input['ReplicatorKafkaClusterVpcConfigArrgs']:
         """
         Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgs']):
+    def vpc_config(self, value: pulumi.Input['ReplicatorKafkaClusterVpcConfigArrgs']):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
-class ReplicatorKafkaClusterAmazonMskClusterArgs:
+calass ReplicatorKafkaClusterAmazonMskClusterArrgs:
     def __init__(__self__, *,
                  msk_cluster_arn: pulumi.Input[str]):
         """
@@ -1000,7 +1000,7 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
 
 
 @pulumi.input_type
-class ReplicatorKafkaClusterVpcConfigArgs:
+calass ReplicatorKafkaClusterVpcConfigArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1038,21 +1038,21 @@ class ReplicatorKafkaClusterVpcConfigArgs:
 
 
 @pulumi.input_type
-class ReplicatorReplicationInfoListArgs:
+calass ReplicatorReplicationInfoListArrgs:
     def __init__(__self__, *,
-                 consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]],
+                 consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArrgs']]],
                  source_kafka_cluster_arn: pulumi.Input[str],
                  target_compression_type: pulumi.Input[str],
                  target_kafka_cluster_arn: pulumi.Input[str],
-                 topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]],
+                 topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArrgs']]],
                  source_kafka_cluster_alias: Optional[pulumi.Input[str]] = None,
                  target_kafka_cluster_alias: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]] consumer_group_replications: Confguration relating to consumer group replication.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArrgs']]] consumer_group_replications: Confguration relating to consumer group replication.
         :param pulumi.Input[str] source_kafka_cluster_arn: The ARN of the source Kafka cluster.
         :param pulumi.Input[str] target_compression_type: The type of compression to use writing records to target Kafka cluster.
         :param pulumi.Input[str] target_kafka_cluster_arn: The ARN of the target Kafka cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]] topic_replications: Configuration relating to topic replication.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArrgs']]] topic_replications: Configuration relating to topic replication.
         """
         pulumi.set(__self__, "consumer_group_replications", consumer_group_replications)
         pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
@@ -1066,14 +1066,14 @@ class ReplicatorReplicationInfoListArgs:
 
     @property
     @pulumi.getter(name="consumerGroupReplications")
-    def consumer_group_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]]:
+    def consumer_group_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArrgs']]]:
         """
         Confguration relating to consumer group replication.
         """
         return pulumi.get(self, "consumer_group_replications")
 
     @consumer_group_replications.setter
-    def consumer_group_replications(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgs']]]):
+    def consumer_group_replications(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArrgs']]]):
         pulumi.set(self, "consumer_group_replications", value)
 
     @property
@@ -1114,14 +1114,14 @@ class ReplicatorReplicationInfoListArgs:
 
     @property
     @pulumi.getter(name="topicReplications")
-    def topic_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]]:
+    def topic_replications(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArrgs']]]:
         """
         Configuration relating to topic replication.
         """
         return pulumi.get(self, "topic_replications")
 
     @topic_replications.setter
-    def topic_replications(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgs']]]):
+    def topic_replications(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArrgs']]]):
         pulumi.set(self, "topic_replications", value)
 
     @property
@@ -1144,7 +1144,7 @@ class ReplicatorReplicationInfoListArgs:
 
 
 @pulumi.input_type
-class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
+calass ReplicatorReplicationInfoListConsumerGroupReplicationArrgs:
     def __init__(__self__, *,
                  consumer_groups_to_replicates: pulumi.Input[Sequence[pulumi.Input[str]]],
                  consumer_groups_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1214,7 +1214,7 @@ class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
 
 
 @pulumi.input_type
-class ReplicatorReplicationInfoListTopicReplicationArgs:
+calass ReplicatorReplicationInfoListTopicReplicationArrgs:
     def __init__(__self__, *,
                  topics_to_replicates: pulumi.Input[Sequence[pulumi.Input[str]]],
                  copy_access_control_lists_for_topics: Optional[pulumi.Input[bool]] = None,
@@ -1300,51 +1300,51 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
 
 
 @pulumi.input_type
-class ServerlessClusterClientAuthenticationArgs:
+calass ServerlessClusterClientAuthenticationArrgs:
     def __init__(__self__, *,
-                 sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs']):
+                 sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArrgs']):
         """
-        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs'] sasl: Details for client authentication using SASL. See below.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslArrgs'] sasl: Details for client authentication using SASL. See below.
         """
         pulumi.set(__self__, "sasl", sasl)
 
     @property
     @pulumi.getter
-    def sasl(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs']:
+    def sasl(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslArrgs']:
         """
         Details for client authentication using SASL. See below.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgs']):
+    def sasl(self, value: pulumi.Input['ServerlessClusterClientAuthenticationSaslArrgs']):
         pulumi.set(self, "sasl", value)
 
 
 @pulumi.input_type
-class ServerlessClusterClientAuthenticationSaslArgs:
+calass ServerlessClusterClientAuthenticationSaslArrgs:
     def __init__(__self__, *,
-                 iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs']):
+                 iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArrgs']):
         """
-        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs'] iam: Details for client authentication using IAM. See below.
+        :param pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArrgs'] iam: Details for client authentication using IAM. See below.
         """
         pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter
-    def iam(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs']:
+    def iam(self) -> pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArrgs']:
         """
         Details for client authentication using IAM. See below.
         """
         return pulumi.get(self, "iam")
 
     @iam.setter
-    def iam(self, value: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgs']):
+    def iam(self, value: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArrgs']):
         pulumi.set(self, "iam", value)
 
 
 @pulumi.input_type
-class ServerlessClusterClientAuthenticationSaslIamArgs:
+calass ServerlessClusterClientAuthenticationSaslIamArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -1366,7 +1366,7 @@ class ServerlessClusterClientAuthenticationSaslIamArgs:
 
 
 @pulumi.input_type
-class ServerlessClusterVpcConfigArgs:
+calass ServerlessClusterVpcConfigArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

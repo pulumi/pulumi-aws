@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RemediationConfigurationArgs', 'RemediationConfiguration']
+__all__ = ['RemediationConfigurationArrgs', 'RemediationConfiguration']
 
 @pulumi.input_type
-class RemediationConfigurationArgs:
+calass RemediationConfigurationArrgs:
     def __init__(__self__, *,
                  config_rule_name: pulumi.Input[str],
                  target_id: pulumi.Input[str],
                  target_type: pulumi.Input[str],
                  automatic: Optional[pulumi.Input[bool]] = None,
-                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
+                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']] = None,
                  maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
                  target_version: Optional[pulumi.Input[str]] = None):
@@ -34,9 +34,9 @@ class RemediationConfigurationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
-        :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
+        :param pulumi.Input['RemediationConfigurationExecutionControlsArrgs'] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
+        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         :param pulumi.Input[str] resource_type: Type of resource.
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
@@ -111,14 +111,14 @@ class RemediationConfigurationArgs:
 
     @property
     @pulumi.getter(name="executionControls")
-    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
+    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']]:
         """
         Configuration block for execution controls. See below.
         """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
-    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]):
+    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']]):
         pulumi.set(self, "execution_controls", value)
 
     @property
@@ -135,14 +135,14 @@ class RemediationConfigurationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]]:
         """
         Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -183,14 +183,14 @@ class RemediationConfigurationArgs:
 
 
 @pulumi.input_type
-class _RemediationConfigurationState:
+calass _RemediationConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  automatic: Optional[pulumi.Input[bool]] = None,
                  config_rule_name: Optional[pulumi.Input[str]] = None,
-                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
+                 execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']] = None,
                  maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
@@ -201,9 +201,9 @@ class _RemediationConfigurationState:
         :param pulumi.Input[str] arn: ARN of the Config Remediation Configuration.
         :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
         :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
+        :param pulumi.Input['RemediationConfigurationExecutionControlsArrgs'] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
+        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         :param pulumi.Input[str] resource_type: Type of resource.
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
@@ -273,14 +273,14 @@ class _RemediationConfigurationState:
 
     @property
     @pulumi.getter(name="executionControls")
-    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
+    def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']]:
         """
         Configuration block for execution controls. See below.
         """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
-    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]):
+    def execution_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArrgs']]):
         pulumi.set(self, "execution_controls", value)
 
     @property
@@ -297,14 +297,14 @@ class _RemediationConfigurationState:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]]:
         """
         Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -370,16 +370,16 @@ class _RemediationConfigurationState:
         pulumi.set(self, "target_version", value)
 
 
-class RemediationConfiguration(pulumi.CustomResource):
+calass RemediationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic: Optional[pulumi.Input[bool]] = None,
                  config_rule_name: Optional[pulumi.Input[str]] = None,
-                 execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']]] = None,
+                 execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArrgs']]] = None,
                  maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArrgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
@@ -399,7 +399,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
+        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArrgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ))
@@ -410,15 +410,15 @@ class RemediationConfiguration(pulumi.CustomResource):
             target_id="AWS-EnableS3BucketEncryption",
             target_version="1",
             parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="AutomationAssumeRole",
                     static_value="arn:aws:iam::875924563244:role/security_config",
                 ),
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="BucketName",
                     resource_value="RESOURCE_ID",
                 ),
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="SSEAlgorithm",
                     static_value="AES256",
                 ),
@@ -426,8 +426,8 @@ class RemediationConfiguration(pulumi.CustomResource):
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
+            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArrgs(
+                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArrgs(
                     concurrent_execution_rate_percentage=25,
                     error_percentage=20,
                 ),
@@ -446,9 +446,9 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
         :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']] execution_controls: Configuration block for execution controls. See below.
+        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArrgs']] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArrgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         :param pulumi.Input[str] resource_type: Type of resource.
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.
@@ -461,7 +461,7 @@ class RemediationConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RemediationConfigurationArgs,
+                 args: RemediationConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Config Remediation Configuration.
@@ -476,7 +476,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
+        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArrgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ))
@@ -487,15 +487,15 @@ class RemediationConfiguration(pulumi.CustomResource):
             target_id="AWS-EnableS3BucketEncryption",
             target_version="1",
             parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="AutomationAssumeRole",
                     static_value="arn:aws:iam::875924563244:role/security_config",
                 ),
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="BucketName",
                     resource_value="RESOURCE_ID",
                 ),
-                aws.cfg.RemediationConfigurationParameterArgs(
+                aws.cfg.RemediationConfigurationParameterArrgs(
                     name="SSEAlgorithm",
                     static_value="AES256",
                 ),
@@ -503,8 +503,8 @@ class RemediationConfiguration(pulumi.CustomResource):
             automatic=True,
             maximum_automatic_attempts=10,
             retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
+            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArrgs(
+                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArrgs(
                     concurrent_execution_rate_percentage=25,
                     error_percentage=20,
                 ),
@@ -520,12 +520,12 @@ class RemediationConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RemediationConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param RemediationConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RemediationConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RemediationConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -536,9 +536,9 @@ class RemediationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatic: Optional[pulumi.Input[bool]] = None,
                  config_rule_name: Optional[pulumi.Input[str]] = None,
-                 execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']]] = None,
+                 execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArrgs']]] = None,
                  maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArrgs']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
                  target_id: Optional[pulumi.Input[str]] = None,
@@ -551,7 +551,7 @@ class RemediationConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RemediationConfigurationArgs.__new__(RemediationConfigurationArgs)
+            __props__ = RemediationConfigurationArrgs.__new__(RemediationConfigurationArrgs)
 
             __props__.__dict__["automatic"] = automatic
             if config_rule_name is None and not opts.urn:
@@ -583,9 +583,9 @@ class RemediationConfiguration(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             automatic: Optional[pulumi.Input[bool]] = None,
             config_rule_name: Optional[pulumi.Input[str]] = None,
-            execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']]] = None,
+            execution_controls: Optional[pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArrgs']]] = None,
             maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArrgs']]]]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
             target_id: Optional[pulumi.Input[str]] = None,
@@ -601,9 +601,9 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Config Remediation Configuration.
         :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
         :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']] execution_controls: Configuration block for execution controls. See below.
+        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArrgs']] execution_controls: Configuration block for execution controls. See below.
         :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArrgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         :param pulumi.Input[str] resource_type: Type of resource.
         :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         :param pulumi.Input[str] target_id: Target ID is the name of the public document.

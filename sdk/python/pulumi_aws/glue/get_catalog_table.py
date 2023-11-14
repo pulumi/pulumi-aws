@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCatalogTableResult:
+calass GetCatalogTableResult:
     """
     A collection of values returned by getCatalogTable.
     """
@@ -217,7 +217,7 @@ class GetCatalogTableResult:
         return pulumi.get(self, "view_original_text")
 
 
-class AwaitableGetCatalogTableResult(GetCatalogTableResult):
+calass AwaitableGetCatalogTableResult(GetCatalogTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

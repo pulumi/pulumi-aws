@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TargetGroupArgs', 'TargetGroup']
+__all__ = ['TargetGroupArrgs', 'TargetGroup']
 
 @pulumi.input_type
-class TargetGroupArgs:
+calass TargetGroupArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 config: Optional[pulumi.Input['TargetGroupConfigArgs']] = None,
+                 config: Optional[pulumi.Input['TargetGroupConfigArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -25,7 +25,7 @@ class TargetGroupArgs:
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
                
                The following arguments are optional:
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
+        :param pulumi.Input['TargetGroupConfigArrgs'] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -53,14 +53,14 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['TargetGroupConfigArgs']]:
+    def config(self) -> Optional[pulumi.Input['TargetGroupConfigArrgs']]:
         """
         The target group configuration.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['TargetGroupConfigArgs']]):
+    def config(self, value: Optional[pulumi.Input['TargetGroupConfigArrgs']]):
         pulumi.set(self, "config", value)
 
     @property
@@ -89,10 +89,10 @@ class TargetGroupArgs:
 
 
 @pulumi.input_type
-class _TargetGroupState:
+calass _TargetGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 config: Optional[pulumi.Input['TargetGroupConfigArgs']] = None,
+                 config: Optional[pulumi.Input['TargetGroupConfigArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -101,7 +101,7 @@ class _TargetGroupState:
         """
         Input properties used for looking up and filtering TargetGroup resources.
         :param pulumi.Input[str] arn: ARN of the target group.
-        :param pulumi.Input['TargetGroupConfigArgs'] config: The target group configuration.
+        :param pulumi.Input['TargetGroupConfigArrgs'] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[str] status: Status of the target group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -142,14 +142,14 @@ class _TargetGroupState:
 
     @property
     @pulumi.getter
-    def config(self) -> Optional[pulumi.Input['TargetGroupConfigArgs']]:
+    def config(self) -> Optional[pulumi.Input['TargetGroupConfigArrgs']]:
         """
         The target group configuration.
         """
         return pulumi.get(self, "config")
 
     @config.setter
-    def config(self, value: Optional[pulumi.Input['TargetGroupConfigArgs']]):
+    def config(self, value: Optional[pulumi.Input['TargetGroupConfigArrgs']]):
         pulumi.set(self, "config", value)
 
     @property
@@ -218,12 +218,12 @@ class _TargetGroupState:
         pulumi.set(self, "type", value)
 
 
-class TargetGroup(pulumi.CustomResource):
+calass TargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -240,7 +240,7 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
@@ -254,19 +254,19 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="IP",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
                 protocol_version="HTTP1",
-                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
+                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArrgs(
                     enabled=True,
                     health_check_interval_seconds=20,
                     health_check_timeout_seconds=10,
                     healthy_threshold_count=7,
                     unhealthy_threshold_count=3,
-                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArgs(
+                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArrgs(
                         value="200-299",
                     ),
                     path="/instance",
@@ -286,7 +286,7 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="ALB",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
@@ -314,7 +314,7 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArrgs']] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
@@ -325,7 +325,7 @@ class TargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TargetGroupArgs,
+                 args: TargetGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Target Group.
@@ -339,7 +339,7 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
@@ -353,19 +353,19 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="IP",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 ip_address_type="IPV4",
                 port=443,
                 protocol="HTTPS",
                 protocol_version="HTTP1",
-                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
+                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArrgs(
                     enabled=True,
                     health_check_interval_seconds=20,
                     health_check_timeout_seconds=10,
                     healthy_threshold_count=7,
                     unhealthy_threshold_count=3,
-                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArgs(
+                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArrgs(
                         value="200-299",
                     ),
                     path="/instance",
@@ -385,7 +385,7 @@ class TargetGroup(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroup("example",
             type="ALB",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 vpc_identifier=aws_vpc["example"]["id"],
                 port=443,
                 protocol="HTTPS",
@@ -412,12 +412,12 @@ class TargetGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param TargetGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -426,7 +426,7 @@ class TargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -437,7 +437,7 @@ class TargetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
+            __props__ = TargetGroupArrgs.__new__(TargetGroupArrgs)
 
             __props__.__dict__["config"] = config
             __props__.__dict__["name"] = name
@@ -461,7 +461,7 @@ class TargetGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+            config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -475,7 +475,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the target group.
-        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArrgs']] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[str] status: Status of the target group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

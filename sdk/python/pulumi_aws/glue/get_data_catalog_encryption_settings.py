@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDataCatalogEncryptionSettingsResult:
+calass GetDataCatalogEncryptionSettingsResult:
     """
     A collection of values returned by getDataCatalogEncryptionSettings.
     """
@@ -55,7 +55,7 @@ class GetDataCatalogEncryptionSettingsResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetDataCatalogEncryptionSettingsResult(GetDataCatalogEncryptionSettingsResult):
+calass AwaitableGetDataCatalogEncryptionSettingsResult(GetDataCatalogEncryptionSettingsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

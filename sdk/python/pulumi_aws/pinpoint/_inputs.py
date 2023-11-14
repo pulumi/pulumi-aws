@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AppCampaignHookArgs',
-    'AppLimitsArgs',
-    'AppQuietTimeArgs',
+    'AppCampaignHookArrgs',
+    'AppLimitsArrgs',
+    'AppQuietTimeArrgs',
 ]
 
 @pulumi.input_type
-class AppCampaignHookArgs:
+calass AppCampaignHookArrgs:
     def __init__(__self__, *,
                  lambda_function_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class AppCampaignHookArgs:
 
 
 @pulumi.input_type
-class AppLimitsArgs:
+calass AppLimitsArrgs:
     def __init__(__self__, *,
                  daily: Optional[pulumi.Input[int]] = None,
                  maximum_duration: Optional[pulumi.Input[int]] = None,
@@ -142,7 +142,7 @@ class AppLimitsArgs:
 
 
 @pulumi.input_type
-class AppQuietTimeArgs:
+calass AppQuietTimeArrgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):

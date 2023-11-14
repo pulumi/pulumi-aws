@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DocumentationVersionArgs', 'DocumentationVersion']
+__all__ = ['DocumentationVersionArrgs', 'DocumentationVersion']
 
 @pulumi.input_type
-class DocumentationVersionArgs:
+calass DocumentationVersionArrgs:
     def __init__(__self__, *,
                  rest_api_id: pulumi.Input[str],
                  version: pulumi.Input[str],
@@ -66,7 +66,7 @@ class DocumentationVersionArgs:
 
 
 @pulumi.input_type
-class _DocumentationVersionState:
+calass _DocumentationVersionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _DocumentationVersionState:
         pulumi.set(self, "version", value)
 
 
-class DocumentationVersion(pulumi.CustomResource):
+calass DocumentationVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -141,7 +141,7 @@ class DocumentationVersion(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
         example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
+            location=aws.apigateway.DocumentationPartLocationArrgs(
                 type="API",
             ),
             properties="{\\"description\\":\\"Example\\"}",
@@ -171,7 +171,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DocumentationVersionArgs,
+                 args: DocumentationVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an API Gateway Documentation Version.
@@ -184,7 +184,7 @@ class DocumentationVersion(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("exampleRestApi")
         example_documentation_part = aws.apigateway.DocumentationPart("exampleDocumentationPart",
-            location=aws.apigateway.DocumentationPartLocationArgs(
+            location=aws.apigateway.DocumentationPartLocationArrgs(
                 type="API",
             ),
             properties="{\\"description\\":\\"Example\\"}",
@@ -205,12 +205,12 @@ class DocumentationVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.
+        :param DocumentationVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DocumentationVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DocumentationVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -229,7 +229,7 @@ class DocumentationVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DocumentationVersionArgs.__new__(DocumentationVersionArgs)
+            __props__ = DocumentationVersionArrgs.__new__(DocumentationVersionArrgs)
 
             __props__.__dict__["description"] = description
             if rest_api_id is None and not opts.urn:

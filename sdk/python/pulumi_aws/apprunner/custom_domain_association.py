@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CustomDomainAssociationArgs', 'CustomDomainAssociation']
+__all__ = ['CustomDomainAssociationArrgs', 'CustomDomainAssociation']
 
 @pulumi.input_type
-class CustomDomainAssociationArgs:
+calass CustomDomainAssociationArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  service_arn: pulumi.Input[str],
@@ -68,9 +68,9 @@ class CustomDomainAssociationArgs:
 
 
 @pulumi.input_type
-class _CustomDomainAssociationState:
+calass _CustomDomainAssociationState:
     def __init__(__self__, *,
-                 certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]] = None,
+                 certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArrgs']]]] = None,
                  dns_target: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_www_subdomain: Optional[pulumi.Input[bool]] = None,
@@ -78,7 +78,7 @@ class _CustomDomainAssociationState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomDomainAssociation resources.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArrgs']]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         :param pulumi.Input[str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
@@ -100,14 +100,14 @@ class _CustomDomainAssociationState:
 
     @property
     @pulumi.getter(name="certificateValidationRecords")
-    def certificate_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]:
+    def certificate_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArrgs']]]]:
         """
         A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         """
         return pulumi.get(self, "certificate_validation_records")
 
     @certificate_validation_records.setter
-    def certificate_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArgs']]]]):
+    def certificate_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainAssociationCertificateValidationRecordArrgs']]]]):
         pulumi.set(self, "certificate_validation_records", value)
 
     @property
@@ -171,7 +171,7 @@ class _CustomDomainAssociationState:
         pulumi.set(self, "status", value)
 
 
-class CustomDomainAssociation(pulumi.CustomResource):
+calass CustomDomainAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,7 +214,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomDomainAssociationArgs,
+                 args: CustomDomainAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Runner Custom Domain association.
@@ -241,12 +241,12 @@ class CustomDomainAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomDomainAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param CustomDomainAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomDomainAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDomainAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomDomainAssociationArgs.__new__(CustomDomainAssociationArgs)
+            __props__ = CustomDomainAssociationArrgs.__new__(CustomDomainAssociationArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
@@ -287,7 +287,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainAssociationCertificateValidationRecordArgs']]]]] = None,
+            certificate_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainAssociationCertificateValidationRecordArrgs']]]]] = None,
             dns_target: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             enable_www_subdomain: Optional[pulumi.Input[bool]] = None,
@@ -300,7 +300,7 @@ class CustomDomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainAssociationCertificateValidationRecordArgs']]]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainAssociationCertificateValidationRecordArrgs']]]] certificate_validation_records: A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         :param pulumi.Input[str] dns_target: App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         :param pulumi.Input[str] domain_name: Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         :param pulumi.Input[bool] enable_www_subdomain: Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.

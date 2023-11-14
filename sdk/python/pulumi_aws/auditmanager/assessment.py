@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AssessmentArgs', 'Assessment']
+__all__ = ['AssessmentArrgs', 'Assessment']
 
 @pulumi.input_type
-class AssessmentArgs:
+calass AssessmentArrgs:
     def __init__(__self__, *,
                  framework_id: pulumi.Input[str],
-                 roles: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]],
-                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+                 roles: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]],
+                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
+                 scope: Optional[pulumi.Input['AssessmentScopeArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
         :param pulumi.Input[str] framework_id: Unique identifier of the framework the assessment will be created from.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
-        :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]] roles: List of roles for the assessment. See `roles` below.
+        :param pulumi.Input['AssessmentAssessmentReportsDestinationArrgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[str] description: Description of the assessment.
         :param pulumi.Input[str] name: Name of the assessment.
-        :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        :param pulumi.Input['AssessmentScopeArrgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -62,26 +62,26 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def roles(self) -> pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]:
+    def roles(self) -> pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]]:
         """
         List of roles for the assessment. See `roles` below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]):
+    def roles(self, value: pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]]):
         pulumi.set(self, "roles", value)
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]:
+    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']]:
         """
         Assessment report storage destination configuration. See `assessment_reports_destination` below.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
     @assessment_reports_destination.setter
-    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]):
+    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']]):
         pulumi.set(self, "assessment_reports_destination", value)
 
     @property
@@ -110,7 +110,7 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArrgs']]:
         """
         Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
 
@@ -119,7 +119,7 @@ class AssessmentArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -136,29 +136,29 @@ class AssessmentArgs:
 
 
 @pulumi.input_type
-class _AssessmentState:
+calass _AssessmentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']] = None,
+                 assessment_reports_destination: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
-                 roles_alls: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]]] = None,
-                 scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]]] = None,
+                 roles_alls: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArrgs']]]] = None,
+                 scope: Optional[pulumi.Input['AssessmentScopeArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Assessment resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the assessment.
-        :param pulumi.Input['AssessmentAssessmentReportsDestinationArgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        :param pulumi.Input['AssessmentAssessmentReportsDestinationArrgs'] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[str] description: Description of the assessment.
         :param pulumi.Input[str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[str] name: Name of the assessment.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: List of roles for the assessment. See `roles` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-        :param pulumi.Input['AssessmentScopeArgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]] roles: List of roles for the assessment. See `roles` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArrgs']]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
+        :param pulumi.Input['AssessmentScopeArrgs'] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
@@ -204,14 +204,14 @@ class _AssessmentState:
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
-    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]:
+    def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']]:
         """
         Assessment report storage destination configuration. See `assessment_reports_destination` below.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
     @assessment_reports_destination.setter
-    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArgs']]):
+    def assessment_reports_destination(self, value: Optional[pulumi.Input['AssessmentAssessmentReportsDestinationArrgs']]):
         pulumi.set(self, "assessment_reports_destination", value)
 
     @property
@@ -252,31 +252,31 @@ class _AssessmentState:
 
     @property
     @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]:
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]]]:
         """
         List of roles for the assessment. See `roles` below.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]]):
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArrgs']]]]):
         pulumi.set(self, "roles", value)
 
     @property
     @pulumi.getter(name="rolesAlls")
-    def roles_alls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]]]:
+    def roles_alls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArrgs']]]]:
         """
         Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
         """
         return pulumi.get(self, "roles_alls")
 
     @roles_alls.setter
-    def roles_alls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArgs']]]]):
+    def roles_alls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRolesAllArrgs']]]]):
         pulumi.set(self, "roles_alls", value)
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['AssessmentScopeArrgs']]:
         """
         Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
 
@@ -285,7 +285,7 @@ class _AssessmentState:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['AssessmentScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -325,17 +325,17 @@ class _AssessmentState:
         pulumi.set(self, "tags_all", value)
 
 
-class Assessment(pulumi.CustomResource):
+calass Assessment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArrgs']]]]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -349,20 +349,20 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
+            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArrgs(
                 destination=f"s3://{aws_s3_bucket['test']['id']}",
                 destination_type="S3",
             ),
             framework_id=aws_auditmanager_framework["test"]["id"],
-            roles=[aws.auditmanager.AssessmentRoleArgs(
+            roles=[aws.auditmanager.AssessmentRoleArrgs(
                 role_arn=aws_iam_role["test"]["arn"],
                 role_type="PROCESS_OWNER",
             )],
-            scope=aws.auditmanager.AssessmentScopeArgs(
-                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
+            scope=aws.auditmanager.AssessmentScopeArrgs(
+                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArrgs(
                     id=data["aws_caller_identity"]["current"]["account_id"],
                 )],
-                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
+                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArrgs(
                     service_name="S3",
                 )],
             ))
@@ -378,12 +378,12 @@ class Assessment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        :param pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArrgs']] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[str] description: Description of the assessment.
         :param pulumi.Input[str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[str] name: Name of the assessment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: List of roles for the assessment. See `roles` below.
-        :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArrgs']]]] roles: List of roles for the assessment. See `roles` below.
+        :param pulumi.Input[pulumi.InputType['AssessmentScopeArrgs']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -392,7 +392,7 @@ class Assessment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssessmentArgs,
+                 args: AssessmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Assessment.
@@ -405,20 +405,20 @@ class Assessment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.auditmanager.Assessment("test",
-            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArgs(
+            assessment_reports_destination=aws.auditmanager.AssessmentAssessmentReportsDestinationArrgs(
                 destination=f"s3://{aws_s3_bucket['test']['id']}",
                 destination_type="S3",
             ),
             framework_id=aws_auditmanager_framework["test"]["id"],
-            roles=[aws.auditmanager.AssessmentRoleArgs(
+            roles=[aws.auditmanager.AssessmentRoleArrgs(
                 role_arn=aws_iam_role["test"]["arn"],
                 role_type="PROCESS_OWNER",
             )],
-            scope=aws.auditmanager.AssessmentScopeArgs(
-                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
+            scope=aws.auditmanager.AssessmentScopeArrgs(
+                aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArrgs(
                     id=data["aws_caller_identity"]["current"]["account_id"],
                 )],
-                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
+                aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArrgs(
                     service_name="S3",
                 )],
             ))
@@ -433,12 +433,12 @@ class Assessment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssessmentArgs args: The arguments to use to populate this resource's properties.
+        :param AssessmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -447,12 +447,12 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+                 assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArrgs']]]]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -461,7 +461,7 @@ class Assessment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssessmentArgs.__new__(AssessmentArgs)
+            __props__ = AssessmentArrgs.__new__(AssessmentArrgs)
 
             __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
             __props__.__dict__["description"] = description
@@ -491,13 +491,13 @@ class Assessment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']]] = None,
+            assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             framework_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
-            roles_alls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRolesAllArgs']]]]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
+            roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArrgs']]]]] = None,
+            roles_alls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRolesAllArrgs']]]]] = None,
+            scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Assessment':
@@ -509,13 +509,13 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the assessment.
-        :param pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArgs']] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
+        :param pulumi.Input[pulumi.InputType['AssessmentAssessmentReportsDestinationArrgs']] assessment_reports_destination: Assessment report storage destination configuration. See `assessment_reports_destination` below.
         :param pulumi.Input[str] description: Description of the assessment.
         :param pulumi.Input[str] framework_id: Unique identifier of the framework the assessment will be created from.
         :param pulumi.Input[str] name: Name of the assessment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: List of roles for the assessment. See `roles` below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRolesAllArgs']]]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-        :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArrgs']]]] roles: List of roles for the assessment. See `roles` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRolesAllArrgs']]]] roles_alls: Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
+        :param pulumi.Input[pulumi.InputType['AssessmentScopeArrgs']] scope: Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.

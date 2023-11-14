@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpamPreviewNextCidrArgs', 'VpcIpamPreviewNextCidr']
+__all__ = ['VpcIpamPreviewNextCidrArrgs', 'VpcIpamPreviewNextCidr']
 
 @pulumi.input_type
-class VpcIpamPreviewNextCidrArgs:
+calass VpcIpamPreviewNextCidrArrgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[str],
                  disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -67,7 +67,7 @@ class VpcIpamPreviewNextCidrArgs:
 
 
 @pulumi.input_type
-class _VpcIpamPreviewNextCidrState:
+calass _VpcIpamPreviewNextCidrState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  disallowed_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -138,7 +138,7 @@ class _VpcIpamPreviewNextCidrState:
         pulumi.set(self, "netmask_length", value)
 
 
-class VpcIpamPreviewNextCidr(pulumi.CustomResource):
+calass VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -159,7 +159,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -186,7 +186,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamPreviewNextCidrArgs,
+                 args: VpcIpamPreviewNextCidrArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -200,7 +200,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -218,12 +218,12 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamPreviewNextCidrArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamPreviewNextCidrArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPreviewNextCidrArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPreviewNextCidrArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -242,7 +242,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamPreviewNextCidrArgs.__new__(VpcIpamPreviewNextCidrArgs)
+            __props__ = VpcIpamPreviewNextCidrArrgs.__new__(VpcIpamPreviewNextCidrArrgs)
 
             __props__.__dict__["disallowed_cidrs"] = disallowed_cidrs
             if ipam_pool_id is None and not opts.urn:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ModelArgs', 'Model']
+__all__ = ['ModelArrgs', 'Model']
 
 @pulumi.input_type
-class ModelArgs:
+calass ModelArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
                  rest_api: pulumi.Input[str],
@@ -98,7 +98,7 @@ class ModelArgs:
 
 
 @pulumi.input_type
-class _ModelState:
+calass _ModelState:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _ModelState:
         pulumi.set(self, "schema", value)
 
 
-class Model(pulumi.CustomResource):
+calass Model(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -236,7 +236,7 @@ class Model(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ModelArgs,
+                 args: ModelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Model for a REST API Gateway.
@@ -267,12 +267,12 @@ class Model(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ModelArgs args: The arguments to use to populate this resource's properties.
+        :param ModelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ModelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ModelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -293,7 +293,7 @@ class Model(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ModelArgs.__new__(ModelArgs)
+            __props__ = ModelArrgs.__new__(ModelArrgs)
 
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")

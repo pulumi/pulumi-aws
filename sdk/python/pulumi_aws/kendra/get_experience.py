@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetExperienceResult:
+calass GetExperienceResult:
     """
     A collection of values returned by getExperience.
     """
@@ -162,7 +162,7 @@ class GetExperienceResult:
         return pulumi.get(self, "updated_at")
 
 
-class AwaitableGetExperienceResult(GetExperienceResult):
+calass AwaitableGetExperienceResult(GetExperienceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ExperimentTemplateAction(dict):
+calass ExperimentTemplateAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -55,9 +55,9 @@ class ExperimentTemplateAction(dict):
         :param str action_id: ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
         :param str name: Friendly name of the action.
         :param str description: Description of the action.
-        :param Sequence['ExperimentTemplateActionParameterArgs'] parameters: Parameter(s) for the action, if applicable. See below.
+        :param Sequence['ExperimentTemplateActionParameterArrgs'] parameters: Parameter(s) for the action, if applicable. See below.
         :param Sequence[str] start_afters: Set of action names that must complete before this action can be executed.
-        :param 'ExperimentTemplateActionTargetArgs' target: Action's target, if applicable. See below.
+        :param 'ExperimentTemplateActionTargetArrgs' target: Action's target, if applicable. See below.
         """
         pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "name", name)
@@ -120,7 +120,7 @@ class ExperimentTemplateAction(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateActionParameter(dict):
+calass ExperimentTemplateActionParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -153,7 +153,7 @@ class ExperimentTemplateActionParameter(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateActionTarget(dict):
+calass ExperimentTemplateActionTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -182,7 +182,7 @@ class ExperimentTemplateActionTarget(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateLogConfiguration(dict):
+calass ExperimentTemplateLogConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -210,8 +210,8 @@ class ExperimentTemplateLogConfiguration(dict):
                  s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3Configuration'] = None):
         """
         :param int log_schema_version: The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
-        :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs' cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
-        :param 'ExperimentTemplateLogConfigurationS3ConfigurationArgs' s3_configuration: The configuration for experiment logging to Amazon S3. See below.
+        :param 'ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArrgs' cloudwatch_logs_configuration: The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+        :param 'ExperimentTemplateLogConfigurationS3ConfigurationArrgs' s3_configuration: The configuration for experiment logging to Amazon S3. See below.
         """
         pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloudwatch_logs_configuration is not None:
@@ -245,7 +245,7 @@ class ExperimentTemplateLogConfiguration(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
+calass ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -280,7 +280,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateLogConfigurationS3Configuration(dict):
+calass ExperimentTemplateLogConfigurationS3Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -327,7 +327,7 @@ class ExperimentTemplateLogConfigurationS3Configuration(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateStopCondition(dict):
+calass ExperimentTemplateStopCondition(dict):
     def __init__(__self__, *,
                  source: str,
                  value: Optional[str] = None):
@@ -357,7 +357,7 @@ class ExperimentTemplateStopCondition(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateTarget(dict):
+calass ExperimentTemplateTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -393,12 +393,12 @@ class ExperimentTemplateTarget(dict):
         :param str name: Friendly name given to the target.
         :param str resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
         :param str selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        :param Sequence['ExperimentTemplateTargetFilterArgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
+        :param Sequence['ExperimentTemplateTargetFilterArrgs'] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
         :param Mapping[str, str] parameters: The resource type parameters.
                
                > **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         :param Sequence[str] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        :param Sequence['ExperimentTemplateTargetResourceTagArgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
+        :param Sequence['ExperimentTemplateTargetResourceTagArrgs'] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -472,7 +472,7 @@ class ExperimentTemplateTarget(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateTargetFilter(dict):
+calass ExperimentTemplateTargetFilter(dict):
     def __init__(__self__, *,
                  path: str,
                  values: Sequence[str]):
@@ -505,7 +505,7 @@ class ExperimentTemplateTargetFilter(dict):
 
 
 @pulumi.output_type
-class ExperimentTemplateTargetResourceTag(dict):
+calass ExperimentTemplateTargetResourceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

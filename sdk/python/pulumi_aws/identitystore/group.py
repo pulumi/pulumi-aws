@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GroupArgs', 'Group']
+__all__ = ['GroupArrgs', 'Group']
 
 @pulumi.input_type
-class GroupArgs:
+calass GroupArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  identity_store_id: pulumi.Input[str],
@@ -72,18 +72,18 @@ class GroupArgs:
 
 
 @pulumi.input_type
-class _GroupState:
+calass _GroupState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]] = None,
+                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArrgs']]]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[str] description: A string containing the description of the group.
         :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArrgs']]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
                
@@ -126,14 +126,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]]:
+    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArrgs']]]]:
         """
         A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
-    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]]):
+    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArrgs']]]]):
         pulumi.set(self, "external_ids", value)
 
     @property
@@ -163,7 +163,7 @@ class _GroupState:
         pulumi.set(self, "identity_store_id", value)
 
 
-class Group(pulumi.CustomResource):
+calass Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -197,7 +197,7 @@ class Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupArgs,
+                 args: GroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS IdentityStore Group.
@@ -213,12 +213,12 @@ class Group(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupArgs args: The arguments to use to populate this resource's properties.
+        :param GroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -237,7 +237,7 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupArgs.__new__(GroupArgs)
+            __props__ = GroupArrgs.__new__(GroupArrgs)
 
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
@@ -260,7 +260,7 @@ class Group(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArgs']]]]] = None,
+            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArrgs']]]]] = None,
             group_id: Optional[pulumi.Input[str]] = None,
             identity_store_id: Optional[pulumi.Input[str]] = None) -> 'Group':
         """
@@ -272,7 +272,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A string containing the description of the group.
         :param pulumi.Input[str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArgs']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupExternalIdArrgs']]]] external_ids: A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
         :param pulumi.Input[str] group_id: The identifier of the newly created group in the identity store.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store.
                

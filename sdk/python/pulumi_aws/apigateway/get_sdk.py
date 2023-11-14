@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSdkResult:
+calass GetSdkResult:
     """
     A collection of values returned by getSdk.
     """
@@ -100,7 +100,7 @@ class GetSdkResult:
         return pulumi.get(self, "stage_name")
 
 
-class AwaitableGetSdkResult(GetSdkResult):
+calass AwaitableGetSdkResult(GetSdkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

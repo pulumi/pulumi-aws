@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverFirewallDomainListResult:
+calass GetResolverFirewallDomainListResult:
     """
     A collection of values returned by getResolverFirewallDomainList.
     """
@@ -115,7 +115,7 @@ class GetResolverFirewallDomainListResult:
         return pulumi.get(self, "status_message")
 
 
-class AwaitableGetResolverFirewallDomainListResult(GetResolverFirewallDomainListResult):
+calass AwaitableGetResolverFirewallDomainListResult(GetResolverFirewallDomainListResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CiphertextArgs', 'Ciphertext']
+__all__ = ['CiphertextArrgs', 'Ciphertext']
 
 @pulumi.input_type
-class CiphertextArgs:
+calass CiphertextArrgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
                  plaintext: pulumi.Input[str],
@@ -66,7 +66,7 @@ class CiphertextArgs:
 
 
 @pulumi.input_type
-class _CiphertextState:
+calass _CiphertextState:
     def __init__(__self__, *,
                  ciphertext_blob: Optional[pulumi.Input[str]] = None,
                  context: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -137,7 +137,7 @@ class _CiphertextState:
         pulumi.set(self, "plaintext", value)
 
 
-class Ciphertext(pulumi.CustomResource):
+calass Ciphertext(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -180,7 +180,7 @@ class Ciphertext(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CiphertextArgs,
+                 args: CiphertextArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
@@ -207,12 +207,12 @@ class Ciphertext(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CiphertextArgs args: The arguments to use to populate this resource's properties.
+        :param CiphertextArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CiphertextArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CiphertextArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -231,7 +231,7 @@ class Ciphertext(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CiphertextArgs.__new__(CiphertextArgs)
+            __props__ = CiphertextArrgs.__new__(CiphertextArrgs)
 
             __props__.__dict__["context"] = context
             if key_id is None and not opts.urn:

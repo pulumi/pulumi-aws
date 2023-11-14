@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkInsightsAnalysisResult:
+calass GetNetworkInsightsAnalysisResult:
     """
     A collection of values returned by getNetworkInsightsAnalysis.
     """
@@ -193,7 +193,7 @@ class GetNetworkInsightsAnalysisResult:
         return pulumi.get(self, "warning_message")
 
 
-class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult):
+calass AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -217,7 +217,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
             warning_message=self.warning_message)
 
 
-def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']]] = None,
+def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArrgs']]] = None,
                                   network_insights_analysis_id: Optional[str] = None,
                                   tags: Optional[Mapping[str, str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAnalysisResult:
@@ -234,7 +234,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     __args__ = dict()
@@ -264,7 +264,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
 
 
 @_utilities.lift_output_func(get_network_insights_analysis)
-def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']]]]] = None,
+def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArrgs']]]]] = None,
                                          network_insights_analysis_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
@@ -281,7 +281,7 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
     """
     ...

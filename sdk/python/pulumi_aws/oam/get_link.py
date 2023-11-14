@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLinkResult:
+calass GetLinkResult:
     """
     A collection of values returned by getLink.
     """
@@ -117,7 +117,7 @@ class GetLinkResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLinkResult(GetLinkResult):
+calass AwaitableGetLinkResult(GetLinkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

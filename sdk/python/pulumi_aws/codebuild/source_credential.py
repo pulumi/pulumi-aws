@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SourceCredentialArgs', 'SourceCredential']
+__all__ = ['SourceCredentialArrgs', 'SourceCredential']
 
 @pulumi.input_type
-class SourceCredentialArgs:
+calass SourceCredentialArrgs:
     def __init__(__self__, *,
                  auth_type: pulumi.Input[str],
                  server_type: pulumi.Input[str],
@@ -81,7 +81,7 @@ class SourceCredentialArgs:
 
 
 @pulumi.input_type
-class _SourceCredentialState:
+calass _SourceCredentialState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class _SourceCredentialState:
         pulumi.set(self, "user_name", value)
 
 
-class SourceCredential(pulumi.CustomResource):
+calass SourceCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +227,7 @@ class SourceCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SourceCredentialArgs,
+                 args: SourceCredentialArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeBuild Source Credentials Resource.
@@ -268,12 +268,12 @@ class SourceCredential(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SourceCredentialArgs args: The arguments to use to populate this resource's properties.
+        :param SourceCredentialArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SourceCredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SourceCredentialArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -293,7 +293,7 @@ class SourceCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SourceCredentialArgs.__new__(SourceCredentialArgs)
+            __props__ = SourceCredentialArrgs.__new__(SourceCredentialArrgs)
 
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")

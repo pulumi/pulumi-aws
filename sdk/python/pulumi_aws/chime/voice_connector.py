@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VoiceConnectorArgs', 'VoiceConnector']
+__all__ = ['VoiceConnectorArrgs', 'VoiceConnector']
 
 @pulumi.input_type
-class VoiceConnectorArgs:
+calass VoiceConnectorArrgs:
     def __init__(__self__, *,
                  require_encryption: pulumi.Input[bool],
                  aws_region: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class VoiceConnectorArgs:
 
 
 @pulumi.input_type
-class _VoiceConnectorState:
+calass _VoiceConnectorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_region: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _VoiceConnectorState:
         pulumi.set(self, "tags_all", value)
 
 
-class VoiceConnector(pulumi.CustomResource):
+calass VoiceConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,7 +261,7 @@ class VoiceConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VoiceConnectorArgs,
+                 args: VoiceConnectorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
@@ -286,12 +286,12 @@ class VoiceConnector(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VoiceConnectorArgs args: The arguments to use to populate this resource's properties.
+        :param VoiceConnectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -311,7 +311,7 @@ class VoiceConnector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VoiceConnectorArgs.__new__(VoiceConnectorArgs)
+            __props__ = VoiceConnectorArrgs.__new__(VoiceConnectorArrgs)
 
             __props__.__dict__["aws_region"] = aws_region
             __props__.__dict__["name"] = name

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceTypeResult:
+calass GetInstanceTypeResult:
     """
     A collection of values returned by getInstanceType.
     """
@@ -553,7 +553,7 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "valid_threads_per_cores")
 
 
-class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
+calass AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

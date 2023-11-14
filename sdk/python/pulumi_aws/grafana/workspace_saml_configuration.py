@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkspaceSamlConfigurationArgs', 'WorkspaceSamlConfiguration']
+__all__ = ['WorkspaceSamlConfigurationArrgs', 'WorkspaceSamlConfiguration']
 
 @pulumi.input_type
-class WorkspaceSamlConfigurationArgs:
+calass WorkspaceSamlConfigurationArrgs:
     def __init__(__self__, *,
                  editor_role_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  workspace_id: pulumi.Input[str],
@@ -230,7 +230,7 @@ class WorkspaceSamlConfigurationArgs:
 
 
 @pulumi.input_type
-class _WorkspaceSamlConfigurationState:
+calass _WorkspaceSamlConfigurationState:
     def __init__(__self__, *,
                  admin_role_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -465,7 +465,7 @@ class _WorkspaceSamlConfigurationState:
         pulumi.set(self, "workspace_id", value)
 
 
-class WorkspaceSamlConfiguration(pulumi.CustomResource):
+calass WorkspaceSamlConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -547,7 +547,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkspaceSamlConfigurationArgs,
+                 args: WorkspaceSamlConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Managed Grafana workspace SAML configuration resource.
@@ -591,12 +591,12 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkspaceSamlConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param WorkspaceSamlConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSamlConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkspaceSamlConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -625,7 +625,7 @@ class WorkspaceSamlConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkspaceSamlConfigurationArgs.__new__(WorkspaceSamlConfigurationArgs)
+            __props__ = WorkspaceSamlConfigurationArrgs.__new__(WorkspaceSamlConfigurationArrgs)
 
             __props__.__dict__["admin_role_values"] = admin_role_values
             __props__.__dict__["allowed_organizations"] = allowed_organizations

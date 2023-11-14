@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LoggingOptionsArgs', 'LoggingOptions']
+__all__ = ['LoggingOptionsArrgs', 'LoggingOptions']
 
 @pulumi.input_type
-class LoggingOptionsArgs:
+calass LoggingOptionsArrgs:
     def __init__(__self__, *,
                  default_log_level: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class LoggingOptionsArgs:
 
 
 @pulumi.input_type
-class _LoggingOptionsState:
+calass _LoggingOptionsState:
     def __init__(__self__, *,
                  default_log_level: Optional[pulumi.Input[str]] = None,
                  disable_all_logs: Optional[pulumi.Input[bool]] = None,
@@ -121,7 +121,7 @@ class _LoggingOptionsState:
         pulumi.set(self, "role_arn", value)
 
 
-class LoggingOptions(pulumi.CustomResource):
+calass LoggingOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +154,7 @@ class LoggingOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoggingOptionsArgs,
+                 args: LoggingOptionsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
@@ -171,12 +171,12 @@ class LoggingOptions(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoggingOptionsArgs args: The arguments to use to populate this resource's properties.
+        :param LoggingOptionsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoggingOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoggingOptionsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -195,7 +195,7 @@ class LoggingOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoggingOptionsArgs.__new__(LoggingOptionsArgs)
+            __props__ = LoggingOptionsArrgs.__new__(LoggingOptionsArrgs)
 
             if default_log_level is None and not opts.urn:
                 raise TypeError("Missing required property 'default_log_level'")

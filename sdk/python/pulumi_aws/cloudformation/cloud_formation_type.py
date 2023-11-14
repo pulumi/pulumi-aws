@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CloudFormationTypeArgs', 'CloudFormationType']
+__all__ = ['CloudFormationTypeArrgs', 'CloudFormationType']
 
 @pulumi.input_type
-class CloudFormationTypeArgs:
+calass CloudFormationTypeArrgs:
     def __init__(__self__, *,
                  schema_handler_package: pulumi.Input[str],
                  type_name: pulumi.Input[str],
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
+                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CloudFormationType resource.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input['CloudFormationTypeLoggingConfigArrgs'] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
         pulumi.set(__self__, "schema_handler_package", schema_handler_package)
@@ -76,14 +76,14 @@ class CloudFormationTypeArgs:
 
     @property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
+    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']]:
         """
         Configuration block containing logging configuration.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]):
+    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']]):
         pulumi.set(self, "logging_config", value)
 
     @property
@@ -100,7 +100,7 @@ class CloudFormationTypeArgs:
 
 
 @pulumi.input_type
-class _CloudFormationTypeState:
+calass _CloudFormationTypeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  default_version_id: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class _CloudFormationTypeState:
                  documentation_url: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  is_default_version: Optional[pulumi.Input[bool]] = None,
-                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
+                 logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']] = None,
                  provisioning_type: Optional[pulumi.Input[str]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  schema_handler_package: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class _CloudFormationTypeState:
         :param pulumi.Input[str] documentation_url: URL of the documentation for the CloudFormation Type.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         :param pulumi.Input[bool] is_default_version: Whether the CloudFormation Type version is the default version.
-        :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input['CloudFormationTypeLoggingConfigArrgs'] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] provisioning_type: Provisioning behavior of the CloudFormation Type.
         :param pulumi.Input[str] schema: JSON document of the CloudFormation Type schema.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -260,14 +260,14 @@ class _CloudFormationTypeState:
 
     @property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]:
+    def logging_config(self) -> Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']]:
         """
         Configuration block containing logging configuration.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']]):
+    def logging_config(self, value: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArrgs']]):
         pulumi.set(self, "logging_config", value)
 
     @property
@@ -379,13 +379,13 @@ class _CloudFormationTypeState:
         pulumi.set(self, "visibility", value)
 
 
-class CloudFormationType(pulumi.CustomResource):
+calass CloudFormationType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArrgs']]] = None,
                  schema_handler_package: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
@@ -403,7 +403,7 @@ class CloudFormationType(pulumi.CustomResource):
             schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
+            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArrgs(
                 log_group_name=aws_cloudwatch_log_group["example"]["name"],
                 log_role_arn=aws_iam_role["example"]["arn"],
             ))
@@ -420,7 +420,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArrgs']] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         :param pulumi.Input[str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
@@ -429,7 +429,7 @@ class CloudFormationType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CloudFormationTypeArgs,
+                 args: CloudFormationTypeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a version of a CloudFormation Type.
@@ -444,7 +444,7 @@ class CloudFormationType(pulumi.CustomResource):
             schema_handler_package=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
             type="RESOURCE",
             type_name="ExampleCompany::ExampleService::ExampleResource",
-            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArgs(
+            logging_config=aws.cloudformation.CloudFormationTypeLoggingConfigArrgs(
                 log_group_name=aws_cloudwatch_log_group["example"]["name"],
                 log_role_arn=aws_iam_role["example"]["arn"],
             ))
@@ -459,12 +459,12 @@ class CloudFormationType(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CloudFormationTypeArgs args: The arguments to use to populate this resource's properties.
+        :param CloudFormationTypeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CloudFormationTypeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CloudFormationTypeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -474,7 +474,7 @@ class CloudFormationType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArrgs']]] = None,
                  schema_handler_package: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
@@ -485,7 +485,7 @@ class CloudFormationType(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CloudFormationTypeArgs.__new__(CloudFormationTypeArgs)
+            __props__ = CloudFormationTypeArrgs.__new__(CloudFormationTypeArrgs)
 
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["logging_config"] = logging_config
@@ -525,7 +525,7 @@ class CloudFormationType(pulumi.CustomResource):
             documentation_url: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             is_default_version: Optional[pulumi.Input[bool]] = None,
-            logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+            logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArrgs']]] = None,
             provisioning_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             schema_handler_package: Optional[pulumi.Input[str]] = None,
@@ -549,7 +549,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param pulumi.Input[str] documentation_url: URL of the documentation for the CloudFormation Type.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         :param pulumi.Input[bool] is_default_version: Whether the CloudFormation Type version is the default version.
-        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArrgs']] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] provisioning_type: Provisioning behavior of the CloudFormation Type.
         :param pulumi.Input[str] schema: JSON document of the CloudFormation Type schema.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.

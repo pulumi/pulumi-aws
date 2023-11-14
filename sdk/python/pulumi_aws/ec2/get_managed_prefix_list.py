@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetManagedPrefixListResult:
+calass GetManagedPrefixListResult:
     """
     A collection of values returned by getManagedPrefixList.
     """
@@ -130,7 +130,7 @@ class GetManagedPrefixListResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
+calass AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -148,7 +148,7 @@ class AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
             version=self.version)
 
 
-def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']]] = None,
+def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetManagedPrefixListFilterArrgs']]] = None,
                             id: Optional[str] = None,
                             name: Optional[str] = None,
                             tags: Optional[Mapping[str, str]] = None,
@@ -173,14 +173,14 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
+    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArrgs(
         name="prefix-list-name",
         values=["my-prefix-list"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the prefix list to select.
     :param str name: Name of the prefix list to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
@@ -207,7 +207,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
 
 
 @_utilities.lift_output_func(get_managed_prefix_list)
-def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']]]]] = None,
+def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetManagedPrefixListFilterArrgs']]]]] = None,
                                    id: Optional[pulumi.Input[Optional[str]]] = None,
                                    name: Optional[pulumi.Input[Optional[str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -232,14 +232,14 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArgs(
+    example = aws.ec2.get_managed_prefix_list(filters=[aws.ec2.GetManagedPrefixListFilterArrgs(
         name="prefix-list-name",
         values=["my-prefix-list"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str id: ID of the prefix list to select.
     :param str name: Name of the prefix list to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.

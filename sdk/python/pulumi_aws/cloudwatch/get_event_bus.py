@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEventBusResult:
+calass GetEventBusResult:
     """
     A collection of values returned by getEventBus.
     """
@@ -54,7 +54,7 @@ class GetEventBusResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetEventBusResult(GetEventBusResult):
+calass AwaitableGetEventBusResult(GetEventBusResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

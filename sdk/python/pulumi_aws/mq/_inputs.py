@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BrokerConfigurationArgs',
-    'BrokerEncryptionOptionsArgs',
-    'BrokerInstanceArgs',
-    'BrokerLdapServerMetadataArgs',
-    'BrokerLogsArgs',
-    'BrokerMaintenanceWindowStartTimeArgs',
-    'BrokerUserArgs',
+    'BrokerConfigurationArrgs',
+    'BrokerEncryptionOptionsArrgs',
+    'BrokerInstanceArrgs',
+    'BrokerLdapServerMetadataArrgs',
+    'BrokerLogsArrgs',
+    'BrokerMaintenanceWindowStartTimeArrgs',
+    'BrokerUserArrgs',
 ]
 
 @pulumi.input_type
-class BrokerConfigurationArgs:
+calass BrokerConfigurationArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[int]] = None):
@@ -59,7 +59,7 @@ class BrokerConfigurationArgs:
 
 
 @pulumi.input_type
-class BrokerEncryptionOptionsArgs:
+calass BrokerEncryptionOptionsArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  use_aws_owned_key: Optional[pulumi.Input[bool]] = None):
@@ -98,7 +98,7 @@ class BrokerEncryptionOptionsArgs:
 
 
 @pulumi.input_type
-class BrokerInstanceArgs:
+calass BrokerInstanceArrgs:
     def __init__(__self__, *,
                  console_url: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -139,7 +139,7 @@ class BrokerInstanceArgs:
 
 
 @pulumi.input_type
-class BrokerLdapServerMetadataArgs:
+calass BrokerLdapServerMetadataArrgs:
     def __init__(__self__, *,
                  hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_base: Optional[pulumi.Input[str]] = None,
@@ -322,7 +322,7 @@ class BrokerLdapServerMetadataArgs:
 
 
 @pulumi.input_type
-class BrokerLogsArgs:
+calass BrokerLogsArrgs:
     def __init__(__self__, *,
                  audit: Optional[pulumi.Input[bool]] = None,
                  general: Optional[pulumi.Input[bool]] = None):
@@ -361,7 +361,7 @@ class BrokerLogsArgs:
 
 
 @pulumi.input_type
-class BrokerMaintenanceWindowStartTimeArgs:
+calass BrokerMaintenanceWindowStartTimeArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  time_of_day: pulumi.Input[str],
@@ -413,7 +413,7 @@ class BrokerMaintenanceWindowStartTimeArgs:
 
 
 @pulumi.input_type
-class BrokerUserArgs:
+calass BrokerUserArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
