@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
@@ -115,12 +114,6 @@ func (o GetImageRecipesResultOutput) ToGetImageRecipesResultOutput() GetImageRec
 
 func (o GetImageRecipesResultOutput) ToGetImageRecipesResultOutputWithContext(ctx context.Context) GetImageRecipesResultOutput {
 	return o
-}
-
-func (o GetImageRecipesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipesResult] {
-	return pulumix.Output[GetImageRecipesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARNs of the matched Image Builder Image Recipes.

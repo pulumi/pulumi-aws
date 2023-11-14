@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Usage Plan.
@@ -308,12 +307,6 @@ func (i *UsagePlan) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanO
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanOutput)
 }
 
-func (i *UsagePlan) ToOutput(ctx context.Context) pulumix.Output[*UsagePlan] {
-	return pulumix.Output[*UsagePlan]{
-		OutputState: i.ToUsagePlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UsagePlanArrayInput is an input type that accepts UsagePlanArray and UsagePlanArrayOutput values.
 // You can construct a concrete instance of `UsagePlanArrayInput` via:
 //
@@ -337,12 +330,6 @@ func (i UsagePlanArray) ToUsagePlanArrayOutput() UsagePlanArrayOutput {
 
 func (i UsagePlanArray) ToUsagePlanArrayOutputWithContext(ctx context.Context) UsagePlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanArrayOutput)
-}
-
-func (i UsagePlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*UsagePlan] {
-	return pulumix.Output[[]*UsagePlan]{
-		OutputState: i.ToUsagePlanArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UsagePlanMapInput is an input type that accepts UsagePlanMap and UsagePlanMapOutput values.
@@ -370,12 +357,6 @@ func (i UsagePlanMap) ToUsagePlanMapOutputWithContext(ctx context.Context) Usage
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanMapOutput)
 }
 
-func (i UsagePlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsagePlan] {
-	return pulumix.Output[map[string]*UsagePlan]{
-		OutputState: i.ToUsagePlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UsagePlanOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanOutput) ElementType() reflect.Type {
@@ -388,12 +369,6 @@ func (o UsagePlanOutput) ToUsagePlanOutput() UsagePlanOutput {
 
 func (o UsagePlanOutput) ToUsagePlanOutputWithContext(ctx context.Context) UsagePlanOutput {
 	return o
-}
-
-func (o UsagePlanOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlan] {
-	return pulumix.Output[*UsagePlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Associated API stages of the usage plan.
@@ -457,12 +432,6 @@ func (o UsagePlanArrayOutput) ToUsagePlanArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UsagePlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UsagePlan] {
-	return pulumix.Output[[]*UsagePlan]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UsagePlanArrayOutput) Index(i pulumi.IntInput) UsagePlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UsagePlan {
 		return vs[0].([]*UsagePlan)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o UsagePlanMapOutput) ToUsagePlanMapOutput() UsagePlanMapOutput {
 
 func (o UsagePlanMapOutput) ToUsagePlanMapOutputWithContext(ctx context.Context) UsagePlanMapOutput {
 	return o
-}
-
-func (o UsagePlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsagePlan] {
-	return pulumix.Output[map[string]*UsagePlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UsagePlanMapOutput) MapIndex(k pulumi.StringInput) UsagePlanOutput {

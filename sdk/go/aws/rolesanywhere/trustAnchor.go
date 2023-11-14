@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a Roles Anywhere Trust Anchor.
@@ -239,12 +238,6 @@ func (i *TrustAnchor) ToTrustAnchorOutputWithContext(ctx context.Context) TrustA
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorOutput)
 }
 
-func (i *TrustAnchor) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchor] {
-	return pulumix.Output[*TrustAnchor]{
-		OutputState: i.ToTrustAnchorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrustAnchorArrayInput is an input type that accepts TrustAnchorArray and TrustAnchorArrayOutput values.
 // You can construct a concrete instance of `TrustAnchorArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i TrustAnchorArray) ToTrustAnchorArrayOutput() TrustAnchorArrayOutput {
 
 func (i TrustAnchorArray) ToTrustAnchorArrayOutputWithContext(ctx context.Context) TrustAnchorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorArrayOutput)
-}
-
-func (i TrustAnchorArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrustAnchor] {
-	return pulumix.Output[[]*TrustAnchor]{
-		OutputState: i.ToTrustAnchorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrustAnchorMapInput is an input type that accepts TrustAnchorMap and TrustAnchorMapOutput values.
@@ -301,12 +288,6 @@ func (i TrustAnchorMap) ToTrustAnchorMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorMapOutput)
 }
 
-func (i TrustAnchorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrustAnchor] {
-	return pulumix.Output[map[string]*TrustAnchor]{
-		OutputState: i.ToTrustAnchorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustAnchorOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o TrustAnchorOutput) ToTrustAnchorOutput() TrustAnchorOutput {
 
 func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) TrustAnchorOutput {
 	return o
-}
-
-func (o TrustAnchorOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchor] {
-	return pulumix.Output[*TrustAnchor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the Trust Anchor
@@ -373,12 +348,6 @@ func (o TrustAnchorArrayOutput) ToTrustAnchorArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o TrustAnchorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrustAnchor] {
-	return pulumix.Output[[]*TrustAnchor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustAnchorArrayOutput) Index(i pulumi.IntInput) TrustAnchorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrustAnchor {
 		return vs[0].([]*TrustAnchor)[vs[1].(int)]
@@ -397,12 +366,6 @@ func (o TrustAnchorMapOutput) ToTrustAnchorMapOutput() TrustAnchorMapOutput {
 
 func (o TrustAnchorMapOutput) ToTrustAnchorMapOutputWithContext(ctx context.Context) TrustAnchorMapOutput {
 	return o
-}
-
-func (o TrustAnchorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrustAnchor] {
-	return pulumix.Output[map[string]*TrustAnchor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorMapOutput) MapIndex(k pulumi.StringInput) TrustAnchorOutput {

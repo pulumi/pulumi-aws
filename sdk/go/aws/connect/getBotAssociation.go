@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
@@ -107,12 +106,6 @@ func (o LookupBotAssociationResultOutput) ToLookupBotAssociationResultOutput() L
 
 func (o LookupBotAssociationResultOutput) ToLookupBotAssociationResultOutputWithContext(ctx context.Context) LookupBotAssociationResultOutput {
 	return o
-}
-
-func (o LookupBotAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotAssociationResult] {
-	return pulumix.Output[LookupBotAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

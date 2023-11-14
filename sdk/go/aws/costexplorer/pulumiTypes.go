@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberOutput)
 }
 
-func (i AnomalySubscriptionSubscriberArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriber] {
-	return pulumix.Output[AnomalySubscriptionSubscriber]{
-		OutputState: i.ToAnomalySubscriptionSubscriberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionSubscriberArrayInput is an input type that accepts AnomalySubscriptionSubscriberArray and AnomalySubscriptionSubscriberArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AnomalySubscriptionSubscriberArray) ToAnomalySubscriptionSubscriberArray
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberArrayOutput)
 }
 
-func (i AnomalySubscriptionSubscriberArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionSubscriber] {
-	return pulumix.Output[[]AnomalySubscriptionSubscriber]{
-		OutputState: i.ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionSubscriberOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionSubscriberOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutp
 
 func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberOutput {
 	return o
-}
-
-func (o AnomalySubscriptionSubscriberOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriber] {
-	return pulumix.Output[AnomalySubscriptionSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
@@ -130,12 +111,6 @@ func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscribe
 
 func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberArrayOutput {
 	return o
-}
-
-func (o AnomalySubscriptionSubscriberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionSubscriber] {
-	return pulumix.Output[[]AnomalySubscriptionSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionSubscriberOutput {
@@ -197,12 +172,6 @@ func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresho
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpression] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpression]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionArgs) ToAnomalySubscriptionThresholdExpressionPtrOutput() AnomalySubscriptionThresholdExpressionPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(context.Background())
 }
@@ -244,12 +213,6 @@ func (i *anomalySubscriptionThresholdExpressionPtrType) ToAnomalySubscriptionThr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpression] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpression]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionOutput) ElementType() reflect.Type {
@@ -272,12 +235,6 @@ func (o AnomalySubscriptionThresholdExpressionOutput) ToAnomalySubscriptionThres
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpression) *AnomalySubscriptionThresholdExpression {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpression] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpression]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Return results that match both Dimension objects.
@@ -334,12 +291,6 @@ func (o AnomalySubscriptionThresholdExpressionPtrOutput) ToAnomalySubscriptionTh
 
 func (o AnomalySubscriptionThresholdExpressionPtrOutput) ToAnomalySubscriptionThresholdExpressionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpression] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOutput {
@@ -453,12 +404,6 @@ func (i AnomalySubscriptionThresholdExpressionAndArgs) ToAnomalySubscriptionThre
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionAndArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAnd] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAnd]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionThresholdExpressionAndArrayInput is an input type that accepts AnomalySubscriptionThresholdExpressionAndArray and AnomalySubscriptionThresholdExpressionAndArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionAndArrayInput` via:
 //
@@ -484,12 +429,6 @@ func (i AnomalySubscriptionThresholdExpressionAndArray) ToAnomalySubscriptionThr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndArrayOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionAndArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionThresholdExpressionAnd] {
-	return pulumix.Output[[]AnomalySubscriptionThresholdExpressionAnd]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionAndOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionAndOutput) ElementType() reflect.Type {
@@ -502,12 +441,6 @@ func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionTh
 
 func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionThresholdExpressionAndOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAnd] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on  values. See Cost Category below.
@@ -543,12 +476,6 @@ func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) ToAnomalySubscript
 
 func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) ToAnomalySubscriptionThresholdExpressionAndArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndArrayOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionThresholdExpressionAnd] {
-	return pulumix.Output[[]AnomalySubscriptionThresholdExpressionAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionAndArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionThresholdExpressionAndOutput {
@@ -598,12 +525,6 @@ func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubs
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndCostCategoryOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionAndCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -645,12 +566,6 @@ func (i *anomalySubscriptionThresholdExpressionAndCostCategoryPtrType) ToAnomaly
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionAndCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionAndCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ElementType() reflect.Type {
@@ -673,12 +588,6 @@ func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToAnomalySu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndCostCategory) *AnomalySubscriptionThresholdExpressionAndCostCategory {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -708,12 +617,6 @@ func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ToAnomal
 
 func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndCostCategoryOutput {
@@ -797,12 +700,6 @@ func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscri
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndDimensionOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionAndDimensionArgs) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutput() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(context.Background())
 }
@@ -844,12 +741,6 @@ func (i *anomalySubscriptionThresholdExpressionAndDimensionPtrType) ToAnomalySub
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionAndDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionAndDimensionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionAndDimensionOutput) ElementType() reflect.Type {
@@ -872,12 +763,6 @@ func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToAnomalySubsc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndDimension) *AnomalySubscriptionThresholdExpressionAndDimension {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -907,12 +792,6 @@ func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ToAnomalySu
 
 func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionAndDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndDimensionOutput {
@@ -996,12 +875,6 @@ func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscription
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndTagsOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionAndTagsArgs) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutput() AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(context.Background())
 }
@@ -1043,12 +916,6 @@ func (i *anomalySubscriptionThresholdExpressionAndTagsPtrType) ToAnomalySubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionAndTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionAndTagsOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionAndTagsOutput) ElementType() reflect.Type {
@@ -1071,12 +938,6 @@ func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToAnomalySubscripti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionAndTags) *AnomalySubscriptionThresholdExpressionAndTags {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionAndTagsPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionAndTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -1106,12 +967,6 @@ func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ToAnomalySubscri
 
 func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionAndTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionAndTagsPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionAndTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionAndTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionAndTagsOutput {
@@ -1195,12 +1050,6 @@ func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscri
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionCostCategoryOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -1242,12 +1091,6 @@ func (i *anomalySubscriptionThresholdExpressionCostCategoryPtrType) ToAnomalySub
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionCostCategoryOutput) ElementType() reflect.Type {
@@ -1270,12 +1113,6 @@ func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToAnomalySubsc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionCostCategory) *AnomalySubscriptionThresholdExpressionCostCategory {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -1305,12 +1142,6 @@ func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ToAnomalySu
 
 func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionCostCategoryOutput {
@@ -1394,12 +1225,6 @@ func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionDimensionOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionDimensionArgs) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutput() AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(context.Background())
 }
@@ -1441,12 +1266,6 @@ func (i *anomalySubscriptionThresholdExpressionDimensionPtrType) ToAnomalySubscr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionDimensionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionDimensionOutput) ElementType() reflect.Type {
@@ -1469,12 +1288,6 @@ func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToAnomalySubscrip
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionDimension) *AnomalySubscriptionThresholdExpressionDimension {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionDimensionPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -1504,12 +1317,6 @@ func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ToAnomalySubsc
 
 func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionDimensionPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionDimensionOutput {
@@ -1593,12 +1400,6 @@ func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThre
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionNotArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNot] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNot]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionNotArgs) ToAnomalySubscriptionThresholdExpressionNotPtrOutput() AnomalySubscriptionThresholdExpressionNotPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(context.Background())
 }
@@ -1640,12 +1441,6 @@ func (i *anomalySubscriptionThresholdExpressionNotPtrType) ToAnomalySubscription
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNot] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNot]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionNotOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionNotOutput) ElementType() reflect.Type {
@@ -1668,12 +1463,6 @@ func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionTh
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNot {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNot] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on  values. See Cost Category below.
@@ -1709,12 +1498,6 @@ func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) ToAnomalySubscriptio
 
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) ToAnomalySubscriptionThresholdExpressionNotPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNot] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotOutput {
@@ -1798,12 +1581,6 @@ func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubs
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotCostCategoryOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionNotCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -1845,12 +1622,6 @@ func (i *anomalySubscriptionThresholdExpressionNotCostCategoryPtrType) ToAnomaly
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionNotCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionNotCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ElementType() reflect.Type {
@@ -1873,12 +1644,6 @@ func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToAnomalySu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotCostCategory) *AnomalySubscriptionThresholdExpressionNotCostCategory {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -1908,12 +1673,6 @@ func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ToAnomal
 
 func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotCostCategoryOutput {
@@ -1997,12 +1756,6 @@ func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscri
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotDimensionOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionNotDimensionArgs) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutput() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -2044,12 +1797,6 @@ func (i *anomalySubscriptionThresholdExpressionNotDimensionPtrType) ToAnomalySub
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionNotDimensionOutput) ElementType() reflect.Type {
@@ -2072,12 +1819,6 @@ func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToAnomalySubsc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotDimension) *AnomalySubscriptionThresholdExpressionNotDimension {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -2107,12 +1848,6 @@ func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ToAnomalySu
 
 func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionNotDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotDimensionOutput {
@@ -2196,12 +1931,6 @@ func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscription
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotTagsOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionNotTagsArgs) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutput() AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(context.Background())
 }
@@ -2243,12 +1972,6 @@ func (i *anomalySubscriptionThresholdExpressionNotTagsPtrType) ToAnomalySubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionNotTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionNotTagsOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionNotTagsOutput) ElementType() reflect.Type {
@@ -2271,12 +1994,6 @@ func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToAnomalySubscripti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionNotTags) *AnomalySubscriptionThresholdExpressionNotTags {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionNotTagsPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionNotTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -2306,12 +2023,6 @@ func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ToAnomalySubscri
 
 func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionNotTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionNotTagsPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionNotTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionNotTagsOutput {
@@ -2395,12 +2106,6 @@ func (i AnomalySubscriptionThresholdExpressionOrArgs) ToAnomalySubscriptionThres
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionOrArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOr] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOr]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionThresholdExpressionOrArrayInput is an input type that accepts AnomalySubscriptionThresholdExpressionOrArray and AnomalySubscriptionThresholdExpressionOrArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionThresholdExpressionOrArrayInput` via:
 //
@@ -2426,12 +2131,6 @@ func (i AnomalySubscriptionThresholdExpressionOrArray) ToAnomalySubscriptionThre
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrArrayOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionOrArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionThresholdExpressionOr] {
-	return pulumix.Output[[]AnomalySubscriptionThresholdExpressionOr]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionOrOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionOrOutput) ElementType() reflect.Type {
@@ -2444,12 +2143,6 @@ func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThr
 
 func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThresholdExpressionOrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOr] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on  values. See Cost Category below.
@@ -2485,12 +2178,6 @@ func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) ToAnomalySubscripti
 
 func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) ToAnomalySubscriptionThresholdExpressionOrArrayOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrArrayOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionThresholdExpressionOr] {
-	return pulumix.Output[[]AnomalySubscriptionThresholdExpressionOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionOrArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionThresholdExpressionOrOutput {
@@ -2540,12 +2227,6 @@ func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubsc
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrCostCategoryOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionOrCostCategoryArgs) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -2587,12 +2268,6 @@ func (i *anomalySubscriptionThresholdExpressionOrCostCategoryPtrType) ToAnomalyS
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionOrCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrCostCategory]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionOrCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ElementType() reflect.Type {
@@ -2615,12 +2290,6 @@ func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToAnomalySub
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrCostCategory) *AnomalySubscriptionThresholdExpressionOrCostCategory {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrCostCategory] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -2650,12 +2319,6 @@ func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ToAnomaly
 
 func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ToAnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrCostCategory] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrCostCategoryOutput {
@@ -2739,12 +2402,6 @@ func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrDimensionOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionOrDimensionArgs) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutput() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(context.Background())
 }
@@ -2786,12 +2443,6 @@ func (i *anomalySubscriptionThresholdExpressionOrDimensionPtrType) ToAnomalySubs
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionOrDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrDimension]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionOrDimensionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionOrDimensionOutput) ElementType() reflect.Type {
@@ -2814,12 +2465,6 @@ func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToAnomalySubscr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrDimension) *AnomalySubscriptionThresholdExpressionOrDimension {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrDimension] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -2849,12 +2494,6 @@ func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ToAnomalySub
 
 func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ToAnomalySubscriptionThresholdExpressionOrDimensionPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrDimension] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrDimensionOutput {
@@ -2938,12 +2577,6 @@ func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionT
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrTagsOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionOrTagsArgs) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutput() AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(context.Background())
 }
@@ -2985,12 +2618,6 @@ func (i *anomalySubscriptionThresholdExpressionOrTagsPtrType) ToAnomalySubscript
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionOrTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionOrTagsOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionOrTagsOutput) ElementType() reflect.Type {
@@ -3013,12 +2640,6 @@ func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToAnomalySubscriptio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionOrTags) *AnomalySubscriptionThresholdExpressionOrTags {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionOrTagsPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionOrTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -3048,12 +2669,6 @@ func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ToAnomalySubscrip
 
 func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionOrTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionOrTagsPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionOrTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionOrTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionOrTagsOutput {
@@ -3137,12 +2752,6 @@ func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionTagsOutput)
 }
 
-func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalySubscriptionThresholdExpressionTagsArgs) ToAnomalySubscriptionThresholdExpressionTagsPtrOutput() AnomalySubscriptionThresholdExpressionTagsPtrOutput {
 	return i.ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(context.Background())
 }
@@ -3184,12 +2793,6 @@ func (i *anomalySubscriptionThresholdExpressionTagsPtrType) ToAnomalySubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
 }
 
-func (i *anomalySubscriptionThresholdExpressionTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionTags]{
-		OutputState: i.ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionThresholdExpressionTagsOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionThresholdExpressionTagsOutput) ElementType() reflect.Type {
@@ -3212,12 +2815,6 @@ func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToAnomalySubscriptionT
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalySubscriptionThresholdExpressionTags) *AnomalySubscriptionThresholdExpressionTags {
 		return &v
 	}).(AnomalySubscriptionThresholdExpressionTagsPtrOutput)
-}
-
-func (o AnomalySubscriptionThresholdExpressionTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionThresholdExpressionTags] {
-	return pulumix.Output[AnomalySubscriptionThresholdExpressionTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -3247,12 +2844,6 @@ func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) ToAnomalySubscripti
 
 func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) ToAnomalySubscriptionThresholdExpressionTagsPtrOutputWithContext(ctx context.Context) AnomalySubscriptionThresholdExpressionTagsPtrOutput {
 	return o
-}
-
-func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscriptionThresholdExpressionTags] {
-	return pulumix.Output[*AnomalySubscriptionThresholdExpressionTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionThresholdExpressionTagsPtrOutput) Elem() AnomalySubscriptionThresholdExpressionTagsOutput {
@@ -3340,12 +2931,6 @@ func (i CostCategoryRuleArgs) ToCostCategoryRuleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleOutput)
 }
 
-func (i CostCategoryRuleArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRule] {
-	return pulumix.Output[CostCategoryRule]{
-		OutputState: i.ToCostCategoryRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CostCategoryRuleArrayInput is an input type that accepts CostCategoryRuleArray and CostCategoryRuleArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleArrayInput` via:
 //
@@ -3371,12 +2956,6 @@ func (i CostCategoryRuleArray) ToCostCategoryRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleArrayOutput)
 }
 
-func (i CostCategoryRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRule] {
-	return pulumix.Output[[]CostCategoryRule]{
-		OutputState: i.ToCostCategoryRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleOutput) ElementType() reflect.Type {
@@ -3389,12 +2968,6 @@ func (o CostCategoryRuleOutput) ToCostCategoryRuleOutput() CostCategoryRuleOutpu
 
 func (o CostCategoryRuleOutput) ToCostCategoryRuleOutputWithContext(ctx context.Context) CostCategoryRuleOutput {
 	return o
-}
-
-func (o CostCategoryRuleOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRule] {
-	return pulumix.Output[CostCategoryRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
@@ -3429,12 +3002,6 @@ func (o CostCategoryRuleArrayOutput) ToCostCategoryRuleArrayOutput() CostCategor
 
 func (o CostCategoryRuleArrayOutput) ToCostCategoryRuleArrayOutputWithContext(ctx context.Context) CostCategoryRuleArrayOutput {
 	return o
-}
-
-func (o CostCategoryRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRule] {
-	return pulumix.Output[[]CostCategoryRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleOutput {
@@ -3480,12 +3047,6 @@ func (i CostCategoryRuleInheritedValueArgs) ToCostCategoryRuleInheritedValueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleInheritedValueOutput)
 }
 
-func (i CostCategoryRuleInheritedValueArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleInheritedValue] {
-	return pulumix.Output[CostCategoryRuleInheritedValue]{
-		OutputState: i.ToCostCategoryRuleInheritedValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleInheritedValueArgs) ToCostCategoryRuleInheritedValuePtrOutput() CostCategoryRuleInheritedValuePtrOutput {
 	return i.ToCostCategoryRuleInheritedValuePtrOutputWithContext(context.Background())
 }
@@ -3527,12 +3088,6 @@ func (i *costCategoryRuleInheritedValuePtrType) ToCostCategoryRuleInheritedValue
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleInheritedValuePtrOutput)
 }
 
-func (i *costCategoryRuleInheritedValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleInheritedValue] {
-	return pulumix.Output[*CostCategoryRuleInheritedValue]{
-		OutputState: i.ToCostCategoryRuleInheritedValuePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleInheritedValueOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleInheritedValueOutput) ElementType() reflect.Type {
@@ -3557,12 +3112,6 @@ func (o CostCategoryRuleInheritedValueOutput) ToCostCategoryRuleInheritedValuePt
 	}).(CostCategoryRuleInheritedValuePtrOutput)
 }
 
-func (o CostCategoryRuleInheritedValueOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleInheritedValue] {
-	return pulumix.Output[CostCategoryRuleInheritedValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Key to extract cost category values.
 func (o CostCategoryRuleInheritedValueOutput) DimensionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleInheritedValue) *string { return v.DimensionKey }).(pulumi.StringPtrOutput)
@@ -3585,12 +3134,6 @@ func (o CostCategoryRuleInheritedValuePtrOutput) ToCostCategoryRuleInheritedValu
 
 func (o CostCategoryRuleInheritedValuePtrOutput) ToCostCategoryRuleInheritedValuePtrOutputWithContext(ctx context.Context) CostCategoryRuleInheritedValuePtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleInheritedValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleInheritedValue] {
-	return pulumix.Output[*CostCategoryRuleInheritedValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleInheritedValuePtrOutput) Elem() CostCategoryRuleInheritedValueOutput {
@@ -3676,12 +3219,6 @@ func (i CostCategoryRuleRuleArgs) ToCostCategoryRuleRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOutput)
 }
 
-func (i CostCategoryRuleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRule] {
-	return pulumix.Output[CostCategoryRuleRule]{
-		OutputState: i.ToCostCategoryRuleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleArgs) ToCostCategoryRuleRulePtrOutput() CostCategoryRuleRulePtrOutput {
 	return i.ToCostCategoryRuleRulePtrOutputWithContext(context.Background())
 }
@@ -3723,12 +3260,6 @@ func (i *costCategoryRuleRulePtrType) ToCostCategoryRuleRulePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRulePtrOutput)
 }
 
-func (i *costCategoryRuleRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRule] {
-	return pulumix.Output[*CostCategoryRuleRule]{
-		OutputState: i.ToCostCategoryRuleRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleOutput) ElementType() reflect.Type {
@@ -3751,12 +3282,6 @@ func (o CostCategoryRuleRuleOutput) ToCostCategoryRuleRulePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRule) *CostCategoryRuleRule {
 		return &v
 	}).(CostCategoryRuleRulePtrOutput)
-}
-
-func (o CostCategoryRuleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRule] {
-	return pulumix.Output[CostCategoryRuleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Return results that match both `Dimension` objects.
@@ -3801,12 +3326,6 @@ func (o CostCategoryRuleRulePtrOutput) ToCostCategoryRuleRulePtrOutput() CostCat
 
 func (o CostCategoryRuleRulePtrOutput) ToCostCategoryRuleRulePtrOutputWithContext(ctx context.Context) CostCategoryRuleRulePtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRule] {
-	return pulumix.Output[*CostCategoryRuleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRulePtrOutput) Elem() CostCategoryRuleRuleOutput {
@@ -3920,12 +3439,6 @@ func (i CostCategoryRuleRuleAndArgs) ToCostCategoryRuleRuleAndOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndOutput)
 }
 
-func (i CostCategoryRuleRuleAndArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAnd] {
-	return pulumix.Output[CostCategoryRuleRuleAnd]{
-		OutputState: i.ToCostCategoryRuleRuleAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CostCategoryRuleRuleAndArrayInput is an input type that accepts CostCategoryRuleRuleAndArray and CostCategoryRuleRuleAndArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleAndArrayInput` via:
 //
@@ -3951,12 +3464,6 @@ func (i CostCategoryRuleRuleAndArray) ToCostCategoryRuleRuleAndArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndArrayOutput)
 }
 
-func (i CostCategoryRuleRuleAndArray) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRuleRuleAnd] {
-	return pulumix.Output[[]CostCategoryRuleRuleAnd]{
-		OutputState: i.ToCostCategoryRuleRuleAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleAndOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleAndOutput) ElementType() reflect.Type {
@@ -3969,12 +3476,6 @@ func (o CostCategoryRuleRuleAndOutput) ToCostCategoryRuleRuleAndOutput() CostCat
 
 func (o CostCategoryRuleRuleAndOutput) ToCostCategoryRuleRuleAndOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleAndOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAnd] {
-	return pulumix.Output[CostCategoryRuleRuleAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -4004,12 +3505,6 @@ func (o CostCategoryRuleRuleAndArrayOutput) ToCostCategoryRuleRuleAndArrayOutput
 
 func (o CostCategoryRuleRuleAndArrayOutput) ToCostCategoryRuleRuleAndArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndArrayOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRuleRuleAnd] {
-	return pulumix.Output[[]CostCategoryRuleRuleAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleAndOutput {
@@ -4059,12 +3554,6 @@ func (i CostCategoryRuleRuleAndCostCategoryArgs) ToCostCategoryRuleRuleAndCostCa
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndCostCategoryOutput)
 }
 
-func (i CostCategoryRuleRuleAndCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleAndCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleAndCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleAndCostCategoryArgs) ToCostCategoryRuleRuleAndCostCategoryPtrOutput() CostCategoryRuleRuleAndCostCategoryPtrOutput {
 	return i.ToCostCategoryRuleRuleAndCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -4106,12 +3595,6 @@ func (i *costCategoryRuleRuleAndCostCategoryPtrType) ToCostCategoryRuleRuleAndCo
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndCostCategoryPtrOutput)
 }
 
-func (i *costCategoryRuleRuleAndCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleAndCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleAndCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleAndCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleAndCostCategoryOutput) ElementType() reflect.Type {
@@ -4134,12 +3617,6 @@ func (o CostCategoryRuleRuleAndCostCategoryOutput) ToCostCategoryRuleRuleAndCost
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndCostCategory) *CostCategoryRuleRuleAndCostCategory {
 		return &v
 	}).(CostCategoryRuleRuleAndCostCategoryPtrOutput)
-}
-
-func (o CostCategoryRuleRuleAndCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -4169,12 +3646,6 @@ func (o CostCategoryRuleRuleAndCostCategoryPtrOutput) ToCostCategoryRuleRuleAndC
 
 func (o CostCategoryRuleRuleAndCostCategoryPtrOutput) ToCostCategoryRuleRuleAndCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndCostCategoryPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleAndCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleAndCostCategoryPtrOutput) Elem() CostCategoryRuleRuleAndCostCategoryOutput {
@@ -4258,12 +3729,6 @@ func (i CostCategoryRuleRuleAndDimensionArgs) ToCostCategoryRuleRuleAndDimension
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndDimensionOutput)
 }
 
-func (i CostCategoryRuleRuleAndDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[CostCategoryRuleRuleAndDimension]{
-		OutputState: i.ToCostCategoryRuleRuleAndDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleAndDimensionArgs) ToCostCategoryRuleRuleAndDimensionPtrOutput() CostCategoryRuleRuleAndDimensionPtrOutput {
 	return i.ToCostCategoryRuleRuleAndDimensionPtrOutputWithContext(context.Background())
 }
@@ -4305,12 +3770,6 @@ func (i *costCategoryRuleRuleAndDimensionPtrType) ToCostCategoryRuleRuleAndDimen
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
 
-func (i *costCategoryRuleRuleAndDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleAndDimension]{
-		OutputState: i.ToCostCategoryRuleRuleAndDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleAndDimensionOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleAndDimensionOutput) ElementType() reflect.Type {
@@ -4333,12 +3792,6 @@ func (o CostCategoryRuleRuleAndDimensionOutput) ToCostCategoryRuleRuleAndDimensi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndDimension) *CostCategoryRuleRuleAndDimension {
 		return &v
 	}).(CostCategoryRuleRuleAndDimensionPtrOutput)
-}
-
-func (o CostCategoryRuleRuleAndDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[CostCategoryRuleRuleAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -4368,12 +3821,6 @@ func (o CostCategoryRuleRuleAndDimensionPtrOutput) ToCostCategoryRuleRuleAndDime
 
 func (o CostCategoryRuleRuleAndDimensionPtrOutput) ToCostCategoryRuleRuleAndDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndDimensionPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleAndDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleAndDimensionPtrOutput) Elem() CostCategoryRuleRuleAndDimensionOutput {
@@ -4457,12 +3904,6 @@ func (i CostCategoryRuleRuleAndTagsArgs) ToCostCategoryRuleRuleAndTagsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndTagsOutput)
 }
 
-func (i CostCategoryRuleRuleAndTagsArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndTags] {
-	return pulumix.Output[CostCategoryRuleRuleAndTags]{
-		OutputState: i.ToCostCategoryRuleRuleAndTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleAndTagsArgs) ToCostCategoryRuleRuleAndTagsPtrOutput() CostCategoryRuleRuleAndTagsPtrOutput {
 	return i.ToCostCategoryRuleRuleAndTagsPtrOutputWithContext(context.Background())
 }
@@ -4504,12 +3945,6 @@ func (i *costCategoryRuleRuleAndTagsPtrType) ToCostCategoryRuleRuleAndTagsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleAndTagsPtrOutput)
 }
 
-func (i *costCategoryRuleRuleAndTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndTags] {
-	return pulumix.Output[*CostCategoryRuleRuleAndTags]{
-		OutputState: i.ToCostCategoryRuleRuleAndTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleAndTagsOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleAndTagsOutput) ElementType() reflect.Type {
@@ -4532,12 +3967,6 @@ func (o CostCategoryRuleRuleAndTagsOutput) ToCostCategoryRuleRuleAndTagsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleAndTags) *CostCategoryRuleRuleAndTags {
 		return &v
 	}).(CostCategoryRuleRuleAndTagsPtrOutput)
-}
-
-func (o CostCategoryRuleRuleAndTagsOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleAndTags] {
-	return pulumix.Output[CostCategoryRuleRuleAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -4567,12 +3996,6 @@ func (o CostCategoryRuleRuleAndTagsPtrOutput) ToCostCategoryRuleRuleAndTagsPtrOu
 
 func (o CostCategoryRuleRuleAndTagsPtrOutput) ToCostCategoryRuleRuleAndTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleAndTagsPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleAndTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleAndTags] {
-	return pulumix.Output[*CostCategoryRuleRuleAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleAndTagsPtrOutput) Elem() CostCategoryRuleRuleAndTagsOutput {
@@ -4656,12 +4079,6 @@ func (i CostCategoryRuleRuleCostCategoryArgs) ToCostCategoryRuleRuleCostCategory
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleCostCategoryOutput)
 }
 
-func (i CostCategoryRuleRuleCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleCostCategoryArgs) ToCostCategoryRuleRuleCostCategoryPtrOutput() CostCategoryRuleRuleCostCategoryPtrOutput {
 	return i.ToCostCategoryRuleRuleCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -4703,12 +4120,6 @@ func (i *costCategoryRuleRuleCostCategoryPtrType) ToCostCategoryRuleRuleCostCate
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleCostCategoryPtrOutput)
 }
 
-func (i *costCategoryRuleRuleCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleCostCategoryOutput) ElementType() reflect.Type {
@@ -4731,12 +4142,6 @@ func (o CostCategoryRuleRuleCostCategoryOutput) ToCostCategoryRuleRuleCostCatego
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleCostCategory) *CostCategoryRuleRuleCostCategory {
 		return &v
 	}).(CostCategoryRuleRuleCostCategoryPtrOutput)
-}
-
-func (o CostCategoryRuleRuleCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -4766,12 +4171,6 @@ func (o CostCategoryRuleRuleCostCategoryPtrOutput) ToCostCategoryRuleRuleCostCat
 
 func (o CostCategoryRuleRuleCostCategoryPtrOutput) ToCostCategoryRuleRuleCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleCostCategoryPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleCostCategoryPtrOutput) Elem() CostCategoryRuleRuleCostCategoryOutput {
@@ -4855,12 +4254,6 @@ func (i CostCategoryRuleRuleDimensionArgs) ToCostCategoryRuleRuleDimensionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleDimensionOutput)
 }
 
-func (i CostCategoryRuleRuleDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleDimension] {
-	return pulumix.Output[CostCategoryRuleRuleDimension]{
-		OutputState: i.ToCostCategoryRuleRuleDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleDimensionArgs) ToCostCategoryRuleRuleDimensionPtrOutput() CostCategoryRuleRuleDimensionPtrOutput {
 	return i.ToCostCategoryRuleRuleDimensionPtrOutputWithContext(context.Background())
 }
@@ -4902,12 +4295,6 @@ func (i *costCategoryRuleRuleDimensionPtrType) ToCostCategoryRuleRuleDimensionPt
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleDimensionPtrOutput)
 }
 
-func (i *costCategoryRuleRuleDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleDimension]{
-		OutputState: i.ToCostCategoryRuleRuleDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleDimensionOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleDimensionOutput) ElementType() reflect.Type {
@@ -4930,12 +4317,6 @@ func (o CostCategoryRuleRuleDimensionOutput) ToCostCategoryRuleRuleDimensionPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleDimension) *CostCategoryRuleRuleDimension {
 		return &v
 	}).(CostCategoryRuleRuleDimensionPtrOutput)
-}
-
-func (o CostCategoryRuleRuleDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleDimension] {
-	return pulumix.Output[CostCategoryRuleRuleDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -4965,12 +4346,6 @@ func (o CostCategoryRuleRuleDimensionPtrOutput) ToCostCategoryRuleRuleDimensionP
 
 func (o CostCategoryRuleRuleDimensionPtrOutput) ToCostCategoryRuleRuleDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleDimensionPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleDimensionPtrOutput) Elem() CostCategoryRuleRuleDimensionOutput {
@@ -5054,12 +4429,6 @@ func (i CostCategoryRuleRuleNotArgs) ToCostCategoryRuleRuleNotOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotOutput)
 }
 
-func (i CostCategoryRuleRuleNotArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNot] {
-	return pulumix.Output[CostCategoryRuleRuleNot]{
-		OutputState: i.ToCostCategoryRuleRuleNotOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleNotArgs) ToCostCategoryRuleRuleNotPtrOutput() CostCategoryRuleRuleNotPtrOutput {
 	return i.ToCostCategoryRuleRuleNotPtrOutputWithContext(context.Background())
 }
@@ -5101,12 +4470,6 @@ func (i *costCategoryRuleRuleNotPtrType) ToCostCategoryRuleRuleNotPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotPtrOutput)
 }
 
-func (i *costCategoryRuleRuleNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNot] {
-	return pulumix.Output[*CostCategoryRuleRuleNot]{
-		OutputState: i.ToCostCategoryRuleRuleNotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleNotOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleNotOutput) ElementType() reflect.Type {
@@ -5129,12 +4492,6 @@ func (o CostCategoryRuleRuleNotOutput) ToCostCategoryRuleRuleNotPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNot {
 		return &v
 	}).(CostCategoryRuleRuleNotPtrOutput)
-}
-
-func (o CostCategoryRuleRuleNotOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNot] {
-	return pulumix.Output[CostCategoryRuleRuleNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -5164,12 +4521,6 @@ func (o CostCategoryRuleRuleNotPtrOutput) ToCostCategoryRuleRuleNotPtrOutput() C
 
 func (o CostCategoryRuleRuleNotPtrOutput) ToCostCategoryRuleRuleNotPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNot] {
-	return pulumix.Output[*CostCategoryRuleRuleNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleNotPtrOutput) Elem() CostCategoryRuleRuleNotOutput {
@@ -5253,12 +4604,6 @@ func (i CostCategoryRuleRuleNotCostCategoryArgs) ToCostCategoryRuleRuleNotCostCa
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotCostCategoryOutput)
 }
 
-func (i CostCategoryRuleRuleNotCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleNotCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleNotCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleNotCostCategoryArgs) ToCostCategoryRuleRuleNotCostCategoryPtrOutput() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return i.ToCostCategoryRuleRuleNotCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -5300,12 +4645,6 @@ func (i *costCategoryRuleRuleNotCostCategoryPtrType) ToCostCategoryRuleRuleNotCo
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
-func (i *costCategoryRuleRuleNotCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleNotCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleNotCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleNotCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleNotCostCategoryOutput) ElementType() reflect.Type {
@@ -5328,12 +4667,6 @@ func (o CostCategoryRuleRuleNotCostCategoryOutput) ToCostCategoryRuleRuleNotCost
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotCostCategory) *CostCategoryRuleRuleNotCostCategory {
 		return &v
 	}).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
-}
-
-func (o CostCategoryRuleRuleNotCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -5363,12 +4696,6 @@ func (o CostCategoryRuleRuleNotCostCategoryPtrOutput) ToCostCategoryRuleRuleNotC
 
 func (o CostCategoryRuleRuleNotCostCategoryPtrOutput) ToCostCategoryRuleRuleNotCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleNotCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleNotCostCategoryPtrOutput) Elem() CostCategoryRuleRuleNotCostCategoryOutput {
@@ -5452,12 +4779,6 @@ func (i CostCategoryRuleRuleNotDimensionArgs) ToCostCategoryRuleRuleNotDimension
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotDimensionOutput)
 }
 
-func (i CostCategoryRuleRuleNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[CostCategoryRuleRuleNotDimension]{
-		OutputState: i.ToCostCategoryRuleRuleNotDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleNotDimensionArgs) ToCostCategoryRuleRuleNotDimensionPtrOutput() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return i.ToCostCategoryRuleRuleNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -5499,12 +4820,6 @@ func (i *costCategoryRuleRuleNotDimensionPtrType) ToCostCategoryRuleRuleNotDimen
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
-func (i *costCategoryRuleRuleNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleNotDimension]{
-		OutputState: i.ToCostCategoryRuleRuleNotDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleNotDimensionOutput) ElementType() reflect.Type {
@@ -5527,12 +4842,6 @@ func (o CostCategoryRuleRuleNotDimensionOutput) ToCostCategoryRuleRuleNotDimensi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotDimension) *CostCategoryRuleRuleNotDimension {
 		return &v
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
-}
-
-func (o CostCategoryRuleRuleNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[CostCategoryRuleRuleNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -5562,12 +4871,6 @@ func (o CostCategoryRuleRuleNotDimensionPtrOutput) ToCostCategoryRuleRuleNotDime
 
 func (o CostCategoryRuleRuleNotDimensionPtrOutput) ToCostCategoryRuleRuleNotDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleNotDimensionPtrOutput) Elem() CostCategoryRuleRuleNotDimensionOutput {
@@ -5651,12 +4954,6 @@ func (i CostCategoryRuleRuleNotTagsArgs) ToCostCategoryRuleRuleNotTagsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotTagsOutput)
 }
 
-func (i CostCategoryRuleRuleNotTagsArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotTags] {
-	return pulumix.Output[CostCategoryRuleRuleNotTags]{
-		OutputState: i.ToCostCategoryRuleRuleNotTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleNotTagsArgs) ToCostCategoryRuleRuleNotTagsPtrOutput() CostCategoryRuleRuleNotTagsPtrOutput {
 	return i.ToCostCategoryRuleRuleNotTagsPtrOutputWithContext(context.Background())
 }
@@ -5698,12 +4995,6 @@ func (i *costCategoryRuleRuleNotTagsPtrType) ToCostCategoryRuleRuleNotTagsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleNotTagsPtrOutput)
 }
 
-func (i *costCategoryRuleRuleNotTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotTags] {
-	return pulumix.Output[*CostCategoryRuleRuleNotTags]{
-		OutputState: i.ToCostCategoryRuleRuleNotTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleNotTagsOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleNotTagsOutput) ElementType() reflect.Type {
@@ -5726,12 +5017,6 @@ func (o CostCategoryRuleRuleNotTagsOutput) ToCostCategoryRuleRuleNotTagsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleNotTags) *CostCategoryRuleRuleNotTags {
 		return &v
 	}).(CostCategoryRuleRuleNotTagsPtrOutput)
-}
-
-func (o CostCategoryRuleRuleNotTagsOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleNotTags] {
-	return pulumix.Output[CostCategoryRuleRuleNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -5761,12 +5046,6 @@ func (o CostCategoryRuleRuleNotTagsPtrOutput) ToCostCategoryRuleRuleNotTagsPtrOu
 
 func (o CostCategoryRuleRuleNotTagsPtrOutput) ToCostCategoryRuleRuleNotTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleNotTagsPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleNotTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleNotTags] {
-	return pulumix.Output[*CostCategoryRuleRuleNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleNotTagsPtrOutput) Elem() CostCategoryRuleRuleNotTagsOutput {
@@ -5850,12 +5129,6 @@ func (i CostCategoryRuleRuleOrArgs) ToCostCategoryRuleRuleOrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrOutput)
 }
 
-func (i CostCategoryRuleRuleOrArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOr] {
-	return pulumix.Output[CostCategoryRuleRuleOr]{
-		OutputState: i.ToCostCategoryRuleRuleOrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CostCategoryRuleRuleOrArrayInput is an input type that accepts CostCategoryRuleRuleOrArray and CostCategoryRuleRuleOrArrayOutput values.
 // You can construct a concrete instance of `CostCategoryRuleRuleOrArrayInput` via:
 //
@@ -5881,12 +5154,6 @@ func (i CostCategoryRuleRuleOrArray) ToCostCategoryRuleRuleOrArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrArrayOutput)
 }
 
-func (i CostCategoryRuleRuleOrArray) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRuleRuleOr] {
-	return pulumix.Output[[]CostCategoryRuleRuleOr]{
-		OutputState: i.ToCostCategoryRuleRuleOrArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleOrOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleOrOutput) ElementType() reflect.Type {
@@ -5899,12 +5166,6 @@ func (o CostCategoryRuleRuleOrOutput) ToCostCategoryRuleRuleOrOutput() CostCateg
 
 func (o CostCategoryRuleRuleOrOutput) ToCostCategoryRuleRuleOrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleOrOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOr] {
-	return pulumix.Output[CostCategoryRuleRuleOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -5934,12 +5195,6 @@ func (o CostCategoryRuleRuleOrArrayOutput) ToCostCategoryRuleRuleOrArrayOutput()
 
 func (o CostCategoryRuleRuleOrArrayOutput) ToCostCategoryRuleRuleOrArrayOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrArrayOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleOrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CostCategoryRuleRuleOr] {
-	return pulumix.Output[[]CostCategoryRuleRuleOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) CostCategoryRuleRuleOrOutput {
@@ -5989,12 +5244,6 @@ func (i CostCategoryRuleRuleOrCostCategoryArgs) ToCostCategoryRuleRuleOrCostCate
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrCostCategoryOutput)
 }
 
-func (i CostCategoryRuleRuleOrCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleOrCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleOrCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleOrCostCategoryArgs) ToCostCategoryRuleRuleOrCostCategoryPtrOutput() CostCategoryRuleRuleOrCostCategoryPtrOutput {
 	return i.ToCostCategoryRuleRuleOrCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -6036,12 +5285,6 @@ func (i *costCategoryRuleRuleOrCostCategoryPtrType) ToCostCategoryRuleRuleOrCost
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrCostCategoryPtrOutput)
 }
 
-func (i *costCategoryRuleRuleOrCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleOrCostCategory]{
-		OutputState: i.ToCostCategoryRuleRuleOrCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleOrCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleOrCostCategoryOutput) ElementType() reflect.Type {
@@ -6064,12 +5307,6 @@ func (o CostCategoryRuleRuleOrCostCategoryOutput) ToCostCategoryRuleRuleOrCostCa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrCostCategory) *CostCategoryRuleRuleOrCostCategory {
 		return &v
 	}).(CostCategoryRuleRuleOrCostCategoryPtrOutput)
-}
-
-func (o CostCategoryRuleRuleOrCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[CostCategoryRuleRuleOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -6099,12 +5336,6 @@ func (o CostCategoryRuleRuleOrCostCategoryPtrOutput) ToCostCategoryRuleRuleOrCos
 
 func (o CostCategoryRuleRuleOrCostCategoryPtrOutput) ToCostCategoryRuleRuleOrCostCategoryPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrCostCategoryPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleOrCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[*CostCategoryRuleRuleOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleOrCostCategoryPtrOutput) Elem() CostCategoryRuleRuleOrCostCategoryOutput {
@@ -6188,12 +5419,6 @@ func (i CostCategoryRuleRuleOrDimensionArgs) ToCostCategoryRuleRuleOrDimensionOu
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrDimensionOutput)
 }
 
-func (i CostCategoryRuleRuleOrDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[CostCategoryRuleRuleOrDimension]{
-		OutputState: i.ToCostCategoryRuleRuleOrDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleOrDimensionArgs) ToCostCategoryRuleRuleOrDimensionPtrOutput() CostCategoryRuleRuleOrDimensionPtrOutput {
 	return i.ToCostCategoryRuleRuleOrDimensionPtrOutputWithContext(context.Background())
 }
@@ -6235,12 +5460,6 @@ func (i *costCategoryRuleRuleOrDimensionPtrType) ToCostCategoryRuleRuleOrDimensi
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
 
-func (i *costCategoryRuleRuleOrDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleOrDimension]{
-		OutputState: i.ToCostCategoryRuleRuleOrDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleOrDimensionOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleOrDimensionOutput) ElementType() reflect.Type {
@@ -6263,12 +5482,6 @@ func (o CostCategoryRuleRuleOrDimensionOutput) ToCostCategoryRuleRuleOrDimension
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrDimension) *CostCategoryRuleRuleOrDimension {
 		return &v
 	}).(CostCategoryRuleRuleOrDimensionPtrOutput)
-}
-
-func (o CostCategoryRuleRuleOrDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[CostCategoryRuleRuleOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -6298,12 +5511,6 @@ func (o CostCategoryRuleRuleOrDimensionPtrOutput) ToCostCategoryRuleRuleOrDimens
 
 func (o CostCategoryRuleRuleOrDimensionPtrOutput) ToCostCategoryRuleRuleOrDimensionPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrDimensionPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleOrDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[*CostCategoryRuleRuleOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleOrDimensionPtrOutput) Elem() CostCategoryRuleRuleOrDimensionOutput {
@@ -6387,12 +5594,6 @@ func (i CostCategoryRuleRuleOrTagsArgs) ToCostCategoryRuleRuleOrTagsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrTagsOutput)
 }
 
-func (i CostCategoryRuleRuleOrTagsArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrTags] {
-	return pulumix.Output[CostCategoryRuleRuleOrTags]{
-		OutputState: i.ToCostCategoryRuleRuleOrTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleOrTagsArgs) ToCostCategoryRuleRuleOrTagsPtrOutput() CostCategoryRuleRuleOrTagsPtrOutput {
 	return i.ToCostCategoryRuleRuleOrTagsPtrOutputWithContext(context.Background())
 }
@@ -6434,12 +5635,6 @@ func (i *costCategoryRuleRuleOrTagsPtrType) ToCostCategoryRuleRuleOrTagsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleOrTagsPtrOutput)
 }
 
-func (i *costCategoryRuleRuleOrTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrTags] {
-	return pulumix.Output[*CostCategoryRuleRuleOrTags]{
-		OutputState: i.ToCostCategoryRuleRuleOrTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleOrTagsOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleOrTagsOutput) ElementType() reflect.Type {
@@ -6462,12 +5657,6 @@ func (o CostCategoryRuleRuleOrTagsOutput) ToCostCategoryRuleRuleOrTagsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleOrTags) *CostCategoryRuleRuleOrTags {
 		return &v
 	}).(CostCategoryRuleRuleOrTagsPtrOutput)
-}
-
-func (o CostCategoryRuleRuleOrTagsOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleOrTags] {
-	return pulumix.Output[CostCategoryRuleRuleOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -6497,12 +5686,6 @@ func (o CostCategoryRuleRuleOrTagsPtrOutput) ToCostCategoryRuleRuleOrTagsPtrOutp
 
 func (o CostCategoryRuleRuleOrTagsPtrOutput) ToCostCategoryRuleRuleOrTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleOrTagsPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleOrTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleOrTags] {
-	return pulumix.Output[*CostCategoryRuleRuleOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleOrTagsPtrOutput) Elem() CostCategoryRuleRuleOrTagsOutput {
@@ -6586,12 +5769,6 @@ func (i CostCategoryRuleRuleTagsArgs) ToCostCategoryRuleRuleTagsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleTagsOutput)
 }
 
-func (i CostCategoryRuleRuleTagsArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleTags] {
-	return pulumix.Output[CostCategoryRuleRuleTags]{
-		OutputState: i.ToCostCategoryRuleRuleTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CostCategoryRuleRuleTagsArgs) ToCostCategoryRuleRuleTagsPtrOutput() CostCategoryRuleRuleTagsPtrOutput {
 	return i.ToCostCategoryRuleRuleTagsPtrOutputWithContext(context.Background())
 }
@@ -6633,12 +5810,6 @@ func (i *costCategoryRuleRuleTagsPtrType) ToCostCategoryRuleRuleTagsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryRuleRuleTagsPtrOutput)
 }
 
-func (i *costCategoryRuleRuleTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleTags] {
-	return pulumix.Output[*CostCategoryRuleRuleTags]{
-		OutputState: i.ToCostCategoryRuleRuleTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategoryRuleRuleTagsOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryRuleRuleTagsOutput) ElementType() reflect.Type {
@@ -6661,12 +5832,6 @@ func (o CostCategoryRuleRuleTagsOutput) ToCostCategoryRuleRuleTagsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostCategoryRuleRuleTags) *CostCategoryRuleRuleTags {
 		return &v
 	}).(CostCategoryRuleRuleTagsPtrOutput)
-}
-
-func (o CostCategoryRuleRuleTagsOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategoryRuleRuleTags] {
-	return pulumix.Output[CostCategoryRuleRuleTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -6696,12 +5861,6 @@ func (o CostCategoryRuleRuleTagsPtrOutput) ToCostCategoryRuleRuleTagsPtrOutput()
 
 func (o CostCategoryRuleRuleTagsPtrOutput) ToCostCategoryRuleRuleTagsPtrOutputWithContext(ctx context.Context) CostCategoryRuleRuleTagsPtrOutput {
 	return o
-}
-
-func (o CostCategoryRuleRuleTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategoryRuleRuleTags] {
-	return pulumix.Output[*CostCategoryRuleRuleTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategoryRuleRuleTagsPtrOutput) Elem() CostCategoryRuleRuleTagsOutput {
@@ -6789,12 +5948,6 @@ func (i CostCategorySplitChargeRuleArgs) ToCostCategorySplitChargeRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategorySplitChargeRuleOutput)
 }
 
-func (i CostCategorySplitChargeRuleArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategorySplitChargeRule] {
-	return pulumix.Output[CostCategorySplitChargeRule]{
-		OutputState: i.ToCostCategorySplitChargeRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CostCategorySplitChargeRuleArrayInput is an input type that accepts CostCategorySplitChargeRuleArray and CostCategorySplitChargeRuleArrayOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleArrayInput` via:
 //
@@ -6820,12 +5973,6 @@ func (i CostCategorySplitChargeRuleArray) ToCostCategorySplitChargeRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategorySplitChargeRuleArrayOutput)
 }
 
-func (i CostCategorySplitChargeRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]CostCategorySplitChargeRule] {
-	return pulumix.Output[[]CostCategorySplitChargeRule]{
-		OutputState: i.ToCostCategorySplitChargeRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategorySplitChargeRuleOutput struct{ *pulumi.OutputState }
 
 func (CostCategorySplitChargeRuleOutput) ElementType() reflect.Type {
@@ -6838,12 +5985,6 @@ func (o CostCategorySplitChargeRuleOutput) ToCostCategorySplitChargeRuleOutput()
 
 func (o CostCategorySplitChargeRuleOutput) ToCostCategorySplitChargeRuleOutputWithContext(ctx context.Context) CostCategorySplitChargeRuleOutput {
 	return o
-}
-
-func (o CostCategorySplitChargeRuleOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategorySplitChargeRule] {
-	return pulumix.Output[CostCategorySplitChargeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
@@ -6878,12 +6019,6 @@ func (o CostCategorySplitChargeRuleArrayOutput) ToCostCategorySplitChargeRuleArr
 
 func (o CostCategorySplitChargeRuleArrayOutput) ToCostCategorySplitChargeRuleArrayOutputWithContext(ctx context.Context) CostCategorySplitChargeRuleArrayOutput {
 	return o
-}
-
-func (o CostCategorySplitChargeRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CostCategorySplitChargeRule] {
-	return pulumix.Output[[]CostCategorySplitChargeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategorySplitChargeRuleArrayOutput) Index(i pulumi.IntInput) CostCategorySplitChargeRuleOutput {
@@ -6929,12 +6064,6 @@ func (i CostCategorySplitChargeRuleParameterArgs) ToCostCategorySplitChargeRuleP
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategorySplitChargeRuleParameterOutput)
 }
 
-func (i CostCategorySplitChargeRuleParameterArgs) ToOutput(ctx context.Context) pulumix.Output[CostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[CostCategorySplitChargeRuleParameter]{
-		OutputState: i.ToCostCategorySplitChargeRuleParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CostCategorySplitChargeRuleParameterArrayInput is an input type that accepts CostCategorySplitChargeRuleParameterArray and CostCategorySplitChargeRuleParameterArrayOutput values.
 // You can construct a concrete instance of `CostCategorySplitChargeRuleParameterArrayInput` via:
 //
@@ -6960,12 +6089,6 @@ func (i CostCategorySplitChargeRuleParameterArray) ToCostCategorySplitChargeRule
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategorySplitChargeRuleParameterArrayOutput)
 }
 
-func (i CostCategorySplitChargeRuleParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]CostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[[]CostCategorySplitChargeRuleParameter]{
-		OutputState: i.ToCostCategorySplitChargeRuleParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CostCategorySplitChargeRuleParameterOutput struct{ *pulumi.OutputState }
 
 func (CostCategorySplitChargeRuleParameterOutput) ElementType() reflect.Type {
@@ -6978,12 +6101,6 @@ func (o CostCategorySplitChargeRuleParameterOutput) ToCostCategorySplitChargeRul
 
 func (o CostCategorySplitChargeRuleParameterOutput) ToCostCategorySplitChargeRuleParameterOutputWithContext(ctx context.Context) CostCategorySplitChargeRuleParameterOutput {
 	return o
-}
-
-func (o CostCategorySplitChargeRuleParameterOutput) ToOutput(ctx context.Context) pulumix.Output[CostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[CostCategorySplitChargeRuleParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameter type.
@@ -7008,12 +6125,6 @@ func (o CostCategorySplitChargeRuleParameterArrayOutput) ToCostCategorySplitChar
 
 func (o CostCategorySplitChargeRuleParameterArrayOutput) ToCostCategorySplitChargeRuleParameterArrayOutputWithContext(ctx context.Context) CostCategorySplitChargeRuleParameterArrayOutput {
 	return o
-}
-
-func (o CostCategorySplitChargeRuleParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[[]CostCategorySplitChargeRuleParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CostCategorySplitChargeRuleParameterArrayOutput) Index(i pulumi.IntInput) CostCategorySplitChargeRuleParameterOutput {
@@ -7067,12 +6178,6 @@ func (i GetCostCategoryRuleArgs) ToGetCostCategoryRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleOutput)
 }
 
-func (i GetCostCategoryRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRule] {
-	return pulumix.Output[GetCostCategoryRule]{
-		OutputState: i.ToGetCostCategoryRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleArrayInput is an input type that accepts GetCostCategoryRuleArray and GetCostCategoryRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleArrayInput` via:
 //
@@ -7098,12 +6203,6 @@ func (i GetCostCategoryRuleArray) ToGetCostCategoryRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleArrayOutput)
 }
 
-func (i GetCostCategoryRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRule] {
-	return pulumix.Output[[]GetCostCategoryRule]{
-		OutputState: i.ToGetCostCategoryRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleOutput) ElementType() reflect.Type {
@@ -7116,12 +6215,6 @@ func (o GetCostCategoryRuleOutput) ToGetCostCategoryRuleOutput() GetCostCategory
 
 func (o GetCostCategoryRuleOutput) ToGetCostCategoryRuleOutputWithContext(ctx context.Context) GetCostCategoryRuleOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRule] {
-	return pulumix.Output[GetCostCategoryRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
@@ -7156,12 +6249,6 @@ func (o GetCostCategoryRuleArrayOutput) ToGetCostCategoryRuleArrayOutput() GetCo
 
 func (o GetCostCategoryRuleArrayOutput) ToGetCostCategoryRuleArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRule] {
-	return pulumix.Output[[]GetCostCategoryRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleOutput {
@@ -7207,12 +6294,6 @@ func (i GetCostCategoryRuleInheritedValueArgs) ToGetCostCategoryRuleInheritedVal
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleInheritedValueOutput)
 }
 
-func (i GetCostCategoryRuleInheritedValueArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleInheritedValue] {
-	return pulumix.Output[GetCostCategoryRuleInheritedValue]{
-		OutputState: i.ToGetCostCategoryRuleInheritedValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleInheritedValueArrayInput is an input type that accepts GetCostCategoryRuleInheritedValueArray and GetCostCategoryRuleInheritedValueArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleInheritedValueArrayInput` via:
 //
@@ -7238,12 +6319,6 @@ func (i GetCostCategoryRuleInheritedValueArray) ToGetCostCategoryRuleInheritedVa
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleInheritedValueArrayOutput)
 }
 
-func (i GetCostCategoryRuleInheritedValueArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleInheritedValue] {
-	return pulumix.Output[[]GetCostCategoryRuleInheritedValue]{
-		OutputState: i.ToGetCostCategoryRuleInheritedValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleInheritedValueOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleInheritedValueOutput) ElementType() reflect.Type {
@@ -7256,12 +6331,6 @@ func (o GetCostCategoryRuleInheritedValueOutput) ToGetCostCategoryRuleInheritedV
 
 func (o GetCostCategoryRuleInheritedValueOutput) ToGetCostCategoryRuleInheritedValueOutputWithContext(ctx context.Context) GetCostCategoryRuleInheritedValueOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleInheritedValueOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleInheritedValue] {
-	return pulumix.Output[GetCostCategoryRuleInheritedValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key to extract cost category values.
@@ -7286,12 +6355,6 @@ func (o GetCostCategoryRuleInheritedValueArrayOutput) ToGetCostCategoryRuleInher
 
 func (o GetCostCategoryRuleInheritedValueArrayOutput) ToGetCostCategoryRuleInheritedValueArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleInheritedValueArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleInheritedValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleInheritedValue] {
-	return pulumix.Output[[]GetCostCategoryRuleInheritedValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleInheritedValueArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleInheritedValueOutput {
@@ -7353,12 +6416,6 @@ func (i GetCostCategoryRuleRuleArgs) ToGetCostCategoryRuleRuleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOutput)
 }
 
-func (i GetCostCategoryRuleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRule] {
-	return pulumix.Output[GetCostCategoryRuleRule]{
-		OutputState: i.ToGetCostCategoryRuleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleArrayInput is an input type that accepts GetCostCategoryRuleRuleArray and GetCostCategoryRuleRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleArrayInput` via:
 //
@@ -7384,12 +6441,6 @@ func (i GetCostCategoryRuleRuleArray) ToGetCostCategoryRuleRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRule] {
-	return pulumix.Output[[]GetCostCategoryRuleRule]{
-		OutputState: i.ToGetCostCategoryRuleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleOutput) ElementType() reflect.Type {
@@ -7402,12 +6453,6 @@ func (o GetCostCategoryRuleRuleOutput) ToGetCostCategoryRuleRuleOutput() GetCost
 
 func (o GetCostCategoryRuleRuleOutput) ToGetCostCategoryRuleRuleOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRule] {
-	return pulumix.Output[GetCostCategoryRuleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Return results that match both `Dimension` objects.
@@ -7452,12 +6497,6 @@ func (o GetCostCategoryRuleRuleArrayOutput) ToGetCostCategoryRuleRuleArrayOutput
 
 func (o GetCostCategoryRuleRuleArrayOutput) ToGetCostCategoryRuleRuleArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRule] {
-	return pulumix.Output[[]GetCostCategoryRuleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOutput {
@@ -7507,12 +6546,6 @@ func (i GetCostCategoryRuleRuleAndArgs) ToGetCostCategoryRuleRuleAndOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAnd] {
-	return pulumix.Output[GetCostCategoryRuleRuleAnd]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleAndArrayInput is an input type that accepts GetCostCategoryRuleRuleAndArray and GetCostCategoryRuleRuleAndArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndArrayInput` via:
 //
@@ -7538,12 +6571,6 @@ func (i GetCostCategoryRuleRuleAndArray) ToGetCostCategoryRuleRuleAndArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAnd] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAnd]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleAndOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleAndOutput) ElementType() reflect.Type {
@@ -7556,12 +6583,6 @@ func (o GetCostCategoryRuleRuleAndOutput) ToGetCostCategoryRuleRuleAndOutput() G
 
 func (o GetCostCategoryRuleRuleAndOutput) ToGetCostCategoryRuleRuleAndOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAnd] {
-	return pulumix.Output[GetCostCategoryRuleRuleAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -7591,12 +6612,6 @@ func (o GetCostCategoryRuleRuleAndArrayOutput) ToGetCostCategoryRuleRuleAndArray
 
 func (o GetCostCategoryRuleRuleAndArrayOutput) ToGetCostCategoryRuleRuleAndArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAnd] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndOutput {
@@ -7646,12 +6661,6 @@ func (i GetCostCategoryRuleRuleAndCostCategoryArgs) ToGetCostCategoryRuleRuleAnd
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndCostCategoryOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleAndCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleAndCostCategoryArray and GetCostCategoryRuleRuleAndCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndCostCategoryArrayInput` via:
 //
@@ -7677,12 +6686,6 @@ func (i GetCostCategoryRuleRuleAndCostCategoryArray) ToGetCostCategoryRuleRuleAn
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndCostCategoryArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndCostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndCostCategoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleAndCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleAndCostCategoryOutput) ElementType() reflect.Type {
@@ -7695,12 +6698,6 @@ func (o GetCostCategoryRuleRuleAndCostCategoryOutput) ToGetCostCategoryRuleRuleA
 
 func (o GetCostCategoryRuleRuleAndCostCategoryOutput) ToGetCostCategoryRuleRuleAndCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndCostCategoryOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -7730,12 +6727,6 @@ func (o GetCostCategoryRuleRuleAndCostCategoryArrayOutput) ToGetCostCategoryRule
 
 func (o GetCostCategoryRuleRuleAndCostCategoryArrayOutput) ToGetCostCategoryRuleRuleAndCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndCostCategoryArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndCostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleAndCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndCostCategoryOutput {
@@ -7785,12 +6776,6 @@ func (i GetCostCategoryRuleRuleAndDimensionArgs) ToGetCostCategoryRuleRuleAndDim
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndDimensionOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleAndDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleAndDimensionArray and GetCostCategoryRuleRuleAndDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndDimensionArrayInput` via:
 //
@@ -7816,12 +6801,6 @@ func (i GetCostCategoryRuleRuleAndDimensionArray) ToGetCostCategoryRuleRuleAndDi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndDimensionArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleAndDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleAndDimensionOutput) ElementType() reflect.Type {
@@ -7834,12 +6813,6 @@ func (o GetCostCategoryRuleRuleAndDimensionOutput) ToGetCostCategoryRuleRuleAndD
 
 func (o GetCostCategoryRuleRuleAndDimensionOutput) ToGetCostCategoryRuleRuleAndDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndDimensionOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -7869,12 +6842,6 @@ func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) ToGetCostCategoryRuleRul
 
 func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) ToGetCostCategoryRuleRuleAndDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndDimensionArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleAndDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndDimensionOutput {
@@ -7924,12 +6891,6 @@ func (i GetCostCategoryRuleRuleAndTagArgs) ToGetCostCategoryRuleRuleAndTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndTagOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleAndTagArrayInput is an input type that accepts GetCostCategoryRuleRuleAndTagArray and GetCostCategoryRuleRuleAndTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleAndTagArrayInput` via:
 //
@@ -7955,12 +6916,6 @@ func (i GetCostCategoryRuleRuleAndTagArray) ToGetCostCategoryRuleRuleAndTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleAndTagArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleAndTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleAndTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleAndTagOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleAndTagOutput) ElementType() reflect.Type {
@@ -7973,12 +6928,6 @@ func (o GetCostCategoryRuleRuleAndTagOutput) ToGetCostCategoryRuleRuleAndTagOutp
 
 func (o GetCostCategoryRuleRuleAndTagOutput) ToGetCostCategoryRuleRuleAndTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndTagOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleAndTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleAndTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8008,12 +6957,6 @@ func (o GetCostCategoryRuleRuleAndTagArrayOutput) ToGetCostCategoryRuleRuleAndTa
 
 func (o GetCostCategoryRuleRuleAndTagArrayOutput) ToGetCostCategoryRuleRuleAndTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleAndTagArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleAndTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleAndTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleAndTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleAndTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleAndTagOutput {
@@ -8063,12 +7006,6 @@ func (i GetCostCategoryRuleRuleCostCategoryArgs) ToGetCostCategoryRuleRuleCostCa
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleCostCategoryOutput)
 }
 
-func (i GetCostCategoryRuleRuleCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleCostCategoryArray and GetCostCategoryRuleRuleCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleCostCategoryArrayInput` via:
 //
@@ -8094,12 +7031,6 @@ func (i GetCostCategoryRuleRuleCostCategoryArray) ToGetCostCategoryRuleRuleCostC
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleCostCategoryArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleCostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleCostCategoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleCostCategoryOutput) ElementType() reflect.Type {
@@ -8112,12 +7043,6 @@ func (o GetCostCategoryRuleRuleCostCategoryOutput) ToGetCostCategoryRuleRuleCost
 
 func (o GetCostCategoryRuleRuleCostCategoryOutput) ToGetCostCategoryRuleRuleCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleCostCategoryOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8147,12 +7072,6 @@ func (o GetCostCategoryRuleRuleCostCategoryArrayOutput) ToGetCostCategoryRuleRul
 
 func (o GetCostCategoryRuleRuleCostCategoryArrayOutput) ToGetCostCategoryRuleRuleCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleCostCategoryArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleCostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleCostCategoryOutput {
@@ -8202,12 +7121,6 @@ func (i GetCostCategoryRuleRuleDimensionArgs) ToGetCostCategoryRuleRuleDimension
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleDimensionOutput)
 }
 
-func (i GetCostCategoryRuleRuleDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleDimensionArray and GetCostCategoryRuleRuleDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleDimensionArrayInput` via:
 //
@@ -8233,12 +7146,6 @@ func (i GetCostCategoryRuleRuleDimensionArray) ToGetCostCategoryRuleRuleDimensio
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleDimensionArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleDimensionOutput) ElementType() reflect.Type {
@@ -8251,12 +7158,6 @@ func (o GetCostCategoryRuleRuleDimensionOutput) ToGetCostCategoryRuleRuleDimensi
 
 func (o GetCostCategoryRuleRuleDimensionOutput) ToGetCostCategoryRuleRuleDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleDimensionOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8286,12 +7187,6 @@ func (o GetCostCategoryRuleRuleDimensionArrayOutput) ToGetCostCategoryRuleRuleDi
 
 func (o GetCostCategoryRuleRuleDimensionArrayOutput) ToGetCostCategoryRuleRuleDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleDimensionArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleDimensionOutput {
@@ -8341,12 +7236,6 @@ func (i GetCostCategoryRuleRuleNotArgs) ToGetCostCategoryRuleRuleNotOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNot] {
-	return pulumix.Output[GetCostCategoryRuleRuleNot]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleNotArrayInput is an input type that accepts GetCostCategoryRuleRuleNotArray and GetCostCategoryRuleRuleNotArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotArrayInput` via:
 //
@@ -8372,12 +7261,6 @@ func (i GetCostCategoryRuleRuleNotArray) ToGetCostCategoryRuleRuleNotArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNot] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNot]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleNotOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleNotOutput) ElementType() reflect.Type {
@@ -8390,12 +7273,6 @@ func (o GetCostCategoryRuleRuleNotOutput) ToGetCostCategoryRuleRuleNotOutput() G
 
 func (o GetCostCategoryRuleRuleNotOutput) ToGetCostCategoryRuleRuleNotOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNot] {
-	return pulumix.Output[GetCostCategoryRuleRuleNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -8425,12 +7302,6 @@ func (o GetCostCategoryRuleRuleNotArrayOutput) ToGetCostCategoryRuleRuleNotArray
 
 func (o GetCostCategoryRuleRuleNotArrayOutput) ToGetCostCategoryRuleRuleNotArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNot] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleNotArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotOutput {
@@ -8480,12 +7351,6 @@ func (i GetCostCategoryRuleRuleNotCostCategoryArgs) ToGetCostCategoryRuleRuleNot
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotCostCategoryOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleNotCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleNotCostCategoryArray and GetCostCategoryRuleRuleNotCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotCostCategoryArrayInput` via:
 //
@@ -8511,12 +7376,6 @@ func (i GetCostCategoryRuleRuleNotCostCategoryArray) ToGetCostCategoryRuleRuleNo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotCostCategoryArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotCostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotCostCategoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleNotCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleNotCostCategoryOutput) ElementType() reflect.Type {
@@ -8529,12 +7388,6 @@ func (o GetCostCategoryRuleRuleNotCostCategoryOutput) ToGetCostCategoryRuleRuleN
 
 func (o GetCostCategoryRuleRuleNotCostCategoryOutput) ToGetCostCategoryRuleRuleNotCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotCostCategoryOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8564,12 +7417,6 @@ func (o GetCostCategoryRuleRuleNotCostCategoryArrayOutput) ToGetCostCategoryRule
 
 func (o GetCostCategoryRuleRuleNotCostCategoryArrayOutput) ToGetCostCategoryRuleRuleNotCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotCostCategoryArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotCostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleNotCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotCostCategoryOutput {
@@ -8619,12 +7466,6 @@ func (i GetCostCategoryRuleRuleNotDimensionArgs) ToGetCostCategoryRuleRuleNotDim
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotDimensionOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleNotDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleNotDimensionArray and GetCostCategoryRuleRuleNotDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotDimensionArrayInput` via:
 //
@@ -8650,12 +7491,6 @@ func (i GetCostCategoryRuleRuleNotDimensionArray) ToGetCostCategoryRuleRuleNotDi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotDimensionArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleNotDimensionOutput) ElementType() reflect.Type {
@@ -8668,12 +7503,6 @@ func (o GetCostCategoryRuleRuleNotDimensionOutput) ToGetCostCategoryRuleRuleNotD
 
 func (o GetCostCategoryRuleRuleNotDimensionOutput) ToGetCostCategoryRuleRuleNotDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotDimensionOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8703,12 +7532,6 @@ func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) ToGetCostCategoryRuleRul
 
 func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) ToGetCostCategoryRuleRuleNotDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotDimensionArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleNotDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotDimensionOutput {
@@ -8758,12 +7581,6 @@ func (i GetCostCategoryRuleRuleNotTagArgs) ToGetCostCategoryRuleRuleNotTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotTagOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleNotTagArrayInput is an input type that accepts GetCostCategoryRuleRuleNotTagArray and GetCostCategoryRuleRuleNotTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleNotTagArrayInput` via:
 //
@@ -8789,12 +7606,6 @@ func (i GetCostCategoryRuleRuleNotTagArray) ToGetCostCategoryRuleRuleNotTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleNotTagArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleNotTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleNotTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleNotTagOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleNotTagOutput) ElementType() reflect.Type {
@@ -8807,12 +7618,6 @@ func (o GetCostCategoryRuleRuleNotTagOutput) ToGetCostCategoryRuleRuleNotTagOutp
 
 func (o GetCostCategoryRuleRuleNotTagOutput) ToGetCostCategoryRuleRuleNotTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotTagOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleNotTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleNotTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -8842,12 +7647,6 @@ func (o GetCostCategoryRuleRuleNotTagArrayOutput) ToGetCostCategoryRuleRuleNotTa
 
 func (o GetCostCategoryRuleRuleNotTagArrayOutput) ToGetCostCategoryRuleRuleNotTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleNotTagArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleNotTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleNotTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleNotTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleNotTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleNotTagOutput {
@@ -8897,12 +7696,6 @@ func (i GetCostCategoryRuleRuleOrArgs) ToGetCostCategoryRuleRuleOrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOr] {
-	return pulumix.Output[GetCostCategoryRuleRuleOr]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleOrArrayInput is an input type that accepts GetCostCategoryRuleRuleOrArray and GetCostCategoryRuleRuleOrArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrArrayInput` via:
 //
@@ -8928,12 +7721,6 @@ func (i GetCostCategoryRuleRuleOrArray) ToGetCostCategoryRuleRuleOrArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOr] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOr]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleOrOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleOrOutput) ElementType() reflect.Type {
@@ -8946,12 +7733,6 @@ func (o GetCostCategoryRuleRuleOrOutput) ToGetCostCategoryRuleRuleOrOutput() Get
 
 func (o GetCostCategoryRuleRuleOrOutput) ToGetCostCategoryRuleRuleOrOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOr] {
-	return pulumix.Output[GetCostCategoryRuleRuleOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -8981,12 +7762,6 @@ func (o GetCostCategoryRuleRuleOrArrayOutput) ToGetCostCategoryRuleRuleOrArrayOu
 
 func (o GetCostCategoryRuleRuleOrArrayOutput) ToGetCostCategoryRuleRuleOrArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOr] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrOutput {
@@ -9036,12 +7811,6 @@ func (i GetCostCategoryRuleRuleOrCostCategoryArgs) ToGetCostCategoryRuleRuleOrCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrCostCategoryOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleOrCostCategoryArrayInput is an input type that accepts GetCostCategoryRuleRuleOrCostCategoryArray and GetCostCategoryRuleRuleOrCostCategoryArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrCostCategoryArrayInput` via:
 //
@@ -9067,12 +7836,6 @@ func (i GetCostCategoryRuleRuleOrCostCategoryArray) ToGetCostCategoryRuleRuleOrC
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrCostCategoryArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrCostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrCostCategory]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrCostCategoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleOrCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleOrCostCategoryOutput) ElementType() reflect.Type {
@@ -9085,12 +7848,6 @@ func (o GetCostCategoryRuleRuleOrCostCategoryOutput) ToGetCostCategoryRuleRuleOr
 
 func (o GetCostCategoryRuleRuleOrCostCategoryOutput) ToGetCostCategoryRuleRuleOrCostCategoryOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrCostCategoryOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -9120,12 +7877,6 @@ func (o GetCostCategoryRuleRuleOrCostCategoryArrayOutput) ToGetCostCategoryRuleR
 
 func (o GetCostCategoryRuleRuleOrCostCategoryArrayOutput) ToGetCostCategoryRuleRuleOrCostCategoryArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrCostCategoryArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrCostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrCostCategory] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleOrCostCategoryArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrCostCategoryOutput {
@@ -9175,12 +7926,6 @@ func (i GetCostCategoryRuleRuleOrDimensionArgs) ToGetCostCategoryRuleRuleOrDimen
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrDimensionOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleOrDimensionArrayInput is an input type that accepts GetCostCategoryRuleRuleOrDimensionArray and GetCostCategoryRuleRuleOrDimensionArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrDimensionArrayInput` via:
 //
@@ -9206,12 +7951,6 @@ func (i GetCostCategoryRuleRuleOrDimensionArray) ToGetCostCategoryRuleRuleOrDime
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrDimensionArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrDimension]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleOrDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleOrDimensionOutput) ElementType() reflect.Type {
@@ -9224,12 +7963,6 @@ func (o GetCostCategoryRuleRuleOrDimensionOutput) ToGetCostCategoryRuleRuleOrDim
 
 func (o GetCostCategoryRuleRuleOrDimensionOutput) ToGetCostCategoryRuleRuleOrDimensionOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrDimensionOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -9259,12 +7992,6 @@ func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) ToGetCostCategoryRuleRule
 
 func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) ToGetCostCategoryRuleRuleOrDimensionArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrDimensionArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrDimension] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleOrDimensionArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrDimensionOutput {
@@ -9314,12 +8041,6 @@ func (i GetCostCategoryRuleRuleOrTagArgs) ToGetCostCategoryRuleRuleOrTagOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrTagOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleOrTagArrayInput is an input type that accepts GetCostCategoryRuleRuleOrTagArray and GetCostCategoryRuleRuleOrTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleOrTagArrayInput` via:
 //
@@ -9345,12 +8066,6 @@ func (i GetCostCategoryRuleRuleOrTagArray) ToGetCostCategoryRuleRuleOrTagArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleOrTagArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleOrTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleOrTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleOrTagOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleOrTagOutput) ElementType() reflect.Type {
@@ -9363,12 +8078,6 @@ func (o GetCostCategoryRuleRuleOrTagOutput) ToGetCostCategoryRuleRuleOrTagOutput
 
 func (o GetCostCategoryRuleRuleOrTagOutput) ToGetCostCategoryRuleRuleOrTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrTagOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleOrTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleOrTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -9398,12 +8107,6 @@ func (o GetCostCategoryRuleRuleOrTagArrayOutput) ToGetCostCategoryRuleRuleOrTagA
 
 func (o GetCostCategoryRuleRuleOrTagArrayOutput) ToGetCostCategoryRuleRuleOrTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleOrTagArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleOrTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleOrTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleOrTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleOrTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleOrTagOutput {
@@ -9453,12 +8156,6 @@ func (i GetCostCategoryRuleRuleTagArgs) ToGetCostCategoryRuleRuleTagOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleTagOutput)
 }
 
-func (i GetCostCategoryRuleRuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategoryRuleRuleTagArrayInput is an input type that accepts GetCostCategoryRuleRuleTagArray and GetCostCategoryRuleRuleTagArrayOutput values.
 // You can construct a concrete instance of `GetCostCategoryRuleRuleTagArrayInput` via:
 //
@@ -9484,12 +8181,6 @@ func (i GetCostCategoryRuleRuleTagArray) ToGetCostCategoryRuleRuleTagArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategoryRuleRuleTagArrayOutput)
 }
 
-func (i GetCostCategoryRuleRuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleTag]{
-		OutputState: i.ToGetCostCategoryRuleRuleTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategoryRuleRuleTagOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategoryRuleRuleTagOutput) ElementType() reflect.Type {
@@ -9502,12 +8193,6 @@ func (o GetCostCategoryRuleRuleTagOutput) ToGetCostCategoryRuleRuleTagOutput() G
 
 func (o GetCostCategoryRuleRuleTagOutput) ToGetCostCategoryRuleRuleTagOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleTagOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategoryRuleRuleTag] {
-	return pulumix.Output[GetCostCategoryRuleRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key for the tag.
@@ -9537,12 +8222,6 @@ func (o GetCostCategoryRuleRuleTagArrayOutput) ToGetCostCategoryRuleRuleTagArray
 
 func (o GetCostCategoryRuleRuleTagArrayOutput) ToGetCostCategoryRuleRuleTagArrayOutputWithContext(ctx context.Context) GetCostCategoryRuleRuleTagArrayOutput {
 	return o
-}
-
-func (o GetCostCategoryRuleRuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategoryRuleRuleTag] {
-	return pulumix.Output[[]GetCostCategoryRuleRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategoryRuleRuleTagArrayOutput) Index(i pulumi.IntInput) GetCostCategoryRuleRuleTagOutput {
@@ -9596,12 +8275,6 @@ func (i GetCostCategorySplitChargeRuleArgs) ToGetCostCategorySplitChargeRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategorySplitChargeRuleOutput)
 }
 
-func (i GetCostCategorySplitChargeRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategorySplitChargeRule] {
-	return pulumix.Output[GetCostCategorySplitChargeRule]{
-		OutputState: i.ToGetCostCategorySplitChargeRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategorySplitChargeRuleArrayInput is an input type that accepts GetCostCategorySplitChargeRuleArray and GetCostCategorySplitChargeRuleArrayOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleArrayInput` via:
 //
@@ -9627,12 +8300,6 @@ func (i GetCostCategorySplitChargeRuleArray) ToGetCostCategorySplitChargeRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategorySplitChargeRuleArrayOutput)
 }
 
-func (i GetCostCategorySplitChargeRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategorySplitChargeRule] {
-	return pulumix.Output[[]GetCostCategorySplitChargeRule]{
-		OutputState: i.ToGetCostCategorySplitChargeRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategorySplitChargeRuleOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategorySplitChargeRuleOutput) ElementType() reflect.Type {
@@ -9645,12 +8312,6 @@ func (o GetCostCategorySplitChargeRuleOutput) ToGetCostCategorySplitChargeRuleOu
 
 func (o GetCostCategorySplitChargeRuleOutput) ToGetCostCategorySplitChargeRuleOutputWithContext(ctx context.Context) GetCostCategorySplitChargeRuleOutput {
 	return o
-}
-
-func (o GetCostCategorySplitChargeRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategorySplitChargeRule] {
-	return pulumix.Output[GetCostCategorySplitChargeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
@@ -9685,12 +8346,6 @@ func (o GetCostCategorySplitChargeRuleArrayOutput) ToGetCostCategorySplitChargeR
 
 func (o GetCostCategorySplitChargeRuleArrayOutput) ToGetCostCategorySplitChargeRuleArrayOutputWithContext(ctx context.Context) GetCostCategorySplitChargeRuleArrayOutput {
 	return o
-}
-
-func (o GetCostCategorySplitChargeRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategorySplitChargeRule] {
-	return pulumix.Output[[]GetCostCategorySplitChargeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategorySplitChargeRuleArrayOutput) Index(i pulumi.IntInput) GetCostCategorySplitChargeRuleOutput {
@@ -9736,12 +8391,6 @@ func (i GetCostCategorySplitChargeRuleParameterArgs) ToGetCostCategorySplitCharg
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategorySplitChargeRuleParameterOutput)
 }
 
-func (i GetCostCategorySplitChargeRuleParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetCostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[GetCostCategorySplitChargeRuleParameter]{
-		OutputState: i.ToGetCostCategorySplitChargeRuleParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCostCategorySplitChargeRuleParameterArrayInput is an input type that accepts GetCostCategorySplitChargeRuleParameterArray and GetCostCategorySplitChargeRuleParameterArrayOutput values.
 // You can construct a concrete instance of `GetCostCategorySplitChargeRuleParameterArrayInput` via:
 //
@@ -9767,12 +8416,6 @@ func (i GetCostCategorySplitChargeRuleParameterArray) ToGetCostCategorySplitChar
 	return pulumi.ToOutputWithContext(ctx, i).(GetCostCategorySplitChargeRuleParameterArrayOutput)
 }
 
-func (i GetCostCategorySplitChargeRuleParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[[]GetCostCategorySplitChargeRuleParameter]{
-		OutputState: i.ToGetCostCategorySplitChargeRuleParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCostCategorySplitChargeRuleParameterOutput struct{ *pulumi.OutputState }
 
 func (GetCostCategorySplitChargeRuleParameterOutput) ElementType() reflect.Type {
@@ -9785,12 +8428,6 @@ func (o GetCostCategorySplitChargeRuleParameterOutput) ToGetCostCategorySplitCha
 
 func (o GetCostCategorySplitChargeRuleParameterOutput) ToGetCostCategorySplitChargeRuleParameterOutputWithContext(ctx context.Context) GetCostCategorySplitChargeRuleParameterOutput {
 	return o
-}
-
-func (o GetCostCategorySplitChargeRuleParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetCostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[GetCostCategorySplitChargeRuleParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameter type.
@@ -9815,12 +8452,6 @@ func (o GetCostCategorySplitChargeRuleParameterArrayOutput) ToGetCostCategorySpl
 
 func (o GetCostCategorySplitChargeRuleParameterArrayOutput) ToGetCostCategorySplitChargeRuleParameterArrayOutputWithContext(ctx context.Context) GetCostCategorySplitChargeRuleParameterArrayOutput {
 	return o
-}
-
-func (o GetCostCategorySplitChargeRuleParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCostCategorySplitChargeRuleParameter] {
-	return pulumix.Output[[]GetCostCategorySplitChargeRuleParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCostCategorySplitChargeRuleParameterArrayOutput) Index(i pulumi.IntInput) GetCostCategorySplitChargeRuleParameterOutput {
@@ -9882,12 +8513,6 @@ func (i GetTagsFilterArgs) ToGetTagsFilterOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOutput)
 }
 
-func (i GetTagsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilter] {
-	return pulumix.Output[GetTagsFilter]{
-		OutputState: i.ToGetTagsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterArgs) ToGetTagsFilterPtrOutput() GetTagsFilterPtrOutput {
 	return i.ToGetTagsFilterPtrOutputWithContext(context.Background())
 }
@@ -9929,12 +8554,6 @@ func (i *getTagsFilterPtrType) ToGetTagsFilterPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterPtrOutput)
 }
 
-func (i *getTagsFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilter] {
-	return pulumix.Output[*GetTagsFilter]{
-		OutputState: i.ToGetTagsFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterOutput) ElementType() reflect.Type {
@@ -9957,12 +8576,6 @@ func (o GetTagsFilterOutput) ToGetTagsFilterPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilter) *GetTagsFilter {
 		return &v
 	}).(GetTagsFilterPtrOutput)
-}
-
-func (o GetTagsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilter] {
-	return pulumix.Output[GetTagsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Return results that match both `Dimension` objects.
@@ -10007,12 +8620,6 @@ func (o GetTagsFilterPtrOutput) ToGetTagsFilterPtrOutput() GetTagsFilterPtrOutpu
 
 func (o GetTagsFilterPtrOutput) ToGetTagsFilterPtrOutputWithContext(ctx context.Context) GetTagsFilterPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilter] {
-	return pulumix.Output[*GetTagsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterPtrOutput) Elem() GetTagsFilterOutput {
@@ -10126,12 +8733,6 @@ func (i GetTagsFilterAndArgs) ToGetTagsFilterAndOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndOutput)
 }
 
-func (i GetTagsFilterAndArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAnd] {
-	return pulumix.Output[GetTagsFilterAnd]{
-		OutputState: i.ToGetTagsFilterAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTagsFilterAndArrayInput is an input type that accepts GetTagsFilterAndArray and GetTagsFilterAndArrayOutput values.
 // You can construct a concrete instance of `GetTagsFilterAndArrayInput` via:
 //
@@ -10157,12 +8758,6 @@ func (i GetTagsFilterAndArray) ToGetTagsFilterAndArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndArrayOutput)
 }
 
-func (i GetTagsFilterAndArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsFilterAnd] {
-	return pulumix.Output[[]GetTagsFilterAnd]{
-		OutputState: i.ToGetTagsFilterAndArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterAndOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterAndOutput) ElementType() reflect.Type {
@@ -10175,12 +8770,6 @@ func (o GetTagsFilterAndOutput) ToGetTagsFilterAndOutput() GetTagsFilterAndOutpu
 
 func (o GetTagsFilterAndOutput) ToGetTagsFilterAndOutputWithContext(ctx context.Context) GetTagsFilterAndOutput {
 	return o
-}
-
-func (o GetTagsFilterAndOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAnd] {
-	return pulumix.Output[GetTagsFilterAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -10210,12 +8799,6 @@ func (o GetTagsFilterAndArrayOutput) ToGetTagsFilterAndArrayOutput() GetTagsFilt
 
 func (o GetTagsFilterAndArrayOutput) ToGetTagsFilterAndArrayOutputWithContext(ctx context.Context) GetTagsFilterAndArrayOutput {
 	return o
-}
-
-func (o GetTagsFilterAndArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsFilterAnd] {
-	return pulumix.Output[[]GetTagsFilterAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterAndArrayOutput) Index(i pulumi.IntInput) GetTagsFilterAndOutput {
@@ -10265,12 +8848,6 @@ func (i GetTagsFilterAndCostCategoryArgs) ToGetTagsFilterAndCostCategoryOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndCostCategoryOutput)
 }
 
-func (i GetTagsFilterAndCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndCostCategory] {
-	return pulumix.Output[GetTagsFilterAndCostCategory]{
-		OutputState: i.ToGetTagsFilterAndCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterAndCostCategoryArgs) ToGetTagsFilterAndCostCategoryPtrOutput() GetTagsFilterAndCostCategoryPtrOutput {
 	return i.ToGetTagsFilterAndCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -10312,12 +8889,6 @@ func (i *getTagsFilterAndCostCategoryPtrType) ToGetTagsFilterAndCostCategoryPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndCostCategoryPtrOutput)
 }
 
-func (i *getTagsFilterAndCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndCostCategory] {
-	return pulumix.Output[*GetTagsFilterAndCostCategory]{
-		OutputState: i.ToGetTagsFilterAndCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterAndCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterAndCostCategoryOutput) ElementType() reflect.Type {
@@ -10340,12 +8911,6 @@ func (o GetTagsFilterAndCostCategoryOutput) ToGetTagsFilterAndCostCategoryPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterAndCostCategory) *GetTagsFilterAndCostCategory {
 		return &v
 	}).(GetTagsFilterAndCostCategoryPtrOutput)
-}
-
-func (o GetTagsFilterAndCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndCostCategory] {
-	return pulumix.Output[GetTagsFilterAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -10375,12 +8940,6 @@ func (o GetTagsFilterAndCostCategoryPtrOutput) ToGetTagsFilterAndCostCategoryPtr
 
 func (o GetTagsFilterAndCostCategoryPtrOutput) ToGetTagsFilterAndCostCategoryPtrOutputWithContext(ctx context.Context) GetTagsFilterAndCostCategoryPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterAndCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndCostCategory] {
-	return pulumix.Output[*GetTagsFilterAndCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterAndCostCategoryPtrOutput) Elem() GetTagsFilterAndCostCategoryOutput {
@@ -10464,12 +9023,6 @@ func (i GetTagsFilterAndDimensionArgs) ToGetTagsFilterAndDimensionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndDimensionOutput)
 }
 
-func (i GetTagsFilterAndDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndDimension] {
-	return pulumix.Output[GetTagsFilterAndDimension]{
-		OutputState: i.ToGetTagsFilterAndDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterAndDimensionArgs) ToGetTagsFilterAndDimensionPtrOutput() GetTagsFilterAndDimensionPtrOutput {
 	return i.ToGetTagsFilterAndDimensionPtrOutputWithContext(context.Background())
 }
@@ -10511,12 +9064,6 @@ func (i *getTagsFilterAndDimensionPtrType) ToGetTagsFilterAndDimensionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndDimensionPtrOutput)
 }
 
-func (i *getTagsFilterAndDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndDimension] {
-	return pulumix.Output[*GetTagsFilterAndDimension]{
-		OutputState: i.ToGetTagsFilterAndDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterAndDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterAndDimensionOutput) ElementType() reflect.Type {
@@ -10539,12 +9086,6 @@ func (o GetTagsFilterAndDimensionOutput) ToGetTagsFilterAndDimensionPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterAndDimension) *GetTagsFilterAndDimension {
 		return &v
 	}).(GetTagsFilterAndDimensionPtrOutput)
-}
-
-func (o GetTagsFilterAndDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndDimension] {
-	return pulumix.Output[GetTagsFilterAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -10574,12 +9115,6 @@ func (o GetTagsFilterAndDimensionPtrOutput) ToGetTagsFilterAndDimensionPtrOutput
 
 func (o GetTagsFilterAndDimensionPtrOutput) ToGetTagsFilterAndDimensionPtrOutputWithContext(ctx context.Context) GetTagsFilterAndDimensionPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterAndDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndDimension] {
-	return pulumix.Output[*GetTagsFilterAndDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterAndDimensionPtrOutput) Elem() GetTagsFilterAndDimensionOutput {
@@ -10663,12 +9198,6 @@ func (i GetTagsFilterAndTagsArgs) ToGetTagsFilterAndTagsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndTagsOutput)
 }
 
-func (i GetTagsFilterAndTagsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndTags] {
-	return pulumix.Output[GetTagsFilterAndTags]{
-		OutputState: i.ToGetTagsFilterAndTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterAndTagsArgs) ToGetTagsFilterAndTagsPtrOutput() GetTagsFilterAndTagsPtrOutput {
 	return i.ToGetTagsFilterAndTagsPtrOutputWithContext(context.Background())
 }
@@ -10710,12 +9239,6 @@ func (i *getTagsFilterAndTagsPtrType) ToGetTagsFilterAndTagsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterAndTagsPtrOutput)
 }
 
-func (i *getTagsFilterAndTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndTags] {
-	return pulumix.Output[*GetTagsFilterAndTags]{
-		OutputState: i.ToGetTagsFilterAndTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterAndTagsOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterAndTagsOutput) ElementType() reflect.Type {
@@ -10738,12 +9261,6 @@ func (o GetTagsFilterAndTagsOutput) ToGetTagsFilterAndTagsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterAndTags) *GetTagsFilterAndTags {
 		return &v
 	}).(GetTagsFilterAndTagsPtrOutput)
-}
-
-func (o GetTagsFilterAndTagsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterAndTags] {
-	return pulumix.Output[GetTagsFilterAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -10773,12 +9290,6 @@ func (o GetTagsFilterAndTagsPtrOutput) ToGetTagsFilterAndTagsPtrOutput() GetTags
 
 func (o GetTagsFilterAndTagsPtrOutput) ToGetTagsFilterAndTagsPtrOutputWithContext(ctx context.Context) GetTagsFilterAndTagsPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterAndTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterAndTags] {
-	return pulumix.Output[*GetTagsFilterAndTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterAndTagsPtrOutput) Elem() GetTagsFilterAndTagsOutput {
@@ -10862,12 +9373,6 @@ func (i GetTagsFilterCostCategoryArgs) ToGetTagsFilterCostCategoryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterCostCategoryOutput)
 }
 
-func (i GetTagsFilterCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterCostCategory] {
-	return pulumix.Output[GetTagsFilterCostCategory]{
-		OutputState: i.ToGetTagsFilterCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterCostCategoryArgs) ToGetTagsFilterCostCategoryPtrOutput() GetTagsFilterCostCategoryPtrOutput {
 	return i.ToGetTagsFilterCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -10909,12 +9414,6 @@ func (i *getTagsFilterCostCategoryPtrType) ToGetTagsFilterCostCategoryPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterCostCategoryPtrOutput)
 }
 
-func (i *getTagsFilterCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterCostCategory] {
-	return pulumix.Output[*GetTagsFilterCostCategory]{
-		OutputState: i.ToGetTagsFilterCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterCostCategoryOutput) ElementType() reflect.Type {
@@ -10937,12 +9436,6 @@ func (o GetTagsFilterCostCategoryOutput) ToGetTagsFilterCostCategoryPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterCostCategory) *GetTagsFilterCostCategory {
 		return &v
 	}).(GetTagsFilterCostCategoryPtrOutput)
-}
-
-func (o GetTagsFilterCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterCostCategory] {
-	return pulumix.Output[GetTagsFilterCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -10972,12 +9465,6 @@ func (o GetTagsFilterCostCategoryPtrOutput) ToGetTagsFilterCostCategoryPtrOutput
 
 func (o GetTagsFilterCostCategoryPtrOutput) ToGetTagsFilterCostCategoryPtrOutputWithContext(ctx context.Context) GetTagsFilterCostCategoryPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterCostCategory] {
-	return pulumix.Output[*GetTagsFilterCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterCostCategoryPtrOutput) Elem() GetTagsFilterCostCategoryOutput {
@@ -11061,12 +9548,6 @@ func (i GetTagsFilterDimensionArgs) ToGetTagsFilterDimensionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterDimensionOutput)
 }
 
-func (i GetTagsFilterDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterDimension] {
-	return pulumix.Output[GetTagsFilterDimension]{
-		OutputState: i.ToGetTagsFilterDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterDimensionArgs) ToGetTagsFilterDimensionPtrOutput() GetTagsFilterDimensionPtrOutput {
 	return i.ToGetTagsFilterDimensionPtrOutputWithContext(context.Background())
 }
@@ -11108,12 +9589,6 @@ func (i *getTagsFilterDimensionPtrType) ToGetTagsFilterDimensionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterDimensionPtrOutput)
 }
 
-func (i *getTagsFilterDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterDimension] {
-	return pulumix.Output[*GetTagsFilterDimension]{
-		OutputState: i.ToGetTagsFilterDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterDimensionOutput) ElementType() reflect.Type {
@@ -11136,12 +9611,6 @@ func (o GetTagsFilterDimensionOutput) ToGetTagsFilterDimensionPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterDimension) *GetTagsFilterDimension {
 		return &v
 	}).(GetTagsFilterDimensionPtrOutput)
-}
-
-func (o GetTagsFilterDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterDimension] {
-	return pulumix.Output[GetTagsFilterDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -11171,12 +9640,6 @@ func (o GetTagsFilterDimensionPtrOutput) ToGetTagsFilterDimensionPtrOutput() Get
 
 func (o GetTagsFilterDimensionPtrOutput) ToGetTagsFilterDimensionPtrOutputWithContext(ctx context.Context) GetTagsFilterDimensionPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterDimension] {
-	return pulumix.Output[*GetTagsFilterDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterDimensionPtrOutput) Elem() GetTagsFilterDimensionOutput {
@@ -11260,12 +9723,6 @@ func (i GetTagsFilterNotArgs) ToGetTagsFilterNotOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotOutput)
 }
 
-func (i GetTagsFilterNotArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNot] {
-	return pulumix.Output[GetTagsFilterNot]{
-		OutputState: i.ToGetTagsFilterNotOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterNotArgs) ToGetTagsFilterNotPtrOutput() GetTagsFilterNotPtrOutput {
 	return i.ToGetTagsFilterNotPtrOutputWithContext(context.Background())
 }
@@ -11307,12 +9764,6 @@ func (i *getTagsFilterNotPtrType) ToGetTagsFilterNotPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotPtrOutput)
 }
 
-func (i *getTagsFilterNotPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNot] {
-	return pulumix.Output[*GetTagsFilterNot]{
-		OutputState: i.ToGetTagsFilterNotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterNotOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterNotOutput) ElementType() reflect.Type {
@@ -11335,12 +9786,6 @@ func (o GetTagsFilterNotOutput) ToGetTagsFilterNotPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterNot) *GetTagsFilterNot {
 		return &v
 	}).(GetTagsFilterNotPtrOutput)
-}
-
-func (o GetTagsFilterNotOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNot] {
-	return pulumix.Output[GetTagsFilterNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -11370,12 +9815,6 @@ func (o GetTagsFilterNotPtrOutput) ToGetTagsFilterNotPtrOutput() GetTagsFilterNo
 
 func (o GetTagsFilterNotPtrOutput) ToGetTagsFilterNotPtrOutputWithContext(ctx context.Context) GetTagsFilterNotPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterNotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNot] {
-	return pulumix.Output[*GetTagsFilterNot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterNotPtrOutput) Elem() GetTagsFilterNotOutput {
@@ -11459,12 +9898,6 @@ func (i GetTagsFilterNotCostCategoryArgs) ToGetTagsFilterNotCostCategoryOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotCostCategoryOutput)
 }
 
-func (i GetTagsFilterNotCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotCostCategory] {
-	return pulumix.Output[GetTagsFilterNotCostCategory]{
-		OutputState: i.ToGetTagsFilterNotCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterNotCostCategoryArgs) ToGetTagsFilterNotCostCategoryPtrOutput() GetTagsFilterNotCostCategoryPtrOutput {
 	return i.ToGetTagsFilterNotCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -11506,12 +9939,6 @@ func (i *getTagsFilterNotCostCategoryPtrType) ToGetTagsFilterNotCostCategoryPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
-func (i *getTagsFilterNotCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotCostCategory] {
-	return pulumix.Output[*GetTagsFilterNotCostCategory]{
-		OutputState: i.ToGetTagsFilterNotCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterNotCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterNotCostCategoryOutput) ElementType() reflect.Type {
@@ -11534,12 +9961,6 @@ func (o GetTagsFilterNotCostCategoryOutput) ToGetTagsFilterNotCostCategoryPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterNotCostCategory) *GetTagsFilterNotCostCategory {
 		return &v
 	}).(GetTagsFilterNotCostCategoryPtrOutput)
-}
-
-func (o GetTagsFilterNotCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotCostCategory] {
-	return pulumix.Output[GetTagsFilterNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -11569,12 +9990,6 @@ func (o GetTagsFilterNotCostCategoryPtrOutput) ToGetTagsFilterNotCostCategoryPtr
 
 func (o GetTagsFilterNotCostCategoryPtrOutput) ToGetTagsFilterNotCostCategoryPtrOutputWithContext(ctx context.Context) GetTagsFilterNotCostCategoryPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterNotCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotCostCategory] {
-	return pulumix.Output[*GetTagsFilterNotCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterNotCostCategoryPtrOutput) Elem() GetTagsFilterNotCostCategoryOutput {
@@ -11658,12 +10073,6 @@ func (i GetTagsFilterNotDimensionArgs) ToGetTagsFilterNotDimensionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotDimensionOutput)
 }
 
-func (i GetTagsFilterNotDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotDimension] {
-	return pulumix.Output[GetTagsFilterNotDimension]{
-		OutputState: i.ToGetTagsFilterNotDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterNotDimensionArgs) ToGetTagsFilterNotDimensionPtrOutput() GetTagsFilterNotDimensionPtrOutput {
 	return i.ToGetTagsFilterNotDimensionPtrOutputWithContext(context.Background())
 }
@@ -11705,12 +10114,6 @@ func (i *getTagsFilterNotDimensionPtrType) ToGetTagsFilterNotDimensionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotDimensionPtrOutput)
 }
 
-func (i *getTagsFilterNotDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotDimension] {
-	return pulumix.Output[*GetTagsFilterNotDimension]{
-		OutputState: i.ToGetTagsFilterNotDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterNotDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterNotDimensionOutput) ElementType() reflect.Type {
@@ -11733,12 +10136,6 @@ func (o GetTagsFilterNotDimensionOutput) ToGetTagsFilterNotDimensionPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterNotDimension) *GetTagsFilterNotDimension {
 		return &v
 	}).(GetTagsFilterNotDimensionPtrOutput)
-}
-
-func (o GetTagsFilterNotDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotDimension] {
-	return pulumix.Output[GetTagsFilterNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -11768,12 +10165,6 @@ func (o GetTagsFilterNotDimensionPtrOutput) ToGetTagsFilterNotDimensionPtrOutput
 
 func (o GetTagsFilterNotDimensionPtrOutput) ToGetTagsFilterNotDimensionPtrOutputWithContext(ctx context.Context) GetTagsFilterNotDimensionPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterNotDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotDimension] {
-	return pulumix.Output[*GetTagsFilterNotDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterNotDimensionPtrOutput) Elem() GetTagsFilterNotDimensionOutput {
@@ -11857,12 +10248,6 @@ func (i GetTagsFilterNotTagsArgs) ToGetTagsFilterNotTagsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotTagsOutput)
 }
 
-func (i GetTagsFilterNotTagsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotTags] {
-	return pulumix.Output[GetTagsFilterNotTags]{
-		OutputState: i.ToGetTagsFilterNotTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterNotTagsArgs) ToGetTagsFilterNotTagsPtrOutput() GetTagsFilterNotTagsPtrOutput {
 	return i.ToGetTagsFilterNotTagsPtrOutputWithContext(context.Background())
 }
@@ -11904,12 +10289,6 @@ func (i *getTagsFilterNotTagsPtrType) ToGetTagsFilterNotTagsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterNotTagsPtrOutput)
 }
 
-func (i *getTagsFilterNotTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotTags] {
-	return pulumix.Output[*GetTagsFilterNotTags]{
-		OutputState: i.ToGetTagsFilterNotTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterNotTagsOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterNotTagsOutput) ElementType() reflect.Type {
@@ -11932,12 +10311,6 @@ func (o GetTagsFilterNotTagsOutput) ToGetTagsFilterNotTagsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterNotTags) *GetTagsFilterNotTags {
 		return &v
 	}).(GetTagsFilterNotTagsPtrOutput)
-}
-
-func (o GetTagsFilterNotTagsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterNotTags] {
-	return pulumix.Output[GetTagsFilterNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -11967,12 +10340,6 @@ func (o GetTagsFilterNotTagsPtrOutput) ToGetTagsFilterNotTagsPtrOutput() GetTags
 
 func (o GetTagsFilterNotTagsPtrOutput) ToGetTagsFilterNotTagsPtrOutputWithContext(ctx context.Context) GetTagsFilterNotTagsPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterNotTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterNotTags] {
-	return pulumix.Output[*GetTagsFilterNotTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterNotTagsPtrOutput) Elem() GetTagsFilterNotTagsOutput {
@@ -12056,12 +10423,6 @@ func (i GetTagsFilterOrArgs) ToGetTagsFilterOrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrOutput)
 }
 
-func (i GetTagsFilterOrArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOr] {
-	return pulumix.Output[GetTagsFilterOr]{
-		OutputState: i.ToGetTagsFilterOrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTagsFilterOrArrayInput is an input type that accepts GetTagsFilterOrArray and GetTagsFilterOrArrayOutput values.
 // You can construct a concrete instance of `GetTagsFilterOrArrayInput` via:
 //
@@ -12087,12 +10448,6 @@ func (i GetTagsFilterOrArray) ToGetTagsFilterOrArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrArrayOutput)
 }
 
-func (i GetTagsFilterOrArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsFilterOr] {
-	return pulumix.Output[[]GetTagsFilterOr]{
-		OutputState: i.ToGetTagsFilterOrArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterOrOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterOrOutput) ElementType() reflect.Type {
@@ -12105,12 +10460,6 @@ func (o GetTagsFilterOrOutput) ToGetTagsFilterOrOutput() GetTagsFilterOrOutput {
 
 func (o GetTagsFilterOrOutput) ToGetTagsFilterOrOutputWithContext(ctx context.Context) GetTagsFilterOrOutput {
 	return o
-}
-
-func (o GetTagsFilterOrOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOr] {
-	return pulumix.Output[GetTagsFilterOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for the filter that's based on `CostCategory` values. See below.
@@ -12140,12 +10489,6 @@ func (o GetTagsFilterOrArrayOutput) ToGetTagsFilterOrArrayOutput() GetTagsFilter
 
 func (o GetTagsFilterOrArrayOutput) ToGetTagsFilterOrArrayOutputWithContext(ctx context.Context) GetTagsFilterOrArrayOutput {
 	return o
-}
-
-func (o GetTagsFilterOrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsFilterOr] {
-	return pulumix.Output[[]GetTagsFilterOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterOrArrayOutput) Index(i pulumi.IntInput) GetTagsFilterOrOutput {
@@ -12195,12 +10538,6 @@ func (i GetTagsFilterOrCostCategoryArgs) ToGetTagsFilterOrCostCategoryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrCostCategoryOutput)
 }
 
-func (i GetTagsFilterOrCostCategoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrCostCategory] {
-	return pulumix.Output[GetTagsFilterOrCostCategory]{
-		OutputState: i.ToGetTagsFilterOrCostCategoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterOrCostCategoryArgs) ToGetTagsFilterOrCostCategoryPtrOutput() GetTagsFilterOrCostCategoryPtrOutput {
 	return i.ToGetTagsFilterOrCostCategoryPtrOutputWithContext(context.Background())
 }
@@ -12242,12 +10579,6 @@ func (i *getTagsFilterOrCostCategoryPtrType) ToGetTagsFilterOrCostCategoryPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrCostCategoryPtrOutput)
 }
 
-func (i *getTagsFilterOrCostCategoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrCostCategory] {
-	return pulumix.Output[*GetTagsFilterOrCostCategory]{
-		OutputState: i.ToGetTagsFilterOrCostCategoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterOrCostCategoryOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterOrCostCategoryOutput) ElementType() reflect.Type {
@@ -12270,12 +10601,6 @@ func (o GetTagsFilterOrCostCategoryOutput) ToGetTagsFilterOrCostCategoryPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterOrCostCategory) *GetTagsFilterOrCostCategory {
 		return &v
 	}).(GetTagsFilterOrCostCategoryPtrOutput)
-}
-
-func (o GetTagsFilterOrCostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrCostCategory] {
-	return pulumix.Output[GetTagsFilterOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -12305,12 +10630,6 @@ func (o GetTagsFilterOrCostCategoryPtrOutput) ToGetTagsFilterOrCostCategoryPtrOu
 
 func (o GetTagsFilterOrCostCategoryPtrOutput) ToGetTagsFilterOrCostCategoryPtrOutputWithContext(ctx context.Context) GetTagsFilterOrCostCategoryPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterOrCostCategoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrCostCategory] {
-	return pulumix.Output[*GetTagsFilterOrCostCategory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterOrCostCategoryPtrOutput) Elem() GetTagsFilterOrCostCategoryOutput {
@@ -12394,12 +10713,6 @@ func (i GetTagsFilterOrDimensionArgs) ToGetTagsFilterOrDimensionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrDimensionOutput)
 }
 
-func (i GetTagsFilterOrDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrDimension] {
-	return pulumix.Output[GetTagsFilterOrDimension]{
-		OutputState: i.ToGetTagsFilterOrDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterOrDimensionArgs) ToGetTagsFilterOrDimensionPtrOutput() GetTagsFilterOrDimensionPtrOutput {
 	return i.ToGetTagsFilterOrDimensionPtrOutputWithContext(context.Background())
 }
@@ -12441,12 +10754,6 @@ func (i *getTagsFilterOrDimensionPtrType) ToGetTagsFilterOrDimensionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrDimensionPtrOutput)
 }
 
-func (i *getTagsFilterOrDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrDimension] {
-	return pulumix.Output[*GetTagsFilterOrDimension]{
-		OutputState: i.ToGetTagsFilterOrDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterOrDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterOrDimensionOutput) ElementType() reflect.Type {
@@ -12469,12 +10776,6 @@ func (o GetTagsFilterOrDimensionOutput) ToGetTagsFilterOrDimensionPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterOrDimension) *GetTagsFilterOrDimension {
 		return &v
 	}).(GetTagsFilterOrDimensionPtrOutput)
-}
-
-func (o GetTagsFilterOrDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrDimension] {
-	return pulumix.Output[GetTagsFilterOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -12504,12 +10805,6 @@ func (o GetTagsFilterOrDimensionPtrOutput) ToGetTagsFilterOrDimensionPtrOutput()
 
 func (o GetTagsFilterOrDimensionPtrOutput) ToGetTagsFilterOrDimensionPtrOutputWithContext(ctx context.Context) GetTagsFilterOrDimensionPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterOrDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrDimension] {
-	return pulumix.Output[*GetTagsFilterOrDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterOrDimensionPtrOutput) Elem() GetTagsFilterOrDimensionOutput {
@@ -12593,12 +10888,6 @@ func (i GetTagsFilterOrTagsArgs) ToGetTagsFilterOrTagsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrTagsOutput)
 }
 
-func (i GetTagsFilterOrTagsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrTags] {
-	return pulumix.Output[GetTagsFilterOrTags]{
-		OutputState: i.ToGetTagsFilterOrTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterOrTagsArgs) ToGetTagsFilterOrTagsPtrOutput() GetTagsFilterOrTagsPtrOutput {
 	return i.ToGetTagsFilterOrTagsPtrOutputWithContext(context.Background())
 }
@@ -12640,12 +10929,6 @@ func (i *getTagsFilterOrTagsPtrType) ToGetTagsFilterOrTagsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterOrTagsPtrOutput)
 }
 
-func (i *getTagsFilterOrTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrTags] {
-	return pulumix.Output[*GetTagsFilterOrTags]{
-		OutputState: i.ToGetTagsFilterOrTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterOrTagsOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterOrTagsOutput) ElementType() reflect.Type {
@@ -12668,12 +10951,6 @@ func (o GetTagsFilterOrTagsOutput) ToGetTagsFilterOrTagsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterOrTags) *GetTagsFilterOrTags {
 		return &v
 	}).(GetTagsFilterOrTagsPtrOutput)
-}
-
-func (o GetTagsFilterOrTagsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterOrTags] {
-	return pulumix.Output[GetTagsFilterOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -12703,12 +10980,6 @@ func (o GetTagsFilterOrTagsPtrOutput) ToGetTagsFilterOrTagsPtrOutput() GetTagsFi
 
 func (o GetTagsFilterOrTagsPtrOutput) ToGetTagsFilterOrTagsPtrOutputWithContext(ctx context.Context) GetTagsFilterOrTagsPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterOrTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterOrTags] {
-	return pulumix.Output[*GetTagsFilterOrTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterOrTagsPtrOutput) Elem() GetTagsFilterOrTagsOutput {
@@ -12792,12 +11063,6 @@ func (i GetTagsFilterTagsArgs) ToGetTagsFilterTagsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterTagsOutput)
 }
 
-func (i GetTagsFilterTagsArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterTags] {
-	return pulumix.Output[GetTagsFilterTags]{
-		OutputState: i.ToGetTagsFilterTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetTagsFilterTagsArgs) ToGetTagsFilterTagsPtrOutput() GetTagsFilterTagsPtrOutput {
 	return i.ToGetTagsFilterTagsPtrOutputWithContext(context.Background())
 }
@@ -12839,12 +11104,6 @@ func (i *getTagsFilterTagsPtrType) ToGetTagsFilterTagsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsFilterTagsPtrOutput)
 }
 
-func (i *getTagsFilterTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterTags] {
-	return pulumix.Output[*GetTagsFilterTags]{
-		OutputState: i.ToGetTagsFilterTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsFilterTagsOutput struct{ *pulumi.OutputState }
 
 func (GetTagsFilterTagsOutput) ElementType() reflect.Type {
@@ -12867,12 +11126,6 @@ func (o GetTagsFilterTagsOutput) ToGetTagsFilterTagsPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTagsFilterTags) *GetTagsFilterTags {
 		return &v
 	}).(GetTagsFilterTagsPtrOutput)
-}
-
-func (o GetTagsFilterTagsOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsFilterTags] {
-	return pulumix.Output[GetTagsFilterTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique name of the Cost Category.
@@ -12902,12 +11155,6 @@ func (o GetTagsFilterTagsPtrOutput) ToGetTagsFilterTagsPtrOutput() GetTagsFilter
 
 func (o GetTagsFilterTagsPtrOutput) ToGetTagsFilterTagsPtrOutputWithContext(ctx context.Context) GetTagsFilterTagsPtrOutput {
 	return o
-}
-
-func (o GetTagsFilterTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTagsFilterTags] {
-	return pulumix.Output[*GetTagsFilterTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsFilterTagsPtrOutput) Elem() GetTagsFilterTagsOutput {
@@ -12987,12 +11234,6 @@ func (i GetTagsSortByArgs) ToGetTagsSortByOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsSortByOutput)
 }
 
-func (i GetTagsSortByArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsSortBy] {
-	return pulumix.Output[GetTagsSortBy]{
-		OutputState: i.ToGetTagsSortByOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTagsSortByArrayInput is an input type that accepts GetTagsSortByArray and GetTagsSortByArrayOutput values.
 // You can construct a concrete instance of `GetTagsSortByArrayInput` via:
 //
@@ -13018,12 +11259,6 @@ func (i GetTagsSortByArray) ToGetTagsSortByArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsSortByArrayOutput)
 }
 
-func (i GetTagsSortByArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsSortBy] {
-	return pulumix.Output[[]GetTagsSortBy]{
-		OutputState: i.ToGetTagsSortByArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsSortByOutput struct{ *pulumi.OutputState }
 
 func (GetTagsSortByOutput) ElementType() reflect.Type {
@@ -13036,12 +11271,6 @@ func (o GetTagsSortByOutput) ToGetTagsSortByOutput() GetTagsSortByOutput {
 
 func (o GetTagsSortByOutput) ToGetTagsSortByOutputWithContext(ctx context.Context) GetTagsSortByOutput {
 	return o
-}
-
-func (o GetTagsSortByOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsSortBy] {
-	return pulumix.Output[GetTagsSortBy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
@@ -13066,12 +11295,6 @@ func (o GetTagsSortByArrayOutput) ToGetTagsSortByArrayOutput() GetTagsSortByArra
 
 func (o GetTagsSortByArrayOutput) ToGetTagsSortByArrayOutputWithContext(ctx context.Context) GetTagsSortByArrayOutput {
 	return o
-}
-
-func (o GetTagsSortByArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTagsSortBy] {
-	return pulumix.Output[[]GetTagsSortBy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTagsSortByArrayOutput) Index(i pulumi.IntInput) GetTagsSortByOutput {
@@ -13117,12 +11340,6 @@ func (i GetTagsTimePeriodArgs) ToGetTagsTimePeriodOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTagsTimePeriodOutput)
 }
 
-func (i GetTagsTimePeriodArgs) ToOutput(ctx context.Context) pulumix.Output[GetTagsTimePeriod] {
-	return pulumix.Output[GetTagsTimePeriod]{
-		OutputState: i.ToGetTagsTimePeriodOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTagsTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (GetTagsTimePeriodOutput) ElementType() reflect.Type {
@@ -13135,12 +11352,6 @@ func (o GetTagsTimePeriodOutput) ToGetTagsTimePeriodOutput() GetTagsTimePeriodOu
 
 func (o GetTagsTimePeriodOutput) ToGetTagsTimePeriodOutputWithContext(ctx context.Context) GetTagsTimePeriodOutput {
 	return o
-}
-
-func (o GetTagsTimePeriodOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsTimePeriod] {
-	return pulumix.Output[GetTagsTimePeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Beginning of the time period.

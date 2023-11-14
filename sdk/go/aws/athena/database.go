@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Athena database.
@@ -211,12 +210,6 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-func (i *Database) ToOutput(ctx context.Context) pulumix.Output[*Database] {
-	return pulumix.Output[*Database]{
-		OutputState: i.ToDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
 // You can construct a concrete instance of `DatabaseArrayInput` via:
 //
@@ -240,12 +233,6 @@ func (i DatabaseArray) ToDatabaseArrayOutput() DatabaseArrayOutput {
 
 func (i DatabaseArray) ToDatabaseArrayOutputWithContext(ctx context.Context) DatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseArrayOutput)
-}
-
-func (i DatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*Database] {
-	return pulumix.Output[[]*Database]{
-		OutputState: i.ToDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatabaseMapInput is an input type that accepts DatabaseMap and DatabaseMapOutput values.
@@ -273,12 +260,6 @@ func (i DatabaseMap) ToDatabaseMapOutputWithContext(ctx context.Context) Databas
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMapOutput)
 }
 
-func (i DatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Database] {
-	return pulumix.Output[map[string]*Database]{
-		OutputState: i.ToDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
@@ -291,12 +272,6 @@ func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
 
 func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
 	return o
-}
-
-func (o DatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*Database] {
-	return pulumix.Output[*Database]{
-		OutputState: o.OutputState,
-	}
 }
 
 // That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -353,12 +328,6 @@ func (o DatabaseArrayOutput) ToDatabaseArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Database] {
-	return pulumix.Output[[]*Database]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatabaseArrayOutput) Index(i pulumi.IntInput) DatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Database {
 		return vs[0].([]*Database)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o DatabaseMapOutput) ToDatabaseMapOutput() DatabaseMapOutput {
 
 func (o DatabaseMapOutput) ToDatabaseMapOutputWithContext(ctx context.Context) DatabaseMapOutput {
 	return o
-}
-
-func (o DatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Database] {
-	return pulumix.Output[map[string]*Database]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseMapOutput) MapIndex(k pulumi.StringInput) DatabaseOutput {

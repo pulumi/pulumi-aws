@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK VPC Connection.
@@ -114,12 +113,6 @@ func (o LookupVpcConnectionResultOutput) ToLookupVpcConnectionResultOutput() Loo
 
 func (o LookupVpcConnectionResultOutput) ToLookupVpcConnectionResultOutputWithContext(ctx context.Context) LookupVpcConnectionResultOutput {
 	return o
-}
-
-func (o LookupVpcConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcConnectionResult] {
-	return pulumix.Output[LookupVpcConnectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVpcConnectionResultOutput) Arn() pulumi.StringOutput {

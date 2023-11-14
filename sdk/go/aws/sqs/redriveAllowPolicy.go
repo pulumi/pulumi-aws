@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SQS Queue Redrive Allow Policy resource.
@@ -187,12 +186,6 @@ func (i *RedriveAllowPolicy) ToRedriveAllowPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RedriveAllowPolicyOutput)
 }
 
-func (i *RedriveAllowPolicy) ToOutput(ctx context.Context) pulumix.Output[*RedriveAllowPolicy] {
-	return pulumix.Output[*RedriveAllowPolicy]{
-		OutputState: i.ToRedriveAllowPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RedriveAllowPolicyArrayInput is an input type that accepts RedriveAllowPolicyArray and RedriveAllowPolicyArrayOutput values.
 // You can construct a concrete instance of `RedriveAllowPolicyArrayInput` via:
 //
@@ -216,12 +209,6 @@ func (i RedriveAllowPolicyArray) ToRedriveAllowPolicyArrayOutput() RedriveAllowP
 
 func (i RedriveAllowPolicyArray) ToRedriveAllowPolicyArrayOutputWithContext(ctx context.Context) RedriveAllowPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedriveAllowPolicyArrayOutput)
-}
-
-func (i RedriveAllowPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RedriveAllowPolicy] {
-	return pulumix.Output[[]*RedriveAllowPolicy]{
-		OutputState: i.ToRedriveAllowPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RedriveAllowPolicyMapInput is an input type that accepts RedriveAllowPolicyMap and RedriveAllowPolicyMapOutput values.
@@ -249,12 +236,6 @@ func (i RedriveAllowPolicyMap) ToRedriveAllowPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RedriveAllowPolicyMapOutput)
 }
 
-func (i RedriveAllowPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RedriveAllowPolicy] {
-	return pulumix.Output[map[string]*RedriveAllowPolicy]{
-		OutputState: i.ToRedriveAllowPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RedriveAllowPolicyOutput struct{ *pulumi.OutputState }
 
 func (RedriveAllowPolicyOutput) ElementType() reflect.Type {
@@ -267,12 +248,6 @@ func (o RedriveAllowPolicyOutput) ToRedriveAllowPolicyOutput() RedriveAllowPolic
 
 func (o RedriveAllowPolicyOutput) ToRedriveAllowPolicyOutputWithContext(ctx context.Context) RedriveAllowPolicyOutput {
 	return o
-}
-
-func (o RedriveAllowPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RedriveAllowPolicy] {
-	return pulumix.Output[*RedriveAllowPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL of the SQS Queue to which to attach the policy
@@ -299,12 +274,6 @@ func (o RedriveAllowPolicyArrayOutput) ToRedriveAllowPolicyArrayOutputWithContex
 	return o
 }
 
-func (o RedriveAllowPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RedriveAllowPolicy] {
-	return pulumix.Output[[]*RedriveAllowPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RedriveAllowPolicyArrayOutput) Index(i pulumi.IntInput) RedriveAllowPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RedriveAllowPolicy {
 		return vs[0].([]*RedriveAllowPolicy)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o RedriveAllowPolicyMapOutput) ToRedriveAllowPolicyMapOutput() RedriveAllo
 
 func (o RedriveAllowPolicyMapOutput) ToRedriveAllowPolicyMapOutputWithContext(ctx context.Context) RedriveAllowPolicyMapOutput {
 	return o
-}
-
-func (o RedriveAllowPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RedriveAllowPolicy] {
-	return pulumix.Output[map[string]*RedriveAllowPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RedriveAllowPolicyMapOutput) MapIndex(k pulumi.StringInput) RedriveAllowPolicyOutput {

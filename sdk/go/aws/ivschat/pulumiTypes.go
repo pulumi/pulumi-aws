@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i LoggingConfigurationDestinationConfigurationArgs) ToLoggingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationOutput)
 }
 
-func (i LoggingConfigurationDestinationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfiguration] {
-	return pulumix.Output[LoggingConfigurationDestinationConfiguration]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LoggingConfigurationDestinationConfigurationArgs) ToLoggingConfigurationDestinationConfigurationPtrOutput() LoggingConfigurationDestinationConfigurationPtrOutput {
 	return i.ToLoggingConfigurationDestinationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *loggingConfigurationDestinationConfigurationPtrType) ToLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationPtrOutput)
 }
 
-func (i *loggingConfigurationDestinationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfiguration] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfiguration]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o LoggingConfigurationDestinationConfigurationOutput) ToLoggingConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationDestinationConfiguration) *LoggingConfigurationDestinationConfiguration {
 		return &v
 	}).(LoggingConfigurationDestinationConfigurationPtrOutput)
-}
-
-func (o LoggingConfigurationDestinationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfiguration] {
-	return pulumix.Output[LoggingConfigurationDestinationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
@@ -171,12 +152,6 @@ func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToLoggingConfigur
 
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToLoggingConfigurationDestinationConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationPtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationDestinationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfiguration] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationPtrOutput) Elem() LoggingConfigurationDestinationConfigurationOutput {
@@ -252,12 +227,6 @@ func (i LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs) ToLoggin
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput)
 }
 
-func (i LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationCloudwatchLogs] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationCloudwatchLogs]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationCloudwatchLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs) ToLoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput() LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput {
 	return i.ToLoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutputWithContext(context.Background())
 }
@@ -299,12 +268,6 @@ func (i *loggingConfigurationDestinationConfigurationCloudwatchLogsPtrType) ToLo
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-func (i *loggingConfigurationDestinationConfigurationCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationCloudwatchLogs] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationCloudwatchLogs]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -329,12 +292,6 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ToLogg
 	}).(LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput)
 }
 
-func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationCloudwatchLogs] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationCloudwatchLogs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationCloudwatchLogs) string { return v.LogGroupName }).(pulumi.StringOutput)
@@ -352,12 +309,6 @@ func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) ToL
 
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) ToLoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationCloudwatchLogs] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationCloudwatchLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationCloudwatchLogsPtrOutput) Elem() LoggingConfigurationDestinationConfigurationCloudwatchLogsOutput {
@@ -413,12 +364,6 @@ func (i LoggingConfigurationDestinationConfigurationFirehoseArgs) ToLoggingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationFirehoseOutput)
 }
 
-func (i LoggingConfigurationDestinationConfigurationFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationFirehose] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationFirehose]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationFirehoseOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LoggingConfigurationDestinationConfigurationFirehoseArgs) ToLoggingConfigurationDestinationConfigurationFirehosePtrOutput() LoggingConfigurationDestinationConfigurationFirehosePtrOutput {
 	return i.ToLoggingConfigurationDestinationConfigurationFirehosePtrOutputWithContext(context.Background())
 }
@@ -460,12 +405,6 @@ func (i *loggingConfigurationDestinationConfigurationFirehosePtrType) ToLoggingC
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
-func (i *loggingConfigurationDestinationConfigurationFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationFirehose] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationFirehose]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationFirehosePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingConfigurationDestinationConfigurationFirehoseOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationDestinationConfigurationFirehoseOutput) ElementType() reflect.Type {
@@ -490,12 +429,6 @@ func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) ToLoggingCon
 	}).(LoggingConfigurationDestinationConfigurationFirehosePtrOutput)
 }
 
-func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationFirehose] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationFirehose]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
 func (o LoggingConfigurationDestinationConfigurationFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggingConfigurationDestinationConfigurationFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
@@ -513,12 +446,6 @@ func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) ToLogging
 
 func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) ToLoggingConfigurationDestinationConfigurationFirehosePtrOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationFirehosePtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationFirehose] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationFirehose]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationFirehosePtrOutput) Elem() LoggingConfigurationDestinationConfigurationFirehoseOutput {
@@ -578,12 +505,6 @@ func (i LoggingConfigurationDestinationConfigurationS3Args) ToLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationS3Output)
 }
 
-func (i LoggingConfigurationDestinationConfigurationS3Args) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationS3]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LoggingConfigurationDestinationConfigurationS3Args) ToLoggingConfigurationDestinationConfigurationS3PtrOutput() LoggingConfigurationDestinationConfigurationS3PtrOutput {
 	return i.ToLoggingConfigurationDestinationConfigurationS3PtrOutputWithContext(context.Background())
 }
@@ -625,12 +546,6 @@ func (i *loggingConfigurationDestinationConfigurationS3PtrType) ToLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-func (i *loggingConfigurationDestinationConfigurationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationS3]{
-		OutputState: i.ToLoggingConfigurationDestinationConfigurationS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingConfigurationDestinationConfigurationS3Output struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationDestinationConfigurationS3Output) ElementType() reflect.Type {
@@ -655,12 +570,6 @@ func (o LoggingConfigurationDestinationConfigurationS3Output) ToLoggingConfigura
 	}).(LoggingConfigurationDestinationConfigurationS3PtrOutput)
 }
 
-func (o LoggingConfigurationDestinationConfigurationS3Output) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[LoggingConfigurationDestinationConfigurationS3]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of the Amazon S3 bucket where chat activity will be logged.
 //
 // The following arguments are optional:
@@ -680,12 +589,6 @@ func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) ToLoggingConfig
 
 func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) ToLoggingConfigurationDestinationConfigurationS3PtrOutputWithContext(ctx context.Context) LoggingConfigurationDestinationConfigurationS3PtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationDestinationConfigurationS3] {
-	return pulumix.Output[*LoggingConfigurationDestinationConfigurationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationDestinationConfigurationS3PtrOutput) Elem() LoggingConfigurationDestinationConfigurationS3Output {
@@ -751,12 +654,6 @@ func (i RoomMessageReviewHandlerArgs) ToRoomMessageReviewHandlerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RoomMessageReviewHandlerOutput)
 }
 
-func (i RoomMessageReviewHandlerArgs) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandler] {
-	return pulumix.Output[RoomMessageReviewHandler]{
-		OutputState: i.ToRoomMessageReviewHandlerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RoomMessageReviewHandlerArgs) ToRoomMessageReviewHandlerPtrOutput() RoomMessageReviewHandlerPtrOutput {
 	return i.ToRoomMessageReviewHandlerPtrOutputWithContext(context.Background())
 }
@@ -798,12 +695,6 @@ func (i *roomMessageReviewHandlerPtrType) ToRoomMessageReviewHandlerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RoomMessageReviewHandlerPtrOutput)
 }
 
-func (i *roomMessageReviewHandlerPtrType) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandler] {
-	return pulumix.Output[*RoomMessageReviewHandler]{
-		OutputState: i.ToRoomMessageReviewHandlerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoomMessageReviewHandlerOutput struct{ *pulumi.OutputState }
 
 func (RoomMessageReviewHandlerOutput) ElementType() reflect.Type {
@@ -826,12 +717,6 @@ func (o RoomMessageReviewHandlerOutput) ToRoomMessageReviewHandlerPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoomMessageReviewHandler) *RoomMessageReviewHandler {
 		return &v
 	}).(RoomMessageReviewHandlerPtrOutput)
-}
-
-func (o RoomMessageReviewHandlerOutput) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandler] {
-	return pulumix.Output[RoomMessageReviewHandler]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fallback behavior (whether the message
@@ -858,12 +743,6 @@ func (o RoomMessageReviewHandlerPtrOutput) ToRoomMessageReviewHandlerPtrOutput()
 
 func (o RoomMessageReviewHandlerPtrOutput) ToRoomMessageReviewHandlerPtrOutputWithContext(ctx context.Context) RoomMessageReviewHandlerPtrOutput {
 	return o
-}
-
-func (o RoomMessageReviewHandlerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandler] {
-	return pulumix.Output[*RoomMessageReviewHandler]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoomMessageReviewHandlerPtrOutput) Elem() RoomMessageReviewHandlerOutput {

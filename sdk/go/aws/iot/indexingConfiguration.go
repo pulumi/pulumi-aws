@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
@@ -161,12 +160,6 @@ func (i *IndexingConfiguration) ToIndexingConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationOutput)
 }
 
-func (i *IndexingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*IndexingConfiguration] {
-	return pulumix.Output[*IndexingConfiguration]{
-		OutputState: i.ToIndexingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IndexingConfigurationArrayInput is an input type that accepts IndexingConfigurationArray and IndexingConfigurationArrayOutput values.
 // You can construct a concrete instance of `IndexingConfigurationArrayInput` via:
 //
@@ -190,12 +183,6 @@ func (i IndexingConfigurationArray) ToIndexingConfigurationArrayOutput() Indexin
 
 func (i IndexingConfigurationArray) ToIndexingConfigurationArrayOutputWithContext(ctx context.Context) IndexingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationArrayOutput)
-}
-
-func (i IndexingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*IndexingConfiguration] {
-	return pulumix.Output[[]*IndexingConfiguration]{
-		OutputState: i.ToIndexingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IndexingConfigurationMapInput is an input type that accepts IndexingConfigurationMap and IndexingConfigurationMapOutput values.
@@ -223,12 +210,6 @@ func (i IndexingConfigurationMap) ToIndexingConfigurationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IndexingConfigurationMapOutput)
 }
 
-func (i IndexingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IndexingConfiguration] {
-	return pulumix.Output[map[string]*IndexingConfiguration]{
-		OutputState: i.ToIndexingConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IndexingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IndexingConfigurationOutput) ElementType() reflect.Type {
@@ -241,12 +222,6 @@ func (o IndexingConfigurationOutput) ToIndexingConfigurationOutput() IndexingCon
 
 func (o IndexingConfigurationOutput) ToIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationOutput {
 	return o
-}
-
-func (o IndexingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexingConfiguration] {
-	return pulumix.Output[*IndexingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Thing group indexing configuration. See below.
@@ -277,12 +252,6 @@ func (o IndexingConfigurationArrayOutput) ToIndexingConfigurationArrayOutputWith
 	return o
 }
 
-func (o IndexingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IndexingConfiguration] {
-	return pulumix.Output[[]*IndexingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IndexingConfigurationArrayOutput) Index(i pulumi.IntInput) IndexingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IndexingConfiguration {
 		return vs[0].([]*IndexingConfiguration)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o IndexingConfigurationMapOutput) ToIndexingConfigurationMapOutput() Index
 
 func (o IndexingConfigurationMapOutput) ToIndexingConfigurationMapOutputWithContext(ctx context.Context) IndexingConfigurationMapOutput {
 	return o
-}
-
-func (o IndexingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IndexingConfiguration] {
-	return pulumix.Output[map[string]*IndexingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IndexingConfigurationMapOutput) MapIndex(k pulumi.StringInput) IndexingConfigurationOutput {

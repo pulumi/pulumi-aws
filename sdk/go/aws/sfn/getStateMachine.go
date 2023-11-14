@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN of a State Machine in AWS Step
@@ -113,12 +112,6 @@ func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutput() Looku
 
 func (o LookupStateMachineResultOutput) ToLookupStateMachineResultOutputWithContext(ctx context.Context) LookupStateMachineResultOutput {
 	return o
-}
-
-func (o LookupStateMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStateMachineResult] {
-	return pulumix.Output[LookupStateMachineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set to the arn of the state function.

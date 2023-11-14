@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -97,12 +96,6 @@ func (i GetRouterConfigurationRouterArgs) ToGetRouterConfigurationRouterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouterConfigurationRouterOutput)
 }
 
-func (i GetRouterConfigurationRouterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationRouter] {
-	return pulumix.Output[GetRouterConfigurationRouter]{
-		OutputState: i.ToGetRouterConfigurationRouterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouterConfigurationRouterArrayInput is an input type that accepts GetRouterConfigurationRouterArray and GetRouterConfigurationRouterArrayOutput values.
 // You can construct a concrete instance of `GetRouterConfigurationRouterArrayInput` via:
 //
@@ -128,12 +121,6 @@ func (i GetRouterConfigurationRouterArray) ToGetRouterConfigurationRouterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouterConfigurationRouterArrayOutput)
 }
 
-func (i GetRouterConfigurationRouterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouterConfigurationRouter] {
-	return pulumix.Output[[]GetRouterConfigurationRouter]{
-		OutputState: i.ToGetRouterConfigurationRouterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouterConfigurationRouterOutput struct{ *pulumi.OutputState }
 
 func (GetRouterConfigurationRouterOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o GetRouterConfigurationRouterOutput) ToGetRouterConfigurationRouterOutput
 
 func (o GetRouterConfigurationRouterOutput) ToGetRouterConfigurationRouterOutputWithContext(ctx context.Context) GetRouterConfigurationRouterOutput {
 	return o
-}
-
-func (o GetRouterConfigurationRouterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationRouter] {
-	return pulumix.Output[GetRouterConfigurationRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Router platform
@@ -214,12 +195,6 @@ func (o GetRouterConfigurationRouterArrayOutput) ToGetRouterConfigurationRouterA
 
 func (o GetRouterConfigurationRouterArrayOutput) ToGetRouterConfigurationRouterArrayOutputWithContext(ctx context.Context) GetRouterConfigurationRouterArrayOutput {
 	return o
-}
-
-func (o GetRouterConfigurationRouterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouterConfigurationRouter] {
-	return pulumix.Output[[]GetRouterConfigurationRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouterConfigurationRouterArrayOutput) Index(i pulumi.IntInput) GetRouterConfigurationRouterOutput {

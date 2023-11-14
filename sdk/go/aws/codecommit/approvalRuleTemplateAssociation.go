@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a CodeCommit Approval Rule Template with a Repository.
@@ -151,12 +150,6 @@ func (i *ApprovalRuleTemplateAssociation) ToApprovalRuleTemplateAssociationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationOutput)
 }
 
-func (i *ApprovalRuleTemplateAssociation) ToOutput(ctx context.Context) pulumix.Output[*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[*ApprovalRuleTemplateAssociation]{
-		OutputState: i.ToApprovalRuleTemplateAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApprovalRuleTemplateAssociationArrayInput is an input type that accepts ApprovalRuleTemplateAssociationArray and ApprovalRuleTemplateAssociationArrayOutput values.
 // You can construct a concrete instance of `ApprovalRuleTemplateAssociationArrayInput` via:
 //
@@ -180,12 +173,6 @@ func (i ApprovalRuleTemplateAssociationArray) ToApprovalRuleTemplateAssociationA
 
 func (i ApprovalRuleTemplateAssociationArray) ToApprovalRuleTemplateAssociationArrayOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationArrayOutput)
-}
-
-func (i ApprovalRuleTemplateAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[[]*ApprovalRuleTemplateAssociation]{
-		OutputState: i.ToApprovalRuleTemplateAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApprovalRuleTemplateAssociationMapInput is an input type that accepts ApprovalRuleTemplateAssociationMap and ApprovalRuleTemplateAssociationMapOutput values.
@@ -213,12 +200,6 @@ func (i ApprovalRuleTemplateAssociationMap) ToApprovalRuleTemplateAssociationMap
 	return pulumi.ToOutputWithContext(ctx, i).(ApprovalRuleTemplateAssociationMapOutput)
 }
 
-func (i ApprovalRuleTemplateAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[map[string]*ApprovalRuleTemplateAssociation]{
-		OutputState: i.ToApprovalRuleTemplateAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApprovalRuleTemplateAssociationOutput struct{ *pulumi.OutputState }
 
 func (ApprovalRuleTemplateAssociationOutput) ElementType() reflect.Type {
@@ -231,12 +212,6 @@ func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociation
 
 func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociationOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationOutput {
 	return o
-}
-
-func (o ApprovalRuleTemplateAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[*ApprovalRuleTemplateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name for the approval rule template.
@@ -263,12 +238,6 @@ func (o ApprovalRuleTemplateAssociationArrayOutput) ToApprovalRuleTemplateAssoci
 	return o
 }
 
-func (o ApprovalRuleTemplateAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[[]*ApprovalRuleTemplateAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApprovalRuleTemplateAssociationArrayOutput) Index(i pulumi.IntInput) ApprovalRuleTemplateAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApprovalRuleTemplateAssociation {
 		return vs[0].([]*ApprovalRuleTemplateAssociation)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o ApprovalRuleTemplateAssociationMapOutput) ToApprovalRuleTemplateAssociat
 
 func (o ApprovalRuleTemplateAssociationMapOutput) ToApprovalRuleTemplateAssociationMapOutputWithContext(ctx context.Context) ApprovalRuleTemplateAssociationMapOutput {
 	return o
-}
-
-func (o ApprovalRuleTemplateAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApprovalRuleTemplateAssociation] {
-	return pulumix.Output[map[string]*ApprovalRuleTemplateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApprovalRuleTemplateAssociationMapOutput) MapIndex(k pulumi.StringInput) ApprovalRuleTemplateAssociationOutput {

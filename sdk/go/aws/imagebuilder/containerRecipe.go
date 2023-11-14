@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Container Recipe.
@@ -357,12 +356,6 @@ func (i *ContainerRecipe) ToContainerRecipeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeOutput)
 }
 
-func (i *ContainerRecipe) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
-	return pulumix.Output[*ContainerRecipe]{
-		OutputState: i.ToContainerRecipeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerRecipeArrayInput is an input type that accepts ContainerRecipeArray and ContainerRecipeArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeArrayInput` via:
 //
@@ -386,12 +379,6 @@ func (i ContainerRecipeArray) ToContainerRecipeArrayOutput() ContainerRecipeArra
 
 func (i ContainerRecipeArray) ToContainerRecipeArrayOutputWithContext(ctx context.Context) ContainerRecipeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeArrayOutput)
-}
-
-func (i ContainerRecipeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerRecipe] {
-	return pulumix.Output[[]*ContainerRecipe]{
-		OutputState: i.ToContainerRecipeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContainerRecipeMapInput is an input type that accepts ContainerRecipeMap and ContainerRecipeMapOutput values.
@@ -419,12 +406,6 @@ func (i ContainerRecipeMap) ToContainerRecipeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeMapOutput)
 }
 
-func (i ContainerRecipeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerRecipe] {
-	return pulumix.Output[map[string]*ContainerRecipe]{
-		OutputState: i.ToContainerRecipeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerRecipeOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeOutput) ElementType() reflect.Type {
@@ -437,12 +418,6 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutput() ContainerRecipeOutput {
 
 func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Context) ContainerRecipeOutput {
 	return o
-}
-
-func (o ContainerRecipeOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipe] {
-	return pulumix.Output[*ContainerRecipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Required) Amazon Resource Name (ARN) of the container recipe.
@@ -563,12 +538,6 @@ func (o ContainerRecipeArrayOutput) ToContainerRecipeArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ContainerRecipeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerRecipe] {
-	return pulumix.Output[[]*ContainerRecipe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeArrayOutput) Index(i pulumi.IntInput) ContainerRecipeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerRecipe {
 		return vs[0].([]*ContainerRecipe)[vs[1].(int)]
@@ -587,12 +556,6 @@ func (o ContainerRecipeMapOutput) ToContainerRecipeMapOutput() ContainerRecipeMa
 
 func (o ContainerRecipeMapOutput) ToContainerRecipeMapOutputWithContext(ctx context.Context) ContainerRecipeMapOutput {
 	return o
-}
-
-func (o ContainerRecipeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerRecipe] {
-	return pulumix.Output[map[string]*ContainerRecipe]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeMapOutput) MapIndex(k pulumi.StringInput) ContainerRecipeOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Lex Slot Type resource. For more information see
@@ -259,12 +258,6 @@ func (i *SlotType) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeOutput)
 }
 
-func (i *SlotType) ToOutput(ctx context.Context) pulumix.Output[*SlotType] {
-	return pulumix.Output[*SlotType]{
-		OutputState: i.ToSlotTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SlotTypeArrayInput is an input type that accepts SlotTypeArray and SlotTypeArrayOutput values.
 // You can construct a concrete instance of `SlotTypeArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i SlotTypeArray) ToSlotTypeArrayOutput() SlotTypeArrayOutput {
 
 func (i SlotTypeArray) ToSlotTypeArrayOutputWithContext(ctx context.Context) SlotTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeArrayOutput)
-}
-
-func (i SlotTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*SlotType] {
-	return pulumix.Output[[]*SlotType]{
-		OutputState: i.ToSlotTypeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SlotTypeMapInput is an input type that accepts SlotTypeMap and SlotTypeMapOutput values.
@@ -321,12 +308,6 @@ func (i SlotTypeMap) ToSlotTypeMapOutputWithContext(ctx context.Context) SlotTyp
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeMapOutput)
 }
 
-func (i SlotTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotType] {
-	return pulumix.Output[map[string]*SlotType]{
-		OutputState: i.ToSlotTypeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SlotTypeOutput struct{ *pulumi.OutputState }
 
 func (SlotTypeOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o SlotTypeOutput) ToSlotTypeOutput() SlotTypeOutput {
 
 func (o SlotTypeOutput) ToSlotTypeOutputWithContext(ctx context.Context) SlotTypeOutput {
 	return o
-}
-
-func (o SlotTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*SlotType] {
-	return pulumix.Output[*SlotType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Checksum identifying the version of the slot type that was created. The checksum is
@@ -414,12 +389,6 @@ func (o SlotTypeArrayOutput) ToSlotTypeArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SlotTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SlotType] {
-	return pulumix.Output[[]*SlotType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlotTypeArrayOutput) Index(i pulumi.IntInput) SlotTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlotType {
 		return vs[0].([]*SlotType)[vs[1].(int)]
@@ -438,12 +407,6 @@ func (o SlotTypeMapOutput) ToSlotTypeMapOutput() SlotTypeMapOutput {
 
 func (o SlotTypeMapOutput) ToSlotTypeMapOutputWithContext(ctx context.Context) SlotTypeMapOutput {
 	return o
-}
-
-func (o SlotTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotType] {
-	return pulumix.Output[map[string]*SlotType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SlotTypeMapOutput) MapIndex(k pulumi.StringInput) SlotTypeOutput {

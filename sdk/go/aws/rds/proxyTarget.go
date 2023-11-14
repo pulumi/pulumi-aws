@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB proxy target resource.
@@ -273,12 +272,6 @@ func (i *ProxyTarget) ToProxyTargetOutputWithContext(ctx context.Context) ProxyT
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetOutput)
 }
 
-func (i *ProxyTarget) ToOutput(ctx context.Context) pulumix.Output[*ProxyTarget] {
-	return pulumix.Output[*ProxyTarget]{
-		OutputState: i.ToProxyTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProxyTargetArrayInput is an input type that accepts ProxyTargetArray and ProxyTargetArrayOutput values.
 // You can construct a concrete instance of `ProxyTargetArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i ProxyTargetArray) ToProxyTargetArrayOutput() ProxyTargetArrayOutput {
 
 func (i ProxyTargetArray) ToProxyTargetArrayOutputWithContext(ctx context.Context) ProxyTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetArrayOutput)
-}
-
-func (i ProxyTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyTarget] {
-	return pulumix.Output[[]*ProxyTarget]{
-		OutputState: i.ToProxyTargetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProxyTargetMapInput is an input type that accepts ProxyTargetMap and ProxyTargetMapOutput values.
@@ -335,12 +322,6 @@ func (i ProxyTargetMap) ToProxyTargetMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetMapOutput)
 }
 
-func (i ProxyTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyTarget] {
-	return pulumix.Output[map[string]*ProxyTarget]{
-		OutputState: i.ToProxyTargetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProxyTargetOutput struct{ *pulumi.OutputState }
 
 func (ProxyTargetOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o ProxyTargetOutput) ToProxyTargetOutput() ProxyTargetOutput {
 
 func (o ProxyTargetOutput) ToProxyTargetOutputWithContext(ctx context.Context) ProxyTargetOutput {
 	return o
-}
-
-func (o ProxyTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*ProxyTarget] {
-	return pulumix.Output[*ProxyTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // DB cluster identifier.
@@ -427,12 +402,6 @@ func (o ProxyTargetArrayOutput) ToProxyTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ProxyTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProxyTarget] {
-	return pulumix.Output[[]*ProxyTarget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProxyTargetArrayOutput) Index(i pulumi.IntInput) ProxyTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProxyTarget {
 		return vs[0].([]*ProxyTarget)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o ProxyTargetMapOutput) ToProxyTargetMapOutput() ProxyTargetMapOutput {
 
 func (o ProxyTargetMapOutput) ToProxyTargetMapOutputWithContext(ctx context.Context) ProxyTargetMapOutput {
 	return o
-}
-
-func (o ProxyTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProxyTarget] {
-	return pulumix.Output[map[string]*ProxyTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProxyTargetMapOutput) MapIndex(k pulumi.StringInput) ProxyTargetOutput {

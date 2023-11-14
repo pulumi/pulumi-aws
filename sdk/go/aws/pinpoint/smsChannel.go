@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
@@ -183,12 +182,6 @@ func (i *SmsChannel) ToSmsChannelOutputWithContext(ctx context.Context) SmsChann
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelOutput)
 }
 
-func (i *SmsChannel) ToOutput(ctx context.Context) pulumix.Output[*SmsChannel] {
-	return pulumix.Output[*SmsChannel]{
-		OutputState: i.ToSmsChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SmsChannelArrayInput is an input type that accepts SmsChannelArray and SmsChannelArrayOutput values.
 // You can construct a concrete instance of `SmsChannelArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i SmsChannelArray) ToSmsChannelArrayOutput() SmsChannelArrayOutput {
 
 func (i SmsChannelArray) ToSmsChannelArrayOutputWithContext(ctx context.Context) SmsChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelArrayOutput)
-}
-
-func (i SmsChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*SmsChannel] {
-	return pulumix.Output[[]*SmsChannel]{
-		OutputState: i.ToSmsChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SmsChannelMapInput is an input type that accepts SmsChannelMap and SmsChannelMapOutput values.
@@ -245,12 +232,6 @@ func (i SmsChannelMap) ToSmsChannelMapOutputWithContext(ctx context.Context) Sms
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelMapOutput)
 }
 
-func (i SmsChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmsChannel] {
-	return pulumix.Output[map[string]*SmsChannel]{
-		OutputState: i.ToSmsChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SmsChannelOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o SmsChannelOutput) ToSmsChannelOutput() SmsChannelOutput {
 
 func (o SmsChannelOutput) ToSmsChannelOutputWithContext(ctx context.Context) SmsChannelOutput {
 	return o
-}
-
-func (o SmsChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*SmsChannel] {
-	return pulumix.Output[*SmsChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the application.
@@ -315,12 +290,6 @@ func (o SmsChannelArrayOutput) ToSmsChannelArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SmsChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SmsChannel] {
-	return pulumix.Output[[]*SmsChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SmsChannelArrayOutput) Index(i pulumi.IntInput) SmsChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SmsChannel {
 		return vs[0].([]*SmsChannel)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o SmsChannelMapOutput) ToSmsChannelMapOutput() SmsChannelMapOutput {
 
 func (o SmsChannelMapOutput) ToSmsChannelMapOutputWithContext(ctx context.Context) SmsChannelMapOutput {
 	return o
-}
-
-func (o SmsChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmsChannel] {
-	return pulumix.Output[map[string]*SmsChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SmsChannelMapOutput) MapIndex(k pulumi.StringInput) SmsChannelOutput {

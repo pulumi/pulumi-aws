@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 Web ACL.
@@ -108,12 +107,6 @@ func (o LookupWebAclResultOutput) ToLookupWebAclResultOutput() LookupWebAclResul
 
 func (o LookupWebAclResultOutput) ToLookupWebAclResultOutputWithContext(ctx context.Context) LookupWebAclResultOutput {
 	return o
-}
-
-func (o LookupWebAclResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWebAclResult] {
-	return pulumix.Output[LookupWebAclResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the entity.

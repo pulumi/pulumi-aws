@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWriteProperti
 
 func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWritePropertiesOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesOutput)
-}
-
-func (i TableMagneticStoreWritePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWriteProperties] {
-	return pulumix.Output[TableMagneticStoreWriteProperties]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TableMagneticStoreWritePropertiesArgs) ToTableMagneticStoreWritePropertiesPtrOutput() TableMagneticStoreWritePropertiesPtrOutput {
@@ -98,12 +91,6 @@ func (i *tableMagneticStoreWritePropertiesPtrType) ToTableMagneticStoreWriteProp
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesPtrOutput)
 }
 
-func (i *tableMagneticStoreWritePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWriteProperties] {
-	return pulumix.Output[*TableMagneticStoreWriteProperties]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableMagneticStoreWritePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o TableMagneticStoreWritePropertiesOutput) ToTableMagneticStoreWriteProper
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMagneticStoreWriteProperties) *TableMagneticStoreWriteProperties {
 		return &v
 	}).(TableMagneticStoreWritePropertiesPtrOutput)
-}
-
-func (o TableMagneticStoreWritePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWriteProperties] {
-	return pulumix.Output[TableMagneticStoreWriteProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag to enable magnetic store writes.
@@ -158,12 +139,6 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) ToTableMagneticStoreWritePro
 
 func (o TableMagneticStoreWritePropertiesPtrOutput) ToTableMagneticStoreWritePropertiesPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesPtrOutput {
 	return o
-}
-
-func (o TableMagneticStoreWritePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWriteProperties] {
-	return pulumix.Output[*TableMagneticStoreWriteProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableMagneticStoreWritePropertiesPtrOutput) Elem() TableMagneticStoreWritePropertiesOutput {
@@ -229,12 +204,6 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput)
 }
 
-func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
-	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(context.Background())
 }
@@ -276,12 +245,6 @@ func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
-func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
-	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) ElementType() reflect.Type {
@@ -306,12 +269,6 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
-func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
-	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
@@ -331,12 +288,6 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOut
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o
-}
-
-func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation] {
-	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) Elem() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput {
@@ -404,12 +355,6 @@ func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput)
 }
 
-func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
-	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(context.Background())
 }
@@ -451,12 +396,6 @@ func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Con
 	return pulumi.ToOutputWithContext(ctx, i).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput)
 }
 
-func (i *tableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
-	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
-		OutputState: i.ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) ElementType() reflect.Type {
@@ -479,12 +418,6 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		return &v
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput)
-}
-
-func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
-	return pulumix.Output[TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bucket name of the customer S3 bucket.
@@ -527,12 +460,6 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) ToTableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutputWithContext(ctx context.Context) TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o
-}
-
-func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration] {
-	return pulumix.Output[*TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput) Elem() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationOutput {
@@ -622,12 +549,6 @@ func (i TableRetentionPropertiesArgs) ToTableRetentionPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableRetentionPropertiesOutput)
 }
 
-func (i TableRetentionPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TableRetentionProperties] {
-	return pulumix.Output[TableRetentionProperties]{
-		OutputState: i.ToTableRetentionPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableRetentionPropertiesArgs) ToTableRetentionPropertiesPtrOutput() TableRetentionPropertiesPtrOutput {
 	return i.ToTableRetentionPropertiesPtrOutputWithContext(context.Background())
 }
@@ -669,12 +590,6 @@ func (i *tableRetentionPropertiesPtrType) ToTableRetentionPropertiesPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TableRetentionPropertiesPtrOutput)
 }
 
-func (i *tableRetentionPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableRetentionProperties] {
-	return pulumix.Output[*TableRetentionProperties]{
-		OutputState: i.ToTableRetentionPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableRetentionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableRetentionPropertiesOutput) ElementType() reflect.Type {
@@ -699,12 +614,6 @@ func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutputWithC
 	}).(TableRetentionPropertiesPtrOutput)
 }
 
-func (o TableRetentionPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TableRetentionProperties] {
-	return pulumix.Output[TableRetentionProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.IntOutput)
@@ -727,12 +636,6 @@ func (o TableRetentionPropertiesPtrOutput) ToTableRetentionPropertiesPtrOutput()
 
 func (o TableRetentionPropertiesPtrOutput) ToTableRetentionPropertiesPtrOutputWithContext(ctx context.Context) TableRetentionPropertiesPtrOutput {
 	return o
-}
-
-func (o TableRetentionPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableRetentionProperties] {
-	return pulumix.Output[*TableRetentionProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableRetentionPropertiesPtrOutput) Elem() TableRetentionPropertiesOutput {
@@ -798,12 +701,6 @@ func (i TableSchemaArgs) ToTableSchemaOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaOutput)
 }
 
-func (i TableSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchema] {
-	return pulumix.Output[TableSchema]{
-		OutputState: i.ToTableSchemaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableSchemaArgs) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
 	return i.ToTableSchemaPtrOutputWithContext(context.Background())
 }
@@ -845,12 +742,6 @@ func (i *tableSchemaPtrType) ToTableSchemaPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaPtrOutput)
 }
 
-func (i *tableSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSchema] {
-	return pulumix.Output[*TableSchema]{
-		OutputState: i.ToTableSchemaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableSchemaOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaOutput) ElementType() reflect.Type {
@@ -875,12 +766,6 @@ func (o TableSchemaOutput) ToTableSchemaPtrOutputWithContext(ctx context.Context
 	}).(TableSchemaPtrOutput)
 }
 
-func (o TableSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchema] {
-	return pulumix.Output[TableSchema]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
 func (o TableSchemaOutput) CompositePartitionKey() TableSchemaCompositePartitionKeyPtrOutput {
 	return o.ApplyT(func(v TableSchema) *TableSchemaCompositePartitionKey { return v.CompositePartitionKey }).(TableSchemaCompositePartitionKeyPtrOutput)
@@ -898,12 +783,6 @@ func (o TableSchemaPtrOutput) ToTableSchemaPtrOutput() TableSchemaPtrOutput {
 
 func (o TableSchemaPtrOutput) ToTableSchemaPtrOutputWithContext(ctx context.Context) TableSchemaPtrOutput {
 	return o
-}
-
-func (o TableSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSchema] {
-	return pulumix.Output[*TableSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableSchemaPtrOutput) Elem() TableSchemaOutput {
@@ -967,12 +846,6 @@ func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKey
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaCompositePartitionKeyOutput)
 }
 
-func (i TableSchemaCompositePartitionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaCompositePartitionKey] {
-	return pulumix.Output[TableSchemaCompositePartitionKey]{
-		OutputState: i.ToTableSchemaCompositePartitionKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TableSchemaCompositePartitionKeyArgs) ToTableSchemaCompositePartitionKeyPtrOutput() TableSchemaCompositePartitionKeyPtrOutput {
 	return i.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(context.Background())
 }
@@ -1014,12 +887,6 @@ func (i *tableSchemaCompositePartitionKeyPtrType) ToTableSchemaCompositePartitio
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaCompositePartitionKeyPtrOutput)
 }
 
-func (i *tableSchemaCompositePartitionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaCompositePartitionKey] {
-	return pulumix.Output[*TableSchemaCompositePartitionKey]{
-		OutputState: i.ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableSchemaCompositePartitionKeyOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaCompositePartitionKeyOutput) ElementType() reflect.Type {
@@ -1042,12 +909,6 @@ func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionK
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaCompositePartitionKey) *TableSchemaCompositePartitionKey {
 		return &v
 	}).(TableSchemaCompositePartitionKeyPtrOutput)
-}
-
-func (o TableSchemaCompositePartitionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaCompositePartitionKey] {
-	return pulumix.Output[TableSchemaCompositePartitionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
@@ -1077,12 +938,6 @@ func (o TableSchemaCompositePartitionKeyPtrOutput) ToTableSchemaCompositePartiti
 
 func (o TableSchemaCompositePartitionKeyPtrOutput) ToTableSchemaCompositePartitionKeyPtrOutputWithContext(ctx context.Context) TableSchemaCompositePartitionKeyPtrOutput {
 	return o
-}
-
-func (o TableSchemaCompositePartitionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaCompositePartitionKey] {
-	return pulumix.Output[*TableSchemaCompositePartitionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableSchemaCompositePartitionKeyPtrOutput) Elem() TableSchemaCompositePartitionKeyOutput {

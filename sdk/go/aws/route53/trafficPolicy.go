@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route53 Traffic Policy.
@@ -193,12 +192,6 @@ func (i *TrafficPolicy) ToTrafficPolicyOutputWithContext(ctx context.Context) Tr
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyOutput)
 }
 
-func (i *TrafficPolicy) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicy] {
-	return pulumix.Output[*TrafficPolicy]{
-		OutputState: i.ToTrafficPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficPolicyArrayInput is an input type that accepts TrafficPolicyArray and TrafficPolicyArrayOutput values.
 // You can construct a concrete instance of `TrafficPolicyArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i TrafficPolicyArray) ToTrafficPolicyArrayOutput() TrafficPolicyArrayOutpu
 
 func (i TrafficPolicyArray) ToTrafficPolicyArrayOutputWithContext(ctx context.Context) TrafficPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyArrayOutput)
-}
-
-func (i TrafficPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicy] {
-	return pulumix.Output[[]*TrafficPolicy]{
-		OutputState: i.ToTrafficPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficPolicyMapInput is an input type that accepts TrafficPolicyMap and TrafficPolicyMapOutput values.
@@ -255,12 +242,6 @@ func (i TrafficPolicyMap) ToTrafficPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyMapOutput)
 }
 
-func (i TrafficPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicy] {
-	return pulumix.Output[map[string]*TrafficPolicy]{
-		OutputState: i.ToTrafficPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficPolicyOutput struct{ *pulumi.OutputState }
 
 func (TrafficPolicyOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o TrafficPolicyOutput) ToTrafficPolicyOutput() TrafficPolicyOutput {
 
 func (o TrafficPolicyOutput) ToTrafficPolicyOutputWithContext(ctx context.Context) TrafficPolicyOutput {
 	return o
-}
-
-func (o TrafficPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicy] {
-	return pulumix.Output[*TrafficPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Comment for the traffic policy.
@@ -322,12 +297,6 @@ func (o TrafficPolicyArrayOutput) ToTrafficPolicyArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o TrafficPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicy] {
-	return pulumix.Output[[]*TrafficPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficPolicyArrayOutput) Index(i pulumi.IntInput) TrafficPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficPolicy {
 		return vs[0].([]*TrafficPolicy)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o TrafficPolicyMapOutput) ToTrafficPolicyMapOutput() TrafficPolicyMapOutpu
 
 func (o TrafficPolicyMapOutput) ToTrafficPolicyMapOutputWithContext(ctx context.Context) TrafficPolicyMapOutput {
 	return o
-}
-
-func (o TrafficPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicy] {
-	return pulumix.Output[map[string]*TrafficPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficPolicyMapOutput) MapIndex(k pulumi.StringInput) TrafficPolicyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon FSx for OpenZFS volume.
@@ -285,12 +284,6 @@ func (i *OpenZfsVolume) ToOpenZfsVolumeOutputWithContext(ctx context.Context) Op
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOutput)
 }
 
-func (i *OpenZfsVolume) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolume] {
-	return pulumix.Output[*OpenZfsVolume]{
-		OutputState: i.ToOpenZfsVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenZfsVolumeArrayInput is an input type that accepts OpenZfsVolumeArray and OpenZfsVolumeArrayOutput values.
 // You can construct a concrete instance of `OpenZfsVolumeArrayInput` via:
 //
@@ -314,12 +307,6 @@ func (i OpenZfsVolumeArray) ToOpenZfsVolumeArrayOutput() OpenZfsVolumeArrayOutpu
 
 func (i OpenZfsVolumeArray) ToOpenZfsVolumeArrayOutputWithContext(ctx context.Context) OpenZfsVolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeArrayOutput)
-}
-
-func (i OpenZfsVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsVolume] {
-	return pulumix.Output[[]*OpenZfsVolume]{
-		OutputState: i.ToOpenZfsVolumeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OpenZfsVolumeMapInput is an input type that accepts OpenZfsVolumeMap and OpenZfsVolumeMapOutput values.
@@ -347,12 +334,6 @@ func (i OpenZfsVolumeMap) ToOpenZfsVolumeMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeMapOutput)
 }
 
-func (i OpenZfsVolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsVolume] {
-	return pulumix.Output[map[string]*OpenZfsVolume]{
-		OutputState: i.ToOpenZfsVolumeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsVolumeOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeOutput) ElementType() reflect.Type {
@@ -365,12 +346,6 @@ func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutput() OpenZfsVolumeOutput {
 
 func (o OpenZfsVolumeOutput) ToOpenZfsVolumeOutputWithContext(ctx context.Context) OpenZfsVolumeOutput {
 	return o
-}
-
-func (o OpenZfsVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolume] {
-	return pulumix.Output[*OpenZfsVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name of the file system.
@@ -468,12 +443,6 @@ func (o OpenZfsVolumeArrayOutput) ToOpenZfsVolumeArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o OpenZfsVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsVolume] {
-	return pulumix.Output[[]*OpenZfsVolume]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OpenZfsVolumeArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsVolume {
 		return vs[0].([]*OpenZfsVolume)[vs[1].(int)]
@@ -492,12 +461,6 @@ func (o OpenZfsVolumeMapOutput) ToOpenZfsVolumeMapOutput() OpenZfsVolumeMapOutpu
 
 func (o OpenZfsVolumeMapOutput) ToOpenZfsVolumeMapOutputWithContext(ctx context.Context) OpenZfsVolumeMapOutput {
 	return o
-}
-
-func (o OpenZfsVolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsVolume] {
-	return pulumix.Output[map[string]*OpenZfsVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsVolumeMapOutput) MapIndex(k pulumi.StringInput) OpenZfsVolumeOutput {

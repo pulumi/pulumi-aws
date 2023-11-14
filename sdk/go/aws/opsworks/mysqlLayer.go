@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks MySQL layer resource.
@@ -374,12 +373,6 @@ func (i *MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLay
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerOutput)
 }
 
-func (i *MysqlLayer) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayer] {
-	return pulumix.Output[*MysqlLayer]{
-		OutputState: i.ToMysqlLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MysqlLayerArrayInput is an input type that accepts MysqlLayerArray and MysqlLayerArrayOutput values.
 // You can construct a concrete instance of `MysqlLayerArrayInput` via:
 //
@@ -403,12 +396,6 @@ func (i MysqlLayerArray) ToMysqlLayerArrayOutput() MysqlLayerArrayOutput {
 
 func (i MysqlLayerArray) ToMysqlLayerArrayOutputWithContext(ctx context.Context) MysqlLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerArrayOutput)
-}
-
-func (i MysqlLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*MysqlLayer] {
-	return pulumix.Output[[]*MysqlLayer]{
-		OutputState: i.ToMysqlLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MysqlLayerMapInput is an input type that accepts MysqlLayerMap and MysqlLayerMapOutput values.
@@ -436,12 +423,6 @@ func (i MysqlLayerMap) ToMysqlLayerMapOutputWithContext(ctx context.Context) Mys
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerMapOutput)
 }
 
-func (i MysqlLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MysqlLayer] {
-	return pulumix.Output[map[string]*MysqlLayer]{
-		OutputState: i.ToMysqlLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MysqlLayerOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerOutput) ElementType() reflect.Type {
@@ -454,12 +435,6 @@ func (o MysqlLayerOutput) ToMysqlLayerOutput() MysqlLayerOutput {
 
 func (o MysqlLayerOutput) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
 	return o
-}
-
-func (o MysqlLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*MysqlLayer] {
-	return pulumix.Output[*MysqlLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -610,12 +585,6 @@ func (o MysqlLayerArrayOutput) ToMysqlLayerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MysqlLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MysqlLayer] {
-	return pulumix.Output[[]*MysqlLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MysqlLayerArrayOutput) Index(i pulumi.IntInput) MysqlLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MysqlLayer {
 		return vs[0].([]*MysqlLayer)[vs[1].(int)]
@@ -634,12 +603,6 @@ func (o MysqlLayerMapOutput) ToMysqlLayerMapOutput() MysqlLayerMapOutput {
 
 func (o MysqlLayerMapOutput) ToMysqlLayerMapOutputWithContext(ctx context.Context) MysqlLayerMapOutput {
 	return o
-}
-
-func (o MysqlLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MysqlLayer] {
-	return pulumix.Output[map[string]*MysqlLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MysqlLayerMapOutput) MapIndex(k pulumi.StringInput) MysqlLayerOutput {

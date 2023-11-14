@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ElastiCache Replication Group resource.
@@ -816,12 +815,6 @@ func (i *ReplicationGroup) ToReplicationGroupOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupOutput)
 }
 
-func (i *ReplicationGroup) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroup] {
-	return pulumix.Output[*ReplicationGroup]{
-		OutputState: i.ToReplicationGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationGroupArrayInput is an input type that accepts ReplicationGroupArray and ReplicationGroupArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupArrayInput` via:
 //
@@ -845,12 +838,6 @@ func (i ReplicationGroupArray) ToReplicationGroupArrayOutput() ReplicationGroupA
 
 func (i ReplicationGroupArray) ToReplicationGroupArrayOutputWithContext(ctx context.Context) ReplicationGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupArrayOutput)
-}
-
-func (i ReplicationGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationGroup] {
-	return pulumix.Output[[]*ReplicationGroup]{
-		OutputState: i.ToReplicationGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationGroupMapInput is an input type that accepts ReplicationGroupMap and ReplicationGroupMapOutput values.
@@ -878,12 +865,6 @@ func (i ReplicationGroupMap) ToReplicationGroupMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupMapOutput)
 }
 
-func (i ReplicationGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationGroup] {
-	return pulumix.Output[map[string]*ReplicationGroup]{
-		OutputState: i.ToReplicationGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupOutput) ElementType() reflect.Type {
@@ -896,12 +877,6 @@ func (o ReplicationGroupOutput) ToReplicationGroupOutput() ReplicationGroupOutpu
 
 func (o ReplicationGroupOutput) ToReplicationGroupOutputWithContext(ctx context.Context) ReplicationGroupOutput {
 	return o
-}
-
-func (o ReplicationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroup] {
-	return pulumix.Output[*ReplicationGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -1154,12 +1129,6 @@ func (o ReplicationGroupArrayOutput) ToReplicationGroupArrayOutputWithContext(ct
 	return o
 }
 
-func (o ReplicationGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationGroup] {
-	return pulumix.Output[[]*ReplicationGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationGroupArrayOutput) Index(i pulumi.IntInput) ReplicationGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationGroup {
 		return vs[0].([]*ReplicationGroup)[vs[1].(int)]
@@ -1178,12 +1147,6 @@ func (o ReplicationGroupMapOutput) ToReplicationGroupMapOutput() ReplicationGrou
 
 func (o ReplicationGroupMapOutput) ToReplicationGroupMapOutputWithContext(ctx context.Context) ReplicationGroupMapOutput {
 	return o
-}
-
-func (o ReplicationGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationGroup] {
-	return pulumix.Output[map[string]*ReplicationGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupMapOutput) MapIndex(k pulumi.StringInput) ReplicationGroupOutput {

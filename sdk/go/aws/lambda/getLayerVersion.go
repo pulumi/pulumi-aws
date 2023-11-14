@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Lambda Layer Version.
@@ -139,12 +138,6 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutput() Looku
 
 func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithContext(ctx context.Context) LookupLayerVersionResultOutput {
 	return o
-}
-
-func (o LookupLayerVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLayerVersionResult] {
-	return pulumix.Output[LookupLayerVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Lambda Layer with version.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about Redshift Orderable Clusters and valid parameter combinations.
@@ -119,12 +118,6 @@ func (o GetOrderableClusterResultOutput) ToGetOrderableClusterResultOutput() Get
 
 func (o GetOrderableClusterResultOutput) ToGetOrderableClusterResultOutputWithContext(ctx context.Context) GetOrderableClusterResultOutput {
 	return o
-}
-
-func (o GetOrderableClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrderableClusterResult] {
-	return pulumix.Output[GetOrderableClusterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Availability Zone names where the Redshift Cluster is available.

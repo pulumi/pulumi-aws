@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
@@ -116,12 +115,6 @@ func (o LookupResolverFirewallRuleGroupResultOutput) ToLookupResolverFirewallRul
 
 func (o LookupResolverFirewallRuleGroupResultOutput) ToLookupResolverFirewallRuleGroupResultOutputWithContext(ctx context.Context) LookupResolverFirewallRuleGroupResultOutput {
 	return o
-}
-
-func (o LookupResolverFirewallRuleGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverFirewallRuleGroupResult] {
-	return pulumix.Output[LookupResolverFirewallRuleGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResolverFirewallRuleGroupResultOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing AWS Audit Manager Organization Admin Account Registration.
@@ -144,12 +143,6 @@ func (i *OrganizationAdminAccountRegistration) ToOrganizationAdminAccountRegistr
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountRegistrationOutput)
 }
 
-func (i *OrganizationAdminAccountRegistration) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[*OrganizationAdminAccountRegistration]{
-		OutputState: i.ToOrganizationAdminAccountRegistrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationAdminAccountRegistrationArrayInput is an input type that accepts OrganizationAdminAccountRegistrationArray and OrganizationAdminAccountRegistrationArrayOutput values.
 // You can construct a concrete instance of `OrganizationAdminAccountRegistrationArrayInput` via:
 //
@@ -173,12 +166,6 @@ func (i OrganizationAdminAccountRegistrationArray) ToOrganizationAdminAccountReg
 
 func (i OrganizationAdminAccountRegistrationArray) ToOrganizationAdminAccountRegistrationArrayOutputWithContext(ctx context.Context) OrganizationAdminAccountRegistrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountRegistrationArrayOutput)
-}
-
-func (i OrganizationAdminAccountRegistrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[[]*OrganizationAdminAccountRegistration]{
-		OutputState: i.ToOrganizationAdminAccountRegistrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationAdminAccountRegistrationMapInput is an input type that accepts OrganizationAdminAccountRegistrationMap and OrganizationAdminAccountRegistrationMapOutput values.
@@ -206,12 +193,6 @@ func (i OrganizationAdminAccountRegistrationMap) ToOrganizationAdminAccountRegis
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountRegistrationMapOutput)
 }
 
-func (i OrganizationAdminAccountRegistrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[map[string]*OrganizationAdminAccountRegistration]{
-		OutputState: i.ToOrganizationAdminAccountRegistrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationAdminAccountRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminAccountRegistrationOutput) ElementType() reflect.Type {
@@ -224,12 +205,6 @@ func (o OrganizationAdminAccountRegistrationOutput) ToOrganizationAdminAccountRe
 
 func (o OrganizationAdminAccountRegistrationOutput) ToOrganizationAdminAccountRegistrationOutputWithContext(ctx context.Context) OrganizationAdminAccountRegistrationOutput {
 	return o
-}
-
-func (o OrganizationAdminAccountRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[*OrganizationAdminAccountRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier for the organization administrator account.
@@ -256,12 +231,6 @@ func (o OrganizationAdminAccountRegistrationArrayOutput) ToOrganizationAdminAcco
 	return o
 }
 
-func (o OrganizationAdminAccountRegistrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[[]*OrganizationAdminAccountRegistration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationAdminAccountRegistrationArrayOutput) Index(i pulumi.IntInput) OrganizationAdminAccountRegistrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationAdminAccountRegistration {
 		return vs[0].([]*OrganizationAdminAccountRegistration)[vs[1].(int)]
@@ -280,12 +249,6 @@ func (o OrganizationAdminAccountRegistrationMapOutput) ToOrganizationAdminAccoun
 
 func (o OrganizationAdminAccountRegistrationMapOutput) ToOrganizationAdminAccountRegistrationMapOutputWithContext(ctx context.Context) OrganizationAdminAccountRegistrationMapOutput {
 	return o
-}
-
-func (o OrganizationAdminAccountRegistrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationAdminAccountRegistration] {
-	return pulumix.Output[map[string]*OrganizationAdminAccountRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationAdminAccountRegistrationMapOutput) MapIndex(k pulumi.StringInput) OrganizationAdminAccountRegistrationOutput {

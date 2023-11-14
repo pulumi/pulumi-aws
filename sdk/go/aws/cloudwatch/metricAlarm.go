@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Metric Alarm resource.
@@ -639,12 +638,6 @@ func (i *MetricAlarm) ToMetricAlarmOutputWithContext(ctx context.Context) Metric
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmOutput)
 }
 
-func (i *MetricAlarm) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarm] {
-	return pulumix.Output[*MetricAlarm]{
-		OutputState: i.ToMetricAlarmOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricAlarmArrayInput is an input type that accepts MetricAlarmArray and MetricAlarmArrayOutput values.
 // You can construct a concrete instance of `MetricAlarmArrayInput` via:
 //
@@ -668,12 +661,6 @@ func (i MetricAlarmArray) ToMetricAlarmArrayOutput() MetricAlarmArrayOutput {
 
 func (i MetricAlarmArray) ToMetricAlarmArrayOutputWithContext(ctx context.Context) MetricAlarmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmArrayOutput)
-}
-
-func (i MetricAlarmArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlarm] {
-	return pulumix.Output[[]*MetricAlarm]{
-		OutputState: i.ToMetricAlarmArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MetricAlarmMapInput is an input type that accepts MetricAlarmMap and MetricAlarmMapOutput values.
@@ -701,12 +688,6 @@ func (i MetricAlarmMap) ToMetricAlarmMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMapOutput)
 }
 
-func (i MetricAlarmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlarm] {
-	return pulumix.Output[map[string]*MetricAlarm]{
-		OutputState: i.ToMetricAlarmMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlarmOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmOutput) ElementType() reflect.Type {
@@ -719,12 +700,6 @@ func (o MetricAlarmOutput) ToMetricAlarmOutput() MetricAlarmOutput {
 
 func (o MetricAlarmOutput) ToMetricAlarmOutputWithContext(ctx context.Context) MetricAlarmOutput {
 	return o
-}
-
-func (o MetricAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlarm] {
-	return pulumix.Output[*MetricAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
@@ -872,12 +847,6 @@ func (o MetricAlarmArrayOutput) ToMetricAlarmArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o MetricAlarmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricAlarm] {
-	return pulumix.Output[[]*MetricAlarm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricAlarmArrayOutput) Index(i pulumi.IntInput) MetricAlarmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricAlarm {
 		return vs[0].([]*MetricAlarm)[vs[1].(int)]
@@ -896,12 +865,6 @@ func (o MetricAlarmMapOutput) ToMetricAlarmMapOutput() MetricAlarmMapOutput {
 
 func (o MetricAlarmMapOutput) ToMetricAlarmMapOutputWithContext(ctx context.Context) MetricAlarmMapOutput {
 	return o
-}
-
-func (o MetricAlarmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricAlarm] {
-	return pulumix.Output[map[string]*MetricAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlarmMapOutput) MapIndex(k pulumi.StringInput) MetricAlarmOutput {

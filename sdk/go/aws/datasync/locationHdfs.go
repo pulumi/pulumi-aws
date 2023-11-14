@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an HDFS Location within AWS DataSync.
@@ -297,12 +296,6 @@ func (i *LocationHdfs) ToLocationHdfsOutputWithContext(ctx context.Context) Loca
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsOutput)
 }
 
-func (i *LocationHdfs) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfs] {
-	return pulumix.Output[*LocationHdfs]{
-		OutputState: i.ToLocationHdfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocationHdfsArrayInput is an input type that accepts LocationHdfsArray and LocationHdfsArrayOutput values.
 // You can construct a concrete instance of `LocationHdfsArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i LocationHdfsArray) ToLocationHdfsArrayOutput() LocationHdfsArrayOutput {
 
 func (i LocationHdfsArray) ToLocationHdfsArrayOutputWithContext(ctx context.Context) LocationHdfsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsArrayOutput)
-}
-
-func (i LocationHdfsArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationHdfs] {
-	return pulumix.Output[[]*LocationHdfs]{
-		OutputState: i.ToLocationHdfsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocationHdfsMapInput is an input type that accepts LocationHdfsMap and LocationHdfsMapOutput values.
@@ -359,12 +346,6 @@ func (i LocationHdfsMap) ToLocationHdfsMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LocationHdfsMapOutput)
 }
 
-func (i LocationHdfsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationHdfs] {
-	return pulumix.Output[map[string]*LocationHdfs]{
-		OutputState: i.ToLocationHdfsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationHdfsOutput struct{ *pulumi.OutputState }
 
 func (LocationHdfsOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o LocationHdfsOutput) ToLocationHdfsOutput() LocationHdfsOutput {
 
 func (o LocationHdfsOutput) ToLocationHdfsOutputWithContext(ctx context.Context) LocationHdfsOutput {
 	return o
-}
-
-func (o LocationHdfsOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfs] {
-	return pulumix.Output[*LocationHdfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of DataSync Agent ARNs with which this location will be associated.
@@ -480,12 +455,6 @@ func (o LocationHdfsArrayOutput) ToLocationHdfsArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o LocationHdfsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationHdfs] {
-	return pulumix.Output[[]*LocationHdfs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationHdfsArrayOutput) Index(i pulumi.IntInput) LocationHdfsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationHdfs {
 		return vs[0].([]*LocationHdfs)[vs[1].(int)]
@@ -504,12 +473,6 @@ func (o LocationHdfsMapOutput) ToLocationHdfsMapOutput() LocationHdfsMapOutput {
 
 func (o LocationHdfsMapOutput) ToLocationHdfsMapOutputWithContext(ctx context.Context) LocationHdfsMapOutput {
 	return o
-}
-
-func (o LocationHdfsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationHdfs] {
-	return pulumix.Output[map[string]*LocationHdfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsMapOutput) MapIndex(k pulumi.StringInput) LocationHdfsOutput {

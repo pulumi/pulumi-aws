@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an association between a VPC endpoint and a security group.
@@ -159,12 +158,6 @@ func (i *SecurityGroupAssociation) ToSecurityGroupAssociationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupAssociationOutput)
 }
 
-func (i *SecurityGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupAssociation] {
-	return pulumix.Output[*SecurityGroupAssociation]{
-		OutputState: i.ToSecurityGroupAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityGroupAssociationArrayInput is an input type that accepts SecurityGroupAssociationArray and SecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupAssociationArrayInput` via:
 //
@@ -188,12 +181,6 @@ func (i SecurityGroupAssociationArray) ToSecurityGroupAssociationArrayOutput() S
 
 func (i SecurityGroupAssociationArray) ToSecurityGroupAssociationArrayOutputWithContext(ctx context.Context) SecurityGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupAssociationArrayOutput)
-}
-
-func (i SecurityGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupAssociation] {
-	return pulumix.Output[[]*SecurityGroupAssociation]{
-		OutputState: i.ToSecurityGroupAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecurityGroupAssociationMapInput is an input type that accepts SecurityGroupAssociationMap and SecurityGroupAssociationMapOutput values.
@@ -221,12 +208,6 @@ func (i SecurityGroupAssociationMap) ToSecurityGroupAssociationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupAssociationMapOutput)
 }
 
-func (i SecurityGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupAssociation] {
-	return pulumix.Output[map[string]*SecurityGroupAssociation]{
-		OutputState: i.ToSecurityGroupAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupAssociationOutput) ElementType() reflect.Type {
@@ -239,12 +220,6 @@ func (o SecurityGroupAssociationOutput) ToSecurityGroupAssociationOutput() Secur
 
 func (o SecurityGroupAssociationOutput) ToSecurityGroupAssociationOutputWithContext(ctx context.Context) SecurityGroupAssociationOutput {
 	return o
-}
-
-func (o SecurityGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityGroupAssociation] {
-	return pulumix.Output[*SecurityGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
@@ -276,12 +251,6 @@ func (o SecurityGroupAssociationArrayOutput) ToSecurityGroupAssociationArrayOutp
 	return o
 }
 
-func (o SecurityGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityGroupAssociation] {
-	return pulumix.Output[[]*SecurityGroupAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityGroupAssociationArrayOutput) Index(i pulumi.IntInput) SecurityGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityGroupAssociation {
 		return vs[0].([]*SecurityGroupAssociation)[vs[1].(int)]
@@ -300,12 +269,6 @@ func (o SecurityGroupAssociationMapOutput) ToSecurityGroupAssociationMapOutput()
 
 func (o SecurityGroupAssociationMapOutput) ToSecurityGroupAssociationMapOutputWithContext(ctx context.Context) SecurityGroupAssociationMapOutput {
 	return o
-}
-
-func (o SecurityGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityGroupAssociation] {
-	return pulumix.Output[map[string]*SecurityGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupAssociationOutput {

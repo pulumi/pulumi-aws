@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES receipt rule resource
@@ -291,12 +290,6 @@ func (i *ReceiptRule) ToReceiptRuleOutputWithContext(ctx context.Context) Receip
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleOutput)
 }
 
-func (i *ReceiptRule) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRule] {
-	return pulumix.Output[*ReceiptRule]{
-		OutputState: i.ToReceiptRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReceiptRuleArrayInput is an input type that accepts ReceiptRuleArray and ReceiptRuleArrayOutput values.
 // You can construct a concrete instance of `ReceiptRuleArrayInput` via:
 //
@@ -320,12 +313,6 @@ func (i ReceiptRuleArray) ToReceiptRuleArrayOutput() ReceiptRuleArrayOutput {
 
 func (i ReceiptRuleArray) ToReceiptRuleArrayOutputWithContext(ctx context.Context) ReceiptRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleArrayOutput)
-}
-
-func (i ReceiptRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptRule] {
-	return pulumix.Output[[]*ReceiptRule]{
-		OutputState: i.ToReceiptRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReceiptRuleMapInput is an input type that accepts ReceiptRuleMap and ReceiptRuleMapOutput values.
@@ -353,12 +340,6 @@ func (i ReceiptRuleMap) ToReceiptRuleMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleMapOutput)
 }
 
-func (i ReceiptRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptRule] {
-	return pulumix.Output[map[string]*ReceiptRule]{
-		OutputState: i.ToReceiptRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReceiptRuleOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleOutput) ElementType() reflect.Type {
@@ -371,12 +352,6 @@ func (o ReceiptRuleOutput) ToReceiptRuleOutput() ReceiptRuleOutput {
 
 func (o ReceiptRuleOutput) ToReceiptRuleOutputWithContext(ctx context.Context) ReceiptRuleOutput {
 	return o
-}
-
-func (o ReceiptRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ReceiptRule] {
-	return pulumix.Output[*ReceiptRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Add Header Action blocks. Documented below.
@@ -468,12 +443,6 @@ func (o ReceiptRuleArrayOutput) ToReceiptRuleArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ReceiptRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReceiptRule] {
-	return pulumix.Output[[]*ReceiptRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReceiptRuleArrayOutput) Index(i pulumi.IntInput) ReceiptRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReceiptRule {
 		return vs[0].([]*ReceiptRule)[vs[1].(int)]
@@ -492,12 +461,6 @@ func (o ReceiptRuleMapOutput) ToReceiptRuleMapOutput() ReceiptRuleMapOutput {
 
 func (o ReceiptRuleMapOutput) ToReceiptRuleMapOutputWithContext(ctx context.Context) ReceiptRuleMapOutput {
 	return o
-}
-
-func (o ReceiptRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReceiptRule] {
-	return pulumix.Output[map[string]*ReceiptRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReceiptRuleMapOutput) MapIndex(k pulumi.StringInput) ReceiptRuleOutput {

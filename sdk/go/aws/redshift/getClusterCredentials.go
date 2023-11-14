@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides redshift cluster temporary credentials.
@@ -128,12 +127,6 @@ func (o GetClusterCredentialsResultOutput) ToGetClusterCredentialsResultOutput()
 
 func (o GetClusterCredentialsResultOutput) ToGetClusterCredentialsResultOutputWithContext(ctx context.Context) GetClusterCredentialsResultOutput {
 	return o
-}
-
-func (o GetClusterCredentialsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterCredentialsResult] {
-	return pulumix.Output[GetClusterCredentialsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetClusterCredentialsResultOutput) AutoCreate() pulumi.BoolPtrOutput {

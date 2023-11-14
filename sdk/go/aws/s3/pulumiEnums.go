@@ -85,12 +85,6 @@ func (o CannedAclOutput) ToCannedAclPtrOutputWithContext(ctx context.Context) Ca
 	}).(CannedAclPtrOutput)
 }
 
-func (o CannedAclOutput) ToOutput(ctx context.Context) pulumix.Output[CannedAcl] {
-	return pulumix.Output[CannedAcl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CannedAclOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +118,6 @@ func (o CannedAclPtrOutput) ToCannedAclPtrOutput() CannedAclPtrOutput {
 
 func (o CannedAclPtrOutput) ToCannedAclPtrOutputWithContext(ctx context.Context) CannedAclPtrOutput {
 	return o
-}
-
-func (o CannedAclPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CannedAcl] {
-	return pulumix.Output[*CannedAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CannedAclPtrOutput) Elem() CannedAclOutput {

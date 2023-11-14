@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about an EventBridge connection.
@@ -107,12 +106,6 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutput()
 
 func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWithContext(ctx context.Context) LookupEventConnectionResultOutput {
 	return o
-}
-
-func (o LookupEventConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventConnectionResult] {
-	return pulumix.Output[LookupEventConnectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN (Amazon Resource Name) for the connection.

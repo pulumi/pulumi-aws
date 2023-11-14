@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace license association resource.
@@ -201,12 +200,6 @@ func (i *LicenseAssociation) ToLicenseAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssociationOutput)
 }
 
-func (i *LicenseAssociation) ToOutput(ctx context.Context) pulumix.Output[*LicenseAssociation] {
-	return pulumix.Output[*LicenseAssociation]{
-		OutputState: i.ToLicenseAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LicenseAssociationArrayInput is an input type that accepts LicenseAssociationArray and LicenseAssociationArrayOutput values.
 // You can construct a concrete instance of `LicenseAssociationArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i LicenseAssociationArray) ToLicenseAssociationArrayOutput() LicenseAssoci
 
 func (i LicenseAssociationArray) ToLicenseAssociationArrayOutputWithContext(ctx context.Context) LicenseAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssociationArrayOutput)
-}
-
-func (i LicenseAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseAssociation] {
-	return pulumix.Output[[]*LicenseAssociation]{
-		OutputState: i.ToLicenseAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LicenseAssociationMapInput is an input type that accepts LicenseAssociationMap and LicenseAssociationMapOutput values.
@@ -263,12 +250,6 @@ func (i LicenseAssociationMap) ToLicenseAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssociationMapOutput)
 }
 
-func (i LicenseAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseAssociation] {
-	return pulumix.Output[map[string]*LicenseAssociation]{
-		OutputState: i.ToLicenseAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LicenseAssociationOutput struct{ *pulumi.OutputState }
 
 func (LicenseAssociationOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o LicenseAssociationOutput) ToLicenseAssociationOutput() LicenseAssociatio
 
 func (o LicenseAssociationOutput) ToLicenseAssociationOutputWithContext(ctx context.Context) LicenseAssociationOutput {
 	return o
-}
-
-func (o LicenseAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseAssociation] {
-	return pulumix.Output[*LicenseAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If `licenseType` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
@@ -323,12 +298,6 @@ func (o LicenseAssociationArrayOutput) ToLicenseAssociationArrayOutputWithContex
 	return o
 }
 
-func (o LicenseAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseAssociation] {
-	return pulumix.Output[[]*LicenseAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LicenseAssociationArrayOutput) Index(i pulumi.IntInput) LicenseAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicenseAssociation {
 		return vs[0].([]*LicenseAssociation)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o LicenseAssociationMapOutput) ToLicenseAssociationMapOutput() LicenseAsso
 
 func (o LicenseAssociationMapOutput) ToLicenseAssociationMapOutputWithContext(ctx context.Context) LicenseAssociationMapOutput {
 	return o
-}
-
-func (o LicenseAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseAssociation] {
-	return pulumix.Output[map[string]*LicenseAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LicenseAssociationMapOutput) MapIndex(k pulumi.StringInput) LicenseAssociationOutput {

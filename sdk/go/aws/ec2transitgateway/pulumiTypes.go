@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsOu
 
 func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTimeoutsOutput)
-}
-
-func (i InstanceConnectEndpointTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceConnectEndpointTimeouts] {
-	return pulumix.Output[InstanceConnectEndpointTimeouts]{
-		OutputState: i.ToInstanceConnectEndpointTimeoutsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput {
@@ -94,12 +87,6 @@ func (i *instanceConnectEndpointTimeoutsPtrType) ToInstanceConnectEndpointTimeou
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTimeoutsPtrOutput)
 }
 
-func (i *instanceConnectEndpointTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpointTimeouts] {
-	return pulumix.Output[*InstanceConnectEndpointTimeouts]{
-		OutputState: i.ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceConnectEndpointTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (InstanceConnectEndpointTimeoutsOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeouts
 	}).(InstanceConnectEndpointTimeoutsPtrOutput)
 }
 
-func (o InstanceConnectEndpointTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceConnectEndpointTimeouts] {
-	return pulumix.Output[InstanceConnectEndpointTimeouts]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceConnectEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceConnectEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
 }
@@ -150,12 +131,6 @@ func (o InstanceConnectEndpointTimeoutsPtrOutput) ToInstanceConnectEndpointTimeo
 
 func (o InstanceConnectEndpointTimeoutsPtrOutput) ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsPtrOutput {
 	return o
-}
-
-func (o InstanceConnectEndpointTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpointTimeouts] {
-	return pulumix.Output[*InstanceConnectEndpointTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceConnectEndpointTimeoutsPtrOutput) Elem() InstanceConnectEndpointTimeoutsOutput {
@@ -223,12 +198,6 @@ func (i GetAttachmentFilterArgs) ToGetAttachmentFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentFilterOutput)
 }
 
-func (i GetAttachmentFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentFilter] {
-	return pulumix.Output[GetAttachmentFilter]{
-		OutputState: i.ToGetAttachmentFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAttachmentFilterArrayInput is an input type that accepts GetAttachmentFilterArray and GetAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetAttachmentFilterArrayInput` via:
 //
@@ -254,12 +223,6 @@ func (i GetAttachmentFilterArray) ToGetAttachmentFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentFilterArrayOutput)
 }
 
-func (i GetAttachmentFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAttachmentFilter] {
-	return pulumix.Output[[]GetAttachmentFilter]{
-		OutputState: i.ToGetAttachmentFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetAttachmentFilterOutput) ElementType() reflect.Type {
@@ -272,12 +235,6 @@ func (o GetAttachmentFilterOutput) ToGetAttachmentFilterOutput() GetAttachmentFi
 
 func (o GetAttachmentFilterOutput) ToGetAttachmentFilterOutputWithContext(ctx context.Context) GetAttachmentFilterOutput {
 	return o
-}
-
-func (o GetAttachmentFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentFilter] {
-	return pulumix.Output[GetAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -302,12 +259,6 @@ func (o GetAttachmentFilterArrayOutput) ToGetAttachmentFilterArrayOutput() GetAt
 
 func (o GetAttachmentFilterArrayOutput) ToGetAttachmentFilterArrayOutputWithContext(ctx context.Context) GetAttachmentFilterArrayOutput {
 	return o
-}
-
-func (o GetAttachmentFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAttachmentFilter] {
-	return pulumix.Output[[]GetAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentFilterOutput {
@@ -353,12 +304,6 @@ func (i GetAttachmentsFilterArgs) ToGetAttachmentsFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentsFilterOutput)
 }
 
-func (i GetAttachmentsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentsFilter] {
-	return pulumix.Output[GetAttachmentsFilter]{
-		OutputState: i.ToGetAttachmentsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAttachmentsFilterArrayInput is an input type that accepts GetAttachmentsFilterArray and GetAttachmentsFilterArrayOutput values.
 // You can construct a concrete instance of `GetAttachmentsFilterArrayInput` via:
 //
@@ -384,12 +329,6 @@ func (i GetAttachmentsFilterArray) ToGetAttachmentsFilterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAttachmentsFilterArrayOutput)
 }
 
-func (i GetAttachmentsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAttachmentsFilter] {
-	return pulumix.Output[[]GetAttachmentsFilter]{
-		OutputState: i.ToGetAttachmentsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAttachmentsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetAttachmentsFilterOutput) ElementType() reflect.Type {
@@ -402,12 +341,6 @@ func (o GetAttachmentsFilterOutput) ToGetAttachmentsFilterOutput() GetAttachment
 
 func (o GetAttachmentsFilterOutput) ToGetAttachmentsFilterOutputWithContext(ctx context.Context) GetAttachmentsFilterOutput {
 	return o
-}
-
-func (o GetAttachmentsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentsFilter] {
-	return pulumix.Output[GetAttachmentsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
@@ -432,12 +365,6 @@ func (o GetAttachmentsFilterArrayOutput) ToGetAttachmentsFilterArrayOutput() Get
 
 func (o GetAttachmentsFilterArrayOutput) ToGetAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetAttachmentsFilterArrayOutput {
 	return o
-}
-
-func (o GetAttachmentsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAttachmentsFilter] {
-	return pulumix.Output[[]GetAttachmentsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetAttachmentsFilterOutput {
@@ -483,12 +410,6 @@ func (i GetConnectFilterArgs) ToGetConnectFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetConnectFilterOutput)
 }
 
-func (i GetConnectFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetConnectFilter] {
-	return pulumix.Output[GetConnectFilter]{
-		OutputState: i.ToGetConnectFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConnectFilterArrayInput is an input type that accepts GetConnectFilterArray and GetConnectFilterArrayOutput values.
 // You can construct a concrete instance of `GetConnectFilterArrayInput` via:
 //
@@ -514,12 +435,6 @@ func (i GetConnectFilterArray) ToGetConnectFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetConnectFilterArrayOutput)
 }
 
-func (i GetConnectFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConnectFilter] {
-	return pulumix.Output[[]GetConnectFilter]{
-		OutputState: i.ToGetConnectFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConnectFilterOutput struct{ *pulumi.OutputState }
 
 func (GetConnectFilterOutput) ElementType() reflect.Type {
@@ -532,12 +447,6 @@ func (o GetConnectFilterOutput) ToGetConnectFilterOutput() GetConnectFilterOutpu
 
 func (o GetConnectFilterOutput) ToGetConnectFilterOutputWithContext(ctx context.Context) GetConnectFilterOutput {
 	return o
-}
-
-func (o GetConnectFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetConnectFilter] {
-	return pulumix.Output[GetConnectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter.
@@ -562,12 +471,6 @@ func (o GetConnectFilterArrayOutput) ToGetConnectFilterArrayOutput() GetConnectF
 
 func (o GetConnectFilterArrayOutput) ToGetConnectFilterArrayOutputWithContext(ctx context.Context) GetConnectFilterArrayOutput {
 	return o
-}
-
-func (o GetConnectFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConnectFilter] {
-	return pulumix.Output[[]GetConnectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConnectFilterArrayOutput) Index(i pulumi.IntInput) GetConnectFilterOutput {
@@ -613,12 +516,6 @@ func (i GetConnectPeerFilterArgs) ToGetConnectPeerFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetConnectPeerFilterOutput)
 }
 
-func (i GetConnectPeerFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetConnectPeerFilter] {
-	return pulumix.Output[GetConnectPeerFilter]{
-		OutputState: i.ToGetConnectPeerFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConnectPeerFilterArrayInput is an input type that accepts GetConnectPeerFilterArray and GetConnectPeerFilterArrayOutput values.
 // You can construct a concrete instance of `GetConnectPeerFilterArrayInput` via:
 //
@@ -644,12 +541,6 @@ func (i GetConnectPeerFilterArray) ToGetConnectPeerFilterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetConnectPeerFilterArrayOutput)
 }
 
-func (i GetConnectPeerFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConnectPeerFilter] {
-	return pulumix.Output[[]GetConnectPeerFilter]{
-		OutputState: i.ToGetConnectPeerFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConnectPeerFilterOutput struct{ *pulumi.OutputState }
 
 func (GetConnectPeerFilterOutput) ElementType() reflect.Type {
@@ -662,12 +553,6 @@ func (o GetConnectPeerFilterOutput) ToGetConnectPeerFilterOutput() GetConnectPee
 
 func (o GetConnectPeerFilterOutput) ToGetConnectPeerFilterOutputWithContext(ctx context.Context) GetConnectPeerFilterOutput {
 	return o
-}
-
-func (o GetConnectPeerFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetConnectPeerFilter] {
-	return pulumix.Output[GetConnectPeerFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter.
@@ -692,12 +577,6 @@ func (o GetConnectPeerFilterArrayOutput) ToGetConnectPeerFilterArrayOutput() Get
 
 func (o GetConnectPeerFilterArrayOutput) ToGetConnectPeerFilterArrayOutputWithContext(ctx context.Context) GetConnectPeerFilterArrayOutput {
 	return o
-}
-
-func (o GetConnectPeerFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConnectPeerFilter] {
-	return pulumix.Output[[]GetConnectPeerFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConnectPeerFilterArrayOutput) Index(i pulumi.IntInput) GetConnectPeerFilterOutput {
@@ -743,12 +622,6 @@ func (i GetDirectConnectGatewayAttachmentFilterArgs) ToGetDirectConnectGatewayAt
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectConnectGatewayAttachmentFilterOutput)
 }
 
-func (i GetDirectConnectGatewayAttachmentFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectConnectGatewayAttachmentFilter] {
-	return pulumix.Output[GetDirectConnectGatewayAttachmentFilter]{
-		OutputState: i.ToGetDirectConnectGatewayAttachmentFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDirectConnectGatewayAttachmentFilterArrayInput is an input type that accepts GetDirectConnectGatewayAttachmentFilterArray and GetDirectConnectGatewayAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetDirectConnectGatewayAttachmentFilterArrayInput` via:
 //
@@ -774,12 +647,6 @@ func (i GetDirectConnectGatewayAttachmentFilterArray) ToGetDirectConnectGatewayA
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectConnectGatewayAttachmentFilterArrayOutput)
 }
 
-func (i GetDirectConnectGatewayAttachmentFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectConnectGatewayAttachmentFilter] {
-	return pulumix.Output[[]GetDirectConnectGatewayAttachmentFilter]{
-		OutputState: i.ToGetDirectConnectGatewayAttachmentFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDirectConnectGatewayAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetDirectConnectGatewayAttachmentFilterOutput) ElementType() reflect.Type {
@@ -792,12 +659,6 @@ func (o GetDirectConnectGatewayAttachmentFilterOutput) ToGetDirectConnectGateway
 
 func (o GetDirectConnectGatewayAttachmentFilterOutput) ToGetDirectConnectGatewayAttachmentFilterOutputWithContext(ctx context.Context) GetDirectConnectGatewayAttachmentFilterOutput {
 	return o
-}
-
-func (o GetDirectConnectGatewayAttachmentFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectConnectGatewayAttachmentFilter] {
-	return pulumix.Output[GetDirectConnectGatewayAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -822,12 +683,6 @@ func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) ToGetDirectConnectGa
 
 func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) ToGetDirectConnectGatewayAttachmentFilterArrayOutputWithContext(ctx context.Context) GetDirectConnectGatewayAttachmentFilterArrayOutput {
 	return o
-}
-
-func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectConnectGatewayAttachmentFilter] {
-	return pulumix.Output[[]GetDirectConnectGatewayAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDirectConnectGatewayAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetDirectConnectGatewayAttachmentFilterOutput {
@@ -873,12 +728,6 @@ func (i GetMulticastDomainAssociationTypeArgs) ToGetMulticastDomainAssociationTy
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainAssociationTypeOutput)
 }
 
-func (i GetMulticastDomainAssociationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainAssociationType] {
-	return pulumix.Output[GetMulticastDomainAssociationType]{
-		OutputState: i.ToGetMulticastDomainAssociationTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMulticastDomainAssociationTypeArrayInput is an input type that accepts GetMulticastDomainAssociationTypeArray and GetMulticastDomainAssociationTypeArrayOutput values.
 // You can construct a concrete instance of `GetMulticastDomainAssociationTypeArrayInput` via:
 //
@@ -904,12 +753,6 @@ func (i GetMulticastDomainAssociationTypeArray) ToGetMulticastDomainAssociationT
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainAssociationTypeArrayOutput)
 }
 
-func (i GetMulticastDomainAssociationTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainAssociationType] {
-	return pulumix.Output[[]GetMulticastDomainAssociationType]{
-		OutputState: i.ToGetMulticastDomainAssociationTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMulticastDomainAssociationTypeOutput struct{ *pulumi.OutputState }
 
 func (GetMulticastDomainAssociationTypeOutput) ElementType() reflect.Type {
@@ -922,12 +765,6 @@ func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociation
 
 func (o GetMulticastDomainAssociationTypeOutput) ToGetMulticastDomainAssociationTypeOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeOutput {
 	return o
-}
-
-func (o GetMulticastDomainAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainAssociationType] {
-	return pulumix.Output[GetMulticastDomainAssociationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the subnet associated with the transit gateway multicast domain.
@@ -952,12 +789,6 @@ func (o GetMulticastDomainAssociationTypeArrayOutput) ToGetMulticastDomainAssoci
 
 func (o GetMulticastDomainAssociationTypeArrayOutput) ToGetMulticastDomainAssociationTypeArrayOutputWithContext(ctx context.Context) GetMulticastDomainAssociationTypeArrayOutput {
 	return o
-}
-
-func (o GetMulticastDomainAssociationTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainAssociationType] {
-	return pulumix.Output[[]GetMulticastDomainAssociationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMulticastDomainAssociationTypeArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainAssociationTypeOutput {
@@ -1003,12 +834,6 @@ func (i GetMulticastDomainFilterArgs) ToGetMulticastDomainFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainFilterOutput)
 }
 
-func (i GetMulticastDomainFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainFilter] {
-	return pulumix.Output[GetMulticastDomainFilter]{
-		OutputState: i.ToGetMulticastDomainFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMulticastDomainFilterArrayInput is an input type that accepts GetMulticastDomainFilterArray and GetMulticastDomainFilterArrayOutput values.
 // You can construct a concrete instance of `GetMulticastDomainFilterArrayInput` via:
 //
@@ -1034,12 +859,6 @@ func (i GetMulticastDomainFilterArray) ToGetMulticastDomainFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainFilterArrayOutput)
 }
 
-func (i GetMulticastDomainFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainFilter] {
-	return pulumix.Output[[]GetMulticastDomainFilter]{
-		OutputState: i.ToGetMulticastDomainFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMulticastDomainFilterOutput struct{ *pulumi.OutputState }
 
 func (GetMulticastDomainFilterOutput) ElementType() reflect.Type {
@@ -1052,12 +871,6 @@ func (o GetMulticastDomainFilterOutput) ToGetMulticastDomainFilterOutput() GetMu
 
 func (o GetMulticastDomainFilterOutput) ToGetMulticastDomainFilterOutputWithContext(ctx context.Context) GetMulticastDomainFilterOutput {
 	return o
-}
-
-func (o GetMulticastDomainFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainFilter] {
-	return pulumix.Output[GetMulticastDomainFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
@@ -1082,12 +895,6 @@ func (o GetMulticastDomainFilterArrayOutput) ToGetMulticastDomainFilterArrayOutp
 
 func (o GetMulticastDomainFilterArrayOutput) ToGetMulticastDomainFilterArrayOutputWithContext(ctx context.Context) GetMulticastDomainFilterArrayOutput {
 	return o
-}
-
-func (o GetMulticastDomainFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainFilter] {
-	return pulumix.Output[[]GetMulticastDomainFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMulticastDomainFilterArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainFilterOutput {
@@ -1133,12 +940,6 @@ func (i GetMulticastDomainMemberArgs) ToGetMulticastDomainMemberOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainMemberOutput)
 }
 
-func (i GetMulticastDomainMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainMember] {
-	return pulumix.Output[GetMulticastDomainMember]{
-		OutputState: i.ToGetMulticastDomainMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMulticastDomainMemberArrayInput is an input type that accepts GetMulticastDomainMemberArray and GetMulticastDomainMemberArrayOutput values.
 // You can construct a concrete instance of `GetMulticastDomainMemberArrayInput` via:
 //
@@ -1164,12 +965,6 @@ func (i GetMulticastDomainMemberArray) ToGetMulticastDomainMemberArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainMemberArrayOutput)
 }
 
-func (i GetMulticastDomainMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainMember] {
-	return pulumix.Output[[]GetMulticastDomainMember]{
-		OutputState: i.ToGetMulticastDomainMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMulticastDomainMemberOutput struct{ *pulumi.OutputState }
 
 func (GetMulticastDomainMemberOutput) ElementType() reflect.Type {
@@ -1182,12 +977,6 @@ func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutput() GetMu
 
 func (o GetMulticastDomainMemberOutput) ToGetMulticastDomainMemberOutputWithContext(ctx context.Context) GetMulticastDomainMemberOutput {
 	return o
-}
-
-func (o GetMulticastDomainMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainMember] {
-	return pulumix.Output[GetMulticastDomainMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address assigned to the transit gateway multicast group.
@@ -1212,12 +1001,6 @@ func (o GetMulticastDomainMemberArrayOutput) ToGetMulticastDomainMemberArrayOutp
 
 func (o GetMulticastDomainMemberArrayOutput) ToGetMulticastDomainMemberArrayOutputWithContext(ctx context.Context) GetMulticastDomainMemberArrayOutput {
 	return o
-}
-
-func (o GetMulticastDomainMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainMember] {
-	return pulumix.Output[[]GetMulticastDomainMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMulticastDomainMemberArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainMemberOutput {
@@ -1263,12 +1046,6 @@ func (i GetMulticastDomainSourceArgs) ToGetMulticastDomainSourceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainSourceOutput)
 }
 
-func (i GetMulticastDomainSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainSource] {
-	return pulumix.Output[GetMulticastDomainSource]{
-		OutputState: i.ToGetMulticastDomainSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMulticastDomainSourceArrayInput is an input type that accepts GetMulticastDomainSourceArray and GetMulticastDomainSourceArrayOutput values.
 // You can construct a concrete instance of `GetMulticastDomainSourceArrayInput` via:
 //
@@ -1294,12 +1071,6 @@ func (i GetMulticastDomainSourceArray) ToGetMulticastDomainSourceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetMulticastDomainSourceArrayOutput)
 }
 
-func (i GetMulticastDomainSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainSource] {
-	return pulumix.Output[[]GetMulticastDomainSource]{
-		OutputState: i.ToGetMulticastDomainSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMulticastDomainSourceOutput struct{ *pulumi.OutputState }
 
 func (GetMulticastDomainSourceOutput) ElementType() reflect.Type {
@@ -1312,12 +1083,6 @@ func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutput() GetMu
 
 func (o GetMulticastDomainSourceOutput) ToGetMulticastDomainSourceOutputWithContext(ctx context.Context) GetMulticastDomainSourceOutput {
 	return o
-}
-
-func (o GetMulticastDomainSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetMulticastDomainSource] {
-	return pulumix.Output[GetMulticastDomainSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address assigned to the transit gateway multicast group.
@@ -1342,12 +1107,6 @@ func (o GetMulticastDomainSourceArrayOutput) ToGetMulticastDomainSourceArrayOutp
 
 func (o GetMulticastDomainSourceArrayOutput) ToGetMulticastDomainSourceArrayOutputWithContext(ctx context.Context) GetMulticastDomainSourceArrayOutput {
 	return o
-}
-
-func (o GetMulticastDomainSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMulticastDomainSource] {
-	return pulumix.Output[[]GetMulticastDomainSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMulticastDomainSourceArrayOutput) Index(i pulumi.IntInput) GetMulticastDomainSourceOutput {
@@ -1397,12 +1156,6 @@ func (i GetPeeringAttachmentFilterArgs) ToGetPeeringAttachmentFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentFilterOutput)
 }
 
-func (i GetPeeringAttachmentFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAttachmentFilter] {
-	return pulumix.Output[GetPeeringAttachmentFilter]{
-		OutputState: i.ToGetPeeringAttachmentFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPeeringAttachmentFilterArrayInput is an input type that accepts GetPeeringAttachmentFilterArray and GetPeeringAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetPeeringAttachmentFilterArrayInput` via:
 //
@@ -1428,12 +1181,6 @@ func (i GetPeeringAttachmentFilterArray) ToGetPeeringAttachmentFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentFilterArrayOutput)
 }
 
-func (i GetPeeringAttachmentFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAttachmentFilter] {
-	return pulumix.Output[[]GetPeeringAttachmentFilter]{
-		OutputState: i.ToGetPeeringAttachmentFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPeeringAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetPeeringAttachmentFilterOutput) ElementType() reflect.Type {
@@ -1446,12 +1193,6 @@ func (o GetPeeringAttachmentFilterOutput) ToGetPeeringAttachmentFilterOutput() G
 
 func (o GetPeeringAttachmentFilterOutput) ToGetPeeringAttachmentFilterOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterOutput {
 	return o
-}
-
-func (o GetPeeringAttachmentFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetPeeringAttachmentFilter] {
-	return pulumix.Output[GetPeeringAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by
@@ -1478,12 +1219,6 @@ func (o GetPeeringAttachmentFilterArrayOutput) ToGetPeeringAttachmentFilterArray
 
 func (o GetPeeringAttachmentFilterArrayOutput) ToGetPeeringAttachmentFilterArrayOutputWithContext(ctx context.Context) GetPeeringAttachmentFilterArrayOutput {
 	return o
-}
-
-func (o GetPeeringAttachmentFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPeeringAttachmentFilter] {
-	return pulumix.Output[[]GetPeeringAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPeeringAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetPeeringAttachmentFilterOutput {
@@ -1533,12 +1268,6 @@ func (i GetRouteTableAssociationsFilterArgs) ToGetRouteTableAssociationsFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableAssociationsFilterOutput)
 }
 
-func (i GetRouteTableAssociationsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableAssociationsFilter] {
-	return pulumix.Output[GetRouteTableAssociationsFilter]{
-		OutputState: i.ToGetRouteTableAssociationsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouteTableAssociationsFilterArrayInput is an input type that accepts GetRouteTableAssociationsFilterArray and GetRouteTableAssociationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableAssociationsFilterArrayInput` via:
 //
@@ -1564,12 +1293,6 @@ func (i GetRouteTableAssociationsFilterArray) ToGetRouteTableAssociationsFilterA
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableAssociationsFilterArrayOutput)
 }
 
-func (i GetRouteTableAssociationsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableAssociationsFilter] {
-	return pulumix.Output[[]GetRouteTableAssociationsFilter]{
-		OutputState: i.ToGetRouteTableAssociationsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouteTableAssociationsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableAssociationsFilterOutput) ElementType() reflect.Type {
@@ -1582,12 +1305,6 @@ func (o GetRouteTableAssociationsFilterOutput) ToGetRouteTableAssociationsFilter
 
 func (o GetRouteTableAssociationsFilterOutput) ToGetRouteTableAssociationsFilterOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterOutput {
 	return o
-}
-
-func (o GetRouteTableAssociationsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableAssociationsFilter] {
-	return pulumix.Output[GetRouteTableAssociationsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by
@@ -1614,12 +1331,6 @@ func (o GetRouteTableAssociationsFilterArrayOutput) ToGetRouteTableAssociationsF
 
 func (o GetRouteTableAssociationsFilterArrayOutput) ToGetRouteTableAssociationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTableAssociationsFilterArrayOutput {
 	return o
-}
-
-func (o GetRouteTableAssociationsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableAssociationsFilter] {
-	return pulumix.Output[[]GetRouteTableAssociationsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableAssociationsFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableAssociationsFilterOutput {
@@ -1665,12 +1376,6 @@ func (i GetRouteTableFilterArgs) ToGetRouteTableFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterOutput)
 }
 
-func (i GetRouteTableFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableFilter] {
-	return pulumix.Output[GetRouteTableFilter]{
-		OutputState: i.ToGetRouteTableFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouteTableFilterArrayInput is an input type that accepts GetRouteTableFilterArray and GetRouteTableFilterArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableFilterArrayInput` via:
 //
@@ -1696,12 +1401,6 @@ func (i GetRouteTableFilterArray) ToGetRouteTableFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableFilterArrayOutput)
 }
 
-func (i GetRouteTableFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableFilter] {
-	return pulumix.Output[[]GetRouteTableFilter]{
-		OutputState: i.ToGetRouteTableFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouteTableFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableFilterOutput) ElementType() reflect.Type {
@@ -1714,12 +1413,6 @@ func (o GetRouteTableFilterOutput) ToGetRouteTableFilterOutput() GetRouteTableFi
 
 func (o GetRouteTableFilterOutput) ToGetRouteTableFilterOutputWithContext(ctx context.Context) GetRouteTableFilterOutput {
 	return o
-}
-
-func (o GetRouteTableFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableFilter] {
-	return pulumix.Output[GetRouteTableFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter.
@@ -1744,12 +1437,6 @@ func (o GetRouteTableFilterArrayOutput) ToGetRouteTableFilterArrayOutput() GetRo
 
 func (o GetRouteTableFilterArrayOutput) ToGetRouteTableFilterArrayOutputWithContext(ctx context.Context) GetRouteTableFilterArrayOutput {
 	return o
-}
-
-func (o GetRouteTableFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableFilter] {
-	return pulumix.Output[[]GetRouteTableFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFilterOutput {
@@ -1799,12 +1486,6 @@ func (i GetRouteTablePropagationsFilterArgs) ToGetRouteTablePropagationsFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablePropagationsFilterOutput)
 }
 
-func (i GetRouteTablePropagationsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouteTablePropagationsFilter] {
-	return pulumix.Output[GetRouteTablePropagationsFilter]{
-		OutputState: i.ToGetRouteTablePropagationsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouteTablePropagationsFilterArrayInput is an input type that accepts GetRouteTablePropagationsFilterArray and GetRouteTablePropagationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetRouteTablePropagationsFilterArrayInput` via:
 //
@@ -1830,12 +1511,6 @@ func (i GetRouteTablePropagationsFilterArray) ToGetRouteTablePropagationsFilterA
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablePropagationsFilterArrayOutput)
 }
 
-func (i GetRouteTablePropagationsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTablePropagationsFilter] {
-	return pulumix.Output[[]GetRouteTablePropagationsFilter]{
-		OutputState: i.ToGetRouteTablePropagationsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouteTablePropagationsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTablePropagationsFilterOutput) ElementType() reflect.Type {
@@ -1848,12 +1523,6 @@ func (o GetRouteTablePropagationsFilterOutput) ToGetRouteTablePropagationsFilter
 
 func (o GetRouteTablePropagationsFilterOutput) ToGetRouteTablePropagationsFilterOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterOutput {
 	return o
-}
-
-func (o GetRouteTablePropagationsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTablePropagationsFilter] {
-	return pulumix.Output[GetRouteTablePropagationsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by
@@ -1880,12 +1549,6 @@ func (o GetRouteTablePropagationsFilterArrayOutput) ToGetRouteTablePropagationsF
 
 func (o GetRouteTablePropagationsFilterArrayOutput) ToGetRouteTablePropagationsFilterArrayOutputWithContext(ctx context.Context) GetRouteTablePropagationsFilterArrayOutput {
 	return o
-}
-
-func (o GetRouteTablePropagationsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTablePropagationsFilter] {
-	return pulumix.Output[[]GetRouteTablePropagationsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTablePropagationsFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTablePropagationsFilterOutput {
@@ -1933,12 +1596,6 @@ func (i GetRouteTableRoutesFilterArgs) ToGetRouteTableRoutesFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesFilterOutput)
 }
 
-func (i GetRouteTableRoutesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableRoutesFilter] {
-	return pulumix.Output[GetRouteTableRoutesFilter]{
-		OutputState: i.ToGetRouteTableRoutesFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouteTableRoutesFilterArrayInput is an input type that accepts GetRouteTableRoutesFilterArray and GetRouteTableRoutesFilterArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableRoutesFilterArrayInput` via:
 //
@@ -1964,12 +1621,6 @@ func (i GetRouteTableRoutesFilterArray) ToGetRouteTableRoutesFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesFilterArrayOutput)
 }
 
-func (i GetRouteTableRoutesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableRoutesFilter] {
-	return pulumix.Output[[]GetRouteTableRoutesFilter]{
-		OutputState: i.ToGetRouteTableRoutesFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouteTableRoutesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableRoutesFilterOutput) ElementType() reflect.Type {
@@ -1982,12 +1633,6 @@ func (o GetRouteTableRoutesFilterOutput) ToGetRouteTableRoutesFilterOutput() Get
 
 func (o GetRouteTableRoutesFilterOutput) ToGetRouteTableRoutesFilterOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterOutput {
 	return o
-}
-
-func (o GetRouteTableRoutesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableRoutesFilter] {
-	return pulumix.Output[GetRouteTableRoutesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by
@@ -2013,12 +1658,6 @@ func (o GetRouteTableRoutesFilterArrayOutput) ToGetRouteTableRoutesFilterArrayOu
 
 func (o GetRouteTableRoutesFilterArrayOutput) ToGetRouteTableRoutesFilterArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesFilterArrayOutput {
 	return o
-}
-
-func (o GetRouteTableRoutesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableRoutesFilter] {
-	return pulumix.Output[[]GetRouteTableRoutesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableRoutesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableRoutesFilterOutput {
@@ -2076,12 +1715,6 @@ func (i GetRouteTableRoutesRouteArgs) ToGetRouteTableRoutesRouteOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesRouteOutput)
 }
 
-func (i GetRouteTableRoutesRouteArgs) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableRoutesRoute] {
-	return pulumix.Output[GetRouteTableRoutesRoute]{
-		OutputState: i.ToGetRouteTableRoutesRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRouteTableRoutesRouteArrayInput is an input type that accepts GetRouteTableRoutesRouteArray and GetRouteTableRoutesRouteArrayOutput values.
 // You can construct a concrete instance of `GetRouteTableRoutesRouteArrayInput` via:
 //
@@ -2107,12 +1740,6 @@ func (i GetRouteTableRoutesRouteArray) ToGetRouteTableRoutesRouteArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTableRoutesRouteArrayOutput)
 }
 
-func (i GetRouteTableRoutesRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableRoutesRoute] {
-	return pulumix.Output[[]GetRouteTableRoutesRoute]{
-		OutputState: i.ToGetRouteTableRoutesRouteArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRouteTableRoutesRouteOutput struct{ *pulumi.OutputState }
 
 func (GetRouteTableRoutesRouteOutput) ElementType() reflect.Type {
@@ -2125,12 +1752,6 @@ func (o GetRouteTableRoutesRouteOutput) ToGetRouteTableRoutesRouteOutput() GetRo
 
 func (o GetRouteTableRoutesRouteOutput) ToGetRouteTableRoutesRouteOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteOutput {
 	return o
-}
-
-func (o GetRouteTableRoutesRouteOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteTableRoutesRoute] {
-	return pulumix.Output[GetRouteTableRoutesRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The CIDR used for route destination matches.
@@ -2170,12 +1791,6 @@ func (o GetRouteTableRoutesRouteArrayOutput) ToGetRouteTableRoutesRouteArrayOutp
 
 func (o GetRouteTableRoutesRouteArrayOutput) ToGetRouteTableRoutesRouteArrayOutputWithContext(ctx context.Context) GetRouteTableRoutesRouteArrayOutput {
 	return o
-}
-
-func (o GetRouteTableRoutesRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRouteTableRoutesRoute] {
-	return pulumix.Output[[]GetRouteTableRoutesRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRouteTableRoutesRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRoutesRouteOutput {
@@ -2221,12 +1836,6 @@ func (i GetTransitGatewayFilterArgs) ToGetTransitGatewayFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayFilterOutput)
 }
 
-func (i GetTransitGatewayFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayFilter] {
-	return pulumix.Output[GetTransitGatewayFilter]{
-		OutputState: i.ToGetTransitGatewayFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTransitGatewayFilterArrayInput is an input type that accepts GetTransitGatewayFilterArray and GetTransitGatewayFilterArrayOutput values.
 // You can construct a concrete instance of `GetTransitGatewayFilterArrayInput` via:
 //
@@ -2252,12 +1861,6 @@ func (i GetTransitGatewayFilterArray) ToGetTransitGatewayFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayFilterArrayOutput)
 }
 
-func (i GetTransitGatewayFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayFilter] {
-	return pulumix.Output[[]GetTransitGatewayFilter]{
-		OutputState: i.ToGetTransitGatewayFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTransitGatewayFilterOutput struct{ *pulumi.OutputState }
 
 func (GetTransitGatewayFilterOutput) ElementType() reflect.Type {
@@ -2270,12 +1873,6 @@ func (o GetTransitGatewayFilterOutput) ToGetTransitGatewayFilterOutput() GetTran
 
 func (o GetTransitGatewayFilterOutput) ToGetTransitGatewayFilterOutputWithContext(ctx context.Context) GetTransitGatewayFilterOutput {
 	return o
-}
-
-func (o GetTransitGatewayFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayFilter] {
-	return pulumix.Output[GetTransitGatewayFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
@@ -2300,12 +1897,6 @@ func (o GetTransitGatewayFilterArrayOutput) ToGetTransitGatewayFilterArrayOutput
 
 func (o GetTransitGatewayFilterArrayOutput) ToGetTransitGatewayFilterArrayOutputWithContext(ctx context.Context) GetTransitGatewayFilterArrayOutput {
 	return o
-}
-
-func (o GetTransitGatewayFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTransitGatewayFilter] {
-	return pulumix.Output[[]GetTransitGatewayFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTransitGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayFilterOutput {
@@ -2351,12 +1942,6 @@ func (i GetVpcAttachmentFilterArgs) ToGetVpcAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentFilterOutput)
 }
 
-func (i GetVpcAttachmentFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetVpcAttachmentFilter] {
-	return pulumix.Output[GetVpcAttachmentFilter]{
-		OutputState: i.ToGetVpcAttachmentFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVpcAttachmentFilterArrayInput is an input type that accepts GetVpcAttachmentFilterArray and GetVpcAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetVpcAttachmentFilterArrayInput` via:
 //
@@ -2382,12 +1967,6 @@ func (i GetVpcAttachmentFilterArray) ToGetVpcAttachmentFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentFilterArrayOutput)
 }
 
-func (i GetVpcAttachmentFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVpcAttachmentFilter] {
-	return pulumix.Output[[]GetVpcAttachmentFilter]{
-		OutputState: i.ToGetVpcAttachmentFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVpcAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVpcAttachmentFilterOutput) ElementType() reflect.Type {
@@ -2400,12 +1979,6 @@ func (o GetVpcAttachmentFilterOutput) ToGetVpcAttachmentFilterOutput() GetVpcAtt
 
 func (o GetVpcAttachmentFilterOutput) ToGetVpcAttachmentFilterOutputWithContext(ctx context.Context) GetVpcAttachmentFilterOutput {
 	return o
-}
-
-func (o GetVpcAttachmentFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcAttachmentFilter] {
-	return pulumix.Output[GetVpcAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter.
@@ -2430,12 +2003,6 @@ func (o GetVpcAttachmentFilterArrayOutput) ToGetVpcAttachmentFilterArrayOutput()
 
 func (o GetVpcAttachmentFilterArrayOutput) ToGetVpcAttachmentFilterArrayOutputWithContext(ctx context.Context) GetVpcAttachmentFilterArrayOutput {
 	return o
-}
-
-func (o GetVpcAttachmentFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVpcAttachmentFilter] {
-	return pulumix.Output[[]GetVpcAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVpcAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttachmentFilterOutput {
@@ -2481,12 +2048,6 @@ func (i GetVpcAttachmentsFilterArgs) ToGetVpcAttachmentsFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentsFilterOutput)
 }
 
-func (i GetVpcAttachmentsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetVpcAttachmentsFilter] {
-	return pulumix.Output[GetVpcAttachmentsFilter]{
-		OutputState: i.ToGetVpcAttachmentsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVpcAttachmentsFilterArrayInput is an input type that accepts GetVpcAttachmentsFilterArray and GetVpcAttachmentsFilterArrayOutput values.
 // You can construct a concrete instance of `GetVpcAttachmentsFilterArrayInput` via:
 //
@@ -2512,12 +2073,6 @@ func (i GetVpcAttachmentsFilterArray) ToGetVpcAttachmentsFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpcAttachmentsFilterArrayOutput)
 }
 
-func (i GetVpcAttachmentsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVpcAttachmentsFilter] {
-	return pulumix.Output[[]GetVpcAttachmentsFilter]{
-		OutputState: i.ToGetVpcAttachmentsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVpcAttachmentsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVpcAttachmentsFilterOutput) ElementType() reflect.Type {
@@ -2530,12 +2085,6 @@ func (o GetVpcAttachmentsFilterOutput) ToGetVpcAttachmentsFilterOutput() GetVpcA
 
 func (o GetVpcAttachmentsFilterOutput) ToGetVpcAttachmentsFilterOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterOutput {
 	return o
-}
-
-func (o GetVpcAttachmentsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcAttachmentsFilter] {
-	return pulumix.Output[GetVpcAttachmentsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
@@ -2560,12 +2109,6 @@ func (o GetVpcAttachmentsFilterArrayOutput) ToGetVpcAttachmentsFilterArrayOutput
 
 func (o GetVpcAttachmentsFilterArrayOutput) ToGetVpcAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetVpcAttachmentsFilterArrayOutput {
 	return o
-}
-
-func (o GetVpcAttachmentsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVpcAttachmentsFilter] {
-	return pulumix.Output[[]GetVpcAttachmentsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVpcAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcAttachmentsFilterOutput {
@@ -2611,12 +2154,6 @@ func (i GetVpnAttachmentFilterArgs) ToGetVpnAttachmentFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpnAttachmentFilterOutput)
 }
 
-func (i GetVpnAttachmentFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetVpnAttachmentFilter] {
-	return pulumix.Output[GetVpnAttachmentFilter]{
-		OutputState: i.ToGetVpnAttachmentFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVpnAttachmentFilterArrayInput is an input type that accepts GetVpnAttachmentFilterArray and GetVpnAttachmentFilterArrayOutput values.
 // You can construct a concrete instance of `GetVpnAttachmentFilterArrayInput` via:
 //
@@ -2642,12 +2179,6 @@ func (i GetVpnAttachmentFilterArray) ToGetVpnAttachmentFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVpnAttachmentFilterArrayOutput)
 }
 
-func (i GetVpnAttachmentFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVpnAttachmentFilter] {
-	return pulumix.Output[[]GetVpnAttachmentFilter]{
-		OutputState: i.ToGetVpnAttachmentFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVpnAttachmentFilterOutput struct{ *pulumi.OutputState }
 
 func (GetVpnAttachmentFilterOutput) ElementType() reflect.Type {
@@ -2660,12 +2191,6 @@ func (o GetVpnAttachmentFilterOutput) ToGetVpnAttachmentFilterOutput() GetVpnAtt
 
 func (o GetVpnAttachmentFilterOutput) ToGetVpnAttachmentFilterOutputWithContext(ctx context.Context) GetVpnAttachmentFilterOutput {
 	return o
-}
-
-func (o GetVpnAttachmentFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpnAttachmentFilter] {
-	return pulumix.Output[GetVpnAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
@@ -2690,12 +2215,6 @@ func (o GetVpnAttachmentFilterArrayOutput) ToGetVpnAttachmentFilterArrayOutput()
 
 func (o GetVpnAttachmentFilterArrayOutput) ToGetVpnAttachmentFilterArrayOutputWithContext(ctx context.Context) GetVpnAttachmentFilterArrayOutput {
 	return o
-}
-
-func (o GetVpnAttachmentFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVpnAttachmentFilter] {
-	return pulumix.Output[[]GetVpnAttachmentFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttachmentFilterOutput {

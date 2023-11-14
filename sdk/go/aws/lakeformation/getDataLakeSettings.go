@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -114,12 +113,6 @@ func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutput
 
 func (o LookupDataLakeSettingsResultOutput) ToLookupDataLakeSettingsResultOutputWithContext(ctx context.Context) LookupDataLakeSettingsResultOutput {
 	return o
-}
-
-func (o LookupDataLakeSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataLakeSettingsResult] {
-	return pulumix.Output[LookupDataLakeSettingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of ARNs of AWS Lake Formation principals (IAM users or roles).

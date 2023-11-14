@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a Verified Access Trust Provider.
@@ -234,12 +233,6 @@ func (i *TrustProvider) ToTrustProviderOutputWithContext(ctx context.Context) Tr
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderOutput)
 }
 
-func (i *TrustProvider) ToOutput(ctx context.Context) pulumix.Output[*TrustProvider] {
-	return pulumix.Output[*TrustProvider]{
-		OutputState: i.ToTrustProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrustProviderArrayInput is an input type that accepts TrustProviderArray and TrustProviderArrayOutput values.
 // You can construct a concrete instance of `TrustProviderArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i TrustProviderArray) ToTrustProviderArrayOutput() TrustProviderArrayOutpu
 
 func (i TrustProviderArray) ToTrustProviderArrayOutputWithContext(ctx context.Context) TrustProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderArrayOutput)
-}
-
-func (i TrustProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrustProvider] {
-	return pulumix.Output[[]*TrustProvider]{
-		OutputState: i.ToTrustProviderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrustProviderMapInput is an input type that accepts TrustProviderMap and TrustProviderMapOutput values.
@@ -296,12 +283,6 @@ func (i TrustProviderMap) ToTrustProviderMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderMapOutput)
 }
 
-func (i TrustProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrustProvider] {
-	return pulumix.Output[map[string]*TrustProvider]{
-		OutputState: i.ToTrustProviderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustProviderOutput struct{ *pulumi.OutputState }
 
 func (TrustProviderOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o TrustProviderOutput) ToTrustProviderOutput() TrustProviderOutput {
 
 func (o TrustProviderOutput) ToTrustProviderOutputWithContext(ctx context.Context) TrustProviderOutput {
 	return o
-}
-
-func (o TrustProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustProvider] {
-	return pulumix.Output[*TrustProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for the AWS Verified Access trust provider.
@@ -383,12 +358,6 @@ func (o TrustProviderArrayOutput) ToTrustProviderArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o TrustProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrustProvider] {
-	return pulumix.Output[[]*TrustProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustProviderArrayOutput) Index(i pulumi.IntInput) TrustProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrustProvider {
 		return vs[0].([]*TrustProvider)[vs[1].(int)]
@@ -407,12 +376,6 @@ func (o TrustProviderMapOutput) ToTrustProviderMapOutput() TrustProviderMapOutpu
 
 func (o TrustProviderMapOutput) ToTrustProviderMapOutputWithContext(ctx context.Context) TrustProviderMapOutput {
 	return o
-}
-
-func (o TrustProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrustProvider] {
-	return pulumix.Output[map[string]*TrustProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustProviderMapOutput) MapIndex(k pulumi.StringInput) TrustProviderOutput {

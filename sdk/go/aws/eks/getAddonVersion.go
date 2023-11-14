@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
@@ -131,12 +130,6 @@ func (o GetAddonVersionResultOutput) ToGetAddonVersionResultOutput() GetAddonVer
 
 func (o GetAddonVersionResultOutput) ToGetAddonVersionResultOutputWithContext(ctx context.Context) GetAddonVersionResultOutput {
 	return o
-}
-
-func (o GetAddonVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAddonVersionResult] {
-	return pulumix.Output[GetAddonVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAddonVersionResultOutput) AddonName() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Account VDM Attributes.
@@ -174,12 +173,6 @@ func (i *AccountVdmAttributes) ToAccountVdmAttributesOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesOutput)
 }
 
-func (i *AccountVdmAttributes) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributes] {
-	return pulumix.Output[*AccountVdmAttributes]{
-		OutputState: i.ToAccountVdmAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountVdmAttributesArrayInput is an input type that accepts AccountVdmAttributesArray and AccountVdmAttributesArrayOutput values.
 // You can construct a concrete instance of `AccountVdmAttributesArrayInput` via:
 //
@@ -203,12 +196,6 @@ func (i AccountVdmAttributesArray) ToAccountVdmAttributesArrayOutput() AccountVd
 
 func (i AccountVdmAttributesArray) ToAccountVdmAttributesArrayOutputWithContext(ctx context.Context) AccountVdmAttributesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesArrayOutput)
-}
-
-func (i AccountVdmAttributesArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountVdmAttributes] {
-	return pulumix.Output[[]*AccountVdmAttributes]{
-		OutputState: i.ToAccountVdmAttributesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountVdmAttributesMapInput is an input type that accepts AccountVdmAttributesMap and AccountVdmAttributesMapOutput values.
@@ -236,12 +223,6 @@ func (i AccountVdmAttributesMap) ToAccountVdmAttributesMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountVdmAttributesMapOutput)
 }
 
-func (i AccountVdmAttributesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountVdmAttributes] {
-	return pulumix.Output[map[string]*AccountVdmAttributes]{
-		OutputState: i.ToAccountVdmAttributesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountVdmAttributesOutput struct{ *pulumi.OutputState }
 
 func (AccountVdmAttributesOutput) ElementType() reflect.Type {
@@ -254,12 +235,6 @@ func (o AccountVdmAttributesOutput) ToAccountVdmAttributesOutput() AccountVdmAtt
 
 func (o AccountVdmAttributesOutput) ToAccountVdmAttributesOutputWithContext(ctx context.Context) AccountVdmAttributesOutput {
 	return o
-}
-
-func (o AccountVdmAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountVdmAttributes] {
-	return pulumix.Output[*AccountVdmAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies additional settings for your VDM configuration as applicable to the Dashboard.
@@ -297,12 +272,6 @@ func (o AccountVdmAttributesArrayOutput) ToAccountVdmAttributesArrayOutputWithCo
 	return o
 }
 
-func (o AccountVdmAttributesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountVdmAttributes] {
-	return pulumix.Output[[]*AccountVdmAttributes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountVdmAttributesArrayOutput) Index(i pulumi.IntInput) AccountVdmAttributesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountVdmAttributes {
 		return vs[0].([]*AccountVdmAttributes)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o AccountVdmAttributesMapOutput) ToAccountVdmAttributesMapOutput() Account
 
 func (o AccountVdmAttributesMapOutput) ToAccountVdmAttributesMapOutputWithContext(ctx context.Context) AccountVdmAttributesMapOutput {
 	return o
-}
-
-func (o AccountVdmAttributesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountVdmAttributes] {
-	return pulumix.Output[map[string]*AccountVdmAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountVdmAttributesMapOutput) MapIndex(k pulumi.StringInput) AccountVdmAttributesOutput {

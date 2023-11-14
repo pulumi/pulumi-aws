@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 query logging configuration resource.
@@ -215,12 +214,6 @@ func (i *QueryLog) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutp
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogOutput)
 }
 
-func (i *QueryLog) ToOutput(ctx context.Context) pulumix.Output[*QueryLog] {
-	return pulumix.Output[*QueryLog]{
-		OutputState: i.ToQueryLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // QueryLogArrayInput is an input type that accepts QueryLogArray and QueryLogArrayOutput values.
 // You can construct a concrete instance of `QueryLogArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i QueryLogArray) ToQueryLogArrayOutput() QueryLogArrayOutput {
 
 func (i QueryLogArray) ToQueryLogArrayOutputWithContext(ctx context.Context) QueryLogArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogArrayOutput)
-}
-
-func (i QueryLogArray) ToOutput(ctx context.Context) pulumix.Output[[]*QueryLog] {
-	return pulumix.Output[[]*QueryLog]{
-		OutputState: i.ToQueryLogArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // QueryLogMapInput is an input type that accepts QueryLogMap and QueryLogMapOutput values.
@@ -277,12 +264,6 @@ func (i QueryLogMap) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLo
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogMapOutput)
 }
 
-func (i QueryLogMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryLog] {
-	return pulumix.Output[map[string]*QueryLog]{
-		OutputState: i.ToQueryLogMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QueryLogOutput struct{ *pulumi.OutputState }
 
 func (QueryLogOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o QueryLogOutput) ToQueryLogOutput() QueryLogOutput {
 
 func (o QueryLogOutput) ToQueryLogOutputWithContext(ctx context.Context) QueryLogOutput {
 	return o
-}
-
-func (o QueryLogOutput) ToOutput(ctx context.Context) pulumix.Output[*QueryLog] {
-	return pulumix.Output[*QueryLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Query Logging Config.
@@ -332,12 +307,6 @@ func (o QueryLogArrayOutput) ToQueryLogArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o QueryLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QueryLog] {
-	return pulumix.Output[[]*QueryLog]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueryLogArrayOutput) Index(i pulumi.IntInput) QueryLogOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueryLog {
 		return vs[0].([]*QueryLog)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o QueryLogMapOutput) ToQueryLogMapOutput() QueryLogMapOutput {
 
 func (o QueryLogMapOutput) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLogMapOutput {
 	return o
-}
-
-func (o QueryLogMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryLog] {
-	return pulumix.Output[map[string]*QueryLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o QueryLogMapOutput) MapIndex(k pulumi.StringInput) QueryLogOutput {

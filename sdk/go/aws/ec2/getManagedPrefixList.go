@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
@@ -166,12 +165,6 @@ func (o LookupManagedPrefixListResultOutput) ToLookupManagedPrefixListResultOutp
 
 func (o LookupManagedPrefixListResultOutput) ToLookupManagedPrefixListResultOutputWithContext(ctx context.Context) LookupManagedPrefixListResultOutput {
 	return o
-}
-
-func (o LookupManagedPrefixListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagedPrefixListResult] {
-	return pulumix.Output[LookupManagedPrefixListResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address family of the prefix list. Valid values are `IPv4` and `IPv6`.

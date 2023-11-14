@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
 }
 
-func (i ChannelHlsIngestArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngest] {
-	return pulumix.Output[ChannelHlsIngest]{
-		OutputState: i.ToChannelHlsIngestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelHlsIngestArrayInput is an input type that accepts ChannelHlsIngestArray and ChannelHlsIngestArrayOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ChannelHlsIngestArray) ToChannelHlsIngestArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestArrayOutput)
 }
 
-func (i ChannelHlsIngestArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelHlsIngest] {
-	return pulumix.Output[[]ChannelHlsIngest]{
-		OutputState: i.ToChannelHlsIngestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutput() ChannelHlsIngestOutpu
 
 func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
 	return o
-}
-
-func (o ChannelHlsIngestOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngest] {
-	return pulumix.Output[ChannelHlsIngest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the ingest endpoints
@@ -121,12 +102,6 @@ func (o ChannelHlsIngestArrayOutput) ToChannelHlsIngestArrayOutput() ChannelHlsI
 
 func (o ChannelHlsIngestArrayOutput) ToChannelHlsIngestArrayOutputWithContext(ctx context.Context) ChannelHlsIngestArrayOutput {
 	return o
-}
-
-func (o ChannelHlsIngestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelHlsIngest] {
-	return pulumix.Output[[]ChannelHlsIngest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsIngestArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestOutput {
@@ -176,12 +151,6 @@ func (i ChannelHlsIngestIngestEndpointArgs) ToChannelHlsIngestIngestEndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestIngestEndpointOutput)
 }
 
-func (i ChannelHlsIngestIngestEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngestIngestEndpoint] {
-	return pulumix.Output[ChannelHlsIngestIngestEndpoint]{
-		OutputState: i.ToChannelHlsIngestIngestEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelHlsIngestIngestEndpointArrayInput is an input type that accepts ChannelHlsIngestIngestEndpointArray and ChannelHlsIngestIngestEndpointArrayOutput values.
 // You can construct a concrete instance of `ChannelHlsIngestIngestEndpointArrayInput` via:
 //
@@ -207,12 +176,6 @@ func (i ChannelHlsIngestIngestEndpointArray) ToChannelHlsIngestIngestEndpointArr
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestIngestEndpointArrayOutput)
 }
 
-func (i ChannelHlsIngestIngestEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelHlsIngestIngestEndpoint] {
-	return pulumix.Output[[]ChannelHlsIngestIngestEndpoint]{
-		OutputState: i.ToChannelHlsIngestIngestEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelHlsIngestIngestEndpointOutput struct{ *pulumi.OutputState }
 
 func (ChannelHlsIngestIngestEndpointOutput) ElementType() reflect.Type {
@@ -225,12 +188,6 @@ func (o ChannelHlsIngestIngestEndpointOutput) ToChannelHlsIngestIngestEndpointOu
 
 func (o ChannelHlsIngestIngestEndpointOutput) ToChannelHlsIngestIngestEndpointOutputWithContext(ctx context.Context) ChannelHlsIngestIngestEndpointOutput {
 	return o
-}
-
-func (o ChannelHlsIngestIngestEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngestIngestEndpoint] {
-	return pulumix.Output[ChannelHlsIngestIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password
@@ -260,12 +217,6 @@ func (o ChannelHlsIngestIngestEndpointArrayOutput) ToChannelHlsIngestIngestEndpo
 
 func (o ChannelHlsIngestIngestEndpointArrayOutput) ToChannelHlsIngestIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelHlsIngestIngestEndpointArrayOutput {
 	return o
-}
-
-func (o ChannelHlsIngestIngestEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelHlsIngestIngestEndpoint] {
-	return pulumix.Output[[]ChannelHlsIngestIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsIngestIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelHlsIngestIngestEndpointOutput {

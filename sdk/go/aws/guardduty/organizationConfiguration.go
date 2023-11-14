@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the GuardDuty Organization Configuration in the current AWS Region. The AWS account utilizing this resource must have been assigned as a delegated Organization administrator account, e.g., via the `guardduty.OrganizationAdminAccount` resource. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
@@ -203,12 +202,6 @@ func (i *OrganizationConfiguration) ToOrganizationConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOutput)
 }
 
-func (i *OrganizationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfiguration] {
-	return pulumix.Output[*OrganizationConfiguration]{
-		OutputState: i.ToOrganizationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationConfigurationArrayInput is an input type that accepts OrganizationConfigurationArray and OrganizationConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutput()
 
 func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutputWithContext(ctx context.Context) OrganizationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationArrayOutput)
-}
-
-func (i OrganizationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfiguration] {
-	return pulumix.Output[[]*OrganizationConfiguration]{
-		OutputState: i.ToOrganizationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationConfigurationMapInput is an input type that accepts OrganizationConfigurationMap and OrganizationConfigurationMapOutput values.
@@ -265,12 +252,6 @@ func (i OrganizationConfigurationMap) ToOrganizationConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationMapOutput)
 }
 
-func (i OrganizationConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfiguration] {
-	return pulumix.Output[map[string]*OrganizationConfiguration]{
-		OutputState: i.ToOrganizationConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutput() Org
 
 func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOutput {
 	return o
-}
-
-func (o OrganizationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfiguration] {
-	return pulumix.Output[*OrganizationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
@@ -327,12 +302,6 @@ func (o OrganizationConfigurationArrayOutput) ToOrganizationConfigurationArrayOu
 	return o
 }
 
-func (o OrganizationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfiguration] {
-	return pulumix.Output[[]*OrganizationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationConfigurationArrayOutput) Index(i pulumi.IntInput) OrganizationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationConfiguration {
 		return vs[0].([]*OrganizationConfiguration)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o OrganizationConfigurationMapOutput) ToOrganizationConfigurationMapOutput
 
 func (o OrganizationConfigurationMapOutput) ToOrganizationConfigurationMapOutputWithContext(ctx context.Context) OrganizationConfigurationMapOutput {
 	return o
-}
-
-func (o OrganizationConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfiguration] {
-	return pulumix.Output[map[string]*OrganizationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationConfigurationMapOutput) MapIndex(k pulumi.StringInput) OrganizationConfigurationOutput {

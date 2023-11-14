@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
@@ -150,12 +149,6 @@ func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput
 
 func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutputWithContext(ctx context.Context) LookupResolverEndpointResultOutput {
 	return o
-}
-
-func (o LookupResolverEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverEndpointResult] {
-	return pulumix.Output[LookupResolverEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringOutput {

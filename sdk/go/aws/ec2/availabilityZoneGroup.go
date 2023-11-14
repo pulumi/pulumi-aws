@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Availability Zone Group, such as updating its opt-in status.
@@ -153,12 +152,6 @@ func (i *AvailabilityZoneGroup) ToAvailabilityZoneGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupOutput)
 }
 
-func (i *AvailabilityZoneGroup) ToOutput(ctx context.Context) pulumix.Output[*AvailabilityZoneGroup] {
-	return pulumix.Output[*AvailabilityZoneGroup]{
-		OutputState: i.ToAvailabilityZoneGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AvailabilityZoneGroupArrayInput is an input type that accepts AvailabilityZoneGroupArray and AvailabilityZoneGroupArrayOutput values.
 // You can construct a concrete instance of `AvailabilityZoneGroupArrayInput` via:
 //
@@ -182,12 +175,6 @@ func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutput() Availab
 
 func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutputWithContext(ctx context.Context) AvailabilityZoneGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupArrayOutput)
-}
-
-func (i AvailabilityZoneGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*AvailabilityZoneGroup] {
-	return pulumix.Output[[]*AvailabilityZoneGroup]{
-		OutputState: i.ToAvailabilityZoneGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AvailabilityZoneGroupMapInput is an input type that accepts AvailabilityZoneGroupMap and AvailabilityZoneGroupMapOutput values.
@@ -215,12 +202,6 @@ func (i AvailabilityZoneGroupMap) ToAvailabilityZoneGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AvailabilityZoneGroupMapOutput)
 }
 
-func (i AvailabilityZoneGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AvailabilityZoneGroup] {
-	return pulumix.Output[map[string]*AvailabilityZoneGroup]{
-		OutputState: i.ToAvailabilityZoneGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AvailabilityZoneGroupOutput struct{ *pulumi.OutputState }
 
 func (AvailabilityZoneGroupOutput) ElementType() reflect.Type {
@@ -233,12 +214,6 @@ func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupOutput() Availabilit
 
 func (o AvailabilityZoneGroupOutput) ToAvailabilityZoneGroupOutputWithContext(ctx context.Context) AvailabilityZoneGroupOutput {
 	return o
-}
-
-func (o AvailabilityZoneGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*AvailabilityZoneGroup] {
-	return pulumix.Output[*AvailabilityZoneGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Availability Zone Group.
@@ -265,12 +240,6 @@ func (o AvailabilityZoneGroupArrayOutput) ToAvailabilityZoneGroupArrayOutputWith
 	return o
 }
 
-func (o AvailabilityZoneGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AvailabilityZoneGroup] {
-	return pulumix.Output[[]*AvailabilityZoneGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AvailabilityZoneGroupArrayOutput) Index(i pulumi.IntInput) AvailabilityZoneGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AvailabilityZoneGroup {
 		return vs[0].([]*AvailabilityZoneGroup)[vs[1].(int)]
@@ -289,12 +258,6 @@ func (o AvailabilityZoneGroupMapOutput) ToAvailabilityZoneGroupMapOutput() Avail
 
 func (o AvailabilityZoneGroupMapOutput) ToAvailabilityZoneGroupMapOutputWithContext(ctx context.Context) AvailabilityZoneGroupMapOutput {
 	return o
-}
-
-func (o AvailabilityZoneGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AvailabilityZoneGroup] {
-	return pulumix.Output[map[string]*AvailabilityZoneGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AvailabilityZoneGroupMapOutput) MapIndex(k pulumi.StringInput) AvailabilityZoneGroupOutput {

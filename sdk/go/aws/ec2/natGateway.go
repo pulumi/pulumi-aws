@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a VPC NAT Gateway.
@@ -333,12 +332,6 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
 }
 
-func (i *NatGateway) ToOutput(ctx context.Context) pulumix.Output[*NatGateway] {
-	return pulumix.Output[*NatGateway]{
-		OutputState: i.ToNatGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NatGatewayArrayInput is an input type that accepts NatGatewayArray and NatGatewayArrayOutput values.
 // You can construct a concrete instance of `NatGatewayArrayInput` via:
 //
@@ -362,12 +355,6 @@ func (i NatGatewayArray) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
 
 func (i NatGatewayArray) ToNatGatewayArrayOutputWithContext(ctx context.Context) NatGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayArrayOutput)
-}
-
-func (i NatGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*NatGateway] {
-	return pulumix.Output[[]*NatGateway]{
-		OutputState: i.ToNatGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NatGatewayMapInput is an input type that accepts NatGatewayMap and NatGatewayMapOutput values.
@@ -395,12 +382,6 @@ func (i NatGatewayMap) ToNatGatewayMapOutputWithContext(ctx context.Context) Nat
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayMapOutput)
 }
 
-func (i NatGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGateway] {
-	return pulumix.Output[map[string]*NatGateway]{
-		OutputState: i.ToNatGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NatGatewayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayOutput) ElementType() reflect.Type {
@@ -413,12 +394,6 @@ func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
 
 func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
 	return o
-}
-
-func (o NatGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*NatGateway] {
-	return pulumix.Output[*NatGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivityType` of `public`.
@@ -497,12 +472,6 @@ func (o NatGatewayArrayOutput) ToNatGatewayArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o NatGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NatGateway] {
-	return pulumix.Output[[]*NatGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NatGatewayArrayOutput) Index(i pulumi.IntInput) NatGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatGateway {
 		return vs[0].([]*NatGateway)[vs[1].(int)]
@@ -521,12 +490,6 @@ func (o NatGatewayMapOutput) ToNatGatewayMapOutput() NatGatewayMapOutput {
 
 func (o NatGatewayMapOutput) ToNatGatewayMapOutputWithContext(ctx context.Context) NatGatewayMapOutput {
 	return o
-}
-
-func (o NatGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGateway] {
-	return pulumix.Output[map[string]*NatGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NatGatewayMapOutput) MapIndex(k pulumi.StringInput) NatGatewayOutput {

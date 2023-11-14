@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a static route between a VPN connection and a customer gateway.
@@ -170,12 +169,6 @@ func (i *VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteOutput)
 }
 
-func (i *VpnConnectionRoute) ToOutput(ctx context.Context) pulumix.Output[*VpnConnectionRoute] {
-	return pulumix.Output[*VpnConnectionRoute]{
-		OutputState: i.ToVpnConnectionRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpnConnectionRouteArrayInput is an input type that accepts VpnConnectionRouteArray and VpnConnectionRouteArrayOutput values.
 // You can construct a concrete instance of `VpnConnectionRouteArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutput() VpnConnection
 
 func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutputWithContext(ctx context.Context) VpnConnectionRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteArrayOutput)
-}
-
-func (i VpnConnectionRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnConnectionRoute] {
-	return pulumix.Output[[]*VpnConnectionRoute]{
-		OutputState: i.ToVpnConnectionRouteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpnConnectionRouteMapInput is an input type that accepts VpnConnectionRouteMap and VpnConnectionRouteMapOutput values.
@@ -232,12 +219,6 @@ func (i VpnConnectionRouteMap) ToVpnConnectionRouteMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteMapOutput)
 }
 
-func (i VpnConnectionRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnConnectionRoute] {
-	return pulumix.Output[map[string]*VpnConnectionRoute]{
-		OutputState: i.ToVpnConnectionRouteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnConnectionRouteOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionRouteOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutput() VpnConnectionRout
 
 func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
 	return o
-}
-
-func (o VpnConnectionRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnConnectionRoute] {
-	return pulumix.Output[*VpnConnectionRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The CIDR block associated with the local subnet of the customer network.
@@ -282,12 +257,6 @@ func (o VpnConnectionRouteArrayOutput) ToVpnConnectionRouteArrayOutputWithContex
 	return o
 }
 
-func (o VpnConnectionRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnConnectionRoute] {
-	return pulumix.Output[[]*VpnConnectionRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpnConnectionRouteArrayOutput) Index(i pulumi.IntInput) VpnConnectionRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnConnectionRoute {
 		return vs[0].([]*VpnConnectionRoute)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o VpnConnectionRouteMapOutput) ToVpnConnectionRouteMapOutput() VpnConnecti
 
 func (o VpnConnectionRouteMapOutput) ToVpnConnectionRouteMapOutputWithContext(ctx context.Context) VpnConnectionRouteMapOutput {
 	return o
-}
-
-func (o VpnConnectionRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnConnectionRoute] {
-	return pulumix.Output[map[string]*VpnConnectionRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpnConnectionRouteMapOutput) MapIndex(k pulumi.StringInput) VpnConnectionRouteOutput {

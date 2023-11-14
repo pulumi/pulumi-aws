@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a site.
@@ -116,12 +115,6 @@ func (o LookupSiteResultOutput) ToLookupSiteResultOutput() LookupSiteResultOutpu
 
 func (o LookupSiteResultOutput) ToLookupSiteResultOutputWithContext(ctx context.Context) LookupSiteResultOutput {
 	return o
-}
-
-func (o LookupSiteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSiteResult] {
-	return pulumix.Output[LookupSiteResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the site.

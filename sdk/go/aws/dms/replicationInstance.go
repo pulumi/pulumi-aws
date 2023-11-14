@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) replication instance resource. DMS replication instances can be created, updated, deleted, and imported.
@@ -457,12 +456,6 @@ func (i *ReplicationInstance) ToReplicationInstanceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceOutput)
 }
 
-func (i *ReplicationInstance) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
-	return pulumix.Output[*ReplicationInstance]{
-		OutputState: i.ToReplicationInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationInstanceArrayInput is an input type that accepts ReplicationInstanceArray and ReplicationInstanceArrayOutput values.
 // You can construct a concrete instance of `ReplicationInstanceArrayInput` via:
 //
@@ -486,12 +479,6 @@ func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutput() Replication
 
 func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutputWithContext(ctx context.Context) ReplicationInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceArrayOutput)
-}
-
-func (i ReplicationInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationInstance] {
-	return pulumix.Output[[]*ReplicationInstance]{
-		OutputState: i.ToReplicationInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationInstanceMapInput is an input type that accepts ReplicationInstanceMap and ReplicationInstanceMapOutput values.
@@ -519,12 +506,6 @@ func (i ReplicationInstanceMap) ToReplicationInstanceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceMapOutput)
 }
 
-func (i ReplicationInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationInstance] {
-	return pulumix.Output[map[string]*ReplicationInstance]{
-		OutputState: i.ToReplicationInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceOutput) ElementType() reflect.Type {
@@ -537,12 +518,6 @@ func (o ReplicationInstanceOutput) ToReplicationInstanceOutput() ReplicationInst
 
 func (o ReplicationInstanceOutput) ToReplicationInstanceOutputWithContext(ctx context.Context) ReplicationInstanceOutput {
 	return o
-}
-
-func (o ReplicationInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationInstance] {
-	return pulumix.Output[*ReplicationInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the replication instance.
@@ -671,12 +646,6 @@ func (o ReplicationInstanceArrayOutput) ToReplicationInstanceArrayOutputWithCont
 	return o
 }
 
-func (o ReplicationInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationInstance] {
-	return pulumix.Output[[]*ReplicationInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationInstanceArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationInstance {
 		return vs[0].([]*ReplicationInstance)[vs[1].(int)]
@@ -695,12 +664,6 @@ func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutput() Replicati
 
 func (o ReplicationInstanceMapOutput) ToReplicationInstanceMapOutputWithContext(ctx context.Context) ReplicationInstanceMapOutput {
 	return o
-}
-
-func (o ReplicationInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationInstance] {
-	return pulumix.Output[map[string]*ReplicationInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationInstanceMapOutput) MapIndex(k pulumi.StringInput) ReplicationInstanceOutput {

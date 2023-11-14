@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
@@ -235,12 +234,6 @@ func (i *FindingsFilter) ToFindingsFilterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterOutput)
 }
 
-func (i *FindingsFilter) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilter] {
-	return pulumix.Output[*FindingsFilter]{
-		OutputState: i.ToFindingsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FindingsFilterArrayInput is an input type that accepts FindingsFilterArray and FindingsFilterArrayOutput values.
 // You can construct a concrete instance of `FindingsFilterArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i FindingsFilterArray) ToFindingsFilterArrayOutput() FindingsFilterArrayOu
 
 func (i FindingsFilterArray) ToFindingsFilterArrayOutputWithContext(ctx context.Context) FindingsFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterArrayOutput)
-}
-
-func (i FindingsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*FindingsFilter] {
-	return pulumix.Output[[]*FindingsFilter]{
-		OutputState: i.ToFindingsFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FindingsFilterMapInput is an input type that accepts FindingsFilterMap and FindingsFilterMapOutput values.
@@ -297,12 +284,6 @@ func (i FindingsFilterMap) ToFindingsFilterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterMapOutput)
 }
 
-func (i FindingsFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FindingsFilter] {
-	return pulumix.Output[map[string]*FindingsFilter]{
-		OutputState: i.ToFindingsFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FindingsFilterOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o FindingsFilterOutput) ToFindingsFilterOutput() FindingsFilterOutput {
 
 func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput {
 	return o
-}
-
-func (o FindingsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilter] {
-	return pulumix.Output[*FindingsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
@@ -382,12 +357,6 @@ func (o FindingsFilterArrayOutput) ToFindingsFilterArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o FindingsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FindingsFilter] {
-	return pulumix.Output[[]*FindingsFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FindingsFilterArrayOutput) Index(i pulumi.IntInput) FindingsFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FindingsFilter {
 		return vs[0].([]*FindingsFilter)[vs[1].(int)]
@@ -406,12 +375,6 @@ func (o FindingsFilterMapOutput) ToFindingsFilterMapOutput() FindingsFilterMapOu
 
 func (o FindingsFilterMapOutput) ToFindingsFilterMapOutputWithContext(ctx context.Context) FindingsFilterMapOutput {
 	return o
-}
-
-func (o FindingsFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FindingsFilter] {
-	return pulumix.Output[map[string]*FindingsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FindingsFilterMapOutput) MapIndex(k pulumi.StringInput) FindingsFilterOutput {

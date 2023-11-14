@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a new launch configuration, used for autoscaling groups.
@@ -542,12 +541,6 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
 }
 
-func (i *LaunchConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
-	return pulumix.Output[*LaunchConfiguration]{
-		OutputState: i.ToLaunchConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LaunchConfigurationArrayInput is an input type that accepts LaunchConfigurationArray and LaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `LaunchConfigurationArrayInput` via:
 //
@@ -571,12 +564,6 @@ func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutput() LaunchConfi
 
 func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutputWithContext(ctx context.Context) LaunchConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationArrayOutput)
-}
-
-func (i LaunchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LaunchConfiguration] {
-	return pulumix.Output[[]*LaunchConfiguration]{
-		OutputState: i.ToLaunchConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LaunchConfigurationMapInput is an input type that accepts LaunchConfigurationMap and LaunchConfigurationMapOutput values.
@@ -604,12 +591,6 @@ func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMapOutput)
 }
 
-func (i LaunchConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LaunchConfiguration] {
-	return pulumix.Output[map[string]*LaunchConfiguration]{
-		OutputState: i.ToLaunchConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
@@ -622,12 +603,6 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigura
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
 	return o
-}
-
-func (o LaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
-	return pulumix.Output[*LaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of the launch configuration.
@@ -743,12 +718,6 @@ func (o LaunchConfigurationArrayOutput) ToLaunchConfigurationArrayOutputWithCont
 	return o
 }
 
-func (o LaunchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LaunchConfiguration] {
-	return pulumix.Output[[]*LaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LaunchConfigurationArrayOutput) Index(i pulumi.IntInput) LaunchConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LaunchConfiguration {
 		return vs[0].([]*LaunchConfiguration)[vs[1].(int)]
@@ -767,12 +736,6 @@ func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutput() LaunchCon
 
 func (o LaunchConfigurationMapOutput) ToLaunchConfigurationMapOutputWithContext(ctx context.Context) LaunchConfigurationMapOutput {
 	return o
-}
-
-func (o LaunchConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LaunchConfiguration] {
-	return pulumix.Output[map[string]*LaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchConfigurationMapOutput) MapIndex(k pulumi.StringInput) LaunchConfigurationOutput {

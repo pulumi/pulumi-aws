@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Single Sign-On (SSO) Permission Set resource
@@ -191,12 +190,6 @@ func (i *PermissionSet) ToPermissionSetOutputWithContext(ctx context.Context) Pe
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetOutput)
 }
 
-func (i *PermissionSet) ToOutput(ctx context.Context) pulumix.Output[*PermissionSet] {
-	return pulumix.Output[*PermissionSet]{
-		OutputState: i.ToPermissionSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PermissionSetArrayInput is an input type that accepts PermissionSetArray and PermissionSetArrayOutput values.
 // You can construct a concrete instance of `PermissionSetArrayInput` via:
 //
@@ -220,12 +213,6 @@ func (i PermissionSetArray) ToPermissionSetArrayOutput() PermissionSetArrayOutpu
 
 func (i PermissionSetArray) ToPermissionSetArrayOutputWithContext(ctx context.Context) PermissionSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetArrayOutput)
-}
-
-func (i PermissionSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionSet] {
-	return pulumix.Output[[]*PermissionSet]{
-		OutputState: i.ToPermissionSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PermissionSetMapInput is an input type that accepts PermissionSetMap and PermissionSetMapOutput values.
@@ -253,12 +240,6 @@ func (i PermissionSetMap) ToPermissionSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetMapOutput)
 }
 
-func (i PermissionSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionSet] {
-	return pulumix.Output[map[string]*PermissionSet]{
-		OutputState: i.ToPermissionSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionSetOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetOutput) ElementType() reflect.Type {
@@ -271,12 +252,6 @@ func (o PermissionSetOutput) ToPermissionSetOutput() PermissionSetOutput {
 
 func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Context) PermissionSetOutput {
 	return o
-}
-
-func (o PermissionSetOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionSet] {
-	return pulumix.Output[*PermissionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Permission Set.
@@ -340,12 +315,6 @@ func (o PermissionSetArrayOutput) ToPermissionSetArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o PermissionSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionSet] {
-	return pulumix.Output[[]*PermissionSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionSetArrayOutput) Index(i pulumi.IntInput) PermissionSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionSet {
 		return vs[0].([]*PermissionSet)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o PermissionSetMapOutput) ToPermissionSetMapOutput() PermissionSetMapOutpu
 
 func (o PermissionSetMapOutput) ToPermissionSetMapOutputWithContext(ctx context.Context) PermissionSetMapOutput {
 	return o
-}
-
-func (o PermissionSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionSet] {
-	return pulumix.Output[map[string]*PermissionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionSetMapOutput) MapIndex(k pulumi.StringInput) PermissionSetOutput {

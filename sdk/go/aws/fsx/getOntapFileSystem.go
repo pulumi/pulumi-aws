@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information on FSx ONTAP File System.
@@ -142,12 +141,6 @@ func (o LookupOntapFileSystemResultOutput) ToLookupOntapFileSystemResultOutput()
 
 func (o LookupOntapFileSystemResultOutput) ToLookupOntapFileSystemResultOutputWithContext(ctx context.Context) LookupOntapFileSystemResultOutput {
 	return o
-}
-
-func (o LookupOntapFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOntapFileSystemResult] {
-	return pulumix.Output[LookupOntapFileSystemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name of the file system.

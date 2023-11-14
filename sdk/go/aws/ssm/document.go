@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Document resource
@@ -387,12 +386,6 @@ func (i *Document) ToDocumentOutputWithContext(ctx context.Context) DocumentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentOutput)
 }
 
-func (i *Document) ToOutput(ctx context.Context) pulumix.Output[*Document] {
-	return pulumix.Output[*Document]{
-		OutputState: i.ToDocumentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentArrayInput is an input type that accepts DocumentArray and DocumentArrayOutput values.
 // You can construct a concrete instance of `DocumentArrayInput` via:
 //
@@ -416,12 +409,6 @@ func (i DocumentArray) ToDocumentArrayOutput() DocumentArrayOutput {
 
 func (i DocumentArray) ToDocumentArrayOutputWithContext(ctx context.Context) DocumentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentArrayOutput)
-}
-
-func (i DocumentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Document] {
-	return pulumix.Output[[]*Document]{
-		OutputState: i.ToDocumentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DocumentMapInput is an input type that accepts DocumentMap and DocumentMapOutput values.
@@ -449,12 +436,6 @@ func (i DocumentMap) ToDocumentMapOutputWithContext(ctx context.Context) Documen
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentMapOutput)
 }
 
-func (i DocumentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Document] {
-	return pulumix.Output[map[string]*Document]{
-		OutputState: i.ToDocumentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
@@ -467,12 +448,6 @@ func (o DocumentOutput) ToDocumentOutput() DocumentOutput {
 
 func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) DocumentOutput {
 	return o
-}
-
-func (o DocumentOutput) ToOutput(ctx context.Context) pulumix.Output[*Document] {
-	return pulumix.Output[*Document]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentOutput) Arn() pulumi.StringOutput {
@@ -605,12 +580,6 @@ func (o DocumentArrayOutput) ToDocumentArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DocumentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Document] {
-	return pulumix.Output[[]*Document]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentArrayOutput) Index(i pulumi.IntInput) DocumentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Document {
 		return vs[0].([]*Document)[vs[1].(int)]
@@ -629,12 +598,6 @@ func (o DocumentMapOutput) ToDocumentMapOutput() DocumentMapOutput {
 
 func (o DocumentMapOutput) ToDocumentMapOutputWithContext(ctx context.Context) DocumentMapOutput {
 	return o
-}
-
-func (o DocumentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Document] {
-	return pulumix.Output[map[string]*Document]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentMapOutput) MapIndex(k pulumi.StringInput) DocumentOutput {

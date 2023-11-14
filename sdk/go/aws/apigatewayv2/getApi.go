@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon API Gateway Version 2 API.
@@ -130,12 +129,6 @@ func (o LookupApiResultOutput) ToLookupApiResultOutput() LookupApiResultOutput {
 
 func (o LookupApiResultOutput) ToLookupApiResultOutputWithContext(ctx context.Context) LookupApiResultOutput {
 	return o
-}
-
-func (o LookupApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiResult] {
-	return pulumix.Output[LookupApiResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Clean Rooms collaboration.  All members included in the definition will be invited to
@@ -328,12 +327,6 @@ func (i *Collaboration) ToCollaborationOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationOutput)
 }
 
-func (i *Collaboration) ToOutput(ctx context.Context) pulumix.Output[*Collaboration] {
-	return pulumix.Output[*Collaboration]{
-		OutputState: i.ToCollaborationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CollaborationArrayInput is an input type that accepts CollaborationArray and CollaborationArrayOutput values.
 // You can construct a concrete instance of `CollaborationArrayInput` via:
 //
@@ -357,12 +350,6 @@ func (i CollaborationArray) ToCollaborationArrayOutput() CollaborationArrayOutpu
 
 func (i CollaborationArray) ToCollaborationArrayOutputWithContext(ctx context.Context) CollaborationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationArrayOutput)
-}
-
-func (i CollaborationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Collaboration] {
-	return pulumix.Output[[]*Collaboration]{
-		OutputState: i.ToCollaborationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CollaborationMapInput is an input type that accepts CollaborationMap and CollaborationMapOutput values.
@@ -390,12 +377,6 @@ func (i CollaborationMap) ToCollaborationMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMapOutput)
 }
 
-func (i CollaborationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Collaboration] {
-	return pulumix.Output[map[string]*Collaboration]{
-		OutputState: i.ToCollaborationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationOutput struct{ *pulumi.OutputState }
 
 func (CollaborationOutput) ElementType() reflect.Type {
@@ -408,12 +389,6 @@ func (o CollaborationOutput) ToCollaborationOutput() CollaborationOutput {
 
 func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Context) CollaborationOutput {
 	return o
-}
-
-func (o CollaborationOutput) ToOutput(ctx context.Context) pulumix.Output[*Collaboration] {
-	return pulumix.Output[*Collaboration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The arn of the collaboration.
@@ -502,12 +477,6 @@ func (o CollaborationArrayOutput) ToCollaborationArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o CollaborationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Collaboration] {
-	return pulumix.Output[[]*Collaboration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationArrayOutput) Index(i pulumi.IntInput) CollaborationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Collaboration {
 		return vs[0].([]*Collaboration)[vs[1].(int)]
@@ -526,12 +495,6 @@ func (o CollaborationMapOutput) ToCollaborationMapOutput() CollaborationMapOutpu
 
 func (o CollaborationMapOutput) ToCollaborationMapOutputWithContext(ctx context.Context) CollaborationMapOutput {
 	return o
-}
-
-func (o CollaborationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Collaboration] {
-	return pulumix.Output[map[string]*Collaboration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMapOutput) MapIndex(k pulumi.StringInput) CollaborationOutput {

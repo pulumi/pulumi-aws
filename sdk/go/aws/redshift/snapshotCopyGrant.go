@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a snapshot copy grant that allows AWS Redshift to encrypt copied snapshots with a customer master key from AWS KMS in a destination region.
@@ -190,12 +189,6 @@ func (i *SnapshotCopyGrant) ToSnapshotCopyGrantOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyGrantOutput)
 }
 
-func (i *SnapshotCopyGrant) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCopyGrant] {
-	return pulumix.Output[*SnapshotCopyGrant]{
-		OutputState: i.ToSnapshotCopyGrantOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnapshotCopyGrantArrayInput is an input type that accepts SnapshotCopyGrantArray and SnapshotCopyGrantArrayOutput values.
 // You can construct a concrete instance of `SnapshotCopyGrantArrayInput` via:
 //
@@ -219,12 +212,6 @@ func (i SnapshotCopyGrantArray) ToSnapshotCopyGrantArrayOutput() SnapshotCopyGra
 
 func (i SnapshotCopyGrantArray) ToSnapshotCopyGrantArrayOutputWithContext(ctx context.Context) SnapshotCopyGrantArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyGrantArrayOutput)
-}
-
-func (i SnapshotCopyGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCopyGrant] {
-	return pulumix.Output[[]*SnapshotCopyGrant]{
-		OutputState: i.ToSnapshotCopyGrantArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SnapshotCopyGrantMapInput is an input type that accepts SnapshotCopyGrantMap and SnapshotCopyGrantMapOutput values.
@@ -252,12 +239,6 @@ func (i SnapshotCopyGrantMap) ToSnapshotCopyGrantMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyGrantMapOutput)
 }
 
-func (i SnapshotCopyGrantMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCopyGrant] {
-	return pulumix.Output[map[string]*SnapshotCopyGrant]{
-		OutputState: i.ToSnapshotCopyGrantMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotCopyGrantOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCopyGrantOutput) ElementType() reflect.Type {
@@ -270,12 +251,6 @@ func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutput() SnapshotCopyGrantOu
 
 func (o SnapshotCopyGrantOutput) ToSnapshotCopyGrantOutputWithContext(ctx context.Context) SnapshotCopyGrantOutput {
 	return o
-}
-
-func (o SnapshotCopyGrantOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCopyGrant] {
-	return pulumix.Output[*SnapshotCopyGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of snapshot copy grant
@@ -319,12 +294,6 @@ func (o SnapshotCopyGrantArrayOutput) ToSnapshotCopyGrantArrayOutputWithContext(
 	return o
 }
 
-func (o SnapshotCopyGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCopyGrant] {
-	return pulumix.Output[[]*SnapshotCopyGrant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SnapshotCopyGrantArrayOutput) Index(i pulumi.IntInput) SnapshotCopyGrantOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotCopyGrant {
 		return vs[0].([]*SnapshotCopyGrant)[vs[1].(int)]
@@ -343,12 +312,6 @@ func (o SnapshotCopyGrantMapOutput) ToSnapshotCopyGrantMapOutput() SnapshotCopyG
 
 func (o SnapshotCopyGrantMapOutput) ToSnapshotCopyGrantMapOutputWithContext(ctx context.Context) SnapshotCopyGrantMapOutput {
 	return o
-}
-
-func (o SnapshotCopyGrantMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCopyGrant] {
-	return pulumix.Output[map[string]*SnapshotCopyGrant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotCopyGrantMapOutput) MapIndex(k pulumi.StringInput) SnapshotCopyGrantOutput {

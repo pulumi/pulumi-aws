@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Comprehend Document Classifier.
@@ -400,12 +399,6 @@ func (i *DocumentClassifier) ToDocumentClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierOutput)
 }
 
-func (i *DocumentClassifier) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
-	return pulumix.Output[*DocumentClassifier]{
-		OutputState: i.ToDocumentClassifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentClassifierArrayInput is an input type that accepts DocumentClassifierArray and DocumentClassifierArrayOutput values.
 // You can construct a concrete instance of `DocumentClassifierArrayInput` via:
 //
@@ -429,12 +422,6 @@ func (i DocumentClassifierArray) ToDocumentClassifierArrayOutput() DocumentClass
 
 func (i DocumentClassifierArray) ToDocumentClassifierArrayOutputWithContext(ctx context.Context) DocumentClassifierArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierArrayOutput)
-}
-
-func (i DocumentClassifierArray) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentClassifier] {
-	return pulumix.Output[[]*DocumentClassifier]{
-		OutputState: i.ToDocumentClassifierArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DocumentClassifierMapInput is an input type that accepts DocumentClassifierMap and DocumentClassifierMapOutput values.
@@ -462,12 +449,6 @@ func (i DocumentClassifierMap) ToDocumentClassifierMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierMapOutput)
 }
 
-func (i DocumentClassifierMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentClassifier] {
-	return pulumix.Output[map[string]*DocumentClassifier]{
-		OutputState: i.ToDocumentClassifierMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierOutput) ElementType() reflect.Type {
@@ -480,12 +461,6 @@ func (o DocumentClassifierOutput) ToDocumentClassifierOutput() DocumentClassifie
 
 func (o DocumentClassifierOutput) ToDocumentClassifierOutputWithContext(ctx context.Context) DocumentClassifierOutput {
 	return o
-}
-
-func (o DocumentClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifier] {
-	return pulumix.Output[*DocumentClassifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Document Classifier version.
@@ -595,12 +570,6 @@ func (o DocumentClassifierArrayOutput) ToDocumentClassifierArrayOutputWithContex
 	return o
 }
 
-func (o DocumentClassifierArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DocumentClassifier] {
-	return pulumix.Output[[]*DocumentClassifier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierArrayOutput) Index(i pulumi.IntInput) DocumentClassifierOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DocumentClassifier {
 		return vs[0].([]*DocumentClassifier)[vs[1].(int)]
@@ -619,12 +588,6 @@ func (o DocumentClassifierMapOutput) ToDocumentClassifierMapOutput() DocumentCla
 
 func (o DocumentClassifierMapOutput) ToDocumentClassifierMapOutputWithContext(ctx context.Context) DocumentClassifierMapOutput {
 	return o
-}
-
-func (o DocumentClassifierMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DocumentClassifier] {
-	return pulumix.Output[map[string]*DocumentClassifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierMapOutput) MapIndex(k pulumi.StringInput) DocumentClassifierOutput {

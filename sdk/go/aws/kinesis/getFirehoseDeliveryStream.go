@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
@@ -102,12 +101,6 @@ func (o LookupFirehoseDeliveryStreamResultOutput) ToLookupFirehoseDeliveryStream
 
 func (o LookupFirehoseDeliveryStreamResultOutput) ToLookupFirehoseDeliveryStreamResultOutputWithContext(ctx context.Context) LookupFirehoseDeliveryStreamResultOutput {
 	return o
-}
-
-func (o LookupFirehoseDeliveryStreamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFirehoseDeliveryStreamResult] {
-	return pulumix.Output[LookupFirehoseDeliveryStreamResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Kinesis Stream (same as id).

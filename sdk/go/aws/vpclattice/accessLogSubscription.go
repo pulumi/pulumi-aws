@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
@@ -179,12 +178,6 @@ func (i *AccessLogSubscription) ToAccessLogSubscriptionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionOutput)
 }
 
-func (i *AccessLogSubscription) ToOutput(ctx context.Context) pulumix.Output[*AccessLogSubscription] {
-	return pulumix.Output[*AccessLogSubscription]{
-		OutputState: i.ToAccessLogSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessLogSubscriptionArrayInput is an input type that accepts AccessLogSubscriptionArray and AccessLogSubscriptionArrayOutput values.
 // You can construct a concrete instance of `AccessLogSubscriptionArrayInput` via:
 //
@@ -208,12 +201,6 @@ func (i AccessLogSubscriptionArray) ToAccessLogSubscriptionArrayOutput() AccessL
 
 func (i AccessLogSubscriptionArray) ToAccessLogSubscriptionArrayOutputWithContext(ctx context.Context) AccessLogSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionArrayOutput)
-}
-
-func (i AccessLogSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessLogSubscription] {
-	return pulumix.Output[[]*AccessLogSubscription]{
-		OutputState: i.ToAccessLogSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccessLogSubscriptionMapInput is an input type that accepts AccessLogSubscriptionMap and AccessLogSubscriptionMapOutput values.
@@ -241,12 +228,6 @@ func (i AccessLogSubscriptionMap) ToAccessLogSubscriptionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccessLogSubscriptionMapOutput)
 }
 
-func (i AccessLogSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessLogSubscription] {
-	return pulumix.Output[map[string]*AccessLogSubscription]{
-		OutputState: i.ToAccessLogSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessLogSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AccessLogSubscriptionOutput) ElementType() reflect.Type {
@@ -259,12 +240,6 @@ func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutput() AccessLogSu
 
 func (o AccessLogSubscriptionOutput) ToAccessLogSubscriptionOutputWithContext(ctx context.Context) AccessLogSubscriptionOutput {
 	return o
-}
-
-func (o AccessLogSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessLogSubscription] {
-	return pulumix.Output[*AccessLogSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the access log subscription.
@@ -310,12 +285,6 @@ func (o AccessLogSubscriptionArrayOutput) ToAccessLogSubscriptionArrayOutputWith
 	return o
 }
 
-func (o AccessLogSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessLogSubscription] {
-	return pulumix.Output[[]*AccessLogSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessLogSubscriptionArrayOutput) Index(i pulumi.IntInput) AccessLogSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessLogSubscription {
 		return vs[0].([]*AccessLogSubscription)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o AccessLogSubscriptionMapOutput) ToAccessLogSubscriptionMapOutput() Acces
 
 func (o AccessLogSubscriptionMapOutput) ToAccessLogSubscriptionMapOutputWithContext(ctx context.Context) AccessLogSubscriptionMapOutput {
 	return o
-}
-
-func (o AccessLogSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessLogSubscription] {
-	return pulumix.Output[map[string]*AccessLogSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessLogSubscriptionMapOutput) MapIndex(k pulumi.StringInput) AccessLogSubscriptionOutput {

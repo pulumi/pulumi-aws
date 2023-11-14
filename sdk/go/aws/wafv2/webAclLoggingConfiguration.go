@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource creates a WAFv2 Web ACL Logging Configuration.
@@ -243,12 +242,6 @@ func (i *WebAclLoggingConfiguration) ToWebAclLoggingConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput)
 }
 
-func (i *WebAclLoggingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfiguration] {
-	return pulumix.Output[*WebAclLoggingConfiguration]{
-		OutputState: i.ToWebAclLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WebAclLoggingConfigurationArrayInput is an input type that accepts WebAclLoggingConfigurationArray and WebAclLoggingConfigurationArrayOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i WebAclLoggingConfigurationArray) ToWebAclLoggingConfigurationArrayOutput
 
 func (i WebAclLoggingConfigurationArray) ToWebAclLoggingConfigurationArrayOutputWithContext(ctx context.Context) WebAclLoggingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationArrayOutput)
-}
-
-func (i WebAclLoggingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebAclLoggingConfiguration] {
-	return pulumix.Output[[]*WebAclLoggingConfiguration]{
-		OutputState: i.ToWebAclLoggingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WebAclLoggingConfigurationMapInput is an input type that accepts WebAclLoggingConfigurationMap and WebAclLoggingConfigurationMapOutput values.
@@ -305,12 +292,6 @@ func (i WebAclLoggingConfigurationMap) ToWebAclLoggingConfigurationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationMapOutput)
 }
 
-func (i WebAclLoggingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAclLoggingConfiguration] {
-	return pulumix.Output[map[string]*WebAclLoggingConfiguration]{
-		OutputState: i.ToWebAclLoggingConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebAclLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAclLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutput() W
 
 func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationOutputWithContext(ctx context.Context) WebAclLoggingConfigurationOutput {
 	return o
-}
-
-func (o WebAclLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfiguration] {
-	return pulumix.Output[*WebAclLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
@@ -369,12 +344,6 @@ func (o WebAclLoggingConfigurationArrayOutput) ToWebAclLoggingConfigurationArray
 	return o
 }
 
-func (o WebAclLoggingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebAclLoggingConfiguration] {
-	return pulumix.Output[[]*WebAclLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAclLoggingConfigurationArrayOutput) Index(i pulumi.IntInput) WebAclLoggingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAclLoggingConfiguration {
 		return vs[0].([]*WebAclLoggingConfiguration)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o WebAclLoggingConfigurationMapOutput) ToWebAclLoggingConfigurationMapOutp
 
 func (o WebAclLoggingConfigurationMapOutput) ToWebAclLoggingConfigurationMapOutputWithContext(ctx context.Context) WebAclLoggingConfigurationMapOutput {
 	return o
-}
-
-func (o WebAclLoggingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAclLoggingConfiguration] {
-	return pulumix.Output[map[string]*WebAclLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAclLoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) WebAclLoggingConfigurationOutput {

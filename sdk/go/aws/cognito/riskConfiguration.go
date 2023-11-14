@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito Risk Configuration resource.
@@ -194,12 +193,6 @@ func (i *RiskConfiguration) ToRiskConfigurationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationOutput)
 }
 
-func (i *RiskConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RiskConfiguration] {
-	return pulumix.Output[*RiskConfiguration]{
-		OutputState: i.ToRiskConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RiskConfigurationArrayInput is an input type that accepts RiskConfigurationArray and RiskConfigurationArrayOutput values.
 // You can construct a concrete instance of `RiskConfigurationArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i RiskConfigurationArray) ToRiskConfigurationArrayOutput() RiskConfigurati
 
 func (i RiskConfigurationArray) ToRiskConfigurationArrayOutputWithContext(ctx context.Context) RiskConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationArrayOutput)
-}
-
-func (i RiskConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RiskConfiguration] {
-	return pulumix.Output[[]*RiskConfiguration]{
-		OutputState: i.ToRiskConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RiskConfigurationMapInput is an input type that accepts RiskConfigurationMap and RiskConfigurationMapOutput values.
@@ -256,12 +243,6 @@ func (i RiskConfigurationMap) ToRiskConfigurationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationMapOutput)
 }
 
-func (i RiskConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RiskConfiguration] {
-	return pulumix.Output[map[string]*RiskConfiguration]{
-		OutputState: i.ToRiskConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RiskConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RiskConfigurationOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o RiskConfigurationOutput) ToRiskConfigurationOutput() RiskConfigurationOu
 
 func (o RiskConfigurationOutput) ToRiskConfigurationOutputWithContext(ctx context.Context) RiskConfigurationOutput {
 	return o
-}
-
-func (o RiskConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RiskConfiguration] {
-	return pulumix.Output[*RiskConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account takeover risk configuration. See details below.
@@ -327,12 +302,6 @@ func (o RiskConfigurationArrayOutput) ToRiskConfigurationArrayOutputWithContext(
 	return o
 }
 
-func (o RiskConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RiskConfiguration] {
-	return pulumix.Output[[]*RiskConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RiskConfigurationArrayOutput) Index(i pulumi.IntInput) RiskConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RiskConfiguration {
 		return vs[0].([]*RiskConfiguration)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o RiskConfigurationMapOutput) ToRiskConfigurationMapOutput() RiskConfigura
 
 func (o RiskConfigurationMapOutput) ToRiskConfigurationMapOutputWithContext(ctx context.Context) RiskConfigurationMapOutput {
 	return o
-}
-
-func (o RiskConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RiskConfiguration] {
-	return pulumix.Output[map[string]*RiskConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RiskConfigurationMapOutput) MapIndex(k pulumi.StringInput) RiskConfigurationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup vault lock configuration resource.
@@ -176,12 +175,6 @@ func (i *VaultLockConfiguration) ToVaultLockConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationOutput)
 }
 
-func (i *VaultLockConfiguration) ToOutput(ctx context.Context) pulumix.Output[*VaultLockConfiguration] {
-	return pulumix.Output[*VaultLockConfiguration]{
-		OutputState: i.ToVaultLockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VaultLockConfigurationArrayInput is an input type that accepts VaultLockConfigurationArray and VaultLockConfigurationArrayOutput values.
 // You can construct a concrete instance of `VaultLockConfigurationArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i VaultLockConfigurationArray) ToVaultLockConfigurationArrayOutput() Vault
 
 func (i VaultLockConfigurationArray) ToVaultLockConfigurationArrayOutputWithContext(ctx context.Context) VaultLockConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationArrayOutput)
-}
-
-func (i VaultLockConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultLockConfiguration] {
-	return pulumix.Output[[]*VaultLockConfiguration]{
-		OutputState: i.ToVaultLockConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VaultLockConfigurationMapInput is an input type that accepts VaultLockConfigurationMap and VaultLockConfigurationMapOutput values.
@@ -238,12 +225,6 @@ func (i VaultLockConfigurationMap) ToVaultLockConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationMapOutput)
 }
 
-func (i VaultLockConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultLockConfiguration] {
-	return pulumix.Output[map[string]*VaultLockConfiguration]{
-		OutputState: i.ToVaultLockConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VaultLockConfigurationOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutput() VaultLock
 
 func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutputWithContext(ctx context.Context) VaultLockConfigurationOutput {
 	return o
-}
-
-func (o VaultLockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultLockConfiguration] {
-	return pulumix.Output[*VaultLockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the vault.
@@ -303,12 +278,6 @@ func (o VaultLockConfigurationArrayOutput) ToVaultLockConfigurationArrayOutputWi
 	return o
 }
 
-func (o VaultLockConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultLockConfiguration] {
-	return pulumix.Output[[]*VaultLockConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VaultLockConfigurationArrayOutput) Index(i pulumi.IntInput) VaultLockConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultLockConfiguration {
 		return vs[0].([]*VaultLockConfiguration)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o VaultLockConfigurationMapOutput) ToVaultLockConfigurationMapOutput() Vau
 
 func (o VaultLockConfigurationMapOutput) ToVaultLockConfigurationMapOutputWithContext(ctx context.Context) VaultLockConfigurationMapOutput {
 	return o
-}
-
-func (o VaultLockConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultLockConfiguration] {
-	return pulumix.Output[map[string]*VaultLockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultLockConfigurationMapOutput) MapIndex(k pulumi.StringInput) VaultLockConfigurationOutput {

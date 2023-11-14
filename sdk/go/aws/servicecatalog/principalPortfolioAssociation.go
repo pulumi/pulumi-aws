@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Principal Portfolio Association.
@@ -182,12 +181,6 @@ func (i *PrincipalPortfolioAssociation) ToPrincipalPortfolioAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPortfolioAssociationOutput)
 }
 
-func (i *PrincipalPortfolioAssociation) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPortfolioAssociation] {
-	return pulumix.Output[*PrincipalPortfolioAssociation]{
-		OutputState: i.ToPrincipalPortfolioAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrincipalPortfolioAssociationArrayInput is an input type that accepts PrincipalPortfolioAssociationArray and PrincipalPortfolioAssociationArrayOutput values.
 // You can construct a concrete instance of `PrincipalPortfolioAssociationArrayInput` via:
 //
@@ -211,12 +204,6 @@ func (i PrincipalPortfolioAssociationArray) ToPrincipalPortfolioAssociationArray
 
 func (i PrincipalPortfolioAssociationArray) ToPrincipalPortfolioAssociationArrayOutputWithContext(ctx context.Context) PrincipalPortfolioAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPortfolioAssociationArrayOutput)
-}
-
-func (i PrincipalPortfolioAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrincipalPortfolioAssociation] {
-	return pulumix.Output[[]*PrincipalPortfolioAssociation]{
-		OutputState: i.ToPrincipalPortfolioAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrincipalPortfolioAssociationMapInput is an input type that accepts PrincipalPortfolioAssociationMap and PrincipalPortfolioAssociationMapOutput values.
@@ -244,12 +231,6 @@ func (i PrincipalPortfolioAssociationMap) ToPrincipalPortfolioAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPortfolioAssociationMapOutput)
 }
 
-func (i PrincipalPortfolioAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrincipalPortfolioAssociation] {
-	return pulumix.Output[map[string]*PrincipalPortfolioAssociation]{
-		OutputState: i.ToPrincipalPortfolioAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPortfolioAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPortfolioAssociationOutput) ElementType() reflect.Type {
@@ -262,12 +243,6 @@ func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationOutp
 
 func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationOutputWithContext(ctx context.Context) PrincipalPortfolioAssociationOutput {
 	return o
-}
-
-func (o PrincipalPortfolioAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPortfolioAssociation] {
-	return pulumix.Output[*PrincipalPortfolioAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -306,12 +281,6 @@ func (o PrincipalPortfolioAssociationArrayOutput) ToPrincipalPortfolioAssociatio
 	return o
 }
 
-func (o PrincipalPortfolioAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrincipalPortfolioAssociation] {
-	return pulumix.Output[[]*PrincipalPortfolioAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPortfolioAssociationArrayOutput) Index(i pulumi.IntInput) PrincipalPortfolioAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrincipalPortfolioAssociation {
 		return vs[0].([]*PrincipalPortfolioAssociation)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o PrincipalPortfolioAssociationMapOutput) ToPrincipalPortfolioAssociationM
 
 func (o PrincipalPortfolioAssociationMapOutput) ToPrincipalPortfolioAssociationMapOutputWithContext(ctx context.Context) PrincipalPortfolioAssociationMapOutput {
 	return o
-}
-
-func (o PrincipalPortfolioAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrincipalPortfolioAssociation] {
-	return pulumix.Output[map[string]*PrincipalPortfolioAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPortfolioAssociationMapOutput) MapIndex(k pulumi.StringInput) PrincipalPortfolioAssociationOutput {

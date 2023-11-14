@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about most recent Spot Price for a given EC2 instance.
@@ -121,12 +120,6 @@ func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutput() GetSpotPriceResul
 
 func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutputWithContext(ctx context.Context) GetSpotPriceResultOutput {
 	return o
-}
-
-func (o GetSpotPriceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSpotPriceResult] {
-	return pulumix.Output[GetSpotPriceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSpotPriceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {

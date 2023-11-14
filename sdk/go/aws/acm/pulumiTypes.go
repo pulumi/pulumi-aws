@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
 }
 
-func (i CertificateDomainValidationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
-	return pulumix.Output[CertificateDomainValidationOption]{
-		OutputState: i.ToCertificateDomainValidationOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
 // You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
 }
 
-func (i CertificateDomainValidationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
-	return pulumix.Output[[]CertificateDomainValidationOption]{
-		OutputState: i.ToCertificateDomainValidationOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 
 func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
 	return o
-}
-
-func (o CertificateDomainValidationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
-	return pulumix.Output[CertificateDomainValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fully qualified domain name (FQDN) in the certificate.
@@ -148,12 +129,6 @@ func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidat
 
 func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
 	return o
-}
-
-func (o CertificateDomainValidationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
-	return pulumix.Output[[]CertificateDomainValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
@@ -193,12 +168,6 @@ func (i CertificateOptionsArgs) ToCertificateOptionsOutput() CertificateOptionsO
 
 func (i CertificateOptionsArgs) ToCertificateOptionsOutputWithContext(ctx context.Context) CertificateOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOptionsOutput)
-}
-
-func (i CertificateOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateOptions] {
-	return pulumix.Output[CertificateOptions]{
-		OutputState: i.ToCertificateOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CertificateOptionsArgs) ToCertificateOptionsPtrOutput() CertificateOptionsPtrOutput {
@@ -242,12 +211,6 @@ func (i *certificateOptionsPtrType) ToCertificateOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOptionsPtrOutput)
 }
 
-func (i *certificateOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateOptions] {
-	return pulumix.Output[*CertificateOptions]{
-		OutputState: i.ToCertificateOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateOptionsOutput struct{ *pulumi.OutputState }
 
 func (CertificateOptionsOutput) ElementType() reflect.Type {
@@ -272,12 +235,6 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx c
 	}).(CertificateOptionsPtrOutput)
 }
 
-func (o CertificateOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateOptions] {
-	return pulumix.Output[CertificateOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
 func (o CertificateOptionsOutput) CertificateTransparencyLoggingPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOptions) *string { return v.CertificateTransparencyLoggingPreference }).(pulumi.StringPtrOutput)
@@ -295,12 +252,6 @@ func (o CertificateOptionsPtrOutput) ToCertificateOptionsPtrOutput() Certificate
 
 func (o CertificateOptionsPtrOutput) ToCertificateOptionsPtrOutputWithContext(ctx context.Context) CertificateOptionsPtrOutput {
 	return o
-}
-
-func (o CertificateOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateOptions] {
-	return pulumix.Output[*CertificateOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
@@ -362,12 +313,6 @@ func (i CertificateRenewalSummaryArgs) ToCertificateRenewalSummaryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateRenewalSummaryOutput)
 }
 
-func (i CertificateRenewalSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateRenewalSummary] {
-	return pulumix.Output[CertificateRenewalSummary]{
-		OutputState: i.ToCertificateRenewalSummaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateRenewalSummaryArrayInput is an input type that accepts CertificateRenewalSummaryArray and CertificateRenewalSummaryArrayOutput values.
 // You can construct a concrete instance of `CertificateRenewalSummaryArrayInput` via:
 //
@@ -393,12 +338,6 @@ func (i CertificateRenewalSummaryArray) ToCertificateRenewalSummaryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateRenewalSummaryArrayOutput)
 }
 
-func (i CertificateRenewalSummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateRenewalSummary] {
-	return pulumix.Output[[]CertificateRenewalSummary]{
-		OutputState: i.ToCertificateRenewalSummaryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateRenewalSummaryOutput struct{ *pulumi.OutputState }
 
 func (CertificateRenewalSummaryOutput) ElementType() reflect.Type {
@@ -411,12 +350,6 @@ func (o CertificateRenewalSummaryOutput) ToCertificateRenewalSummaryOutput() Cer
 
 func (o CertificateRenewalSummaryOutput) ToCertificateRenewalSummaryOutputWithContext(ctx context.Context) CertificateRenewalSummaryOutput {
 	return o
-}
-
-func (o CertificateRenewalSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateRenewalSummary] {
-	return pulumix.Output[CertificateRenewalSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The status of ACM's managed renewal of the certificate
@@ -445,12 +378,6 @@ func (o CertificateRenewalSummaryArrayOutput) ToCertificateRenewalSummaryArrayOu
 
 func (o CertificateRenewalSummaryArrayOutput) ToCertificateRenewalSummaryArrayOutputWithContext(ctx context.Context) CertificateRenewalSummaryArrayOutput {
 	return o
-}
-
-func (o CertificateRenewalSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateRenewalSummary] {
-	return pulumix.Output[[]CertificateRenewalSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateRenewalSummaryArrayOutput) Index(i pulumi.IntInput) CertificateRenewalSummaryOutput {
@@ -496,12 +423,6 @@ func (i CertificateValidationOptionArgs) ToCertificateValidationOptionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOptionOutput)
 }
 
-func (i CertificateValidationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateValidationOption] {
-	return pulumix.Output[CertificateValidationOption]{
-		OutputState: i.ToCertificateValidationOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateValidationOptionArrayInput is an input type that accepts CertificateValidationOptionArray and CertificateValidationOptionArrayOutput values.
 // You can construct a concrete instance of `CertificateValidationOptionArrayInput` via:
 //
@@ -527,12 +448,6 @@ func (i CertificateValidationOptionArray) ToCertificateValidationOptionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOptionArrayOutput)
 }
 
-func (i CertificateValidationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateValidationOption] {
-	return pulumix.Output[[]CertificateValidationOption]{
-		OutputState: i.ToCertificateValidationOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidationOptionOutput) ElementType() reflect.Type {
@@ -545,12 +460,6 @@ func (o CertificateValidationOptionOutput) ToCertificateValidationOptionOutput()
 
 func (o CertificateValidationOptionOutput) ToCertificateValidationOptionOutputWithContext(ctx context.Context) CertificateValidationOptionOutput {
 	return o
-}
-
-func (o CertificateValidationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateValidationOption] {
-	return pulumix.Output[CertificateValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fully qualified domain name (FQDN) in the certificate.
@@ -575,12 +484,6 @@ func (o CertificateValidationOptionArrayOutput) ToCertificateValidationOptionArr
 
 func (o CertificateValidationOptionArrayOutput) ToCertificateValidationOptionArrayOutputWithContext(ctx context.Context) CertificateValidationOptionArrayOutput {
 	return o
-}
-
-func (o CertificateValidationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateValidationOption] {
-	return pulumix.Output[[]CertificateValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateValidationOptionOutput {

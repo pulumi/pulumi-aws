@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS Serverless replication config resource.
@@ -288,12 +287,6 @@ func (i *ReplicationConfig) ToReplicationConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigOutput)
 }
 
-func (i *ReplicationConfig) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfig] {
-	return pulumix.Output[*ReplicationConfig]{
-		OutputState: i.ToReplicationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigArrayInput is an input type that accepts ReplicationConfigArray and ReplicationConfigArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigArrayInput` via:
 //
@@ -317,12 +310,6 @@ func (i ReplicationConfigArray) ToReplicationConfigArrayOutput() ReplicationConf
 
 func (i ReplicationConfigArray) ToReplicationConfigArrayOutputWithContext(ctx context.Context) ReplicationConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigArrayOutput)
-}
-
-func (i ReplicationConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfig] {
-	return pulumix.Output[[]*ReplicationConfig]{
-		OutputState: i.ToReplicationConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationConfigMapInput is an input type that accepts ReplicationConfigMap and ReplicationConfigMapOutput values.
@@ -350,12 +337,6 @@ func (i ReplicationConfigMap) ToReplicationConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigMapOutput)
 }
 
-func (i ReplicationConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfig] {
-	return pulumix.Output[map[string]*ReplicationConfig]{
-		OutputState: i.ToReplicationConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigOutput) ElementType() reflect.Type {
@@ -368,12 +349,6 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutput() ReplicationConfigOu
 
 func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx context.Context) ReplicationConfigOutput {
 	return o
-}
-
-func (o ReplicationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfig] {
-	return pulumix.Output[*ReplicationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the serverless replication config.
@@ -457,12 +432,6 @@ func (o ReplicationConfigArrayOutput) ToReplicationConfigArrayOutputWithContext(
 	return o
 }
 
-func (o ReplicationConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfig] {
-	return pulumix.Output[[]*ReplicationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigArrayOutput) Index(i pulumi.IntInput) ReplicationConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationConfig {
 		return vs[0].([]*ReplicationConfig)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o ReplicationConfigMapOutput) ToReplicationConfigMapOutput() ReplicationCo
 
 func (o ReplicationConfigMapOutput) ToReplicationConfigMapOutputWithContext(ctx context.Context) ReplicationConfigMapOutput {
 	return o
-}
-
-func (o ReplicationConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfig] {
-	return pulumix.Output[map[string]*ReplicationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) ReplicationConfigOutput {

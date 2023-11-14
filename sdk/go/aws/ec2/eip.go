@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic IP resource.
@@ -470,12 +469,6 @@ func (i *Eip) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipOutput)
 }
 
-func (i *Eip) ToOutput(ctx context.Context) pulumix.Output[*Eip] {
-	return pulumix.Output[*Eip]{
-		OutputState: i.ToEipOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EipArrayInput is an input type that accepts EipArray and EipArrayOutput values.
 // You can construct a concrete instance of `EipArrayInput` via:
 //
@@ -499,12 +492,6 @@ func (i EipArray) ToEipArrayOutput() EipArrayOutput {
 
 func (i EipArray) ToEipArrayOutputWithContext(ctx context.Context) EipArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipArrayOutput)
-}
-
-func (i EipArray) ToOutput(ctx context.Context) pulumix.Output[[]*Eip] {
-	return pulumix.Output[[]*Eip]{
-		OutputState: i.ToEipArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EipMapInput is an input type that accepts EipMap and EipMapOutput values.
@@ -532,12 +519,6 @@ func (i EipMap) ToEipMapOutputWithContext(ctx context.Context) EipMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EipMapOutput)
 }
 
-func (i EipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Eip] {
-	return pulumix.Output[map[string]*Eip]{
-		OutputState: i.ToEipMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EipOutput struct{ *pulumi.OutputState }
 
 func (EipOutput) ElementType() reflect.Type {
@@ -550,12 +531,6 @@ func (o EipOutput) ToEipOutput() EipOutput {
 
 func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return o
-}
-
-func (o EipOutput) ToOutput(ctx context.Context) pulumix.Output[*Eip] {
-	return pulumix.Output[*Eip]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
@@ -678,12 +653,6 @@ func (o EipArrayOutput) ToEipArrayOutputWithContext(ctx context.Context) EipArra
 	return o
 }
 
-func (o EipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Eip] {
-	return pulumix.Output[[]*Eip]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EipArrayOutput) Index(i pulumi.IntInput) EipOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Eip {
 		return vs[0].([]*Eip)[vs[1].(int)]
@@ -702,12 +671,6 @@ func (o EipMapOutput) ToEipMapOutput() EipMapOutput {
 
 func (o EipMapOutput) ToEipMapOutputWithContext(ctx context.Context) EipMapOutput {
 	return o
-}
-
-func (o EipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Eip] {
-	return pulumix.Output[map[string]*Eip]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EipMapOutput) MapIndex(k pulumi.StringInput) EipOutput {

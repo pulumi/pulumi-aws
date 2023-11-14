@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
@@ -187,12 +186,6 @@ func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutput()
 
 func (o LookupClusterSnapshotResultOutput) ToLookupClusterSnapshotResultOutputWithContext(ctx context.Context) LookupClusterSnapshotResultOutput {
 	return o
-}
-
-func (o LookupClusterSnapshotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterSnapshotResult] {
-	return pulumix.Output[LookupClusterSnapshotResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allocated storage size in gigabytes (GB).

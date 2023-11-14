@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CodeCatalyst Dev Environment.
@@ -146,12 +145,6 @@ func (o LookupDevEnvironmentResultOutput) ToLookupDevEnvironmentResultOutput() L
 
 func (o LookupDevEnvironmentResultOutput) ToLookupDevEnvironmentResultOutputWithContext(ctx context.Context) LookupDevEnvironmentResultOutput {
 	return o
-}
-
-func (o LookupDevEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDevEnvironmentResult] {
-	return pulumix.Output[LookupDevEnvironmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The user-specified alias for the Dev Environment.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CloudWatch Observability Access Manager Links.
@@ -80,12 +79,6 @@ func (o GetLinksResultOutput) ToGetLinksResultOutput() GetLinksResultOutput {
 
 func (o GetLinksResultOutput) ToGetLinksResultOutputWithContext(ctx context.Context) GetLinksResultOutput {
 	return o
-}
-
-func (o GetLinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinksResult] {
-	return pulumix.Output[GetLinksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARN of the Links.

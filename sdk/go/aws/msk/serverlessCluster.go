@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon MSK Serverless cluster.
@@ -174,12 +173,6 @@ func (i *ServerlessCluster) ToServerlessClusterOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterOutput)
 }
 
-func (i *ServerlessCluster) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCluster] {
-	return pulumix.Output[*ServerlessCluster]{
-		OutputState: i.ToServerlessClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessClusterArrayInput is an input type that accepts ServerlessClusterArray and ServerlessClusterArrayOutput values.
 // You can construct a concrete instance of `ServerlessClusterArrayInput` via:
 //
@@ -203,12 +196,6 @@ func (i ServerlessClusterArray) ToServerlessClusterArrayOutput() ServerlessClust
 
 func (i ServerlessClusterArray) ToServerlessClusterArrayOutputWithContext(ctx context.Context) ServerlessClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterArrayOutput)
-}
-
-func (i ServerlessClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCluster] {
-	return pulumix.Output[[]*ServerlessCluster]{
-		OutputState: i.ToServerlessClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerlessClusterMapInput is an input type that accepts ServerlessClusterMap and ServerlessClusterMapOutput values.
@@ -236,12 +223,6 @@ func (i ServerlessClusterMap) ToServerlessClusterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterMapOutput)
 }
 
-func (i ServerlessClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCluster] {
-	return pulumix.Output[map[string]*ServerlessCluster]{
-		OutputState: i.ToServerlessClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerlessClusterOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterOutput) ElementType() reflect.Type {
@@ -254,12 +235,6 @@ func (o ServerlessClusterOutput) ToServerlessClusterOutput() ServerlessClusterOu
 
 func (o ServerlessClusterOutput) ToServerlessClusterOutputWithContext(ctx context.Context) ServerlessClusterOutput {
 	return o
-}
-
-func (o ServerlessClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCluster] {
-	return pulumix.Output[*ServerlessCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the serverless cluster.
@@ -313,12 +288,6 @@ func (o ServerlessClusterArrayOutput) ToServerlessClusterArrayOutputWithContext(
 	return o
 }
 
-func (o ServerlessClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerlessCluster] {
-	return pulumix.Output[[]*ServerlessCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessClusterArrayOutput) Index(i pulumi.IntInput) ServerlessClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerlessCluster {
 		return vs[0].([]*ServerlessCluster)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o ServerlessClusterMapOutput) ToServerlessClusterMapOutput() ServerlessClu
 
 func (o ServerlessClusterMapOutput) ToServerlessClusterMapOutputWithContext(ctx context.Context) ServerlessClusterMapOutput {
 	return o
-}
-
-func (o ServerlessClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerlessCluster] {
-	return pulumix.Output[map[string]*ServerlessCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessClusterMapOutput) MapIndex(k pulumi.StringInput) ServerlessClusterOutput {

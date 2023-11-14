@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks Ruby on Rails application layer resource.
@@ -414,12 +413,6 @@ func (i *RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) Ra
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerOutput)
 }
 
-func (i *RailsAppLayer) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayer] {
-	return pulumix.Output[*RailsAppLayer]{
-		OutputState: i.ToRailsAppLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RailsAppLayerArrayInput is an input type that accepts RailsAppLayerArray and RailsAppLayerArrayOutput values.
 // You can construct a concrete instance of `RailsAppLayerArrayInput` via:
 //
@@ -443,12 +436,6 @@ func (i RailsAppLayerArray) ToRailsAppLayerArrayOutput() RailsAppLayerArrayOutpu
 
 func (i RailsAppLayerArray) ToRailsAppLayerArrayOutputWithContext(ctx context.Context) RailsAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerArrayOutput)
-}
-
-func (i RailsAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*RailsAppLayer] {
-	return pulumix.Output[[]*RailsAppLayer]{
-		OutputState: i.ToRailsAppLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RailsAppLayerMapInput is an input type that accepts RailsAppLayerMap and RailsAppLayerMapOutput values.
@@ -476,12 +463,6 @@ func (i RailsAppLayerMap) ToRailsAppLayerMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerMapOutput)
 }
 
-func (i RailsAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RailsAppLayer] {
-	return pulumix.Output[map[string]*RailsAppLayer]{
-		OutputState: i.ToRailsAppLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RailsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerOutput) ElementType() reflect.Type {
@@ -494,12 +475,6 @@ func (o RailsAppLayerOutput) ToRailsAppLayerOutput() RailsAppLayerOutput {
 
 func (o RailsAppLayerOutput) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
 	return o
-}
-
-func (o RailsAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*RailsAppLayer] {
-	return pulumix.Output[*RailsAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Keyword for the app server to use. Defaults to "apachePassenger".
@@ -670,12 +645,6 @@ func (o RailsAppLayerArrayOutput) ToRailsAppLayerArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o RailsAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RailsAppLayer] {
-	return pulumix.Output[[]*RailsAppLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RailsAppLayerArrayOutput) Index(i pulumi.IntInput) RailsAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RailsAppLayer {
 		return vs[0].([]*RailsAppLayer)[vs[1].(int)]
@@ -694,12 +663,6 @@ func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutput() RailsAppLayerMapOutpu
 
 func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutputWithContext(ctx context.Context) RailsAppLayerMapOutput {
 	return o
-}
-
-func (o RailsAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RailsAppLayer] {
-	return pulumix.Output[map[string]*RailsAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RailsAppLayerMapOutput) MapIndex(k pulumi.StringInput) RailsAppLayerOutput {

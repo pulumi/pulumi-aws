@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe MedicalVocabulary.
@@ -235,12 +234,6 @@ func (i *MedicalVocabulary) ToMedicalVocabularyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyOutput)
 }
 
-func (i *MedicalVocabulary) ToOutput(ctx context.Context) pulumix.Output[*MedicalVocabulary] {
-	return pulumix.Output[*MedicalVocabulary]{
-		OutputState: i.ToMedicalVocabularyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MedicalVocabularyArrayInput is an input type that accepts MedicalVocabularyArray and MedicalVocabularyArrayOutput values.
 // You can construct a concrete instance of `MedicalVocabularyArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i MedicalVocabularyArray) ToMedicalVocabularyArrayOutput() MedicalVocabula
 
 func (i MedicalVocabularyArray) ToMedicalVocabularyArrayOutputWithContext(ctx context.Context) MedicalVocabularyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyArrayOutput)
-}
-
-func (i MedicalVocabularyArray) ToOutput(ctx context.Context) pulumix.Output[[]*MedicalVocabulary] {
-	return pulumix.Output[[]*MedicalVocabulary]{
-		OutputState: i.ToMedicalVocabularyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MedicalVocabularyMapInput is an input type that accepts MedicalVocabularyMap and MedicalVocabularyMapOutput values.
@@ -297,12 +284,6 @@ func (i MedicalVocabularyMap) ToMedicalVocabularyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MedicalVocabularyMapOutput)
 }
 
-func (i MedicalVocabularyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedicalVocabulary] {
-	return pulumix.Output[map[string]*MedicalVocabulary]{
-		OutputState: i.ToMedicalVocabularyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MedicalVocabularyOutput struct{ *pulumi.OutputState }
 
 func (MedicalVocabularyOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o MedicalVocabularyOutput) ToMedicalVocabularyOutput() MedicalVocabularyOu
 
 func (o MedicalVocabularyOutput) ToMedicalVocabularyOutputWithContext(ctx context.Context) MedicalVocabularyOutput {
 	return o
-}
-
-func (o MedicalVocabularyOutput) ToOutput(ctx context.Context) pulumix.Output[*MedicalVocabulary] {
-	return pulumix.Output[*MedicalVocabulary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the MedicalVocabulary.
@@ -374,12 +349,6 @@ func (o MedicalVocabularyArrayOutput) ToMedicalVocabularyArrayOutputWithContext(
 	return o
 }
 
-func (o MedicalVocabularyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MedicalVocabulary] {
-	return pulumix.Output[[]*MedicalVocabulary]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MedicalVocabularyArrayOutput) Index(i pulumi.IntInput) MedicalVocabularyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MedicalVocabulary {
 		return vs[0].([]*MedicalVocabulary)[vs[1].(int)]
@@ -398,12 +367,6 @@ func (o MedicalVocabularyMapOutput) ToMedicalVocabularyMapOutput() MedicalVocabu
 
 func (o MedicalVocabularyMapOutput) ToMedicalVocabularyMapOutputWithContext(ctx context.Context) MedicalVocabularyMapOutput {
 	return o
-}
-
-func (o MedicalVocabularyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedicalVocabulary] {
-	return pulumix.Output[map[string]*MedicalVocabulary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MedicalVocabularyMapOutput) MapIndex(k pulumi.StringInput) MedicalVocabularyOutput {

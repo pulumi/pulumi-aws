@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a QuickSight Folder.
@@ -320,12 +319,6 @@ func (i *Folder) ToFolderOutputWithContext(ctx context.Context) FolderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FolderOutput)
 }
 
-func (i *Folder) ToOutput(ctx context.Context) pulumix.Output[*Folder] {
-	return pulumix.Output[*Folder]{
-		OutputState: i.ToFolderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FolderArrayInput is an input type that accepts FolderArray and FolderArrayOutput values.
 // You can construct a concrete instance of `FolderArrayInput` via:
 //
@@ -349,12 +342,6 @@ func (i FolderArray) ToFolderArrayOutput() FolderArrayOutput {
 
 func (i FolderArray) ToFolderArrayOutputWithContext(ctx context.Context) FolderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FolderArrayOutput)
-}
-
-func (i FolderArray) ToOutput(ctx context.Context) pulumix.Output[[]*Folder] {
-	return pulumix.Output[[]*Folder]{
-		OutputState: i.ToFolderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FolderMapInput is an input type that accepts FolderMap and FolderMapOutput values.
@@ -382,12 +369,6 @@ func (i FolderMap) ToFolderMapOutputWithContext(ctx context.Context) FolderMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(FolderMapOutput)
 }
 
-func (i FolderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Folder] {
-	return pulumix.Output[map[string]*Folder]{
-		OutputState: i.ToFolderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FolderOutput struct{ *pulumi.OutputState }
 
 func (FolderOutput) ElementType() reflect.Type {
@@ -400,12 +381,6 @@ func (o FolderOutput) ToFolderOutput() FolderOutput {
 
 func (o FolderOutput) ToFolderOutputWithContext(ctx context.Context) FolderOutput {
 	return o
-}
-
-func (o FolderOutput) ToOutput(ctx context.Context) pulumix.Output[*Folder] {
-	return pulumix.Output[*Folder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the folder.
@@ -486,12 +461,6 @@ func (o FolderArrayOutput) ToFolderArrayOutputWithContext(ctx context.Context) F
 	return o
 }
 
-func (o FolderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Folder] {
-	return pulumix.Output[[]*Folder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FolderArrayOutput) Index(i pulumi.IntInput) FolderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Folder {
 		return vs[0].([]*Folder)[vs[1].(int)]
@@ -510,12 +479,6 @@ func (o FolderMapOutput) ToFolderMapOutput() FolderMapOutput {
 
 func (o FolderMapOutput) ToFolderMapOutputWithContext(ctx context.Context) FolderMapOutput {
 	return o
-}
-
-func (o FolderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Folder] {
-	return pulumix.Output[map[string]*Folder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FolderMapOutput) MapIndex(k pulumi.StringInput) FolderOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about single Outpost Instance Type.
@@ -86,12 +85,6 @@ func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutput
 
 func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutputWithContext(ctx context.Context) GetOutpostInstanceTypeResultOutput {
 	return o
-}
-
-func (o GetOutpostInstanceTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostInstanceTypeResult] {
-	return pulumix.Output[GetOutpostInstanceTypeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOutpostInstanceTypeResultOutput) Arn() pulumi.StringOutput {

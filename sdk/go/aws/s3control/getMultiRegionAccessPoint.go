@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details on a specific S3 Multi-Region Access Point.
@@ -117,12 +116,6 @@ func (o LookupMultiRegionAccessPointResultOutput) ToLookupMultiRegionAccessPoint
 
 func (o LookupMultiRegionAccessPointResultOutput) ToLookupMultiRegionAccessPointResultOutputWithContext(ctx context.Context) LookupMultiRegionAccessPointResultOutput {
 	return o
-}
-
-func (o LookupMultiRegionAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMultiRegionAccessPointResult] {
-	return pulumix.Output[LookupMultiRegionAccessPointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupMultiRegionAccessPointResultOutput) AccountId() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -121,12 +120,6 @@ func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutput() GetQu
 
 func (o GetQuicksightGroupResultOutput) ToGetQuicksightGroupResultOutputWithContext(ctx context.Context) GetQuicksightGroupResultOutput {
 	return o
-}
-
-func (o GetQuicksightGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQuicksightGroupResult] {
-	return pulumix.Output[GetQuicksightGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the group.

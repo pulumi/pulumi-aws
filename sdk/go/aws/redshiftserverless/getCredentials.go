@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides redshift serverless temporary credentials for a workgroup.
@@ -114,12 +113,6 @@ func (o GetCredentialsResultOutput) ToGetCredentialsResultOutput() GetCredential
 
 func (o GetCredentialsResultOutput) ToGetCredentialsResultOutputWithContext(ctx context.Context) GetCredentialsResultOutput {
 	return o
-}
-
-func (o GetCredentialsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCredentialsResult] {
-	return pulumix.Output[GetCredentialsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCredentialsResultOutput) DbName() pulumi.StringPtrOutput {

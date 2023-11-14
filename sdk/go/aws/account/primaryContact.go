@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the specified primary contact information associated with an AWS Account.
@@ -281,12 +280,6 @@ func (i *PrimaryContact) ToPrimaryContactOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryContactOutput)
 }
 
-func (i *PrimaryContact) ToOutput(ctx context.Context) pulumix.Output[*PrimaryContact] {
-	return pulumix.Output[*PrimaryContact]{
-		OutputState: i.ToPrimaryContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrimaryContactArrayInput is an input type that accepts PrimaryContactArray and PrimaryContactArrayOutput values.
 // You can construct a concrete instance of `PrimaryContactArrayInput` via:
 //
@@ -310,12 +303,6 @@ func (i PrimaryContactArray) ToPrimaryContactArrayOutput() PrimaryContactArrayOu
 
 func (i PrimaryContactArray) ToPrimaryContactArrayOutputWithContext(ctx context.Context) PrimaryContactArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryContactArrayOutput)
-}
-
-func (i PrimaryContactArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrimaryContact] {
-	return pulumix.Output[[]*PrimaryContact]{
-		OutputState: i.ToPrimaryContactArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrimaryContactMapInput is an input type that accepts PrimaryContactMap and PrimaryContactMapOutput values.
@@ -343,12 +330,6 @@ func (i PrimaryContactMap) ToPrimaryContactMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PrimaryContactMapOutput)
 }
 
-func (i PrimaryContactMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrimaryContact] {
-	return pulumix.Output[map[string]*PrimaryContact]{
-		OutputState: i.ToPrimaryContactMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrimaryContactOutput struct{ *pulumi.OutputState }
 
 func (PrimaryContactOutput) ElementType() reflect.Type {
@@ -361,12 +342,6 @@ func (o PrimaryContactOutput) ToPrimaryContactOutput() PrimaryContactOutput {
 
 func (o PrimaryContactOutput) ToPrimaryContactOutputWithContext(ctx context.Context) PrimaryContactOutput {
 	return o
-}
-
-func (o PrimaryContactOutput) ToOutput(ctx context.Context) pulumix.Output[*PrimaryContact] {
-	return pulumix.Output[*PrimaryContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
@@ -448,12 +423,6 @@ func (o PrimaryContactArrayOutput) ToPrimaryContactArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o PrimaryContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrimaryContact] {
-	return pulumix.Output[[]*PrimaryContact]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrimaryContactArrayOutput) Index(i pulumi.IntInput) PrimaryContactOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrimaryContact {
 		return vs[0].([]*PrimaryContact)[vs[1].(int)]
@@ -472,12 +441,6 @@ func (o PrimaryContactMapOutput) ToPrimaryContactMapOutput() PrimaryContactMapOu
 
 func (o PrimaryContactMapOutput) ToPrimaryContactMapOutputWithContext(ctx context.Context) PrimaryContactMapOutput {
 	return o
-}
-
-func (o PrimaryContactMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrimaryContact] {
-	return pulumix.Output[map[string]*PrimaryContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrimaryContactMapOutput) MapIndex(k pulumi.StringInput) PrimaryContactOutput {

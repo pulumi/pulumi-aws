@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
@@ -80,12 +79,6 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutput() GetServ
 
 func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContext(ctx context.Context) GetServiceAccountResultOutput {
 	return o
-}
-
-func (o GetServiceAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceAccountResult] {
-	return pulumix.Output[GetServiceAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the AWS Redshift service account in the selected region.

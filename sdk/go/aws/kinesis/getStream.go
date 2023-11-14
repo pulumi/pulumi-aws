@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a Kinesis Stream for use in other
@@ -124,12 +123,6 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutput() LookupStreamResul
 
 func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx context.Context) LookupStreamResultOutput {
 	return o
-}
-
-func (o LookupStreamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamResult] {
-	return pulumix.Output[LookupStreamResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Kinesis Stream (same as id).

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DB event subscription resource.
@@ -270,12 +269,6 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
-func (i *EventSubscription) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
-	return pulumix.Output[*EventSubscription]{
-		OutputState: i.ToEventSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i EventSubscriptionArray) ToEventSubscriptionArrayOutput() EventSubscripti
 
 func (i EventSubscriptionArray) ToEventSubscriptionArrayOutputWithContext(ctx context.Context) EventSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionArrayOutput)
-}
-
-func (i EventSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventSubscription] {
-	return pulumix.Output[[]*EventSubscription]{
-		OutputState: i.ToEventSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventSubscriptionMapInput is an input type that accepts EventSubscriptionMap and EventSubscriptionMapOutput values.
@@ -332,12 +319,6 @@ func (i EventSubscriptionMap) ToEventSubscriptionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionMapOutput)
 }
 
-func (i EventSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSubscription] {
-	return pulumix.Output[map[string]*EventSubscription]{
-		OutputState: i.ToEventSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOu
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return o
-}
-
-func (o EventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
-	return pulumix.Output[*EventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of the RDS event notification subscription
@@ -429,12 +404,6 @@ func (o EventSubscriptionArrayOutput) ToEventSubscriptionArrayOutputWithContext(
 	return o
 }
 
-func (o EventSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventSubscription] {
-	return pulumix.Output[[]*EventSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventSubscriptionArrayOutput) Index(i pulumi.IntInput) EventSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventSubscription {
 		return vs[0].([]*EventSubscription)[vs[1].(int)]
@@ -453,12 +422,6 @@ func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutput() EventSubscrip
 
 func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutputWithContext(ctx context.Context) EventSubscriptionMapOutput {
 	return o
-}
-
-func (o EventSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSubscription] {
-	return pulumix.Output[map[string]*EventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) EventSubscriptionOutput {

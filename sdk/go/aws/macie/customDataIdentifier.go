@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [AWS Macie Custom Data Identifier](https://docs.aws.amazon.com/macie/latest/APIReference/custom-data-identifiers-id.html).
@@ -240,12 +239,6 @@ func (i *CustomDataIdentifier) ToCustomDataIdentifierOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierOutput)
 }
 
-func (i *CustomDataIdentifier) ToOutput(ctx context.Context) pulumix.Output[*CustomDataIdentifier] {
-	return pulumix.Output[*CustomDataIdentifier]{
-		OutputState: i.ToCustomDataIdentifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomDataIdentifierArrayInput is an input type that accepts CustomDataIdentifierArray and CustomDataIdentifierArrayOutput values.
 // You can construct a concrete instance of `CustomDataIdentifierArrayInput` via:
 //
@@ -269,12 +262,6 @@ func (i CustomDataIdentifierArray) ToCustomDataIdentifierArrayOutput() CustomDat
 
 func (i CustomDataIdentifierArray) ToCustomDataIdentifierArrayOutputWithContext(ctx context.Context) CustomDataIdentifierArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierArrayOutput)
-}
-
-func (i CustomDataIdentifierArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDataIdentifier] {
-	return pulumix.Output[[]*CustomDataIdentifier]{
-		OutputState: i.ToCustomDataIdentifierArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomDataIdentifierMapInput is an input type that accepts CustomDataIdentifierMap and CustomDataIdentifierMapOutput values.
@@ -302,12 +289,6 @@ func (i CustomDataIdentifierMap) ToCustomDataIdentifierMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierMapOutput)
 }
 
-func (i CustomDataIdentifierMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDataIdentifier] {
-	return pulumix.Output[map[string]*CustomDataIdentifier]{
-		OutputState: i.ToCustomDataIdentifierMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomDataIdentifierOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierOutput) ElementType() reflect.Type {
@@ -320,12 +301,6 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutput() CustomDataIde
 
 func (o CustomDataIdentifierOutput) ToCustomDataIdentifierOutputWithContext(ctx context.Context) CustomDataIdentifierOutput {
 	return o
-}
-
-func (o CustomDataIdentifierOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDataIdentifier] {
-	return pulumix.Output[*CustomDataIdentifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the custom data identifier.
@@ -397,12 +372,6 @@ func (o CustomDataIdentifierArrayOutput) ToCustomDataIdentifierArrayOutputWithCo
 	return o
 }
 
-func (o CustomDataIdentifierArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDataIdentifier] {
-	return pulumix.Output[[]*CustomDataIdentifier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomDataIdentifierArrayOutput) Index(i pulumi.IntInput) CustomDataIdentifierOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDataIdentifier {
 		return vs[0].([]*CustomDataIdentifier)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o CustomDataIdentifierMapOutput) ToCustomDataIdentifierMapOutput() CustomD
 
 func (o CustomDataIdentifierMapOutput) ToCustomDataIdentifierMapOutputWithContext(ctx context.Context) CustomDataIdentifierMapOutput {
 	return o
-}
-
-func (o CustomDataIdentifierMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDataIdentifier] {
-	return pulumix.Output[map[string]*CustomDataIdentifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomDataIdentifierMapOutput) MapIndex(k pulumi.StringInput) CustomDataIdentifierOutput {

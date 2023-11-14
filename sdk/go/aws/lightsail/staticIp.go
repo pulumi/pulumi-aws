@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allocates a static IP address.
@@ -141,12 +140,6 @@ func (i *StaticIp) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpOutput)
 }
 
-func (i *StaticIp) ToOutput(ctx context.Context) pulumix.Output[*StaticIp] {
-	return pulumix.Output[*StaticIp]{
-		OutputState: i.ToStaticIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StaticIpArrayInput is an input type that accepts StaticIpArray and StaticIpArrayOutput values.
 // You can construct a concrete instance of `StaticIpArrayInput` via:
 //
@@ -170,12 +163,6 @@ func (i StaticIpArray) ToStaticIpArrayOutput() StaticIpArrayOutput {
 
 func (i StaticIpArray) ToStaticIpArrayOutputWithContext(ctx context.Context) StaticIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpArrayOutput)
-}
-
-func (i StaticIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*StaticIp] {
-	return pulumix.Output[[]*StaticIp]{
-		OutputState: i.ToStaticIpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StaticIpMapInput is an input type that accepts StaticIpMap and StaticIpMapOutput values.
@@ -203,12 +190,6 @@ func (i StaticIpMap) ToStaticIpMapOutputWithContext(ctx context.Context) StaticI
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpMapOutput)
 }
 
-func (i StaticIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticIp] {
-	return pulumix.Output[map[string]*StaticIp]{
-		OutputState: i.ToStaticIpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StaticIpOutput struct{ *pulumi.OutputState }
 
 func (StaticIpOutput) ElementType() reflect.Type {
@@ -221,12 +202,6 @@ func (o StaticIpOutput) ToStaticIpOutput() StaticIpOutput {
 
 func (o StaticIpOutput) ToStaticIpOutputWithContext(ctx context.Context) StaticIpOutput {
 	return o
-}
-
-func (o StaticIpOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticIp] {
-	return pulumix.Output[*StaticIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Lightsail static IP
@@ -263,12 +238,6 @@ func (o StaticIpArrayOutput) ToStaticIpArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o StaticIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StaticIp] {
-	return pulumix.Output[[]*StaticIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StaticIpArrayOutput) Index(i pulumi.IntInput) StaticIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticIp {
 		return vs[0].([]*StaticIp)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o StaticIpMapOutput) ToStaticIpMapOutput() StaticIpMapOutput {
 
 func (o StaticIpMapOutput) ToStaticIpMapOutputWithContext(ctx context.Context) StaticIpMapOutput {
 	return o
-}
-
-func (o StaticIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticIp] {
-	return pulumix.Output[map[string]*StaticIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StaticIpMapOutput) MapIndex(k pulumi.StringInput) StaticIpOutput {

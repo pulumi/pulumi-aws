@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AssessmentTemplateEventSubscriptionArgs) ToAssessmentTemplateEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateEventSubscriptionOutput)
 }
 
-func (i AssessmentTemplateEventSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentTemplateEventSubscription] {
-	return pulumix.Output[AssessmentTemplateEventSubscription]{
-		OutputState: i.ToAssessmentTemplateEventSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentTemplateEventSubscriptionArrayInput is an input type that accepts AssessmentTemplateEventSubscriptionArray and AssessmentTemplateEventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `AssessmentTemplateEventSubscriptionArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AssessmentTemplateEventSubscriptionArray) ToAssessmentTemplateEventSubsc
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTemplateEventSubscriptionArrayOutput)
 }
 
-func (i AssessmentTemplateEventSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTemplateEventSubscription] {
-	return pulumix.Output[[]AssessmentTemplateEventSubscription]{
-		OutputState: i.ToAssessmentTemplateEventSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentTemplateEventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTemplateEventSubscriptionOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o AssessmentTemplateEventSubscriptionOutput) ToAssessmentTemplateEventSubs
 
 func (o AssessmentTemplateEventSubscriptionOutput) ToAssessmentTemplateEventSubscriptionOutputWithContext(ctx context.Context) AssessmentTemplateEventSubscriptionOutput {
 	return o
-}
-
-func (o AssessmentTemplateEventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentTemplateEventSubscription] {
-	return pulumix.Output[AssessmentTemplateEventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
@@ -130,12 +111,6 @@ func (o AssessmentTemplateEventSubscriptionArrayOutput) ToAssessmentTemplateEven
 
 func (o AssessmentTemplateEventSubscriptionArrayOutput) ToAssessmentTemplateEventSubscriptionArrayOutputWithContext(ctx context.Context) AssessmentTemplateEventSubscriptionArrayOutput {
 	return o
-}
-
-func (o AssessmentTemplateEventSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentTemplateEventSubscription] {
-	return pulumix.Output[[]AssessmentTemplateEventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentTemplateEventSubscriptionArrayOutput) Index(i pulumi.IntInput) AssessmentTemplateEventSubscriptionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeBuild Report Groups Resource.
@@ -265,12 +264,6 @@ func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) Report
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupOutput)
 }
 
-func (i *ReportGroup) ToOutput(ctx context.Context) pulumix.Output[*ReportGroup] {
-	return pulumix.Output[*ReportGroup]{
-		OutputState: i.ToReportGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReportGroupArrayInput is an input type that accepts ReportGroupArray and ReportGroupArrayOutput values.
 // You can construct a concrete instance of `ReportGroupArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i ReportGroupArray) ToReportGroupArrayOutput() ReportGroupArrayOutput {
 
 func (i ReportGroupArray) ToReportGroupArrayOutputWithContext(ctx context.Context) ReportGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupArrayOutput)
-}
-
-func (i ReportGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReportGroup] {
-	return pulumix.Output[[]*ReportGroup]{
-		OutputState: i.ToReportGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReportGroupMapInput is an input type that accepts ReportGroupMap and ReportGroupMapOutput values.
@@ -327,12 +314,6 @@ func (i ReportGroupMap) ToReportGroupMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupMapOutput)
 }
 
-func (i ReportGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReportGroup] {
-	return pulumix.Output[map[string]*ReportGroup]{
-		OutputState: i.ToReportGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportGroupOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {
 
 func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
 	return o
-}
-
-func (o ReportGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportGroup] {
-	return pulumix.Output[*ReportGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of Report Group.
@@ -409,12 +384,6 @@ func (o ReportGroupArrayOutput) ToReportGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ReportGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReportGroup] {
-	return pulumix.Output[[]*ReportGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportGroupArrayOutput) Index(i pulumi.IntInput) ReportGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReportGroup {
 		return vs[0].([]*ReportGroup)[vs[1].(int)]
@@ -433,12 +402,6 @@ func (o ReportGroupMapOutput) ToReportGroupMapOutput() ReportGroupMapOutput {
 
 func (o ReportGroupMapOutput) ToReportGroupMapOutputWithContext(ctx context.Context) ReportGroupMapOutput {
 	return o
-}
-
-func (o ReportGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReportGroup] {
-	return pulumix.Output[map[string]*ReportGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportGroupMapOutput) MapIndex(k pulumi.StringInput) ReportGroupOutput {

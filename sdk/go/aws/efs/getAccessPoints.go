@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about multiple Elastic File System (EFS) Access Points.
@@ -102,12 +101,6 @@ func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutput() GetAccessPo
 
 func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ctx context.Context) GetAccessPointsResultOutput {
 	return o
-}
-
-func (o GetAccessPointsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessPointsResult] {
-	return pulumix.Output[GetAccessPointsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of Amazon Resource Names (ARNs).

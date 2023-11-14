@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Slot Type.
@@ -124,12 +123,6 @@ func (o LookupSlotTypeResultOutput) ToLookupSlotTypeResultOutput() LookupSlotTyp
 
 func (o LookupSlotTypeResultOutput) ToLookupSlotTypeResultOutputWithContext(ctx context.Context) LookupSlotTypeResultOutput {
 	return o
-}
-
-func (o LookupSlotTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSlotTypeResult] {
-	return pulumix.Output[LookupSlotTypeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Checksum identifying the version of the slot type that was created. The checksum is

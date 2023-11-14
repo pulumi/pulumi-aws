@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNS Firewall config resource.
@@ -163,12 +162,6 @@ func (i *ResolverFirewallConfig) ToResolverFirewallConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigOutput)
 }
 
-func (i *ResolverFirewallConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallConfig] {
-	return pulumix.Output[*ResolverFirewallConfig]{
-		OutputState: i.ToResolverFirewallConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverFirewallConfigArrayInput is an input type that accepts ResolverFirewallConfigArray and ResolverFirewallConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallConfigArrayInput` via:
 //
@@ -192,12 +185,6 @@ func (i ResolverFirewallConfigArray) ToResolverFirewallConfigArrayOutput() Resol
 
 func (i ResolverFirewallConfigArray) ToResolverFirewallConfigArrayOutputWithContext(ctx context.Context) ResolverFirewallConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigArrayOutput)
-}
-
-func (i ResolverFirewallConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallConfig] {
-	return pulumix.Output[[]*ResolverFirewallConfig]{
-		OutputState: i.ToResolverFirewallConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverFirewallConfigMapInput is an input type that accepts ResolverFirewallConfigMap and ResolverFirewallConfigMapOutput values.
@@ -225,12 +212,6 @@ func (i ResolverFirewallConfigMap) ToResolverFirewallConfigMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigMapOutput)
 }
 
-func (i ResolverFirewallConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallConfig] {
-	return pulumix.Output[map[string]*ResolverFirewallConfig]{
-		OutputState: i.ToResolverFirewallConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverFirewallConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallConfigOutput) ElementType() reflect.Type {
@@ -243,12 +224,6 @@ func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutput() ResolverF
 
 func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutputWithContext(ctx context.Context) ResolverFirewallConfigOutput {
 	return o
-}
-
-func (o ResolverFirewallConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallConfig] {
-	return pulumix.Output[*ResolverFirewallConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
@@ -280,12 +255,6 @@ func (o ResolverFirewallConfigArrayOutput) ToResolverFirewallConfigArrayOutputWi
 	return o
 }
 
-func (o ResolverFirewallConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallConfig] {
-	return pulumix.Output[[]*ResolverFirewallConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverFirewallConfigArrayOutput) Index(i pulumi.IntInput) ResolverFirewallConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallConfig {
 		return vs[0].([]*ResolverFirewallConfig)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o ResolverFirewallConfigMapOutput) ToResolverFirewallConfigMapOutput() Res
 
 func (o ResolverFirewallConfigMapOutput) ToResolverFirewallConfigMapOutputWithContext(ctx context.Context) ResolverFirewallConfigMapOutput {
 	return o
-}
-
-func (o ResolverFirewallConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallConfig] {
-	return pulumix.Output[map[string]*ResolverFirewallConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverFirewallConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallConfigOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about a specific hardware asset in an Outpost.
@@ -85,12 +84,6 @@ func (o GetAssetResultOutput) ToGetAssetResultOutput() GetAssetResultOutput {
 
 func (o GetAssetResultOutput) ToGetAssetResultOutputWithContext(ctx context.Context) GetAssetResultOutput {
 	return o
-}
-
-func (o GetAssetResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAssetResult] {
-	return pulumix.Output[GetAssetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAssetResultOutput) Arn() pulumi.StringOutput {

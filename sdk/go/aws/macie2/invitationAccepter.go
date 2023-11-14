@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
@@ -164,12 +163,6 @@ func (i *InvitationAccepter) ToInvitationAccepterOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationAccepterOutput)
 }
 
-func (i *InvitationAccepter) ToOutput(ctx context.Context) pulumix.Output[*InvitationAccepter] {
-	return pulumix.Output[*InvitationAccepter]{
-		OutputState: i.ToInvitationAccepterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InvitationAccepterArrayInput is an input type that accepts InvitationAccepterArray and InvitationAccepterArrayOutput values.
 // You can construct a concrete instance of `InvitationAccepterArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i InvitationAccepterArray) ToInvitationAccepterArrayOutput() InvitationAcc
 
 func (i InvitationAccepterArray) ToInvitationAccepterArrayOutputWithContext(ctx context.Context) InvitationAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationAccepterArrayOutput)
-}
-
-func (i InvitationAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InvitationAccepter] {
-	return pulumix.Output[[]*InvitationAccepter]{
-		OutputState: i.ToInvitationAccepterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InvitationAccepterMapInput is an input type that accepts InvitationAccepterMap and InvitationAccepterMapOutput values.
@@ -226,12 +213,6 @@ func (i InvitationAccepterMap) ToInvitationAccepterMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(InvitationAccepterMapOutput)
 }
 
-func (i InvitationAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InvitationAccepter] {
-	return pulumix.Output[map[string]*InvitationAccepter]{
-		OutputState: i.ToInvitationAccepterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InvitationAccepterOutput struct{ *pulumi.OutputState }
 
 func (InvitationAccepterOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutput() InvitationAccepte
 
 func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx context.Context) InvitationAccepterOutput {
 	return o
-}
-
-func (o InvitationAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*InvitationAccepter] {
-	return pulumix.Output[*InvitationAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID for the account that sent the invitation.
@@ -276,12 +251,6 @@ func (o InvitationAccepterArrayOutput) ToInvitationAccepterArrayOutputWithContex
 	return o
 }
 
-func (o InvitationAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InvitationAccepter] {
-	return pulumix.Output[[]*InvitationAccepter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InvitationAccepterArrayOutput) Index(i pulumi.IntInput) InvitationAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InvitationAccepter {
 		return vs[0].([]*InvitationAccepter)[vs[1].(int)]
@@ -300,12 +269,6 @@ func (o InvitationAccepterMapOutput) ToInvitationAccepterMapOutput() InvitationA
 
 func (o InvitationAccepterMapOutput) ToInvitationAccepterMapOutputWithContext(ctx context.Context) InvitationAccepterMapOutput {
 	return o
-}
-
-func (o InvitationAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InvitationAccepter] {
-	return pulumix.Output[map[string]*InvitationAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InvitationAccepterMapOutput) MapIndex(k pulumi.StringInput) InvitationAccepterOutput {

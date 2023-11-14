@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecycleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppversionLifecycleOutput)
 }
 
-func (i ApplicationAppversionLifecycleArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationAppversionLifecycle] {
-	return pulumix.Output[ApplicationAppversionLifecycle]{
-		OutputState: i.ToApplicationAppversionLifecycleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationAppversionLifecycleArgs) ToApplicationAppversionLifecyclePtrOutput() ApplicationAppversionLifecyclePtrOutput {
 	return i.ToApplicationAppversionLifecyclePtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *applicationAppversionLifecyclePtrType) ToApplicationAppversionLifecycle
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppversionLifecyclePtrOutput)
 }
 
-func (i *applicationAppversionLifecyclePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAppversionLifecycle] {
-	return pulumix.Output[*ApplicationAppversionLifecycle]{
-		OutputState: i.ToApplicationAppversionLifecyclePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecyclePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAppversionLifecycle) *ApplicationAppversionLifecycle {
 		return &v
 	}).(ApplicationAppversionLifecyclePtrOutput)
-}
-
-func (o ApplicationAppversionLifecycleOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAppversionLifecycle] {
-	return pulumix.Output[ApplicationAppversionLifecycle]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
@@ -174,12 +155,6 @@ func (o ApplicationAppversionLifecyclePtrOutput) ToApplicationAppversionLifecycl
 
 func (o ApplicationAppversionLifecyclePtrOutput) ToApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) ApplicationAppversionLifecyclePtrOutput {
 	return o
-}
-
-func (o ApplicationAppversionLifecyclePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAppversionLifecycle] {
-	return pulumix.Output[*ApplicationAppversionLifecycle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationAppversionLifecyclePtrOutput) Elem() ApplicationAppversionLifecycleOutput {
@@ -271,12 +246,6 @@ func (i ConfigurationTemplateSettingArgs) ToConfigurationTemplateSettingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSettingOutput)
 }
 
-func (i ConfigurationTemplateSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateSetting] {
-	return pulumix.Output[ConfigurationTemplateSetting]{
-		OutputState: i.ToConfigurationTemplateSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationTemplateSettingArrayInput is an input type that accepts ConfigurationTemplateSettingArray and ConfigurationTemplateSettingArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateSettingArrayInput` via:
 //
@@ -302,12 +271,6 @@ func (i ConfigurationTemplateSettingArray) ToConfigurationTemplateSettingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateSettingArrayOutput)
 }
 
-func (i ConfigurationTemplateSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationTemplateSetting] {
-	return pulumix.Output[[]ConfigurationTemplateSetting]{
-		OutputState: i.ToConfigurationTemplateSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationTemplateSettingOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateSettingOutput) ElementType() reflect.Type {
@@ -320,12 +283,6 @@ func (o ConfigurationTemplateSettingOutput) ToConfigurationTemplateSettingOutput
 
 func (o ConfigurationTemplateSettingOutput) ToConfigurationTemplateSettingOutputWithContext(ctx context.Context) ConfigurationTemplateSettingOutput {
 	return o
-}
-
-func (o ConfigurationTemplateSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationTemplateSetting] {
-	return pulumix.Output[ConfigurationTemplateSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique name for this Template.
@@ -357,12 +314,6 @@ func (o ConfigurationTemplateSettingArrayOutput) ToConfigurationTemplateSettingA
 
 func (o ConfigurationTemplateSettingArrayOutput) ToConfigurationTemplateSettingArrayOutputWithContext(ctx context.Context) ConfigurationTemplateSettingArrayOutput {
 	return o
-}
-
-func (o ConfigurationTemplateSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationTemplateSetting] {
-	return pulumix.Output[[]ConfigurationTemplateSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationTemplateSettingArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateSettingOutput {
@@ -412,12 +363,6 @@ func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingOutput)
 }
 
-func (i EnvironmentAllSettingArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAllSetting] {
-	return pulumix.Output[EnvironmentAllSetting]{
-		OutputState: i.ToEnvironmentAllSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentAllSettingArrayInput is an input type that accepts EnvironmentAllSettingArray and EnvironmentAllSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentAllSettingArrayInput` via:
 //
@@ -443,12 +388,6 @@ func (i EnvironmentAllSettingArray) ToEnvironmentAllSettingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingArrayOutput)
 }
 
-func (i EnvironmentAllSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentAllSetting] {
-	return pulumix.Output[[]EnvironmentAllSetting]{
-		OutputState: i.ToEnvironmentAllSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentAllSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentAllSettingOutput) ElementType() reflect.Type {
@@ -461,12 +400,6 @@ func (o EnvironmentAllSettingOutput) ToEnvironmentAllSettingOutput() Environment
 
 func (o EnvironmentAllSettingOutput) ToEnvironmentAllSettingOutputWithContext(ctx context.Context) EnvironmentAllSettingOutput {
 	return o
-}
-
-func (o EnvironmentAllSettingOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAllSetting] {
-	return pulumix.Output[EnvironmentAllSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique name for this Environment. This name is used
@@ -499,12 +432,6 @@ func (o EnvironmentAllSettingArrayOutput) ToEnvironmentAllSettingArrayOutput() E
 
 func (o EnvironmentAllSettingArrayOutput) ToEnvironmentAllSettingArrayOutputWithContext(ctx context.Context) EnvironmentAllSettingArrayOutput {
 	return o
-}
-
-func (o EnvironmentAllSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentAllSetting] {
-	return pulumix.Output[[]EnvironmentAllSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentAllSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentAllSettingOutput {
@@ -554,12 +481,6 @@ func (i EnvironmentSettingArgs) ToEnvironmentSettingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
-func (i EnvironmentSettingArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSetting] {
-	return pulumix.Output[EnvironmentSetting]{
-		OutputState: i.ToEnvironmentSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentSettingArrayInput is an input type that accepts EnvironmentSettingArray and EnvironmentSettingArrayOutput values.
 // You can construct a concrete instance of `EnvironmentSettingArrayInput` via:
 //
@@ -585,12 +506,6 @@ func (i EnvironmentSettingArray) ToEnvironmentSettingArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingArrayOutput)
 }
 
-func (i EnvironmentSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentSetting] {
-	return pulumix.Output[[]EnvironmentSetting]{
-		OutputState: i.ToEnvironmentSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSettingOutput) ElementType() reflect.Type {
@@ -603,12 +518,6 @@ func (o EnvironmentSettingOutput) ToEnvironmentSettingOutput() EnvironmentSettin
 
 func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx context.Context) EnvironmentSettingOutput {
 	return o
-}
-
-func (o EnvironmentSettingOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentSetting] {
-	return pulumix.Output[EnvironmentSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique name for this Environment. This name is used
@@ -641,12 +550,6 @@ func (o EnvironmentSettingArrayOutput) ToEnvironmentSettingArrayOutput() Environ
 
 func (o EnvironmentSettingArrayOutput) ToEnvironmentSettingArrayOutputWithContext(ctx context.Context) EnvironmentSettingArrayOutput {
 	return o
-}
-
-func (o EnvironmentSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentSetting] {
-	return pulumix.Output[[]EnvironmentSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentSettingOutput {
@@ -700,12 +603,6 @@ func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput)
 }
 
-func (i GetApplicationAppversionLifecycleArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationAppversionLifecycle] {
-	return pulumix.Output[GetApplicationAppversionLifecycle]{
-		OutputState: i.ToGetApplicationAppversionLifecycleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (GetApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
@@ -718,12 +615,6 @@ func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifec
 
 func (o GetApplicationAppversionLifecycleOutput) ToGetApplicationAppversionLifecycleOutputWithContext(ctx context.Context) GetApplicationAppversionLifecycleOutput {
 	return o
-}
-
-func (o GetApplicationAppversionLifecycleOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationAppversionLifecycle] {
-	return pulumix.Output[GetApplicationAppversionLifecycle]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether delete a version's source bundle from S3 when the application version is deleted.

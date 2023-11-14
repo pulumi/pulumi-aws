@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Composite Alarm resource.
@@ -255,12 +254,6 @@ func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
 }
 
-func (i *CompositeAlarm) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
-	return pulumix.Output[*CompositeAlarm]{
-		OutputState: i.ToCompositeAlarmOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CompositeAlarmArrayInput is an input type that accepts CompositeAlarmArray and CompositeAlarmArrayOutput values.
 // You can construct a concrete instance of `CompositeAlarmArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i CompositeAlarmArray) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOu
 
 func (i CompositeAlarmArray) ToCompositeAlarmArrayOutputWithContext(ctx context.Context) CompositeAlarmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmArrayOutput)
-}
-
-func (i CompositeAlarmArray) ToOutput(ctx context.Context) pulumix.Output[[]*CompositeAlarm] {
-	return pulumix.Output[[]*CompositeAlarm]{
-		OutputState: i.ToCompositeAlarmArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CompositeAlarmMapInput is an input type that accepts CompositeAlarmMap and CompositeAlarmMapOutput values.
@@ -317,12 +304,6 @@ func (i CompositeAlarmMap) ToCompositeAlarmMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmMapOutput)
 }
 
-func (i CompositeAlarmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CompositeAlarm] {
-	return pulumix.Output[map[string]*CompositeAlarm]{
-		OutputState: i.ToCompositeAlarmMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {
 
 func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
 	return o
-}
-
-func (o CompositeAlarmOutput) ToOutput(ctx context.Context) pulumix.Output[*CompositeAlarm] {
-	return pulumix.Output[*CompositeAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
@@ -414,12 +389,6 @@ func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o CompositeAlarmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CompositeAlarm] {
-	return pulumix.Output[[]*CompositeAlarm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CompositeAlarmArrayOutput) Index(i pulumi.IntInput) CompositeAlarmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CompositeAlarm {
 		return vs[0].([]*CompositeAlarm)[vs[1].(int)]
@@ -438,12 +407,6 @@ func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutput() CompositeAlarmMapOu
 
 func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutputWithContext(ctx context.Context) CompositeAlarmMapOutput {
 	return o
-}
-
-func (o CompositeAlarmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CompositeAlarm] {
-	return pulumix.Output[map[string]*CompositeAlarm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CompositeAlarmMapOutput) MapIndex(k pulumi.StringInput) CompositeAlarmOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i RegistryScanningConfigurationRuleArgs) ToRegistryScanningConfigurationRu
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleOutput)
 }
 
-func (i RegistryScanningConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryScanningConfigurationRule] {
-	return pulumix.Output[RegistryScanningConfigurationRule]{
-		OutputState: i.ToRegistryScanningConfigurationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegistryScanningConfigurationRuleArrayInput is an input type that accepts RegistryScanningConfigurationRuleArray and RegistryScanningConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i RegistryScanningConfigurationRuleArray) ToRegistryScanningConfigurationR
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleArrayOutput)
 }
 
-func (i RegistryScanningConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryScanningConfigurationRule] {
-	return pulumix.Output[[]RegistryScanningConfigurationRule]{
-		OutputState: i.ToRegistryScanningConfigurationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegistryScanningConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationRuleOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfiguration
 
 func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfigurationRuleOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleOutput {
 	return o
-}
-
-func (o RegistryScanningConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryScanningConfigurationRule] {
-	return pulumix.Output[RegistryScanningConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
@@ -132,12 +113,6 @@ func (o RegistryScanningConfigurationRuleArrayOutput) ToRegistryScanningConfigur
 
 func (o RegistryScanningConfigurationRuleArrayOutput) ToRegistryScanningConfigurationRuleArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleArrayOutput {
 	return o
-}
-
-func (o RegistryScanningConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryScanningConfigurationRule] {
-	return pulumix.Output[[]RegistryScanningConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegistryScanningConfigurationRuleArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationRuleOutput {
@@ -179,12 +154,6 @@ func (i RegistryScanningConfigurationRuleRepositoryFilterArgs) ToRegistryScannin
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleRepositoryFilterOutput)
 }
 
-func (i RegistryScanningConfigurationRuleRepositoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[RegistryScanningConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[RegistryScanningConfigurationRuleRepositoryFilter]{
-		OutputState: i.ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegistryScanningConfigurationRuleRepositoryFilterArrayInput is an input type that accepts RegistryScanningConfigurationRuleRepositoryFilterArray and RegistryScanningConfigurationRuleRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `RegistryScanningConfigurationRuleRepositoryFilterArrayInput` via:
 //
@@ -210,12 +179,6 @@ func (i RegistryScanningConfigurationRuleRepositoryFilterArray) ToRegistryScanni
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput)
 }
 
-func (i RegistryScanningConfigurationRuleRepositoryFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]RegistryScanningConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[[]RegistryScanningConfigurationRuleRepositoryFilter]{
-		OutputState: i.ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegistryScanningConfigurationRuleRepositoryFilterOutput struct{ *pulumi.OutputState }
 
 func (RegistryScanningConfigurationRuleRepositoryFilterOutput) ElementType() reflect.Type {
@@ -228,12 +191,6 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) ToRegistryScann
 
 func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterOutput {
 	return o
-}
-
-func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[RegistryScanningConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[RegistryScanningConfigurationRuleRepositoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) Filter() pulumi.StringOutput {
@@ -256,12 +213,6 @@ func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ToRegistry
 
 func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
 	return o
-}
-
-func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegistryScanningConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[[]RegistryScanningConfigurationRuleRepositoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationRuleRepositoryFilterOutput {
@@ -301,12 +252,6 @@ func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfi
 
 func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationOutput)
-}
-
-func (i ReplicationConfigurationReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfiguration] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfiguration]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ReplicationConfigurationReplicationConfigurationArgs) ToReplicationConfigurationReplicationConfigurationPtrOutput() ReplicationConfigurationReplicationConfigurationPtrOutput {
@@ -350,12 +295,6 @@ func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationC
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-func (i *replicationConfigurationReplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationReplicationConfiguration] {
-	return pulumix.Output[*ReplicationConfigurationReplicationConfiguration]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigurationReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -380,12 +319,6 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-func (o ReplicationConfigurationReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfiguration] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The replication rules for a replication configuration. A maximum of 10 are allowed per `replicationConfiguration`. See Rule
 func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationConfigurationRule {
@@ -405,12 +338,6 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplication
 
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationReplicationConfiguration] {
-	return pulumix.Output[*ReplicationConfigurationReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationReplicationConfigurationOutput {
@@ -470,12 +397,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToReplicationC
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRule] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRule]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigurationReplicationConfigurationRuleArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleArray and ReplicationConfigurationReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleArrayInput` via:
 //
@@ -501,12 +422,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleArray) ToReplication
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleArrayOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRule] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRule]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigurationReplicationConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationConfigurationRuleOutput) ElementType() reflect.Type {
@@ -519,12 +434,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicationConfigurationReplicationConfigurationRuleOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRule] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
@@ -553,12 +462,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ToRepli
 
 func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleArrayOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRule] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigurationReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationConfigurationRuleOutput {
@@ -604,12 +507,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleDestinationArgs) ToR
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleDestinationOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleDestination] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleDestination]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleDestinationArray and ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput` via:
 //
@@ -635,12 +532,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleDestinationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleDestination] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleDestination]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigurationReplicationConfigurationRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) ElementType() reflect.Type {
@@ -653,12 +544,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) T
 
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) ToReplicationConfigurationReplicationConfigurationRuleDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleDestinationOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleDestination] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A Region to replicate to.
@@ -683,12 +568,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutp
 
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleDestination] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigurationReplicationConfigurationRuleDestinationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationConfigurationRuleDestinationOutput {
@@ -734,12 +613,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput is an input type that accepts ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray and ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayInput` via:
 //
@@ -765,12 +638,6 @@ func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput)
 }
 
-func (i ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter]{
-		OutputState: i.ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ElementType() reflect.Type {
@@ -783,12 +650,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutp
 
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The repository filter details.
@@ -815,12 +676,6 @@ func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArra
 
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) ToReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput {
 	return o
-}
-
-func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter] {
-	return pulumix.Output[[]ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterOutput {
@@ -866,12 +721,6 @@ func (i RepositoryEncryptionConfigurationArgs) ToRepositoryEncryptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationOutput)
 }
 
-func (i RepositoryEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionConfiguration] {
-	return pulumix.Output[RepositoryEncryptionConfiguration]{
-		OutputState: i.ToRepositoryEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryEncryptionConfigurationArrayInput is an input type that accepts RepositoryEncryptionConfigurationArray and RepositoryEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `RepositoryEncryptionConfigurationArrayInput` via:
 //
@@ -897,12 +746,6 @@ func (i RepositoryEncryptionConfigurationArray) ToRepositoryEncryptionConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationArrayOutput)
 }
 
-func (i RepositoryEncryptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryEncryptionConfiguration] {
-	return pulumix.Output[[]RepositoryEncryptionConfiguration]{
-		OutputState: i.ToRepositoryEncryptionConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -915,12 +758,6 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 
 func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigurationOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationOutput {
 	return o
-}
-
-func (o RepositoryEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionConfiguration] {
-	return pulumix.Output[RepositoryEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
@@ -945,12 +782,6 @@ func (o RepositoryEncryptionConfigurationArrayOutput) ToRepositoryEncryptionConf
 
 func (o RepositoryEncryptionConfigurationArrayOutput) ToRepositoryEncryptionConfigurationArrayOutputWithContext(ctx context.Context) RepositoryEncryptionConfigurationArrayOutput {
 	return o
-}
-
-func (o RepositoryEncryptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryEncryptionConfiguration] {
-	return pulumix.Output[[]RepositoryEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) RepositoryEncryptionConfigurationOutput {
@@ -990,12 +821,6 @@ func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfi
 
 func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationOutput)
-}
-
-func (i RepositoryImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageScanningConfiguration] {
-	return pulumix.Output[RepositoryImageScanningConfiguration]{
-		OutputState: i.ToRepositoryImageScanningConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RepositoryImageScanningConfigurationArgs) ToRepositoryImageScanningConfigurationPtrOutput() RepositoryImageScanningConfigurationPtrOutput {
@@ -1039,12 +864,6 @@ func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningC
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-func (i *repositoryImageScanningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageScanningConfiguration] {
-	return pulumix.Output[*RepositoryImageScanningConfiguration]{
-		OutputState: i.ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
@@ -1069,12 +888,6 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-func (o RepositoryImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageScanningConfiguration] {
-	return pulumix.Output[RepositoryImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) bool { return v.ScanOnPush }).(pulumi.BoolOutput)
@@ -1092,12 +905,6 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanning
 
 func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
 	return o
-}
-
-func (o RepositoryImageScanningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageScanningConfiguration] {
-	return pulumix.Output[*RepositoryImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageScanningConfigurationOutput {
@@ -1157,12 +964,6 @@ func (i GetRepositoryEncryptionConfigurationArgs) ToGetRepositoryEncryptionConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEncryptionConfigurationOutput)
 }
 
-func (i GetRepositoryEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEncryptionConfiguration] {
-	return pulumix.Output[GetRepositoryEncryptionConfiguration]{
-		OutputState: i.ToGetRepositoryEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryEncryptionConfigurationArrayInput is an input type that accepts GetRepositoryEncryptionConfigurationArray and GetRepositoryEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryEncryptionConfigurationArrayInput` via:
 //
@@ -1188,12 +989,6 @@ func (i GetRepositoryEncryptionConfigurationArray) ToGetRepositoryEncryptionConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEncryptionConfigurationArrayOutput)
 }
 
-func (i GetRepositoryEncryptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryEncryptionConfiguration] {
-	return pulumix.Output[[]GetRepositoryEncryptionConfiguration]{
-		OutputState: i.ToGetRepositoryEncryptionConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -1206,12 +1001,6 @@ func (o GetRepositoryEncryptionConfigurationOutput) ToGetRepositoryEncryptionCon
 
 func (o GetRepositoryEncryptionConfigurationOutput) ToGetRepositoryEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryEncryptionConfigurationOutput {
 	return o
-}
-
-func (o GetRepositoryEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryEncryptionConfiguration] {
-	return pulumix.Output[GetRepositoryEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Encryption type to use for the repository, either `AES256` or `KMS`.
@@ -1236,12 +1025,6 @@ func (o GetRepositoryEncryptionConfigurationArrayOutput) ToGetRepositoryEncrypti
 
 func (o GetRepositoryEncryptionConfigurationArrayOutput) ToGetRepositoryEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryEncryptionConfigurationArrayOutput {
 	return o
-}
-
-func (o GetRepositoryEncryptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryEncryptionConfiguration] {
-	return pulumix.Output[[]GetRepositoryEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetRepositoryEncryptionConfigurationOutput {
@@ -1283,12 +1066,6 @@ func (i GetRepositoryImageScanningConfigurationArgs) ToGetRepositoryImageScannin
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryImageScanningConfigurationOutput)
 }
 
-func (i GetRepositoryImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryImageScanningConfiguration] {
-	return pulumix.Output[GetRepositoryImageScanningConfiguration]{
-		OutputState: i.ToGetRepositoryImageScanningConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRepositoryImageScanningConfigurationArrayInput is an input type that accepts GetRepositoryImageScanningConfigurationArray and GetRepositoryImageScanningConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetRepositoryImageScanningConfigurationArrayInput` via:
 //
@@ -1314,12 +1091,6 @@ func (i GetRepositoryImageScanningConfigurationArray) ToGetRepositoryImageScanni
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryImageScanningConfigurationArrayOutput)
 }
 
-func (i GetRepositoryImageScanningConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryImageScanningConfiguration] {
-	return pulumix.Output[[]GetRepositoryImageScanningConfiguration]{
-		OutputState: i.ToGetRepositoryImageScanningConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
@@ -1332,12 +1103,6 @@ func (o GetRepositoryImageScanningConfigurationOutput) ToGetRepositoryImageScann
 
 func (o GetRepositoryImageScanningConfigurationOutput) ToGetRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) GetRepositoryImageScanningConfigurationOutput {
 	return o
-}
-
-func (o GetRepositoryImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoryImageScanningConfiguration] {
-	return pulumix.Output[GetRepositoryImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether images are scanned after being pushed to the repository.
@@ -1357,12 +1122,6 @@ func (o GetRepositoryImageScanningConfigurationArrayOutput) ToGetRepositoryImage
 
 func (o GetRepositoryImageScanningConfigurationArrayOutput) ToGetRepositoryImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryImageScanningConfigurationArrayOutput {
 	return o
-}
-
-func (o GetRepositoryImageScanningConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoryImageScanningConfiguration] {
-	return pulumix.Output[[]GetRepositoryImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRepositoryImageScanningConfigurationArrayOutput) Index(i pulumi.IntInput) GetRepositoryImageScanningConfigurationOutput {

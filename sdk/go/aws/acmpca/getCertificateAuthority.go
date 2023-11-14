@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
@@ -133,12 +132,6 @@ func (o LookupCertificateAuthorityResultOutput) ToLookupCertificateAuthorityResu
 
 func (o LookupCertificateAuthorityResultOutput) ToLookupCertificateAuthorityResultOutputWithContext(ctx context.Context) LookupCertificateAuthorityResultOutput {
 	return o
-}
-
-func (o LookupCertificateAuthorityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateAuthorityResult] {
-	return pulumix.Output[LookupCertificateAuthorityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCertificateAuthorityResultOutput) Arn() pulumi.StringOutput {

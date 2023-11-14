@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IP access control group in AWS WorkSpaces Service
@@ -193,12 +192,6 @@ func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
 }
 
-func (i *IpGroup) ToOutput(ctx context.Context) pulumix.Output[*IpGroup] {
-	return pulumix.Output[*IpGroup]{
-		OutputState: i.ToIpGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IpGroupArrayInput is an input type that accepts IpGroupArray and IpGroupArrayOutput values.
 // You can construct a concrete instance of `IpGroupArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i IpGroupArray) ToIpGroupArrayOutput() IpGroupArrayOutput {
 
 func (i IpGroupArray) ToIpGroupArrayOutputWithContext(ctx context.Context) IpGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupArrayOutput)
-}
-
-func (i IpGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*IpGroup] {
-	return pulumix.Output[[]*IpGroup]{
-		OutputState: i.ToIpGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IpGroupMapInput is an input type that accepts IpGroupMap and IpGroupMapOutput values.
@@ -255,12 +242,6 @@ func (i IpGroupMap) ToIpGroupMapOutputWithContext(ctx context.Context) IpGroupMa
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupMapOutput)
 }
 
-func (i IpGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpGroup] {
-	return pulumix.Output[map[string]*IpGroup]{
-		OutputState: i.ToIpGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpGroupOutput struct{ *pulumi.OutputState }
 
 func (IpGroupOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o IpGroupOutput) ToIpGroupOutput() IpGroupOutput {
 
 func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput {
 	return o
-}
-
-func (o IpGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*IpGroup] {
-	return pulumix.Output[*IpGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the IP group.
@@ -322,12 +297,6 @@ func (o IpGroupArrayOutput) ToIpGroupArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o IpGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IpGroup] {
-	return pulumix.Output[[]*IpGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpGroupArrayOutput) Index(i pulumi.IntInput) IpGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IpGroup {
 		return vs[0].([]*IpGroup)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o IpGroupMapOutput) ToIpGroupMapOutput() IpGroupMapOutput {
 
 func (o IpGroupMapOutput) ToIpGroupMapOutputWithContext(ctx context.Context) IpGroupMapOutput {
 	return o
-}
-
-func (o IpGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpGroup] {
-	return pulumix.Output[map[string]*IpGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpGroupMapOutput) MapIndex(k pulumi.StringInput) IpGroupOutput {

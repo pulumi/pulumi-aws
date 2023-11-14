@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
@@ -116,12 +115,6 @@ func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutput() L
 
 func (o LookupVirtualClusterResultOutput) ToLookupVirtualClusterResultOutputWithContext(ctx context.Context) LookupVirtualClusterResultOutput {
 	return o
-}
-
-func (o LookupVirtualClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualClusterResult] {
-	return pulumix.Output[LookupVirtualClusterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the cluster.

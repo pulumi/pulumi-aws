@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** The AWS Region specified by a provider must always be one of the Regions specified for the replication set.
@@ -112,12 +111,6 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutput() L
 
 func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWithContext(ctx context.Context) LookupReplicationSetResultOutput {
 	return o
-}
-
-func (o LookupReplicationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationSetResult] {
-	return pulumix.Output[LookupReplicationSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resouce Name (ARN) of the replication set.

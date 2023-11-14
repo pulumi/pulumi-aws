@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Assessment Delegation.
@@ -212,12 +211,6 @@ func (i *AssessmentDelegation) ToAssessmentDelegationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationOutput)
 }
 
-func (i *AssessmentDelegation) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegation] {
-	return pulumix.Output[*AssessmentDelegation]{
-		OutputState: i.ToAssessmentDelegationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentDelegationArrayInput is an input type that accepts AssessmentDelegationArray and AssessmentDelegationArrayOutput values.
 // You can construct a concrete instance of `AssessmentDelegationArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutput() Assessmen
 
 func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutputWithContext(ctx context.Context) AssessmentDelegationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationArrayOutput)
-}
-
-func (i AssessmentDelegationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentDelegation] {
-	return pulumix.Output[[]*AssessmentDelegation]{
-		OutputState: i.ToAssessmentDelegationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssessmentDelegationMapInput is an input type that accepts AssessmentDelegationMap and AssessmentDelegationMapOutput values.
@@ -274,12 +261,6 @@ func (i AssessmentDelegationMap) ToAssessmentDelegationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationMapOutput)
 }
 
-func (i AssessmentDelegationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentDelegation] {
-	return pulumix.Output[map[string]*AssessmentDelegation]{
-		OutputState: i.ToAssessmentDelegationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentDelegationOutput struct{ *pulumi.OutputState }
 
 func (AssessmentDelegationOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o AssessmentDelegationOutput) ToAssessmentDelegationOutput() AssessmentDel
 
 func (o AssessmentDelegationOutput) ToAssessmentDelegationOutputWithContext(ctx context.Context) AssessmentDelegationOutput {
 	return o
-}
-
-func (o AssessmentDelegationOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegation] {
-	return pulumix.Output[*AssessmentDelegation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier for the assessment.
@@ -351,12 +326,6 @@ func (o AssessmentDelegationArrayOutput) ToAssessmentDelegationArrayOutputWithCo
 	return o
 }
 
-func (o AssessmentDelegationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentDelegation] {
-	return pulumix.Output[[]*AssessmentDelegation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDelegationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentDelegation {
 		return vs[0].([]*AssessmentDelegation)[vs[1].(int)]
@@ -375,12 +344,6 @@ func (o AssessmentDelegationMapOutput) ToAssessmentDelegationMapOutput() Assessm
 
 func (o AssessmentDelegationMapOutput) ToAssessmentDelegationMapOutputWithContext(ctx context.Context) AssessmentDelegationMapOutput {
 	return o
-}
-
-func (o AssessmentDelegationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentDelegation] {
-	return pulumix.Output[map[string]*AssessmentDelegation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentDelegationMapOutput) MapIndex(k pulumi.StringInput) AssessmentDelegationOutput {

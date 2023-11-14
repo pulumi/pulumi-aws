@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic File System (EFS) File System Policy resource.
@@ -210,12 +209,6 @@ func (i *FileSystemPolicy) ToFileSystemPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyOutput)
 }
 
-func (i *FileSystemPolicy) ToOutput(ctx context.Context) pulumix.Output[*FileSystemPolicy] {
-	return pulumix.Output[*FileSystemPolicy]{
-		OutputState: i.ToFileSystemPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemPolicyArrayInput is an input type that accepts FileSystemPolicyArray and FileSystemPolicyArrayOutput values.
 // You can construct a concrete instance of `FileSystemPolicyArrayInput` via:
 //
@@ -239,12 +232,6 @@ func (i FileSystemPolicyArray) ToFileSystemPolicyArrayOutput() FileSystemPolicyA
 
 func (i FileSystemPolicyArray) ToFileSystemPolicyArrayOutputWithContext(ctx context.Context) FileSystemPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyArrayOutput)
-}
-
-func (i FileSystemPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemPolicy] {
-	return pulumix.Output[[]*FileSystemPolicy]{
-		OutputState: i.ToFileSystemPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FileSystemPolicyMapInput is an input type that accepts FileSystemPolicyMap and FileSystemPolicyMapOutput values.
@@ -272,12 +259,6 @@ func (i FileSystemPolicyMap) ToFileSystemPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyMapOutput)
 }
 
-func (i FileSystemPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemPolicy] {
-	return pulumix.Output[map[string]*FileSystemPolicy]{
-		OutputState: i.ToFileSystemPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyOutput) ElementType() reflect.Type {
@@ -290,12 +271,6 @@ func (o FileSystemPolicyOutput) ToFileSystemPolicyOutput() FileSystemPolicyOutpu
 
 func (o FileSystemPolicyOutput) ToFileSystemPolicyOutputWithContext(ctx context.Context) FileSystemPolicyOutput {
 	return o
-}
-
-func (o FileSystemPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemPolicy] {
-	return pulumix.Output[*FileSystemPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypassPolicyLockoutSafetyCheck` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
@@ -329,12 +304,6 @@ func (o FileSystemPolicyArrayOutput) ToFileSystemPolicyArrayOutputWithContext(ct
 	return o
 }
 
-func (o FileSystemPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemPolicy] {
-	return pulumix.Output[[]*FileSystemPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileSystemPolicyArrayOutput) Index(i pulumi.IntInput) FileSystemPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileSystemPolicy {
 		return vs[0].([]*FileSystemPolicy)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutput() FileSystemPolic
 
 func (o FileSystemPolicyMapOutput) ToFileSystemPolicyMapOutputWithContext(ctx context.Context) FileSystemPolicyMapOutput {
 	return o
-}
-
-func (o FileSystemPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemPolicy] {
-	return pulumix.Output[map[string]*FileSystemPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemPolicyMapOutput) MapIndex(k pulumi.StringInput) FileSystemPolicyOutput {

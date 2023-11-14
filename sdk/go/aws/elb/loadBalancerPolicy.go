@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a load balancer policy, which can be attached to an ELB listener or backend server.
@@ -273,12 +272,6 @@ func (i *LoadBalancerPolicy) ToLoadBalancerPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyOutput)
 }
 
-func (i *LoadBalancerPolicy) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerPolicy] {
-	return pulumix.Output[*LoadBalancerPolicy]{
-		OutputState: i.ToLoadBalancerPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerPolicyArrayInput is an input type that accepts LoadBalancerPolicyArray and LoadBalancerPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerPolicyArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i LoadBalancerPolicyArray) ToLoadBalancerPolicyArrayOutput() LoadBalancerP
 
 func (i LoadBalancerPolicyArray) ToLoadBalancerPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyArrayOutput)
-}
-
-func (i LoadBalancerPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerPolicy] {
-	return pulumix.Output[[]*LoadBalancerPolicy]{
-		OutputState: i.ToLoadBalancerPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoadBalancerPolicyMapInput is an input type that accepts LoadBalancerPolicyMap and LoadBalancerPolicyMapOutput values.
@@ -335,12 +322,6 @@ func (i LoadBalancerPolicyMap) ToLoadBalancerPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyMapOutput)
 }
 
-func (i LoadBalancerPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerPolicy] {
-	return pulumix.Output[map[string]*LoadBalancerPolicy]{
-		OutputState: i.ToLoadBalancerPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutput() LoadBalancerPolic
 
 func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyOutputWithContext(ctx context.Context) LoadBalancerPolicyOutput {
 	return o
-}
-
-func (o LoadBalancerPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerPolicy] {
-	return pulumix.Output[*LoadBalancerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The load balancer on which the policy is defined.
@@ -395,12 +370,6 @@ func (o LoadBalancerPolicyArrayOutput) ToLoadBalancerPolicyArrayOutputWithContex
 	return o
 }
 
-func (o LoadBalancerPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerPolicy] {
-	return pulumix.Output[[]*LoadBalancerPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerPolicy {
 		return vs[0].([]*LoadBalancerPolicy)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o LoadBalancerPolicyMapOutput) ToLoadBalancerPolicyMapOutput() LoadBalance
 
 func (o LoadBalancerPolicyMapOutput) ToLoadBalancerPolicyMapOutputWithContext(ctx context.Context) LoadBalancerPolicyMapOutput {
 	return o
-}
-
-func (o LoadBalancerPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerPolicy] {
-	return pulumix.Output[map[string]*LoadBalancerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerPolicyMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerPolicyOutput {

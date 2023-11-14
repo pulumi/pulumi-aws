@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
@@ -165,12 +164,6 @@ func (i *LfTag) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LfTagOutput)
 }
 
-func (i *LfTag) ToOutput(ctx context.Context) pulumix.Output[*LfTag] {
-	return pulumix.Output[*LfTag]{
-		OutputState: i.ToLfTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LfTagArrayInput is an input type that accepts LfTagArray and LfTagArrayOutput values.
 // You can construct a concrete instance of `LfTagArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i LfTagArray) ToLfTagArrayOutput() LfTagArrayOutput {
 
 func (i LfTagArray) ToLfTagArrayOutputWithContext(ctx context.Context) LfTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LfTagArrayOutput)
-}
-
-func (i LfTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*LfTag] {
-	return pulumix.Output[[]*LfTag]{
-		OutputState: i.ToLfTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LfTagMapInput is an input type that accepts LfTagMap and LfTagMapOutput values.
@@ -227,12 +214,6 @@ func (i LfTagMap) ToLfTagMapOutputWithContext(ctx context.Context) LfTagMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LfTagMapOutput)
 }
 
-func (i LfTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LfTag] {
-	return pulumix.Output[map[string]*LfTag]{
-		OutputState: i.ToLfTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LfTagOutput struct{ *pulumi.OutputState }
 
 func (LfTagOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o LfTagOutput) ToLfTagOutput() LfTagOutput {
 
 func (o LfTagOutput) ToLfTagOutputWithContext(ctx context.Context) LfTagOutput {
 	return o
-}
-
-func (o LfTagOutput) ToOutput(ctx context.Context) pulumix.Output[*LfTag] {
-	return pulumix.Output[*LfTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
@@ -282,12 +257,6 @@ func (o LfTagArrayOutput) ToLfTagArrayOutputWithContext(ctx context.Context) LfT
 	return o
 }
 
-func (o LfTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LfTag] {
-	return pulumix.Output[[]*LfTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LfTagArrayOutput) Index(i pulumi.IntInput) LfTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LfTag {
 		return vs[0].([]*LfTag)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o LfTagMapOutput) ToLfTagMapOutput() LfTagMapOutput {
 
 func (o LfTagMapOutput) ToLfTagMapOutputWithContext(ctx context.Context) LfTagMapOutput {
 	return o
-}
-
-func (o LfTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LfTag] {
-	return pulumix.Output[map[string]*LfTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LfTagMapOutput) MapIndex(k pulumi.StringInput) LfTagOutput {

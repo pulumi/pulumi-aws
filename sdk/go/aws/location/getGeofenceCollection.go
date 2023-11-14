@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Geofence Collection.
@@ -119,12 +118,6 @@ func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOu
 
 func (o LookupGeofenceCollectionResultOutput) ToLookupGeofenceCollectionResultOutputWithContext(ctx context.Context) LookupGeofenceCollectionResultOutput {
 	return o
-}
-
-func (o LookupGeofenceCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGeofenceCollectionResult] {
-	return pulumix.Output[LookupGeofenceCollectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.

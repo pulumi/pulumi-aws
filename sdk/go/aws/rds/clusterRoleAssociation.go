@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a RDS DB Cluster association with an IAM Role. Example use cases:
@@ -168,12 +167,6 @@ func (i *ClusterRoleAssociation) ToClusterRoleAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationOutput)
 }
 
-func (i *ClusterRoleAssociation) ToOutput(ctx context.Context) pulumix.Output[*ClusterRoleAssociation] {
-	return pulumix.Output[*ClusterRoleAssociation]{
-		OutputState: i.ToClusterRoleAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterRoleAssociationArrayInput is an input type that accepts ClusterRoleAssociationArray and ClusterRoleAssociationArrayOutput values.
 // You can construct a concrete instance of `ClusterRoleAssociationArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i ClusterRoleAssociationArray) ToClusterRoleAssociationArrayOutput() Clust
 
 func (i ClusterRoleAssociationArray) ToClusterRoleAssociationArrayOutputWithContext(ctx context.Context) ClusterRoleAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationArrayOutput)
-}
-
-func (i ClusterRoleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterRoleAssociation] {
-	return pulumix.Output[[]*ClusterRoleAssociation]{
-		OutputState: i.ToClusterRoleAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterRoleAssociationMapInput is an input type that accepts ClusterRoleAssociationMap and ClusterRoleAssociationMapOutput values.
@@ -230,12 +217,6 @@ func (i ClusterRoleAssociationMap) ToClusterRoleAssociationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationMapOutput)
 }
 
-func (i ClusterRoleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterRoleAssociation] {
-	return pulumix.Output[map[string]*ClusterRoleAssociation]{
-		OutputState: i.ToClusterRoleAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterRoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationOutput() ClusterRo
 
 func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationOutputWithContext(ctx context.Context) ClusterRoleAssociationOutput {
 	return o
-}
-
-func (o ClusterRoleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterRoleAssociation] {
-	return pulumix.Output[*ClusterRoleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // DB Cluster Identifier to associate with the IAM Role.
@@ -285,12 +260,6 @@ func (o ClusterRoleAssociationArrayOutput) ToClusterRoleAssociationArrayOutputWi
 	return o
 }
 
-func (o ClusterRoleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterRoleAssociation] {
-	return pulumix.Output[[]*ClusterRoleAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterRoleAssociationArrayOutput) Index(i pulumi.IntInput) ClusterRoleAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterRoleAssociation {
 		return vs[0].([]*ClusterRoleAssociation)[vs[1].(int)]
@@ -309,12 +278,6 @@ func (o ClusterRoleAssociationMapOutput) ToClusterRoleAssociationMapOutput() Clu
 
 func (o ClusterRoleAssociationMapOutput) ToClusterRoleAssociationMapOutputWithContext(ctx context.Context) ClusterRoleAssociationMapOutput {
 	return o
-}
-
-func (o ClusterRoleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterRoleAssociation] {
-	return pulumix.Output[map[string]*ClusterRoleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterRoleAssociationMapOutput) MapIndex(k pulumi.StringInput) ClusterRoleAssociationOutput {

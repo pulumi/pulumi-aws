@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOutput)
 }
 
-func (i EndpointNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterface] {
-	return pulumix.Output[EndpointNetworkInterface]{
-		OutputState: i.ToEndpointNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
 }
 
-func (i EndpointNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointNetworkInterface]{
-		OutputState: i.ToEndpointNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (EndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutput() Endpo
 
 func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterface] {
-	return pulumix.Output[EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier of the Elastic Network Interface (ENI).
@@ -121,12 +102,6 @@ func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutp
 
 func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNetworkInterfaceOutput {

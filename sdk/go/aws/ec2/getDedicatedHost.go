@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an EC2 Dedicated Host.
@@ -138,12 +137,6 @@ func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutput() Loo
 
 func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutputWithContext(ctx context.Context) LookupDedicatedHostResultOutput {
 	return o
-}
-
-func (o LookupDedicatedHostResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedHostResult] {
-	return pulumix.Output[LookupDedicatedHostResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Dedicated Host.

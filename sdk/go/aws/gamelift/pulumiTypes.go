@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput)
 }
 
-func (i AliasRoutingStrategyArgs) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingStrategy] {
-	return pulumix.Output[AliasRoutingStrategy]{
-		OutputState: i.ToAliasRoutingStrategyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
 	return i.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyPtrOutput)
 }
 
-func (i *aliasRoutingStrategyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategy] {
-	return pulumix.Output[*AliasRoutingStrategy]{
-		OutputState: i.ToAliasRoutingStrategyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AliasRoutingStrategyOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingStrategyOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingStrategy) *AliasRoutingStrategy {
 		return &v
 	}).(AliasRoutingStrategyPtrOutput)
-}
-
-func (o AliasRoutingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingStrategy] {
-	return pulumix.Output[AliasRoutingStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the GameLift Fleet to point the alias to.
@@ -165,12 +146,6 @@ func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutput() AliasRo
 
 func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
 	return o
-}
-
-func (o AliasRoutingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategy] {
-	return pulumix.Output[*AliasRoutingStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
@@ -258,12 +233,6 @@ func (i BuildStorageLocationArgs) ToBuildStorageLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput)
 }
 
-func (i BuildStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[BuildStorageLocation] {
-	return pulumix.Output[BuildStorageLocation]{
-		OutputState: i.ToBuildStorageLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
 	return i.ToBuildStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -305,12 +274,6 @@ func (i *buildStorageLocationPtrType) ToBuildStorageLocationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationPtrOutput)
 }
 
-func (i *buildStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildStorageLocation] {
-	return pulumix.Output[*BuildStorageLocation]{
-		OutputState: i.ToBuildStorageLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (BuildStorageLocationOutput) ElementType() reflect.Type {
@@ -333,12 +296,6 @@ func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildStorageLocation) *BuildStorageLocation {
 		return &v
 	}).(BuildStorageLocationPtrOutput)
-}
-
-func (o BuildStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[BuildStorageLocation] {
-	return pulumix.Output[BuildStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of your S3 bucket.
@@ -373,12 +330,6 @@ func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutput() BuildSt
 
 func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
 	return o
-}
-
-func (o BuildStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildStorageLocation] {
-	return pulumix.Output[*BuildStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
@@ -464,12 +415,6 @@ func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationOutput)
 }
 
-func (i FleetCertificateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FleetCertificateConfiguration] {
-	return pulumix.Output[FleetCertificateConfiguration]{
-		OutputState: i.ToFleetCertificateConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FleetCertificateConfigurationArgs) ToFleetCertificateConfigurationPtrOutput() FleetCertificateConfigurationPtrOutput {
 	return i.ToFleetCertificateConfigurationPtrOutputWithContext(context.Background())
 }
@@ -511,12 +456,6 @@ func (i *fleetCertificateConfigurationPtrType) ToFleetCertificateConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationPtrOutput)
 }
 
-func (i *fleetCertificateConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfiguration] {
-	return pulumix.Output[*FleetCertificateConfiguration]{
-		OutputState: i.ToFleetCertificateConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetCertificateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FleetCertificateConfigurationOutput) ElementType() reflect.Type {
@@ -541,12 +480,6 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 	}).(FleetCertificateConfigurationPtrOutput)
 }
 
-func (o FleetCertificateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FleetCertificateConfiguration] {
-	return pulumix.Output[FleetCertificateConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
 func (o FleetCertificateConfigurationOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
@@ -564,12 +497,6 @@ func (o FleetCertificateConfigurationPtrOutput) ToFleetCertificateConfigurationP
 
 func (o FleetCertificateConfigurationPtrOutput) ToFleetCertificateConfigurationPtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationPtrOutput {
 	return o
-}
-
-func (o FleetCertificateConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfiguration] {
-	return pulumix.Output[*FleetCertificateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigurationOutput {
@@ -637,12 +564,6 @@ func (i FleetEc2InboundPermissionArgs) ToFleetEc2InboundPermissionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetEc2InboundPermissionOutput)
 }
 
-func (i FleetEc2InboundPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[FleetEc2InboundPermission] {
-	return pulumix.Output[FleetEc2InboundPermission]{
-		OutputState: i.ToFleetEc2InboundPermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FleetEc2InboundPermissionArrayInput is an input type that accepts FleetEc2InboundPermissionArray and FleetEc2InboundPermissionArrayOutput values.
 // You can construct a concrete instance of `FleetEc2InboundPermissionArrayInput` via:
 //
@@ -668,12 +589,6 @@ func (i FleetEc2InboundPermissionArray) ToFleetEc2InboundPermissionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FleetEc2InboundPermissionArrayOutput)
 }
 
-func (i FleetEc2InboundPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]FleetEc2InboundPermission] {
-	return pulumix.Output[[]FleetEc2InboundPermission]{
-		OutputState: i.ToFleetEc2InboundPermissionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetEc2InboundPermissionOutput struct{ *pulumi.OutputState }
 
 func (FleetEc2InboundPermissionOutput) ElementType() reflect.Type {
@@ -686,12 +601,6 @@ func (o FleetEc2InboundPermissionOutput) ToFleetEc2InboundPermissionOutput() Fle
 
 func (o FleetEc2InboundPermissionOutput) ToFleetEc2InboundPermissionOutputWithContext(ctx context.Context) FleetEc2InboundPermissionOutput {
 	return o
-}
-
-func (o FleetEc2InboundPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[FleetEc2InboundPermission] {
-	return pulumix.Output[FleetEc2InboundPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Starting value for a range of allowed port numbers.
@@ -726,12 +635,6 @@ func (o FleetEc2InboundPermissionArrayOutput) ToFleetEc2InboundPermissionArrayOu
 
 func (o FleetEc2InboundPermissionArrayOutput) ToFleetEc2InboundPermissionArrayOutputWithContext(ctx context.Context) FleetEc2InboundPermissionArrayOutput {
 	return o
-}
-
-func (o FleetEc2InboundPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FleetEc2InboundPermission] {
-	return pulumix.Output[[]FleetEc2InboundPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetEc2InboundPermissionArrayOutput) Index(i pulumi.IntInput) FleetEc2InboundPermissionOutput {
@@ -777,12 +680,6 @@ func (i FleetResourceCreationLimitPolicyArgs) ToFleetResourceCreationLimitPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(FleetResourceCreationLimitPolicyOutput)
 }
 
-func (i FleetResourceCreationLimitPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FleetResourceCreationLimitPolicy] {
-	return pulumix.Output[FleetResourceCreationLimitPolicy]{
-		OutputState: i.ToFleetResourceCreationLimitPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FleetResourceCreationLimitPolicyArgs) ToFleetResourceCreationLimitPolicyPtrOutput() FleetResourceCreationLimitPolicyPtrOutput {
 	return i.ToFleetResourceCreationLimitPolicyPtrOutputWithContext(context.Background())
 }
@@ -824,12 +721,6 @@ func (i *fleetResourceCreationLimitPolicyPtrType) ToFleetResourceCreationLimitPo
 	return pulumi.ToOutputWithContext(ctx, i).(FleetResourceCreationLimitPolicyPtrOutput)
 }
 
-func (i *fleetResourceCreationLimitPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetResourceCreationLimitPolicy] {
-	return pulumix.Output[*FleetResourceCreationLimitPolicy]{
-		OutputState: i.ToFleetResourceCreationLimitPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetResourceCreationLimitPolicyOutput struct{ *pulumi.OutputState }
 
 func (FleetResourceCreationLimitPolicyOutput) ElementType() reflect.Type {
@@ -854,12 +745,6 @@ func (o FleetResourceCreationLimitPolicyOutput) ToFleetResourceCreationLimitPoli
 	}).(FleetResourceCreationLimitPolicyPtrOutput)
 }
 
-func (o FleetResourceCreationLimitPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FleetResourceCreationLimitPolicy] {
-	return pulumix.Output[FleetResourceCreationLimitPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Maximum number of game sessions that an individual can create during the policy period.
 func (o FleetResourceCreationLimitPolicyOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.NewGameSessionsPerCreator }).(pulumi.IntPtrOutput)
@@ -882,12 +767,6 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) ToFleetResourceCreationLimitP
 
 func (o FleetResourceCreationLimitPolicyPtrOutput) ToFleetResourceCreationLimitPolicyPtrOutputWithContext(ctx context.Context) FleetResourceCreationLimitPolicyPtrOutput {
 	return o
-}
-
-func (o FleetResourceCreationLimitPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetResourceCreationLimitPolicy] {
-	return pulumix.Output[*FleetResourceCreationLimitPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetResourceCreationLimitPolicyPtrOutput) Elem() FleetResourceCreationLimitPolicyOutput {
@@ -961,12 +840,6 @@ func (i FleetRuntimeConfigurationArgs) ToFleetRuntimeConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationOutput)
 }
 
-func (i FleetRuntimeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FleetRuntimeConfiguration] {
-	return pulumix.Output[FleetRuntimeConfiguration]{
-		OutputState: i.ToFleetRuntimeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FleetRuntimeConfigurationArgs) ToFleetRuntimeConfigurationPtrOutput() FleetRuntimeConfigurationPtrOutput {
 	return i.ToFleetRuntimeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1008,12 +881,6 @@ func (i *fleetRuntimeConfigurationPtrType) ToFleetRuntimeConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationPtrOutput)
 }
 
-func (i *fleetRuntimeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetRuntimeConfiguration] {
-	return pulumix.Output[*FleetRuntimeConfiguration]{
-		OutputState: i.ToFleetRuntimeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetRuntimeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FleetRuntimeConfigurationOutput) ElementType() reflect.Type {
@@ -1036,12 +903,6 @@ func (o FleetRuntimeConfigurationOutput) ToFleetRuntimeConfigurationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetRuntimeConfiguration) *FleetRuntimeConfiguration {
 		return &v
 	}).(FleetRuntimeConfigurationPtrOutput)
-}
-
-func (o FleetRuntimeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FleetRuntimeConfiguration] {
-	return pulumix.Output[FleetRuntimeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
@@ -1071,12 +932,6 @@ func (o FleetRuntimeConfigurationPtrOutput) ToFleetRuntimeConfigurationPtrOutput
 
 func (o FleetRuntimeConfigurationPtrOutput) ToFleetRuntimeConfigurationPtrOutputWithContext(ctx context.Context) FleetRuntimeConfigurationPtrOutput {
 	return o
-}
-
-func (o FleetRuntimeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetRuntimeConfiguration] {
-	return pulumix.Output[*FleetRuntimeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetRuntimeConfigurationPtrOutput) Elem() FleetRuntimeConfigurationOutput {
@@ -1160,12 +1015,6 @@ func (i FleetRuntimeConfigurationServerProcessArgs) ToFleetRuntimeConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationServerProcessOutput)
 }
 
-func (i FleetRuntimeConfigurationServerProcessArgs) ToOutput(ctx context.Context) pulumix.Output[FleetRuntimeConfigurationServerProcess] {
-	return pulumix.Output[FleetRuntimeConfigurationServerProcess]{
-		OutputState: i.ToFleetRuntimeConfigurationServerProcessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FleetRuntimeConfigurationServerProcessArrayInput is an input type that accepts FleetRuntimeConfigurationServerProcessArray and FleetRuntimeConfigurationServerProcessArrayOutput values.
 // You can construct a concrete instance of `FleetRuntimeConfigurationServerProcessArrayInput` via:
 //
@@ -1191,12 +1040,6 @@ func (i FleetRuntimeConfigurationServerProcessArray) ToFleetRuntimeConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationServerProcessArrayOutput)
 }
 
-func (i FleetRuntimeConfigurationServerProcessArray) ToOutput(ctx context.Context) pulumix.Output[[]FleetRuntimeConfigurationServerProcess] {
-	return pulumix.Output[[]FleetRuntimeConfigurationServerProcess]{
-		OutputState: i.ToFleetRuntimeConfigurationServerProcessArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetRuntimeConfigurationServerProcessOutput struct{ *pulumi.OutputState }
 
 func (FleetRuntimeConfigurationServerProcessOutput) ElementType() reflect.Type {
@@ -1209,12 +1052,6 @@ func (o FleetRuntimeConfigurationServerProcessOutput) ToFleetRuntimeConfiguratio
 
 func (o FleetRuntimeConfigurationServerProcessOutput) ToFleetRuntimeConfigurationServerProcessOutputWithContext(ctx context.Context) FleetRuntimeConfigurationServerProcessOutput {
 	return o
-}
-
-func (o FleetRuntimeConfigurationServerProcessOutput) ToOutput(ctx context.Context) pulumix.Output[FleetRuntimeConfigurationServerProcess] {
-	return pulumix.Output[FleetRuntimeConfigurationServerProcess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Number of server processes using this configuration to run concurrently on an instance.
@@ -1244,12 +1081,6 @@ func (o FleetRuntimeConfigurationServerProcessArrayOutput) ToFleetRuntimeConfigu
 
 func (o FleetRuntimeConfigurationServerProcessArrayOutput) ToFleetRuntimeConfigurationServerProcessArrayOutputWithContext(ctx context.Context) FleetRuntimeConfigurationServerProcessArrayOutput {
 	return o
-}
-
-func (o FleetRuntimeConfigurationServerProcessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FleetRuntimeConfigurationServerProcess] {
-	return pulumix.Output[[]FleetRuntimeConfigurationServerProcess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetRuntimeConfigurationServerProcessArrayOutput) Index(i pulumi.IntInput) FleetRuntimeConfigurationServerProcessOutput {
@@ -1299,12 +1130,6 @@ func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyOutput)
 }
 
-func (i GameServerGroupAutoScalingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupAutoScalingPolicy] {
-	return pulumix.Output[GameServerGroupAutoScalingPolicy]{
-		OutputState: i.ToGameServerGroupAutoScalingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GameServerGroupAutoScalingPolicyArgs) ToGameServerGroupAutoScalingPolicyPtrOutput() GameServerGroupAutoScalingPolicyPtrOutput {
 	return i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(context.Background())
 }
@@ -1346,12 +1171,6 @@ func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPo
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
-func (i *gameServerGroupAutoScalingPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupAutoScalingPolicy] {
-	return pulumix.Output[*GameServerGroupAutoScalingPolicy]{
-		OutputState: i.ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameServerGroupAutoScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupAutoScalingPolicyOutput) ElementType() reflect.Type {
@@ -1374,12 +1193,6 @@ func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPoli
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupAutoScalingPolicy) *GameServerGroupAutoScalingPolicy {
 		return &v
 	}).(GameServerGroupAutoScalingPolicyPtrOutput)
-}
-
-func (o GameServerGroupAutoScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupAutoScalingPolicy] {
-	return pulumix.Output[GameServerGroupAutoScalingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Length of time, in seconds, it takes for a new instance to start
@@ -1408,12 +1221,6 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingP
 
 func (o GameServerGroupAutoScalingPolicyPtrOutput) ToGameServerGroupAutoScalingPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyPtrOutput {
 	return o
-}
-
-func (o GameServerGroupAutoScalingPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupAutoScalingPolicy] {
-	return pulumix.Output[*GameServerGroupAutoScalingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoScalingPolicyOutput {
@@ -1481,12 +1288,6 @@ func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameS
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput)
 }
 
-func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupAutoScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[GameServerGroupAutoScalingPolicyTargetTrackingConfiguration]{
-		OutputState: i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
 	return i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1528,12 +1329,6 @@ func (i *gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput)
 }
 
-func (i *gameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration]{
-		OutputState: i.ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ElementType() reflect.Type {
@@ -1558,12 +1353,6 @@ func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToGam
 	}).(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput)
 }
 
-func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupAutoScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[GameServerGroupAutoScalingPolicyTargetTrackingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Desired value to use with a game server group target-based scaling policy.
 func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicyTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
@@ -1581,12 +1370,6 @@ func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) To
 
 func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) ToGameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput {
 	return o
-}
-
-func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration] {
-	return pulumix.Output[*GameServerGroupAutoScalingPolicyTargetTrackingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupAutoScalingPolicyTargetTrackingConfigurationPtrOutput) Elem() GameServerGroupAutoScalingPolicyTargetTrackingConfigurationOutput {
@@ -1652,12 +1435,6 @@ func (i GameServerGroupInstanceDefinitionArgs) ToGameServerGroupInstanceDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionOutput)
 }
 
-func (i GameServerGroupInstanceDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupInstanceDefinition] {
-	return pulumix.Output[GameServerGroupInstanceDefinition]{
-		OutputState: i.ToGameServerGroupInstanceDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GameServerGroupInstanceDefinitionArrayInput is an input type that accepts GameServerGroupInstanceDefinitionArray and GameServerGroupInstanceDefinitionArrayOutput values.
 // You can construct a concrete instance of `GameServerGroupInstanceDefinitionArrayInput` via:
 //
@@ -1683,12 +1460,6 @@ func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionArrayOutput)
 }
 
-func (i GameServerGroupInstanceDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]GameServerGroupInstanceDefinition] {
-	return pulumix.Output[[]GameServerGroupInstanceDefinition]{
-		OutputState: i.ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameServerGroupInstanceDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupInstanceDefinitionOutput) ElementType() reflect.Type {
@@ -1701,12 +1472,6 @@ func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefini
 
 func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefinitionOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionOutput {
 	return o
-}
-
-func (o GameServerGroupInstanceDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupInstanceDefinition] {
-	return pulumix.Output[GameServerGroupInstanceDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An EC2 instance type.
@@ -1734,12 +1499,6 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceD
 
 func (o GameServerGroupInstanceDefinitionArrayOutput) ToGameServerGroupInstanceDefinitionArrayOutputWithContext(ctx context.Context) GameServerGroupInstanceDefinitionArrayOutput {
 	return o
-}
-
-func (o GameServerGroupInstanceDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GameServerGroupInstanceDefinition] {
-	return pulumix.Output[[]GameServerGroupInstanceDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) GameServerGroupInstanceDefinitionOutput {
@@ -1789,12 +1548,6 @@ func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplateOutput)
 }
 
-func (i GameServerGroupLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupLaunchTemplate] {
-	return pulumix.Output[GameServerGroupLaunchTemplate]{
-		OutputState: i.ToGameServerGroupLaunchTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GameServerGroupLaunchTemplateArgs) ToGameServerGroupLaunchTemplatePtrOutput() GameServerGroupLaunchTemplatePtrOutput {
 	return i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -1836,12 +1589,6 @@ func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePt
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
-func (i *gameServerGroupLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupLaunchTemplate] {
-	return pulumix.Output[*GameServerGroupLaunchTemplate]{
-		OutputState: i.ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -1864,12 +1611,6 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameServerGroupLaunchTemplate) *GameServerGroupLaunchTemplate {
 		return &v
 	}).(GameServerGroupLaunchTemplatePtrOutput)
-}
-
-func (o GameServerGroupLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupLaunchTemplate] {
-	return pulumix.Output[GameServerGroupLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique identifier for an existing EC2 launch template.
@@ -1899,12 +1640,6 @@ func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplateP
 
 func (o GameServerGroupLaunchTemplatePtrOutput) ToGameServerGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GameServerGroupLaunchTemplatePtrOutput {
 	return o
-}
-
-func (o GameServerGroupLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupLaunchTemplate] {
-	return pulumix.Output[*GameServerGroupLaunchTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemplateOutput {
@@ -1984,12 +1719,6 @@ func (i GameSessionQueuePlayerLatencyPolicyArgs) ToGameSessionQueuePlayerLatency
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyOutput)
 }
 
-func (i GameSessionQueuePlayerLatencyPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GameSessionQueuePlayerLatencyPolicy] {
-	return pulumix.Output[GameSessionQueuePlayerLatencyPolicy]{
-		OutputState: i.ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GameSessionQueuePlayerLatencyPolicyArrayInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArray and GameSessionQueuePlayerLatencyPolicyArrayOutput values.
 // You can construct a concrete instance of `GameSessionQueuePlayerLatencyPolicyArrayInput` via:
 //
@@ -2015,12 +1744,6 @@ func (i GameSessionQueuePlayerLatencyPolicyArray) ToGameSessionQueuePlayerLatenc
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
 }
 
-func (i GameSessionQueuePlayerLatencyPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePlayerLatencyPolicy] {
-	return pulumix.Output[[]GameSessionQueuePlayerLatencyPolicy]{
-		OutputState: i.ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameSessionQueuePlayerLatencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueuePlayerLatencyPolicyOutput) ElementType() reflect.Type {
@@ -2033,12 +1756,6 @@ func (o GameSessionQueuePlayerLatencyPolicyOutput) ToGameSessionQueuePlayerLaten
 
 func (o GameSessionQueuePlayerLatencyPolicyOutput) ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyOutput {
 	return o
-}
-
-func (o GameSessionQueuePlayerLatencyPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GameSessionQueuePlayerLatencyPolicy] {
-	return pulumix.Output[GameSessionQueuePlayerLatencyPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Maximum latency value that is allowed for any player.
@@ -2063,12 +1780,6 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) ToGameSessionQueuePlayer
 
 func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) ToGameSessionQueuePlayerLatencyPolicyArrayOutputWithContext(ctx context.Context) GameSessionQueuePlayerLatencyPolicyArrayOutput {
 	return o
-}
-
-func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePlayerLatencyPolicy] {
-	return pulumix.Output[[]GameSessionQueuePlayerLatencyPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePlayerLatencyPolicyOutput {
@@ -2114,12 +1825,6 @@ func (i MatchmakingConfigurationGamePropertyArgs) ToMatchmakingConfigurationGame
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyOutput)
 }
 
-func (i MatchmakingConfigurationGamePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationGameProperty] {
-	return pulumix.Output[MatchmakingConfigurationGameProperty]{
-		OutputState: i.ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MatchmakingConfigurationGamePropertyArrayInput is an input type that accepts MatchmakingConfigurationGamePropertyArray and MatchmakingConfigurationGamePropertyArrayOutput values.
 // You can construct a concrete instance of `MatchmakingConfigurationGamePropertyArrayInput` via:
 //
@@ -2145,12 +1850,6 @@ func (i MatchmakingConfigurationGamePropertyArray) ToMatchmakingConfigurationGam
 	return pulumi.ToOutputWithContext(ctx, i).(MatchmakingConfigurationGamePropertyArrayOutput)
 }
 
-func (i MatchmakingConfigurationGamePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]MatchmakingConfigurationGameProperty] {
-	return pulumix.Output[[]MatchmakingConfigurationGameProperty]{
-		OutputState: i.ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MatchmakingConfigurationGamePropertyOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationGamePropertyOutput) ElementType() reflect.Type {
@@ -2163,12 +1862,6 @@ func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGa
 
 func (o MatchmakingConfigurationGamePropertyOutput) ToMatchmakingConfigurationGamePropertyOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationGamePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationGameProperty] {
-	return pulumix.Output[MatchmakingConfigurationGameProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A game property key
@@ -2193,12 +1886,6 @@ func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurat
 
 func (o MatchmakingConfigurationGamePropertyArrayOutput) ToMatchmakingConfigurationGamePropertyArrayOutputWithContext(ctx context.Context) MatchmakingConfigurationGamePropertyArrayOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationGamePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MatchmakingConfigurationGameProperty] {
-	return pulumix.Output[[]MatchmakingConfigurationGameProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchmakingConfigurationGamePropertyArrayOutput) Index(i pulumi.IntInput) MatchmakingConfigurationGamePropertyOutput {
@@ -2252,12 +1939,6 @@ func (i ScriptStorageLocationArgs) ToScriptStorageLocationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptStorageLocationOutput)
 }
 
-func (i ScriptStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ScriptStorageLocation] {
-	return pulumix.Output[ScriptStorageLocation]{
-		OutputState: i.ToScriptStorageLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScriptStorageLocationArgs) ToScriptStorageLocationPtrOutput() ScriptStorageLocationPtrOutput {
 	return i.ToScriptStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -2299,12 +1980,6 @@ func (i *scriptStorageLocationPtrType) ToScriptStorageLocationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptStorageLocationPtrOutput)
 }
 
-func (i *scriptStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScriptStorageLocation] {
-	return pulumix.Output[*ScriptStorageLocation]{
-		OutputState: i.ToScriptStorageLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScriptStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (ScriptStorageLocationOutput) ElementType() reflect.Type {
@@ -2327,12 +2002,6 @@ func (o ScriptStorageLocationOutput) ToScriptStorageLocationPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptStorageLocation) *ScriptStorageLocation {
 		return &v
 	}).(ScriptStorageLocationPtrOutput)
-}
-
-func (o ScriptStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ScriptStorageLocation] {
-	return pulumix.Output[ScriptStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of your S3 bucket.
@@ -2367,12 +2036,6 @@ func (o ScriptStorageLocationPtrOutput) ToScriptStorageLocationPtrOutput() Scrip
 
 func (o ScriptStorageLocationPtrOutput) ToScriptStorageLocationPtrOutputWithContext(ctx context.Context) ScriptStorageLocationPtrOutput {
 	return o
-}
-
-func (o ScriptStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScriptStorageLocation] {
-	return pulumix.Output[*ScriptStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScriptStorageLocationPtrOutput) Elem() ScriptStorageLocationOutput {

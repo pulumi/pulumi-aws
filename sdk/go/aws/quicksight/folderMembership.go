@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS QuickSight Folder Membership.
@@ -186,12 +185,6 @@ func (i *FolderMembership) ToFolderMembershipOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FolderMembershipOutput)
 }
 
-func (i *FolderMembership) ToOutput(ctx context.Context) pulumix.Output[*FolderMembership] {
-	return pulumix.Output[*FolderMembership]{
-		OutputState: i.ToFolderMembershipOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FolderMembershipArrayInput is an input type that accepts FolderMembershipArray and FolderMembershipArrayOutput values.
 // You can construct a concrete instance of `FolderMembershipArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i FolderMembershipArray) ToFolderMembershipArrayOutput() FolderMembershipA
 
 func (i FolderMembershipArray) ToFolderMembershipArrayOutputWithContext(ctx context.Context) FolderMembershipArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FolderMembershipArrayOutput)
-}
-
-func (i FolderMembershipArray) ToOutput(ctx context.Context) pulumix.Output[[]*FolderMembership] {
-	return pulumix.Output[[]*FolderMembership]{
-		OutputState: i.ToFolderMembershipArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FolderMembershipMapInput is an input type that accepts FolderMembershipMap and FolderMembershipMapOutput values.
@@ -248,12 +235,6 @@ func (i FolderMembershipMap) ToFolderMembershipMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FolderMembershipMapOutput)
 }
 
-func (i FolderMembershipMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FolderMembership] {
-	return pulumix.Output[map[string]*FolderMembership]{
-		OutputState: i.ToFolderMembershipMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FolderMembershipOutput struct{ *pulumi.OutputState }
 
 func (FolderMembershipOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o FolderMembershipOutput) ToFolderMembershipOutput() FolderMembershipOutpu
 
 func (o FolderMembershipOutput) ToFolderMembershipOutputWithContext(ctx context.Context) FolderMembershipOutput {
 	return o
-}
-
-func (o FolderMembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*FolderMembership] {
-	return pulumix.Output[*FolderMembership]{
-		OutputState: o.OutputState,
-	}
 }
 
 // AWS account ID.
@@ -310,12 +285,6 @@ func (o FolderMembershipArrayOutput) ToFolderMembershipArrayOutputWithContext(ct
 	return o
 }
 
-func (o FolderMembershipArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FolderMembership] {
-	return pulumix.Output[[]*FolderMembership]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FolderMembershipArrayOutput) Index(i pulumi.IntInput) FolderMembershipOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FolderMembership {
 		return vs[0].([]*FolderMembership)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o FolderMembershipMapOutput) ToFolderMembershipMapOutput() FolderMembershi
 
 func (o FolderMembershipMapOutput) ToFolderMembershipMapOutputWithContext(ctx context.Context) FolderMembershipMapOutput {
 	return o
-}
-
-func (o FolderMembershipMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FolderMembership] {
-	return pulumix.Output[map[string]*FolderMembership]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FolderMembershipMapOutput) MapIndex(k pulumi.StringInput) FolderMembershipOutput {

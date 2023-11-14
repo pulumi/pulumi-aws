@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
@@ -260,12 +259,6 @@ func (i *CertificateAuthorityCertificate) ToCertificateAuthorityCertificateOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateOutput)
 }
 
-func (i *CertificateAuthorityCertificate) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificate] {
-	return pulumix.Output[*CertificateAuthorityCertificate]{
-		OutputState: i.ToCertificateAuthorityCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateAuthorityCertificateArrayInput is an input type that accepts CertificateAuthorityCertificateArray and CertificateAuthorityCertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCertificateArrayInput` via:
 //
@@ -289,12 +282,6 @@ func (i CertificateAuthorityCertificateArray) ToCertificateAuthorityCertificateA
 
 func (i CertificateAuthorityCertificateArray) ToCertificateAuthorityCertificateArrayOutputWithContext(ctx context.Context) CertificateAuthorityCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateArrayOutput)
-}
-
-func (i CertificateAuthorityCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateAuthorityCertificate] {
-	return pulumix.Output[[]*CertificateAuthorityCertificate]{
-		OutputState: i.ToCertificateAuthorityCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateAuthorityCertificateMapInput is an input type that accepts CertificateAuthorityCertificateMap and CertificateAuthorityCertificateMapOutput values.
@@ -322,12 +309,6 @@ func (i CertificateAuthorityCertificateMap) ToCertificateAuthorityCertificateMap
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateMapOutput)
 }
 
-func (i CertificateAuthorityCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateAuthorityCertificate] {
-	return pulumix.Output[map[string]*CertificateAuthorityCertificate]{
-		OutputState: i.ToCertificateAuthorityCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityCertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateOutput) ElementType() reflect.Type {
@@ -340,12 +321,6 @@ func (o CertificateAuthorityCertificateOutput) ToCertificateAuthorityCertificate
 
 func (o CertificateAuthorityCertificateOutput) ToCertificateAuthorityCertificateOutputWithContext(ctx context.Context) CertificateAuthorityCertificateOutput {
 	return o
-}
-
-func (o CertificateAuthorityCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificate] {
-	return pulumix.Output[*CertificateAuthorityCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // PEM-encoded certificate for the Certificate Authority.
@@ -377,12 +352,6 @@ func (o CertificateAuthorityCertificateArrayOutput) ToCertificateAuthorityCertif
 	return o
 }
 
-func (o CertificateAuthorityCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateAuthorityCertificate] {
-	return pulumix.Output[[]*CertificateAuthorityCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateAuthorityCertificateArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateAuthorityCertificate {
 		return vs[0].([]*CertificateAuthorityCertificate)[vs[1].(int)]
@@ -401,12 +370,6 @@ func (o CertificateAuthorityCertificateMapOutput) ToCertificateAuthorityCertific
 
 func (o CertificateAuthorityCertificateMapOutput) ToCertificateAuthorityCertificateMapOutputWithContext(ctx context.Context) CertificateAuthorityCertificateMapOutput {
 	return o
-}
-
-func (o CertificateAuthorityCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateAuthorityCertificate] {
-	return pulumix.Output[map[string]*CertificateAuthorityCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateAuthorityCertificateOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates and manages an AWS IoT Thing Type.
@@ -183,12 +182,6 @@ func (i *ThingType) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeO
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeOutput)
 }
 
-func (i *ThingType) ToOutput(ctx context.Context) pulumix.Output[*ThingType] {
-	return pulumix.Output[*ThingType]{
-		OutputState: i.ToThingTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThingTypeArrayInput is an input type that accepts ThingTypeArray and ThingTypeArrayOutput values.
 // You can construct a concrete instance of `ThingTypeArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i ThingTypeArray) ToThingTypeArrayOutput() ThingTypeArrayOutput {
 
 func (i ThingTypeArray) ToThingTypeArrayOutputWithContext(ctx context.Context) ThingTypeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeArrayOutput)
-}
-
-func (i ThingTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThingType] {
-	return pulumix.Output[[]*ThingType]{
-		OutputState: i.ToThingTypeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThingTypeMapInput is an input type that accepts ThingTypeMap and ThingTypeMapOutput values.
@@ -245,12 +232,6 @@ func (i ThingTypeMap) ToThingTypeMapOutputWithContext(ctx context.Context) Thing
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeMapOutput)
 }
 
-func (i ThingTypeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingType] {
-	return pulumix.Output[map[string]*ThingType]{
-		OutputState: i.ToThingTypeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThingTypeOutput struct{ *pulumi.OutputState }
 
 func (ThingTypeOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o ThingTypeOutput) ToThingTypeOutput() ThingTypeOutput {
 
 func (o ThingTypeOutput) ToThingTypeOutputWithContext(ctx context.Context) ThingTypeOutput {
 	return o
-}
-
-func (o ThingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingType] {
-	return pulumix.Output[*ThingType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the created AWS IoT Thing Type.
@@ -317,12 +292,6 @@ func (o ThingTypeArrayOutput) ToThingTypeArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ThingTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThingType] {
-	return pulumix.Output[[]*ThingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThingTypeArrayOutput) Index(i pulumi.IntInput) ThingTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingType {
 		return vs[0].([]*ThingType)[vs[1].(int)]
@@ -341,12 +310,6 @@ func (o ThingTypeMapOutput) ToThingTypeMapOutput() ThingTypeMapOutput {
 
 func (o ThingTypeMapOutput) ToThingTypeMapOutputWithContext(ctx context.Context) ThingTypeMapOutput {
 	return o
-}
-
-func (o ThingTypeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingType] {
-	return pulumix.Output[map[string]*ThingType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThingTypeMapOutput) MapIndex(k pulumi.StringInput) ThingTypeOutput {

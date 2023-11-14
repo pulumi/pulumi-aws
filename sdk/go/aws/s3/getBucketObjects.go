@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** The `s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `s3.getObjects` instead, where new features and fixes will be added.
@@ -117,12 +116,6 @@ func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutput() GetBucket
 
 func (o GetBucketObjectsResultOutput) ToGetBucketObjectsResultOutputWithContext(ctx context.Context) GetBucketObjectsResultOutput {
 	return o
-}
-
-func (o GetBucketObjectsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBucketObjectsResult] {
-	return pulumix.Output[GetBucketObjectsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: Use the aws_s3_objects data source instead

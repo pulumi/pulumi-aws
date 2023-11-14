@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
@@ -194,12 +193,6 @@ func (i *LogService) ToLogServiceOutputWithContext(ctx context.Context) LogServi
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceOutput)
 }
 
-func (i *LogService) ToOutput(ctx context.Context) pulumix.Output[*LogService] {
-	return pulumix.Output[*LogService]{
-		OutputState: i.ToLogServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogServiceArrayInput is an input type that accepts LogServiceArray and LogServiceArrayOutput values.
 // You can construct a concrete instance of `LogServiceArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i LogServiceArray) ToLogServiceArrayOutput() LogServiceArrayOutput {
 
 func (i LogServiceArray) ToLogServiceArrayOutputWithContext(ctx context.Context) LogServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceArrayOutput)
-}
-
-func (i LogServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogService] {
-	return pulumix.Output[[]*LogService]{
-		OutputState: i.ToLogServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogServiceMapInput is an input type that accepts LogServiceMap and LogServiceMapOutput values.
@@ -256,12 +243,6 @@ func (i LogServiceMap) ToLogServiceMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceMapOutput)
 }
 
-func (i LogServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogService] {
-	return pulumix.Output[map[string]*LogService]{
-		OutputState: i.ToLogServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogServiceOutput struct{ *pulumi.OutputState }
 
 func (LogServiceOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o LogServiceOutput) ToLogServiceOutput() LogServiceOutput {
 
 func (o LogServiceOutput) ToLogServiceOutputWithContext(ctx context.Context) LogServiceOutput {
 	return o
-}
-
-func (o LogServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*LogService] {
-	return pulumix.Output[*LogService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of directory.
@@ -306,12 +281,6 @@ func (o LogServiceArrayOutput) ToLogServiceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LogServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogService] {
-	return pulumix.Output[[]*LogService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogServiceArrayOutput) Index(i pulumi.IntInput) LogServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogService {
 		return vs[0].([]*LogService)[vs[1].(int)]
@@ -330,12 +299,6 @@ func (o LogServiceMapOutput) ToLogServiceMapOutput() LogServiceMapOutput {
 
 func (o LogServiceMapOutput) ToLogServiceMapOutputWithContext(ctx context.Context) LogServiceMapOutput {
 	return o
-}
-
-func (o LogServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogService] {
-	return pulumix.Output[map[string]*LogService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogServiceMapOutput) MapIndex(k pulumi.StringInput) LogServiceOutput {

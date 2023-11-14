@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
@@ -143,12 +142,6 @@ func (i *ClassificationExportConfiguration) ToClassificationExportConfigurationO
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationExportConfigurationOutput)
 }
 
-func (i *ClassificationExportConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ClassificationExportConfiguration] {
-	return pulumix.Output[*ClassificationExportConfiguration]{
-		OutputState: i.ToClassificationExportConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClassificationExportConfigurationArrayInput is an input type that accepts ClassificationExportConfigurationArray and ClassificationExportConfigurationArrayOutput values.
 // You can construct a concrete instance of `ClassificationExportConfigurationArrayInput` via:
 //
@@ -172,12 +165,6 @@ func (i ClassificationExportConfigurationArray) ToClassificationExportConfigurat
 
 func (i ClassificationExportConfigurationArray) ToClassificationExportConfigurationArrayOutputWithContext(ctx context.Context) ClassificationExportConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationExportConfigurationArrayOutput)
-}
-
-func (i ClassificationExportConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClassificationExportConfiguration] {
-	return pulumix.Output[[]*ClassificationExportConfiguration]{
-		OutputState: i.ToClassificationExportConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClassificationExportConfigurationMapInput is an input type that accepts ClassificationExportConfigurationMap and ClassificationExportConfigurationMapOutput values.
@@ -205,12 +192,6 @@ func (i ClassificationExportConfigurationMap) ToClassificationExportConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationExportConfigurationMapOutput)
 }
 
-func (i ClassificationExportConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClassificationExportConfiguration] {
-	return pulumix.Output[map[string]*ClassificationExportConfiguration]{
-		OutputState: i.ToClassificationExportConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClassificationExportConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClassificationExportConfigurationOutput) ElementType() reflect.Type {
@@ -223,12 +204,6 @@ func (o ClassificationExportConfigurationOutput) ToClassificationExportConfigura
 
 func (o ClassificationExportConfigurationOutput) ToClassificationExportConfigurationOutputWithContext(ctx context.Context) ClassificationExportConfigurationOutput {
 	return o
-}
-
-func (o ClassificationExportConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ClassificationExportConfiguration] {
-	return pulumix.Output[*ClassificationExportConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block for a S3 Destination. Defined below
@@ -252,12 +227,6 @@ func (o ClassificationExportConfigurationArrayOutput) ToClassificationExportConf
 	return o
 }
 
-func (o ClassificationExportConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClassificationExportConfiguration] {
-	return pulumix.Output[[]*ClassificationExportConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClassificationExportConfigurationArrayOutput) Index(i pulumi.IntInput) ClassificationExportConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClassificationExportConfiguration {
 		return vs[0].([]*ClassificationExportConfiguration)[vs[1].(int)]
@@ -276,12 +245,6 @@ func (o ClassificationExportConfigurationMapOutput) ToClassificationExportConfig
 
 func (o ClassificationExportConfigurationMapOutput) ToClassificationExportConfigurationMapOutputWithContext(ctx context.Context) ClassificationExportConfigurationMapOutput {
 	return o
-}
-
-func (o ClassificationExportConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClassificationExportConfiguration] {
-	return pulumix.Output[map[string]*ClassificationExportConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClassificationExportConfigurationMapOutput) MapIndex(k pulumi.StringInput) ClassificationExportConfigurationOutput {

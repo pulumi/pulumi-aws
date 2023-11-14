@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Index.
@@ -135,12 +134,6 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutput() LookupIndexResultOu
 
 func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx context.Context) LookupIndexResultOutput {
 	return o
-}
-
-func (o LookupIndexResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIndexResult] {
-	return pulumix.Output[LookupIndexResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Index.

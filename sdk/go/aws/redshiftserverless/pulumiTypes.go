@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i EndpointAccessVpcEndpointArgs) ToEndpointAccessVpcEndpointOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointOutput)
 }
 
-func (i EndpointAccessVpcEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessVpcEndpoint] {
-	return pulumix.Output[EndpointAccessVpcEndpoint]{
-		OutputState: i.ToEndpointAccessVpcEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointAccessVpcEndpointArrayInput is an input type that accepts EndpointAccessVpcEndpointArray and EndpointAccessVpcEndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i EndpointAccessVpcEndpointArray) ToEndpointAccessVpcEndpointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointArrayOutput)
 }
 
-func (i EndpointAccessVpcEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessVpcEndpoint] {
-	return pulumix.Output[[]EndpointAccessVpcEndpoint]{
-		OutputState: i.ToEndpointAccessVpcEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointAccessVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointAccessVpcEndpointOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutput() End
 
 func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointOutput {
 	return o
-}
-
-func (o EndpointAccessVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessVpcEndpoint] {
-	return pulumix.Output[EndpointAccessVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The network interfaces of the endpoint.. See `Network Interface` below.
@@ -141,12 +122,6 @@ func (o EndpointAccessVpcEndpointArrayOutput) ToEndpointAccessVpcEndpointArrayOu
 
 func (o EndpointAccessVpcEndpointArrayOutput) ToEndpointAccessVpcEndpointArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointArrayOutput {
 	return o
-}
-
-func (o EndpointAccessVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessVpcEndpoint] {
-	return pulumix.Output[[]EndpointAccessVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointAccessVpcEndpointArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcEndpointOutput {
@@ -200,12 +175,6 @@ func (i EndpointAccessVpcEndpointNetworkInterfaceArgs) ToEndpointAccessVpcEndpoi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointNetworkInterfaceOutput)
 }
 
-func (i EndpointAccessVpcEndpointNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessVpcEndpointNetworkInterface] {
-	return pulumix.Output[EndpointAccessVpcEndpointNetworkInterface]{
-		OutputState: i.ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointAccessVpcEndpointNetworkInterfaceArrayInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArray and EndpointAccessVpcEndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `EndpointAccessVpcEndpointNetworkInterfaceArrayInput` via:
 //
@@ -231,12 +200,6 @@ func (i EndpointAccessVpcEndpointNetworkInterfaceArray) ToEndpointAccessVpcEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput)
 }
 
-func (i EndpointAccessVpcEndpointNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointAccessVpcEndpointNetworkInterface]{
-		OutputState: i.ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointAccessVpcEndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (EndpointAccessVpcEndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -249,12 +212,6 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndp
 
 func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceOutput {
 	return o
-}
-
-func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessVpcEndpointNetworkInterface] {
-	return pulumix.Output[EndpointAccessVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The availability Zone.
@@ -289,12 +246,6 @@ func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ToEndpointAccessVp
 
 func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAccessVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointAccessVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcEndpointNetworkInterfaceOutput {
@@ -340,12 +291,6 @@ func (i WorkgroupConfigParameterArgs) ToWorkgroupConfigParameterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigParameterOutput)
 }
 
-func (i WorkgroupConfigParameterArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigParameter] {
-	return pulumix.Output[WorkgroupConfigParameter]{
-		OutputState: i.ToWorkgroupConfigParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkgroupConfigParameterArrayInput is an input type that accepts WorkgroupConfigParameterArray and WorkgroupConfigParameterArrayOutput values.
 // You can construct a concrete instance of `WorkgroupConfigParameterArrayInput` via:
 //
@@ -371,12 +316,6 @@ func (i WorkgroupConfigParameterArray) ToWorkgroupConfigParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigParameterArrayOutput)
 }
 
-func (i WorkgroupConfigParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupConfigParameter] {
-	return pulumix.Output[[]WorkgroupConfigParameter]{
-		OutputState: i.ToWorkgroupConfigParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupConfigParameterOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupConfigParameterOutput) ElementType() reflect.Type {
@@ -389,12 +328,6 @@ func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutput() Workg
 
 func (o WorkgroupConfigParameterOutput) ToWorkgroupConfigParameterOutputWithContext(ctx context.Context) WorkgroupConfigParameterOutput {
 	return o
-}
-
-func (o WorkgroupConfigParameterOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupConfigParameter] {
-	return pulumix.Output[WorkgroupConfigParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, `requireSsl`, `useFipsSsl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
@@ -419,12 +352,6 @@ func (o WorkgroupConfigParameterArrayOutput) ToWorkgroupConfigParameterArrayOutp
 
 func (o WorkgroupConfigParameterArrayOutput) ToWorkgroupConfigParameterArrayOutputWithContext(ctx context.Context) WorkgroupConfigParameterArrayOutput {
 	return o
-}
-
-func (o WorkgroupConfigParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupConfigParameter] {
-	return pulumix.Output[[]WorkgroupConfigParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupConfigParameterArrayOutput) Index(i pulumi.IntInput) WorkgroupConfigParameterOutput {
@@ -474,12 +401,6 @@ func (i WorkgroupEndpointArgs) ToWorkgroupEndpointOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointOutput)
 }
 
-func (i WorkgroupEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpoint] {
-	return pulumix.Output[WorkgroupEndpoint]{
-		OutputState: i.ToWorkgroupEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkgroupEndpointArrayInput is an input type that accepts WorkgroupEndpointArray and WorkgroupEndpointArrayOutput values.
 // You can construct a concrete instance of `WorkgroupEndpointArrayInput` via:
 //
@@ -505,12 +426,6 @@ func (i WorkgroupEndpointArray) ToWorkgroupEndpointArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointArrayOutput)
 }
 
-func (i WorkgroupEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpoint] {
-	return pulumix.Output[[]WorkgroupEndpoint]{
-		OutputState: i.ToWorkgroupEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupEndpointOutput) ElementType() reflect.Type {
@@ -523,12 +438,6 @@ func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutput() WorkgroupEndpointOu
 
 func (o WorkgroupEndpointOutput) ToWorkgroupEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointOutput {
 	return o
-}
-
-func (o WorkgroupEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpoint] {
-	return pulumix.Output[WorkgroupEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The DNS address of the VPC endpoint.
@@ -558,12 +467,6 @@ func (o WorkgroupEndpointArrayOutput) ToWorkgroupEndpointArrayOutput() Workgroup
 
 func (o WorkgroupEndpointArrayOutput) ToWorkgroupEndpointArrayOutputWithContext(ctx context.Context) WorkgroupEndpointArrayOutput {
 	return o
-}
-
-func (o WorkgroupEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpoint] {
-	return pulumix.Output[[]WorkgroupEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupEndpointOutput {
@@ -613,12 +516,6 @@ func (i WorkgroupEndpointVpcEndpointArgs) ToWorkgroupEndpointVpcEndpointOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointVpcEndpointOutput)
 }
 
-func (i WorkgroupEndpointVpcEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[WorkgroupEndpointVpcEndpoint]{
-		OutputState: i.ToWorkgroupEndpointVpcEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkgroupEndpointVpcEndpointArrayInput is an input type that accepts WorkgroupEndpointVpcEndpointArray and WorkgroupEndpointVpcEndpointArrayOutput values.
 // You can construct a concrete instance of `WorkgroupEndpointVpcEndpointArrayInput` via:
 //
@@ -644,12 +541,6 @@ func (i WorkgroupEndpointVpcEndpointArray) ToWorkgroupEndpointVpcEndpointArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointVpcEndpointArrayOutput)
 }
 
-func (i WorkgroupEndpointVpcEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[[]WorkgroupEndpointVpcEndpoint]{
-		OutputState: i.ToWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupEndpointVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupEndpointVpcEndpointOutput) ElementType() reflect.Type {
@@ -662,12 +553,6 @@ func (o WorkgroupEndpointVpcEndpointOutput) ToWorkgroupEndpointVpcEndpointOutput
 
 func (o WorkgroupEndpointVpcEndpointOutput) ToWorkgroupEndpointVpcEndpointOutputWithContext(ctx context.Context) WorkgroupEndpointVpcEndpointOutput {
 	return o
-}
-
-func (o WorkgroupEndpointVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[WorkgroupEndpointVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The network interfaces of the endpoint.. See `Network Interface` below.
@@ -699,12 +584,6 @@ func (o WorkgroupEndpointVpcEndpointArrayOutput) ToWorkgroupEndpointVpcEndpointA
 
 func (o WorkgroupEndpointVpcEndpointArrayOutput) ToWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx context.Context) WorkgroupEndpointVpcEndpointArrayOutput {
 	return o
-}
-
-func (o WorkgroupEndpointVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[[]WorkgroupEndpointVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupEndpointVpcEndpointArrayOutput) Index(i pulumi.IntInput) WorkgroupEndpointVpcEndpointOutput {
@@ -758,12 +637,6 @@ func (i WorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToWorkgroupEndpointVpc
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
 }
 
-func (i WorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[WorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: i.ToWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput is an input type that accepts WorkgroupEndpointVpcEndpointNetworkInterfaceArray and WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `WorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput` via:
 //
@@ -789,12 +662,6 @@ func (i WorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToWorkgroupEndpointVp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput)
 }
 
-func (i WorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]WorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: i.ToWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkgroupEndpointVpcEndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -807,12 +674,6 @@ func (o WorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToWorkgroupEndpointV
 
 func (o WorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) WorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
 	return o
-}
-
-func (o WorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[WorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[WorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The availability Zone.
@@ -847,12 +708,6 @@ func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToWorkgroupEndp
 
 func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]WorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) WorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
@@ -902,12 +757,6 @@ func (i GetWorkgroupEndpointArgs) ToGetWorkgroupEndpointOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointOutput)
 }
 
-func (i GetWorkgroupEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpoint] {
-	return pulumix.Output[GetWorkgroupEndpoint]{
-		OutputState: i.ToGetWorkgroupEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWorkgroupEndpointArrayInput is an input type that accepts GetWorkgroupEndpointArray and GetWorkgroupEndpointArrayOutput values.
 // You can construct a concrete instance of `GetWorkgroupEndpointArrayInput` via:
 //
@@ -933,12 +782,6 @@ func (i GetWorkgroupEndpointArray) ToGetWorkgroupEndpointArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointArrayOutput)
 }
 
-func (i GetWorkgroupEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpoint] {
-	return pulumix.Output[[]GetWorkgroupEndpoint]{
-		OutputState: i.ToGetWorkgroupEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWorkgroupEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetWorkgroupEndpointOutput) ElementType() reflect.Type {
@@ -951,12 +794,6 @@ func (o GetWorkgroupEndpointOutput) ToGetWorkgroupEndpointOutput() GetWorkgroupE
 
 func (o GetWorkgroupEndpointOutput) ToGetWorkgroupEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpoint] {
-	return pulumix.Output[GetWorkgroupEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The DNS address of the VPC endpoint.
@@ -986,12 +823,6 @@ func (o GetWorkgroupEndpointArrayOutput) ToGetWorkgroupEndpointArrayOutput() Get
 
 func (o GetWorkgroupEndpointArrayOutput) ToGetWorkgroupEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointArrayOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpoint] {
-	return pulumix.Output[[]GetWorkgroupEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkgroupEndpointArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointOutput {
@@ -1041,12 +872,6 @@ func (i GetWorkgroupEndpointVpcEndpointArgs) ToGetWorkgroupEndpointVpcEndpointOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointOutput)
 }
 
-func (i GetWorkgroupEndpointVpcEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[GetWorkgroupEndpointVpcEndpoint]{
-		OutputState: i.ToGetWorkgroupEndpointVpcEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWorkgroupEndpointVpcEndpointArrayInput is an input type that accepts GetWorkgroupEndpointVpcEndpointArray and GetWorkgroupEndpointVpcEndpointArrayOutput values.
 // You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointArrayInput` via:
 //
@@ -1072,12 +897,6 @@ func (i GetWorkgroupEndpointVpcEndpointArray) ToGetWorkgroupEndpointVpcEndpointA
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointArrayOutput)
 }
 
-func (i GetWorkgroupEndpointVpcEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[[]GetWorkgroupEndpointVpcEndpoint]{
-		OutputState: i.ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWorkgroupEndpointVpcEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetWorkgroupEndpointVpcEndpointOutput) ElementType() reflect.Type {
@@ -1090,12 +909,6 @@ func (o GetWorkgroupEndpointVpcEndpointOutput) ToGetWorkgroupEndpointVpcEndpoint
 
 func (o GetWorkgroupEndpointVpcEndpointOutput) ToGetWorkgroupEndpointVpcEndpointOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[GetWorkgroupEndpointVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The network interfaces of the endpoint.. See `Network Interface` below.
@@ -1127,12 +940,6 @@ func (o GetWorkgroupEndpointVpcEndpointArrayOutput) ToGetWorkgroupEndpointVpcEnd
 
 func (o GetWorkgroupEndpointVpcEndpointArrayOutput) ToGetWorkgroupEndpointVpcEndpointArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointArrayOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpointVpcEndpoint] {
-	return pulumix.Output[[]GetWorkgroupEndpointVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkgroupEndpointVpcEndpointArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointVpcEndpointOutput {
@@ -1186,12 +993,6 @@ func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToGetWorkgroupEndpo
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput)
 }
 
-func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[GetWorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: i.ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput is an input type that accepts GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray and GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayInput` via:
 //
@@ -1217,12 +1018,6 @@ func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToGetWorkgroupEndp
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput)
 }
 
-func (i GetWorkgroupEndpointVpcEndpointNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]GetWorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: i.ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -1235,12 +1030,6 @@ func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToGetWorkgroupEnd
 
 func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[GetWorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The availability Zone.
@@ -1275,12 +1064,6 @@ func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToGetWorkgro
 
 func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToGetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkgroupEndpointVpcEndpointNetworkInterface] {
-	return pulumix.Output[[]GetWorkgroupEndpointVpcEndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkgroupEndpointVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetWorkgroupEndpointVpcEndpointNetworkInterfaceOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifact
 	return pulumi.ToOutputWithContext(ctx, i).(ProductProvisioningArtifactParametersOutput)
 }
 
-func (i ProductProvisioningArtifactParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ProductProvisioningArtifactParameters] {
-	return pulumix.Output[ProductProvisioningArtifactParameters]{
-		OutputState: i.ToProductProvisioningArtifactParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput {
 	return i.ToProductProvisioningArtifactParametersPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *productProvisioningArtifactParametersPtrType) ToProductProvisioningArti
 	return pulumi.ToOutputWithContext(ctx, i).(ProductProvisioningArtifactParametersPtrOutput)
 }
 
-func (i *productProvisioningArtifactParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProductProvisioningArtifactParameters] {
-	return pulumix.Output[*ProductProvisioningArtifactParameters]{
-		OutputState: i.ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProductProvisioningArtifactParametersOutput struct{ *pulumi.OutputState }
 
 func (ProductProvisioningArtifactParametersOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductProvisioningArtifactParameters) *ProductProvisioningArtifactParameters {
 		return &v
 	}).(ProductProvisioningArtifactParametersPtrOutput)
-}
-
-func (o ProductProvisioningArtifactParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ProductProvisioningArtifactParameters] {
-	return pulumix.Output[ProductProvisioningArtifactParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
@@ -192,12 +173,6 @@ func (o ProductProvisioningArtifactParametersPtrOutput) ToProductProvisioningArt
 
 func (o ProductProvisioningArtifactParametersPtrOutput) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
 	return o
-}
-
-func (o ProductProvisioningArtifactParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProductProvisioningArtifactParameters] {
-	return pulumix.Output[*ProductProvisioningArtifactParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProductProvisioningArtifactParametersPtrOutput) Elem() ProductProvisioningArtifactParametersOutput {
@@ -311,12 +286,6 @@ func (i ProvisionedProductOutputTypeArgs) ToProvisionedProductOutputTypeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutputTypeOutput)
 }
 
-func (i ProvisionedProductOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductOutputType] {
-	return pulumix.Output[ProvisionedProductOutputType]{
-		OutputState: i.ToProvisionedProductOutputTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProvisionedProductOutputTypeArrayInput is an input type that accepts ProvisionedProductOutputTypeArray and ProvisionedProductOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductOutputTypeArrayInput` via:
 //
@@ -342,12 +311,6 @@ func (i ProvisionedProductOutputTypeArray) ToProvisionedProductOutputTypeArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutputTypeArrayOutput)
 }
 
-func (i ProvisionedProductOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ProvisionedProductOutputType] {
-	return pulumix.Output[[]ProvisionedProductOutputType]{
-		OutputState: i.ToProvisionedProductOutputTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProvisionedProductOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductOutputTypeOutput) ElementType() reflect.Type {
@@ -360,12 +323,6 @@ func (o ProvisionedProductOutputTypeOutput) ToProvisionedProductOutputTypeOutput
 
 func (o ProvisionedProductOutputTypeOutput) ToProvisionedProductOutputTypeOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeOutput {
 	return o
-}
-
-func (o ProvisionedProductOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductOutputType] {
-	return pulumix.Output[ProvisionedProductOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the output.
@@ -395,12 +352,6 @@ func (o ProvisionedProductOutputTypeArrayOutput) ToProvisionedProductOutputTypeA
 
 func (o ProvisionedProductOutputTypeArrayOutput) ToProvisionedProductOutputTypeArrayOutputWithContext(ctx context.Context) ProvisionedProductOutputTypeArrayOutput {
 	return o
-}
-
-func (o ProvisionedProductOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProvisionedProductOutputType] {
-	return pulumix.Output[[]ProvisionedProductOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProvisionedProductOutputTypeArrayOutput) Index(i pulumi.IntInput) ProvisionedProductOutputTypeOutput {
@@ -450,12 +401,6 @@ func (i ProvisionedProductProvisioningParameterArgs) ToProvisionedProductProvisi
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductProvisioningParameterOutput)
 }
 
-func (i ProvisionedProductProvisioningParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductProvisioningParameter] {
-	return pulumix.Output[ProvisionedProductProvisioningParameter]{
-		OutputState: i.ToProvisionedProductProvisioningParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProvisionedProductProvisioningParameterArrayInput is an input type that accepts ProvisionedProductProvisioningParameterArray and ProvisionedProductProvisioningParameterArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductProvisioningParameterArrayInput` via:
 //
@@ -481,12 +426,6 @@ func (i ProvisionedProductProvisioningParameterArray) ToProvisionedProductProvis
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductProvisioningParameterArrayOutput)
 }
 
-func (i ProvisionedProductProvisioningParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ProvisionedProductProvisioningParameter] {
-	return pulumix.Output[[]ProvisionedProductProvisioningParameter]{
-		OutputState: i.ToProvisionedProductProvisioningParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProvisionedProductProvisioningParameterOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductProvisioningParameterOutput) ElementType() reflect.Type {
@@ -499,12 +438,6 @@ func (o ProvisionedProductProvisioningParameterOutput) ToProvisionedProductProvi
 
 func (o ProvisionedProductProvisioningParameterOutput) ToProvisionedProductProvisioningParameterOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterOutput {
 	return o
-}
-
-func (o ProvisionedProductProvisioningParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductProvisioningParameter] {
-	return pulumix.Output[ProvisionedProductProvisioningParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameter key.
@@ -534,12 +467,6 @@ func (o ProvisionedProductProvisioningParameterArrayOutput) ToProvisionedProduct
 
 func (o ProvisionedProductProvisioningParameterArrayOutput) ToProvisionedProductProvisioningParameterArrayOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterArrayOutput {
 	return o
-}
-
-func (o ProvisionedProductProvisioningParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProvisionedProductProvisioningParameter] {
-	return pulumix.Output[[]ProvisionedProductProvisioningParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProvisionedProductProvisioningParameterArrayOutput) Index(i pulumi.IntInput) ProvisionedProductProvisioningParameterOutput {
@@ -601,12 +528,6 @@ func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProd
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductStackSetProvisioningPreferencesOutput)
 }
 
-func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductStackSetProvisioningPreferences] {
-	return pulumix.Output[ProvisionedProductStackSetProvisioningPreferences]{
-		OutputState: i.ToProvisionedProductStackSetProvisioningPreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
 	return i.ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(context.Background())
 }
@@ -648,12 +569,6 @@ func (i *provisionedProductStackSetProvisioningPreferencesPtrType) ToProvisioned
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
 }
 
-func (i *provisionedProductStackSetProvisioningPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedProductStackSetProvisioningPreferences] {
-	return pulumix.Output[*ProvisionedProductStackSetProvisioningPreferences]{
-		OutputState: i.ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProvisionedProductStackSetProvisioningPreferencesOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductStackSetProvisioningPreferencesOutput) ElementType() reflect.Type {
@@ -676,12 +591,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedProductStackSetProvisioningPreferences) *ProvisionedProductStackSetProvisioningPreferences {
 		return &v
 	}).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
-}
-
-func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[ProvisionedProductStackSetProvisioningPreferences] {
-	return pulumix.Output[ProvisionedProductStackSetProvisioningPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
@@ -726,12 +635,6 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToProvisione
 
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
 	return o
-}
-
-func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedProductStackSetProvisioningPreferences] {
-	return pulumix.Output[*ProvisionedProductStackSetProvisioningPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Elem() ProvisionedProductStackSetProvisioningPreferencesOutput {
@@ -853,12 +756,6 @@ func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionOutput)
 }
 
-func (i ServiceActionDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinition] {
-	return pulumix.Output[ServiceActionDefinition]{
-		OutputState: i.ToServiceActionDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
 	return i.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
 }
@@ -900,12 +797,6 @@ func (i *serviceActionDefinitionPtrType) ToServiceActionDefinitionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionPtrOutput)
 }
 
-func (i *serviceActionDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionDefinition] {
-	return pulumix.Output[*ServiceActionDefinition]{
-		OutputState: i.ToServiceActionDefinitionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionDefinitionOutput) ElementType() reflect.Type {
@@ -928,12 +819,6 @@ func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceActionDefinition) *ServiceActionDefinition {
 		return &v
 	}).(ServiceActionDefinitionPtrOutput)
-}
-
-func (o ServiceActionDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinition] {
-	return pulumix.Output[ServiceActionDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
@@ -973,12 +858,6 @@ func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutput() S
 
 func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
 	return o
-}
-
-func (o ServiceActionDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionDefinition] {
-	return pulumix.Output[*ServiceActionDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionDefinitionPtrOutput) Elem() ServiceActionDefinitionOutput {
@@ -1086,12 +965,6 @@ func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryOutput)
 }
 
-func (i GetLaunchPathsSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetLaunchPathsSummary] {
-	return pulumix.Output[GetLaunchPathsSummary]{
-		OutputState: i.ToGetLaunchPathsSummaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLaunchPathsSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryArray and GetLaunchPathsSummaryArrayOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryArrayInput` via:
 //
@@ -1117,12 +990,6 @@ func (i GetLaunchPathsSummaryArray) ToGetLaunchPathsSummaryArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryArrayOutput)
 }
 
-func (i GetLaunchPathsSummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLaunchPathsSummary] {
-	return pulumix.Output[[]GetLaunchPathsSummary]{
-		OutputState: i.ToGetLaunchPathsSummaryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLaunchPathsSummaryOutput struct{ *pulumi.OutputState }
 
 func (GetLaunchPathsSummaryOutput) ElementType() reflect.Type {
@@ -1135,12 +1002,6 @@ func (o GetLaunchPathsSummaryOutput) ToGetLaunchPathsSummaryOutput() GetLaunchPa
 
 func (o GetLaunchPathsSummaryOutput) ToGetLaunchPathsSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryOutput {
 	return o
-}
-
-func (o GetLaunchPathsSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetLaunchPathsSummary] {
-	return pulumix.Output[GetLaunchPathsSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Block for constraints on the portfolio-product relationship. See details below.
@@ -1175,12 +1036,6 @@ func (o GetLaunchPathsSummaryArrayOutput) ToGetLaunchPathsSummaryArrayOutput() G
 
 func (o GetLaunchPathsSummaryArrayOutput) ToGetLaunchPathsSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryArrayOutput {
 	return o
-}
-
-func (o GetLaunchPathsSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLaunchPathsSummary] {
-	return pulumix.Output[[]GetLaunchPathsSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLaunchPathsSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPathsSummaryOutput {
@@ -1226,12 +1081,6 @@ func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConst
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryOutput)
 }
 
-func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToOutput(ctx context.Context) pulumix.Output[GetLaunchPathsSummaryConstraintSummary] {
-	return pulumix.Output[GetLaunchPathsSummaryConstraintSummary]{
-		OutputState: i.ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLaunchPathsSummaryConstraintSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArray and GetLaunchPathsSummaryConstraintSummaryArrayOutput values.
 // You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryArrayInput` via:
 //
@@ -1257,12 +1106,6 @@ func (i GetLaunchPathsSummaryConstraintSummaryArray) ToGetLaunchPathsSummaryCons
 	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryArrayOutput)
 }
 
-func (i GetLaunchPathsSummaryConstraintSummaryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLaunchPathsSummaryConstraintSummary] {
-	return pulumix.Output[[]GetLaunchPathsSummaryConstraintSummary]{
-		OutputState: i.ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLaunchPathsSummaryConstraintSummaryOutput struct{ *pulumi.OutputState }
 
 func (GetLaunchPathsSummaryConstraintSummaryOutput) ElementType() reflect.Type {
@@ -1275,12 +1118,6 @@ func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryCon
 
 func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryOutput {
 	return o
-}
-
-func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToOutput(ctx context.Context) pulumix.Output[GetLaunchPathsSummaryConstraintSummary] {
-	return pulumix.Output[GetLaunchPathsSummaryConstraintSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description of the constraint.
@@ -1305,12 +1142,6 @@ func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) ToGetLaunchPathsSumma
 
 func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput {
 	return o
-}
-
-func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLaunchPathsSummaryConstraintSummary] {
-	return pulumix.Output[[]GetLaunchPathsSummaryConstraintSummary]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPathsSummaryConstraintSummaryOutput {
@@ -1374,12 +1205,6 @@ func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailOutput)
 }
 
-func (i GetPortfolioConstraintsDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetPortfolioConstraintsDetail] {
-	return pulumix.Output[GetPortfolioConstraintsDetail]{
-		OutputState: i.ToGetPortfolioConstraintsDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPortfolioConstraintsDetailArrayInput is an input type that accepts GetPortfolioConstraintsDetailArray and GetPortfolioConstraintsDetailArrayOutput values.
 // You can construct a concrete instance of `GetPortfolioConstraintsDetailArrayInput` via:
 //
@@ -1405,12 +1230,6 @@ func (i GetPortfolioConstraintsDetailArray) ToGetPortfolioConstraintsDetailArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailArrayOutput)
 }
 
-func (i GetPortfolioConstraintsDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPortfolioConstraintsDetail] {
-	return pulumix.Output[[]GetPortfolioConstraintsDetail]{
-		OutputState: i.ToGetPortfolioConstraintsDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPortfolioConstraintsDetailOutput struct{ *pulumi.OutputState }
 
 func (GetPortfolioConstraintsDetailOutput) ElementType() reflect.Type {
@@ -1423,12 +1242,6 @@ func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutp
 
 func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailOutput {
 	return o
-}
-
-func (o GetPortfolioConstraintsDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetPortfolioConstraintsDetail] {
-	return pulumix.Output[GetPortfolioConstraintsDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier of the constraint.
@@ -1474,12 +1287,6 @@ func (o GetPortfolioConstraintsDetailArrayOutput) ToGetPortfolioConstraintsDetai
 
 func (o GetPortfolioConstraintsDetailArrayOutput) ToGetPortfolioConstraintsDetailArrayOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailArrayOutput {
 	return o
-}
-
-func (o GetPortfolioConstraintsDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPortfolioConstraintsDetail] {
-	return pulumix.Output[[]GetPortfolioConstraintsDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPortfolioConstraintsDetailOutput {
@@ -1545,12 +1352,6 @@ func (i GetProvisioningArtifactsProvisioningArtifactDetailArgs) ToGetProvisionin
 	return pulumi.ToOutputWithContext(ctx, i).(GetProvisioningArtifactsProvisioningArtifactDetailOutput)
 }
 
-func (i GetProvisioningArtifactsProvisioningArtifactDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetProvisioningArtifactsProvisioningArtifactDetail] {
-	return pulumix.Output[GetProvisioningArtifactsProvisioningArtifactDetail]{
-		OutputState: i.ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetProvisioningArtifactsProvisioningArtifactDetailArrayInput is an input type that accepts GetProvisioningArtifactsProvisioningArtifactDetailArray and GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput values.
 // You can construct a concrete instance of `GetProvisioningArtifactsProvisioningArtifactDetailArrayInput` via:
 //
@@ -1576,12 +1377,6 @@ func (i GetProvisioningArtifactsProvisioningArtifactDetailArray) ToGetProvisioni
 	return pulumi.ToOutputWithContext(ctx, i).(GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput)
 }
 
-func (i GetProvisioningArtifactsProvisioningArtifactDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetProvisioningArtifactsProvisioningArtifactDetail] {
-	return pulumix.Output[[]GetProvisioningArtifactsProvisioningArtifactDetail]{
-		OutputState: i.ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetProvisioningArtifactsProvisioningArtifactDetailOutput struct{ *pulumi.OutputState }
 
 func (GetProvisioningArtifactsProvisioningArtifactDetailOutput) ElementType() reflect.Type {
@@ -1594,12 +1389,6 @@ func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToGetProvision
 
 func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailOutput {
 	return o
-}
-
-func (o GetProvisioningArtifactsProvisioningArtifactDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetProvisioningArtifactsProvisioningArtifactDetail] {
-	return pulumix.Output[GetProvisioningArtifactsProvisioningArtifactDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether the product version is active.
@@ -1649,12 +1438,6 @@ func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ToGetProv
 
 func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ToGetProvisioningArtifactsProvisioningArtifactDetailArrayOutputWithContext(ctx context.Context) GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput {
 	return o
-}
-
-func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetProvisioningArtifactsProvisioningArtifactDetail] {
-	return pulumix.Output[[]GetProvisioningArtifactsProvisioningArtifactDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput) Index(i pulumi.IntInput) GetProvisioningArtifactsProvisioningArtifactDetailOutput {

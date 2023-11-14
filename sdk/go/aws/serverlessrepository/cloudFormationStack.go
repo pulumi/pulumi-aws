@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Deploys an Application CloudFormation Stack from the Serverless Application Repository.
@@ -231,12 +230,6 @@ func (i *CloudFormationStack) ToCloudFormationStackOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackOutput)
 }
 
-func (i *CloudFormationStack) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationStack] {
-	return pulumix.Output[*CloudFormationStack]{
-		OutputState: i.ToCloudFormationStackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudFormationStackArrayInput is an input type that accepts CloudFormationStackArray and CloudFormationStackArrayOutput values.
 // You can construct a concrete instance of `CloudFormationStackArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i CloudFormationStackArray) ToCloudFormationStackArrayOutput() CloudFormat
 
 func (i CloudFormationStackArray) ToCloudFormationStackArrayOutputWithContext(ctx context.Context) CloudFormationStackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackArrayOutput)
-}
-
-func (i CloudFormationStackArray) ToOutput(ctx context.Context) pulumix.Output[[]*CloudFormationStack] {
-	return pulumix.Output[[]*CloudFormationStack]{
-		OutputState: i.ToCloudFormationStackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CloudFormationStackMapInput is an input type that accepts CloudFormationStackMap and CloudFormationStackMapOutput values.
@@ -293,12 +280,6 @@ func (i CloudFormationStackMap) ToCloudFormationStackMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackMapOutput)
 }
 
-func (i CloudFormationStackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudFormationStack] {
-	return pulumix.Output[map[string]*CloudFormationStack]{
-		OutputState: i.ToCloudFormationStackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationStackOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationStackOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o CloudFormationStackOutput) ToCloudFormationStackOutput() CloudFormationS
 
 func (o CloudFormationStackOutput) ToCloudFormationStackOutputWithContext(ctx context.Context) CloudFormationStackOutput {
 	return o
-}
-
-func (o CloudFormationStackOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationStack] {
-	return pulumix.Output[*CloudFormationStack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the application from the Serverless Application Repository.
@@ -375,12 +350,6 @@ func (o CloudFormationStackArrayOutput) ToCloudFormationStackArrayOutputWithCont
 	return o
 }
 
-func (o CloudFormationStackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CloudFormationStack] {
-	return pulumix.Output[[]*CloudFormationStack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudFormationStackArrayOutput) Index(i pulumi.IntInput) CloudFormationStackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CloudFormationStack {
 		return vs[0].([]*CloudFormationStack)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o CloudFormationStackMapOutput) ToCloudFormationStackMapOutput() CloudForm
 
 func (o CloudFormationStackMapOutput) ToCloudFormationStackMapOutputWithContext(ctx context.Context) CloudFormationStackMapOutput {
 	return o
-}
-
-func (o CloudFormationStackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CloudFormationStack] {
-	return pulumix.Output[map[string]*CloudFormationStack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationStackMapOutput) MapIndex(k pulumi.StringInput) CloudFormationStackOutput {

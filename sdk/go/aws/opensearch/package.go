@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Opensearch Package.
@@ -158,12 +157,6 @@ func (i *Package) ToPackageOutputWithContext(ctx context.Context) PackageOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PackageOutput)
 }
 
-func (i *Package) ToOutput(ctx context.Context) pulumix.Output[*Package] {
-	return pulumix.Output[*Package]{
-		OutputState: i.ToPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackageArrayInput is an input type that accepts PackageArray and PackageArrayOutput values.
 // You can construct a concrete instance of `PackageArrayInput` via:
 //
@@ -187,12 +180,6 @@ func (i PackageArray) ToPackageArrayOutput() PackageArrayOutput {
 
 func (i PackageArray) ToPackageArrayOutputWithContext(ctx context.Context) PackageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PackageArrayOutput)
-}
-
-func (i PackageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Package] {
-	return pulumix.Output[[]*Package]{
-		OutputState: i.ToPackageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PackageMapInput is an input type that accepts PackageMap and PackageMapOutput values.
@@ -220,12 +207,6 @@ func (i PackageMap) ToPackageMapOutputWithContext(ctx context.Context) PackageMa
 	return pulumi.ToOutputWithContext(ctx, i).(PackageMapOutput)
 }
 
-func (i PackageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Package] {
-	return pulumix.Output[map[string]*Package]{
-		OutputState: i.ToPackageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackageOutput struct{ *pulumi.OutputState }
 
 func (PackageOutput) ElementType() reflect.Type {
@@ -238,12 +219,6 @@ func (o PackageOutput) ToPackageOutput() PackageOutput {
 
 func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOutput {
 	return o
-}
-
-func (o PackageOutput) ToOutput(ctx context.Context) pulumix.Output[*Package] {
-	return pulumix.Output[*Package]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The current version of the package.
@@ -289,12 +264,6 @@ func (o PackageArrayOutput) ToPackageArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o PackageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Package] {
-	return pulumix.Output[[]*Package]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackageArrayOutput) Index(i pulumi.IntInput) PackageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Package {
 		return vs[0].([]*Package)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o PackageMapOutput) ToPackageMapOutput() PackageMapOutput {
 
 func (o PackageMapOutput) ToPackageMapOutputWithContext(ctx context.Context) PackageMapOutput {
 	return o
-}
-
-func (o PackageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Package] {
-	return pulumix.Output[map[string]*Package]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageMapOutput) MapIndex(k pulumi.StringInput) PackageOutput {

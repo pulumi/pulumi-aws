@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Queue.
@@ -157,12 +156,6 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutput() LookupQueueResultOu
 
 func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx context.Context) LookupQueueResultOutput {
 	return o
-}
-
-func (o LookupQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueueResult] {
-	return pulumix.Output[LookupQueueResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Queue.

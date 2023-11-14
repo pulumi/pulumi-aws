@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra Thesaurus.
@@ -242,12 +241,6 @@ func (i *Thesaurus) ToThesaurusOutputWithContext(ctx context.Context) ThesaurusO
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusOutput)
 }
 
-func (i *Thesaurus) ToOutput(ctx context.Context) pulumix.Output[*Thesaurus] {
-	return pulumix.Output[*Thesaurus]{
-		OutputState: i.ToThesaurusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThesaurusArrayInput is an input type that accepts ThesaurusArray and ThesaurusArrayOutput values.
 // You can construct a concrete instance of `ThesaurusArrayInput` via:
 //
@@ -271,12 +264,6 @@ func (i ThesaurusArray) ToThesaurusArrayOutput() ThesaurusArrayOutput {
 
 func (i ThesaurusArray) ToThesaurusArrayOutputWithContext(ctx context.Context) ThesaurusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusArrayOutput)
-}
-
-func (i ThesaurusArray) ToOutput(ctx context.Context) pulumix.Output[[]*Thesaurus] {
-	return pulumix.Output[[]*Thesaurus]{
-		OutputState: i.ToThesaurusArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThesaurusMapInput is an input type that accepts ThesaurusMap and ThesaurusMapOutput values.
@@ -304,12 +291,6 @@ func (i ThesaurusMap) ToThesaurusMapOutputWithContext(ctx context.Context) Thesa
 	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusMapOutput)
 }
 
-func (i ThesaurusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thesaurus] {
-	return pulumix.Output[map[string]*Thesaurus]{
-		OutputState: i.ToThesaurusMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThesaurusOutput struct{ *pulumi.OutputState }
 
 func (ThesaurusOutput) ElementType() reflect.Type {
@@ -322,12 +303,6 @@ func (o ThesaurusOutput) ToThesaurusOutput() ThesaurusOutput {
 
 func (o ThesaurusOutput) ToThesaurusOutputWithContext(ctx context.Context) ThesaurusOutput {
 	return o
-}
-
-func (o ThesaurusOutput) ToOutput(ctx context.Context) pulumix.Output[*Thesaurus] {
-	return pulumix.Output[*Thesaurus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the thesaurus.
@@ -397,12 +372,6 @@ func (o ThesaurusArrayOutput) ToThesaurusArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ThesaurusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Thesaurus] {
-	return pulumix.Output[[]*Thesaurus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThesaurusArrayOutput) Index(i pulumi.IntInput) ThesaurusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Thesaurus {
 		return vs[0].([]*Thesaurus)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o ThesaurusMapOutput) ToThesaurusMapOutput() ThesaurusMapOutput {
 
 func (o ThesaurusMapOutput) ToThesaurusMapOutputWithContext(ctx context.Context) ThesaurusMapOutput {
 	return o
-}
-
-func (o ThesaurusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thesaurus] {
-	return pulumix.Output[map[string]*Thesaurus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThesaurusMapOutput) MapIndex(k pulumi.StringInput) ThesaurusOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNS Firewall rule resource.
@@ -250,12 +249,6 @@ func (i *ResolverFirewallRule) ToResolverFirewallRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleOutput)
 }
 
-func (i *ResolverFirewallRule) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRule] {
-	return pulumix.Output[*ResolverFirewallRule]{
-		OutputState: i.ToResolverFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverFirewallRuleArrayInput is an input type that accepts ResolverFirewallRuleArray and ResolverFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i ResolverFirewallRuleArray) ToResolverFirewallRuleArrayOutput() ResolverF
 
 func (i ResolverFirewallRuleArray) ToResolverFirewallRuleArrayOutputWithContext(ctx context.Context) ResolverFirewallRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleArrayOutput)
-}
-
-func (i ResolverFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRule] {
-	return pulumix.Output[[]*ResolverFirewallRule]{
-		OutputState: i.ToResolverFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverFirewallRuleMapInput is an input type that accepts ResolverFirewallRuleMap and ResolverFirewallRuleMapOutput values.
@@ -312,12 +299,6 @@ func (i ResolverFirewallRuleMap) ToResolverFirewallRuleMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleMapOutput)
 }
 
-func (i ResolverFirewallRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRule] {
-	return pulumix.Output[map[string]*ResolverFirewallRule]{
-		OutputState: i.ToResolverFirewallRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o ResolverFirewallRuleOutput) ToResolverFirewallRuleOutput() ResolverFirew
 
 func (o ResolverFirewallRuleOutput) ToResolverFirewallRuleOutputWithContext(ctx context.Context) ResolverFirewallRuleOutput {
 	return o
-}
-
-func (o ResolverFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRule] {
-	return pulumix.Output[*ResolverFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -397,12 +372,6 @@ func (o ResolverFirewallRuleArrayOutput) ToResolverFirewallRuleArrayOutputWithCo
 	return o
 }
 
-func (o ResolverFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRule] {
-	return pulumix.Output[[]*ResolverFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverFirewallRuleArrayOutput) Index(i pulumi.IntInput) ResolverFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallRule {
 		return vs[0].([]*ResolverFirewallRule)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o ResolverFirewallRuleMapOutput) ToResolverFirewallRuleMapOutput() Resolve
 
 func (o ResolverFirewallRuleMapOutput) ToResolverFirewallRuleMapOutputWithContext(ctx context.Context) ResolverFirewallRuleMapOutput {
 	return o
-}
-
-func (o ResolverFirewallRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRule] {
-	return pulumix.Output[map[string]*ResolverFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallRuleOutput {

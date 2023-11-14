@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudTrail Event Data Store.
@@ -297,12 +296,6 @@ func (i *EventDataStore) ToEventDataStoreOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreOutput)
 }
 
-func (i *EventDataStore) ToOutput(ctx context.Context) pulumix.Output[*EventDataStore] {
-	return pulumix.Output[*EventDataStore]{
-		OutputState: i.ToEventDataStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventDataStoreArrayInput is an input type that accepts EventDataStoreArray and EventDataStoreArrayOutput values.
 // You can construct a concrete instance of `EventDataStoreArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i EventDataStoreArray) ToEventDataStoreArrayOutput() EventDataStoreArrayOu
 
 func (i EventDataStoreArray) ToEventDataStoreArrayOutputWithContext(ctx context.Context) EventDataStoreArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreArrayOutput)
-}
-
-func (i EventDataStoreArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventDataStore] {
-	return pulumix.Output[[]*EventDataStore]{
-		OutputState: i.ToEventDataStoreArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventDataStoreMapInput is an input type that accepts EventDataStoreMap and EventDataStoreMapOutput values.
@@ -359,12 +346,6 @@ func (i EventDataStoreMap) ToEventDataStoreMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreMapOutput)
 }
 
-func (i EventDataStoreMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDataStore] {
-	return pulumix.Output[map[string]*EventDataStore]{
-		OutputState: i.ToEventDataStoreMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventDataStoreOutput struct{ *pulumi.OutputState }
 
 func (EventDataStoreOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o EventDataStoreOutput) ToEventDataStoreOutput() EventDataStoreOutput {
 
 func (o EventDataStoreOutput) ToEventDataStoreOutputWithContext(ctx context.Context) EventDataStoreOutput {
 	return o
-}
-
-func (o EventDataStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*EventDataStore] {
-	return pulumix.Output[*EventDataStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
@@ -453,12 +428,6 @@ func (o EventDataStoreArrayOutput) ToEventDataStoreArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o EventDataStoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventDataStore] {
-	return pulumix.Output[[]*EventDataStore]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventDataStoreArrayOutput) Index(i pulumi.IntInput) EventDataStoreOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventDataStore {
 		return vs[0].([]*EventDataStore)[vs[1].(int)]
@@ -477,12 +446,6 @@ func (o EventDataStoreMapOutput) ToEventDataStoreMapOutput() EventDataStoreMapOu
 
 func (o EventDataStoreMapOutput) ToEventDataStoreMapOutputWithContext(ctx context.Context) EventDataStoreMapOutput {
 	return o
-}
-
-func (o EventDataStoreMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventDataStore] {
-	return pulumix.Output[map[string]*EventDataStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventDataStoreMapOutput) MapIndex(k pulumi.StringInput) EventDataStoreOutput {

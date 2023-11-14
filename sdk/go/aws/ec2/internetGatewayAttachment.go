@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a VPC Internet Gateway Attachment.
@@ -161,12 +160,6 @@ func (i *InternetGatewayAttachment) ToInternetGatewayAttachmentOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayAttachmentOutput)
 }
 
-func (i *InternetGatewayAttachment) ToOutput(ctx context.Context) pulumix.Output[*InternetGatewayAttachment] {
-	return pulumix.Output[*InternetGatewayAttachment]{
-		OutputState: i.ToInternetGatewayAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InternetGatewayAttachmentArrayInput is an input type that accepts InternetGatewayAttachmentArray and InternetGatewayAttachmentArrayOutput values.
 // You can construct a concrete instance of `InternetGatewayAttachmentArrayInput` via:
 //
@@ -190,12 +183,6 @@ func (i InternetGatewayAttachmentArray) ToInternetGatewayAttachmentArrayOutput()
 
 func (i InternetGatewayAttachmentArray) ToInternetGatewayAttachmentArrayOutputWithContext(ctx context.Context) InternetGatewayAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayAttachmentArrayOutput)
-}
-
-func (i InternetGatewayAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*InternetGatewayAttachment] {
-	return pulumix.Output[[]*InternetGatewayAttachment]{
-		OutputState: i.ToInternetGatewayAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InternetGatewayAttachmentMapInput is an input type that accepts InternetGatewayAttachmentMap and InternetGatewayAttachmentMapOutput values.
@@ -223,12 +210,6 @@ func (i InternetGatewayAttachmentMap) ToInternetGatewayAttachmentMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayAttachmentMapOutput)
 }
 
-func (i InternetGatewayAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetGatewayAttachment] {
-	return pulumix.Output[map[string]*InternetGatewayAttachment]{
-		OutputState: i.ToInternetGatewayAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InternetGatewayAttachmentOutput struct{ *pulumi.OutputState }
 
 func (InternetGatewayAttachmentOutput) ElementType() reflect.Type {
@@ -241,12 +222,6 @@ func (o InternetGatewayAttachmentOutput) ToInternetGatewayAttachmentOutput() Int
 
 func (o InternetGatewayAttachmentOutput) ToInternetGatewayAttachmentOutputWithContext(ctx context.Context) InternetGatewayAttachmentOutput {
 	return o
-}
-
-func (o InternetGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetGatewayAttachment] {
-	return pulumix.Output[*InternetGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the internet gateway.
@@ -273,12 +248,6 @@ func (o InternetGatewayAttachmentArrayOutput) ToInternetGatewayAttachmentArrayOu
 	return o
 }
 
-func (o InternetGatewayAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InternetGatewayAttachment] {
-	return pulumix.Output[[]*InternetGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InternetGatewayAttachmentArrayOutput) Index(i pulumi.IntInput) InternetGatewayAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InternetGatewayAttachment {
 		return vs[0].([]*InternetGatewayAttachment)[vs[1].(int)]
@@ -297,12 +266,6 @@ func (o InternetGatewayAttachmentMapOutput) ToInternetGatewayAttachmentMapOutput
 
 func (o InternetGatewayAttachmentMapOutput) ToInternetGatewayAttachmentMapOutputWithContext(ctx context.Context) InternetGatewayAttachmentMapOutput {
 	return o
-}
-
-func (o InternetGatewayAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetGatewayAttachment] {
-	return pulumix.Output[map[string]*InternetGatewayAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InternetGatewayAttachmentMapOutput) MapIndex(k pulumi.StringInput) InternetGatewayAttachmentOutput {

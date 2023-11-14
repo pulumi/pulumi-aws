@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DevEnvironmentIdesArgs) ToDevEnvironmentIdesOutput() DevEnvironmentIdesO
 
 func (i DevEnvironmentIdesArgs) ToDevEnvironmentIdesOutputWithContext(ctx context.Context) DevEnvironmentIdesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentIdesOutput)
-}
-
-func (i DevEnvironmentIdesArgs) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentIdes] {
-	return pulumix.Output[DevEnvironmentIdes]{
-		OutputState: i.ToDevEnvironmentIdesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DevEnvironmentIdesArgs) ToDevEnvironmentIdesPtrOutput() DevEnvironmentIdesPtrOutput {
@@ -98,12 +91,6 @@ func (i *devEnvironmentIdesPtrType) ToDevEnvironmentIdesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentIdesPtrOutput)
 }
 
-func (i *devEnvironmentIdesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironmentIdes] {
-	return pulumix.Output[*DevEnvironmentIdes]{
-		OutputState: i.ToDevEnvironmentIdesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevEnvironmentIdesOutput struct{ *pulumi.OutputState }
 
 func (DevEnvironmentIdesOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o DevEnvironmentIdesOutput) ToDevEnvironmentIdesPtrOutputWithContext(ctx c
 	}).(DevEnvironmentIdesPtrOutput)
 }
 
-func (o DevEnvironmentIdesOutput) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentIdes] {
-	return pulumix.Output[DevEnvironmentIdes]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
 func (o DevEnvironmentIdesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DevEnvironmentIdes) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -156,12 +137,6 @@ func (o DevEnvironmentIdesPtrOutput) ToDevEnvironmentIdesPtrOutput() DevEnvironm
 
 func (o DevEnvironmentIdesPtrOutput) ToDevEnvironmentIdesPtrOutputWithContext(ctx context.Context) DevEnvironmentIdesPtrOutput {
 	return o
-}
-
-func (o DevEnvironmentIdesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironmentIdes] {
-	return pulumix.Output[*DevEnvironmentIdes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEnvironmentIdesPtrOutput) Elem() DevEnvironmentIdesOutput {
@@ -227,12 +202,6 @@ func (i DevEnvironmentPersistentStorageArgs) ToDevEnvironmentPersistentStorageOu
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentPersistentStorageOutput)
 }
 
-func (i DevEnvironmentPersistentStorageArgs) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentPersistentStorage] {
-	return pulumix.Output[DevEnvironmentPersistentStorage]{
-		OutputState: i.ToDevEnvironmentPersistentStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DevEnvironmentPersistentStorageArgs) ToDevEnvironmentPersistentStoragePtrOutput() DevEnvironmentPersistentStoragePtrOutput {
 	return i.ToDevEnvironmentPersistentStoragePtrOutputWithContext(context.Background())
 }
@@ -274,12 +243,6 @@ func (i *devEnvironmentPersistentStoragePtrType) ToDevEnvironmentPersistentStora
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentPersistentStoragePtrOutput)
 }
 
-func (i *devEnvironmentPersistentStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironmentPersistentStorage] {
-	return pulumix.Output[*DevEnvironmentPersistentStorage]{
-		OutputState: i.ToDevEnvironmentPersistentStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevEnvironmentPersistentStorageOutput struct{ *pulumi.OutputState }
 
 func (DevEnvironmentPersistentStorageOutput) ElementType() reflect.Type {
@@ -304,12 +267,6 @@ func (o DevEnvironmentPersistentStorageOutput) ToDevEnvironmentPersistentStorage
 	}).(DevEnvironmentPersistentStoragePtrOutput)
 }
 
-func (o DevEnvironmentPersistentStorageOutput) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentPersistentStorage] {
-	return pulumix.Output[DevEnvironmentPersistentStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 func (o DevEnvironmentPersistentStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v DevEnvironmentPersistentStorage) int { return v.Size }).(pulumi.IntOutput)
@@ -327,12 +284,6 @@ func (o DevEnvironmentPersistentStoragePtrOutput) ToDevEnvironmentPersistentStor
 
 func (o DevEnvironmentPersistentStoragePtrOutput) ToDevEnvironmentPersistentStoragePtrOutputWithContext(ctx context.Context) DevEnvironmentPersistentStoragePtrOutput {
 	return o
-}
-
-func (o DevEnvironmentPersistentStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEnvironmentPersistentStorage] {
-	return pulumix.Output[*DevEnvironmentPersistentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEnvironmentPersistentStoragePtrOutput) Elem() DevEnvironmentPersistentStorageOutput {
@@ -396,12 +347,6 @@ func (i DevEnvironmentRepositoryArgs) ToDevEnvironmentRepositoryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentRepositoryOutput)
 }
 
-func (i DevEnvironmentRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentRepository] {
-	return pulumix.Output[DevEnvironmentRepository]{
-		OutputState: i.ToDevEnvironmentRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevEnvironmentRepositoryArrayInput is an input type that accepts DevEnvironmentRepositoryArray and DevEnvironmentRepositoryArrayOutput values.
 // You can construct a concrete instance of `DevEnvironmentRepositoryArrayInput` via:
 //
@@ -427,12 +372,6 @@ func (i DevEnvironmentRepositoryArray) ToDevEnvironmentRepositoryArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DevEnvironmentRepositoryArrayOutput)
 }
 
-func (i DevEnvironmentRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]DevEnvironmentRepository] {
-	return pulumix.Output[[]DevEnvironmentRepository]{
-		OutputState: i.ToDevEnvironmentRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevEnvironmentRepositoryOutput struct{ *pulumi.OutputState }
 
 func (DevEnvironmentRepositoryOutput) ElementType() reflect.Type {
@@ -445,12 +384,6 @@ func (o DevEnvironmentRepositoryOutput) ToDevEnvironmentRepositoryOutput() DevEn
 
 func (o DevEnvironmentRepositoryOutput) ToDevEnvironmentRepositoryOutputWithContext(ctx context.Context) DevEnvironmentRepositoryOutput {
 	return o
-}
-
-func (o DevEnvironmentRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[DevEnvironmentRepository] {
-	return pulumix.Output[DevEnvironmentRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the branch in a source repository.
@@ -477,12 +410,6 @@ func (o DevEnvironmentRepositoryArrayOutput) ToDevEnvironmentRepositoryArrayOutp
 
 func (o DevEnvironmentRepositoryArrayOutput) ToDevEnvironmentRepositoryArrayOutputWithContext(ctx context.Context) DevEnvironmentRepositoryArrayOutput {
 	return o
-}
-
-func (o DevEnvironmentRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DevEnvironmentRepository] {
-	return pulumix.Output[[]DevEnvironmentRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEnvironmentRepositoryArrayOutput) Index(i pulumi.IntInput) DevEnvironmentRepositoryOutput {
@@ -524,12 +451,6 @@ func (i GetDevEnvironmentIdeArgs) ToGetDevEnvironmentIdeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentIdeOutput)
 }
 
-func (i GetDevEnvironmentIdeArgs) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentIde] {
-	return pulumix.Output[GetDevEnvironmentIde]{
-		OutputState: i.ToGetDevEnvironmentIdeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDevEnvironmentIdeArrayInput is an input type that accepts GetDevEnvironmentIdeArray and GetDevEnvironmentIdeArrayOutput values.
 // You can construct a concrete instance of `GetDevEnvironmentIdeArrayInput` via:
 //
@@ -555,12 +476,6 @@ func (i GetDevEnvironmentIdeArray) ToGetDevEnvironmentIdeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentIdeArrayOutput)
 }
 
-func (i GetDevEnvironmentIdeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentIde] {
-	return pulumix.Output[[]GetDevEnvironmentIde]{
-		OutputState: i.ToGetDevEnvironmentIdeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDevEnvironmentIdeOutput struct{ *pulumi.OutputState }
 
 func (GetDevEnvironmentIdeOutput) ElementType() reflect.Type {
@@ -573,12 +488,6 @@ func (o GetDevEnvironmentIdeOutput) ToGetDevEnvironmentIdeOutput() GetDevEnviron
 
 func (o GetDevEnvironmentIdeOutput) ToGetDevEnvironmentIdeOutputWithContext(ctx context.Context) GetDevEnvironmentIdeOutput {
 	return o
-}
-
-func (o GetDevEnvironmentIdeOutput) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentIde] {
-	return pulumix.Output[GetDevEnvironmentIde]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentIdeOutput) Name() pulumi.StringOutput {
@@ -601,12 +510,6 @@ func (o GetDevEnvironmentIdeArrayOutput) ToGetDevEnvironmentIdeArrayOutput() Get
 
 func (o GetDevEnvironmentIdeArrayOutput) ToGetDevEnvironmentIdeArrayOutputWithContext(ctx context.Context) GetDevEnvironmentIdeArrayOutput {
 	return o
-}
-
-func (o GetDevEnvironmentIdeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentIde] {
-	return pulumix.Output[[]GetDevEnvironmentIde]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentIdeArrayOutput) Index(i pulumi.IntInput) GetDevEnvironmentIdeOutput {
@@ -646,12 +549,6 @@ func (i GetDevEnvironmentPersistentStorageArgs) ToGetDevEnvironmentPersistentSto
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentPersistentStorageOutput)
 }
 
-func (i GetDevEnvironmentPersistentStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentPersistentStorage] {
-	return pulumix.Output[GetDevEnvironmentPersistentStorage]{
-		OutputState: i.ToGetDevEnvironmentPersistentStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDevEnvironmentPersistentStorageArrayInput is an input type that accepts GetDevEnvironmentPersistentStorageArray and GetDevEnvironmentPersistentStorageArrayOutput values.
 // You can construct a concrete instance of `GetDevEnvironmentPersistentStorageArrayInput` via:
 //
@@ -677,12 +574,6 @@ func (i GetDevEnvironmentPersistentStorageArray) ToGetDevEnvironmentPersistentSt
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentPersistentStorageArrayOutput)
 }
 
-func (i GetDevEnvironmentPersistentStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentPersistentStorage] {
-	return pulumix.Output[[]GetDevEnvironmentPersistentStorage]{
-		OutputState: i.ToGetDevEnvironmentPersistentStorageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDevEnvironmentPersistentStorageOutput struct{ *pulumi.OutputState }
 
 func (GetDevEnvironmentPersistentStorageOutput) ElementType() reflect.Type {
@@ -695,12 +586,6 @@ func (o GetDevEnvironmentPersistentStorageOutput) ToGetDevEnvironmentPersistentS
 
 func (o GetDevEnvironmentPersistentStorageOutput) ToGetDevEnvironmentPersistentStorageOutputWithContext(ctx context.Context) GetDevEnvironmentPersistentStorageOutput {
 	return o
-}
-
-func (o GetDevEnvironmentPersistentStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentPersistentStorage] {
-	return pulumix.Output[GetDevEnvironmentPersistentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentPersistentStorageOutput) Size() pulumi.IntOutput {
@@ -719,12 +604,6 @@ func (o GetDevEnvironmentPersistentStorageArrayOutput) ToGetDevEnvironmentPersis
 
 func (o GetDevEnvironmentPersistentStorageArrayOutput) ToGetDevEnvironmentPersistentStorageArrayOutputWithContext(ctx context.Context) GetDevEnvironmentPersistentStorageArrayOutput {
 	return o
-}
-
-func (o GetDevEnvironmentPersistentStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentPersistentStorage] {
-	return pulumix.Output[[]GetDevEnvironmentPersistentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentPersistentStorageArrayOutput) Index(i pulumi.IntInput) GetDevEnvironmentPersistentStorageOutput {
@@ -766,12 +645,6 @@ func (i GetDevEnvironmentRepositoryArgs) ToGetDevEnvironmentRepositoryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentRepositoryOutput)
 }
 
-func (i GetDevEnvironmentRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentRepository] {
-	return pulumix.Output[GetDevEnvironmentRepository]{
-		OutputState: i.ToGetDevEnvironmentRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDevEnvironmentRepositoryArrayInput is an input type that accepts GetDevEnvironmentRepositoryArray and GetDevEnvironmentRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetDevEnvironmentRepositoryArrayInput` via:
 //
@@ -797,12 +670,6 @@ func (i GetDevEnvironmentRepositoryArray) ToGetDevEnvironmentRepositoryArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetDevEnvironmentRepositoryArrayOutput)
 }
 
-func (i GetDevEnvironmentRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentRepository] {
-	return pulumix.Output[[]GetDevEnvironmentRepository]{
-		OutputState: i.ToGetDevEnvironmentRepositoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDevEnvironmentRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GetDevEnvironmentRepositoryOutput) ElementType() reflect.Type {
@@ -815,12 +682,6 @@ func (o GetDevEnvironmentRepositoryOutput) ToGetDevEnvironmentRepositoryOutput()
 
 func (o GetDevEnvironmentRepositoryOutput) ToGetDevEnvironmentRepositoryOutputWithContext(ctx context.Context) GetDevEnvironmentRepositoryOutput {
 	return o
-}
-
-func (o GetDevEnvironmentRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetDevEnvironmentRepository] {
-	return pulumix.Output[GetDevEnvironmentRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentRepositoryOutput) BranchName() pulumi.StringOutput {
@@ -843,12 +704,6 @@ func (o GetDevEnvironmentRepositoryArrayOutput) ToGetDevEnvironmentRepositoryArr
 
 func (o GetDevEnvironmentRepositoryArrayOutput) ToGetDevEnvironmentRepositoryArrayOutputWithContext(ctx context.Context) GetDevEnvironmentRepositoryArrayOutput {
 	return o
-}
-
-func (o GetDevEnvironmentRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDevEnvironmentRepository] {
-	return pulumix.Output[[]GetDevEnvironmentRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDevEnvironmentRepositoryArrayOutput) Index(i pulumi.IntInput) GetDevEnvironmentRepositoryOutput {

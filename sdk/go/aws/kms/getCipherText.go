@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
@@ -118,12 +117,6 @@ func (o GetCipherTextResultOutput) ToGetCipherTextResultOutput() GetCipherTextRe
 
 func (o GetCipherTextResultOutput) ToGetCipherTextResultOutputWithContext(ctx context.Context) GetCipherTextResultOutput {
 	return o
-}
-
-func (o GetCipherTextResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCipherTextResult] {
-	return pulumix.Output[GetCipherTextResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Base64 encoded ciphertext

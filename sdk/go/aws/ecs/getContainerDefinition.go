@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The ECS container definition data source allows access to details of
@@ -121,12 +120,6 @@ func (o GetContainerDefinitionResultOutput) ToGetContainerDefinitionResultOutput
 
 func (o GetContainerDefinitionResultOutput) ToGetContainerDefinitionResultOutputWithContext(ctx context.Context) GetContainerDefinitionResultOutput {
 	return o
-}
-
-func (o GetContainerDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerDefinitionResult] {
-	return pulumix.Output[GetContainerDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetContainerDefinitionResultOutput) ContainerName() pulumi.StringOutput {

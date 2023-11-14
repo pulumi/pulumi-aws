@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS App Mesh Virtual Gateway.
@@ -96,12 +95,6 @@ func (o LookupVirtualGatewayResultOutput) ToLookupVirtualGatewayResultOutput() L
 
 func (o LookupVirtualGatewayResultOutput) ToLookupVirtualGatewayResultOutputWithContext(ctx context.Context) LookupVirtualGatewayResultOutput {
 	return o
-}
-
-func (o LookupVirtualGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualGatewayResult] {
-	return pulumix.Output[LookupVirtualGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the virtual gateway.

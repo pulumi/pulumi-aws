@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Comprehend Entity Recognizer.
@@ -370,12 +369,6 @@ func (i *EntityRecognizer) ToEntityRecognizerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerOutput)
 }
 
-func (i *EntityRecognizer) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizer] {
-	return pulumix.Output[*EntityRecognizer]{
-		OutputState: i.ToEntityRecognizerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EntityRecognizerArrayInput is an input type that accepts EntityRecognizerArray and EntityRecognizerArrayOutput values.
 // You can construct a concrete instance of `EntityRecognizerArrayInput` via:
 //
@@ -399,12 +392,6 @@ func (i EntityRecognizerArray) ToEntityRecognizerArrayOutput() EntityRecognizerA
 
 func (i EntityRecognizerArray) ToEntityRecognizerArrayOutputWithContext(ctx context.Context) EntityRecognizerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerArrayOutput)
-}
-
-func (i EntityRecognizerArray) ToOutput(ctx context.Context) pulumix.Output[[]*EntityRecognizer] {
-	return pulumix.Output[[]*EntityRecognizer]{
-		OutputState: i.ToEntityRecognizerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EntityRecognizerMapInput is an input type that accepts EntityRecognizerMap and EntityRecognizerMapOutput values.
@@ -432,12 +419,6 @@ func (i EntityRecognizerMap) ToEntityRecognizerMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EntityRecognizerMapOutput)
 }
 
-func (i EntityRecognizerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityRecognizer] {
-	return pulumix.Output[map[string]*EntityRecognizer]{
-		OutputState: i.ToEntityRecognizerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EntityRecognizerOutput struct{ *pulumi.OutputState }
 
 func (EntityRecognizerOutput) ElementType() reflect.Type {
@@ -450,12 +431,6 @@ func (o EntityRecognizerOutput) ToEntityRecognizerOutput() EntityRecognizerOutpu
 
 func (o EntityRecognizerOutput) ToEntityRecognizerOutputWithContext(ctx context.Context) EntityRecognizerOutput {
 	return o
-}
-
-func (o EntityRecognizerOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityRecognizer] {
-	return pulumix.Output[*EntityRecognizer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Entity Recognizer version.
@@ -550,12 +525,6 @@ func (o EntityRecognizerArrayOutput) ToEntityRecognizerArrayOutputWithContext(ct
 	return o
 }
 
-func (o EntityRecognizerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EntityRecognizer] {
-	return pulumix.Output[[]*EntityRecognizer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EntityRecognizerArrayOutput) Index(i pulumi.IntInput) EntityRecognizerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EntityRecognizer {
 		return vs[0].([]*EntityRecognizer)[vs[1].(int)]
@@ -574,12 +543,6 @@ func (o EntityRecognizerMapOutput) ToEntityRecognizerMapOutput() EntityRecognize
 
 func (o EntityRecognizerMapOutput) ToEntityRecognizerMapOutputWithContext(ctx context.Context) EntityRecognizerMapOutput {
 	return o
-}
-
-func (o EntityRecognizerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EntityRecognizer] {
-	return pulumix.Output[map[string]*EntityRecognizer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityRecognizerMapOutput) MapIndex(k pulumi.StringInput) EntityRecognizerOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
@@ -93,12 +92,6 @@ func (o LookupResponsePlanResultOutput) ToLookupResponsePlanResultOutput() Looku
 
 func (o LookupResponsePlanResultOutput) ToLookupResponsePlanResultOutputWithContext(ctx context.Context) LookupResponsePlanResultOutput {
 	return o
-}
-
-func (o LookupResponsePlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResponsePlanResult] {
-	return pulumix.Output[LookupResponsePlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional) The actions that the response plan starts at the beginning of an incident.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a Kinesis Stream Consumer.
@@ -115,12 +114,6 @@ func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutput() L
 
 func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutputWithContext(ctx context.Context) LookupStreamConsumerResultOutput {
 	return o
-}
-
-func (o LookupStreamConsumerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamConsumerResult] {
-	return pulumix.Output[LookupStreamConsumerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringOutput {

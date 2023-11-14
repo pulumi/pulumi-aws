@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i IndexTimeoutsArgs) ToIndexTimeoutsOutput() IndexTimeoutsOutput {
 
 func (i IndexTimeoutsArgs) ToIndexTimeoutsOutputWithContext(ctx context.Context) IndexTimeoutsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IndexTimeoutsOutput)
-}
-
-func (i IndexTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[IndexTimeouts] {
-	return pulumix.Output[IndexTimeouts]{
-		OutputState: i.ToIndexTimeoutsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i IndexTimeoutsArgs) ToIndexTimeoutsPtrOutput() IndexTimeoutsPtrOutput {
@@ -96,12 +89,6 @@ func (i *indexTimeoutsPtrType) ToIndexTimeoutsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IndexTimeoutsPtrOutput)
 }
 
-func (i *indexTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*IndexTimeouts] {
-	return pulumix.Output[*IndexTimeouts]{
-		OutputState: i.ToIndexTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IndexTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (IndexTimeoutsOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o IndexTimeoutsOutput) ToIndexTimeoutsPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexTimeouts) *IndexTimeouts {
 		return &v
 	}).(IndexTimeoutsPtrOutput)
-}
-
-func (o IndexTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[IndexTimeouts] {
-	return pulumix.Output[IndexTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IndexTimeoutsOutput) Create() pulumi.StringPtrOutput {
@@ -156,12 +137,6 @@ func (o IndexTimeoutsPtrOutput) ToIndexTimeoutsPtrOutput() IndexTimeoutsPtrOutpu
 
 func (o IndexTimeoutsPtrOutput) ToIndexTimeoutsPtrOutputWithContext(ctx context.Context) IndexTimeoutsPtrOutput {
 	return o
-}
-
-func (o IndexTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IndexTimeouts] {
-	return pulumix.Output[*IndexTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IndexTimeoutsPtrOutput) Elem() IndexTimeoutsOutput {
@@ -234,12 +209,6 @@ func (i ViewFiltersArgs) ToViewFiltersOutputWithContext(ctx context.Context) Vie
 	return pulumi.ToOutputWithContext(ctx, i).(ViewFiltersOutput)
 }
 
-func (i ViewFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[ViewFilters] {
-	return pulumix.Output[ViewFilters]{
-		OutputState: i.ToViewFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ViewFiltersArgs) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
 	return i.ToViewFiltersPtrOutputWithContext(context.Background())
 }
@@ -281,12 +250,6 @@ func (i *viewFiltersPtrType) ToViewFiltersPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ViewFiltersPtrOutput)
 }
 
-func (i *viewFiltersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ViewFilters] {
-	return pulumix.Output[*ViewFilters]{
-		OutputState: i.ToViewFiltersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ViewFiltersOutput struct{ *pulumi.OutputState }
 
 func (ViewFiltersOutput) ElementType() reflect.Type {
@@ -311,12 +274,6 @@ func (o ViewFiltersOutput) ToViewFiltersPtrOutputWithContext(ctx context.Context
 	}).(ViewFiltersPtrOutput)
 }
 
-func (o ViewFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[ViewFilters] {
-	return pulumix.Output[ViewFilters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
 func (o ViewFiltersOutput) FilterString() pulumi.StringOutput {
 	return o.ApplyT(func(v ViewFilters) string { return v.FilterString }).(pulumi.StringOutput)
@@ -334,12 +291,6 @@ func (o ViewFiltersPtrOutput) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
 
 func (o ViewFiltersPtrOutput) ToViewFiltersPtrOutputWithContext(ctx context.Context) ViewFiltersPtrOutput {
 	return o
-}
-
-func (o ViewFiltersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewFilters] {
-	return pulumix.Output[*ViewFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ViewFiltersPtrOutput) Elem() ViewFiltersOutput {
@@ -395,12 +346,6 @@ func (i ViewIncludedPropertyArgs) ToViewIncludedPropertyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ViewIncludedPropertyOutput)
 }
 
-func (i ViewIncludedPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[ViewIncludedProperty] {
-	return pulumix.Output[ViewIncludedProperty]{
-		OutputState: i.ToViewIncludedPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ViewIncludedPropertyArrayInput is an input type that accepts ViewIncludedPropertyArray and ViewIncludedPropertyArrayOutput values.
 // You can construct a concrete instance of `ViewIncludedPropertyArrayInput` via:
 //
@@ -426,12 +371,6 @@ func (i ViewIncludedPropertyArray) ToViewIncludedPropertyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ViewIncludedPropertyArrayOutput)
 }
 
-func (i ViewIncludedPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]ViewIncludedProperty] {
-	return pulumix.Output[[]ViewIncludedProperty]{
-		OutputState: i.ToViewIncludedPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ViewIncludedPropertyOutput struct{ *pulumi.OutputState }
 
 func (ViewIncludedPropertyOutput) ElementType() reflect.Type {
@@ -444,12 +383,6 @@ func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutput() ViewIncludedP
 
 func (o ViewIncludedPropertyOutput) ToViewIncludedPropertyOutputWithContext(ctx context.Context) ViewIncludedPropertyOutput {
 	return o
-}
-
-func (o ViewIncludedPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[ViewIncludedProperty] {
-	return pulumix.Output[ViewIncludedProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the property that is included in this view. Valid values: `tags`.
@@ -469,12 +402,6 @@ func (o ViewIncludedPropertyArrayOutput) ToViewIncludedPropertyArrayOutput() Vie
 
 func (o ViewIncludedPropertyArrayOutput) ToViewIncludedPropertyArrayOutputWithContext(ctx context.Context) ViewIncludedPropertyArrayOutput {
 	return o
-}
-
-func (o ViewIncludedPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ViewIncludedProperty] {
-	return pulumix.Output[[]ViewIncludedProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ViewIncludedPropertyArrayOutput) Index(i pulumi.IntInput) ViewIncludedPropertyOutput {

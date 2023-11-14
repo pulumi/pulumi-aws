@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
@@ -79,12 +78,6 @@ func (o LookupEncryptionByDefaultResultOutput) ToLookupEncryptionByDefaultResult
 
 func (o LookupEncryptionByDefaultResultOutput) ToLookupEncryptionByDefaultResultOutputWithContext(ctx context.Context) LookupEncryptionByDefaultResultOutput {
 	return o
-}
-
-func (o LookupEncryptionByDefaultResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEncryptionByDefaultResult] {
-	return pulumix.Output[LookupEncryptionByDefaultResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether or not default EBS encryption is enabled. Returns as `true` or `false`.

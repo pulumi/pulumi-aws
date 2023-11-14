@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Redshift authentication profile
@@ -162,12 +161,6 @@ func (i *AuthenticationProfile) ToAuthenticationProfileOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationProfileOutput)
 }
 
-func (i *AuthenticationProfile) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationProfile] {
-	return pulumix.Output[*AuthenticationProfile]{
-		OutputState: i.ToAuthenticationProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AuthenticationProfileArrayInput is an input type that accepts AuthenticationProfileArray and AuthenticationProfileArrayOutput values.
 // You can construct a concrete instance of `AuthenticationProfileArrayInput` via:
 //
@@ -191,12 +184,6 @@ func (i AuthenticationProfileArray) ToAuthenticationProfileArrayOutput() Authent
 
 func (i AuthenticationProfileArray) ToAuthenticationProfileArrayOutputWithContext(ctx context.Context) AuthenticationProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationProfileArrayOutput)
-}
-
-func (i AuthenticationProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthenticationProfile] {
-	return pulumix.Output[[]*AuthenticationProfile]{
-		OutputState: i.ToAuthenticationProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AuthenticationProfileMapInput is an input type that accepts AuthenticationProfileMap and AuthenticationProfileMapOutput values.
@@ -224,12 +211,6 @@ func (i AuthenticationProfileMap) ToAuthenticationProfileMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationProfileMapOutput)
 }
 
-func (i AuthenticationProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthenticationProfile] {
-	return pulumix.Output[map[string]*AuthenticationProfile]{
-		OutputState: i.ToAuthenticationProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthenticationProfileOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationProfileOutput) ElementType() reflect.Type {
@@ -242,12 +223,6 @@ func (o AuthenticationProfileOutput) ToAuthenticationProfileOutput() Authenticat
 
 func (o AuthenticationProfileOutput) ToAuthenticationProfileOutputWithContext(ctx context.Context) AuthenticationProfileOutput {
 	return o
-}
-
-func (o AuthenticationProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationProfile] {
-	return pulumix.Output[*AuthenticationProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
@@ -274,12 +249,6 @@ func (o AuthenticationProfileArrayOutput) ToAuthenticationProfileArrayOutputWith
 	return o
 }
 
-func (o AuthenticationProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthenticationProfile] {
-	return pulumix.Output[[]*AuthenticationProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AuthenticationProfileArrayOutput) Index(i pulumi.IntInput) AuthenticationProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthenticationProfile {
 		return vs[0].([]*AuthenticationProfile)[vs[1].(int)]
@@ -298,12 +267,6 @@ func (o AuthenticationProfileMapOutput) ToAuthenticationProfileMapOutput() Authe
 
 func (o AuthenticationProfileMapOutput) ToAuthenticationProfileMapOutputWithContext(ctx context.Context) AuthenticationProfileMapOutput {
 	return o
-}
-
-func (o AuthenticationProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthenticationProfile] {
-	return pulumix.Output[map[string]*AuthenticationProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthenticationProfileMapOutput) MapIndex(k pulumi.StringInput) AuthenticationProfileOutput {

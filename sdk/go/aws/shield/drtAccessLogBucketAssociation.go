@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
@@ -155,12 +154,6 @@ func (i *DrtAccessLogBucketAssociation) ToDrtAccessLogBucketAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessLogBucketAssociationOutput)
 }
 
-func (i *DrtAccessLogBucketAssociation) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[*DrtAccessLogBucketAssociation]{
-		OutputState: i.ToDrtAccessLogBucketAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DrtAccessLogBucketAssociationArrayInput is an input type that accepts DrtAccessLogBucketAssociationArray and DrtAccessLogBucketAssociationArrayOutput values.
 // You can construct a concrete instance of `DrtAccessLogBucketAssociationArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i DrtAccessLogBucketAssociationArray) ToDrtAccessLogBucketAssociationArray
 
 func (i DrtAccessLogBucketAssociationArray) ToDrtAccessLogBucketAssociationArrayOutputWithContext(ctx context.Context) DrtAccessLogBucketAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessLogBucketAssociationArrayOutput)
-}
-
-func (i DrtAccessLogBucketAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[[]*DrtAccessLogBucketAssociation]{
-		OutputState: i.ToDrtAccessLogBucketAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DrtAccessLogBucketAssociationMapInput is an input type that accepts DrtAccessLogBucketAssociationMap and DrtAccessLogBucketAssociationMapOutput values.
@@ -217,12 +204,6 @@ func (i DrtAccessLogBucketAssociationMap) ToDrtAccessLogBucketAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessLogBucketAssociationMapOutput)
 }
 
-func (i DrtAccessLogBucketAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[map[string]*DrtAccessLogBucketAssociation]{
-		OutputState: i.ToDrtAccessLogBucketAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DrtAccessLogBucketAssociationOutput struct{ *pulumi.OutputState }
 
 func (DrtAccessLogBucketAssociationOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o DrtAccessLogBucketAssociationOutput) ToDrtAccessLogBucketAssociationOutp
 
 func (o DrtAccessLogBucketAssociationOutput) ToDrtAccessLogBucketAssociationOutputWithContext(ctx context.Context) DrtAccessLogBucketAssociationOutput {
 	return o
-}
-
-func (o DrtAccessLogBucketAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[*DrtAccessLogBucketAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon S3 bucket that contains the logs that you want to share.
@@ -273,12 +248,6 @@ func (o DrtAccessLogBucketAssociationArrayOutput) ToDrtAccessLogBucketAssociatio
 	return o
 }
 
-func (o DrtAccessLogBucketAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[[]*DrtAccessLogBucketAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DrtAccessLogBucketAssociationArrayOutput) Index(i pulumi.IntInput) DrtAccessLogBucketAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DrtAccessLogBucketAssociation {
 		return vs[0].([]*DrtAccessLogBucketAssociation)[vs[1].(int)]
@@ -297,12 +266,6 @@ func (o DrtAccessLogBucketAssociationMapOutput) ToDrtAccessLogBucketAssociationM
 
 func (o DrtAccessLogBucketAssociationMapOutput) ToDrtAccessLogBucketAssociationMapOutputWithContext(ctx context.Context) DrtAccessLogBucketAssociationMapOutput {
 	return o
-}
-
-func (o DrtAccessLogBucketAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DrtAccessLogBucketAssociation] {
-	return pulumix.Output[map[string]*DrtAccessLogBucketAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessLogBucketAssociationMapOutput) MapIndex(k pulumi.StringInput) DrtAccessLogBucketAssociationOutput {

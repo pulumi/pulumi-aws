@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
@@ -118,12 +117,6 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 
 func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutputWithContext(ctx context.Context) LookupConfigurationSetResultOutput {
 	return o
-}
-
-func (o LookupConfigurationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationSetResult] {
-	return pulumix.Output[LookupConfigurationSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfigurationSetResultOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Device Farm Device Pools.
@@ -222,12 +221,6 @@ func (i *DevicePool) ToDevicePoolOutputWithContext(ctx context.Context) DevicePo
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolOutput)
 }
 
-func (i *DevicePool) ToOutput(ctx context.Context) pulumix.Output[*DevicePool] {
-	return pulumix.Output[*DevicePool]{
-		OutputState: i.ToDevicePoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevicePoolArrayInput is an input type that accepts DevicePoolArray and DevicePoolArrayOutput values.
 // You can construct a concrete instance of `DevicePoolArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i DevicePoolArray) ToDevicePoolArrayOutput() DevicePoolArrayOutput {
 
 func (i DevicePoolArray) ToDevicePoolArrayOutputWithContext(ctx context.Context) DevicePoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolArrayOutput)
-}
-
-func (i DevicePoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*DevicePool] {
-	return pulumix.Output[[]*DevicePool]{
-		OutputState: i.ToDevicePoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevicePoolMapInput is an input type that accepts DevicePoolMap and DevicePoolMapOutput values.
@@ -284,12 +271,6 @@ func (i DevicePoolMap) ToDevicePoolMapOutputWithContext(ctx context.Context) Dev
 	return pulumi.ToOutputWithContext(ctx, i).(DevicePoolMapOutput)
 }
 
-func (i DevicePoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevicePool] {
-	return pulumix.Output[map[string]*DevicePool]{
-		OutputState: i.ToDevicePoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevicePoolOutput struct{ *pulumi.OutputState }
 
 func (DevicePoolOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o DevicePoolOutput) ToDevicePoolOutput() DevicePoolOutput {
 
 func (o DevicePoolOutput) ToDevicePoolOutputWithContext(ctx context.Context) DevicePoolOutput {
 	return o
-}
-
-func (o DevicePoolOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePool] {
-	return pulumix.Output[*DevicePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name of this Device Pool
@@ -370,12 +345,6 @@ func (o DevicePoolArrayOutput) ToDevicePoolArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DevicePoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DevicePool] {
-	return pulumix.Output[[]*DevicePool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolArrayOutput) Index(i pulumi.IntInput) DevicePoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevicePool {
 		return vs[0].([]*DevicePool)[vs[1].(int)]
@@ -394,12 +363,6 @@ func (o DevicePoolMapOutput) ToDevicePoolMapOutput() DevicePoolMapOutput {
 
 func (o DevicePoolMapOutput) ToDevicePoolMapOutputWithContext(ctx context.Context) DevicePoolMapOutput {
 	return o
-}
-
-func (o DevicePoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevicePool] {
-	return pulumix.Output[map[string]*DevicePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolMapOutput) MapIndex(k pulumi.StringInput) DevicePoolOutput {

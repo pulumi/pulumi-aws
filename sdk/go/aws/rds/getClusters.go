@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS RDS (Relational Database) Clusters.
@@ -110,12 +109,6 @@ func (o GetClustersResultOutput) ToGetClustersResultOutput() GetClustersResultOu
 
 func (o GetClustersResultOutput) ToGetClustersResultOutputWithContext(ctx context.Context) GetClustersResultOutput {
 	return o
-}
-
-func (o GetClustersResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClustersResult] {
-	return pulumix.Output[GetClustersResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of cluster ARNs of the matched RDS clusters.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an AWS WorkSpaces bundle.
@@ -146,12 +145,6 @@ func (o GetBundleResultOutput) ToGetBundleResultOutput() GetBundleResultOutput {
 
 func (o GetBundleResultOutput) ToGetBundleResultOutputWithContext(ctx context.Context) GetBundleResultOutput {
 	return o
-}
-
-func (o GetBundleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBundleResult] {
-	return pulumix.Output[GetBundleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the bundle.

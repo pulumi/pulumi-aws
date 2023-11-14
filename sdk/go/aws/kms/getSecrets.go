@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -74,12 +73,6 @@ func (o GetSecretsResultOutput) ToGetSecretsResultOutput() GetSecretsResultOutpu
 
 func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.Context) GetSecretsResultOutput {
 	return o
-}
-
-func (o GetSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsResult] {
-	return pulumix.Output[GetSecretsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages RDS Aurora Cluster Database Activity Streams.
@@ -223,12 +222,6 @@ func (i *ClusterActivityStream) ToClusterActivityStreamOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamOutput)
 }
 
-func (i *ClusterActivityStream) ToOutput(ctx context.Context) pulumix.Output[*ClusterActivityStream] {
-	return pulumix.Output[*ClusterActivityStream]{
-		OutputState: i.ToClusterActivityStreamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterActivityStreamArrayInput is an input type that accepts ClusterActivityStreamArray and ClusterActivityStreamArrayOutput values.
 // You can construct a concrete instance of `ClusterActivityStreamArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i ClusterActivityStreamArray) ToClusterActivityStreamArrayOutput() Cluster
 
 func (i ClusterActivityStreamArray) ToClusterActivityStreamArrayOutputWithContext(ctx context.Context) ClusterActivityStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamArrayOutput)
-}
-
-func (i ClusterActivityStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterActivityStream] {
-	return pulumix.Output[[]*ClusterActivityStream]{
-		OutputState: i.ToClusterActivityStreamArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterActivityStreamMapInput is an input type that accepts ClusterActivityStreamMap and ClusterActivityStreamMapOutput values.
@@ -285,12 +272,6 @@ func (i ClusterActivityStreamMap) ToClusterActivityStreamMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterActivityStreamMapOutput)
 }
 
-func (i ClusterActivityStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterActivityStream] {
-	return pulumix.Output[map[string]*ClusterActivityStream]{
-		OutputState: i.ToClusterActivityStreamMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterActivityStreamOutput struct{ *pulumi.OutputState }
 
 func (ClusterActivityStreamOutput) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o ClusterActivityStreamOutput) ToClusterActivityStreamOutput() ClusterActi
 
 func (o ClusterActivityStreamOutput) ToClusterActivityStreamOutputWithContext(ctx context.Context) ClusterActivityStreamOutput {
 	return o
-}
-
-func (o ClusterActivityStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterActivityStream] {
-	return pulumix.Output[*ClusterActivityStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
@@ -350,12 +325,6 @@ func (o ClusterActivityStreamArrayOutput) ToClusterActivityStreamArrayOutputWith
 	return o
 }
 
-func (o ClusterActivityStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterActivityStream] {
-	return pulumix.Output[[]*ClusterActivityStream]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterActivityStreamArrayOutput) Index(i pulumi.IntInput) ClusterActivityStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterActivityStream {
 		return vs[0].([]*ClusterActivityStream)[vs[1].(int)]
@@ -374,12 +343,6 @@ func (o ClusterActivityStreamMapOutput) ToClusterActivityStreamMapOutput() Clust
 
 func (o ClusterActivityStreamMapOutput) ToClusterActivityStreamMapOutputWithContext(ctx context.Context) ClusterActivityStreamMapOutput {
 	return o
-}
-
-func (o ClusterActivityStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterActivityStream] {
-	return pulumix.Output[map[string]*ClusterActivityStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterActivityStreamMapOutput) MapIndex(k pulumi.StringInput) ClusterActivityStreamOutput {

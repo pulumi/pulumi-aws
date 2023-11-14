@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Tracker.
@@ -116,12 +115,6 @@ func (o LookupTrackerResultOutput) ToLookupTrackerResultOutput() LookupTrackerRe
 
 func (o LookupTrackerResultOutput) ToLookupTrackerResultOutputWithContext(ctx context.Context) LookupTrackerResultOutput {
 	return o
-}
-
-func (o LookupTrackerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrackerResult] {
-	return pulumix.Output[LookupTrackerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Timestamp for when the tracker resource was created in ISO 8601 format.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
@@ -460,12 +459,6 @@ func (i *GlobalCluster) ToGlobalClusterOutputWithContext(ctx context.Context) Gl
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterOutput)
 }
 
-func (i *GlobalCluster) ToOutput(ctx context.Context) pulumix.Output[*GlobalCluster] {
-	return pulumix.Output[*GlobalCluster]{
-		OutputState: i.ToGlobalClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalClusterArrayInput is an input type that accepts GlobalClusterArray and GlobalClusterArrayOutput values.
 // You can construct a concrete instance of `GlobalClusterArrayInput` via:
 //
@@ -489,12 +482,6 @@ func (i GlobalClusterArray) ToGlobalClusterArrayOutput() GlobalClusterArrayOutpu
 
 func (i GlobalClusterArray) ToGlobalClusterArrayOutputWithContext(ctx context.Context) GlobalClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterArrayOutput)
-}
-
-func (i GlobalClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalCluster] {
-	return pulumix.Output[[]*GlobalCluster]{
-		OutputState: i.ToGlobalClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalClusterMapInput is an input type that accepts GlobalClusterMap and GlobalClusterMapOutput values.
@@ -522,12 +509,6 @@ func (i GlobalClusterMap) ToGlobalClusterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterMapOutput)
 }
 
-func (i GlobalClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalCluster] {
-	return pulumix.Output[map[string]*GlobalCluster]{
-		OutputState: i.ToGlobalClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalClusterOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterOutput) ElementType() reflect.Type {
@@ -540,12 +521,6 @@ func (o GlobalClusterOutput) ToGlobalClusterOutput() GlobalClusterOutput {
 
 func (o GlobalClusterOutput) ToGlobalClusterOutputWithContext(ctx context.Context) GlobalClusterOutput {
 	return o
-}
-
-func (o GlobalClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalCluster] {
-	return pulumix.Output[*GlobalCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // RDS Global Cluster Amazon Resource Name (ARN)
@@ -621,12 +596,6 @@ func (o GlobalClusterArrayOutput) ToGlobalClusterArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o GlobalClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalCluster] {
-	return pulumix.Output[[]*GlobalCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalClusterArrayOutput) Index(i pulumi.IntInput) GlobalClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalCluster {
 		return vs[0].([]*GlobalCluster)[vs[1].(int)]
@@ -645,12 +614,6 @@ func (o GlobalClusterMapOutput) ToGlobalClusterMapOutput() GlobalClusterMapOutpu
 
 func (o GlobalClusterMapOutput) ToGlobalClusterMapOutputWithContext(ctx context.Context) GlobalClusterMapOutput {
 	return o
-}
-
-func (o GlobalClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalCluster] {
-	return pulumix.Output[map[string]*GlobalCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalClusterMapOutput) MapIndex(k pulumi.StringInput) GlobalClusterOutput {

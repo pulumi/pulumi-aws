@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
@@ -158,12 +157,6 @@ func (o LookupOntapStorageVirtualMachineResultOutput) ToLookupOntapStorageVirtua
 
 func (o LookupOntapStorageVirtualMachineResultOutput) ToLookupOntapStorageVirtualMachineResultOutputWithContext(ctx context.Context) LookupOntapStorageVirtualMachineResultOutput {
 	return o
-}
-
-func (o LookupOntapStorageVirtualMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOntapStorageVirtualMachineResult] {
-	return pulumix.Output[LookupOntapStorageVirtualMachineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Microsoft Active Directory configuration to which the SVM is joined, if applicable. See Active Directory Configuration below.

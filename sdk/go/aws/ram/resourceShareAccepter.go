@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage accepting a Resource Access Manager (RAM) Resource Share invitation. From a _receiver_ AWS account, accept an invitation to share resources that were shared by a _sender_ AWS account. To create a resource share in the _sender_, see the `ram.ResourceShare` resource.
@@ -210,12 +209,6 @@ func (i *ResourceShareAccepter) ToResourceShareAccepterOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterOutput)
 }
 
-func (i *ResourceShareAccepter) ToOutput(ctx context.Context) pulumix.Output[*ResourceShareAccepter] {
-	return pulumix.Output[*ResourceShareAccepter]{
-		OutputState: i.ToResourceShareAccepterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceShareAccepterArrayInput is an input type that accepts ResourceShareAccepterArray and ResourceShareAccepterArrayOutput values.
 // You can construct a concrete instance of `ResourceShareAccepterArrayInput` via:
 //
@@ -239,12 +232,6 @@ func (i ResourceShareAccepterArray) ToResourceShareAccepterArrayOutput() Resourc
 
 func (i ResourceShareAccepterArray) ToResourceShareAccepterArrayOutputWithContext(ctx context.Context) ResourceShareAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterArrayOutput)
-}
-
-func (i ResourceShareAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceShareAccepter] {
-	return pulumix.Output[[]*ResourceShareAccepter]{
-		OutputState: i.ToResourceShareAccepterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceShareAccepterMapInput is an input type that accepts ResourceShareAccepterMap and ResourceShareAccepterMapOutput values.
@@ -272,12 +259,6 @@ func (i ResourceShareAccepterMap) ToResourceShareAccepterMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareAccepterMapOutput)
 }
 
-func (i ResourceShareAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceShareAccepter] {
-	return pulumix.Output[map[string]*ResourceShareAccepter]{
-		OutputState: i.ToResourceShareAccepterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceShareAccepterOutput struct{ *pulumi.OutputState }
 
 func (ResourceShareAccepterOutput) ElementType() reflect.Type {
@@ -290,12 +271,6 @@ func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutput() ResourceSha
 
 func (o ResourceShareAccepterOutput) ToResourceShareAccepterOutputWithContext(ctx context.Context) ResourceShareAccepterOutput {
 	return o
-}
-
-func (o ResourceShareAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceShareAccepter] {
-	return pulumix.Output[*ResourceShareAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the resource share invitation.
@@ -352,12 +327,6 @@ func (o ResourceShareAccepterArrayOutput) ToResourceShareAccepterArrayOutputWith
 	return o
 }
 
-func (o ResourceShareAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceShareAccepter] {
-	return pulumix.Output[[]*ResourceShareAccepter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceShareAccepterArrayOutput) Index(i pulumi.IntInput) ResourceShareAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceShareAccepter {
 		return vs[0].([]*ResourceShareAccepter)[vs[1].(int)]
@@ -376,12 +345,6 @@ func (o ResourceShareAccepterMapOutput) ToResourceShareAccepterMapOutput() Resou
 
 func (o ResourceShareAccepterMapOutput) ToResourceShareAccepterMapOutputWithContext(ctx context.Context) ResourceShareAccepterMapOutput {
 	return o
-}
-
-func (o ResourceShareAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceShareAccepter] {
-	return pulumix.Output[map[string]*ResourceShareAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceShareAccepterMapOutput) MapIndex(k pulumi.StringInput) ResourceShareAccepterOutput {

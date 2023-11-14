@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon MSK Connect Worker Configuration Resource.
@@ -180,12 +179,6 @@ func (i *WorkerConfiguration) ToWorkerConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationOutput)
 }
 
-func (i *WorkerConfiguration) ToOutput(ctx context.Context) pulumix.Output[*WorkerConfiguration] {
-	return pulumix.Output[*WorkerConfiguration]{
-		OutputState: i.ToWorkerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkerConfigurationArrayInput is an input type that accepts WorkerConfigurationArray and WorkerConfigurationArrayOutput values.
 // You can construct a concrete instance of `WorkerConfigurationArrayInput` via:
 //
@@ -209,12 +202,6 @@ func (i WorkerConfigurationArray) ToWorkerConfigurationArrayOutput() WorkerConfi
 
 func (i WorkerConfigurationArray) ToWorkerConfigurationArrayOutputWithContext(ctx context.Context) WorkerConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationArrayOutput)
-}
-
-func (i WorkerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkerConfiguration] {
-	return pulumix.Output[[]*WorkerConfiguration]{
-		OutputState: i.ToWorkerConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkerConfigurationMapInput is an input type that accepts WorkerConfigurationMap and WorkerConfigurationMapOutput values.
@@ -242,12 +229,6 @@ func (i WorkerConfigurationMap) ToWorkerConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkerConfigurationMapOutput)
 }
 
-func (i WorkerConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkerConfiguration] {
-	return pulumix.Output[map[string]*WorkerConfiguration]{
-		OutputState: i.ToWorkerConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkerConfigurationOutput) ElementType() reflect.Type {
@@ -260,12 +241,6 @@ func (o WorkerConfigurationOutput) ToWorkerConfigurationOutput() WorkerConfigura
 
 func (o WorkerConfigurationOutput) ToWorkerConfigurationOutputWithContext(ctx context.Context) WorkerConfigurationOutput {
 	return o
-}
-
-func (o WorkerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkerConfiguration] {
-	return pulumix.Output[*WorkerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the Amazon Resource Name (ARN) of the worker configuration.
@@ -309,12 +284,6 @@ func (o WorkerConfigurationArrayOutput) ToWorkerConfigurationArrayOutputWithCont
 	return o
 }
 
-func (o WorkerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkerConfiguration] {
-	return pulumix.Output[[]*WorkerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkerConfigurationArrayOutput) Index(i pulumi.IntInput) WorkerConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkerConfiguration {
 		return vs[0].([]*WorkerConfiguration)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutput() WorkerCon
 
 func (o WorkerConfigurationMapOutput) ToWorkerConfigurationMapOutputWithContext(ctx context.Context) WorkerConfigurationMapOutput {
 	return o
-}
-
-func (o WorkerConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkerConfiguration] {
-	return pulumix.Output[map[string]*WorkerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkerConfigurationMapOutput) MapIndex(k pulumi.StringInput) WorkerConfigurationOutput {

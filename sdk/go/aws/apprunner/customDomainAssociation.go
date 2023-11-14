@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner Custom Domain association.
@@ -181,12 +180,6 @@ func (i *CustomDomainAssociation) ToCustomDomainAssociationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationOutput)
 }
 
-func (i *CustomDomainAssociation) ToOutput(ctx context.Context) pulumix.Output[*CustomDomainAssociation] {
-	return pulumix.Output[*CustomDomainAssociation]{
-		OutputState: i.ToCustomDomainAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomDomainAssociationArrayInput is an input type that accepts CustomDomainAssociationArray and CustomDomainAssociationArrayOutput values.
 // You can construct a concrete instance of `CustomDomainAssociationArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i CustomDomainAssociationArray) ToCustomDomainAssociationArrayOutput() Cus
 
 func (i CustomDomainAssociationArray) ToCustomDomainAssociationArrayOutputWithContext(ctx context.Context) CustomDomainAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationArrayOutput)
-}
-
-func (i CustomDomainAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDomainAssociation] {
-	return pulumix.Output[[]*CustomDomainAssociation]{
-		OutputState: i.ToCustomDomainAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomDomainAssociationMapInput is an input type that accepts CustomDomainAssociationMap and CustomDomainAssociationMapOutput values.
@@ -243,12 +230,6 @@ func (i CustomDomainAssociationMap) ToCustomDomainAssociationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationMapOutput)
 }
 
-func (i CustomDomainAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDomainAssociation] {
-	return pulumix.Output[map[string]*CustomDomainAssociation]{
-		OutputState: i.ToCustomDomainAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainAssociationOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutput() CustomD
 
 func (o CustomDomainAssociationOutput) ToCustomDomainAssociationOutputWithContext(ctx context.Context) CustomDomainAssociationOutput {
 	return o
-}
-
-func (o CustomDomainAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomDomainAssociation] {
-	return pulumix.Output[*CustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
@@ -315,12 +290,6 @@ func (o CustomDomainAssociationArrayOutput) ToCustomDomainAssociationArrayOutput
 	return o
 }
 
-func (o CustomDomainAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomDomainAssociation] {
-	return pulumix.Output[[]*CustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomDomainAssociationArrayOutput) Index(i pulumi.IntInput) CustomDomainAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomDomainAssociation {
 		return vs[0].([]*CustomDomainAssociation)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o CustomDomainAssociationMapOutput) ToCustomDomainAssociationMapOutput() C
 
 func (o CustomDomainAssociationMapOutput) ToCustomDomainAssociationMapOutputWithContext(ctx context.Context) CustomDomainAssociationMapOutput {
 	return o
-}
-
-func (o CustomDomainAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomDomainAssociation] {
-	return pulumix.Output[map[string]*CustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomDomainAssociationMapOutput) MapIndex(k pulumi.StringInput) CustomDomainAssociationOutput {

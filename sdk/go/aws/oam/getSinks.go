@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
@@ -80,12 +79,6 @@ func (o GetSinksResultOutput) ToGetSinksResultOutput() GetSinksResultOutput {
 
 func (o GetSinksResultOutput) ToGetSinksResultOutputWithContext(ctx context.Context) GetSinksResultOutput {
 	return o
-}
-
-func (o GetSinksResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSinksResult] {
-	return pulumix.Output[GetSinksResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of ARN of the Sinks.

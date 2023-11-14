@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS MediaLive MultiplexProgram.
@@ -205,12 +204,6 @@ func (i *MultiplexProgram) ToMultiplexProgramOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramOutput)
 }
 
-func (i *MultiplexProgram) ToOutput(ctx context.Context) pulumix.Output[*MultiplexProgram] {
-	return pulumix.Output[*MultiplexProgram]{
-		OutputState: i.ToMultiplexProgramOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiplexProgramArrayInput is an input type that accepts MultiplexProgramArray and MultiplexProgramArrayOutput values.
 // You can construct a concrete instance of `MultiplexProgramArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i MultiplexProgramArray) ToMultiplexProgramArrayOutput() MultiplexProgramA
 
 func (i MultiplexProgramArray) ToMultiplexProgramArrayOutputWithContext(ctx context.Context) MultiplexProgramArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramArrayOutput)
-}
-
-func (i MultiplexProgramArray) ToOutput(ctx context.Context) pulumix.Output[[]*MultiplexProgram] {
-	return pulumix.Output[[]*MultiplexProgram]{
-		OutputState: i.ToMultiplexProgramArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MultiplexProgramMapInput is an input type that accepts MultiplexProgramMap and MultiplexProgramMapOutput values.
@@ -267,12 +254,6 @@ func (i MultiplexProgramMap) ToMultiplexProgramMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MultiplexProgramMapOutput)
 }
 
-func (i MultiplexProgramMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiplexProgram] {
-	return pulumix.Output[map[string]*MultiplexProgram]{
-		OutputState: i.ToMultiplexProgramMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiplexProgramOutput struct{ *pulumi.OutputState }
 
 func (MultiplexProgramOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o MultiplexProgramOutput) ToMultiplexProgramOutput() MultiplexProgramOutpu
 
 func (o MultiplexProgramOutput) ToMultiplexProgramOutputWithContext(ctx context.Context) MultiplexProgramOutput {
 	return o
-}
-
-func (o MultiplexProgramOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexProgram] {
-	return pulumix.Output[*MultiplexProgram]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Multiplex ID.
@@ -326,12 +301,6 @@ func (o MultiplexProgramArrayOutput) ToMultiplexProgramArrayOutputWithContext(ct
 	return o
 }
 
-func (o MultiplexProgramArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MultiplexProgram] {
-	return pulumix.Output[[]*MultiplexProgram]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexProgramArrayOutput) Index(i pulumi.IntInput) MultiplexProgramOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MultiplexProgram {
 		return vs[0].([]*MultiplexProgram)[vs[1].(int)]
@@ -350,12 +319,6 @@ func (o MultiplexProgramMapOutput) ToMultiplexProgramMapOutput() MultiplexProgra
 
 func (o MultiplexProgramMapOutput) ToMultiplexProgramMapOutputWithContext(ctx context.Context) MultiplexProgramMapOutput {
 	return o
-}
-
-func (o MultiplexProgramMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MultiplexProgram] {
-	return pulumix.Output[map[string]*MultiplexProgram]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexProgramMapOutput) MapIndex(k pulumi.StringInput) MultiplexProgramOutput {

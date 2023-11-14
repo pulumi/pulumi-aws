@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
@@ -143,12 +142,6 @@ func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutput
 
 func (o GetRouterConfigurationResultOutput) ToGetRouterConfigurationResultOutputWithContext(ctx context.Context) GetRouterConfigurationResultOutput {
 	return o
-}
-
-func (o GetRouterConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouterConfigurationResult] {
-	return pulumix.Output[GetRouterConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Instructions for configuring your router

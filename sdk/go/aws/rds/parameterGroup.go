@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
@@ -279,12 +278,6 @@ func (i *ParameterGroup) ToParameterGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupOutput)
 }
 
-func (i *ParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
-	return pulumix.Output[*ParameterGroup]{
-		OutputState: i.ToParameterGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ParameterGroupArrayInput is an input type that accepts ParameterGroupArray and ParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i ParameterGroupArray) ToParameterGroupArrayOutput() ParameterGroupArrayOu
 
 func (i ParameterGroupArray) ToParameterGroupArrayOutputWithContext(ctx context.Context) ParameterGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupArrayOutput)
-}
-
-func (i ParameterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
-	return pulumix.Output[[]*ParameterGroup]{
-		OutputState: i.ToParameterGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ParameterGroupMapInput is an input type that accepts ParameterGroupMap and ParameterGroupMapOutput values.
@@ -341,12 +328,6 @@ func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupMapOutput)
 }
 
-func (i ParameterGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
-	return pulumix.Output[map[string]*ParameterGroup]{
-		OutputState: i.ToParameterGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o ParameterGroupOutput) ToParameterGroupOutput() ParameterGroupOutput {
 
 func (o ParameterGroupOutput) ToParameterGroupOutputWithContext(ctx context.Context) ParameterGroupOutput {
 	return o
-}
-
-func (o ParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterGroup] {
-	return pulumix.Output[*ParameterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the db parameter group.
@@ -423,12 +398,6 @@ func (o ParameterGroupArrayOutput) ToParameterGroupArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ParameterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ParameterGroup] {
-	return pulumix.Output[[]*ParameterGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterGroupArrayOutput) Index(i pulumi.IntInput) ParameterGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ParameterGroup {
 		return vs[0].([]*ParameterGroup)[vs[1].(int)]
@@ -447,12 +416,6 @@ func (o ParameterGroupMapOutput) ToParameterGroupMapOutput() ParameterGroupMapOu
 
 func (o ParameterGroupMapOutput) ToParameterGroupMapOutputWithContext(ctx context.Context) ParameterGroupMapOutput {
 	return o
-}
-
-func (o ParameterGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ParameterGroup] {
-	return pulumix.Output[map[string]*ParameterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOutput {

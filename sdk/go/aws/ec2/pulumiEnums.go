@@ -84,12 +84,6 @@ func (o InstancePlatformOutput) ToInstancePlatformPtrOutputWithContext(ctx conte
 	}).(InstancePlatformPtrOutput)
 }
 
-func (o InstancePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[InstancePlatform] {
-	return pulumix.Output[InstancePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstancePlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -123,12 +117,6 @@ func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutput() InstancePlatfor
 
 func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
 	return o
-}
-
-func (o InstancePlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstancePlatform] {
-	return pulumix.Output[*InstancePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstancePlatformPtrOutput) Elem() InstancePlatformOutput {
@@ -727,12 +715,6 @@ func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Conte
 	}).(InstanceTypePtrOutput)
 }
 
-func (o InstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceType] {
-	return pulumix.Output[InstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -766,12 +748,6 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
-}
-
-func (o InstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
-	return pulumix.Output[*InstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
@@ -914,12 +890,6 @@ func (o PlacementStrategyOutput) ToPlacementStrategyPtrOutputWithContext(ctx con
 	}).(PlacementStrategyPtrOutput)
 }
 
-func (o PlacementStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[PlacementStrategy] {
-	return pulumix.Output[PlacementStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -953,12 +923,6 @@ func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutput() PlacementStra
 
 func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
 	return o
-}
-
-func (o PlacementStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlacementStrategy] {
-	return pulumix.Output[*PlacementStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlacementStrategyPtrOutput) Elem() PlacementStrategyOutput {
@@ -1098,12 +1062,6 @@ func (o ProtocolTypeOutput) ToProtocolTypePtrOutputWithContext(ctx context.Conte
 	}).(ProtocolTypePtrOutput)
 }
 
-func (o ProtocolTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProtocolType] {
-	return pulumix.Output[ProtocolType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtocolTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1137,12 +1095,6 @@ func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
 
 func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
 	return o
-}
-
-func (o ProtocolTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtocolType] {
-	return pulumix.Output[*ProtocolType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtocolTypePtrOutput) Elem() ProtocolTypeOutput {
@@ -1280,12 +1232,6 @@ func (o TenancyOutput) ToTenancyPtrOutputWithContext(ctx context.Context) Tenanc
 	}).(TenancyPtrOutput)
 }
 
-func (o TenancyOutput) ToOutput(ctx context.Context) pulumix.Output[Tenancy] {
-	return pulumix.Output[Tenancy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TenancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1319,12 +1265,6 @@ func (o TenancyPtrOutput) ToTenancyPtrOutput() TenancyPtrOutput {
 
 func (o TenancyPtrOutput) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
 	return o
-}
-
-func (o TenancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Tenancy] {
-	return pulumix.Output[*Tenancy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TenancyPtrOutput) Elem() TenancyOutput {

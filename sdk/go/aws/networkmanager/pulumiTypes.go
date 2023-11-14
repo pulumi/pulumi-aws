@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutput() Connect
 
 func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutputWithContext(ctx context.Context) ConnectAttachmentOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput)
-}
-
-func (i ConnectAttachmentOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentOptions] {
-	return pulumix.Output[ConnectAttachmentOptions]{
-		OutputState: i.ToConnectAttachmentOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
@@ -94,12 +87,6 @@ func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsPtrOutput)
 }
 
-func (i *connectAttachmentOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachmentOptions] {
-	return pulumix.Output[*ConnectAttachmentOptions]{
-		OutputState: i.ToConnectAttachmentOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectAttachmentOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConnectAttachmentOptionsOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutputWithC
 	}).(ConnectAttachmentOptionsPtrOutput)
 }
 
-func (o ConnectAttachmentOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectAttachmentOptions] {
-	return pulumix.Output[ConnectAttachmentOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
 func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
@@ -147,12 +128,6 @@ func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutput()
 
 func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
 	return o
-}
-
-func (o ConnectAttachmentOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachmentOptions] {
-	return pulumix.Output[*ConnectAttachmentOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput {
@@ -206,12 +181,6 @@ func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsOutput)
 }
 
-func (i ConnectPeerBgpOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerBgpOptions] {
-	return pulumix.Output[ConnectPeerBgpOptions]{
-		OutputState: i.ToConnectPeerBgpOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectPeerBgpOptionsArgs) ToConnectPeerBgpOptionsPtrOutput() ConnectPeerBgpOptionsPtrOutput {
 	return i.ToConnectPeerBgpOptionsPtrOutputWithContext(context.Background())
 }
@@ -253,12 +222,6 @@ func (i *connectPeerBgpOptionsPtrType) ToConnectPeerBgpOptionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerBgpOptionsPtrOutput)
 }
 
-func (i *connectPeerBgpOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeerBgpOptions] {
-	return pulumix.Output[*ConnectPeerBgpOptions]{
-		OutputState: i.ToConnectPeerBgpOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectPeerBgpOptionsOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerBgpOptionsOutput) ElementType() reflect.Type {
@@ -283,12 +246,6 @@ func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext
 	}).(ConnectPeerBgpOptionsPtrOutput)
 }
 
-func (o ConnectPeerBgpOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerBgpOptions] {
-	return pulumix.Output[ConnectPeerBgpOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpOptions) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
 }
@@ -305,12 +262,6 @@ func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutput() Conne
 
 func (o ConnectPeerBgpOptionsPtrOutput) ToConnectPeerBgpOptionsPtrOutputWithContext(ctx context.Context) ConnectPeerBgpOptionsPtrOutput {
 	return o
-}
-
-func (o ConnectPeerBgpOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectPeerBgpOptions] {
-	return pulumix.Output[*ConnectPeerBgpOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
@@ -381,12 +332,6 @@ func (i ConnectPeerConfigurationArgs) ToConnectPeerConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationOutput)
 }
 
-func (i ConnectPeerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerConfiguration] {
-	return pulumix.Output[ConnectPeerConfiguration]{
-		OutputState: i.ToConnectPeerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectPeerConfigurationArrayInput is an input type that accepts ConnectPeerConfigurationArray and ConnectPeerConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerConfigurationArrayInput` via:
 //
@@ -412,12 +357,6 @@ func (i ConnectPeerConfigurationArray) ToConnectPeerConfigurationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationArrayOutput)
 }
 
-func (i ConnectPeerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerConfiguration] {
-	return pulumix.Output[[]ConnectPeerConfiguration]{
-		OutputState: i.ToConnectPeerConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectPeerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerConfigurationOutput) ElementType() reflect.Type {
@@ -430,12 +369,6 @@ func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutput() Conne
 
 func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationOutput {
 	return o
-}
-
-func (o ConnectPeerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerConfiguration] {
-	return pulumix.Output[ConnectPeerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerConfigurationBgpConfigurationArrayOutput {
@@ -477,12 +410,6 @@ func (o ConnectPeerConfigurationArrayOutput) ToConnectPeerConfigurationArrayOutp
 
 func (o ConnectPeerConfigurationArrayOutput) ToConnectPeerConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationArrayOutput {
 	return o
-}
-
-func (o ConnectPeerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerConfiguration] {
-	return pulumix.Output[[]ConnectPeerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectPeerConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerConfigurationOutput {
@@ -536,12 +463,6 @@ func (i ConnectPeerConfigurationBgpConfigurationArgs) ToConnectPeerConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationBgpConfigurationOutput)
 }
 
-func (i ConnectPeerConfigurationBgpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerConfigurationBgpConfiguration] {
-	return pulumix.Output[ConnectPeerConfigurationBgpConfiguration]{
-		OutputState: i.ToConnectPeerConfigurationBgpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectPeerConfigurationBgpConfigurationArrayInput is an input type that accepts ConnectPeerConfigurationBgpConfigurationArray and ConnectPeerConfigurationBgpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConnectPeerConfigurationBgpConfigurationArrayInput` via:
 //
@@ -567,12 +488,6 @@ func (i ConnectPeerConfigurationBgpConfigurationArray) ToConnectPeerConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectPeerConfigurationBgpConfigurationArrayOutput)
 }
 
-func (i ConnectPeerConfigurationBgpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerConfigurationBgpConfiguration] {
-	return pulumix.Output[[]ConnectPeerConfigurationBgpConfiguration]{
-		OutputState: i.ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectPeerConfigurationBgpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectPeerConfigurationBgpConfigurationOutput) ElementType() reflect.Type {
@@ -585,12 +500,6 @@ func (o ConnectPeerConfigurationBgpConfigurationOutput) ToConnectPeerConfigurati
 
 func (o ConnectPeerConfigurationBgpConfigurationOutput) ToConnectPeerConfigurationBgpConfigurationOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationOutput {
 	return o
-}
-
-func (o ConnectPeerConfigurationBgpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectPeerConfigurationBgpConfiguration] {
-	return pulumix.Output[ConnectPeerConfigurationBgpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A Connect peer core network address.
@@ -625,12 +534,6 @@ func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) ToConnectPeerConfig
 
 func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) ToConnectPeerConfigurationBgpConfigurationArrayOutputWithContext(ctx context.Context) ConnectPeerConfigurationBgpConfigurationArrayOutput {
 	return o
-}
-
-func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectPeerConfigurationBgpConfiguration] {
-	return pulumix.Output[[]ConnectPeerConfigurationBgpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectPeerConfigurationBgpConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPeerConfigurationBgpConfigurationOutput {
@@ -680,12 +583,6 @@ func (i CoreNetworkEdgeArgs) ToCoreNetworkEdgeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEdgeOutput)
 }
 
-func (i CoreNetworkEdgeArgs) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkEdge] {
-	return pulumix.Output[CoreNetworkEdge]{
-		OutputState: i.ToCoreNetworkEdgeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CoreNetworkEdgeArrayInput is an input type that accepts CoreNetworkEdgeArray and CoreNetworkEdgeArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkEdgeArrayInput` via:
 //
@@ -711,12 +608,6 @@ func (i CoreNetworkEdgeArray) ToCoreNetworkEdgeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkEdgeArrayOutput)
 }
 
-func (i CoreNetworkEdgeArray) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkEdge] {
-	return pulumix.Output[[]CoreNetworkEdge]{
-		OutputState: i.ToCoreNetworkEdgeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreNetworkEdgeOutput struct{ *pulumi.OutputState }
 
 func (CoreNetworkEdgeOutput) ElementType() reflect.Type {
@@ -729,12 +620,6 @@ func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutput() CoreNetworkEdgeOutput {
 
 func (o CoreNetworkEdgeOutput) ToCoreNetworkEdgeOutputWithContext(ctx context.Context) CoreNetworkEdgeOutput {
 	return o
-}
-
-func (o CoreNetworkEdgeOutput) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkEdge] {
-	return pulumix.Output[CoreNetworkEdge]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ASN of a core network edge.
@@ -764,12 +649,6 @@ func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutput() CoreNetworkEd
 
 func (o CoreNetworkEdgeArrayOutput) ToCoreNetworkEdgeArrayOutputWithContext(ctx context.Context) CoreNetworkEdgeArrayOutput {
 	return o
-}
-
-func (o CoreNetworkEdgeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkEdge] {
-	return pulumix.Output[[]CoreNetworkEdge]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreNetworkEdgeArrayOutput) Index(i pulumi.IntInput) CoreNetworkEdgeOutput {
@@ -819,12 +698,6 @@ func (i CoreNetworkSegmentArgs) ToCoreNetworkSegmentOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkSegmentOutput)
 }
 
-func (i CoreNetworkSegmentArgs) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkSegment] {
-	return pulumix.Output[CoreNetworkSegment]{
-		OutputState: i.ToCoreNetworkSegmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CoreNetworkSegmentArrayInput is an input type that accepts CoreNetworkSegmentArray and CoreNetworkSegmentArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkSegmentArrayInput` via:
 //
@@ -850,12 +723,6 @@ func (i CoreNetworkSegmentArray) ToCoreNetworkSegmentArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkSegmentArrayOutput)
 }
 
-func (i CoreNetworkSegmentArray) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkSegment] {
-	return pulumix.Output[[]CoreNetworkSegment]{
-		OutputState: i.ToCoreNetworkSegmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreNetworkSegmentOutput struct{ *pulumi.OutputState }
 
 func (CoreNetworkSegmentOutput) ElementType() reflect.Type {
@@ -868,12 +735,6 @@ func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutput() CoreNetworkSegmen
 
 func (o CoreNetworkSegmentOutput) ToCoreNetworkSegmentOutputWithContext(ctx context.Context) CoreNetworkSegmentOutput {
 	return o
-}
-
-func (o CoreNetworkSegmentOutput) ToOutput(ctx context.Context) pulumix.Output[CoreNetworkSegment] {
-	return pulumix.Output[CoreNetworkSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Regions where the edges are located.
@@ -903,12 +764,6 @@ func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutput() CoreNet
 
 func (o CoreNetworkSegmentArrayOutput) ToCoreNetworkSegmentArrayOutputWithContext(ctx context.Context) CoreNetworkSegmentArrayOutput {
 	return o
-}
-
-func (o CoreNetworkSegmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreNetworkSegment] {
-	return pulumix.Output[[]CoreNetworkSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkSegmentOutput {
@@ -954,12 +809,6 @@ func (i DeviceAwsLocationArgs) ToDeviceAwsLocationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationOutput)
 }
 
-func (i DeviceAwsLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceAwsLocation] {
-	return pulumix.Output[DeviceAwsLocation]{
-		OutputState: i.ToDeviceAwsLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeviceAwsLocationArgs) ToDeviceAwsLocationPtrOutput() DeviceAwsLocationPtrOutput {
 	return i.ToDeviceAwsLocationPtrOutputWithContext(context.Background())
 }
@@ -1001,12 +850,6 @@ func (i *deviceAwsLocationPtrType) ToDeviceAwsLocationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceAwsLocationPtrOutput)
 }
 
-func (i *deviceAwsLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceAwsLocation] {
-	return pulumix.Output[*DeviceAwsLocation]{
-		OutputState: i.ToDeviceAwsLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceAwsLocationOutput struct{ *pulumi.OutputState }
 
 func (DeviceAwsLocationOutput) ElementType() reflect.Type {
@@ -1031,12 +874,6 @@ func (o DeviceAwsLocationOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx con
 	}).(DeviceAwsLocationPtrOutput)
 }
 
-func (o DeviceAwsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceAwsLocation] {
-	return pulumix.Output[DeviceAwsLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the subnet that the device is located in.
 func (o DeviceAwsLocationOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
@@ -1059,12 +896,6 @@ func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutput() DeviceAwsLoca
 
 func (o DeviceAwsLocationPtrOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx context.Context) DeviceAwsLocationPtrOutput {
 	return o
-}
-
-func (o DeviceAwsLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceAwsLocation] {
-	return pulumix.Output[*DeviceAwsLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceAwsLocationPtrOutput) Elem() DeviceAwsLocationOutput {
@@ -1138,12 +969,6 @@ func (i DeviceLocationArgs) ToDeviceLocationOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceLocationOutput)
 }
 
-func (i DeviceLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceLocation] {
-	return pulumix.Output[DeviceLocation]{
-		OutputState: i.ToDeviceLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeviceLocationArgs) ToDeviceLocationPtrOutput() DeviceLocationPtrOutput {
 	return i.ToDeviceLocationPtrOutputWithContext(context.Background())
 }
@@ -1185,12 +1010,6 @@ func (i *deviceLocationPtrType) ToDeviceLocationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceLocationPtrOutput)
 }
 
-func (i *deviceLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceLocation] {
-	return pulumix.Output[*DeviceLocation]{
-		OutputState: i.ToDeviceLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceLocationOutput struct{ *pulumi.OutputState }
 
 func (DeviceLocationOutput) ElementType() reflect.Type {
@@ -1213,12 +1032,6 @@ func (o DeviceLocationOutput) ToDeviceLocationPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceLocation) *DeviceLocation {
 		return &v
 	}).(DeviceLocationPtrOutput)
-}
-
-func (o DeviceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceLocation] {
-	return pulumix.Output[DeviceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The physical address.
@@ -1248,12 +1061,6 @@ func (o DeviceLocationPtrOutput) ToDeviceLocationPtrOutput() DeviceLocationPtrOu
 
 func (o DeviceLocationPtrOutput) ToDeviceLocationPtrOutputWithContext(ctx context.Context) DeviceLocationPtrOutput {
 	return o
-}
-
-func (o DeviceLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceLocation] {
-	return pulumix.Output[*DeviceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceLocationPtrOutput) Elem() DeviceLocationOutput {
@@ -1333,12 +1140,6 @@ func (i LinkBandwidthArgs) ToLinkBandwidthOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthOutput)
 }
 
-func (i LinkBandwidthArgs) ToOutput(ctx context.Context) pulumix.Output[LinkBandwidth] {
-	return pulumix.Output[LinkBandwidth]{
-		OutputState: i.ToLinkBandwidthOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LinkBandwidthArgs) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutput {
 	return i.ToLinkBandwidthPtrOutputWithContext(context.Background())
 }
@@ -1380,12 +1181,6 @@ func (i *linkBandwidthPtrType) ToLinkBandwidthPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthPtrOutput)
 }
 
-func (i *linkBandwidthPtrType) ToOutput(ctx context.Context) pulumix.Output[*LinkBandwidth] {
-	return pulumix.Output[*LinkBandwidth]{
-		OutputState: i.ToLinkBandwidthPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkBandwidthOutput struct{ *pulumi.OutputState }
 
 func (LinkBandwidthOutput) ElementType() reflect.Type {
@@ -1410,12 +1205,6 @@ func (o LinkBandwidthOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Con
 	}).(LinkBandwidthPtrOutput)
 }
 
-func (o LinkBandwidthOutput) ToOutput(ctx context.Context) pulumix.Output[LinkBandwidth] {
-	return pulumix.Output[LinkBandwidth]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Download speed in Mbps.
 func (o LinkBandwidthOutput) DownloadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.DownloadSpeed }).(pulumi.IntPtrOutput)
@@ -1438,12 +1227,6 @@ func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutput() LinkBandwidthPtrOutpu
 
 func (o LinkBandwidthPtrOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Context) LinkBandwidthPtrOutput {
 	return o
-}
-
-func (o LinkBandwidthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkBandwidth] {
-	return pulumix.Output[*LinkBandwidth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkBandwidthPtrOutput) Elem() LinkBandwidthOutput {
@@ -1517,12 +1300,6 @@ func (i SiteLocationArgs) ToSiteLocationOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLocationOutput)
 }
 
-func (i SiteLocationArgs) ToOutput(ctx context.Context) pulumix.Output[SiteLocation] {
-	return pulumix.Output[SiteLocation]{
-		OutputState: i.ToSiteLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SiteLocationArgs) ToSiteLocationPtrOutput() SiteLocationPtrOutput {
 	return i.ToSiteLocationPtrOutputWithContext(context.Background())
 }
@@ -1564,12 +1341,6 @@ func (i *siteLocationPtrType) ToSiteLocationPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLocationPtrOutput)
 }
 
-func (i *siteLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SiteLocation] {
-	return pulumix.Output[*SiteLocation]{
-		OutputState: i.ToSiteLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SiteLocationOutput struct{ *pulumi.OutputState }
 
 func (SiteLocationOutput) ElementType() reflect.Type {
@@ -1592,12 +1363,6 @@ func (o SiteLocationOutput) ToSiteLocationPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLocation) *SiteLocation {
 		return &v
 	}).(SiteLocationPtrOutput)
-}
-
-func (o SiteLocationOutput) ToOutput(ctx context.Context) pulumix.Output[SiteLocation] {
-	return pulumix.Output[SiteLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address of the location.
@@ -1627,12 +1392,6 @@ func (o SiteLocationPtrOutput) ToSiteLocationPtrOutput() SiteLocationPtrOutput {
 
 func (o SiteLocationPtrOutput) ToSiteLocationPtrOutputWithContext(ctx context.Context) SiteLocationPtrOutput {
 	return o
-}
-
-func (o SiteLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SiteLocation] {
-	return pulumix.Output[*SiteLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SiteLocationPtrOutput) Elem() SiteLocationOutput {
@@ -1712,12 +1471,6 @@ func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOptionsOutput)
 }
 
-func (i VpcAttachmentOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentOptions] {
-	return pulumix.Output[VpcAttachmentOptions]{
-		OutputState: i.ToVpcAttachmentOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VpcAttachmentOptionsArgs) ToVpcAttachmentOptionsPtrOutput() VpcAttachmentOptionsPtrOutput {
 	return i.ToVpcAttachmentOptionsPtrOutputWithContext(context.Background())
 }
@@ -1759,12 +1512,6 @@ func (i *vpcAttachmentOptionsPtrType) ToVpcAttachmentOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOptionsPtrOutput)
 }
 
-func (i *vpcAttachmentOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentOptions] {
-	return pulumix.Output[*VpcAttachmentOptions]{
-		OutputState: i.ToVpcAttachmentOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcAttachmentOptionsOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOptionsOutput) ElementType() reflect.Type {
@@ -1789,12 +1536,6 @@ func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsPtrOutputWithContext(c
 	}).(VpcAttachmentOptionsPtrOutput)
 }
 
-func (o VpcAttachmentOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[VpcAttachmentOptions] {
-	return pulumix.Output[VpcAttachmentOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether appliance mode is supported. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
 func (o VpcAttachmentOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
@@ -1817,12 +1558,6 @@ func (o VpcAttachmentOptionsPtrOutput) ToVpcAttachmentOptionsPtrOutput() VpcAtta
 
 func (o VpcAttachmentOptionsPtrOutput) ToVpcAttachmentOptionsPtrOutputWithContext(ctx context.Context) VpcAttachmentOptionsPtrOutput {
 	return o
-}
-
-func (o VpcAttachmentOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcAttachmentOptions] {
-	return pulumix.Output[*VpcAttachmentOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcAttachmentOptionsPtrOutput) Elem() VpcAttachmentOptionsOutput {
@@ -1904,12 +1639,6 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ToGetCoreNetworkPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicy] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicy]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyArray and GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput` via:
 //
@@ -1935,12 +1664,6 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArray) ToGetCoreNetworkPolic
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicy] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicy]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentAttachmentPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ElementType() reflect.Type {
@@ -1953,12 +1676,6 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPoli
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicy] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Action to take when a condition is true. Detailed Below.
@@ -2002,12 +1719,6 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ToGetCoreNetwor
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicy] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
@@ -2061,12 +1772,6 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs) ToGetCoreNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyAction] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyAction]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ElementType() reflect.Type {
@@ -2079,12 +1784,6 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToGetCoreNetwo
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyAction] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
@@ -2152,12 +1851,6 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ToGetCoreNetw
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyCondition] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyCondition]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray and GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput` via:
 //
@@ -2183,12 +1876,6 @@ func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray) ToGetCoreNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ElementType() reflect.Type {
@@ -2201,12 +1888,6 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ToGetCoreNe
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyCondition] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentAttachmentPolicyCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // string value
@@ -2241,12 +1922,6 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ToGetC
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
@@ -2300,12 +1975,6 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ToGetCoreNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfiguration] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfiguration]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput` via:
 //
@@ -2331,12 +2000,6 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray) ToGetCoreNetw
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -2349,12 +2012,6 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ToGetCoreNet
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfiguration] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
@@ -2391,12 +2048,6 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ToGetCo
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
@@ -2444,12 +2095,6 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput` via:
 //
@@ -2475,12 +2120,6 @@ func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ElementType() reflect.Type {
@@ -2493,12 +2132,6 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) 
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
@@ -2529,12 +2162,6 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOut
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
@@ -2600,12 +2227,6 @@ func (i GetCoreNetworkPolicyDocumentSegmentArgs) ToGetCoreNetworkPolicyDocumentS
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentSegmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentSegment] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentSegment]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentSegmentArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentArray and GetCoreNetworkPolicyDocumentSegmentArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentArrayInput` via:
 //
@@ -2631,12 +2252,6 @@ func (i GetCoreNetworkPolicyDocumentSegmentArray) ToGetCoreNetworkPolicyDocument
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentSegmentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentSegment] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentSegment]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentSegmentOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentSegmentOutput) ElementType() reflect.Type {
@@ -2649,12 +2264,6 @@ func (o GetCoreNetworkPolicyDocumentSegmentOutput) ToGetCoreNetworkPolicyDocumen
 
 func (o GetCoreNetworkPolicyDocumentSegmentOutput) ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentSegmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentSegment] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
@@ -2704,12 +2313,6 @@ func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) ToGetCoreNetworkPolicyDo
 
 func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentArrayOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentSegment] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentSegmentOutput {
@@ -2779,12 +2382,6 @@ func (i GetCoreNetworkPolicyDocumentSegmentActionArgs) ToGetCoreNetworkPolicyDoc
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentSegmentActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentSegmentAction] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentSegmentAction]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCoreNetworkPolicyDocumentSegmentActionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArray and GetCoreNetworkPolicyDocumentSegmentActionArrayOutput values.
 // You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionArrayInput` via:
 //
@@ -2810,12 +2407,6 @@ func (i GetCoreNetworkPolicyDocumentSegmentActionArray) ToGetCoreNetworkPolicyDo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionArrayOutput)
 }
 
-func (i GetCoreNetworkPolicyDocumentSegmentActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentSegmentAction] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentSegmentAction]{
-		OutputState: i.ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCoreNetworkPolicyDocumentSegmentActionOutput struct{ *pulumi.OutputState }
 
 func (GetCoreNetworkPolicyDocumentSegmentActionOutput) ElementType() reflect.Type {
@@ -2828,12 +2419,6 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyD
 
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionOutput {
 	return o
-}
-
-func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentSegmentAction] {
-	return pulumix.Output[GetCoreNetworkPolicyDocumentSegmentAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Action to take for the chosen segment. Valid values `create-route` or `share`.
@@ -2890,12 +2475,6 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) ToGetCoreNetworkPo
 	return o
 }
 
-func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCoreNetworkPolicyDocumentSegmentAction] {
-	return pulumix.Output[[]GetCoreNetworkPolicyDocumentSegmentAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentSegmentActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegmentAction {
 		return vs[0].([]GetCoreNetworkPolicyDocumentSegmentAction)[vs[1].(int)]
@@ -2939,12 +2518,6 @@ func (i GetDeviceAwsLocationArgs) ToGetDeviceAwsLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAwsLocationOutput)
 }
 
-func (i GetDeviceAwsLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDeviceAwsLocation] {
-	return pulumix.Output[GetDeviceAwsLocation]{
-		OutputState: i.ToGetDeviceAwsLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDeviceAwsLocationArrayInput is an input type that accepts GetDeviceAwsLocationArray and GetDeviceAwsLocationArrayOutput values.
 // You can construct a concrete instance of `GetDeviceAwsLocationArrayInput` via:
 //
@@ -2970,12 +2543,6 @@ func (i GetDeviceAwsLocationArray) ToGetDeviceAwsLocationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceAwsLocationArrayOutput)
 }
 
-func (i GetDeviceAwsLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceAwsLocation] {
-	return pulumix.Output[[]GetDeviceAwsLocation]{
-		OutputState: i.ToGetDeviceAwsLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDeviceAwsLocationOutput struct{ *pulumi.OutputState }
 
 func (GetDeviceAwsLocationOutput) ElementType() reflect.Type {
@@ -2988,12 +2555,6 @@ func (o GetDeviceAwsLocationOutput) ToGetDeviceAwsLocationOutput() GetDeviceAwsL
 
 func (o GetDeviceAwsLocationOutput) ToGetDeviceAwsLocationOutputWithContext(ctx context.Context) GetDeviceAwsLocationOutput {
 	return o
-}
-
-func (o GetDeviceAwsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDeviceAwsLocation] {
-	return pulumix.Output[GetDeviceAwsLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the subnet that the device is located in.
@@ -3018,12 +2579,6 @@ func (o GetDeviceAwsLocationArrayOutput) ToGetDeviceAwsLocationArrayOutput() Get
 
 func (o GetDeviceAwsLocationArrayOutput) ToGetDeviceAwsLocationArrayOutputWithContext(ctx context.Context) GetDeviceAwsLocationArrayOutput {
 	return o
-}
-
-func (o GetDeviceAwsLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceAwsLocation] {
-	return pulumix.Output[[]GetDeviceAwsLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDeviceAwsLocationArrayOutput) Index(i pulumi.IntInput) GetDeviceAwsLocationOutput {
@@ -3073,12 +2628,6 @@ func (i GetDeviceLocationArgs) ToGetDeviceLocationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceLocationOutput)
 }
 
-func (i GetDeviceLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDeviceLocation] {
-	return pulumix.Output[GetDeviceLocation]{
-		OutputState: i.ToGetDeviceLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDeviceLocationArrayInput is an input type that accepts GetDeviceLocationArray and GetDeviceLocationArrayOutput values.
 // You can construct a concrete instance of `GetDeviceLocationArrayInput` via:
 //
@@ -3104,12 +2653,6 @@ func (i GetDeviceLocationArray) ToGetDeviceLocationArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceLocationArrayOutput)
 }
 
-func (i GetDeviceLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceLocation] {
-	return pulumix.Output[[]GetDeviceLocation]{
-		OutputState: i.ToGetDeviceLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDeviceLocationOutput struct{ *pulumi.OutputState }
 
 func (GetDeviceLocationOutput) ElementType() reflect.Type {
@@ -3122,12 +2665,6 @@ func (o GetDeviceLocationOutput) ToGetDeviceLocationOutput() GetDeviceLocationOu
 
 func (o GetDeviceLocationOutput) ToGetDeviceLocationOutputWithContext(ctx context.Context) GetDeviceLocationOutput {
 	return o
-}
-
-func (o GetDeviceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDeviceLocation] {
-	return pulumix.Output[GetDeviceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Physical address.
@@ -3157,12 +2694,6 @@ func (o GetDeviceLocationArrayOutput) ToGetDeviceLocationArrayOutput() GetDevice
 
 func (o GetDeviceLocationArrayOutput) ToGetDeviceLocationArrayOutputWithContext(ctx context.Context) GetDeviceLocationArrayOutput {
 	return o
-}
-
-func (o GetDeviceLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceLocation] {
-	return pulumix.Output[[]GetDeviceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDeviceLocationArrayOutput) Index(i pulumi.IntInput) GetDeviceLocationOutput {
@@ -3208,12 +2739,6 @@ func (i GetLinkBandwidthArgs) ToGetLinkBandwidthOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinkBandwidthOutput)
 }
 
-func (i GetLinkBandwidthArgs) ToOutput(ctx context.Context) pulumix.Output[GetLinkBandwidth] {
-	return pulumix.Output[GetLinkBandwidth]{
-		OutputState: i.ToGetLinkBandwidthOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLinkBandwidthArrayInput is an input type that accepts GetLinkBandwidthArray and GetLinkBandwidthArrayOutput values.
 // You can construct a concrete instance of `GetLinkBandwidthArrayInput` via:
 //
@@ -3239,12 +2764,6 @@ func (i GetLinkBandwidthArray) ToGetLinkBandwidthArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetLinkBandwidthArrayOutput)
 }
 
-func (i GetLinkBandwidthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLinkBandwidth] {
-	return pulumix.Output[[]GetLinkBandwidth]{
-		OutputState: i.ToGetLinkBandwidthArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLinkBandwidthOutput struct{ *pulumi.OutputState }
 
 func (GetLinkBandwidthOutput) ElementType() reflect.Type {
@@ -3257,12 +2776,6 @@ func (o GetLinkBandwidthOutput) ToGetLinkBandwidthOutput() GetLinkBandwidthOutpu
 
 func (o GetLinkBandwidthOutput) ToGetLinkBandwidthOutputWithContext(ctx context.Context) GetLinkBandwidthOutput {
 	return o
-}
-
-func (o GetLinkBandwidthOutput) ToOutput(ctx context.Context) pulumix.Output[GetLinkBandwidth] {
-	return pulumix.Output[GetLinkBandwidth]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Download speed in Mbps.
@@ -3287,12 +2800,6 @@ func (o GetLinkBandwidthArrayOutput) ToGetLinkBandwidthArrayOutput() GetLinkBand
 
 func (o GetLinkBandwidthArrayOutput) ToGetLinkBandwidthArrayOutputWithContext(ctx context.Context) GetLinkBandwidthArrayOutput {
 	return o
-}
-
-func (o GetLinkBandwidthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLinkBandwidth] {
-	return pulumix.Output[[]GetLinkBandwidth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLinkBandwidthArrayOutput) Index(i pulumi.IntInput) GetLinkBandwidthOutput {
@@ -3342,12 +2849,6 @@ func (i GetSiteLocationArgs) ToGetSiteLocationOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSiteLocationOutput)
 }
 
-func (i GetSiteLocationArgs) ToOutput(ctx context.Context) pulumix.Output[GetSiteLocation] {
-	return pulumix.Output[GetSiteLocation]{
-		OutputState: i.ToGetSiteLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSiteLocationArrayInput is an input type that accepts GetSiteLocationArray and GetSiteLocationArrayOutput values.
 // You can construct a concrete instance of `GetSiteLocationArrayInput` via:
 //
@@ -3373,12 +2874,6 @@ func (i GetSiteLocationArray) ToGetSiteLocationArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSiteLocationArrayOutput)
 }
 
-func (i GetSiteLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSiteLocation] {
-	return pulumix.Output[[]GetSiteLocation]{
-		OutputState: i.ToGetSiteLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSiteLocationOutput struct{ *pulumi.OutputState }
 
 func (GetSiteLocationOutput) ElementType() reflect.Type {
@@ -3391,12 +2886,6 @@ func (o GetSiteLocationOutput) ToGetSiteLocationOutput() GetSiteLocationOutput {
 
 func (o GetSiteLocationOutput) ToGetSiteLocationOutputWithContext(ctx context.Context) GetSiteLocationOutput {
 	return o
-}
-
-func (o GetSiteLocationOutput) ToOutput(ctx context.Context) pulumix.Output[GetSiteLocation] {
-	return pulumix.Output[GetSiteLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Address of the location.
@@ -3426,12 +2915,6 @@ func (o GetSiteLocationArrayOutput) ToGetSiteLocationArrayOutput() GetSiteLocati
 
 func (o GetSiteLocationArrayOutput) ToGetSiteLocationArrayOutputWithContext(ctx context.Context) GetSiteLocationArrayOutput {
 	return o
-}
-
-func (o GetSiteLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSiteLocation] {
-	return pulumix.Output[[]GetSiteLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSiteLocationArrayOutput) Index(i pulumi.IntInput) GetSiteLocationOutput {

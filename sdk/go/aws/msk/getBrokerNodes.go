@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Broker Nodes.
@@ -99,12 +98,6 @@ func (o GetBrokerNodesResultOutput) ToGetBrokerNodesResultOutput() GetBrokerNode
 
 func (o GetBrokerNodesResultOutput) ToGetBrokerNodesResultOutputWithContext(ctx context.Context) GetBrokerNodesResultOutput {
 	return o
-}
-
-func (o GetBrokerNodesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerNodesResult] {
-	return pulumix.Output[GetBrokerNodesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBrokerNodesResultOutput) ClusterArn() pulumi.StringOutput {

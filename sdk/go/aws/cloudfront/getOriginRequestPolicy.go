@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -137,12 +136,6 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 
 func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutputWithContext(ctx context.Context) LookupOriginRequestPolicyResultOutput {
 	return o
-}
-
-func (o LookupOriginRequestPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginRequestPolicyResult] {
-	return pulumix.Output[LookupOriginRequestPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Comment to describe the origin request policy.

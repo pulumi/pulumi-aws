@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 traffic policy instance resource.
@@ -189,12 +188,6 @@ func (i *TrafficPolicyInstance) ToTrafficPolicyInstanceOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyInstanceOutput)
 }
 
-func (i *TrafficPolicyInstance) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicyInstance] {
-	return pulumix.Output[*TrafficPolicyInstance]{
-		OutputState: i.ToTrafficPolicyInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficPolicyInstanceArrayInput is an input type that accepts TrafficPolicyInstanceArray and TrafficPolicyInstanceArrayOutput values.
 // You can construct a concrete instance of `TrafficPolicyInstanceArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i TrafficPolicyInstanceArray) ToTrafficPolicyInstanceArrayOutput() Traffic
 
 func (i TrafficPolicyInstanceArray) ToTrafficPolicyInstanceArrayOutputWithContext(ctx context.Context) TrafficPolicyInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyInstanceArrayOutput)
-}
-
-func (i TrafficPolicyInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicyInstance] {
-	return pulumix.Output[[]*TrafficPolicyInstance]{
-		OutputState: i.ToTrafficPolicyInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficPolicyInstanceMapInput is an input type that accepts TrafficPolicyInstanceMap and TrafficPolicyInstanceMapOutput values.
@@ -251,12 +238,6 @@ func (i TrafficPolicyInstanceMap) ToTrafficPolicyInstanceMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficPolicyInstanceMapOutput)
 }
 
-func (i TrafficPolicyInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicyInstance] {
-	return pulumix.Output[map[string]*TrafficPolicyInstance]{
-		OutputState: i.ToTrafficPolicyInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficPolicyInstanceOutput struct{ *pulumi.OutputState }
 
 func (TrafficPolicyInstanceOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o TrafficPolicyInstanceOutput) ToTrafficPolicyInstanceOutput() TrafficPoli
 
 func (o TrafficPolicyInstanceOutput) ToTrafficPolicyInstanceOutputWithContext(ctx context.Context) TrafficPolicyInstanceOutput {
 	return o
-}
-
-func (o TrafficPolicyInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficPolicyInstance] {
-	return pulumix.Output[*TrafficPolicyInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
@@ -316,12 +291,6 @@ func (o TrafficPolicyInstanceArrayOutput) ToTrafficPolicyInstanceArrayOutputWith
 	return o
 }
 
-func (o TrafficPolicyInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficPolicyInstance] {
-	return pulumix.Output[[]*TrafficPolicyInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficPolicyInstanceArrayOutput) Index(i pulumi.IntInput) TrafficPolicyInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficPolicyInstance {
 		return vs[0].([]*TrafficPolicyInstance)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o TrafficPolicyInstanceMapOutput) ToTrafficPolicyInstanceMapOutput() Traff
 
 func (o TrafficPolicyInstanceMapOutput) ToTrafficPolicyInstanceMapOutputWithContext(ctx context.Context) TrafficPolicyInstanceMapOutput {
 	return o
-}
-
-func (o TrafficPolicyInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficPolicyInstance] {
-	return pulumix.Output[map[string]*TrafficPolicyInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficPolicyInstanceMapOutput) MapIndex(k pulumi.StringInput) TrafficPolicyInstanceOutput {

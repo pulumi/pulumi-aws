@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
@@ -206,12 +205,6 @@ func (i *VoiceConnector) ToVoiceConnectorOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorOutput)
 }
 
-func (i *VoiceConnector) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnector] {
-	return pulumix.Output[*VoiceConnector]{
-		OutputState: i.ToVoiceConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VoiceConnectorArrayInput is an input type that accepts VoiceConnectorArray and VoiceConnectorArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i VoiceConnectorArray) ToVoiceConnectorArrayOutput() VoiceConnectorArrayOu
 
 func (i VoiceConnectorArray) ToVoiceConnectorArrayOutputWithContext(ctx context.Context) VoiceConnectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorArrayOutput)
-}
-
-func (i VoiceConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnector] {
-	return pulumix.Output[[]*VoiceConnector]{
-		OutputState: i.ToVoiceConnectorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VoiceConnectorMapInput is an input type that accepts VoiceConnectorMap and VoiceConnectorMapOutput values.
@@ -268,12 +255,6 @@ func (i VoiceConnectorMap) ToVoiceConnectorMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorMapOutput)
 }
 
-func (i VoiceConnectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnector] {
-	return pulumix.Output[map[string]*VoiceConnector]{
-		OutputState: i.ToVoiceConnectorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VoiceConnectorOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o VoiceConnectorOutput) ToVoiceConnectorOutput() VoiceConnectorOutput {
 
 func (o VoiceConnectorOutput) ToVoiceConnectorOutputWithContext(ctx context.Context) VoiceConnectorOutput {
 	return o
-}
-
-func (o VoiceConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnector] {
-	return pulumix.Output[*VoiceConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
@@ -347,12 +322,6 @@ func (o VoiceConnectorArrayOutput) ToVoiceConnectorArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o VoiceConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnector] {
-	return pulumix.Output[[]*VoiceConnector]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VoiceConnectorArrayOutput) Index(i pulumi.IntInput) VoiceConnectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnector {
 		return vs[0].([]*VoiceConnector)[vs[1].(int)]
@@ -371,12 +340,6 @@ func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutput() VoiceConnectorMapOu
 
 func (o VoiceConnectorMapOutput) ToVoiceConnectorMapOutputWithContext(ctx context.Context) VoiceConnectorMapOutput {
 	return o
-}
-
-func (o VoiceConnectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnector] {
-	return pulumix.Output[map[string]*VoiceConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VoiceConnectorMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorOutput {

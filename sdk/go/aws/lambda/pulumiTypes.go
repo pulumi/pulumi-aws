@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i AliasRoutingConfigArgs) ToAliasRoutingConfigOutput() AliasRoutingConfigO
 
 func (i AliasRoutingConfigArgs) ToAliasRoutingConfigOutputWithContext(ctx context.Context) AliasRoutingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigOutput)
-}
-
-func (i AliasRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingConfig] {
-	return pulumix.Output[AliasRoutingConfig]{
-		OutputState: i.ToAliasRoutingConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AliasRoutingConfigArgs) ToAliasRoutingConfigPtrOutput() AliasRoutingConfigPtrOutput {
@@ -94,12 +87,6 @@ func (i *aliasRoutingConfigPtrType) ToAliasRoutingConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigPtrOutput)
 }
 
-func (i *aliasRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingConfig] {
-	return pulumix.Output[*AliasRoutingConfig]{
-		OutputState: i.ToAliasRoutingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AliasRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingConfigOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o AliasRoutingConfigOutput) ToAliasRoutingConfigPtrOutputWithContext(ctx c
 	}).(AliasRoutingConfigPtrOutput)
 }
 
-func (o AliasRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingConfig] {
-	return pulumix.Output[AliasRoutingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A map that defines the proportion of events that should be sent to different versions of a lambda function.
 func (o AliasRoutingConfigOutput) AdditionalVersionWeights() pulumi.Float64MapOutput {
 	return o.ApplyT(func(v AliasRoutingConfig) map[string]float64 { return v.AdditionalVersionWeights }).(pulumi.Float64MapOutput)
@@ -147,12 +128,6 @@ func (o AliasRoutingConfigPtrOutput) ToAliasRoutingConfigPtrOutput() AliasRoutin
 
 func (o AliasRoutingConfigPtrOutput) ToAliasRoutingConfigPtrOutputWithContext(ctx context.Context) AliasRoutingConfigPtrOutput {
 	return o
-}
-
-func (o AliasRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingConfig] {
-	return pulumix.Output[*AliasRoutingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AliasRoutingConfigPtrOutput) Elem() AliasRoutingConfigOutput {
@@ -208,12 +183,6 @@ func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublis
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput)
 }
 
-func (i CodeSigningConfigAllowedPublishersArgs) ToOutput(ctx context.Context) pulumix.Output[CodeSigningConfigAllowedPublishers] {
-	return pulumix.Output[CodeSigningConfigAllowedPublishers]{
-		OutputState: i.ToCodeSigningConfigAllowedPublishersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
 	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
 }
@@ -255,12 +224,6 @@ func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPu
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersPtrOutput)
 }
 
-func (i *codeSigningConfigAllowedPublishersPtrType) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigAllowedPublishers] {
-	return pulumix.Output[*CodeSigningConfigAllowedPublishers]{
-		OutputState: i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CodeSigningConfigAllowedPublishersOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigAllowedPublishersOutput) ElementType() reflect.Type {
@@ -285,12 +248,6 @@ func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPubl
 	}).(CodeSigningConfigAllowedPublishersPtrOutput)
 }
 
-func (o CodeSigningConfigAllowedPublishersOutput) ToOutput(ctx context.Context) pulumix.Output[CodeSigningConfigAllowedPublishers] {
-	return pulumix.Output[CodeSigningConfigAllowedPublishers]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
@@ -308,12 +265,6 @@ func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedP
 
 func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
 	return o
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigAllowedPublishers] {
-	return pulumix.Output[*CodeSigningConfigAllowedPublishers]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
@@ -369,12 +320,6 @@ func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPoliciesOutput)
 }
 
-func (i CodeSigningConfigPoliciesArgs) ToOutput(ctx context.Context) pulumix.Output[CodeSigningConfigPolicies] {
-	return pulumix.Output[CodeSigningConfigPolicies]{
-		OutputState: i.ToCodeSigningConfigPoliciesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CodeSigningConfigPoliciesArgs) ToCodeSigningConfigPoliciesPtrOutput() CodeSigningConfigPoliciesPtrOutput {
 	return i.ToCodeSigningConfigPoliciesPtrOutputWithContext(context.Background())
 }
@@ -416,12 +361,6 @@ func (i *codeSigningConfigPoliciesPtrType) ToCodeSigningConfigPoliciesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigPoliciesPtrOutput)
 }
 
-func (i *codeSigningConfigPoliciesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigPolicies] {
-	return pulumix.Output[*CodeSigningConfigPolicies]{
-		OutputState: i.ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CodeSigningConfigPoliciesOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigPoliciesOutput) ElementType() reflect.Type {
@@ -446,12 +385,6 @@ func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutputWit
 	}).(CodeSigningConfigPoliciesPtrOutput)
 }
 
-func (o CodeSigningConfigPoliciesOutput) ToOutput(ctx context.Context) pulumix.Output[CodeSigningConfigPolicies] {
-	return pulumix.Output[CodeSigningConfigPolicies]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
 func (o CodeSigningConfigPoliciesOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeSigningConfigPolicies) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
@@ -469,12 +402,6 @@ func (o CodeSigningConfigPoliciesPtrOutput) ToCodeSigningConfigPoliciesPtrOutput
 
 func (o CodeSigningConfigPoliciesPtrOutput) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
 	return o
-}
-
-func (o CodeSigningConfigPoliciesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeSigningConfigPolicies] {
-	return pulumix.Output[*CodeSigningConfigPolicies]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CodeSigningConfigPoliciesPtrOutput) Elem() CodeSigningConfigPoliciesOutput {
@@ -530,12 +457,6 @@ func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSource
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
 }
 
-func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingAmazonManagedKafkaEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingAmazonManagedKafkaEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
 	return i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
 }
@@ -577,12 +498,6 @@ func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ToEventSo
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
-func (i *eventSourceMappingAmazonManagedKafkaEventSourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingAmazonManagedKafkaEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingAmazonManagedKafkaEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
@@ -607,12 +522,6 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSour
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
-func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingAmazonManagedKafkaEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingAmazonManagedKafkaEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
@@ -630,12 +539,6 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ToEventS
 
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingAmazonManagedKafkaEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingAmazonManagedKafkaEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Elem() EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput {
@@ -691,12 +594,6 @@ func (i EventSourceMappingDestinationConfigArgs) ToEventSourceMappingDestination
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOutput)
 }
 
-func (i EventSourceMappingDestinationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDestinationConfig] {
-	return pulumix.Output[EventSourceMappingDestinationConfig]{
-		OutputState: i.ToEventSourceMappingDestinationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingDestinationConfigArgs) ToEventSourceMappingDestinationConfigPtrOutput() EventSourceMappingDestinationConfigPtrOutput {
 	return i.ToEventSourceMappingDestinationConfigPtrOutputWithContext(context.Background())
 }
@@ -738,12 +635,6 @@ func (i *eventSourceMappingDestinationConfigPtrType) ToEventSourceMappingDestina
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-func (i *eventSourceMappingDestinationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDestinationConfig] {
-	return pulumix.Output[*EventSourceMappingDestinationConfig]{
-		OutputState: i.ToEventSourceMappingDestinationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDestinationConfigOutput) ElementType() reflect.Type {
@@ -768,12 +659,6 @@ func (o EventSourceMappingDestinationConfigOutput) ToEventSourceMappingDestinati
 	}).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-func (o EventSourceMappingDestinationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDestinationConfig] {
-	return pulumix.Output[EventSourceMappingDestinationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The destination configuration for failed invocations. Detailed below.
 func (o EventSourceMappingDestinationConfigOutput) OnFailure() EventSourceMappingDestinationConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
@@ -793,12 +678,6 @@ func (o EventSourceMappingDestinationConfigPtrOutput) ToEventSourceMappingDestin
 
 func (o EventSourceMappingDestinationConfigPtrOutput) ToEventSourceMappingDestinationConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDestinationConfigPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingDestinationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDestinationConfig] {
-	return pulumix.Output[*EventSourceMappingDestinationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingDestinationConfigPtrOutput) Elem() EventSourceMappingDestinationConfigOutput {
@@ -854,12 +733,6 @@ func (i EventSourceMappingDestinationConfigOnFailureArgs) ToEventSourceMappingDe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOnFailureOutput)
 }
 
-func (i EventSourceMappingDestinationConfigOnFailureArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDestinationConfigOnFailure] {
-	return pulumix.Output[EventSourceMappingDestinationConfigOnFailure]{
-		OutputState: i.ToEventSourceMappingDestinationConfigOnFailureOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingDestinationConfigOnFailureArgs) ToEventSourceMappingDestinationConfigOnFailurePtrOutput() EventSourceMappingDestinationConfigOnFailurePtrOutput {
 	return i.ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(context.Background())
 }
@@ -901,12 +774,6 @@ func (i *eventSourceMappingDestinationConfigOnFailurePtrType) ToEventSourceMappi
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
 
-func (i *eventSourceMappingDestinationConfigOnFailurePtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDestinationConfigOnFailure] {
-	return pulumix.Output[*EventSourceMappingDestinationConfigOnFailure]{
-		OutputState: i.ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingDestinationConfigOnFailureOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDestinationConfigOnFailureOutput) ElementType() reflect.Type {
@@ -931,12 +798,6 @@ func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMapping
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
 
-func (o EventSourceMappingDestinationConfigOnFailureOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDestinationConfigOnFailure] {
-	return pulumix.Output[EventSourceMappingDestinationConfigOnFailure]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the destination resource.
 func (o EventSourceMappingDestinationConfigOnFailureOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
@@ -954,12 +815,6 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) ToEventSourceMapp
 
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(ctx context.Context) EventSourceMappingDestinationConfigOnFailurePtrOutput {
 	return o
-}
-
-func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDestinationConfigOnFailure] {
-	return pulumix.Output[*EventSourceMappingDestinationConfigOnFailure]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourceMappingDestinationConfigOnFailureOutput {
@@ -1023,12 +878,6 @@ func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingD
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigOutput)
 }
 
-func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDocumentDbEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingDocumentDbEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingDocumentDbEventSourceConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingDocumentDbEventSourceConfigArgs) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutput() EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
 	return i.ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(context.Background())
 }
@@ -1070,12 +919,6 @@ func (i *eventSourceMappingDocumentDbEventSourceConfigPtrType) ToEventSourceMapp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-func (i *eventSourceMappingDocumentDbEventSourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingDocumentDbEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingDocumentDbEventSourceConfigOutput) ElementType() reflect.Type {
@@ -1098,12 +941,6 @@ func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingDocumentDbEventSourceConfig) *EventSourceMappingDocumentDbEventSourceConfig {
 		return &v
 	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
-}
-
-func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingDocumentDbEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingDocumentDbEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
@@ -1133,12 +970,6 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ToEventSourceMap
 
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ToEventSourceMappingDocumentDbEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDocumentDbEventSourceConfigPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingDocumentDbEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) Elem() EventSourceMappingDocumentDbEventSourceConfigOutput {
@@ -1214,12 +1045,6 @@ func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteria
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaOutput)
 }
 
-func (i EventSourceMappingFilterCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingFilterCriteria] {
-	return pulumix.Output[EventSourceMappingFilterCriteria]{
-		OutputState: i.ToEventSourceMappingFilterCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingFilterCriteriaArgs) ToEventSourceMappingFilterCriteriaPtrOutput() EventSourceMappingFilterCriteriaPtrOutput {
 	return i.ToEventSourceMappingFilterCriteriaPtrOutputWithContext(context.Background())
 }
@@ -1261,12 +1086,6 @@ func (i *eventSourceMappingFilterCriteriaPtrType) ToEventSourceMappingFilterCrit
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-func (i *eventSourceMappingFilterCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingFilterCriteria] {
-	return pulumix.Output[*EventSourceMappingFilterCriteria]{
-		OutputState: i.ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingFilterCriteriaOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingFilterCriteriaOutput) ElementType() reflect.Type {
@@ -1291,12 +1110,6 @@ func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriter
 	}).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-func (o EventSourceMappingFilterCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingFilterCriteria] {
-	return pulumix.Output[EventSourceMappingFilterCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
 func (o EventSourceMappingFilterCriteriaOutput) Filters() EventSourceMappingFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingFilterCriteria) []EventSourceMappingFilterCriteriaFilter { return v.Filters }).(EventSourceMappingFilterCriteriaFilterArrayOutput)
@@ -1314,12 +1127,6 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) ToEventSourceMappingFilterCri
 
 func (o EventSourceMappingFilterCriteriaPtrOutput) ToEventSourceMappingFilterCriteriaPtrOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingFilterCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingFilterCriteria] {
-	return pulumix.Output[*EventSourceMappingFilterCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingFilterCriteriaPtrOutput) Elem() EventSourceMappingFilterCriteriaOutput {
@@ -1375,12 +1182,6 @@ func (i EventSourceMappingFilterCriteriaFilterArgs) ToEventSourceMappingFilterCr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaFilterOutput)
 }
 
-func (i EventSourceMappingFilterCriteriaFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingFilterCriteriaFilter] {
-	return pulumix.Output[EventSourceMappingFilterCriteriaFilter]{
-		OutputState: i.ToEventSourceMappingFilterCriteriaFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSourceMappingFilterCriteriaFilterArrayInput is an input type that accepts EventSourceMappingFilterCriteriaFilterArray and EventSourceMappingFilterCriteriaFilterArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingFilterCriteriaFilterArrayInput` via:
 //
@@ -1406,12 +1207,6 @@ func (i EventSourceMappingFilterCriteriaFilterArray) ToEventSourceMappingFilterC
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingFilterCriteriaFilterArrayOutput)
 }
 
-func (i EventSourceMappingFilterCriteriaFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingFilterCriteriaFilter] {
-	return pulumix.Output[[]EventSourceMappingFilterCriteriaFilter]{
-		OutputState: i.ToEventSourceMappingFilterCriteriaFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingFilterCriteriaFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingFilterCriteriaFilterOutput) ElementType() reflect.Type {
@@ -1424,12 +1219,6 @@ func (o EventSourceMappingFilterCriteriaFilterOutput) ToEventSourceMappingFilter
 
 func (o EventSourceMappingFilterCriteriaFilterOutput) ToEventSourceMappingFilterCriteriaFilterOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaFilterOutput {
 	return o
-}
-
-func (o EventSourceMappingFilterCriteriaFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingFilterCriteriaFilter] {
-	return pulumix.Output[EventSourceMappingFilterCriteriaFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
@@ -1449,12 +1238,6 @@ func (o EventSourceMappingFilterCriteriaFilterArrayOutput) ToEventSourceMappingF
 
 func (o EventSourceMappingFilterCriteriaFilterArrayOutput) ToEventSourceMappingFilterCriteriaFilterArrayOutputWithContext(ctx context.Context) EventSourceMappingFilterCriteriaFilterArrayOutput {
 	return o
-}
-
-func (o EventSourceMappingFilterCriteriaFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingFilterCriteriaFilter] {
-	return pulumix.Output[[]EventSourceMappingFilterCriteriaFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingFilterCriteriaFilterArrayOutput) Index(i pulumi.IntInput) EventSourceMappingFilterCriteriaFilterOutput {
@@ -1494,12 +1277,6 @@ func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOu
 
 func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigOutput)
-}
-
-func (i EventSourceMappingScalingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingScalingConfig] {
-	return pulumix.Output[EventSourceMappingScalingConfig]{
-		OutputState: i.ToEventSourceMappingScalingConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
@@ -1543,12 +1320,6 @@ func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConf
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-func (i *eventSourceMappingScalingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingScalingConfig] {
-	return pulumix.Output[*EventSourceMappingScalingConfig]{
-		OutputState: i.ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingScalingConfigOutput) ElementType() reflect.Type {
@@ -1573,12 +1344,6 @@ func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfig
 	}).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-func (o EventSourceMappingScalingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingScalingConfig] {
-	return pulumix.Output[EventSourceMappingScalingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
 func (o EventSourceMappingScalingConfigOutput) MaximumConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingScalingConfig) *int { return v.MaximumConcurrency }).(pulumi.IntPtrOutput)
@@ -1596,12 +1361,6 @@ func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingCon
 
 func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingScalingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingScalingConfig] {
-	return pulumix.Output[*EventSourceMappingScalingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingScalingConfigPtrOutput) Elem() EventSourceMappingScalingConfigOutput {
@@ -1657,12 +1416,6 @@ func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfMa
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourceOutput)
 }
 
-func (i EventSourceMappingSelfManagedEventSourceArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSelfManagedEventSource] {
-	return pulumix.Output[EventSourceMappingSelfManagedEventSource]{
-		OutputState: i.ToEventSourceMappingSelfManagedEventSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
 	return i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
 }
@@ -1704,12 +1457,6 @@ func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSe
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSelfManagedEventSource] {
-	return pulumix.Output[*EventSourceMappingSelfManagedEventSource]{
-		OutputState: i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingSelfManagedEventSourceOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSelfManagedEventSourceOutput) ElementType() reflect.Type {
@@ -1734,12 +1481,6 @@ func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelf
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-func (o EventSourceMappingSelfManagedEventSourceOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSelfManagedEventSource] {
-	return pulumix.Output[EventSourceMappingSelfManagedEventSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 func (o EventSourceMappingSelfManagedEventSourceOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) map[string]string { return v.Endpoints }).(pulumi.StringMapOutput)
@@ -1757,12 +1498,6 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingS
 
 func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
 	return o
-}
-
-func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSelfManagedEventSource] {
-	return pulumix.Output[*EventSourceMappingSelfManagedEventSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMappingSelfManagedEventSourceOutput {
@@ -1818,12 +1553,6 @@ func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMa
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
 }
 
-func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSelfManagedKafkaEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingSelfManagedKafkaEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSourceMappingSelfManagedKafkaEventSourceConfigArgs) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput() EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
 	return i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(context.Background())
 }
@@ -1865,12 +1594,6 @@ func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ToEventSour
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-func (i *eventSourceMappingSelfManagedKafkaEventSourceConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSelfManagedKafkaEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingSelfManagedKafkaEventSourceConfig]{
-		OutputState: i.ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingSelfManagedKafkaEventSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ElementType() reflect.Type {
@@ -1895,12 +1618,6 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSource
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSelfManagedKafkaEventSourceConfig] {
-	return pulumix.Output[EventSourceMappingSelfManagedKafkaEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
@@ -1918,12 +1635,6 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ToEventSou
 
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ToEventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput {
 	return o
-}
-
-func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMappingSelfManagedKafkaEventSourceConfig] {
-	return pulumix.Output[*EventSourceMappingSelfManagedKafkaEventSourceConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) Elem() EventSourceMappingSelfManagedKafkaEventSourceConfigOutput {
@@ -1983,12 +1694,6 @@ func (i EventSourceMappingSourceAccessConfigurationArgs) ToEventSourceMappingSou
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationOutput)
 }
 
-func (i EventSourceMappingSourceAccessConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSourceAccessConfiguration] {
-	return pulumix.Output[EventSourceMappingSourceAccessConfiguration]{
-		OutputState: i.ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSourceMappingSourceAccessConfigurationArrayInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArray and EventSourceMappingSourceAccessConfigurationArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationArrayInput` via:
 //
@@ -2014,12 +1719,6 @@ func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSo
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationArrayOutput)
 }
 
-func (i EventSourceMappingSourceAccessConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingSourceAccessConfiguration] {
-	return pulumix.Output[[]EventSourceMappingSourceAccessConfiguration]{
-		OutputState: i.ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSourceMappingSourceAccessConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingSourceAccessConfigurationOutput) ElementType() reflect.Type {
@@ -2032,12 +1731,6 @@ func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingS
 
 func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationOutput {
 	return o
-}
-
-func (o EventSourceMappingSourceAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[EventSourceMappingSourceAccessConfiguration] {
-	return pulumix.Output[EventSourceMappingSourceAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
@@ -2062,12 +1755,6 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMap
 
 func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput {
 	return o
-}
-
-func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSourceMappingSourceAccessConfiguration] {
-	return pulumix.Output[[]EventSourceMappingSourceAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSourceAccessConfigurationOutput {
@@ -2107,12 +1794,6 @@ func (i FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigOutput() Functio
 
 func (i FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigOutputWithContext(ctx context.Context) FunctionDeadLetterConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDeadLetterConfigOutput)
-}
-
-func (i FunctionDeadLetterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDeadLetterConfig] {
-	return pulumix.Output[FunctionDeadLetterConfig]{
-		OutputState: i.ToFunctionDeadLetterConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FunctionDeadLetterConfigArgs) ToFunctionDeadLetterConfigPtrOutput() FunctionDeadLetterConfigPtrOutput {
@@ -2156,12 +1837,6 @@ func (i *functionDeadLetterConfigPtrType) ToFunctionDeadLetterConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDeadLetterConfigPtrOutput)
 }
 
-func (i *functionDeadLetterConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDeadLetterConfig] {
-	return pulumix.Output[*FunctionDeadLetterConfig]{
-		OutputState: i.ToFunctionDeadLetterConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -2186,12 +1861,6 @@ func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigPtrOutputWithC
 	}).(FunctionDeadLetterConfigPtrOutput)
 }
 
-func (o FunctionDeadLetterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDeadLetterConfig] {
-	return pulumix.Output[FunctionDeadLetterConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 func (o FunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
@@ -2209,12 +1878,6 @@ func (o FunctionDeadLetterConfigPtrOutput) ToFunctionDeadLetterConfigPtrOutput()
 
 func (o FunctionDeadLetterConfigPtrOutput) ToFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) FunctionDeadLetterConfigPtrOutput {
 	return o
-}
-
-func (o FunctionDeadLetterConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDeadLetterConfig] {
-	return pulumix.Output[*FunctionDeadLetterConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput {
@@ -2270,12 +1933,6 @@ func (i FunctionEnvironmentArgs) ToFunctionEnvironmentOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvironmentOutput)
 }
 
-func (i FunctionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionEnvironment] {
-	return pulumix.Output[FunctionEnvironment]{
-		OutputState: i.ToFunctionEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionEnvironmentArgs) ToFunctionEnvironmentPtrOutput() FunctionEnvironmentPtrOutput {
 	return i.ToFunctionEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -2317,12 +1974,6 @@ func (i *functionEnvironmentPtrType) ToFunctionEnvironmentPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvironmentPtrOutput)
 }
 
-func (i *functionEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionEnvironment] {
-	return pulumix.Output[*FunctionEnvironment]{
-		OutputState: i.ToFunctionEnvironmentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (FunctionEnvironmentOutput) ElementType() reflect.Type {
@@ -2347,12 +1998,6 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 	}).(FunctionEnvironmentPtrOutput)
 }
 
-func (o FunctionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionEnvironment] {
-	return pulumix.Output[FunctionEnvironment]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
@@ -2370,12 +2015,6 @@ func (o FunctionEnvironmentPtrOutput) ToFunctionEnvironmentPtrOutput() FunctionE
 
 func (o FunctionEnvironmentPtrOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx context.Context) FunctionEnvironmentPtrOutput {
 	return o
-}
-
-func (o FunctionEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEnvironment] {
-	return pulumix.Output[*FunctionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
@@ -2431,12 +2070,6 @@ func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStorageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStorageOutput)
 }
 
-func (i FunctionEphemeralStorageArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionEphemeralStorage] {
-	return pulumix.Output[FunctionEphemeralStorage]{
-		OutputState: i.ToFunctionEphemeralStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionEphemeralStorageArgs) ToFunctionEphemeralStoragePtrOutput() FunctionEphemeralStoragePtrOutput {
 	return i.ToFunctionEphemeralStoragePtrOutputWithContext(context.Background())
 }
@@ -2478,12 +2111,6 @@ func (i *functionEphemeralStoragePtrType) ToFunctionEphemeralStoragePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEphemeralStoragePtrOutput)
 }
 
-func (i *functionEphemeralStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionEphemeralStorage] {
-	return pulumix.Output[*FunctionEphemeralStorage]{
-		OutputState: i.ToFunctionEphemeralStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
 
 func (FunctionEphemeralStorageOutput) ElementType() reflect.Type {
@@ -2508,12 +2135,6 @@ func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutputWithC
 	}).(FunctionEphemeralStoragePtrOutput)
 }
 
-func (o FunctionEphemeralStorageOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionEphemeralStorage] {
-	return pulumix.Output[FunctionEphemeralStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
 func (o FunctionEphemeralStorageOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionEphemeralStorage) *int { return v.Size }).(pulumi.IntPtrOutput)
@@ -2531,12 +2152,6 @@ func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutput()
 
 func (o FunctionEphemeralStoragePtrOutput) ToFunctionEphemeralStoragePtrOutputWithContext(ctx context.Context) FunctionEphemeralStoragePtrOutput {
 	return o
-}
-
-func (o FunctionEphemeralStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEphemeralStorage] {
-	return pulumix.Output[*FunctionEphemeralStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionEphemeralStoragePtrOutput) Elem() FunctionEphemeralStorageOutput {
@@ -2596,12 +2211,6 @@ func (i FunctionEventInvokeConfigDestinationConfigArgs) ToFunctionEventInvokeCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOutput)
 }
 
-func (i FunctionEventInvokeConfigDestinationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfig] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfig]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionEventInvokeConfigDestinationConfigArgs) ToFunctionEventInvokeConfigDestinationConfigPtrOutput() FunctionEventInvokeConfigDestinationConfigPtrOutput {
 	return i.ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(context.Background())
 }
@@ -2643,12 +2252,6 @@ func (i *functionEventInvokeConfigDestinationConfigPtrType) ToFunctionEventInvok
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
 }
 
-func (i *functionEventInvokeConfigDestinationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfig] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfig]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionEventInvokeConfigDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigDestinationConfigOutput) ElementType() reflect.Type {
@@ -2671,12 +2274,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOutput) ToFunctionEventInvokeC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfig {
 		return &v
 	}).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
-}
-
-func (o FunctionEventInvokeConfigDestinationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfig] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration block with destination configuration for failed asynchronous invocations. See below for details.
@@ -2705,12 +2302,6 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) ToFunctionEventInvo
 
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigPtrOutput {
 	return o
-}
-
-func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfig] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOutput {
@@ -2776,12 +2367,6 @@ func (i FunctionEventInvokeConfigDestinationConfigOnFailureArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput)
 }
 
-func (i FunctionEventInvokeConfigDestinationConfigOnFailureArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnFailure] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnFailure]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigOnFailureOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionEventInvokeConfigDestinationConfigOnFailureArgs) ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput() FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
 	return i.ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(context.Background())
 }
@@ -2823,12 +2408,6 @@ func (i *functionEventInvokeConfigDestinationConfigOnFailurePtrType) ToFunctionE
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-func (i *functionEventInvokeConfigDestinationConfigOnFailurePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnFailure] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnFailure]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionEventInvokeConfigDestinationConfigOnFailureOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ElementType() reflect.Type {
@@ -2853,12 +2432,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnFailure] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnFailure]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
@@ -2876,12 +2449,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) ToFunction
 
 func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
 	return o
-}
-
-func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnFailure] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnFailure]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOnFailureOutput {
@@ -2937,12 +2504,6 @@ func (i FunctionEventInvokeConfigDestinationConfigOnSuccessArgs) ToFunctionEvent
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput)
 }
 
-func (i FunctionEventInvokeConfigDestinationConfigOnSuccessArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnSuccess] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnSuccess]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigOnSuccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionEventInvokeConfigDestinationConfigOnSuccessArgs) ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput() FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
 	return i.ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(context.Background())
 }
@@ -2984,12 +2545,6 @@ func (i *functionEventInvokeConfigDestinationConfigOnSuccessPtrType) ToFunctionE
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
 
-func (i *functionEventInvokeConfigDestinationConfigOnSuccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnSuccess] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnSuccess]{
-		OutputState: i.ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionEventInvokeConfigDestinationConfigOnSuccessOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ElementType() reflect.Type {
@@ -3014,12 +2569,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
 
-func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnSuccess] {
-	return pulumix.Output[FunctionEventInvokeConfigDestinationConfigOnSuccess]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
@@ -3037,12 +2586,6 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) ToFunction
 
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
 	return o
-}
-
-func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnSuccess] {
-	return pulumix.Output[*FunctionEventInvokeConfigDestinationConfigOnSuccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOnSuccessOutput {
@@ -3102,12 +2645,6 @@ func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigOutput)
 }
 
-func (i FunctionFileSystemConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionFileSystemConfig] {
-	return pulumix.Output[FunctionFileSystemConfig]{
-		OutputState: i.ToFunctionFileSystemConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionFileSystemConfigArgs) ToFunctionFileSystemConfigPtrOutput() FunctionFileSystemConfigPtrOutput {
 	return i.ToFunctionFileSystemConfigPtrOutputWithContext(context.Background())
 }
@@ -3149,12 +2686,6 @@ func (i *functionFileSystemConfigPtrType) ToFunctionFileSystemConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFileSystemConfigPtrOutput)
 }
 
-func (i *functionFileSystemConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionFileSystemConfig] {
-	return pulumix.Output[*FunctionFileSystemConfig]{
-		OutputState: i.ToFunctionFileSystemConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -3179,12 +2710,6 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithC
 	}).(FunctionFileSystemConfigPtrOutput)
 }
 
-func (o FunctionFileSystemConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionFileSystemConfig] {
-	return pulumix.Output[FunctionFileSystemConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
@@ -3207,12 +2732,6 @@ func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutput()
 
 func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
 	return o
-}
-
-func (o FunctionFileSystemConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionFileSystemConfig] {
-	return pulumix.Output[*FunctionFileSystemConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput {
@@ -3286,12 +2805,6 @@ func (i FunctionImageConfigArgs) ToFunctionImageConfigOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigOutput)
 }
 
-func (i FunctionImageConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionImageConfig] {
-	return pulumix.Output[FunctionImageConfig]{
-		OutputState: i.ToFunctionImageConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionImageConfigArgs) ToFunctionImageConfigPtrOutput() FunctionImageConfigPtrOutput {
 	return i.ToFunctionImageConfigPtrOutputWithContext(context.Background())
 }
@@ -3333,12 +2846,6 @@ func (i *functionImageConfigPtrType) ToFunctionImageConfigPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionImageConfigPtrOutput)
 }
 
-func (i *functionImageConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionImageConfig] {
-	return pulumix.Output[*FunctionImageConfig]{
-		OutputState: i.ToFunctionImageConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionImageConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionImageConfigOutput) ElementType() reflect.Type {
@@ -3361,12 +2868,6 @@ func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionImageConfig) *FunctionImageConfig {
 		return &v
 	}).(FunctionImageConfigPtrOutput)
-}
-
-func (o FunctionImageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionImageConfig] {
-	return pulumix.Output[FunctionImageConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameters that you want to pass in with `entryPoint`.
@@ -3396,12 +2897,6 @@ func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutput() FunctionI
 
 func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
 	return o
-}
-
-func (o FunctionImageConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionImageConfig] {
-	return pulumix.Output[*FunctionImageConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
@@ -3479,12 +2974,6 @@ func (i FunctionSnapStartArgs) ToFunctionSnapStartOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartOutput)
 }
 
-func (i FunctionSnapStartArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionSnapStart] {
-	return pulumix.Output[FunctionSnapStart]{
-		OutputState: i.ToFunctionSnapStartOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionSnapStartArgs) ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput {
 	return i.ToFunctionSnapStartPtrOutputWithContext(context.Background())
 }
@@ -3526,12 +3015,6 @@ func (i *functionSnapStartPtrType) ToFunctionSnapStartPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartPtrOutput)
 }
 
-func (i *functionSnapStartPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStart] {
-	return pulumix.Output[*FunctionSnapStart]{
-		OutputState: i.ToFunctionSnapStartPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionSnapStartOutput struct{ *pulumi.OutputState }
 
 func (FunctionSnapStartOutput) ElementType() reflect.Type {
@@ -3556,12 +3039,6 @@ func (o FunctionSnapStartOutput) ToFunctionSnapStartPtrOutputWithContext(ctx con
 	}).(FunctionSnapStartPtrOutput)
 }
 
-func (o FunctionSnapStartOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionSnapStart] {
-	return pulumix.Output[FunctionSnapStart]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Conditions where snap start is enabled. Valid values are `PublishedVersions`.
 func (o FunctionSnapStartOutput) ApplyOn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionSnapStart) string { return v.ApplyOn }).(pulumi.StringOutput)
@@ -3583,12 +3060,6 @@ func (o FunctionSnapStartPtrOutput) ToFunctionSnapStartPtrOutput() FunctionSnapS
 
 func (o FunctionSnapStartPtrOutput) ToFunctionSnapStartPtrOutputWithContext(ctx context.Context) FunctionSnapStartPtrOutput {
 	return o
-}
-
-func (o FunctionSnapStartPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionSnapStart] {
-	return pulumix.Output[*FunctionSnapStart]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionSnapStartPtrOutput) Elem() FunctionSnapStartOutput {
@@ -3653,12 +3124,6 @@ func (i FunctionTracingConfigArgs) ToFunctionTracingConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTracingConfigOutput)
 }
 
-func (i FunctionTracingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionTracingConfig] {
-	return pulumix.Output[FunctionTracingConfig]{
-		OutputState: i.ToFunctionTracingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionTracingConfigArgs) ToFunctionTracingConfigPtrOutput() FunctionTracingConfigPtrOutput {
 	return i.ToFunctionTracingConfigPtrOutputWithContext(context.Background())
 }
@@ -3700,12 +3165,6 @@ func (i *functionTracingConfigPtrType) ToFunctionTracingConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionTracingConfigPtrOutput)
 }
 
-func (i *functionTracingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionTracingConfig] {
-	return pulumix.Output[*FunctionTracingConfig]{
-		OutputState: i.ToFunctionTracingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionTracingConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionTracingConfigOutput) ElementType() reflect.Type {
@@ -3730,12 +3189,6 @@ func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutputWithContext
 	}).(FunctionTracingConfigPtrOutput)
 }
 
-func (o FunctionTracingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionTracingConfig] {
-	return pulumix.Output[FunctionTracingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
 func (o FunctionTracingConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
@@ -3753,12 +3206,6 @@ func (o FunctionTracingConfigPtrOutput) ToFunctionTracingConfigPtrOutput() Funct
 
 func (o FunctionTracingConfigPtrOutput) ToFunctionTracingConfigPtrOutputWithContext(ctx context.Context) FunctionTracingConfigPtrOutput {
 	return o
-}
-
-func (o FunctionTracingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionTracingConfig] {
-	return pulumix.Output[*FunctionTracingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
@@ -3834,12 +3281,6 @@ func (i FunctionUrlCorsArgs) ToFunctionUrlCorsOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlCorsOutput)
 }
 
-func (i FunctionUrlCorsArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionUrlCors] {
-	return pulumix.Output[FunctionUrlCors]{
-		OutputState: i.ToFunctionUrlCorsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionUrlCorsArgs) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPtrOutput {
 	return i.ToFunctionUrlCorsPtrOutputWithContext(context.Background())
 }
@@ -3881,12 +3322,6 @@ func (i *functionUrlCorsPtrType) ToFunctionUrlCorsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionUrlCorsPtrOutput)
 }
 
-func (i *functionUrlCorsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionUrlCors] {
-	return pulumix.Output[*FunctionUrlCors]{
-		OutputState: i.ToFunctionUrlCorsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionUrlCorsOutput struct{ *pulumi.OutputState }
 
 func (FunctionUrlCorsOutput) ElementType() reflect.Type {
@@ -3909,12 +3344,6 @@ func (o FunctionUrlCorsOutput) ToFunctionUrlCorsPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionUrlCors) *FunctionUrlCors {
 		return &v
 	}).(FunctionUrlCorsPtrOutput)
-}
-
-func (o FunctionUrlCorsOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionUrlCors] {
-	return pulumix.Output[FunctionUrlCors]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
@@ -3959,12 +3388,6 @@ func (o FunctionUrlCorsPtrOutput) ToFunctionUrlCorsPtrOutput() FunctionUrlCorsPt
 
 func (o FunctionUrlCorsPtrOutput) ToFunctionUrlCorsPtrOutputWithContext(ctx context.Context) FunctionUrlCorsPtrOutput {
 	return o
-}
-
-func (o FunctionUrlCorsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionUrlCors] {
-	return pulumix.Output[*FunctionUrlCors]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionUrlCorsPtrOutput) Elem() FunctionUrlCorsOutput {
@@ -4080,12 +3503,6 @@ func (i FunctionVpcConfigArgs) ToFunctionVpcConfigOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionVpcConfigOutput)
 }
 
-func (i FunctionVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionVpcConfig] {
-	return pulumix.Output[FunctionVpcConfig]{
-		OutputState: i.ToFunctionVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionVpcConfigArgs) ToFunctionVpcConfigPtrOutput() FunctionVpcConfigPtrOutput {
 	return i.ToFunctionVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -4127,12 +3544,6 @@ func (i *functionVpcConfigPtrType) ToFunctionVpcConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionVpcConfigPtrOutput)
 }
 
-func (i *functionVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionVpcConfig] {
-	return pulumix.Output[*FunctionVpcConfig]{
-		OutputState: i.ToFunctionVpcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionVpcConfigOutput) ElementType() reflect.Type {
@@ -4155,12 +3566,6 @@ func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionVpcConfig) *FunctionVpcConfig {
 		return &v
 	}).(FunctionVpcConfigPtrOutput)
-}
-
-func (o FunctionVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionVpcConfig] {
-	return pulumix.Output[FunctionVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
@@ -4194,12 +3599,6 @@ func (o FunctionVpcConfigPtrOutput) ToFunctionVpcConfigPtrOutput() FunctionVpcCo
 
 func (o FunctionVpcConfigPtrOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx context.Context) FunctionVpcConfigPtrOutput {
 	return o
-}
-
-func (o FunctionVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionVpcConfig] {
-	return pulumix.Output[*FunctionVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
@@ -4284,12 +3683,6 @@ func (i GetCodeSigningConfigAllowedPublisherArgs) ToGetCodeSigningConfigAllowedP
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherOutput)
 }
 
-func (i GetCodeSigningConfigAllowedPublisherArgs) ToOutput(ctx context.Context) pulumix.Output[GetCodeSigningConfigAllowedPublisher] {
-	return pulumix.Output[GetCodeSigningConfigAllowedPublisher]{
-		OutputState: i.ToGetCodeSigningConfigAllowedPublisherOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCodeSigningConfigAllowedPublisherArrayInput is an input type that accepts GetCodeSigningConfigAllowedPublisherArray and GetCodeSigningConfigAllowedPublisherArrayOutput values.
 // You can construct a concrete instance of `GetCodeSigningConfigAllowedPublisherArrayInput` via:
 //
@@ -4315,12 +3708,6 @@ func (i GetCodeSigningConfigAllowedPublisherArray) ToGetCodeSigningConfigAllowed
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherArrayOutput)
 }
 
-func (i GetCodeSigningConfigAllowedPublisherArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCodeSigningConfigAllowedPublisher] {
-	return pulumix.Output[[]GetCodeSigningConfigAllowedPublisher]{
-		OutputState: i.ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCodeSigningConfigAllowedPublisherOutput struct{ *pulumi.OutputState }
 
 func (GetCodeSigningConfigAllowedPublisherOutput) ElementType() reflect.Type {
@@ -4333,12 +3720,6 @@ func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowe
 
 func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowedPublisherOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherOutput {
 	return o
-}
-
-func (o GetCodeSigningConfigAllowedPublisherOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodeSigningConfigAllowedPublisher] {
-	return pulumix.Output[GetCodeSigningConfigAllowedPublisher]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
@@ -4358,12 +3739,6 @@ func (o GetCodeSigningConfigAllowedPublisherArrayOutput) ToGetCodeSigningConfigA
 
 func (o GetCodeSigningConfigAllowedPublisherArrayOutput) ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput {
 	return o
-}
-
-func (o GetCodeSigningConfigAllowedPublisherArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCodeSigningConfigAllowedPublisher] {
-	return pulumix.Output[[]GetCodeSigningConfigAllowedPublisher]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCodeSigningConfigAllowedPublisherArrayOutput) Index(i pulumi.IntInput) GetCodeSigningConfigAllowedPublisherOutput {
@@ -4405,12 +3780,6 @@ func (i GetCodeSigningConfigPolicyArgs) ToGetCodeSigningConfigPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyOutput)
 }
 
-func (i GetCodeSigningConfigPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCodeSigningConfigPolicy] {
-	return pulumix.Output[GetCodeSigningConfigPolicy]{
-		OutputState: i.ToGetCodeSigningConfigPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCodeSigningConfigPolicyArrayInput is an input type that accepts GetCodeSigningConfigPolicyArray and GetCodeSigningConfigPolicyArrayOutput values.
 // You can construct a concrete instance of `GetCodeSigningConfigPolicyArrayInput` via:
 //
@@ -4436,12 +3805,6 @@ func (i GetCodeSigningConfigPolicyArray) ToGetCodeSigningConfigPolicyArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyArrayOutput)
 }
 
-func (i GetCodeSigningConfigPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCodeSigningConfigPolicy] {
-	return pulumix.Output[[]GetCodeSigningConfigPolicy]{
-		OutputState: i.ToGetCodeSigningConfigPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCodeSigningConfigPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetCodeSigningConfigPolicyOutput) ElementType() reflect.Type {
@@ -4454,12 +3817,6 @@ func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutput() G
 
 func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyOutput {
 	return o
-}
-
-func (o GetCodeSigningConfigPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCodeSigningConfigPolicy] {
-	return pulumix.Output[GetCodeSigningConfigPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Code signing configuration policy for deployment validation failure.
@@ -4479,12 +3836,6 @@ func (o GetCodeSigningConfigPolicyArrayOutput) ToGetCodeSigningConfigPolicyArray
 
 func (o GetCodeSigningConfigPolicyArrayOutput) ToGetCodeSigningConfigPolicyArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyArrayOutput {
 	return o
-}
-
-func (o GetCodeSigningConfigPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCodeSigningConfigPolicy] {
-	return pulumix.Output[[]GetCodeSigningConfigPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeSigningConfigPolicyOutput {
@@ -4524,12 +3875,6 @@ func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDeadLetterConfigOutput)
 }
 
-func (i GetFunctionDeadLetterConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionDeadLetterConfig] {
-	return pulumix.Output[GetFunctionDeadLetterConfig]{
-		OutputState: i.ToGetFunctionDeadLetterConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -4542,12 +3887,6 @@ func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigOutput()
 
 func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigOutput {
 	return o
-}
-
-func (o GetFunctionDeadLetterConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionDeadLetterConfig] {
-	return pulumix.Output[GetFunctionDeadLetterConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
@@ -4585,12 +3924,6 @@ func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEnvironmentOutput)
 }
 
-func (i GetFunctionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionEnvironment] {
-	return pulumix.Output[GetFunctionEnvironment]{
-		OutputState: i.ToGetFunctionEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionEnvironmentOutput) ElementType() reflect.Type {
@@ -4603,12 +3936,6 @@ func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentOutput() GetFuncti
 
 func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentOutputWithContext(ctx context.Context) GetFunctionEnvironmentOutput {
 	return o
-}
-
-func (o GetFunctionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionEnvironment] {
-	return pulumix.Output[GetFunctionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
@@ -4646,12 +3973,6 @@ func (i GetFunctionEphemeralStorageArgs) ToGetFunctionEphemeralStorageOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEphemeralStorageOutput)
 }
 
-func (i GetFunctionEphemeralStorageArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionEphemeralStorage] {
-	return pulumix.Output[GetFunctionEphemeralStorage]{
-		OutputState: i.ToGetFunctionEphemeralStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetFunctionEphemeralStorageArrayInput is an input type that accepts GetFunctionEphemeralStorageArray and GetFunctionEphemeralStorageArrayOutput values.
 // You can construct a concrete instance of `GetFunctionEphemeralStorageArrayInput` via:
 //
@@ -4677,12 +3998,6 @@ func (i GetFunctionEphemeralStorageArray) ToGetFunctionEphemeralStorageArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEphemeralStorageArrayOutput)
 }
 
-func (i GetFunctionEphemeralStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionEphemeralStorage] {
-	return pulumix.Output[[]GetFunctionEphemeralStorage]{
-		OutputState: i.ToGetFunctionEphemeralStorageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionEphemeralStorageOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionEphemeralStorageOutput) ElementType() reflect.Type {
@@ -4695,12 +4010,6 @@ func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutput()
 
 func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageOutput {
 	return o
-}
-
-func (o GetFunctionEphemeralStorageOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionEphemeralStorage] {
-	return pulumix.Output[GetFunctionEphemeralStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
@@ -4719,12 +4028,6 @@ func (o GetFunctionEphemeralStorageArrayOutput) ToGetFunctionEphemeralStorageArr
 
 func (o GetFunctionEphemeralStorageArrayOutput) ToGetFunctionEphemeralStorageArrayOutputWithContext(ctx context.Context) GetFunctionEphemeralStorageArrayOutput {
 	return o
-}
-
-func (o GetFunctionEphemeralStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionEphemeralStorage] {
-	return pulumix.Output[[]GetFunctionEphemeralStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetFunctionEphemeralStorageOutput {
@@ -4768,12 +4071,6 @@ func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigOutput)
 }
 
-func (i GetFunctionFileSystemConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionFileSystemConfig] {
-	return pulumix.Output[GetFunctionFileSystemConfig]{
-		OutputState: i.ToGetFunctionFileSystemConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetFunctionFileSystemConfigArrayInput is an input type that accepts GetFunctionFileSystemConfigArray and GetFunctionFileSystemConfigArrayOutput values.
 // You can construct a concrete instance of `GetFunctionFileSystemConfigArrayInput` via:
 //
@@ -4799,12 +4096,6 @@ func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigArrayOutput)
 }
 
-func (i GetFunctionFileSystemConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionFileSystemConfig] {
-	return pulumix.Output[[]GetFunctionFileSystemConfig]{
-		OutputState: i.ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionFileSystemConfigOutput) ElementType() reflect.Type {
@@ -4817,12 +4108,6 @@ func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutput()
 
 func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
 	return o
-}
-
-func (o GetFunctionFileSystemConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionFileSystemConfig] {
-	return pulumix.Output[GetFunctionFileSystemConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
@@ -4846,12 +4131,6 @@ func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArr
 
 func (o GetFunctionFileSystemConfigArrayOutput) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
 	return o
-}
-
-func (o GetFunctionFileSystemConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionFileSystemConfig] {
-	return pulumix.Output[[]GetFunctionFileSystemConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunctionFileSystemConfigOutput {
@@ -4891,12 +4170,6 @@ func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTracingConfigOutput)
 }
 
-func (i GetFunctionTracingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionTracingConfig] {
-	return pulumix.Output[GetFunctionTracingConfig]{
-		OutputState: i.ToGetFunctionTracingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionTracingConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionTracingConfigOutput) ElementType() reflect.Type {
@@ -4909,12 +4182,6 @@ func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigOutput() GetFu
 
 func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigOutputWithContext(ctx context.Context) GetFunctionTracingConfigOutput {
 	return o
-}
-
-func (o GetFunctionTracingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionTracingConfig] {
-	return pulumix.Output[GetFunctionTracingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionTracingConfigOutput) Mode() pulumi.StringOutput {
@@ -4962,12 +4229,6 @@ func (i GetFunctionUrlCorArgs) ToGetFunctionUrlCorOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionUrlCorOutput)
 }
 
-func (i GetFunctionUrlCorArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionUrlCor] {
-	return pulumix.Output[GetFunctionUrlCor]{
-		OutputState: i.ToGetFunctionUrlCorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetFunctionUrlCorArrayInput is an input type that accepts GetFunctionUrlCorArray and GetFunctionUrlCorArrayOutput values.
 // You can construct a concrete instance of `GetFunctionUrlCorArrayInput` via:
 //
@@ -4993,12 +4254,6 @@ func (i GetFunctionUrlCorArray) ToGetFunctionUrlCorArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionUrlCorArrayOutput)
 }
 
-func (i GetFunctionUrlCorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionUrlCor] {
-	return pulumix.Output[[]GetFunctionUrlCor]{
-		OutputState: i.ToGetFunctionUrlCorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionUrlCorOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionUrlCorOutput) ElementType() reflect.Type {
@@ -5011,12 +4266,6 @@ func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutput() GetFunctionUrlCorOu
 
 func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutputWithContext(ctx context.Context) GetFunctionUrlCorOutput {
 	return o
-}
-
-func (o GetFunctionUrlCorOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionUrlCor] {
-	return pulumix.Output[GetFunctionUrlCor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionUrlCorOutput) AllowCredentials() pulumi.BoolOutput {
@@ -5055,12 +4304,6 @@ func (o GetFunctionUrlCorArrayOutput) ToGetFunctionUrlCorArrayOutput() GetFuncti
 
 func (o GetFunctionUrlCorArrayOutput) ToGetFunctionUrlCorArrayOutputWithContext(ctx context.Context) GetFunctionUrlCorArrayOutput {
 	return o
-}
-
-func (o GetFunctionUrlCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFunctionUrlCor] {
-	return pulumix.Output[[]GetFunctionUrlCor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCorOutput {
@@ -5106,12 +4349,6 @@ func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionVpcConfigOutput)
 }
 
-func (i GetFunctionVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetFunctionVpcConfig] {
-	return pulumix.Output[GetFunctionVpcConfig]{
-		OutputState: i.ToGetFunctionVpcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetFunctionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionVpcConfigOutput) ElementType() reflect.Type {
@@ -5124,12 +4361,6 @@ func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigOutput() GetFunctionVp
 
 func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigOutputWithContext(ctx context.Context) GetFunctionVpcConfigOutput {
 	return o
-}
-
-func (o GetFunctionVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionVpcConfig] {
-	return pulumix.Output[GetFunctionVpcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolOutput {

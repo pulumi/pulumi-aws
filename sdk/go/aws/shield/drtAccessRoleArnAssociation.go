@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
@@ -166,12 +165,6 @@ func (i *DrtAccessRoleArnAssociation) ToDrtAccessRoleArnAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessRoleArnAssociationOutput)
 }
 
-func (i *DrtAccessRoleArnAssociation) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[*DrtAccessRoleArnAssociation]{
-		OutputState: i.ToDrtAccessRoleArnAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DrtAccessRoleArnAssociationArrayInput is an input type that accepts DrtAccessRoleArnAssociationArray and DrtAccessRoleArnAssociationArrayOutput values.
 // You can construct a concrete instance of `DrtAccessRoleArnAssociationArrayInput` via:
 //
@@ -195,12 +188,6 @@ func (i DrtAccessRoleArnAssociationArray) ToDrtAccessRoleArnAssociationArrayOutp
 
 func (i DrtAccessRoleArnAssociationArray) ToDrtAccessRoleArnAssociationArrayOutputWithContext(ctx context.Context) DrtAccessRoleArnAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessRoleArnAssociationArrayOutput)
-}
-
-func (i DrtAccessRoleArnAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[[]*DrtAccessRoleArnAssociation]{
-		OutputState: i.ToDrtAccessRoleArnAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DrtAccessRoleArnAssociationMapInput is an input type that accepts DrtAccessRoleArnAssociationMap and DrtAccessRoleArnAssociationMapOutput values.
@@ -228,12 +215,6 @@ func (i DrtAccessRoleArnAssociationMap) ToDrtAccessRoleArnAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessRoleArnAssociationMapOutput)
 }
 
-func (i DrtAccessRoleArnAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[map[string]*DrtAccessRoleArnAssociation]{
-		OutputState: i.ToDrtAccessRoleArnAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DrtAccessRoleArnAssociationOutput struct{ *pulumi.OutputState }
 
 func (DrtAccessRoleArnAssociationOutput) ElementType() reflect.Type {
@@ -246,12 +227,6 @@ func (o DrtAccessRoleArnAssociationOutput) ToDrtAccessRoleArnAssociationOutput()
 
 func (o DrtAccessRoleArnAssociationOutput) ToDrtAccessRoleArnAssociationOutputWithContext(ctx context.Context) DrtAccessRoleArnAssociationOutput {
 	return o
-}
-
-func (o DrtAccessRoleArnAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[*DrtAccessRoleArnAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
@@ -277,12 +252,6 @@ func (o DrtAccessRoleArnAssociationArrayOutput) ToDrtAccessRoleArnAssociationArr
 	return o
 }
 
-func (o DrtAccessRoleArnAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[[]*DrtAccessRoleArnAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DrtAccessRoleArnAssociationArrayOutput) Index(i pulumi.IntInput) DrtAccessRoleArnAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DrtAccessRoleArnAssociation {
 		return vs[0].([]*DrtAccessRoleArnAssociation)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o DrtAccessRoleArnAssociationMapOutput) ToDrtAccessRoleArnAssociationMapOu
 
 func (o DrtAccessRoleArnAssociationMapOutput) ToDrtAccessRoleArnAssociationMapOutputWithContext(ctx context.Context) DrtAccessRoleArnAssociationMapOutput {
 	return o
-}
-
-func (o DrtAccessRoleArnAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DrtAccessRoleArnAssociation] {
-	return pulumix.Output[map[string]*DrtAccessRoleArnAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessRoleArnAssociationMapOutput) MapIndex(k pulumi.StringInput) DrtAccessRoleArnAssociationOutput {

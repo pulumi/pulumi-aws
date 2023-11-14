@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Rule resource.
@@ -297,12 +296,6 @@ func (i *EventRule) ToEventRuleOutputWithContext(ctx context.Context) EventRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleOutput)
 }
 
-func (i *EventRule) ToOutput(ctx context.Context) pulumix.Output[*EventRule] {
-	return pulumix.Output[*EventRule]{
-		OutputState: i.ToEventRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventRuleArrayInput is an input type that accepts EventRuleArray and EventRuleArrayOutput values.
 // You can construct a concrete instance of `EventRuleArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i EventRuleArray) ToEventRuleArrayOutput() EventRuleArrayOutput {
 
 func (i EventRuleArray) ToEventRuleArrayOutputWithContext(ctx context.Context) EventRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleArrayOutput)
-}
-
-func (i EventRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventRule] {
-	return pulumix.Output[[]*EventRule]{
-		OutputState: i.ToEventRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventRuleMapInput is an input type that accepts EventRuleMap and EventRuleMapOutput values.
@@ -359,12 +346,6 @@ func (i EventRuleMap) ToEventRuleMapOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleMapOutput)
 }
 
-func (i EventRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventRule] {
-	return pulumix.Output[map[string]*EventRule]{
-		OutputState: i.ToEventRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventRuleOutput struct{ *pulumi.OutputState }
 
 func (EventRuleOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o EventRuleOutput) ToEventRuleOutput() EventRuleOutput {
 
 func (o EventRuleOutput) ToEventRuleOutputWithContext(ctx context.Context) EventRuleOutput {
 	return o
-}
-
-func (o EventRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EventRule] {
-	return pulumix.Output[*EventRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the rule.
@@ -457,12 +432,6 @@ func (o EventRuleArrayOutput) ToEventRuleArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o EventRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventRule] {
-	return pulumix.Output[[]*EventRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventRuleArrayOutput) Index(i pulumi.IntInput) EventRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventRule {
 		return vs[0].([]*EventRule)[vs[1].(int)]
@@ -481,12 +450,6 @@ func (o EventRuleMapOutput) ToEventRuleMapOutput() EventRuleMapOutput {
 
 func (o EventRuleMapOutput) ToEventRuleMapOutputWithContext(ctx context.Context) EventRuleMapOutput {
 	return o
-}
-
-func (o EventRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventRule] {
-	return pulumix.Output[map[string]*EventRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventRuleMapOutput) MapIndex(k pulumi.StringInput) EventRuleOutput {

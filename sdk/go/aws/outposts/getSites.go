@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Outposts Sites.
@@ -79,12 +78,6 @@ func (o GetSitesResultOutput) ToGetSitesResultOutput() GetSitesResultOutput {
 
 func (o GetSitesResultOutput) ToGetSitesResultOutputWithContext(ctx context.Context) GetSitesResultOutput {
 	return o
-}
-
-func (o GetSitesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSitesResult] {
-	return pulumix.Output[GetSitesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

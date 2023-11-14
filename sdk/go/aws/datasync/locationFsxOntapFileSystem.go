@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS DataSync Location FSx Ontap File System.
@@ -210,12 +209,6 @@ func (i *LocationFsxOntapFileSystem) ToLocationFsxOntapFileSystemOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemOutput)
 }
 
-func (i *LocationFsxOntapFileSystem) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystem] {
-	return pulumix.Output[*LocationFsxOntapFileSystem]{
-		OutputState: i.ToLocationFsxOntapFileSystemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocationFsxOntapFileSystemArrayInput is an input type that accepts LocationFsxOntapFileSystemArray and LocationFsxOntapFileSystemArrayOutput values.
 // You can construct a concrete instance of `LocationFsxOntapFileSystemArrayInput` via:
 //
@@ -239,12 +232,6 @@ func (i LocationFsxOntapFileSystemArray) ToLocationFsxOntapFileSystemArrayOutput
 
 func (i LocationFsxOntapFileSystemArray) ToLocationFsxOntapFileSystemArrayOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemArrayOutput)
-}
-
-func (i LocationFsxOntapFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxOntapFileSystem] {
-	return pulumix.Output[[]*LocationFsxOntapFileSystem]{
-		OutputState: i.ToLocationFsxOntapFileSystemArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocationFsxOntapFileSystemMapInput is an input type that accepts LocationFsxOntapFileSystemMap and LocationFsxOntapFileSystemMapOutput values.
@@ -272,12 +259,6 @@ func (i LocationFsxOntapFileSystemMap) ToLocationFsxOntapFileSystemMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxOntapFileSystemMapOutput)
 }
 
-func (i LocationFsxOntapFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxOntapFileSystem] {
-	return pulumix.Output[map[string]*LocationFsxOntapFileSystem]{
-		OutputState: i.ToLocationFsxOntapFileSystemMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFsxOntapFileSystemOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxOntapFileSystemOutput) ElementType() reflect.Type {
@@ -290,12 +271,6 @@ func (o LocationFsxOntapFileSystemOutput) ToLocationFsxOntapFileSystemOutput() L
 
 func (o LocationFsxOntapFileSystemOutput) ToLocationFsxOntapFileSystemOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxOntapFileSystem] {
-	return pulumix.Output[*LocationFsxOntapFileSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the DataSync Location for the FSx Ontap File System.
@@ -365,12 +340,6 @@ func (o LocationFsxOntapFileSystemArrayOutput) ToLocationFsxOntapFileSystemArray
 	return o
 }
 
-func (o LocationFsxOntapFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxOntapFileSystem] {
-	return pulumix.Output[[]*LocationFsxOntapFileSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationFsxOntapFileSystemArrayOutput) Index(i pulumi.IntInput) LocationFsxOntapFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationFsxOntapFileSystem {
 		return vs[0].([]*LocationFsxOntapFileSystem)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o LocationFsxOntapFileSystemMapOutput) ToLocationFsxOntapFileSystemMapOutp
 
 func (o LocationFsxOntapFileSystemMapOutput) ToLocationFsxOntapFileSystemMapOutputWithContext(ctx context.Context) LocationFsxOntapFileSystemMapOutput {
 	return o
-}
-
-func (o LocationFsxOntapFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxOntapFileSystem] {
-	return pulumix.Output[map[string]*LocationFsxOntapFileSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFsxOntapFileSystemMapOutput) MapIndex(k pulumi.StringInput) LocationFsxOntapFileSystemOutput {

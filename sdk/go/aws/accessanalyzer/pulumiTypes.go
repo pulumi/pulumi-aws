@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i ArchiveRuleFilterArgs) ToArchiveRuleFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRuleFilterOutput)
 }
 
-func (i ArchiveRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ArchiveRuleFilter] {
-	return pulumix.Output[ArchiveRuleFilter]{
-		OutputState: i.ToArchiveRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ArchiveRuleFilterArrayInput is an input type that accepts ArchiveRuleFilterArray and ArchiveRuleFilterArrayOutput values.
 // You can construct a concrete instance of `ArchiveRuleFilterArrayInput` via:
 //
@@ -94,12 +87,6 @@ func (i ArchiveRuleFilterArray) ToArchiveRuleFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRuleFilterArrayOutput)
 }
 
-func (i ArchiveRuleFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ArchiveRuleFilter] {
-	return pulumix.Output[[]ArchiveRuleFilter]{
-		OutputState: i.ToArchiveRuleFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ArchiveRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (ArchiveRuleFilterOutput) ElementType() reflect.Type {
@@ -112,12 +99,6 @@ func (o ArchiveRuleFilterOutput) ToArchiveRuleFilterOutput() ArchiveRuleFilterOu
 
 func (o ArchiveRuleFilterOutput) ToArchiveRuleFilterOutputWithContext(ctx context.Context) ArchiveRuleFilterOutput {
 	return o
-}
-
-func (o ArchiveRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ArchiveRuleFilter] {
-	return pulumix.Output[ArchiveRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Contains comparator.
@@ -157,12 +138,6 @@ func (o ArchiveRuleFilterArrayOutput) ToArchiveRuleFilterArrayOutput() ArchiveRu
 
 func (o ArchiveRuleFilterArrayOutput) ToArchiveRuleFilterArrayOutputWithContext(ctx context.Context) ArchiveRuleFilterArrayOutput {
 	return o
-}
-
-func (o ArchiveRuleFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ArchiveRuleFilter] {
-	return pulumix.Output[[]ArchiveRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ArchiveRuleFilterArrayOutput) Index(i pulumi.IntInput) ArchiveRuleFilterOutput {

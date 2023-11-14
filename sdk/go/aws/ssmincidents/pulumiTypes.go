@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -65,12 +64,6 @@ func (i ReplicationSetRegionArgs) ToReplicationSetRegionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetRegionOutput)
 }
 
-func (i ReplicationSetRegionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationSetRegion] {
-	return pulumix.Output[ReplicationSetRegion]{
-		OutputState: i.ToReplicationSetRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationSetRegionArrayInput is an input type that accepts ReplicationSetRegionArray and ReplicationSetRegionArrayOutput values.
 // You can construct a concrete instance of `ReplicationSetRegionArrayInput` via:
 //
@@ -96,12 +89,6 @@ func (i ReplicationSetRegionArray) ToReplicationSetRegionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetRegionArrayOutput)
 }
 
-func (i ReplicationSetRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSetRegion] {
-	return pulumix.Output[[]ReplicationSetRegion]{
-		OutputState: i.ToReplicationSetRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSetRegionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetRegionOutput) ElementType() reflect.Type {
@@ -114,12 +101,6 @@ func (o ReplicationSetRegionOutput) ToReplicationSetRegionOutput() ReplicationSe
 
 func (o ReplicationSetRegionOutput) ToReplicationSetRegionOutputWithContext(ctx context.Context) ReplicationSetRegionOutput {
 	return o
-}
-
-func (o ReplicationSetRegionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationSetRegion] {
-	return pulumix.Output[ReplicationSetRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
@@ -159,12 +140,6 @@ func (o ReplicationSetRegionArrayOutput) ToReplicationSetRegionArrayOutputWithCo
 	return o
 }
 
-func (o ReplicationSetRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSetRegion] {
-	return pulumix.Output[[]ReplicationSetRegion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationSetRegionArrayOutput) Index(i pulumi.IntInput) ReplicationSetRegionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationSetRegion {
 		return vs[0].([]ReplicationSetRegion)[vs[1].(int)]
@@ -202,12 +177,6 @@ func (i ResponsePlanActionArgs) ToResponsePlanActionOutput() ResponsePlanActionO
 
 func (i ResponsePlanActionArgs) ToResponsePlanActionOutputWithContext(ctx context.Context) ResponsePlanActionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionOutput)
-}
-
-func (i ResponsePlanActionArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanAction] {
-	return pulumix.Output[ResponsePlanAction]{
-		OutputState: i.ToResponsePlanActionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ResponsePlanActionArgs) ToResponsePlanActionPtrOutput() ResponsePlanActionPtrOutput {
@@ -251,12 +220,6 @@ func (i *responsePlanActionPtrType) ToResponsePlanActionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionPtrOutput)
 }
 
-func (i *responsePlanActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanAction] {
-	return pulumix.Output[*ResponsePlanAction]{
-		OutputState: i.ToResponsePlanActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanActionOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanActionOutput) ElementType() reflect.Type {
@@ -281,12 +244,6 @@ func (o ResponsePlanActionOutput) ToResponsePlanActionPtrOutputWithContext(ctx c
 	}).(ResponsePlanActionPtrOutput)
 }
 
-func (o ResponsePlanActionOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanAction] {
-	return pulumix.Output[ResponsePlanAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
 func (o ResponsePlanActionOutput) SsmAutomations() ResponsePlanActionSsmAutomationArrayOutput {
 	return o.ApplyT(func(v ResponsePlanAction) []ResponsePlanActionSsmAutomation { return v.SsmAutomations }).(ResponsePlanActionSsmAutomationArrayOutput)
@@ -304,12 +261,6 @@ func (o ResponsePlanActionPtrOutput) ToResponsePlanActionPtrOutput() ResponsePla
 
 func (o ResponsePlanActionPtrOutput) ToResponsePlanActionPtrOutputWithContext(ctx context.Context) ResponsePlanActionPtrOutput {
 	return o
-}
-
-func (o ResponsePlanActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanAction] {
-	return pulumix.Output[*ResponsePlanAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanActionPtrOutput) Elem() ResponsePlanActionOutput {
@@ -385,12 +336,6 @@ func (i ResponsePlanActionSsmAutomationArgs) ToResponsePlanActionSsmAutomationOu
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionSsmAutomationOutput)
 }
 
-func (i ResponsePlanActionSsmAutomationArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanActionSsmAutomation] {
-	return pulumix.Output[ResponsePlanActionSsmAutomation]{
-		OutputState: i.ToResponsePlanActionSsmAutomationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResponsePlanActionSsmAutomationArrayInput is an input type that accepts ResponsePlanActionSsmAutomationArray and ResponsePlanActionSsmAutomationArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanActionSsmAutomationArrayInput` via:
 //
@@ -416,12 +361,6 @@ func (i ResponsePlanActionSsmAutomationArray) ToResponsePlanActionSsmAutomationA
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionSsmAutomationArrayOutput)
 }
 
-func (i ResponsePlanActionSsmAutomationArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanActionSsmAutomation] {
-	return pulumix.Output[[]ResponsePlanActionSsmAutomation]{
-		OutputState: i.ToResponsePlanActionSsmAutomationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanActionSsmAutomationOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanActionSsmAutomationOutput) ElementType() reflect.Type {
@@ -434,12 +373,6 @@ func (o ResponsePlanActionSsmAutomationOutput) ToResponsePlanActionSsmAutomation
 
 func (o ResponsePlanActionSsmAutomationOutput) ToResponsePlanActionSsmAutomationOutputWithContext(ctx context.Context) ResponsePlanActionSsmAutomationOutput {
 	return o
-}
-
-func (o ResponsePlanActionSsmAutomationOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanActionSsmAutomation] {
-	return pulumix.Output[ResponsePlanActionSsmAutomation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The automation document's name.
@@ -488,12 +421,6 @@ func (o ResponsePlanActionSsmAutomationArrayOutput) ToResponsePlanActionSsmAutom
 	return o
 }
 
-func (o ResponsePlanActionSsmAutomationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanActionSsmAutomation] {
-	return pulumix.Output[[]ResponsePlanActionSsmAutomation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanActionSsmAutomationArrayOutput) Index(i pulumi.IntInput) ResponsePlanActionSsmAutomationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlanActionSsmAutomation {
 		return vs[0].([]ResponsePlanActionSsmAutomation)[vs[1].(int)]
@@ -537,12 +464,6 @@ func (i ResponsePlanActionSsmAutomationParameterArgs) ToResponsePlanActionSsmAut
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionSsmAutomationParameterOutput)
 }
 
-func (i ResponsePlanActionSsmAutomationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[ResponsePlanActionSsmAutomationParameter]{
-		OutputState: i.ToResponsePlanActionSsmAutomationParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResponsePlanActionSsmAutomationParameterArrayInput is an input type that accepts ResponsePlanActionSsmAutomationParameterArray and ResponsePlanActionSsmAutomationParameterArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanActionSsmAutomationParameterArrayInput` via:
 //
@@ -568,12 +489,6 @@ func (i ResponsePlanActionSsmAutomationParameterArray) ToResponsePlanActionSsmAu
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionSsmAutomationParameterArrayOutput)
 }
 
-func (i ResponsePlanActionSsmAutomationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[[]ResponsePlanActionSsmAutomationParameter]{
-		OutputState: i.ToResponsePlanActionSsmAutomationParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanActionSsmAutomationParameterOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanActionSsmAutomationParameterOutput) ElementType() reflect.Type {
@@ -586,12 +501,6 @@ func (o ResponsePlanActionSsmAutomationParameterOutput) ToResponsePlanActionSsmA
 
 func (o ResponsePlanActionSsmAutomationParameterOutput) ToResponsePlanActionSsmAutomationParameterOutputWithContext(ctx context.Context) ResponsePlanActionSsmAutomationParameterOutput {
 	return o
-}
-
-func (o ResponsePlanActionSsmAutomationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[ResponsePlanActionSsmAutomationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the response plan.
@@ -616,12 +525,6 @@ func (o ResponsePlanActionSsmAutomationParameterArrayOutput) ToResponsePlanActio
 
 func (o ResponsePlanActionSsmAutomationParameterArrayOutput) ToResponsePlanActionSsmAutomationParameterArrayOutputWithContext(ctx context.Context) ResponsePlanActionSsmAutomationParameterArrayOutput {
 	return o
-}
-
-func (o ResponsePlanActionSsmAutomationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[[]ResponsePlanActionSsmAutomationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanActionSsmAutomationParameterArrayOutput) Index(i pulumi.IntInput) ResponsePlanActionSsmAutomationParameterOutput {
@@ -683,12 +586,6 @@ func (i ResponsePlanIncidentTemplateArgs) ToResponsePlanIncidentTemplateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplateOutput)
 }
 
-func (i ResponsePlanIncidentTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIncidentTemplate] {
-	return pulumix.Output[ResponsePlanIncidentTemplate]{
-		OutputState: i.ToResponsePlanIncidentTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResponsePlanIncidentTemplateArgs) ToResponsePlanIncidentTemplatePtrOutput() ResponsePlanIncidentTemplatePtrOutput {
 	return i.ToResponsePlanIncidentTemplatePtrOutputWithContext(context.Background())
 }
@@ -730,12 +627,6 @@ func (i *responsePlanIncidentTemplatePtrType) ToResponsePlanIncidentTemplatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplatePtrOutput)
 }
 
-func (i *responsePlanIncidentTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanIncidentTemplate] {
-	return pulumix.Output[*ResponsePlanIncidentTemplate]{
-		OutputState: i.ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanIncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanIncidentTemplateOutput) ElementType() reflect.Type {
@@ -758,12 +649,6 @@ func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplatePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlanIncidentTemplate) *ResponsePlanIncidentTemplate {
 		return &v
 	}).(ResponsePlanIncidentTemplatePtrOutput)
-}
-
-func (o ResponsePlanIncidentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIncidentTemplate] {
-	return pulumix.Output[ResponsePlanIncidentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string used to stop Incident Manager from creating multiple incident records for the same incident.
@@ -810,12 +695,6 @@ func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtr
 
 func (o ResponsePlanIncidentTemplatePtrOutput) ToResponsePlanIncidentTemplatePtrOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplatePtrOutput {
 	return o
-}
-
-func (o ResponsePlanIncidentTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanIncidentTemplate] {
-	return pulumix.Output[*ResponsePlanIncidentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanIncidentTemplatePtrOutput) Elem() ResponsePlanIncidentTemplateOutput {
@@ -925,12 +804,6 @@ func (i ResponsePlanIncidentTemplateNotificationTargetArgs) ToResponsePlanIncide
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplateNotificationTargetOutput)
 }
 
-func (i ResponsePlanIncidentTemplateNotificationTargetArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[ResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: i.ToResponsePlanIncidentTemplateNotificationTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResponsePlanIncidentTemplateNotificationTargetArrayInput is an input type that accepts ResponsePlanIncidentTemplateNotificationTargetArray and ResponsePlanIncidentTemplateNotificationTargetArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanIncidentTemplateNotificationTargetArrayInput` via:
 //
@@ -956,12 +829,6 @@ func (i ResponsePlanIncidentTemplateNotificationTargetArray) ToResponsePlanIncid
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplateNotificationTargetArrayOutput)
 }
 
-func (i ResponsePlanIncidentTemplateNotificationTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[[]ResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: i.ToResponsePlanIncidentTemplateNotificationTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanIncidentTemplateNotificationTargetOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanIncidentTemplateNotificationTargetOutput) ElementType() reflect.Type {
@@ -974,12 +841,6 @@ func (o ResponsePlanIncidentTemplateNotificationTargetOutput) ToResponsePlanInci
 
 func (o ResponsePlanIncidentTemplateNotificationTargetOutput) ToResponsePlanIncidentTemplateNotificationTargetOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplateNotificationTargetOutput {
 	return o
-}
-
-func (o ResponsePlanIncidentTemplateNotificationTargetOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[ResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Amazon SNS topic.
@@ -1001,12 +862,6 @@ func (o ResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToResponsePla
 
 func (o ResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToResponsePlanIncidentTemplateNotificationTargetArrayOutputWithContext(ctx context.Context) ResponsePlanIncidentTemplateNotificationTargetArrayOutput {
 	return o
-}
-
-func (o ResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[[]ResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanIncidentTemplateNotificationTargetArrayOutput) Index(i pulumi.IntInput) ResponsePlanIncidentTemplateNotificationTargetOutput {
@@ -1046,12 +901,6 @@ func (i ResponsePlanIntegrationArgs) ToResponsePlanIntegrationOutput() ResponseP
 
 func (i ResponsePlanIntegrationArgs) ToResponsePlanIntegrationOutputWithContext(ctx context.Context) ResponsePlanIntegrationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationOutput)
-}
-
-func (i ResponsePlanIntegrationArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIntegration] {
-	return pulumix.Output[ResponsePlanIntegration]{
-		OutputState: i.ToResponsePlanIntegrationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ResponsePlanIntegrationArgs) ToResponsePlanIntegrationPtrOutput() ResponsePlanIntegrationPtrOutput {
@@ -1095,12 +944,6 @@ func (i *responsePlanIntegrationPtrType) ToResponsePlanIntegrationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationPtrOutput)
 }
 
-func (i *responsePlanIntegrationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanIntegration] {
-	return pulumix.Output[*ResponsePlanIntegration]{
-		OutputState: i.ToResponsePlanIntegrationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanIntegrationOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanIntegrationOutput) ElementType() reflect.Type {
@@ -1125,12 +968,6 @@ func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationPtrOutputWithCon
 	}).(ResponsePlanIntegrationPtrOutput)
 }
 
-func (o ResponsePlanIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIntegration] {
-	return pulumix.Output[ResponsePlanIntegration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Details about the PagerDuty configuration for a response plan. The following values are supported:
 func (o ResponsePlanIntegrationOutput) Pagerduties() ResponsePlanIntegrationPagerdutyArrayOutput {
 	return o.ApplyT(func(v ResponsePlanIntegration) []ResponsePlanIntegrationPagerduty { return v.Pagerduties }).(ResponsePlanIntegrationPagerdutyArrayOutput)
@@ -1148,12 +985,6 @@ func (o ResponsePlanIntegrationPtrOutput) ToResponsePlanIntegrationPtrOutput() R
 
 func (o ResponsePlanIntegrationPtrOutput) ToResponsePlanIntegrationPtrOutputWithContext(ctx context.Context) ResponsePlanIntegrationPtrOutput {
 	return o
-}
-
-func (o ResponsePlanIntegrationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanIntegration] {
-	return pulumix.Output[*ResponsePlanIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanIntegrationPtrOutput) Elem() ResponsePlanIntegrationOutput {
@@ -1221,12 +1052,6 @@ func (i ResponsePlanIntegrationPagerdutyArgs) ToResponsePlanIntegrationPagerduty
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationPagerdutyOutput)
 }
 
-func (i ResponsePlanIntegrationPagerdutyArgs) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[ResponsePlanIntegrationPagerduty]{
-		OutputState: i.ToResponsePlanIntegrationPagerdutyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResponsePlanIntegrationPagerdutyArrayInput is an input type that accepts ResponsePlanIntegrationPagerdutyArray and ResponsePlanIntegrationPagerdutyArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanIntegrationPagerdutyArrayInput` via:
 //
@@ -1252,12 +1077,6 @@ func (i ResponsePlanIntegrationPagerdutyArray) ToResponsePlanIntegrationPagerdut
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationPagerdutyArrayOutput)
 }
 
-func (i ResponsePlanIntegrationPagerdutyArray) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[[]ResponsePlanIntegrationPagerduty]{
-		OutputState: i.ToResponsePlanIntegrationPagerdutyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponsePlanIntegrationPagerdutyOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanIntegrationPagerdutyOutput) ElementType() reflect.Type {
@@ -1270,12 +1089,6 @@ func (o ResponsePlanIntegrationPagerdutyOutput) ToResponsePlanIntegrationPagerdu
 
 func (o ResponsePlanIntegrationPagerdutyOutput) ToResponsePlanIntegrationPagerdutyOutputWithContext(ctx context.Context) ResponsePlanIntegrationPagerdutyOutput {
 	return o
-}
-
-func (o ResponsePlanIntegrationPagerdutyOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[ResponsePlanIntegrationPagerduty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the response plan.
@@ -1307,12 +1120,6 @@ func (o ResponsePlanIntegrationPagerdutyArrayOutput) ToResponsePlanIntegrationPa
 
 func (o ResponsePlanIntegrationPagerdutyArrayOutput) ToResponsePlanIntegrationPagerdutyArrayOutputWithContext(ctx context.Context) ResponsePlanIntegrationPagerdutyArrayOutput {
 	return o
-}
-
-func (o ResponsePlanIntegrationPagerdutyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[[]ResponsePlanIntegrationPagerduty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanIntegrationPagerdutyArrayOutput) Index(i pulumi.IntInput) ResponsePlanIntegrationPagerdutyOutput {
@@ -1368,12 +1175,6 @@ func (i GetReplicationSetRegionArgs) ToGetReplicationSetRegionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationSetRegionOutput)
 }
 
-func (i GetReplicationSetRegionArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationSetRegion] {
-	return pulumix.Output[GetReplicationSetRegion]{
-		OutputState: i.ToGetReplicationSetRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReplicationSetRegionArrayInput is an input type that accepts GetReplicationSetRegionArray and GetReplicationSetRegionArrayOutput values.
 // You can construct a concrete instance of `GetReplicationSetRegionArrayInput` via:
 //
@@ -1399,12 +1200,6 @@ func (i GetReplicationSetRegionArray) ToGetReplicationSetRegionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationSetRegionArrayOutput)
 }
 
-func (i GetReplicationSetRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationSetRegion] {
-	return pulumix.Output[[]GetReplicationSetRegion]{
-		OutputState: i.ToGetReplicationSetRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReplicationSetRegionOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationSetRegionOutput) ElementType() reflect.Type {
@@ -1417,12 +1212,6 @@ func (o GetReplicationSetRegionOutput) ToGetReplicationSetRegionOutput() GetRepl
 
 func (o GetReplicationSetRegionOutput) ToGetReplicationSetRegionOutputWithContext(ctx context.Context) GetReplicationSetRegionOutput {
 	return o
-}
-
-func (o GetReplicationSetRegionOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationSetRegion] {
-	return pulumix.Output[GetReplicationSetRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) encryption key.
@@ -1458,12 +1247,6 @@ func (o GetReplicationSetRegionArrayOutput) ToGetReplicationSetRegionArrayOutput
 
 func (o GetReplicationSetRegionArrayOutput) ToGetReplicationSetRegionArrayOutputWithContext(ctx context.Context) GetReplicationSetRegionArrayOutput {
 	return o
-}
-
-func (o GetReplicationSetRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationSetRegion] {
-	return pulumix.Output[[]GetReplicationSetRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationSetRegionArrayOutput) Index(i pulumi.IntInput) GetReplicationSetRegionOutput {
@@ -1505,12 +1288,6 @@ func (i GetResponsePlanActionArgs) ToGetResponsePlanActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionOutput)
 }
 
-func (i GetResponsePlanActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanAction] {
-	return pulumix.Output[GetResponsePlanAction]{
-		OutputState: i.ToGetResponsePlanActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanActionArrayInput is an input type that accepts GetResponsePlanActionArray and GetResponsePlanActionArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanActionArrayInput` via:
 //
@@ -1536,12 +1313,6 @@ func (i GetResponsePlanActionArray) ToGetResponsePlanActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionArrayOutput)
 }
 
-func (i GetResponsePlanActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanAction] {
-	return pulumix.Output[[]GetResponsePlanAction]{
-		OutputState: i.ToGetResponsePlanActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanActionOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanActionOutput) ElementType() reflect.Type {
@@ -1554,12 +1325,6 @@ func (o GetResponsePlanActionOutput) ToGetResponsePlanActionOutput() GetResponse
 
 func (o GetResponsePlanActionOutput) ToGetResponsePlanActionOutputWithContext(ctx context.Context) GetResponsePlanActionOutput {
 	return o
-}
-
-func (o GetResponsePlanActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanAction] {
-	return pulumix.Output[GetResponsePlanAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
@@ -1579,12 +1344,6 @@ func (o GetResponsePlanActionArrayOutput) ToGetResponsePlanActionArrayOutput() G
 
 func (o GetResponsePlanActionArrayOutput) ToGetResponsePlanActionArrayOutputWithContext(ctx context.Context) GetResponsePlanActionArrayOutput {
 	return o
-}
-
-func (o GetResponsePlanActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanAction] {
-	return pulumix.Output[[]GetResponsePlanAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResponsePlanActionArrayOutput) Index(i pulumi.IntInput) GetResponsePlanActionOutput {
@@ -1646,12 +1405,6 @@ func (i GetResponsePlanActionSsmAutomationArgs) ToGetResponsePlanActionSsmAutoma
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionSsmAutomationOutput)
 }
 
-func (i GetResponsePlanActionSsmAutomationArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanActionSsmAutomation] {
-	return pulumix.Output[GetResponsePlanActionSsmAutomation]{
-		OutputState: i.ToGetResponsePlanActionSsmAutomationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanActionSsmAutomationArrayInput is an input type that accepts GetResponsePlanActionSsmAutomationArray and GetResponsePlanActionSsmAutomationArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanActionSsmAutomationArrayInput` via:
 //
@@ -1677,12 +1430,6 @@ func (i GetResponsePlanActionSsmAutomationArray) ToGetResponsePlanActionSsmAutom
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionSsmAutomationArrayOutput)
 }
 
-func (i GetResponsePlanActionSsmAutomationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanActionSsmAutomation] {
-	return pulumix.Output[[]GetResponsePlanActionSsmAutomation]{
-		OutputState: i.ToGetResponsePlanActionSsmAutomationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanActionSsmAutomationOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanActionSsmAutomationOutput) ElementType() reflect.Type {
@@ -1695,12 +1442,6 @@ func (o GetResponsePlanActionSsmAutomationOutput) ToGetResponsePlanActionSsmAuto
 
 func (o GetResponsePlanActionSsmAutomationOutput) ToGetResponsePlanActionSsmAutomationOutputWithContext(ctx context.Context) GetResponsePlanActionSsmAutomationOutput {
 	return o
-}
-
-func (o GetResponsePlanActionSsmAutomationOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanActionSsmAutomation] {
-	return pulumix.Output[GetResponsePlanActionSsmAutomation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The automation document's name.
@@ -1749,12 +1490,6 @@ func (o GetResponsePlanActionSsmAutomationArrayOutput) ToGetResponsePlanActionSs
 	return o
 }
 
-func (o GetResponsePlanActionSsmAutomationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanActionSsmAutomation] {
-	return pulumix.Output[[]GetResponsePlanActionSsmAutomation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetResponsePlanActionSsmAutomationArrayOutput) Index(i pulumi.IntInput) GetResponsePlanActionSsmAutomationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponsePlanActionSsmAutomation {
 		return vs[0].([]GetResponsePlanActionSsmAutomation)[vs[1].(int)]
@@ -1798,12 +1533,6 @@ func (i GetResponsePlanActionSsmAutomationParameterArgs) ToGetResponsePlanAction
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionSsmAutomationParameterOutput)
 }
 
-func (i GetResponsePlanActionSsmAutomationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[GetResponsePlanActionSsmAutomationParameter]{
-		OutputState: i.ToGetResponsePlanActionSsmAutomationParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanActionSsmAutomationParameterArrayInput is an input type that accepts GetResponsePlanActionSsmAutomationParameterArray and GetResponsePlanActionSsmAutomationParameterArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanActionSsmAutomationParameterArrayInput` via:
 //
@@ -1829,12 +1558,6 @@ func (i GetResponsePlanActionSsmAutomationParameterArray) ToGetResponsePlanActio
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanActionSsmAutomationParameterArrayOutput)
 }
 
-func (i GetResponsePlanActionSsmAutomationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[[]GetResponsePlanActionSsmAutomationParameter]{
-		OutputState: i.ToGetResponsePlanActionSsmAutomationParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanActionSsmAutomationParameterOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanActionSsmAutomationParameterOutput) ElementType() reflect.Type {
@@ -1847,12 +1570,6 @@ func (o GetResponsePlanActionSsmAutomationParameterOutput) ToGetResponsePlanActi
 
 func (o GetResponsePlanActionSsmAutomationParameterOutput) ToGetResponsePlanActionSsmAutomationParameterOutputWithContext(ctx context.Context) GetResponsePlanActionSsmAutomationParameterOutput {
 	return o
-}
-
-func (o GetResponsePlanActionSsmAutomationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[GetResponsePlanActionSsmAutomationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the PagerDuty configuration.
@@ -1877,12 +1594,6 @@ func (o GetResponsePlanActionSsmAutomationParameterArrayOutput) ToGetResponsePla
 
 func (o GetResponsePlanActionSsmAutomationParameterArrayOutput) ToGetResponsePlanActionSsmAutomationParameterArrayOutputWithContext(ctx context.Context) GetResponsePlanActionSsmAutomationParameterArrayOutput {
 	return o
-}
-
-func (o GetResponsePlanActionSsmAutomationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanActionSsmAutomationParameter] {
-	return pulumix.Output[[]GetResponsePlanActionSsmAutomationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResponsePlanActionSsmAutomationParameterArrayOutput) Index(i pulumi.IntInput) GetResponsePlanActionSsmAutomationParameterOutput {
@@ -1944,12 +1655,6 @@ func (i GetResponsePlanIncidentTemplateArgs) ToGetResponsePlanIncidentTemplateOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIncidentTemplateOutput)
 }
 
-func (i GetResponsePlanIncidentTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIncidentTemplate] {
-	return pulumix.Output[GetResponsePlanIncidentTemplate]{
-		OutputState: i.ToGetResponsePlanIncidentTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanIncidentTemplateArrayInput is an input type that accepts GetResponsePlanIncidentTemplateArray and GetResponsePlanIncidentTemplateArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanIncidentTemplateArrayInput` via:
 //
@@ -1975,12 +1680,6 @@ func (i GetResponsePlanIncidentTemplateArray) ToGetResponsePlanIncidentTemplateA
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIncidentTemplateArrayOutput)
 }
 
-func (i GetResponsePlanIncidentTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIncidentTemplate] {
-	return pulumix.Output[[]GetResponsePlanIncidentTemplate]{
-		OutputState: i.ToGetResponsePlanIncidentTemplateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanIncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanIncidentTemplateOutput) ElementType() reflect.Type {
@@ -1993,12 +1692,6 @@ func (o GetResponsePlanIncidentTemplateOutput) ToGetResponsePlanIncidentTemplate
 
 func (o GetResponsePlanIncidentTemplateOutput) ToGetResponsePlanIncidentTemplateOutputWithContext(ctx context.Context) GetResponsePlanIncidentTemplateOutput {
 	return o
-}
-
-func (o GetResponsePlanIncidentTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIncidentTemplate] {
-	return pulumix.Output[GetResponsePlanIncidentTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string used to stop Incident Manager from creating multiple incident records for the same incident.
@@ -2047,12 +1740,6 @@ func (o GetResponsePlanIncidentTemplateArrayOutput) ToGetResponsePlanIncidentTem
 	return o
 }
 
-func (o GetResponsePlanIncidentTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIncidentTemplate] {
-	return pulumix.Output[[]GetResponsePlanIncidentTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetResponsePlanIncidentTemplateArrayOutput) Index(i pulumi.IntInput) GetResponsePlanIncidentTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponsePlanIncidentTemplate {
 		return vs[0].([]GetResponsePlanIncidentTemplate)[vs[1].(int)]
@@ -2092,12 +1779,6 @@ func (i GetResponsePlanIncidentTemplateNotificationTargetArgs) ToGetResponsePlan
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIncidentTemplateNotificationTargetOutput)
 }
 
-func (i GetResponsePlanIncidentTemplateNotificationTargetArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[GetResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: i.ToGetResponsePlanIncidentTemplateNotificationTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanIncidentTemplateNotificationTargetArrayInput is an input type that accepts GetResponsePlanIncidentTemplateNotificationTargetArray and GetResponsePlanIncidentTemplateNotificationTargetArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanIncidentTemplateNotificationTargetArrayInput` via:
 //
@@ -2123,12 +1804,6 @@ func (i GetResponsePlanIncidentTemplateNotificationTargetArray) ToGetResponsePla
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIncidentTemplateNotificationTargetArrayOutput)
 }
 
-func (i GetResponsePlanIncidentTemplateNotificationTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[[]GetResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: i.ToGetResponsePlanIncidentTemplateNotificationTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanIncidentTemplateNotificationTargetOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanIncidentTemplateNotificationTargetOutput) ElementType() reflect.Type {
@@ -2141,12 +1816,6 @@ func (o GetResponsePlanIncidentTemplateNotificationTargetOutput) ToGetResponsePl
 
 func (o GetResponsePlanIncidentTemplateNotificationTargetOutput) ToGetResponsePlanIncidentTemplateNotificationTargetOutputWithContext(ctx context.Context) GetResponsePlanIncidentTemplateNotificationTargetOutput {
 	return o
-}
-
-func (o GetResponsePlanIncidentTemplateNotificationTargetOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[GetResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Amazon SNS topic.
@@ -2166,12 +1835,6 @@ func (o GetResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToGetRespo
 
 func (o GetResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToGetResponsePlanIncidentTemplateNotificationTargetArrayOutputWithContext(ctx context.Context) GetResponsePlanIncidentTemplateNotificationTargetArrayOutput {
 	return o
-}
-
-func (o GetResponsePlanIncidentTemplateNotificationTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIncidentTemplateNotificationTarget] {
-	return pulumix.Output[[]GetResponsePlanIncidentTemplateNotificationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResponsePlanIncidentTemplateNotificationTargetArrayOutput) Index(i pulumi.IntInput) GetResponsePlanIncidentTemplateNotificationTargetOutput {
@@ -2213,12 +1876,6 @@ func (i GetResponsePlanIntegrationArgs) ToGetResponsePlanIntegrationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIntegrationOutput)
 }
 
-func (i GetResponsePlanIntegrationArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIntegration] {
-	return pulumix.Output[GetResponsePlanIntegration]{
-		OutputState: i.ToGetResponsePlanIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanIntegrationArrayInput is an input type that accepts GetResponsePlanIntegrationArray and GetResponsePlanIntegrationArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanIntegrationArrayInput` via:
 //
@@ -2244,12 +1901,6 @@ func (i GetResponsePlanIntegrationArray) ToGetResponsePlanIntegrationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIntegrationArrayOutput)
 }
 
-func (i GetResponsePlanIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIntegration] {
-	return pulumix.Output[[]GetResponsePlanIntegration]{
-		OutputState: i.ToGetResponsePlanIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanIntegrationOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanIntegrationOutput) ElementType() reflect.Type {
@@ -2262,12 +1913,6 @@ func (o GetResponsePlanIntegrationOutput) ToGetResponsePlanIntegrationOutput() G
 
 func (o GetResponsePlanIntegrationOutput) ToGetResponsePlanIntegrationOutputWithContext(ctx context.Context) GetResponsePlanIntegrationOutput {
 	return o
-}
-
-func (o GetResponsePlanIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIntegration] {
-	return pulumix.Output[GetResponsePlanIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Details about the PagerDuty configuration for a response plan. The following values are supported:
@@ -2287,12 +1932,6 @@ func (o GetResponsePlanIntegrationArrayOutput) ToGetResponsePlanIntegrationArray
 
 func (o GetResponsePlanIntegrationArrayOutput) ToGetResponsePlanIntegrationArrayOutputWithContext(ctx context.Context) GetResponsePlanIntegrationArrayOutput {
 	return o
-}
-
-func (o GetResponsePlanIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIntegration] {
-	return pulumix.Output[[]GetResponsePlanIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResponsePlanIntegrationArrayOutput) Index(i pulumi.IntInput) GetResponsePlanIntegrationOutput {
@@ -2342,12 +1981,6 @@ func (i GetResponsePlanIntegrationPagerdutyArgs) ToGetResponsePlanIntegrationPag
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIntegrationPagerdutyOutput)
 }
 
-func (i GetResponsePlanIntegrationPagerdutyArgs) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[GetResponsePlanIntegrationPagerduty]{
-		OutputState: i.ToGetResponsePlanIntegrationPagerdutyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResponsePlanIntegrationPagerdutyArrayInput is an input type that accepts GetResponsePlanIntegrationPagerdutyArray and GetResponsePlanIntegrationPagerdutyArrayOutput values.
 // You can construct a concrete instance of `GetResponsePlanIntegrationPagerdutyArrayInput` via:
 //
@@ -2373,12 +2006,6 @@ func (i GetResponsePlanIntegrationPagerdutyArray) ToGetResponsePlanIntegrationPa
 	return pulumi.ToOutputWithContext(ctx, i).(GetResponsePlanIntegrationPagerdutyArrayOutput)
 }
 
-func (i GetResponsePlanIntegrationPagerdutyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[[]GetResponsePlanIntegrationPagerduty]{
-		OutputState: i.ToGetResponsePlanIntegrationPagerdutyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResponsePlanIntegrationPagerdutyOutput struct{ *pulumi.OutputState }
 
 func (GetResponsePlanIntegrationPagerdutyOutput) ElementType() reflect.Type {
@@ -2391,12 +2018,6 @@ func (o GetResponsePlanIntegrationPagerdutyOutput) ToGetResponsePlanIntegrationP
 
 func (o GetResponsePlanIntegrationPagerdutyOutput) ToGetResponsePlanIntegrationPagerdutyOutputWithContext(ctx context.Context) GetResponsePlanIntegrationPagerdutyOutput {
 	return o
-}
-
-func (o GetResponsePlanIntegrationPagerdutyOutput) ToOutput(ctx context.Context) pulumix.Output[GetResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[GetResponsePlanIntegrationPagerduty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the PagerDuty configuration.
@@ -2426,12 +2047,6 @@ func (o GetResponsePlanIntegrationPagerdutyArrayOutput) ToGetResponsePlanIntegra
 
 func (o GetResponsePlanIntegrationPagerdutyArrayOutput) ToGetResponsePlanIntegrationPagerdutyArrayOutputWithContext(ctx context.Context) GetResponsePlanIntegrationPagerdutyArrayOutput {
 	return o
-}
-
-func (o GetResponsePlanIntegrationPagerdutyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResponsePlanIntegrationPagerduty] {
-	return pulumix.Output[[]GetResponsePlanIntegrationPagerduty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResponsePlanIntegrationPagerdutyArrayOutput) Index(i pulumi.IntInput) GetResponsePlanIntegrationPagerdutyOutput {

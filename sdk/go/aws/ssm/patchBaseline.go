@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Patch Baseline resource.
@@ -632,12 +631,6 @@ func (i *PatchBaseline) ToPatchBaselineOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineOutput)
 }
 
-func (i *PatchBaseline) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
-	return pulumix.Output[*PatchBaseline]{
-		OutputState: i.ToPatchBaselineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchBaselineArrayInput is an input type that accepts PatchBaselineArray and PatchBaselineArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineArrayInput` via:
 //
@@ -661,12 +654,6 @@ func (i PatchBaselineArray) ToPatchBaselineArrayOutput() PatchBaselineArrayOutpu
 
 func (i PatchBaselineArray) ToPatchBaselineArrayOutputWithContext(ctx context.Context) PatchBaselineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineArrayOutput)
-}
-
-func (i PatchBaselineArray) ToOutput(ctx context.Context) pulumix.Output[[]*PatchBaseline] {
-	return pulumix.Output[[]*PatchBaseline]{
-		OutputState: i.ToPatchBaselineArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PatchBaselineMapInput is an input type that accepts PatchBaselineMap and PatchBaselineMapOutput values.
@@ -694,12 +681,6 @@ func (i PatchBaselineMap) ToPatchBaselineMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineMapOutput)
 }
 
-func (i PatchBaselineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchBaseline] {
-	return pulumix.Output[map[string]*PatchBaseline]{
-		OutputState: i.ToPatchBaselineMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchBaselineOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineOutput) ElementType() reflect.Type {
@@ -712,12 +693,6 @@ func (o PatchBaselineOutput) ToPatchBaselineOutput() PatchBaselineOutput {
 
 func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Context) PatchBaselineOutput {
 	return o
-}
-
-func (o PatchBaselineOutput) ToOutput(ctx context.Context) pulumix.Output[*PatchBaseline] {
-	return pulumix.Output[*PatchBaseline]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A set of rules used to include patches in the baseline.
@@ -835,12 +810,6 @@ func (o PatchBaselineArrayOutput) ToPatchBaselineArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o PatchBaselineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PatchBaseline] {
-	return pulumix.Output[[]*PatchBaseline]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PatchBaselineArrayOutput) Index(i pulumi.IntInput) PatchBaselineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PatchBaseline {
 		return vs[0].([]*PatchBaseline)[vs[1].(int)]
@@ -859,12 +828,6 @@ func (o PatchBaselineMapOutput) ToPatchBaselineMapOutput() PatchBaselineMapOutpu
 
 func (o PatchBaselineMapOutput) ToPatchBaselineMapOutputWithContext(ctx context.Context) PatchBaselineMapOutput {
 	return o
-}
-
-func (o PatchBaselineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PatchBaseline] {
-	return pulumix.Output[map[string]*PatchBaseline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineMapOutput) MapIndex(k pulumi.StringInput) PatchBaselineOutput {

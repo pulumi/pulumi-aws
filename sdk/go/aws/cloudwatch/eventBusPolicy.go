@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create an EventBridge resource policy to support cross-account events.
@@ -328,12 +327,6 @@ func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyOutput)
 }
 
-func (i *EventBusPolicy) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
-	return pulumix.Output[*EventBusPolicy]{
-		OutputState: i.ToEventBusPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventBusPolicyArrayInput is an input type that accepts EventBusPolicyArray and EventBusPolicyArrayOutput values.
 // You can construct a concrete instance of `EventBusPolicyArrayInput` via:
 //
@@ -357,12 +350,6 @@ func (i EventBusPolicyArray) ToEventBusPolicyArrayOutput() EventBusPolicyArrayOu
 
 func (i EventBusPolicyArray) ToEventBusPolicyArrayOutputWithContext(ctx context.Context) EventBusPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyArrayOutput)
-}
-
-func (i EventBusPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventBusPolicy] {
-	return pulumix.Output[[]*EventBusPolicy]{
-		OutputState: i.ToEventBusPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventBusPolicyMapInput is an input type that accepts EventBusPolicyMap and EventBusPolicyMapOutput values.
@@ -390,12 +377,6 @@ func (i EventBusPolicyMap) ToEventBusPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyMapOutput)
 }
 
-func (i EventBusPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventBusPolicy] {
-	return pulumix.Output[map[string]*EventBusPolicy]{
-		OutputState: i.ToEventBusPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventBusPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyOutput) ElementType() reflect.Type {
@@ -408,12 +389,6 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {
 
 func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
 	return o
-}
-
-func (o EventBusPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
-	return pulumix.Output[*EventBusPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the event bus to set the permissions on.
@@ -441,12 +416,6 @@ func (o EventBusPolicyArrayOutput) ToEventBusPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o EventBusPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventBusPolicy] {
-	return pulumix.Output[[]*EventBusPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventBusPolicyArrayOutput) Index(i pulumi.IntInput) EventBusPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventBusPolicy {
 		return vs[0].([]*EventBusPolicy)[vs[1].(int)]
@@ -465,12 +434,6 @@ func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutput() EventBusPolicyMapOu
 
 func (o EventBusPolicyMapOutput) ToEventBusPolicyMapOutputWithContext(ctx context.Context) EventBusPolicyMapOutput {
 	return o
-}
-
-func (o EventBusPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventBusPolicy] {
-	return pulumix.Output[map[string]*EventBusPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventBusPolicyMapOutput) MapIndex(k pulumi.StringInput) EventBusPolicyOutput {

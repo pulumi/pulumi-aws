@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Bot Alias.
@@ -118,12 +117,6 @@ func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutput() LookupBotAlia
 
 func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx context.Context) LookupBotAliasResultOutput {
 	return o
-}
-
-func (o LookupBotAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotAliasResult] {
-	return pulumix.Output[LookupBotAliasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the bot alias.

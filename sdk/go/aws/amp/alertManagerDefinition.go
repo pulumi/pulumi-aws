@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
@@ -162,12 +161,6 @@ func (i *AlertManagerDefinition) ToAlertManagerDefinitionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionOutput)
 }
 
-func (i *AlertManagerDefinition) ToOutput(ctx context.Context) pulumix.Output[*AlertManagerDefinition] {
-	return pulumix.Output[*AlertManagerDefinition]{
-		OutputState: i.ToAlertManagerDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertManagerDefinitionArrayInput is an input type that accepts AlertManagerDefinitionArray and AlertManagerDefinitionArrayOutput values.
 // You can construct a concrete instance of `AlertManagerDefinitionArrayInput` via:
 //
@@ -191,12 +184,6 @@ func (i AlertManagerDefinitionArray) ToAlertManagerDefinitionArrayOutput() Alert
 
 func (i AlertManagerDefinitionArray) ToAlertManagerDefinitionArrayOutputWithContext(ctx context.Context) AlertManagerDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionArrayOutput)
-}
-
-func (i AlertManagerDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertManagerDefinition] {
-	return pulumix.Output[[]*AlertManagerDefinition]{
-		OutputState: i.ToAlertManagerDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertManagerDefinitionMapInput is an input type that accepts AlertManagerDefinitionMap and AlertManagerDefinitionMapOutput values.
@@ -224,12 +211,6 @@ func (i AlertManagerDefinitionMap) ToAlertManagerDefinitionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionMapOutput)
 }
 
-func (i AlertManagerDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertManagerDefinition] {
-	return pulumix.Output[map[string]*AlertManagerDefinition]{
-		OutputState: i.ToAlertManagerDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertManagerDefinitionOutput struct{ *pulumi.OutputState }
 
 func (AlertManagerDefinitionOutput) ElementType() reflect.Type {
@@ -242,12 +223,6 @@ func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutput() AlertMana
 
 func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutputWithContext(ctx context.Context) AlertManagerDefinitionOutput {
 	return o
-}
-
-func (o AlertManagerDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertManagerDefinition] {
-	return pulumix.Output[*AlertManagerDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
@@ -274,12 +249,6 @@ func (o AlertManagerDefinitionArrayOutput) ToAlertManagerDefinitionArrayOutputWi
 	return o
 }
 
-func (o AlertManagerDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertManagerDefinition] {
-	return pulumix.Output[[]*AlertManagerDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertManagerDefinitionArrayOutput) Index(i pulumi.IntInput) AlertManagerDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertManagerDefinition {
 		return vs[0].([]*AlertManagerDefinition)[vs[1].(int)]
@@ -298,12 +267,6 @@ func (o AlertManagerDefinitionMapOutput) ToAlertManagerDefinitionMapOutput() Ale
 
 func (o AlertManagerDefinitionMapOutput) ToAlertManagerDefinitionMapOutputWithContext(ctx context.Context) AlertManagerDefinitionMapOutput {
 	return o
-}
-
-func (o AlertManagerDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertManagerDefinition] {
-	return pulumix.Output[map[string]*AlertManagerDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertManagerDefinitionMapOutput) MapIndex(k pulumi.StringInput) AlertManagerDefinitionOutput {

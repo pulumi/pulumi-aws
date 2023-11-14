@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a new Amazon Redshift endpoint authorization.
@@ -195,12 +194,6 @@ func (i *EndpointAuthorization) ToEndpointAuthorizationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthorizationOutput)
 }
 
-func (i *EndpointAuthorization) ToOutput(ctx context.Context) pulumix.Output[*EndpointAuthorization] {
-	return pulumix.Output[*EndpointAuthorization]{
-		OutputState: i.ToEndpointAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointAuthorizationArrayInput is an input type that accepts EndpointAuthorizationArray and EndpointAuthorizationArrayOutput values.
 // You can construct a concrete instance of `EndpointAuthorizationArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i EndpointAuthorizationArray) ToEndpointAuthorizationArrayOutput() Endpoin
 
 func (i EndpointAuthorizationArray) ToEndpointAuthorizationArrayOutputWithContext(ctx context.Context) EndpointAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthorizationArrayOutput)
-}
-
-func (i EndpointAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointAuthorization] {
-	return pulumix.Output[[]*EndpointAuthorization]{
-		OutputState: i.ToEndpointAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointAuthorizationMapInput is an input type that accepts EndpointAuthorizationMap and EndpointAuthorizationMapOutput values.
@@ -257,12 +244,6 @@ func (i EndpointAuthorizationMap) ToEndpointAuthorizationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthorizationMapOutput)
 }
 
-func (i EndpointAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointAuthorization] {
-	return pulumix.Output[map[string]*EndpointAuthorization]{
-		OutputState: i.ToEndpointAuthorizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (EndpointAuthorizationOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutput() EndpointAut
 
 func (o EndpointAuthorizationOutput) ToEndpointAuthorizationOutputWithContext(ctx context.Context) EndpointAuthorizationOutput {
 	return o
-}
-
-func (o EndpointAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAuthorization] {
-	return pulumix.Output[*EndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Web Services account ID to grant access to.
@@ -337,12 +312,6 @@ func (o EndpointAuthorizationArrayOutput) ToEndpointAuthorizationArrayOutputWith
 	return o
 }
 
-func (o EndpointAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointAuthorization] {
-	return pulumix.Output[[]*EndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointAuthorizationArrayOutput) Index(i pulumi.IntInput) EndpointAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointAuthorization {
 		return vs[0].([]*EndpointAuthorization)[vs[1].(int)]
@@ -361,12 +330,6 @@ func (o EndpointAuthorizationMapOutput) ToEndpointAuthorizationMapOutput() Endpo
 
 func (o EndpointAuthorizationMapOutput) ToEndpointAuthorizationMapOutputWithContext(ctx context.Context) EndpointAuthorizationMapOutput {
 	return o
-}
-
-func (o EndpointAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointAuthorization] {
-	return pulumix.Output[map[string]*EndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointAuthorizationMapOutput) MapIndex(k pulumi.StringInput) EndpointAuthorizationOutput {

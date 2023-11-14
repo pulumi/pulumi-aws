@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing QuickSight Data Source
@@ -274,12 +273,6 @@ func (i *DataSource) ToDataSourceOutputWithContext(ctx context.Context) DataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOutput)
 }
 
-func (i *DataSource) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
-	return pulumix.Output[*DataSource]{
-		OutputState: i.ToDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataSourceArrayInput is an input type that accepts DataSourceArray and DataSourceArrayOutput values.
 // You can construct a concrete instance of `DataSourceArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i DataSourceArray) ToDataSourceArrayOutput() DataSourceArrayOutput {
 
 func (i DataSourceArray) ToDataSourceArrayOutputWithContext(ctx context.Context) DataSourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceArrayOutput)
-}
-
-func (i DataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataSource] {
-	return pulumix.Output[[]*DataSource]{
-		OutputState: i.ToDataSourceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataSourceMapInput is an input type that accepts DataSourceMap and DataSourceMapOutput values.
@@ -336,12 +323,6 @@ func (i DataSourceMap) ToDataSourceMapOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMapOutput)
 }
 
-func (i DataSourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSource] {
-	return pulumix.Output[map[string]*DataSource]{
-		OutputState: i.ToDataSourceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o DataSourceOutput) ToDataSourceOutput() DataSourceOutput {
 
 func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) DataSourceOutput {
 	return o
-}
-
-func (o DataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSource] {
-	return pulumix.Output[*DataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the data source
@@ -440,12 +415,6 @@ func (o DataSourceArrayOutput) ToDataSourceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataSource] {
-	return pulumix.Output[[]*DataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceArrayOutput) Index(i pulumi.IntInput) DataSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataSource {
 		return vs[0].([]*DataSource)[vs[1].(int)]
@@ -464,12 +433,6 @@ func (o DataSourceMapOutput) ToDataSourceMapOutput() DataSourceMapOutput {
 
 func (o DataSourceMapOutput) ToDataSourceMapOutputWithContext(ctx context.Context) DataSourceMapOutput {
 	return o
-}
-
-func (o DataSourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataSource] {
-	return pulumix.Output[map[string]*DataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceMapOutput) MapIndex(k pulumi.StringInput) DataSourceOutput {

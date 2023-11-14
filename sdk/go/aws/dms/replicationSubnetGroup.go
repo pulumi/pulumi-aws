@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
@@ -279,12 +278,6 @@ func (i *ReplicationSubnetGroup) ToReplicationSubnetGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupOutput)
 }
 
-func (i *ReplicationSubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSubnetGroup] {
-	return pulumix.Output[*ReplicationSubnetGroup]{
-		OutputState: i.ToReplicationSubnetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationSubnetGroupArrayInput is an input type that accepts ReplicationSubnetGroupArray and ReplicationSubnetGroupArrayOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i ReplicationSubnetGroupArray) ToReplicationSubnetGroupArrayOutput() Repli
 
 func (i ReplicationSubnetGroupArray) ToReplicationSubnetGroupArrayOutputWithContext(ctx context.Context) ReplicationSubnetGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupArrayOutput)
-}
-
-func (i ReplicationSubnetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSubnetGroup] {
-	return pulumix.Output[[]*ReplicationSubnetGroup]{
-		OutputState: i.ToReplicationSubnetGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationSubnetGroupMapInput is an input type that accepts ReplicationSubnetGroupMap and ReplicationSubnetGroupMapOutput values.
@@ -341,12 +328,6 @@ func (i ReplicationSubnetGroupMap) ToReplicationSubnetGroupMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupMapOutput)
 }
 
-func (i ReplicationSubnetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSubnetGroup] {
-	return pulumix.Output[map[string]*ReplicationSubnetGroup]{
-		OutputState: i.ToReplicationSubnetGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutput() Replicati
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupOutputWithContext(ctx context.Context) ReplicationSubnetGroupOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSubnetGroup] {
-	return pulumix.Output[*ReplicationSubnetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupOutput) ReplicationSubnetGroupArn() pulumi.StringOutput {
@@ -417,12 +392,6 @@ func (o ReplicationSubnetGroupArrayOutput) ToReplicationSubnetGroupArrayOutputWi
 	return o
 }
 
-func (o ReplicationSubnetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationSubnetGroup] {
-	return pulumix.Output[[]*ReplicationSubnetGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationSubnetGroupArrayOutput) Index(i pulumi.IntInput) ReplicationSubnetGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationSubnetGroup {
 		return vs[0].([]*ReplicationSubnetGroup)[vs[1].(int)]
@@ -441,12 +410,6 @@ func (o ReplicationSubnetGroupMapOutput) ToReplicationSubnetGroupMapOutput() Rep
 
 func (o ReplicationSubnetGroupMapOutput) ToReplicationSubnetGroupMapOutputWithContext(ctx context.Context) ReplicationSubnetGroupMapOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationSubnetGroup] {
-	return pulumix.Output[map[string]*ReplicationSubnetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupMapOutput) MapIndex(k pulumi.StringInput) ReplicationSubnetGroupOutput {

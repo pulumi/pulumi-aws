@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides SSM Parameters by path.
@@ -119,12 +118,6 @@ func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutput() Get
 
 func (o GetParametersByPathResultOutput) ToGetParametersByPathResultOutputWithContext(ctx context.Context) GetParametersByPathResultOutput {
 	return o
-}
-
-func (o GetParametersByPathResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetParametersByPathResult] {
-	return pulumix.Output[GetParametersByPathResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetParametersByPathResultOutput) Arns() pulumi.StringArrayOutput {

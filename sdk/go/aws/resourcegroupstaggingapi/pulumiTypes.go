@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i GetResourcesResourceTagMappingListArgs) ToGetResourcesResourceTagMapping
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListOutput)
 }
 
-func (i GetResourcesResourceTagMappingListArgs) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResourceTagMappingList] {
-	return pulumix.Output[GetResourcesResourceTagMappingList]{
-		OutputState: i.ToGetResourcesResourceTagMappingListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResourcesResourceTagMappingListArrayInput is an input type that accepts GetResourcesResourceTagMappingListArray and GetResourcesResourceTagMappingListArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i GetResourcesResourceTagMappingListArray) ToGetResourcesResourceTagMappin
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListArrayOutput)
 }
 
-func (i GetResourcesResourceTagMappingListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResourceTagMappingList] {
-	return pulumix.Output[[]GetResourcesResourceTagMappingList]{
-		OutputState: i.ToGetResourcesResourceTagMappingListArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResourcesResourceTagMappingListOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceTagMappingListOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o GetResourcesResourceTagMappingListOutput) ToGetResourcesResourceTagMappi
 
 func (o GetResourcesResourceTagMappingListOutput) ToGetResourcesResourceTagMappingListOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListOutput {
 	return o
-}
-
-func (o GetResourcesResourceTagMappingListOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResourceTagMappingList] {
-	return pulumix.Output[GetResourcesResourceTagMappingList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
@@ -141,12 +122,6 @@ func (o GetResourcesResourceTagMappingListArrayOutput) ToGetResourcesResourceTag
 
 func (o GetResourcesResourceTagMappingListArrayOutput) ToGetResourcesResourceTagMappingListArrayOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListArrayOutput {
 	return o
-}
-
-func (o GetResourcesResourceTagMappingListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResourceTagMappingList] {
-	return pulumix.Output[[]GetResourcesResourceTagMappingList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResourcesResourceTagMappingListArrayOutput) Index(i pulumi.IntInput) GetResourcesResourceTagMappingListOutput {
@@ -196,12 +171,6 @@ func (i GetResourcesResourceTagMappingListComplianceDetailArgs) ToGetResourcesRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListComplianceDetailOutput)
 }
 
-func (i GetResourcesResourceTagMappingListComplianceDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResourceTagMappingListComplianceDetail] {
-	return pulumix.Output[GetResourcesResourceTagMappingListComplianceDetail]{
-		OutputState: i.ToGetResourcesResourceTagMappingListComplianceDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResourcesResourceTagMappingListComplianceDetailArrayInput is an input type that accepts GetResourcesResourceTagMappingListComplianceDetailArray and GetResourcesResourceTagMappingListComplianceDetailArrayOutput values.
 // You can construct a concrete instance of `GetResourcesResourceTagMappingListComplianceDetailArrayInput` via:
 //
@@ -227,12 +196,6 @@ func (i GetResourcesResourceTagMappingListComplianceDetailArray) ToGetResourcesR
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListComplianceDetailArrayOutput)
 }
 
-func (i GetResourcesResourceTagMappingListComplianceDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResourceTagMappingListComplianceDetail] {
-	return pulumix.Output[[]GetResourcesResourceTagMappingListComplianceDetail]{
-		OutputState: i.ToGetResourcesResourceTagMappingListComplianceDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResourcesResourceTagMappingListComplianceDetailOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceTagMappingListComplianceDetailOutput) ElementType() reflect.Type {
@@ -245,12 +208,6 @@ func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ToGetResources
 
 func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ToGetResourcesResourceTagMappingListComplianceDetailOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListComplianceDetailOutput {
 	return o
-}
-
-func (o GetResourcesResourceTagMappingListComplianceDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesResourceTagMappingListComplianceDetail] {
-	return pulumix.Output[GetResourcesResourceTagMappingListComplianceDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the resource is compliant.
@@ -282,12 +239,6 @@ func (o GetResourcesResourceTagMappingListComplianceDetailArrayOutput) ToGetReso
 
 func (o GetResourcesResourceTagMappingListComplianceDetailArrayOutput) ToGetResourcesResourceTagMappingListComplianceDetailArrayOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListComplianceDetailArrayOutput {
 	return o
-}
-
-func (o GetResourcesResourceTagMappingListComplianceDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesResourceTagMappingListComplianceDetail] {
-	return pulumix.Output[[]GetResourcesResourceTagMappingListComplianceDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResourcesResourceTagMappingListComplianceDetailArrayOutput) Index(i pulumi.IntInput) GetResourcesResourceTagMappingListComplianceDetailOutput {
@@ -333,12 +284,6 @@ func (i GetResourcesTagFilterArgs) ToGetResourcesTagFilterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesTagFilterOutput)
 }
 
-func (i GetResourcesTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetResourcesTagFilter] {
-	return pulumix.Output[GetResourcesTagFilter]{
-		OutputState: i.ToGetResourcesTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetResourcesTagFilterArrayInput is an input type that accepts GetResourcesTagFilterArray and GetResourcesTagFilterArrayOutput values.
 // You can construct a concrete instance of `GetResourcesTagFilterArrayInput` via:
 //
@@ -364,12 +309,6 @@ func (i GetResourcesTagFilterArray) ToGetResourcesTagFilterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesTagFilterArrayOutput)
 }
 
-func (i GetResourcesTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesTagFilter] {
-	return pulumix.Output[[]GetResourcesTagFilter]{
-		OutputState: i.ToGetResourcesTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetResourcesTagFilterOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesTagFilterOutput) ElementType() reflect.Type {
@@ -382,12 +321,6 @@ func (o GetResourcesTagFilterOutput) ToGetResourcesTagFilterOutput() GetResource
 
 func (o GetResourcesTagFilterOutput) ToGetResourcesTagFilterOutputWithContext(ctx context.Context) GetResourcesTagFilterOutput {
 	return o
-}
-
-func (o GetResourcesTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetResourcesTagFilter] {
-	return pulumix.Output[GetResourcesTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One part of a key-value pair that makes up a tag.
@@ -412,12 +345,6 @@ func (o GetResourcesTagFilterArrayOutput) ToGetResourcesTagFilterArrayOutput() G
 
 func (o GetResourcesTagFilterArrayOutput) ToGetResourcesTagFilterArrayOutputWithContext(ctx context.Context) GetResourcesTagFilterArrayOutput {
 	return o
-}
-
-func (o GetResourcesTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetResourcesTagFilter] {
-	return pulumix.Output[[]GetResourcesTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetResourcesTagFilterArrayOutput) Index(i pulumi.IntInput) GetResourcesTagFilterOutput {

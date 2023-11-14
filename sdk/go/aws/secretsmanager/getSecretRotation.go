@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
@@ -105,12 +104,6 @@ func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutput() L
 
 func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutputWithContext(ctx context.Context) LookupSecretRotationResultOutput {
 	return o
-}
-
-func (o LookupSecretRotationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecretRotationResult] {
-	return pulumix.Output[LookupSecretRotationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

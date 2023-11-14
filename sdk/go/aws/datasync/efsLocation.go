@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync EFS Location.
@@ -234,12 +233,6 @@ func (i *EfsLocation) ToEfsLocationOutputWithContext(ctx context.Context) EfsLoc
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationOutput)
 }
 
-func (i *EfsLocation) ToOutput(ctx context.Context) pulumix.Output[*EfsLocation] {
-	return pulumix.Output[*EfsLocation]{
-		OutputState: i.ToEfsLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EfsLocationArrayInput is an input type that accepts EfsLocationArray and EfsLocationArrayOutput values.
 // You can construct a concrete instance of `EfsLocationArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i EfsLocationArray) ToEfsLocationArrayOutput() EfsLocationArrayOutput {
 
 func (i EfsLocationArray) ToEfsLocationArrayOutputWithContext(ctx context.Context) EfsLocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationArrayOutput)
-}
-
-func (i EfsLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EfsLocation] {
-	return pulumix.Output[[]*EfsLocation]{
-		OutputState: i.ToEfsLocationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EfsLocationMapInput is an input type that accepts EfsLocationMap and EfsLocationMapOutput values.
@@ -296,12 +283,6 @@ func (i EfsLocationMap) ToEfsLocationMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationMapOutput)
 }
 
-func (i EfsLocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EfsLocation] {
-	return pulumix.Output[map[string]*EfsLocation]{
-		OutputState: i.ToEfsLocationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EfsLocationOutput struct{ *pulumi.OutputState }
 
 func (EfsLocationOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o EfsLocationOutput) ToEfsLocationOutput() EfsLocationOutput {
 
 func (o EfsLocationOutput) ToEfsLocationOutputWithContext(ctx context.Context) EfsLocationOutput {
 	return o
-}
-
-func (o EfsLocationOutput) ToOutput(ctx context.Context) pulumix.Output[*EfsLocation] {
-	return pulumix.Output[*EfsLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
@@ -387,12 +362,6 @@ func (o EfsLocationArrayOutput) ToEfsLocationArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o EfsLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EfsLocation] {
-	return pulumix.Output[[]*EfsLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EfsLocationArrayOutput) Index(i pulumi.IntInput) EfsLocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EfsLocation {
 		return vs[0].([]*EfsLocation)[vs[1].(int)]
@@ -411,12 +380,6 @@ func (o EfsLocationMapOutput) ToEfsLocationMapOutput() EfsLocationMapOutput {
 
 func (o EfsLocationMapOutput) ToEfsLocationMapOutputWithContext(ctx context.Context) EfsLocationMapOutput {
 	return o
-}
-
-func (o EfsLocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EfsLocation] {
-	return pulumix.Output[map[string]*EfsLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EfsLocationMapOutput) MapIndex(k pulumi.StringInput) EfsLocationOutput {

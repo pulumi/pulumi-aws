@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Step Functions Activity data source
@@ -105,12 +104,6 @@ func (o LookupActivityResultOutput) ToLookupActivityResultOutput() LookupActivit
 
 func (o LookupActivityResultOutput) ToLookupActivityResultOutputWithContext(ctx context.Context) LookupActivityResultOutput {
 	return o
-}
-
-func (o LookupActivityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActivityResult] {
-	return pulumix.Output[LookupActivityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupActivityResultOutput) Arn() pulumi.StringOutput {

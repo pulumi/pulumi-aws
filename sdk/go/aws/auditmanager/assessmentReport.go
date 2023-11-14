@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Audit Manager Assessment Report.
@@ -180,12 +179,6 @@ func (i *AssessmentReport) ToAssessmentReportOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportOutput)
 }
 
-func (i *AssessmentReport) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReport] {
-	return pulumix.Output[*AssessmentReport]{
-		OutputState: i.ToAssessmentReportOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentReportArrayInput is an input type that accepts AssessmentReportArray and AssessmentReportArrayOutput values.
 // You can construct a concrete instance of `AssessmentReportArrayInput` via:
 //
@@ -209,12 +202,6 @@ func (i AssessmentReportArray) ToAssessmentReportArrayOutput() AssessmentReportA
 
 func (i AssessmentReportArray) ToAssessmentReportArrayOutputWithContext(ctx context.Context) AssessmentReportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportArrayOutput)
-}
-
-func (i AssessmentReportArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentReport] {
-	return pulumix.Output[[]*AssessmentReport]{
-		OutputState: i.ToAssessmentReportArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssessmentReportMapInput is an input type that accepts AssessmentReportMap and AssessmentReportMapOutput values.
@@ -242,12 +229,6 @@ func (i AssessmentReportMap) ToAssessmentReportMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentReportMapOutput)
 }
 
-func (i AssessmentReportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentReport] {
-	return pulumix.Output[map[string]*AssessmentReport]{
-		OutputState: i.ToAssessmentReportMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentReportOutput struct{ *pulumi.OutputState }
 
 func (AssessmentReportOutput) ElementType() reflect.Type {
@@ -260,12 +241,6 @@ func (o AssessmentReportOutput) ToAssessmentReportOutput() AssessmentReportOutpu
 
 func (o AssessmentReportOutput) ToAssessmentReportOutputWithContext(ctx context.Context) AssessmentReportOutput {
 	return o
-}
-
-func (o AssessmentReportOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReport] {
-	return pulumix.Output[*AssessmentReport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique identifier of the assessment to create the report from.
@@ -309,12 +284,6 @@ func (o AssessmentReportArrayOutput) ToAssessmentReportArrayOutputWithContext(ct
 	return o
 }
 
-func (o AssessmentReportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentReport] {
-	return pulumix.Output[[]*AssessmentReport]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentReportArrayOutput) Index(i pulumi.IntInput) AssessmentReportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentReport {
 		return vs[0].([]*AssessmentReport)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o AssessmentReportMapOutput) ToAssessmentReportMapOutput() AssessmentRepor
 
 func (o AssessmentReportMapOutput) ToAssessmentReportMapOutputWithContext(ctx context.Context) AssessmentReportMapOutput {
 	return o
-}
-
-func (o AssessmentReportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentReport] {
-	return pulumix.Output[map[string]*AssessmentReport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentReportMapOutput) MapIndex(k pulumi.StringInput) AssessmentReportOutput {

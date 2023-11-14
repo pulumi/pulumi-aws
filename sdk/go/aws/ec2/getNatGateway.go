@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific VPC NAT Gateway.
@@ -175,12 +174,6 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutput() LookupNat
 
 func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(ctx context.Context) LookupNatGatewayResultOutput {
 	return o
-}
-
-func (o LookupNatGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNatGatewayResult] {
-	return pulumix.Output[LookupNatGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of the EIP allocated to the selected NAT Gateway.

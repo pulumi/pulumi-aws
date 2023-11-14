@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a QuickSight Refresh Schedule.
@@ -268,12 +267,6 @@ func (i *RefreshSchedule) ToRefreshScheduleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleOutput)
 }
 
-func (i *RefreshSchedule) ToOutput(ctx context.Context) pulumix.Output[*RefreshSchedule] {
-	return pulumix.Output[*RefreshSchedule]{
-		OutputState: i.ToRefreshScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RefreshScheduleArrayInput is an input type that accepts RefreshScheduleArray and RefreshScheduleArrayOutput values.
 // You can construct a concrete instance of `RefreshScheduleArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i RefreshScheduleArray) ToRefreshScheduleArrayOutput() RefreshScheduleArra
 
 func (i RefreshScheduleArray) ToRefreshScheduleArrayOutputWithContext(ctx context.Context) RefreshScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleArrayOutput)
-}
-
-func (i RefreshScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*RefreshSchedule] {
-	return pulumix.Output[[]*RefreshSchedule]{
-		OutputState: i.ToRefreshScheduleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RefreshScheduleMapInput is an input type that accepts RefreshScheduleMap and RefreshScheduleMapOutput values.
@@ -330,12 +317,6 @@ func (i RefreshScheduleMap) ToRefreshScheduleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RefreshScheduleMapOutput)
 }
 
-func (i RefreshScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RefreshSchedule] {
-	return pulumix.Output[map[string]*RefreshSchedule]{
-		OutputState: i.ToRefreshScheduleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RefreshScheduleOutput struct{ *pulumi.OutputState }
 
 func (RefreshScheduleOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o RefreshScheduleOutput) ToRefreshScheduleOutput() RefreshScheduleOutput {
 
 func (o RefreshScheduleOutput) ToRefreshScheduleOutputWithContext(ctx context.Context) RefreshScheduleOutput {
 	return o
-}
-
-func (o RefreshScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshSchedule] {
-	return pulumix.Output[*RefreshSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the refresh schedule.
@@ -397,12 +372,6 @@ func (o RefreshScheduleArrayOutput) ToRefreshScheduleArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o RefreshScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RefreshSchedule] {
-	return pulumix.Output[[]*RefreshSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleArrayOutput) Index(i pulumi.IntInput) RefreshScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RefreshSchedule {
 		return vs[0].([]*RefreshSchedule)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o RefreshScheduleMapOutput) ToRefreshScheduleMapOutput() RefreshScheduleMa
 
 func (o RefreshScheduleMapOutput) ToRefreshScheduleMapOutputWithContext(ctx context.Context) RefreshScheduleMapOutput {
 	return o
-}
-
-func (o RefreshScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RefreshSchedule] {
-	return pulumix.Output[map[string]*RefreshSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RefreshScheduleMapOutput) MapIndex(k pulumi.StringInput) RefreshScheduleOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a set of security group rule IDs.
@@ -117,12 +116,6 @@ func (o GetSecurityGroupRulesResultOutput) ToGetSecurityGroupRulesResultOutput()
 
 func (o GetSecurityGroupRulesResultOutput) ToGetSecurityGroupRulesResultOutputWithContext(ctx context.Context) GetSecurityGroupRulesResultOutput {
 	return o
-}
-
-func (o GetSecurityGroupRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupRulesResult] {
-	return pulumix.Output[GetSecurityGroupRulesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecurityGroupRulesResultOutput) Filters() GetSecurityGroupRulesFilterArrayOutput {

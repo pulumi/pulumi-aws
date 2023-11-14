@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
@@ -128,12 +127,6 @@ func (i *Tag) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagOutput)
 }
 
-func (i *Tag) ToOutput(ctx context.Context) pulumix.Output[*Tag] {
-	return pulumix.Output[*Tag]{
-		OutputState: i.ToTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagArrayInput is an input type that accepts TagArray and TagArrayOutput values.
 // You can construct a concrete instance of `TagArrayInput` via:
 //
@@ -157,12 +150,6 @@ func (i TagArray) ToTagArrayOutput() TagArrayOutput {
 
 func (i TagArray) ToTagArrayOutputWithContext(ctx context.Context) TagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagArrayOutput)
-}
-
-func (i TagArray) ToOutput(ctx context.Context) pulumix.Output[[]*Tag] {
-	return pulumix.Output[[]*Tag]{
-		OutputState: i.ToTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TagMapInput is an input type that accepts TagMap and TagMapOutput values.
@@ -190,12 +177,6 @@ func (i TagMap) ToTagMapOutputWithContext(ctx context.Context) TagMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagMapOutput)
 }
 
-func (i TagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tag] {
-	return pulumix.Output[map[string]*Tag]{
-		OutputState: i.ToTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagOutput struct{ *pulumi.OutputState }
 
 func (TagOutput) ElementType() reflect.Type {
@@ -208,12 +189,6 @@ func (o TagOutput) ToTagOutput() TagOutput {
 
 func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 	return o
-}
-
-func (o TagOutput) ToOutput(ctx context.Context) pulumix.Output[*Tag] {
-	return pulumix.Output[*Tag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Autoscaling Group to apply the tag to.
@@ -240,12 +215,6 @@ func (o TagArrayOutput) ToTagArrayOutputWithContext(ctx context.Context) TagArra
 	return o
 }
 
-func (o TagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Tag] {
-	return pulumix.Output[[]*Tag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagArrayOutput) Index(i pulumi.IntInput) TagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Tag {
 		return vs[0].([]*Tag)[vs[1].(int)]
@@ -264,12 +233,6 @@ func (o TagMapOutput) ToTagMapOutput() TagMapOutput {
 
 func (o TagMapOutput) ToTagMapOutputWithContext(ctx context.Context) TagMapOutput {
 	return o
-}
-
-func (o TagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tag] {
-	return pulumix.Output[map[string]*Tag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagMapOutput) MapIndex(k pulumi.StringInput) TagOutput {

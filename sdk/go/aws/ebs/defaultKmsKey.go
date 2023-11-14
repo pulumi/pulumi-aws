@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
@@ -144,12 +143,6 @@ func (i *DefaultKmsKey) ToDefaultKmsKeyOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyOutput)
 }
 
-func (i *DefaultKmsKey) ToOutput(ctx context.Context) pulumix.Output[*DefaultKmsKey] {
-	return pulumix.Output[*DefaultKmsKey]{
-		OutputState: i.ToDefaultKmsKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefaultKmsKeyArrayInput is an input type that accepts DefaultKmsKeyArray and DefaultKmsKeyArrayOutput values.
 // You can construct a concrete instance of `DefaultKmsKeyArrayInput` via:
 //
@@ -173,12 +166,6 @@ func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutput() DefaultKmsKeyArrayOutpu
 
 func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutputWithContext(ctx context.Context) DefaultKmsKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyArrayOutput)
-}
-
-func (i DefaultKmsKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultKmsKey] {
-	return pulumix.Output[[]*DefaultKmsKey]{
-		OutputState: i.ToDefaultKmsKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DefaultKmsKeyMapInput is an input type that accepts DefaultKmsKeyMap and DefaultKmsKeyMapOutput values.
@@ -206,12 +193,6 @@ func (i DefaultKmsKeyMap) ToDefaultKmsKeyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyMapOutput)
 }
 
-func (i DefaultKmsKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultKmsKey] {
-	return pulumix.Output[map[string]*DefaultKmsKey]{
-		OutputState: i.ToDefaultKmsKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefaultKmsKeyOutput struct{ *pulumi.OutputState }
 
 func (DefaultKmsKeyOutput) ElementType() reflect.Type {
@@ -224,12 +205,6 @@ func (o DefaultKmsKeyOutput) ToDefaultKmsKeyOutput() DefaultKmsKeyOutput {
 
 func (o DefaultKmsKeyOutput) ToDefaultKmsKeyOutputWithContext(ctx context.Context) DefaultKmsKeyOutput {
 	return o
-}
-
-func (o DefaultKmsKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultKmsKey] {
-	return pulumix.Output[*DefaultKmsKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
@@ -251,12 +226,6 @@ func (o DefaultKmsKeyArrayOutput) ToDefaultKmsKeyArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o DefaultKmsKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultKmsKey] {
-	return pulumix.Output[[]*DefaultKmsKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DefaultKmsKeyArrayOutput) Index(i pulumi.IntInput) DefaultKmsKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultKmsKey {
 		return vs[0].([]*DefaultKmsKey)[vs[1].(int)]
@@ -275,12 +244,6 @@ func (o DefaultKmsKeyMapOutput) ToDefaultKmsKeyMapOutput() DefaultKmsKeyMapOutpu
 
 func (o DefaultKmsKeyMapOutput) ToDefaultKmsKeyMapOutputWithContext(ctx context.Context) DefaultKmsKeyMapOutput {
 	return o
-}
-
-func (o DefaultKmsKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultKmsKey] {
-	return pulumix.Output[map[string]*DefaultKmsKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefaultKmsKeyMapOutput) MapIndex(k pulumi.StringInput) DefaultKmsKeyOutput {

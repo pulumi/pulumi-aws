@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about an RDS Certificate.
@@ -115,12 +114,6 @@ func (o GetCertificateResultOutput) ToGetCertificateResultOutput() GetCertificat
 
 func (o GetCertificateResultOutput) ToGetCertificateResultOutputWithContext(ctx context.Context) GetCertificateResultOutput {
 	return o
-}
-
-func (o GetCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateResult] {
-	return pulumix.Output[GetCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the certificate.

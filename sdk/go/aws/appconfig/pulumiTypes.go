@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i ConfigurationProfileValidatorArgs) ToConfigurationProfileValidatorOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileValidatorOutput)
 }
 
-func (i ConfigurationProfileValidatorArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileValidator] {
-	return pulumix.Output[ConfigurationProfileValidator]{
-		OutputState: i.ToConfigurationProfileValidatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationProfileValidatorArrayInput is an input type that accepts ConfigurationProfileValidatorArray and ConfigurationProfileValidatorArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProfileValidatorArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i ConfigurationProfileValidatorArray) ToConfigurationProfileValidatorArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileValidatorArrayOutput)
 }
 
-func (i ConfigurationProfileValidatorArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileValidator] {
-	return pulumix.Output[[]ConfigurationProfileValidator]{
-		OutputState: i.ToConfigurationProfileValidatorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationProfileValidatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileValidatorOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o ConfigurationProfileValidatorOutput) ToConfigurationProfileValidatorOutp
 
 func (o ConfigurationProfileValidatorOutput) ToConfigurationProfileValidatorOutputWithContext(ctx context.Context) ConfigurationProfileValidatorOutput {
 	return o
-}
-
-func (o ConfigurationProfileValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProfileValidator] {
-	return pulumix.Output[ConfigurationProfileValidator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Either the JSON Schema content or the ARN of an AWS Lambda function.
@@ -130,12 +111,6 @@ func (o ConfigurationProfileValidatorArrayOutput) ToConfigurationProfileValidato
 
 func (o ConfigurationProfileValidatorArrayOutput) ToConfigurationProfileValidatorArrayOutputWithContext(ctx context.Context) ConfigurationProfileValidatorArrayOutput {
 	return o
-}
-
-func (o ConfigurationProfileValidatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProfileValidator] {
-	return pulumix.Output[[]ConfigurationProfileValidator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) ConfigurationProfileValidatorOutput {
@@ -181,12 +156,6 @@ func (i EnvironmentMonitorArgs) ToEnvironmentMonitorOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorOutput)
 }
 
-func (i EnvironmentMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMonitor] {
-	return pulumix.Output[EnvironmentMonitor]{
-		OutputState: i.ToEnvironmentMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentMonitorArrayInput is an input type that accepts EnvironmentMonitorArray and EnvironmentMonitorArrayOutput values.
 // You can construct a concrete instance of `EnvironmentMonitorArrayInput` via:
 //
@@ -212,12 +181,6 @@ func (i EnvironmentMonitorArray) ToEnvironmentMonitorArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMonitorArrayOutput)
 }
 
-func (i EnvironmentMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentMonitor] {
-	return pulumix.Output[[]EnvironmentMonitor]{
-		OutputState: i.ToEnvironmentMonitorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentMonitorOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMonitorOutput) ElementType() reflect.Type {
@@ -230,12 +193,6 @@ func (o EnvironmentMonitorOutput) ToEnvironmentMonitorOutput() EnvironmentMonito
 
 func (o EnvironmentMonitorOutput) ToEnvironmentMonitorOutputWithContext(ctx context.Context) EnvironmentMonitorOutput {
 	return o
-}
-
-func (o EnvironmentMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMonitor] {
-	return pulumix.Output[EnvironmentMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Amazon CloudWatch alarm.
@@ -260,12 +217,6 @@ func (o EnvironmentMonitorArrayOutput) ToEnvironmentMonitorArrayOutput() Environ
 
 func (o EnvironmentMonitorArrayOutput) ToEnvironmentMonitorArrayOutputWithContext(ctx context.Context) EnvironmentMonitorArrayOutput {
 	return o
-}
-
-func (o EnvironmentMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentMonitor] {
-	return pulumix.Output[[]EnvironmentMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonitorOutput {
@@ -305,12 +256,6 @@ func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutput() E
 
 func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutputWithContext(ctx context.Context) EventIntegrationEventFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput)
-}
-
-func (i EventIntegrationEventFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationEventFilter] {
-	return pulumix.Output[EventIntegrationEventFilter]{
-		OutputState: i.ToEventIntegrationEventFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
@@ -354,12 +299,6 @@ func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterPtrOutput)
 }
 
-func (i *eventIntegrationEventFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventIntegrationEventFilter] {
-	return pulumix.Output[*EventIntegrationEventFilter]{
-		OutputState: i.ToEventIntegrationEventFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationEventFilterOutput) ElementType() reflect.Type {
@@ -384,12 +323,6 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutpu
 	}).(EventIntegrationEventFilterPtrOutput)
 }
 
-func (o EventIntegrationEventFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationEventFilter] {
-	return pulumix.Output[EventIntegrationEventFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
@@ -407,12 +340,6 @@ func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOu
 
 func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
 	return o
-}
-
-func (o EventIntegrationEventFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventIntegrationEventFilter] {
-	return pulumix.Output[*EventIntegrationEventFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilterOutput {
@@ -472,12 +399,6 @@ func (i ExtensionActionPointArgs) ToExtensionActionPointOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointOutput)
 }
 
-func (i ExtensionActionPointArgs) ToOutput(ctx context.Context) pulumix.Output[ExtensionActionPoint] {
-	return pulumix.Output[ExtensionActionPoint]{
-		OutputState: i.ToExtensionActionPointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionActionPointArrayInput is an input type that accepts ExtensionActionPointArray and ExtensionActionPointArrayOutput values.
 // You can construct a concrete instance of `ExtensionActionPointArrayInput` via:
 //
@@ -503,12 +424,6 @@ func (i ExtensionActionPointArray) ToExtensionActionPointArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointArrayOutput)
 }
 
-func (i ExtensionActionPointArray) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionActionPoint] {
-	return pulumix.Output[[]ExtensionActionPoint]{
-		OutputState: i.ToExtensionActionPointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionActionPointOutput struct{ *pulumi.OutputState }
 
 func (ExtensionActionPointOutput) ElementType() reflect.Type {
@@ -521,12 +436,6 @@ func (o ExtensionActionPointOutput) ToExtensionActionPointOutput() ExtensionActi
 
 func (o ExtensionActionPointOutput) ToExtensionActionPointOutputWithContext(ctx context.Context) ExtensionActionPointOutput {
 	return o
-}
-
-func (o ExtensionActionPointOutput) ToOutput(ctx context.Context) pulumix.Output[ExtensionActionPoint] {
-	return pulumix.Output[ExtensionActionPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
@@ -551,12 +460,6 @@ func (o ExtensionActionPointArrayOutput) ToExtensionActionPointArrayOutput() Ext
 
 func (o ExtensionActionPointArrayOutput) ToExtensionActionPointArrayOutputWithContext(ctx context.Context) ExtensionActionPointArrayOutput {
 	return o
-}
-
-func (o ExtensionActionPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionActionPoint] {
-	return pulumix.Output[[]ExtensionActionPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionActionPointArrayOutput) Index(i pulumi.IntInput) ExtensionActionPointOutput {
@@ -610,12 +513,6 @@ func (i ExtensionActionPointActionArgs) ToExtensionActionPointActionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointActionOutput)
 }
 
-func (i ExtensionActionPointActionArgs) ToOutput(ctx context.Context) pulumix.Output[ExtensionActionPointAction] {
-	return pulumix.Output[ExtensionActionPointAction]{
-		OutputState: i.ToExtensionActionPointActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionActionPointActionArrayInput is an input type that accepts ExtensionActionPointActionArray and ExtensionActionPointActionArrayOutput values.
 // You can construct a concrete instance of `ExtensionActionPointActionArrayInput` via:
 //
@@ -641,12 +538,6 @@ func (i ExtensionActionPointActionArray) ToExtensionActionPointActionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionActionPointActionArrayOutput)
 }
 
-func (i ExtensionActionPointActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionActionPointAction] {
-	return pulumix.Output[[]ExtensionActionPointAction]{
-		OutputState: i.ToExtensionActionPointActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionActionPointActionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionActionPointActionOutput) ElementType() reflect.Type {
@@ -659,12 +550,6 @@ func (o ExtensionActionPointActionOutput) ToExtensionActionPointActionOutput() E
 
 func (o ExtensionActionPointActionOutput) ToExtensionActionPointActionOutputWithContext(ctx context.Context) ExtensionActionPointActionOutput {
 	return o
-}
-
-func (o ExtensionActionPointActionOutput) ToOutput(ctx context.Context) pulumix.Output[ExtensionActionPointAction] {
-	return pulumix.Output[ExtensionActionPointAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Information about the action.
@@ -699,12 +584,6 @@ func (o ExtensionActionPointActionArrayOutput) ToExtensionActionPointActionArray
 
 func (o ExtensionActionPointActionArrayOutput) ToExtensionActionPointActionArrayOutputWithContext(ctx context.Context) ExtensionActionPointActionArrayOutput {
 	return o
-}
-
-func (o ExtensionActionPointActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionActionPointAction] {
-	return pulumix.Output[[]ExtensionActionPointAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionActionPointActionArrayOutput) Index(i pulumi.IntInput) ExtensionActionPointActionOutput {
@@ -754,12 +633,6 @@ func (i ExtensionParameterArgs) ToExtensionParameterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterOutput)
 }
 
-func (i ExtensionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ExtensionParameter] {
-	return pulumix.Output[ExtensionParameter]{
-		OutputState: i.ToExtensionParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionParameterArrayInput is an input type that accepts ExtensionParameterArray and ExtensionParameterArrayOutput values.
 // You can construct a concrete instance of `ExtensionParameterArrayInput` via:
 //
@@ -785,12 +658,6 @@ func (i ExtensionParameterArray) ToExtensionParameterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionParameterArrayOutput)
 }
 
-func (i ExtensionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionParameter] {
-	return pulumix.Output[[]ExtensionParameter]{
-		OutputState: i.ToExtensionParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionParameterOutput struct{ *pulumi.OutputState }
 
 func (ExtensionParameterOutput) ElementType() reflect.Type {
@@ -803,12 +670,6 @@ func (o ExtensionParameterOutput) ToExtensionParameterOutput() ExtensionParamete
 
 func (o ExtensionParameterOutput) ToExtensionParameterOutputWithContext(ctx context.Context) ExtensionParameterOutput {
 	return o
-}
-
-func (o ExtensionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ExtensionParameter] {
-	return pulumix.Output[ExtensionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Information about the parameter.
@@ -838,12 +699,6 @@ func (o ExtensionParameterArrayOutput) ToExtensionParameterArrayOutput() Extensi
 
 func (o ExtensionParameterArrayOutput) ToExtensionParameterArrayOutputWithContext(ctx context.Context) ExtensionParameterArrayOutput {
 	return o
-}
-
-func (o ExtensionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExtensionParameter] {
-	return pulumix.Output[[]ExtensionParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionParameterArrayOutput) Index(i pulumi.IntInput) ExtensionParameterOutput {
@@ -889,12 +744,6 @@ func (i GetConfigurationProfileValidatorArgs) ToGetConfigurationProfileValidator
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationProfileValidatorOutput)
 }
 
-func (i GetConfigurationProfileValidatorArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationProfileValidator] {
-	return pulumix.Output[GetConfigurationProfileValidator]{
-		OutputState: i.ToGetConfigurationProfileValidatorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationProfileValidatorArrayInput is an input type that accepts GetConfigurationProfileValidatorArray and GetConfigurationProfileValidatorArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationProfileValidatorArrayInput` via:
 //
@@ -920,12 +769,6 @@ func (i GetConfigurationProfileValidatorArray) ToGetConfigurationProfileValidato
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationProfileValidatorArrayOutput)
 }
 
-func (i GetConfigurationProfileValidatorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationProfileValidator] {
-	return pulumix.Output[[]GetConfigurationProfileValidator]{
-		OutputState: i.ToGetConfigurationProfileValidatorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationProfileValidatorOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationProfileValidatorOutput) ElementType() reflect.Type {
@@ -938,12 +781,6 @@ func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidat
 
 func (o GetConfigurationProfileValidatorOutput) ToGetConfigurationProfileValidatorOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorOutput {
 	return o
-}
-
-func (o GetConfigurationProfileValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationProfileValidator] {
-	return pulumix.Output[GetConfigurationProfileValidator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Either the JSON Schema content or the ARN of an AWS Lambda function.
@@ -968,12 +805,6 @@ func (o GetConfigurationProfileValidatorArrayOutput) ToGetConfigurationProfileVa
 
 func (o GetConfigurationProfileValidatorArrayOutput) ToGetConfigurationProfileValidatorArrayOutputWithContext(ctx context.Context) GetConfigurationProfileValidatorArrayOutput {
 	return o
-}
-
-func (o GetConfigurationProfileValidatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationProfileValidator] {
-	return pulumix.Output[[]GetConfigurationProfileValidator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationProfileValidatorArrayOutput) Index(i pulumi.IntInput) GetConfigurationProfileValidatorOutput {
@@ -1019,12 +850,6 @@ func (i GetEnvironmentMonitorArgs) ToGetEnvironmentMonitorOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentMonitorOutput)
 }
 
-func (i GetEnvironmentMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[GetEnvironmentMonitor] {
-	return pulumix.Output[GetEnvironmentMonitor]{
-		OutputState: i.ToGetEnvironmentMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetEnvironmentMonitorArrayInput is an input type that accepts GetEnvironmentMonitorArray and GetEnvironmentMonitorArrayOutput values.
 // You can construct a concrete instance of `GetEnvironmentMonitorArrayInput` via:
 //
@@ -1050,12 +875,6 @@ func (i GetEnvironmentMonitorArray) ToGetEnvironmentMonitorArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetEnvironmentMonitorArrayOutput)
 }
 
-func (i GetEnvironmentMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEnvironmentMonitor] {
-	return pulumix.Output[[]GetEnvironmentMonitor]{
-		OutputState: i.ToGetEnvironmentMonitorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetEnvironmentMonitorOutput struct{ *pulumi.OutputState }
 
 func (GetEnvironmentMonitorOutput) ElementType() reflect.Type {
@@ -1068,12 +887,6 @@ func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutput() GetEnvironm
 
 func (o GetEnvironmentMonitorOutput) ToGetEnvironmentMonitorOutputWithContext(ctx context.Context) GetEnvironmentMonitorOutput {
 	return o
-}
-
-func (o GetEnvironmentMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[GetEnvironmentMonitor] {
-	return pulumix.Output[GetEnvironmentMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Amazon CloudWatch alarm.
@@ -1098,12 +911,6 @@ func (o GetEnvironmentMonitorArrayOutput) ToGetEnvironmentMonitorArrayOutput() G
 
 func (o GetEnvironmentMonitorArrayOutput) ToGetEnvironmentMonitorArrayOutputWithContext(ctx context.Context) GetEnvironmentMonitorArrayOutput {
 	return o
-}
-
-func (o GetEnvironmentMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEnvironmentMonitor] {
-	return pulumix.Output[[]GetEnvironmentMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetEnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) GetEnvironmentMonitorOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Managed Streaming for Kafka VPC Connection.
@@ -236,12 +235,6 @@ func (i *VpcConnection) ToVpcConnectionOutputWithContext(ctx context.Context) Vp
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionOutput)
 }
 
-func (i *VpcConnection) ToOutput(ctx context.Context) pulumix.Output[*VpcConnection] {
-	return pulumix.Output[*VpcConnection]{
-		OutputState: i.ToVpcConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcConnectionArrayInput is an input type that accepts VpcConnectionArray and VpcConnectionArrayOutput values.
 // You can construct a concrete instance of `VpcConnectionArrayInput` via:
 //
@@ -265,12 +258,6 @@ func (i VpcConnectionArray) ToVpcConnectionArrayOutput() VpcConnectionArrayOutpu
 
 func (i VpcConnectionArray) ToVpcConnectionArrayOutputWithContext(ctx context.Context) VpcConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionArrayOutput)
-}
-
-func (i VpcConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcConnection] {
-	return pulumix.Output[[]*VpcConnection]{
-		OutputState: i.ToVpcConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcConnectionMapInput is an input type that accepts VpcConnectionMap and VpcConnectionMapOutput values.
@@ -298,12 +285,6 @@ func (i VpcConnectionMap) ToVpcConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionMapOutput)
 }
 
-func (i VpcConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcConnection] {
-	return pulumix.Output[map[string]*VpcConnection]{
-		OutputState: i.ToVpcConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectionOutput) ElementType() reflect.Type {
@@ -316,12 +297,6 @@ func (o VpcConnectionOutput) ToVpcConnectionOutput() VpcConnectionOutput {
 
 func (o VpcConnectionOutput) ToVpcConnectionOutputWithContext(ctx context.Context) VpcConnectionOutput {
 	return o
-}
-
-func (o VpcConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnection] {
-	return pulumix.Output[*VpcConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the VPC connection.
@@ -380,12 +355,6 @@ func (o VpcConnectionArrayOutput) ToVpcConnectionArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o VpcConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcConnection] {
-	return pulumix.Output[[]*VpcConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionArrayOutput) Index(i pulumi.IntInput) VpcConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcConnection {
 		return vs[0].([]*VpcConnection)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o VpcConnectionMapOutput) ToVpcConnectionMapOutput() VpcConnectionMapOutpu
 
 func (o VpcConnectionMapOutput) ToVpcConnectionMapOutputWithContext(ctx context.Context) VpcConnectionMapOutput {
 	return o
-}
-
-func (o VpcConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcConnection] {
-	return pulumix.Output[map[string]*VpcConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionMapOutput) MapIndex(k pulumi.StringInput) VpcConnectionOutput {

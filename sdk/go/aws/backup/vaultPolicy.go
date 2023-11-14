@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup vault policy resource.
@@ -192,12 +191,6 @@ func (i *VaultPolicy) ToVaultPolicyOutputWithContext(ctx context.Context) VaultP
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyOutput)
 }
 
-func (i *VaultPolicy) ToOutput(ctx context.Context) pulumix.Output[*VaultPolicy] {
-	return pulumix.Output[*VaultPolicy]{
-		OutputState: i.ToVaultPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VaultPolicyArrayInput is an input type that accepts VaultPolicyArray and VaultPolicyArrayOutput values.
 // You can construct a concrete instance of `VaultPolicyArrayInput` via:
 //
@@ -221,12 +214,6 @@ func (i VaultPolicyArray) ToVaultPolicyArrayOutput() VaultPolicyArrayOutput {
 
 func (i VaultPolicyArray) ToVaultPolicyArrayOutputWithContext(ctx context.Context) VaultPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyArrayOutput)
-}
-
-func (i VaultPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*VaultPolicy] {
-	return pulumix.Output[[]*VaultPolicy]{
-		OutputState: i.ToVaultPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VaultPolicyMapInput is an input type that accepts VaultPolicyMap and VaultPolicyMapOutput values.
@@ -254,12 +241,6 @@ func (i VaultPolicyMap) ToVaultPolicyMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyMapOutput)
 }
 
-func (i VaultPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultPolicy] {
-	return pulumix.Output[map[string]*VaultPolicy]{
-		OutputState: i.ToVaultPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VaultPolicyOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyOutput) ElementType() reflect.Type {
@@ -272,12 +253,6 @@ func (o VaultPolicyOutput) ToVaultPolicyOutput() VaultPolicyOutput {
 
 func (o VaultPolicyOutput) ToVaultPolicyOutputWithContext(ctx context.Context) VaultPolicyOutput {
 	return o
-}
-
-func (o VaultPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*VaultPolicy] {
-	return pulumix.Output[*VaultPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the vault.
@@ -309,12 +284,6 @@ func (o VaultPolicyArrayOutput) ToVaultPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o VaultPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VaultPolicy] {
-	return pulumix.Output[[]*VaultPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VaultPolicyArrayOutput) Index(i pulumi.IntInput) VaultPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultPolicy {
 		return vs[0].([]*VaultPolicy)[vs[1].(int)]
@@ -333,12 +302,6 @@ func (o VaultPolicyMapOutput) ToVaultPolicyMapOutput() VaultPolicyMapOutput {
 
 func (o VaultPolicyMapOutput) ToVaultPolicyMapOutputWithContext(ctx context.Context) VaultPolicyMapOutput {
 	return o
-}
-
-func (o VaultPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VaultPolicy] {
-	return pulumix.Output[map[string]*VaultPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VaultPolicyMapOutput) MapIndex(k pulumi.StringInput) VaultPolicyOutput {

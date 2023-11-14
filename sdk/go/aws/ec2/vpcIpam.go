@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IPAM resource.
@@ -196,12 +195,6 @@ func (i *VpcIpam) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOutput)
 }
 
-func (i *VpcIpam) ToOutput(ctx context.Context) pulumix.Output[*VpcIpam] {
-	return pulumix.Output[*VpcIpam]{
-		OutputState: i.ToVpcIpamOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcIpamArrayInput is an input type that accepts VpcIpamArray and VpcIpamArrayOutput values.
 // You can construct a concrete instance of `VpcIpamArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i VpcIpamArray) ToVpcIpamArrayOutput() VpcIpamArrayOutput {
 
 func (i VpcIpamArray) ToVpcIpamArrayOutputWithContext(ctx context.Context) VpcIpamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamArrayOutput)
-}
-
-func (i VpcIpamArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpam] {
-	return pulumix.Output[[]*VpcIpam]{
-		OutputState: i.ToVpcIpamArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcIpamMapInput is an input type that accepts VpcIpamMap and VpcIpamMapOutput values.
@@ -258,12 +245,6 @@ func (i VpcIpamMap) ToVpcIpamMapOutputWithContext(ctx context.Context) VpcIpamMa
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamMapOutput)
 }
 
-func (i VpcIpamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpam] {
-	return pulumix.Output[map[string]*VpcIpam]{
-		OutputState: i.ToVpcIpamMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcIpamOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o VpcIpamOutput) ToVpcIpamOutput() VpcIpamOutput {
 
 func (o VpcIpamOutput) ToVpcIpamOutputWithContext(ctx context.Context) VpcIpamOutput {
 	return o
-}
-
-func (o VpcIpamOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpam] {
-	return pulumix.Output[*VpcIpam]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of IPAM
@@ -356,12 +331,6 @@ func (o VpcIpamArrayOutput) ToVpcIpamArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o VpcIpamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpam] {
-	return pulumix.Output[[]*VpcIpam]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcIpamArrayOutput) Index(i pulumi.IntInput) VpcIpamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpam {
 		return vs[0].([]*VpcIpam)[vs[1].(int)]
@@ -380,12 +349,6 @@ func (o VpcIpamMapOutput) ToVpcIpamMapOutput() VpcIpamMapOutput {
 
 func (o VpcIpamMapOutput) ToVpcIpamMapOutputWithContext(ctx context.Context) VpcIpamMapOutput {
 	return o
-}
-
-func (o VpcIpamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpam] {
-	return pulumix.Output[map[string]*VpcIpam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcIpamMapOutput) MapIndex(k pulumi.StringInput) VpcIpamOutput {

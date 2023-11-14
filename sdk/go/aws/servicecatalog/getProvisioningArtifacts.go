@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Lists the provisioning artifacts for the specified product.
@@ -110,12 +109,6 @@ func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOu
 
 func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOutputWithContext(ctx context.Context) GetProvisioningArtifactsResultOutput {
 	return o
-}
-
-func (o GetProvisioningArtifactsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetProvisioningArtifactsResult] {
-	return pulumix.Output[GetProvisioningArtifactsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetProvisioningArtifactsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

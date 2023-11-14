@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Anomaly Subscription.
@@ -308,12 +307,6 @@ func (i *AnomalySubscription) ToAnomalySubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionOutput)
 }
 
-func (i *AnomalySubscription) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscription] {
-	return pulumix.Output[*AnomalySubscription]{
-		OutputState: i.ToAnomalySubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionArrayInput is an input type that accepts AnomalySubscriptionArray and AnomalySubscriptionArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionArrayInput` via:
 //
@@ -337,12 +330,6 @@ func (i AnomalySubscriptionArray) ToAnomalySubscriptionArrayOutput() AnomalySubs
 
 func (i AnomalySubscriptionArray) ToAnomalySubscriptionArrayOutputWithContext(ctx context.Context) AnomalySubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionArrayOutput)
-}
-
-func (i AnomalySubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalySubscription] {
-	return pulumix.Output[[]*AnomalySubscription]{
-		OutputState: i.ToAnomalySubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AnomalySubscriptionMapInput is an input type that accepts AnomalySubscriptionMap and AnomalySubscriptionMapOutput values.
@@ -370,12 +357,6 @@ func (i AnomalySubscriptionMap) ToAnomalySubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionMapOutput)
 }
 
-func (i AnomalySubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalySubscription] {
-	return pulumix.Output[map[string]*AnomalySubscription]{
-		OutputState: i.ToAnomalySubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionOutput) ElementType() reflect.Type {
@@ -388,12 +369,6 @@ func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutput() AnomalySubscrip
 
 func (o AnomalySubscriptionOutput) ToAnomalySubscriptionOutputWithContext(ctx context.Context) AnomalySubscriptionOutput {
 	return o
-}
-
-func (o AnomalySubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalySubscription] {
-	return pulumix.Output[*AnomalySubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique identifier for the AWS account in which the anomaly subscription ought to be created.
@@ -459,12 +434,6 @@ func (o AnomalySubscriptionArrayOutput) ToAnomalySubscriptionArrayOutputWithCont
 	return o
 }
 
-func (o AnomalySubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnomalySubscription] {
-	return pulumix.Output[[]*AnomalySubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalySubscriptionArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnomalySubscription {
 		return vs[0].([]*AnomalySubscription)[vs[1].(int)]
@@ -483,12 +452,6 @@ func (o AnomalySubscriptionMapOutput) ToAnomalySubscriptionMapOutput() AnomalySu
 
 func (o AnomalySubscriptionMapOutput) ToAnomalySubscriptionMapOutputWithContext(ctx context.Context) AnomalySubscriptionMapOutput {
 	return o
-}
-
-func (o AnomalySubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnomalySubscription] {
-	return pulumix.Output[map[string]*AnomalySubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionMapOutput) MapIndex(k pulumi.StringInput) AnomalySubscriptionOutput {

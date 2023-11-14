@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.getVpcIpamPools` provides details about IPAM pools.
@@ -117,12 +116,6 @@ func (o GetVpcIpamPoolsResultOutput) ToGetVpcIpamPoolsResultOutput() GetVpcIpamP
 
 func (o GetVpcIpamPoolsResultOutput) ToGetVpcIpamPoolsResultOutputWithContext(ctx context.Context) GetVpcIpamPoolsResultOutput {
 	return o
-}
-
-func (o GetVpcIpamPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIpamPoolsResult] {
-	return pulumix.Output[GetVpcIpamPoolsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVpcIpamPoolsResultOutput) Filters() GetVpcIpamPoolsFilterArrayOutput {

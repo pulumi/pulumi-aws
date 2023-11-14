@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i GroupConfigurationArgs) ToGroupConfigurationOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationOutput)
 }
 
-func (i GroupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GroupConfiguration] {
-	return pulumix.Output[GroupConfiguration]{
-		OutputState: i.ToGroupConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupConfigurationArrayInput is an input type that accepts GroupConfigurationArray and GroupConfigurationArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i GroupConfigurationArray) ToGroupConfigurationArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationArrayOutput)
 }
 
-func (i GroupConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfiguration] {
-	return pulumix.Output[[]GroupConfiguration]{
-		OutputState: i.ToGroupConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o GroupConfigurationOutput) ToGroupConfigurationOutput() GroupConfiguratio
 
 func (o GroupConfigurationOutput) ToGroupConfigurationOutputWithContext(ctx context.Context) GroupConfigurationOutput {
 	return o
-}
-
-func (o GroupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GroupConfiguration] {
-	return pulumix.Output[GroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A collection of parameters for this group configuration item. See below for details.
@@ -130,12 +111,6 @@ func (o GroupConfigurationArrayOutput) ToGroupConfigurationArrayOutput() GroupCo
 
 func (o GroupConfigurationArrayOutput) ToGroupConfigurationArrayOutputWithContext(ctx context.Context) GroupConfigurationArrayOutput {
 	return o
-}
-
-func (o GroupConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfiguration] {
-	return pulumix.Output[[]GroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationArrayOutput) Index(i pulumi.IntInput) GroupConfigurationOutput {
@@ -181,12 +156,6 @@ func (i GroupConfigurationParameterArgs) ToGroupConfigurationParameterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterOutput)
 }
 
-func (i GroupConfigurationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationParameter] {
-	return pulumix.Output[GroupConfigurationParameter]{
-		OutputState: i.ToGroupConfigurationParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupConfigurationParameterArrayInput is an input type that accepts GroupConfigurationParameterArray and GroupConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `GroupConfigurationParameterArrayInput` via:
 //
@@ -212,12 +181,6 @@ func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterArrayOutput)
 }
 
-func (i GroupConfigurationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationParameter] {
-	return pulumix.Output[[]GroupConfigurationParameter]{
-		OutputState: i.ToGroupConfigurationParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationParameterOutput) ElementType() reflect.Type {
@@ -230,12 +193,6 @@ func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutput()
 
 func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWithContext(ctx context.Context) GroupConfigurationParameterOutput {
 	return o
-}
-
-func (o GroupConfigurationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GroupConfigurationParameter] {
-	return pulumix.Output[GroupConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the group configuration parameter.
@@ -260,12 +217,6 @@ func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArr
 
 func (o GroupConfigurationParameterArrayOutput) ToGroupConfigurationParameterArrayOutputWithContext(ctx context.Context) GroupConfigurationParameterArrayOutput {
 	return o
-}
-
-func (o GroupConfigurationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupConfigurationParameter] {
-	return pulumix.Output[[]GroupConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupConfigurationParameterOutput {
@@ -311,12 +262,6 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput)
 }
 
-func (i GroupResourceQueryArgs) ToOutput(ctx context.Context) pulumix.Output[GroupResourceQuery] {
-	return pulumix.Output[GroupResourceQuery]{
-		OutputState: i.ToGroupResourceQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
 	return i.ToGroupResourceQueryPtrOutputWithContext(context.Background())
 }
@@ -358,12 +303,6 @@ func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
 }
 
-func (i *groupResourceQueryPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupResourceQuery] {
-	return pulumix.Output[*GroupResourceQuery]{
-		OutputState: i.ToGroupResourceQueryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
@@ -388,12 +327,6 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 
-func (o GroupResourceQueryOutput) ToOutput(ctx context.Context) pulumix.Output[GroupResourceQuery] {
-	return pulumix.Output[GroupResourceQuery]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The resource query as a JSON string.
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
@@ -416,12 +349,6 @@ func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutput() GroupResour
 
 func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
 	return o
-}
-
-func (o GroupResourceQueryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupResourceQuery] {
-	return pulumix.Output[*GroupResourceQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscribes to a Security Hub standard.
@@ -214,12 +213,6 @@ func (i *StandardsSubscription) ToStandardsSubscriptionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionOutput)
 }
 
-func (i *StandardsSubscription) ToOutput(ctx context.Context) pulumix.Output[*StandardsSubscription] {
-	return pulumix.Output[*StandardsSubscription]{
-		OutputState: i.ToStandardsSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardsSubscriptionArrayInput is an input type that accepts StandardsSubscriptionArray and StandardsSubscriptionArrayOutput values.
 // You can construct a concrete instance of `StandardsSubscriptionArrayInput` via:
 //
@@ -243,12 +236,6 @@ func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutput() Standar
 
 func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutputWithContext(ctx context.Context) StandardsSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionArrayOutput)
-}
-
-func (i StandardsSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsSubscription] {
-	return pulumix.Output[[]*StandardsSubscription]{
-		OutputState: i.ToStandardsSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StandardsSubscriptionMapInput is an input type that accepts StandardsSubscriptionMap and StandardsSubscriptionMapOutput values.
@@ -276,12 +263,6 @@ func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionMapOutput)
 }
 
-func (i StandardsSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsSubscription] {
-	return pulumix.Output[map[string]*StandardsSubscription]{
-		OutputState: i.ToStandardsSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardsSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (StandardsSubscriptionOutput) ElementType() reflect.Type {
@@ -294,12 +275,6 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutput() StandardsSu
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return o
-}
-
-func (o StandardsSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardsSubscription] {
-	return pulumix.Output[*StandardsSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of a standard - see below.
@@ -331,12 +306,6 @@ func (o StandardsSubscriptionArrayOutput) ToStandardsSubscriptionArrayOutputWith
 	return o
 }
 
-func (o StandardsSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StandardsSubscription] {
-	return pulumix.Output[[]*StandardsSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StandardsSubscriptionArrayOutput) Index(i pulumi.IntInput) StandardsSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StandardsSubscription {
 		return vs[0].([]*StandardsSubscription)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutput() Stand
 
 func (o StandardsSubscriptionMapOutput) ToStandardsSubscriptionMapOutputWithContext(ctx context.Context) StandardsSubscriptionMapOutput {
 	return o
-}
-
-func (o StandardsSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardsSubscription] {
-	return pulumix.Output[map[string]*StandardsSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardsSubscriptionMapOutput) MapIndex(k pulumi.StringInput) StandardsSubscriptionOutput {

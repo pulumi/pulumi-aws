@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS Identity Provider Configuration.
@@ -193,12 +192,6 @@ func (i *IdentityProviderConfig) ToIdentityProviderConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOutput)
 }
 
-func (i *IdentityProviderConfig) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfig] {
-	return pulumix.Output[*IdentityProviderConfig]{
-		OutputState: i.ToIdentityProviderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderConfigArrayInput is an input type that accepts IdentityProviderConfigArray and IdentityProviderConfigArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderConfigArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i IdentityProviderConfigArray) ToIdentityProviderConfigArrayOutput() Ident
 
 func (i IdentityProviderConfigArray) ToIdentityProviderConfigArrayOutputWithContext(ctx context.Context) IdentityProviderConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigArrayOutput)
-}
-
-func (i IdentityProviderConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderConfig] {
-	return pulumix.Output[[]*IdentityProviderConfig]{
-		OutputState: i.ToIdentityProviderConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderConfigMapInput is an input type that accepts IdentityProviderConfigMap and IdentityProviderConfigMapOutput values.
@@ -255,12 +242,6 @@ func (i IdentityProviderConfigMap) ToIdentityProviderConfigMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigMapOutput)
 }
 
-func (i IdentityProviderConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderConfig] {
-	return pulumix.Output[map[string]*IdentityProviderConfig]{
-		OutputState: i.ToIdentityProviderConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutput() IdentityP
 
 func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(ctx context.Context) IdentityProviderConfigOutput {
 	return o
-}
-
-func (o IdentityProviderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfig] {
-	return pulumix.Output[*IdentityProviderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
@@ -327,12 +302,6 @@ func (o IdentityProviderConfigArrayOutput) ToIdentityProviderConfigArrayOutputWi
 	return o
 }
 
-func (o IdentityProviderConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderConfig] {
-	return pulumix.Output[[]*IdentityProviderConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderConfigArrayOutput) Index(i pulumi.IntInput) IdentityProviderConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderConfig {
 		return vs[0].([]*IdentityProviderConfig)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o IdentityProviderConfigMapOutput) ToIdentityProviderConfigMapOutput() Ide
 
 func (o IdentityProviderConfigMapOutput) ToIdentityProviderConfigMapOutputWithContext(ctx context.Context) IdentityProviderConfigMapOutput {
 	return o
-}
-
-func (o IdentityProviderConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderConfig] {
-	return pulumix.Output[map[string]*IdentityProviderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderConfigMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderConfigOutput {

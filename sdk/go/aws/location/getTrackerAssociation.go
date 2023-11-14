@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Tracker Association.
@@ -105,12 +104,6 @@ func (o LookupTrackerAssociationResultOutput) ToLookupTrackerAssociationResultOu
 
 func (o LookupTrackerAssociationResultOutput) ToLookupTrackerAssociationResultOutputWithContext(ctx context.Context) LookupTrackerAssociationResultOutput {
 	return o
-}
-
-func (o LookupTrackerAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrackerAssociationResult] {
-	return pulumix.Output[LookupTrackerAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTrackerAssociationResultOutput) ConsumerArn() pulumi.StringOutput {

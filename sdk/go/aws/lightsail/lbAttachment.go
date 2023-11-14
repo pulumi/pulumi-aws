@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a Lightsail Instance to a Lightsail Load Balancer.
@@ -184,12 +183,6 @@ func (i *LbAttachment) ToLbAttachmentOutputWithContext(ctx context.Context) LbAt
 	return pulumi.ToOutputWithContext(ctx, i).(LbAttachmentOutput)
 }
 
-func (i *LbAttachment) ToOutput(ctx context.Context) pulumix.Output[*LbAttachment] {
-	return pulumix.Output[*LbAttachment]{
-		OutputState: i.ToLbAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LbAttachmentArrayInput is an input type that accepts LbAttachmentArray and LbAttachmentArrayOutput values.
 // You can construct a concrete instance of `LbAttachmentArrayInput` via:
 //
@@ -213,12 +206,6 @@ func (i LbAttachmentArray) ToLbAttachmentArrayOutput() LbAttachmentArrayOutput {
 
 func (i LbAttachmentArray) ToLbAttachmentArrayOutputWithContext(ctx context.Context) LbAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbAttachmentArrayOutput)
-}
-
-func (i LbAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*LbAttachment] {
-	return pulumix.Output[[]*LbAttachment]{
-		OutputState: i.ToLbAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LbAttachmentMapInput is an input type that accepts LbAttachmentMap and LbAttachmentMapOutput values.
@@ -246,12 +233,6 @@ func (i LbAttachmentMap) ToLbAttachmentMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LbAttachmentMapOutput)
 }
 
-func (i LbAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbAttachment] {
-	return pulumix.Output[map[string]*LbAttachment]{
-		OutputState: i.ToLbAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LbAttachmentOutput struct{ *pulumi.OutputState }
 
 func (LbAttachmentOutput) ElementType() reflect.Type {
@@ -264,12 +245,6 @@ func (o LbAttachmentOutput) ToLbAttachmentOutput() LbAttachmentOutput {
 
 func (o LbAttachmentOutput) ToLbAttachmentOutputWithContext(ctx context.Context) LbAttachmentOutput {
 	return o
-}
-
-func (o LbAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*LbAttachment] {
-	return pulumix.Output[*LbAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the instance to attach to the load balancer.
@@ -296,12 +271,6 @@ func (o LbAttachmentArrayOutput) ToLbAttachmentArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o LbAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LbAttachment] {
-	return pulumix.Output[[]*LbAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LbAttachmentArrayOutput) Index(i pulumi.IntInput) LbAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LbAttachment {
 		return vs[0].([]*LbAttachment)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o LbAttachmentMapOutput) ToLbAttachmentMapOutput() LbAttachmentMapOutput {
 
 func (o LbAttachmentMapOutput) ToLbAttachmentMapOutputWithContext(ctx context.Context) LbAttachmentMapOutput {
 	return o
-}
-
-func (o LbAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbAttachment] {
-	return pulumix.Output[map[string]*LbAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LbAttachmentMapOutput) MapIndex(k pulumi.StringInput) LbAttachmentOutput {

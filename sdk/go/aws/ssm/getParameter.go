@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Parameter data source.
@@ -114,12 +113,6 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutput() LookupParam
 
 func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ctx context.Context) LookupParameterResultOutput {
 	return o
-}
-
-func (o LookupParameterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterResult] {
-	return pulumix.Output[LookupParameterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {

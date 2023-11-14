@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Object Lambda Access Point resource policy.
@@ -216,12 +215,6 @@ func (i *ObjectLambdaAccessPointPolicy) ToObjectLambdaAccessPointPolicyOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyOutput)
 }
 
-func (i *ObjectLambdaAccessPointPolicy) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[*ObjectLambdaAccessPointPolicy]{
-		OutputState: i.ToObjectLambdaAccessPointPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ObjectLambdaAccessPointPolicyArrayInput is an input type that accepts ObjectLambdaAccessPointPolicyArray and ObjectLambdaAccessPointPolicyArrayOutput values.
 // You can construct a concrete instance of `ObjectLambdaAccessPointPolicyArrayInput` via:
 //
@@ -245,12 +238,6 @@ func (i ObjectLambdaAccessPointPolicyArray) ToObjectLambdaAccessPointPolicyArray
 
 func (i ObjectLambdaAccessPointPolicyArray) ToObjectLambdaAccessPointPolicyArrayOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyArrayOutput)
-}
-
-func (i ObjectLambdaAccessPointPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[[]*ObjectLambdaAccessPointPolicy]{
-		OutputState: i.ToObjectLambdaAccessPointPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ObjectLambdaAccessPointPolicyMapInput is an input type that accepts ObjectLambdaAccessPointPolicyMap and ObjectLambdaAccessPointPolicyMapOutput values.
@@ -278,12 +265,6 @@ func (i ObjectLambdaAccessPointPolicyMap) ToObjectLambdaAccessPointPolicyMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointPolicyMapOutput)
 }
 
-func (i ObjectLambdaAccessPointPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[map[string]*ObjectLambdaAccessPointPolicy]{
-		OutputState: i.ToObjectLambdaAccessPointPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectLambdaAccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (ObjectLambdaAccessPointPolicyOutput) ElementType() reflect.Type {
@@ -296,12 +277,6 @@ func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutp
 
 func (o ObjectLambdaAccessPointPolicyOutput) ToObjectLambdaAccessPointPolicyOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[*ObjectLambdaAccessPointPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
@@ -338,12 +313,6 @@ func (o ObjectLambdaAccessPointPolicyArrayOutput) ToObjectLambdaAccessPointPolic
 	return o
 }
 
-func (o ObjectLambdaAccessPointPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[[]*ObjectLambdaAccessPointPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObjectLambdaAccessPointPolicyArrayOutput) Index(i pulumi.IntInput) ObjectLambdaAccessPointPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectLambdaAccessPointPolicy {
 		return vs[0].([]*ObjectLambdaAccessPointPolicy)[vs[1].(int)]
@@ -362,12 +331,6 @@ func (o ObjectLambdaAccessPointPolicyMapOutput) ToObjectLambdaAccessPointPolicyM
 
 func (o ObjectLambdaAccessPointPolicyMapOutput) ToObjectLambdaAccessPointPolicyMapOutputWithContext(ctx context.Context) ObjectLambdaAccessPointPolicyMapOutput {
 	return o
-}
-
-func (o ObjectLambdaAccessPointPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectLambdaAccessPointPolicy] {
-	return pulumix.Output[map[string]*ObjectLambdaAccessPointPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectLambdaAccessPointPolicyMapOutput) MapIndex(k pulumi.StringInput) ObjectLambdaAccessPointPolicyOutput {

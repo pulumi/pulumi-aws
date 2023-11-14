@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a Service Catalog product.
@@ -138,12 +137,6 @@ func (o LookupProductResultOutput) ToLookupProductResultOutput() LookupProductRe
 
 func (o LookupProductResultOutput) ToLookupProductResultOutputWithContext(ctx context.Context) LookupProductResultOutput {
 	return o
-}
-
-func (o LookupProductResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProductResult] {
-	return pulumix.Output[LookupProductResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupProductResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

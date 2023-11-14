@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The "AMI from instance" resource allows the creation of an Amazon Machine
@@ -368,12 +367,6 @@ func (i *AmiFromInstance) ToAmiFromInstanceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceOutput)
 }
 
-func (i *AmiFromInstance) ToOutput(ctx context.Context) pulumix.Output[*AmiFromInstance] {
-	return pulumix.Output[*AmiFromInstance]{
-		OutputState: i.ToAmiFromInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AmiFromInstanceArrayInput is an input type that accepts AmiFromInstanceArray and AmiFromInstanceArrayOutput values.
 // You can construct a concrete instance of `AmiFromInstanceArrayInput` via:
 //
@@ -397,12 +390,6 @@ func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutput() AmiFromInstanceArra
 
 func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutputWithContext(ctx context.Context) AmiFromInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceArrayOutput)
-}
-
-func (i AmiFromInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*AmiFromInstance] {
-	return pulumix.Output[[]*AmiFromInstance]{
-		OutputState: i.ToAmiFromInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AmiFromInstanceMapInput is an input type that accepts AmiFromInstanceMap and AmiFromInstanceMapOutput values.
@@ -430,12 +417,6 @@ func (i AmiFromInstanceMap) ToAmiFromInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceMapOutput)
 }
 
-func (i AmiFromInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiFromInstance] {
-	return pulumix.Output[map[string]*AmiFromInstance]{
-		OutputState: i.ToAmiFromInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AmiFromInstanceOutput struct{ *pulumi.OutputState }
 
 func (AmiFromInstanceOutput) ElementType() reflect.Type {
@@ -448,12 +429,6 @@ func (o AmiFromInstanceOutput) ToAmiFromInstanceOutput() AmiFromInstanceOutput {
 
 func (o AmiFromInstanceOutput) ToAmiFromInstanceOutputWithContext(ctx context.Context) AmiFromInstanceOutput {
 	return o
-}
-
-func (o AmiFromInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*AmiFromInstance] {
-	return pulumix.Output[*AmiFromInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Machine architecture for created instances. Defaults to "x8664".
@@ -628,12 +603,6 @@ func (o AmiFromInstanceArrayOutput) ToAmiFromInstanceArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o AmiFromInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AmiFromInstance] {
-	return pulumix.Output[[]*AmiFromInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AmiFromInstanceArrayOutput) Index(i pulumi.IntInput) AmiFromInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AmiFromInstance {
 		return vs[0].([]*AmiFromInstance)[vs[1].(int)]
@@ -652,12 +621,6 @@ func (o AmiFromInstanceMapOutput) ToAmiFromInstanceMapOutput() AmiFromInstanceMa
 
 func (o AmiFromInstanceMapOutput) ToAmiFromInstanceMapOutputWithContext(ctx context.Context) AmiFromInstanceMapOutput {
 	return o
-}
-
-func (o AmiFromInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AmiFromInstance] {
-	return pulumix.Output[map[string]*AmiFromInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AmiFromInstanceMapOutput) MapIndex(k pulumi.StringInput) AmiFromInstanceOutput {

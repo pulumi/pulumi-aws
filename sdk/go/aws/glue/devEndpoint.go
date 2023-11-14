@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Development Endpoint resource.
@@ -383,12 +382,6 @@ func (i *DevEndpoint) ToDevEndpointOutputWithContext(ctx context.Context) DevEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointOutput)
 }
 
-func (i *DevEndpoint) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
-	return pulumix.Output[*DevEndpoint]{
-		OutputState: i.ToDevEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevEndpointArrayInput is an input type that accepts DevEndpointArray and DevEndpointArrayOutput values.
 // You can construct a concrete instance of `DevEndpointArrayInput` via:
 //
@@ -412,12 +405,6 @@ func (i DevEndpointArray) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
 
 func (i DevEndpointArray) ToDevEndpointArrayOutputWithContext(ctx context.Context) DevEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointArrayOutput)
-}
-
-func (i DevEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*DevEndpoint] {
-	return pulumix.Output[[]*DevEndpoint]{
-		OutputState: i.ToDevEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevEndpointMapInput is an input type that accepts DevEndpointMap and DevEndpointMapOutput values.
@@ -445,12 +432,6 @@ func (i DevEndpointMap) ToDevEndpointMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointMapOutput)
 }
 
-func (i DevEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEndpoint] {
-	return pulumix.Output[map[string]*DevEndpoint]{
-		OutputState: i.ToDevEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
@@ -463,12 +444,6 @@ func (o DevEndpointOutput) ToDevEndpointOutput() DevEndpointOutput {
 
 func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) DevEndpointOutput {
 	return o
-}
-
-func (o DevEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*DevEndpoint] {
-	return pulumix.Output[*DevEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of arguments used to configure the endpoint.
@@ -612,12 +587,6 @@ func (o DevEndpointArrayOutput) ToDevEndpointArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o DevEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DevEndpoint] {
-	return pulumix.Output[[]*DevEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevEndpointArrayOutput) Index(i pulumi.IntInput) DevEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevEndpoint {
 		return vs[0].([]*DevEndpoint)[vs[1].(int)]
@@ -636,12 +605,6 @@ func (o DevEndpointMapOutput) ToDevEndpointMapOutput() DevEndpointMapOutput {
 
 func (o DevEndpointMapOutput) ToDevEndpointMapOutputWithContext(ctx context.Context) DevEndpointMapOutput {
 	return o
-}
-
-func (o DevEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevEndpoint] {
-	return pulumix.Output[map[string]*DevEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevEndpointMapOutput) MapIndex(k pulumi.StringInput) DevEndpointOutput {

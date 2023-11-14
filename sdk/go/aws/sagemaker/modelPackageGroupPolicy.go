@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Model Package Group Policy resource.
@@ -121,12 +120,6 @@ func (i *ModelPackageGroupPolicy) ToModelPackageGroupPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyOutput)
 }
 
-func (i *ModelPackageGroupPolicy) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageGroupPolicy] {
-	return pulumix.Output[*ModelPackageGroupPolicy]{
-		OutputState: i.ToModelPackageGroupPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ModelPackageGroupPolicyArrayInput is an input type that accepts ModelPackageGroupPolicyArray and ModelPackageGroupPolicyArrayOutput values.
 // You can construct a concrete instance of `ModelPackageGroupPolicyArrayInput` via:
 //
@@ -150,12 +143,6 @@ func (i ModelPackageGroupPolicyArray) ToModelPackageGroupPolicyArrayOutput() Mod
 
 func (i ModelPackageGroupPolicyArray) ToModelPackageGroupPolicyArrayOutputWithContext(ctx context.Context) ModelPackageGroupPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyArrayOutput)
-}
-
-func (i ModelPackageGroupPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ModelPackageGroupPolicy] {
-	return pulumix.Output[[]*ModelPackageGroupPolicy]{
-		OutputState: i.ToModelPackageGroupPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ModelPackageGroupPolicyMapInput is an input type that accepts ModelPackageGroupPolicyMap and ModelPackageGroupPolicyMapOutput values.
@@ -183,12 +170,6 @@ func (i ModelPackageGroupPolicyMap) ToModelPackageGroupPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPolicyMapOutput)
 }
 
-func (i ModelPackageGroupPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ModelPackageGroupPolicy] {
-	return pulumix.Output[map[string]*ModelPackageGroupPolicy]{
-		OutputState: i.ToModelPackageGroupPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ModelPackageGroupPolicyOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupPolicyOutput) ElementType() reflect.Type {
@@ -201,12 +182,6 @@ func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutput() ModelPa
 
 func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutputWithContext(ctx context.Context) ModelPackageGroupPolicyOutput {
 	return o
-}
-
-func (o ModelPackageGroupPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageGroupPolicy] {
-	return pulumix.Output[*ModelPackageGroupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the model package group.
@@ -232,12 +207,6 @@ func (o ModelPackageGroupPolicyArrayOutput) ToModelPackageGroupPolicyArrayOutput
 	return o
 }
 
-func (o ModelPackageGroupPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ModelPackageGroupPolicy] {
-	return pulumix.Output[[]*ModelPackageGroupPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageGroupPolicyArrayOutput) Index(i pulumi.IntInput) ModelPackageGroupPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ModelPackageGroupPolicy {
 		return vs[0].([]*ModelPackageGroupPolicy)[vs[1].(int)]
@@ -256,12 +225,6 @@ func (o ModelPackageGroupPolicyMapOutput) ToModelPackageGroupPolicyMapOutput() M
 
 func (o ModelPackageGroupPolicyMapOutput) ToModelPackageGroupPolicyMapOutputWithContext(ctx context.Context) ModelPackageGroupPolicyMapOutput {
 	return o
-}
-
-func (o ModelPackageGroupPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ModelPackageGroupPolicy] {
-	return pulumix.Output[map[string]*ModelPackageGroupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageGroupPolicyMapOutput) MapIndex(k pulumi.StringInput) ModelPackageGroupPolicyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Provisioning Artifact for a specified product.
@@ -260,12 +259,6 @@ func (i *ProvisioningArtifact) ToProvisioningArtifactOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactOutput)
 }
 
-func (i *ProvisioningArtifact) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningArtifact] {
-	return pulumix.Output[*ProvisioningArtifact]{
-		OutputState: i.ToProvisioningArtifactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProvisioningArtifactArrayInput is an input type that accepts ProvisioningArtifactArray and ProvisioningArtifactArrayOutput values.
 // You can construct a concrete instance of `ProvisioningArtifactArrayInput` via:
 //
@@ -289,12 +282,6 @@ func (i ProvisioningArtifactArray) ToProvisioningArtifactArrayOutput() Provision
 
 func (i ProvisioningArtifactArray) ToProvisioningArtifactArrayOutputWithContext(ctx context.Context) ProvisioningArtifactArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactArrayOutput)
-}
-
-func (i ProvisioningArtifactArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisioningArtifact] {
-	return pulumix.Output[[]*ProvisioningArtifact]{
-		OutputState: i.ToProvisioningArtifactArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProvisioningArtifactMapInput is an input type that accepts ProvisioningArtifactMap and ProvisioningArtifactMapOutput values.
@@ -322,12 +309,6 @@ func (i ProvisioningArtifactMap) ToProvisioningArtifactMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactMapOutput)
 }
 
-func (i ProvisioningArtifactMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisioningArtifact] {
-	return pulumix.Output[map[string]*ProvisioningArtifact]{
-		OutputState: i.ToProvisioningArtifactMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProvisioningArtifactOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactOutput) ElementType() reflect.Type {
@@ -340,12 +321,6 @@ func (o ProvisioningArtifactOutput) ToProvisioningArtifactOutput() ProvisioningA
 
 func (o ProvisioningArtifactOutput) ToProvisioningArtifactOutputWithContext(ctx context.Context) ProvisioningArtifactOutput {
 	return o
-}
-
-func (o ProvisioningArtifactOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningArtifact] {
-	return pulumix.Output[*ProvisioningArtifact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
@@ -424,12 +399,6 @@ func (o ProvisioningArtifactArrayOutput) ToProvisioningArtifactArrayOutputWithCo
 	return o
 }
 
-func (o ProvisioningArtifactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisioningArtifact] {
-	return pulumix.Output[[]*ProvisioningArtifact]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProvisioningArtifactArrayOutput) Index(i pulumi.IntInput) ProvisioningArtifactOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisioningArtifact {
 		return vs[0].([]*ProvisioningArtifact)[vs[1].(int)]
@@ -448,12 +417,6 @@ func (o ProvisioningArtifactMapOutput) ToProvisioningArtifactMapOutput() Provisi
 
 func (o ProvisioningArtifactMapOutput) ToProvisioningArtifactMapOutputWithContext(ctx context.Context) ProvisioningArtifactMapOutput {
 	return o
-}
-
-func (o ProvisioningArtifactMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisioningArtifact] {
-	return pulumix.Output[map[string]*ProvisioningArtifact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProvisioningArtifactMapOutput) MapIndex(k pulumi.StringInput) ProvisioningArtifactOutput {

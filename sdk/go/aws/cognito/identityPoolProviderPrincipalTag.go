@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Cognito Identity Principal Mapping.
@@ -144,12 +143,6 @@ func (i *IdentityPoolProviderPrincipalTag) ToIdentityPoolProviderPrincipalTagOut
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagOutput)
 }
 
-func (i *IdentityPoolProviderPrincipalTag) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[*IdentityPoolProviderPrincipalTag]{
-		OutputState: i.ToIdentityPoolProviderPrincipalTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityPoolProviderPrincipalTagArrayInput is an input type that accepts IdentityPoolProviderPrincipalTagArray and IdentityPoolProviderPrincipalTagArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolProviderPrincipalTagArrayInput` via:
 //
@@ -173,12 +166,6 @@ func (i IdentityPoolProviderPrincipalTagArray) ToIdentityPoolProviderPrincipalTa
 
 func (i IdentityPoolProviderPrincipalTagArray) ToIdentityPoolProviderPrincipalTagArrayOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagArrayOutput)
-}
-
-func (i IdentityPoolProviderPrincipalTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[[]*IdentityPoolProviderPrincipalTag]{
-		OutputState: i.ToIdentityPoolProviderPrincipalTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityPoolProviderPrincipalTagMapInput is an input type that accepts IdentityPoolProviderPrincipalTagMap and IdentityPoolProviderPrincipalTagMapOutput values.
@@ -206,12 +193,6 @@ func (i IdentityPoolProviderPrincipalTagMap) ToIdentityPoolProviderPrincipalTagM
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolProviderPrincipalTagMapOutput)
 }
 
-func (i IdentityPoolProviderPrincipalTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[map[string]*IdentityPoolProviderPrincipalTag]{
-		OutputState: i.ToIdentityPoolProviderPrincipalTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolProviderPrincipalTagOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolProviderPrincipalTagOutput) ElementType() reflect.Type {
@@ -224,12 +205,6 @@ func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalT
 
 func (o IdentityPoolProviderPrincipalTagOutput) ToIdentityPoolProviderPrincipalTagOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagOutput {
 	return o
-}
-
-func (o IdentityPoolProviderPrincipalTagOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[*IdentityPoolProviderPrincipalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An identity pool ID.
@@ -266,12 +241,6 @@ func (o IdentityPoolProviderPrincipalTagArrayOutput) ToIdentityPoolProviderPrinc
 	return o
 }
 
-func (o IdentityPoolProviderPrincipalTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[[]*IdentityPoolProviderPrincipalTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityPoolProviderPrincipalTagArrayOutput) Index(i pulumi.IntInput) IdentityPoolProviderPrincipalTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPoolProviderPrincipalTag {
 		return vs[0].([]*IdentityPoolProviderPrincipalTag)[vs[1].(int)]
@@ -290,12 +259,6 @@ func (o IdentityPoolProviderPrincipalTagMapOutput) ToIdentityPoolProviderPrincip
 
 func (o IdentityPoolProviderPrincipalTagMapOutput) ToIdentityPoolProviderPrincipalTagMapOutputWithContext(ctx context.Context) IdentityPoolProviderPrincipalTagMapOutput {
 	return o
-}
-
-func (o IdentityPoolProviderPrincipalTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPoolProviderPrincipalTag] {
-	return pulumix.Output[map[string]*IdentityPoolProviderPrincipalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolProviderPrincipalTagMapOutput) MapIndex(k pulumi.StringInput) IdentityPoolProviderPrincipalTagOutput {

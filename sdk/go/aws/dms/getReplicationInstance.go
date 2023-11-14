@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Instance.
@@ -131,12 +130,6 @@ func (o LookupReplicationInstanceResultOutput) ToLookupReplicationInstanceResult
 
 func (o LookupReplicationInstanceResultOutput) ToLookupReplicationInstanceResultOutputWithContext(ctx context.Context) LookupReplicationInstanceResultOutput {
 	return o
-}
-
-func (o LookupReplicationInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationInstanceResult] {
-	return pulumix.Output[LookupReplicationInstanceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the replication instance.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -103,12 +102,6 @@ func (o GetRulesPackagesResultOutput) ToGetRulesPackagesResultOutput() GetRulesP
 
 func (o GetRulesPackagesResultOutput) ToGetRulesPackagesResultOutputWithContext(ctx context.Context) GetRulesPackagesResultOutput {
 	return o
-}
-
-func (o GetRulesPackagesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRulesPackagesResult] {
-	return pulumix.Output[GetRulesPackagesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the Amazon Inspector Classic Rules Packages arns available in the AWS region.

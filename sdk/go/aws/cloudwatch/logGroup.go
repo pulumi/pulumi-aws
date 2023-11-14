@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Log Group resource.
@@ -228,12 +227,6 @@ func (i *LogGroup) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupOutput)
 }
 
-func (i *LogGroup) ToOutput(ctx context.Context) pulumix.Output[*LogGroup] {
-	return pulumix.Output[*LogGroup]{
-		OutputState: i.ToLogGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogGroupArrayInput is an input type that accepts LogGroupArray and LogGroupArrayOutput values.
 // You can construct a concrete instance of `LogGroupArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i LogGroupArray) ToLogGroupArrayOutput() LogGroupArrayOutput {
 
 func (i LogGroupArray) ToLogGroupArrayOutputWithContext(ctx context.Context) LogGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupArrayOutput)
-}
-
-func (i LogGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogGroup] {
-	return pulumix.Output[[]*LogGroup]{
-		OutputState: i.ToLogGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogGroupMapInput is an input type that accepts LogGroupMap and LogGroupMapOutput values.
@@ -290,12 +277,6 @@ func (i LogGroupMap) ToLogGroupMapOutputWithContext(ctx context.Context) LogGrou
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupMapOutput)
 }
 
-func (i LogGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogGroup] {
-	return pulumix.Output[map[string]*LogGroup]{
-		OutputState: i.ToLogGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogGroupOutput struct{ *pulumi.OutputState }
 
 func (LogGroupOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o LogGroupOutput) ToLogGroupOutput() LogGroupOutput {
 
 func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGroupOutput {
 	return o
-}
-
-func (o LogGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*LogGroup] {
-	return pulumix.Output[*LogGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
@@ -376,12 +351,6 @@ func (o LogGroupArrayOutput) ToLogGroupArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o LogGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogGroup] {
-	return pulumix.Output[[]*LogGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogGroupArrayOutput) Index(i pulumi.IntInput) LogGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogGroup {
 		return vs[0].([]*LogGroup)[vs[1].(int)]
@@ -400,12 +369,6 @@ func (o LogGroupMapOutput) ToLogGroupMapOutput() LogGroupMapOutput {
 
 func (o LogGroupMapOutput) ToLogGroupMapOutputWithContext(ctx context.Context) LogGroupMapOutput {
 	return o
-}
-
-func (o LogGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogGroup] {
-	return pulumix.Output[map[string]*LogGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogGroupMapOutput) MapIndex(k pulumi.StringInput) LogGroupOutput {

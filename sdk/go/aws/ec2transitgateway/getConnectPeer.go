@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway Connect Peer.
@@ -158,12 +157,6 @@ func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutput() LookupC
 
 func (o LookupConnectPeerResultOutput) ToLookupConnectPeerResultOutputWithContext(ctx context.Context) LookupConnectPeerResultOutput {
 	return o
-}
-
-func (o LookupConnectPeerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConnectPeerResult] {
-	return pulumix.Output[LookupConnectPeerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // EC2 Transit Gateway Connect Peer ARN

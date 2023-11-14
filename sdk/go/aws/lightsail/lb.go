@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Lightsail load balancer resource.
@@ -228,12 +227,6 @@ func (i *Lb) ToLbOutputWithContext(ctx context.Context) LbOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbOutput)
 }
 
-func (i *Lb) ToOutput(ctx context.Context) pulumix.Output[*Lb] {
-	return pulumix.Output[*Lb]{
-		OutputState: i.ToLbOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LbArrayInput is an input type that accepts LbArray and LbArrayOutput values.
 // You can construct a concrete instance of `LbArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i LbArray) ToLbArrayOutput() LbArrayOutput {
 
 func (i LbArray) ToLbArrayOutputWithContext(ctx context.Context) LbArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbArrayOutput)
-}
-
-func (i LbArray) ToOutput(ctx context.Context) pulumix.Output[[]*Lb] {
-	return pulumix.Output[[]*Lb]{
-		OutputState: i.ToLbArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LbMapInput is an input type that accepts LbMap and LbMapOutput values.
@@ -290,12 +277,6 @@ func (i LbMap) ToLbMapOutputWithContext(ctx context.Context) LbMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbMapOutput)
 }
 
-func (i LbMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lb] {
-	return pulumix.Output[map[string]*Lb]{
-		OutputState: i.ToLbMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LbOutput struct{ *pulumi.OutputState }
 
 func (LbOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o LbOutput) ToLbOutput() LbOutput {
 
 func (o LbOutput) ToLbOutputWithContext(ctx context.Context) LbOutput {
 	return o
-}
-
-func (o LbOutput) ToOutput(ctx context.Context) pulumix.Output[*Lb] {
-	return pulumix.Output[*Lb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Lightsail load balancer.
@@ -391,12 +366,6 @@ func (o LbArrayOutput) ToLbArrayOutputWithContext(ctx context.Context) LbArrayOu
 	return o
 }
 
-func (o LbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Lb] {
-	return pulumix.Output[[]*Lb]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LbArrayOutput) Index(i pulumi.IntInput) LbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Lb {
 		return vs[0].([]*Lb)[vs[1].(int)]
@@ -415,12 +384,6 @@ func (o LbMapOutput) ToLbMapOutput() LbMapOutput {
 
 func (o LbMapOutput) ToLbMapOutputWithContext(ctx context.Context) LbMapOutput {
 	return o
-}
-
-func (o LbMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Lb] {
-	return pulumix.Output[map[string]*Lb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LbMapOutput) MapIndex(k pulumi.StringInput) LbOutput {

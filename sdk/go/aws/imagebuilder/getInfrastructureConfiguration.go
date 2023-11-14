@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Infrastructure Configuration.
@@ -135,12 +134,6 @@ func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureCon
 
 func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureConfigurationResultOutputWithContext(ctx context.Context) LookupInfrastructureConfigurationResultOutput {
 	return o
-}
-
-func (o LookupInfrastructureConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInfrastructureConfigurationResult] {
-	return pulumix.Output[LookupInfrastructureConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupInfrastructureConfigurationResultOutput) Arn() pulumi.StringOutput {

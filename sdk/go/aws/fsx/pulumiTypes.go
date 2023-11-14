@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3Output() D
 
 func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3OutputWithContext(ctx context.Context) DataRepositoryAssociationS3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3Output)
-}
-
-func (i DataRepositoryAssociationS3Args) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3] {
-	return pulumix.Output[DataRepositoryAssociationS3]{
-		OutputState: i.ToDataRepositoryAssociationS3OutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
@@ -98,12 +91,6 @@ func (i *dataRepositoryAssociationS3PtrType) ToDataRepositoryAssociationS3PtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3PtrOutput)
 }
 
-func (i *dataRepositoryAssociationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3] {
-	return pulumix.Output[*DataRepositoryAssociationS3]{
-		OutputState: i.ToDataRepositoryAssociationS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationS3Output struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationS3Output) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociationS3) *DataRepositoryAssociationS3 {
 		return &v
 	}).(DataRepositoryAssociationS3PtrOutput)
-}
-
-func (o DataRepositoryAssociationS3Output) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3] {
-	return pulumix.Output[DataRepositoryAssociationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
@@ -160,12 +141,6 @@ func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOu
 
 func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3] {
-	return pulumix.Output[*DataRepositoryAssociationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3Output {
@@ -231,12 +206,6 @@ func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssocia
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoExportPolicyOutput)
 }
 
-func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3AutoExportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationS3AutoExportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationS3AutoExportPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataRepositoryAssociationS3AutoExportPolicyArgs) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutput() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return i.ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *dataRepositoryAssociationS3AutoExportPolicyPtrType) ToDataRepositoryAss
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
-func (i *dataRepositoryAssociationS3AutoExportPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3AutoExportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationS3AutoExportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationS3AutoExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationS3AutoExportPolicyOutput) ElementType() reflect.Type {
@@ -308,12 +271,6 @@ func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
-func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3AutoExportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationS3AutoExportPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoExportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoExportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
@@ -331,12 +288,6 @@ func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ToDataRepositoryAs
 
 func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3AutoExportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationS3AutoExportPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Elem() DataRepositoryAssociationS3AutoExportPolicyOutput {
@@ -392,12 +343,6 @@ func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssocia
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoImportPolicyOutput)
 }
 
-func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3AutoImportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationS3AutoImportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationS3AutoImportPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataRepositoryAssociationS3AutoImportPolicyArgs) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutput() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return i.ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(context.Background())
 }
@@ -439,12 +384,6 @@ func (i *dataRepositoryAssociationS3AutoImportPolicyPtrType) ToDataRepositoryAss
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
 }
 
-func (i *dataRepositoryAssociationS3AutoImportPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3AutoImportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationS3AutoImportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationS3AutoImportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationS3AutoImportPolicyOutput) ElementType() reflect.Type {
@@ -469,12 +408,6 @@ func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
 }
 
-func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3AutoImportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationS3AutoImportPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoImportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoImportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
@@ -492,12 +425,6 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ToDataRepositoryAs
 
 func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ToDataRepositoryAssociationS3AutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3AutoImportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationS3AutoImportPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Elem() DataRepositoryAssociationS3AutoImportPolicyOutput {
@@ -583,12 +510,6 @@ func (i FileCacheDataRepositoryAssociationArgs) ToFileCacheDataRepositoryAssocia
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationOutput)
 }
 
-func (i FileCacheDataRepositoryAssociationArgs) ToOutput(ctx context.Context) pulumix.Output[FileCacheDataRepositoryAssociation] {
-	return pulumix.Output[FileCacheDataRepositoryAssociation]{
-		OutputState: i.ToFileCacheDataRepositoryAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileCacheDataRepositoryAssociationArrayInput is an input type that accepts FileCacheDataRepositoryAssociationArray and FileCacheDataRepositoryAssociationArrayOutput values.
 // You can construct a concrete instance of `FileCacheDataRepositoryAssociationArrayInput` via:
 //
@@ -614,12 +535,6 @@ func (i FileCacheDataRepositoryAssociationArray) ToFileCacheDataRepositoryAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationArrayOutput)
 }
 
-func (i FileCacheDataRepositoryAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheDataRepositoryAssociation] {
-	return pulumix.Output[[]FileCacheDataRepositoryAssociation]{
-		OutputState: i.ToFileCacheDataRepositoryAssociationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileCacheDataRepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (FileCacheDataRepositoryAssociationOutput) ElementType() reflect.Type {
@@ -632,12 +547,6 @@ func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssoc
 
 func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssociationOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationOutput {
 	return o
-}
-
-func (o FileCacheDataRepositoryAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[FileCacheDataRepositoryAssociation] {
-	return pulumix.Output[FileCacheDataRepositoryAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileCacheDataRepositoryAssociationOutput) AssociationId() pulumi.StringPtrOutput {
@@ -704,12 +613,6 @@ func (o FileCacheDataRepositoryAssociationArrayOutput) ToFileCacheDataRepository
 	return o
 }
 
-func (o FileCacheDataRepositoryAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheDataRepositoryAssociation] {
-	return pulumix.Output[[]FileCacheDataRepositoryAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileCacheDataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) FileCacheDataRepositoryAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheDataRepositoryAssociation {
 		return vs[0].([]FileCacheDataRepositoryAssociation)[vs[1].(int)]
@@ -753,12 +656,6 @@ func (i FileCacheDataRepositoryAssociationNfArgs) ToFileCacheDataRepositoryAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationNfOutput)
 }
 
-func (i FileCacheDataRepositoryAssociationNfArgs) ToOutput(ctx context.Context) pulumix.Output[FileCacheDataRepositoryAssociationNf] {
-	return pulumix.Output[FileCacheDataRepositoryAssociationNf]{
-		OutputState: i.ToFileCacheDataRepositoryAssociationNfOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileCacheDataRepositoryAssociationNfArrayInput is an input type that accepts FileCacheDataRepositoryAssociationNfArray and FileCacheDataRepositoryAssociationNfArrayOutput values.
 // You can construct a concrete instance of `FileCacheDataRepositoryAssociationNfArrayInput` via:
 //
@@ -784,12 +681,6 @@ func (i FileCacheDataRepositoryAssociationNfArray) ToFileCacheDataRepositoryAsso
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationNfArrayOutput)
 }
 
-func (i FileCacheDataRepositoryAssociationNfArray) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheDataRepositoryAssociationNf] {
-	return pulumix.Output[[]FileCacheDataRepositoryAssociationNf]{
-		OutputState: i.ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileCacheDataRepositoryAssociationNfOutput struct{ *pulumi.OutputState }
 
 func (FileCacheDataRepositoryAssociationNfOutput) ElementType() reflect.Type {
@@ -802,12 +693,6 @@ func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAss
 
 func (o FileCacheDataRepositoryAssociationNfOutput) ToFileCacheDataRepositoryAssociationNfOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfOutput {
 	return o
-}
-
-func (o FileCacheDataRepositoryAssociationNfOutput) ToOutput(ctx context.Context) pulumix.Output[FileCacheDataRepositoryAssociationNf] {
-	return pulumix.Output[FileCacheDataRepositoryAssociationNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
@@ -832,12 +717,6 @@ func (o FileCacheDataRepositoryAssociationNfArrayOutput) ToFileCacheDataReposito
 
 func (o FileCacheDataRepositoryAssociationNfArrayOutput) ToFileCacheDataRepositoryAssociationNfArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationNfArrayOutput {
 	return o
-}
-
-func (o FileCacheDataRepositoryAssociationNfArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheDataRepositoryAssociationNf] {
-	return pulumix.Output[[]FileCacheDataRepositoryAssociationNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileCacheDataRepositoryAssociationNfArrayOutput) Index(i pulumi.IntInput) FileCacheDataRepositoryAssociationNfOutput {
@@ -895,12 +774,6 @@ func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationOutput)
 }
 
-func (i FileCacheLustreConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfiguration] {
-	return pulumix.Output[FileCacheLustreConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileCacheLustreConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationArray and FileCacheLustreConfigurationArrayOutput values.
 // You can construct a concrete instance of `FileCacheLustreConfigurationArrayInput` via:
 //
@@ -926,12 +799,6 @@ func (i FileCacheLustreConfigurationArray) ToFileCacheLustreConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationArrayOutput)
 }
 
-func (i FileCacheLustreConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileCacheLustreConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileCacheLustreConfigurationOutput) ElementType() reflect.Type {
@@ -944,12 +811,6 @@ func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutput
 
 func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationOutput {
 	return o
-}
-
-func (o FileCacheLustreConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfiguration] {
-	return pulumix.Output[FileCacheLustreConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the cache deployment type. The only supported value is `CACHE_1`.
@@ -998,12 +859,6 @@ func (o FileCacheLustreConfigurationArrayOutput) ToFileCacheLustreConfigurationA
 	return o
 }
 
-func (o FileCacheLustreConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileCacheLustreConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheLustreConfiguration {
 		return vs[0].([]FileCacheLustreConfiguration)[vs[1].(int)]
@@ -1043,12 +898,6 @@ func (i FileCacheLustreConfigurationLogConfigurationArgs) ToFileCacheLustreConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationLogConfigurationOutput)
 }
 
-func (i FileCacheLustreConfigurationLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfigurationLogConfiguration] {
-	return pulumix.Output[FileCacheLustreConfigurationLogConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileCacheLustreConfigurationLogConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationLogConfigurationArray and FileCacheLustreConfigurationLogConfigurationArrayOutput values.
 // You can construct a concrete instance of `FileCacheLustreConfigurationLogConfigurationArrayInput` via:
 //
@@ -1074,12 +923,6 @@ func (i FileCacheLustreConfigurationLogConfigurationArray) ToFileCacheLustreConf
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationLogConfigurationArrayOutput)
 }
 
-func (i FileCacheLustreConfigurationLogConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfigurationLogConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfigurationLogConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileCacheLustreConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileCacheLustreConfigurationLogConfigurationOutput) ElementType() reflect.Type {
@@ -1092,12 +935,6 @@ func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreCon
 
 func (o FileCacheLustreConfigurationLogConfigurationOutput) ToFileCacheLustreConfigurationLogConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationOutput {
 	return o
-}
-
-func (o FileCacheLustreConfigurationLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfigurationLogConfiguration] {
-	return pulumix.Output[FileCacheLustreConfigurationLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileCacheLustreConfigurationLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
@@ -1120,12 +957,6 @@ func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) ToFileCacheLust
 
 func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) ToFileCacheLustreConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationLogConfigurationArrayOutput {
 	return o
-}
-
-func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfigurationLogConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfigurationLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationLogConfigurationOutput {
@@ -1167,12 +998,6 @@ func (i FileCacheLustreConfigurationMetadataConfigurationArgs) ToFileCacheLustre
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationMetadataConfigurationOutput)
 }
 
-func (i FileCacheLustreConfigurationMetadataConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfigurationMetadataConfiguration] {
-	return pulumix.Output[FileCacheLustreConfigurationMetadataConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileCacheLustreConfigurationMetadataConfigurationArrayInput is an input type that accepts FileCacheLustreConfigurationMetadataConfigurationArray and FileCacheLustreConfigurationMetadataConfigurationArrayOutput values.
 // You can construct a concrete instance of `FileCacheLustreConfigurationMetadataConfigurationArrayInput` via:
 //
@@ -1198,12 +1023,6 @@ func (i FileCacheLustreConfigurationMetadataConfigurationArray) ToFileCacheLustr
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationMetadataConfigurationArrayOutput)
 }
 
-func (i FileCacheLustreConfigurationMetadataConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfigurationMetadataConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfigurationMetadataConfiguration]{
-		OutputState: i.ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileCacheLustreConfigurationMetadataConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileCacheLustreConfigurationMetadataConfigurationOutput) ElementType() reflect.Type {
@@ -1216,12 +1035,6 @@ func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLust
 
 func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLustreConfigurationMetadataConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationOutput {
 	return o
-}
-
-func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileCacheLustreConfigurationMetadataConfiguration] {
-	return pulumix.Output[FileCacheLustreConfigurationMetadataConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
@@ -1241,12 +1054,6 @@ func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ToFileCach
 
 func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ToFileCacheLustreConfigurationMetadataConfigurationArrayOutputWithContext(ctx context.Context) FileCacheLustreConfigurationMetadataConfigurationArrayOutput {
 	return o
-}
-
-func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileCacheLustreConfigurationMetadataConfiguration] {
-	return pulumix.Output[[]FileCacheLustreConfigurationMetadataConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) Index(i pulumi.IntInput) FileCacheLustreConfigurationMetadataConfigurationOutput {
@@ -1292,12 +1099,6 @@ func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemLogConfigurationOutput)
 }
 
-func (i LustreFileSystemLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LustreFileSystemLogConfiguration] {
-	return pulumix.Output[LustreFileSystemLogConfiguration]{
-		OutputState: i.ToLustreFileSystemLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LustreFileSystemLogConfigurationArgs) ToLustreFileSystemLogConfigurationPtrOutput() LustreFileSystemLogConfigurationPtrOutput {
 	return i.ToLustreFileSystemLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1339,12 +1140,6 @@ func (i *lustreFileSystemLogConfigurationPtrType) ToLustreFileSystemLogConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemLogConfigurationPtrOutput)
 }
 
-func (i *lustreFileSystemLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystemLogConfiguration] {
-	return pulumix.Output[*LustreFileSystemLogConfiguration]{
-		OutputState: i.ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LustreFileSystemLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LustreFileSystemLogConfigurationOutput) ElementType() reflect.Type {
@@ -1369,12 +1164,6 @@ func (o LustreFileSystemLogConfigurationOutput) ToLustreFileSystemLogConfigurati
 	}).(LustreFileSystemLogConfigurationPtrOutput)
 }
 
-func (o LustreFileSystemLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LustreFileSystemLogConfiguration] {
-	return pulumix.Output[LustreFileSystemLogConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
 func (o LustreFileSystemLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
@@ -1397,12 +1186,6 @@ func (o LustreFileSystemLogConfigurationPtrOutput) ToLustreFileSystemLogConfigur
 
 func (o LustreFileSystemLogConfigurationPtrOutput) ToLustreFileSystemLogConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemLogConfigurationPtrOutput {
 	return o
-}
-
-func (o LustreFileSystemLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystemLogConfiguration] {
-	return pulumix.Output[*LustreFileSystemLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LustreFileSystemLogConfigurationPtrOutput) Elem() LustreFileSystemLogConfigurationOutput {
@@ -1472,12 +1255,6 @@ func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquas
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemRootSquashConfigurationOutput)
 }
 
-func (i LustreFileSystemRootSquashConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LustreFileSystemRootSquashConfiguration] {
-	return pulumix.Output[LustreFileSystemRootSquashConfiguration]{
-		OutputState: i.ToLustreFileSystemRootSquashConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LustreFileSystemRootSquashConfigurationArgs) ToLustreFileSystemRootSquashConfigurationPtrOutput() LustreFileSystemRootSquashConfigurationPtrOutput {
 	return i.ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1519,12 +1296,6 @@ func (i *lustreFileSystemRootSquashConfigurationPtrType) ToLustreFileSystemRootS
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemRootSquashConfigurationPtrOutput)
 }
 
-func (i *lustreFileSystemRootSquashConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystemRootSquashConfiguration] {
-	return pulumix.Output[*LustreFileSystemRootSquashConfiguration]{
-		OutputState: i.ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LustreFileSystemRootSquashConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LustreFileSystemRootSquashConfigurationOutput) ElementType() reflect.Type {
@@ -1549,12 +1320,6 @@ func (o LustreFileSystemRootSquashConfigurationOutput) ToLustreFileSystemRootSqu
 	}).(LustreFileSystemRootSquashConfigurationPtrOutput)
 }
 
-func (o LustreFileSystemRootSquashConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LustreFileSystemRootSquashConfiguration] {
-	return pulumix.Output[LustreFileSystemRootSquashConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
 func (o LustreFileSystemRootSquashConfigurationOutput) NoSquashNids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LustreFileSystemRootSquashConfiguration) []string { return v.NoSquashNids }).(pulumi.StringArrayOutput)
@@ -1577,12 +1342,6 @@ func (o LustreFileSystemRootSquashConfigurationPtrOutput) ToLustreFileSystemRoot
 
 func (o LustreFileSystemRootSquashConfigurationPtrOutput) ToLustreFileSystemRootSquashConfigurationPtrOutputWithContext(ctx context.Context) LustreFileSystemRootSquashConfigurationPtrOutput {
 	return o
-}
-
-func (o LustreFileSystemRootSquashConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LustreFileSystemRootSquashConfiguration] {
-	return pulumix.Output[*LustreFileSystemRootSquashConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LustreFileSystemRootSquashConfigurationPtrOutput) Elem() LustreFileSystemRootSquashConfigurationOutput {
@@ -1652,12 +1411,6 @@ func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfi
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemDiskIopsConfigurationOutput)
 }
 
-func (i OntapFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[OntapFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToOntapFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput {
 	return i.ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1699,12 +1452,6 @@ func (i *ontapFileSystemDiskIopsConfigurationPtrType) ToOntapFileSystemDiskIopsC
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (i *ontapFileSystemDiskIopsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*OntapFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -1729,12 +1476,6 @@ func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsCon
 	}).(OntapFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o OntapFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[OntapFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The total number of SSD IOPS provisioned for the file system.
 func (o OntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -1757,12 +1498,6 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) ToOntapFileSystemDiskIops
 
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput {
 	return o
-}
-
-func (o OntapFileSystemDiskIopsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*OntapFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Elem() OntapFileSystemDiskIopsConfigurationOutput {
@@ -1832,12 +1567,6 @@ func (i OntapFileSystemEndpointArgs) ToOntapFileSystemEndpointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointOutput)
 }
 
-func (i OntapFileSystemEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpoint] {
-	return pulumix.Output[OntapFileSystemEndpoint]{
-		OutputState: i.ToOntapFileSystemEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapFileSystemEndpointArrayInput is an input type that accepts OntapFileSystemEndpointArray and OntapFileSystemEndpointArrayOutput values.
 // You can construct a concrete instance of `OntapFileSystemEndpointArrayInput` via:
 //
@@ -1863,12 +1592,6 @@ func (i OntapFileSystemEndpointArray) ToOntapFileSystemEndpointArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointArrayOutput)
 }
 
-func (i OntapFileSystemEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpoint] {
-	return pulumix.Output[[]OntapFileSystemEndpoint]{
-		OutputState: i.ToOntapFileSystemEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapFileSystemEndpointOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemEndpointOutput) ElementType() reflect.Type {
@@ -1881,12 +1604,6 @@ func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutput() OntapFi
 
 func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutputWithContext(ctx context.Context) OntapFileSystemEndpointOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpoint] {
-	return pulumix.Output[OntapFileSystemEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
@@ -1911,12 +1628,6 @@ func (o OntapFileSystemEndpointArrayOutput) ToOntapFileSystemEndpointArrayOutput
 
 func (o OntapFileSystemEndpointArrayOutput) ToOntapFileSystemEndpointArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointArrayOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpoint] {
-	return pulumix.Output[[]OntapFileSystemEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointOutput {
@@ -1962,12 +1673,6 @@ func (i OntapFileSystemEndpointInterclusterArgs) ToOntapFileSystemEndpointInterc
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointInterclusterOutput)
 }
 
-func (i OntapFileSystemEndpointInterclusterArgs) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[OntapFileSystemEndpointIntercluster]{
-		OutputState: i.ToOntapFileSystemEndpointInterclusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapFileSystemEndpointInterclusterArrayInput is an input type that accepts OntapFileSystemEndpointInterclusterArray and OntapFileSystemEndpointInterclusterArrayOutput values.
 // You can construct a concrete instance of `OntapFileSystemEndpointInterclusterArrayInput` via:
 //
@@ -1993,12 +1698,6 @@ func (i OntapFileSystemEndpointInterclusterArray) ToOntapFileSystemEndpointInter
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-func (i OntapFileSystemEndpointInterclusterArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[[]OntapFileSystemEndpointIntercluster]{
-		OutputState: i.ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapFileSystemEndpointInterclusterOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemEndpointInterclusterOutput) ElementType() reflect.Type {
@@ -2011,12 +1710,6 @@ func (o OntapFileSystemEndpointInterclusterOutput) ToOntapFileSystemEndpointInte
 
 func (o OntapFileSystemEndpointInterclusterOutput) ToOntapFileSystemEndpointInterclusterOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointInterclusterOutput) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[OntapFileSystemEndpointIntercluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
@@ -2041,12 +1734,6 @@ func (o OntapFileSystemEndpointInterclusterArrayOutput) ToOntapFileSystemEndpoin
 
 func (o OntapFileSystemEndpointInterclusterArrayOutput) ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterArrayOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointInterclusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[[]OntapFileSystemEndpointIntercluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointInterclusterOutput {
@@ -2092,12 +1779,6 @@ func (i OntapFileSystemEndpointManagementArgs) ToOntapFileSystemEndpointManageme
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointManagementOutput)
 }
 
-func (i OntapFileSystemEndpointManagementArgs) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpointManagement] {
-	return pulumix.Output[OntapFileSystemEndpointManagement]{
-		OutputState: i.ToOntapFileSystemEndpointManagementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapFileSystemEndpointManagementArrayInput is an input type that accepts OntapFileSystemEndpointManagementArray and OntapFileSystemEndpointManagementArrayOutput values.
 // You can construct a concrete instance of `OntapFileSystemEndpointManagementArrayInput` via:
 //
@@ -2123,12 +1804,6 @@ func (i OntapFileSystemEndpointManagementArray) ToOntapFileSystemEndpointManagem
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointManagementArrayOutput)
 }
 
-func (i OntapFileSystemEndpointManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpointManagement] {
-	return pulumix.Output[[]OntapFileSystemEndpointManagement]{
-		OutputState: i.ToOntapFileSystemEndpointManagementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapFileSystemEndpointManagementOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemEndpointManagementOutput) ElementType() reflect.Type {
@@ -2141,12 +1816,6 @@ func (o OntapFileSystemEndpointManagementOutput) ToOntapFileSystemEndpointManage
 
 func (o OntapFileSystemEndpointManagementOutput) ToOntapFileSystemEndpointManagementOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[OntapFileSystemEndpointManagement] {
-	return pulumix.Output[OntapFileSystemEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
@@ -2171,12 +1840,6 @@ func (o OntapFileSystemEndpointManagementArrayOutput) ToOntapFileSystemEndpointM
 
 func (o OntapFileSystemEndpointManagementArrayOutput) ToOntapFileSystemEndpointManagementArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementArrayOutput {
 	return o
-}
-
-func (o OntapFileSystemEndpointManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapFileSystemEndpointManagement] {
-	return pulumix.Output[[]OntapFileSystemEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointManagementOutput {
@@ -2220,12 +1883,6 @@ func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStora
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
 }
 
-func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
 	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2267,12 +1924,6 @@ func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType) ToOntapS
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -2295,12 +1946,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapSto
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfiguration {
 		return &v
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
@@ -2326,12 +1971,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOntap
 
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
@@ -2416,12 +2055,6 @@ func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
 }
 
-func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2463,12 +2096,6 @@ func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
 }
 
-func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -2491,12 +2118,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
 		return &v
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
@@ -2553,12 +2174,6 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
@@ -2676,12 +2291,6 @@ func (i OntapStorageVirtualMachineEndpointArgs) ToOntapStorageVirtualMachineEndp
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpoint]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapStorageVirtualMachineEndpointArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointArray and OntapStorageVirtualMachineEndpointArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineEndpointArrayInput` via:
 //
@@ -2707,12 +2316,6 @@ func (i OntapStorageVirtualMachineEndpointArray) ToOntapStorageVirtualMachineEnd
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointArrayOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpoint]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineEndpointOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineEndpointOutput) ElementType() reflect.Type {
@@ -2725,12 +2328,6 @@ func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEn
 
 func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEndpointOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
@@ -2767,12 +2364,6 @@ func (o OntapStorageVirtualMachineEndpointArrayOutput) ToOntapStorageVirtualMach
 
 func (o OntapStorageVirtualMachineEndpointArrayOutput) ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointArrayOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointOutput {
@@ -2818,12 +2409,6 @@ func (i OntapStorageVirtualMachineEndpointIscsiArgs) ToOntapStorageVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscsiOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointIscsiArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapStorageVirtualMachineEndpointIscsiArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointIscsiArray and OntapStorageVirtualMachineEndpointIscsiArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscsiArrayInput` via:
 //
@@ -2849,12 +2434,6 @@ func (i OntapStorageVirtualMachineEndpointIscsiArray) ToOntapStorageVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointIscsiArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineEndpointIscsiOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineEndpointIscsiOutput) ElementType() reflect.Type {
@@ -2867,12 +2446,6 @@ func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOntapStorageVirtualMach
 
 func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointIscsiOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -2897,12 +2470,6 @@ func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOntapStorageVirtua
 
 func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineEndpointIscsiArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointIscsiOutput {
@@ -2948,12 +2515,6 @@ func (i OntapStorageVirtualMachineEndpointManagementArgs) ToOntapStorageVirtualM
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointManagementOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointManagementArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointManagement]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapStorageVirtualMachineEndpointManagementArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointManagementArray and OntapStorageVirtualMachineEndpointManagementArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineEndpointManagementArrayInput` via:
 //
@@ -2979,12 +2540,6 @@ func (i OntapStorageVirtualMachineEndpointManagementArray) ToOntapStorageVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointManagementArrayOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointManagement]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineEndpointManagementOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineEndpointManagementOutput) ElementType() reflect.Type {
@@ -2997,12 +2552,6 @@ func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOntapStorageVirtua
 
 func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -3027,12 +2576,6 @@ func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) ToOntapStorageV
 
 func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementArrayOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointManagementOutput {
@@ -3078,12 +2621,6 @@ func (i OntapStorageVirtualMachineEndpointNfArgs) ToOntapStorageVirtualMachineEn
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointNfOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointNfArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointNf]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapStorageVirtualMachineEndpointNfArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointNfArray and OntapStorageVirtualMachineEndpointNfArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineEndpointNfArrayInput` via:
 //
@@ -3109,12 +2646,6 @@ func (i OntapStorageVirtualMachineEndpointNfArray) ToOntapStorageVirtualMachineE
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointNfArrayOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointNfArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointNf]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineEndpointNfOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineEndpointNfOutput) ElementType() reflect.Type {
@@ -3127,12 +2658,6 @@ func (o OntapStorageVirtualMachineEndpointNfOutput) ToOntapStorageVirtualMachine
 
 func (o OntapStorageVirtualMachineEndpointNfOutput) ToOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointNfOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -3157,12 +2682,6 @@ func (o OntapStorageVirtualMachineEndpointNfArrayOutput) ToOntapStorageVirtualMa
 
 func (o OntapStorageVirtualMachineEndpointNfArrayOutput) ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfArrayOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointNfArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineEndpointNfArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointNfOutput {
@@ -3208,12 +2727,6 @@ func (i OntapStorageVirtualMachineEndpointSmbArgs) ToOntapStorageVirtualMachineE
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointSmbOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointSmbArgs) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointSmb]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OntapStorageVirtualMachineEndpointSmbArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointSmbArray and OntapStorageVirtualMachineEndpointSmbArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineEndpointSmbArrayInput` via:
 //
@@ -3239,12 +2752,6 @@ func (i OntapStorageVirtualMachineEndpointSmbArray) ToOntapStorageVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointSmbArrayOutput)
 }
 
-func (i OntapStorageVirtualMachineEndpointSmbArray) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointSmb]{
-		OutputState: i.ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapStorageVirtualMachineEndpointSmbOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineEndpointSmbOutput) ElementType() reflect.Type {
@@ -3257,12 +2764,6 @@ func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOntapStorageVirtualMachin
 
 func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOutput(ctx context.Context) pulumix.Output[OntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[OntapStorageVirtualMachineEndpointSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
@@ -3287,12 +2788,6 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) ToOntapStorageVirtualM
 
 func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbArrayOutput {
 	return o
-}
-
-func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[[]OntapStorageVirtualMachineEndpointSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointSmbOutput {
@@ -3354,12 +2849,6 @@ func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfiguration] {
-	return pulumix.Output[OntapVolumeSnaplockConfiguration]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationArgs) ToOntapVolumeSnaplockConfigurationPtrOutput() OntapVolumeSnaplockConfigurationPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3401,12 +2890,6 @@ func (i *ontapVolumeSnaplockConfigurationPtrType) ToOntapVolumeSnaplockConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfiguration] {
-	return pulumix.Output[*OntapVolumeSnaplockConfiguration]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationOutput) ElementType() reflect.Type {
@@ -3429,12 +2912,6 @@ func (o OntapVolumeSnaplockConfigurationOutput) ToOntapVolumeSnaplockConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfiguration) *OntapVolumeSnaplockConfiguration {
 		return &v
 	}).(OntapVolumeSnaplockConfigurationPtrOutput)
-}
-
-func (o OntapVolumeSnaplockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfiguration] {
-	return pulumix.Output[OntapVolumeSnaplockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
@@ -3483,12 +2960,6 @@ func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOntapVolumeSnaplockConfigur
 
 func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOntapVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfiguration] {
-	return pulumix.Output[*OntapVolumeSnaplockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationPtrOutput) Elem() OntapVolumeSnaplockConfigurationOutput {
@@ -3598,12 +3069,6 @@ func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnapl
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationAutocommitPeriodOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationAutocommitPeriodArgs) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput() OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(context.Background())
 }
@@ -3645,12 +3110,6 @@ func (i *ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ToOntapVolumeS
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationAutocommitPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationAutocommitPeriodOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ElementType() reflect.Type {
@@ -3675,12 +3134,6 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOntapVolumeSna
 	}).(OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput)
 }
 
-func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationAutocommitPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationAutocommitPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -3703,12 +3156,6 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOntapVolume
 
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationAutocommitPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Elem() OntapVolumeSnaplockConfigurationAutocommitPeriodOutput {
@@ -3782,12 +3229,6 @@ func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplo
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationRetentionPeriodArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -3829,12 +3270,6 @@ func (i *ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ToOntapVolumeSn
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ElementType() reflect.Type {
@@ -3857,12 +3292,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnap
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriod {
 		return &v
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
-}
-
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
@@ -3898,12 +3327,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOntapVolumeS
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodOutput {
@@ -3983,12 +3406,6 @@ func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToO
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(context.Background())
 }
@@ -4030,12 +3447,6 @@ func (i *ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ElementType() reflect.Type {
@@ -4060,12 +3471,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -4088,12 +3493,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionOutput {
@@ -4163,12 +3562,6 @@ func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToO
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(context.Background())
 }
@@ -4210,12 +3603,6 @@ func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ElementType() reflect.Type {
@@ -4240,12 +3627,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -4268,12 +3649,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionOutput {
@@ -4343,12 +3718,6 @@ func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToO
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput)
 }
 
-func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(context.Background())
 }
@@ -4390,12 +3759,6 @@ func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
 }
 
-func (i *ontapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
-		OutputState: i.ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ElementType() reflect.Type {
@@ -4420,12 +3783,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) T
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput)
 }
 
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
-	return pulumix.Output[OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -4448,12 +3805,6 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ToOntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutputWithContext(ctx context.Context) OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o
-}
-
-func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention] {
-	return pulumix.Output[*OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput) Elem() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionOutput {
@@ -4523,12 +3874,6 @@ func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeTieringPolicyOutput)
 }
 
-func (i OntapVolumeTieringPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeTieringPolicy] {
-	return pulumix.Output[OntapVolumeTieringPolicy]{
-		OutputState: i.ToOntapVolumeTieringPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput {
 	return i.ToOntapVolumeTieringPolicyPtrOutputWithContext(context.Background())
 }
@@ -4570,12 +3915,6 @@ func (i *ontapVolumeTieringPolicyPtrType) ToOntapVolumeTieringPolicyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeTieringPolicyPtrOutput)
 }
 
-func (i *ontapVolumeTieringPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeTieringPolicy] {
-	return pulumix.Output[*OntapVolumeTieringPolicy]{
-		OutputState: i.ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OntapVolumeTieringPolicyOutput struct{ *pulumi.OutputState }
 
 func (OntapVolumeTieringPolicyOutput) ElementType() reflect.Type {
@@ -4600,12 +3939,6 @@ func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutputWithC
 	}).(OntapVolumeTieringPolicyPtrOutput)
 }
 
-func (o OntapVolumeTieringPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[OntapVolumeTieringPolicy] {
-	return pulumix.Output[OntapVolumeTieringPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
@@ -4628,12 +3961,6 @@ func (o OntapVolumeTieringPolicyPtrOutput) ToOntapVolumeTieringPolicyPtrOutput()
 
 func (o OntapVolumeTieringPolicyPtrOutput) ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyPtrOutput {
 	return o
-}
-
-func (o OntapVolumeTieringPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapVolumeTieringPolicy] {
-	return pulumix.Output[*OntapVolumeTieringPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OntapVolumeTieringPolicyPtrOutput) Elem() OntapVolumeTieringPolicyOutput {
@@ -4703,12 +4030,6 @@ func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsC
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemDiskIopsConfigurationOutput)
 }
 
-func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OpenZfsFileSystemDiskIopsConfigurationArgs) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutput() OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
 	return i.ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4750,12 +4071,6 @@ func (i *openZfsFileSystemDiskIopsConfigurationPtrType) ToOpenZfsFileSystemDiskI
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (i *openZfsFileSystemDiskIopsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*OpenZfsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -4780,12 +4095,6 @@ func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOpenZfsFileSystemDiskIop
 	}).(OpenZfsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o OpenZfsFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The total number of SSD IOPS provisioned for the file system.
 func (o OpenZfsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -4808,12 +4117,6 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ToOpenZfsFileSystemDisk
 
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ToOpenZfsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemDiskIopsConfigurationPtrOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*OpenZfsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Elem() OpenZfsFileSystemDiskIopsConfigurationOutput {
@@ -4899,12 +4202,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVol
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OpenZfsFileSystemRootVolumeConfigurationArgs) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutput() OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
 	return i.ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4946,12 +4243,6 @@ func (i *openZfsFileSystemRootVolumeConfigurationPtrType) ToOpenZfsFileSystemRoo
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
 }
 
-func (i *openZfsFileSystemRootVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemRootVolumeConfiguration] {
-	return pulumix.Output[*OpenZfsFileSystemRootVolumeConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsFileSystemRootVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemRootVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -4974,12 +4265,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOpenZfsFileSystemRootV
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenZfsFileSystemRootVolumeConfiguration) *OpenZfsFileSystemRootVolumeConfiguration {
 		return &v
 	}).(OpenZfsFileSystemRootVolumeConfigurationPtrOutput)
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
@@ -5028,12 +4313,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ToOpenZfsFileSystemRo
 
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationPtrOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemRootVolumeConfiguration] {
-	return pulumix.Output[*OpenZfsFileSystemRootVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) Elem() OpenZfsFileSystemRootVolumeConfigurationOutput {
@@ -5139,12 +4418,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSys
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExports] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExports]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput() OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(context.Background())
 }
@@ -5186,12 +4459,6 @@ func (i *openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType) ToOpenZfsFil
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-func (i *openZfsFileSystemRootVolumeConfigurationNfsExportsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemRootVolumeConfigurationNfsExports] {
-	return pulumix.Output[*OpenZfsFileSystemRootVolumeConfigurationNfsExports]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ElementType() reflect.Type {
@@ -5216,12 +4483,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOpenZfsFileS
 	}).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput)
 }
 
-func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExports] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExports]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput) ClientConfigurations() OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExports) []OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration {
@@ -5241,12 +4502,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ToOpenZfsFi
 
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystemRootVolumeConfigurationNfsExports] {
-	return pulumix.Output[*OpenZfsFileSystemRootVolumeConfigurationNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) Elem() OpenZfsFileSystemRootVolumeConfigurationNfsExportsOutput {
@@ -5306,12 +4561,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArg
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray and OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput values.
 // You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayInput` via:
 //
@@ -5337,12 +4586,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration] {
-	return pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ElementType() reflect.Type {
@@ -5355,12 +4598,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOut
 
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
@@ -5387,12 +4624,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArr
 
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration] {
-	return pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput {
@@ -5442,12 +4673,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ToOpenZfs
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray and OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput values.
 // You can construct a concrete instance of `OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayInput` via:
 //
@@ -5473,12 +4698,6 @@ func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray) ToOpenZf
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput)
 }
 
-func (i OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArray) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota] {
-	return pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota]{
-		OutputState: i.ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ElementType() reflect.Type {
@@ -5491,12 +4710,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZ
 
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota] {
-	return pulumix.Output[OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the user or group. Valid values between `0` and `2147483647`
@@ -5528,12 +4741,6 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) To
 
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) ToOpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput {
 	return o
-}
-
-func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota] {
-	return pulumix.Output[[]OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput {
@@ -5573,12 +4780,6 @@ func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsOutput() OpenZfsVo
 
 func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsOutput)
-}
-
-func (i OpenZfsVolumeNfsExportsArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeNfsExports] {
-	return pulumix.Output[OpenZfsVolumeNfsExports]{
-		OutputState: i.ToOpenZfsVolumeNfsExportsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i OpenZfsVolumeNfsExportsArgs) ToOpenZfsVolumeNfsExportsPtrOutput() OpenZfsVolumeNfsExportsPtrOutput {
@@ -5622,12 +4823,6 @@ func (i *openZfsVolumeNfsExportsPtrType) ToOpenZfsVolumeNfsExportsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
-func (i *openZfsVolumeNfsExportsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolumeNfsExports] {
-	return pulumix.Output[*OpenZfsVolumeNfsExports]{
-		OutputState: i.ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsVolumeNfsExportsOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeNfsExportsOutput) ElementType() reflect.Type {
@@ -5652,12 +4847,6 @@ func (o OpenZfsVolumeNfsExportsOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithCon
 	}).(OpenZfsVolumeNfsExportsPtrOutput)
 }
 
-func (o OpenZfsVolumeNfsExportsOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeNfsExports] {
-	return pulumix.Output[OpenZfsVolumeNfsExports]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
 func (o OpenZfsVolumeNfsExportsOutput) ClientConfigurations() OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExports) []OpenZfsVolumeNfsExportsClientConfiguration {
@@ -5677,12 +4866,6 @@ func (o OpenZfsVolumeNfsExportsPtrOutput) ToOpenZfsVolumeNfsExportsPtrOutput() O
 
 func (o OpenZfsVolumeNfsExportsPtrOutput) ToOpenZfsVolumeNfsExportsPtrOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsPtrOutput {
 	return o
-}
-
-func (o OpenZfsVolumeNfsExportsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolumeNfsExports] {
-	return pulumix.Output[*OpenZfsVolumeNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsVolumeNfsExportsPtrOutput) Elem() OpenZfsVolumeNfsExportsOutput {
@@ -5742,12 +4925,6 @@ func (i OpenZfsVolumeNfsExportsClientConfigurationArgs) ToOpenZfsVolumeNfsExport
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsClientConfigurationOutput)
 }
 
-func (i OpenZfsVolumeNfsExportsClientConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeNfsExportsClientConfiguration] {
-	return pulumix.Output[OpenZfsVolumeNfsExportsClientConfiguration]{
-		OutputState: i.ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenZfsVolumeNfsExportsClientConfigurationArrayInput is an input type that accepts OpenZfsVolumeNfsExportsClientConfigurationArray and OpenZfsVolumeNfsExportsClientConfigurationArrayOutput values.
 // You can construct a concrete instance of `OpenZfsVolumeNfsExportsClientConfigurationArrayInput` via:
 //
@@ -5773,12 +4950,6 @@ func (i OpenZfsVolumeNfsExportsClientConfigurationArray) ToOpenZfsVolumeNfsExpor
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeNfsExportsClientConfigurationArrayOutput)
 }
 
-func (i OpenZfsVolumeNfsExportsClientConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsVolumeNfsExportsClientConfiguration] {
-	return pulumix.Output[[]OpenZfsVolumeNfsExportsClientConfiguration]{
-		OutputState: i.ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsVolumeNfsExportsClientConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeNfsExportsClientConfigurationOutput) ElementType() reflect.Type {
@@ -5791,12 +4962,6 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOpenZfsVolumeNfsExpo
 
 func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOpenZfsVolumeNfsExportsClientConfigurationOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationOutput {
 	return o
-}
-
-func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeNfsExportsClientConfiguration] {
-	return pulumix.Output[OpenZfsVolumeNfsExportsClientConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
@@ -5821,12 +4986,6 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ToOpenZfsVolumeNf
 
 func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ToOpenZfsVolumeNfsExportsClientConfigurationArrayOutputWithContext(ctx context.Context) OpenZfsVolumeNfsExportsClientConfigurationArrayOutput {
 	return o
-}
-
-func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsVolumeNfsExportsClientConfiguration] {
-	return pulumix.Output[[]OpenZfsVolumeNfsExportsClientConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsVolumeNfsExportsClientConfigurationArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeNfsExportsClientConfigurationOutput {
@@ -5866,12 +5025,6 @@ func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotOutput() O
 
 func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOriginSnapshotOutput)
-}
-
-func (i OpenZfsVolumeOriginSnapshotArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeOriginSnapshot] {
-	return pulumix.Output[OpenZfsVolumeOriginSnapshot]{
-		OutputState: i.ToOpenZfsVolumeOriginSnapshotOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i OpenZfsVolumeOriginSnapshotArgs) ToOpenZfsVolumeOriginSnapshotPtrOutput() OpenZfsVolumeOriginSnapshotPtrOutput {
@@ -5915,12 +5068,6 @@ func (i *openZfsVolumeOriginSnapshotPtrType) ToOpenZfsVolumeOriginSnapshotPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeOriginSnapshotPtrOutput)
 }
 
-func (i *openZfsVolumeOriginSnapshotPtrType) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolumeOriginSnapshot] {
-	return pulumix.Output[*OpenZfsVolumeOriginSnapshot]{
-		OutputState: i.ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsVolumeOriginSnapshotOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeOriginSnapshotOutput) ElementType() reflect.Type {
@@ -5945,12 +5092,6 @@ func (o OpenZfsVolumeOriginSnapshotOutput) ToOpenZfsVolumeOriginSnapshotPtrOutpu
 	}).(OpenZfsVolumeOriginSnapshotPtrOutput)
 }
 
-func (o OpenZfsVolumeOriginSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeOriginSnapshot] {
-	return pulumix.Output[OpenZfsVolumeOriginSnapshot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OpenZfsVolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsVolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
 }
@@ -5971,12 +5112,6 @@ func (o OpenZfsVolumeOriginSnapshotPtrOutput) ToOpenZfsVolumeOriginSnapshotPtrOu
 
 func (o OpenZfsVolumeOriginSnapshotPtrOutput) ToOpenZfsVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) OpenZfsVolumeOriginSnapshotPtrOutput {
 	return o
-}
-
-func (o OpenZfsVolumeOriginSnapshotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsVolumeOriginSnapshot] {
-	return pulumix.Output[*OpenZfsVolumeOriginSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsVolumeOriginSnapshotPtrOutput) Elem() OpenZfsVolumeOriginSnapshotOutput {
@@ -6046,12 +5181,6 @@ func (i OpenZfsVolumeUserAndGroupQuotaArgs) ToOpenZfsVolumeUserAndGroupQuotaOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeUserAndGroupQuotaOutput)
 }
 
-func (i OpenZfsVolumeUserAndGroupQuotaArgs) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeUserAndGroupQuota] {
-	return pulumix.Output[OpenZfsVolumeUserAndGroupQuota]{
-		OutputState: i.ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OpenZfsVolumeUserAndGroupQuotaArrayInput is an input type that accepts OpenZfsVolumeUserAndGroupQuotaArray and OpenZfsVolumeUserAndGroupQuotaArrayOutput values.
 // You can construct a concrete instance of `OpenZfsVolumeUserAndGroupQuotaArrayInput` via:
 //
@@ -6077,12 +5206,6 @@ func (i OpenZfsVolumeUserAndGroupQuotaArray) ToOpenZfsVolumeUserAndGroupQuotaArr
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsVolumeUserAndGroupQuotaArrayOutput)
 }
 
-func (i OpenZfsVolumeUserAndGroupQuotaArray) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsVolumeUserAndGroupQuota] {
-	return pulumix.Output[[]OpenZfsVolumeUserAndGroupQuota]{
-		OutputState: i.ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OpenZfsVolumeUserAndGroupQuotaOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsVolumeUserAndGroupQuotaOutput) ElementType() reflect.Type {
@@ -6095,12 +5218,6 @@ func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOpenZfsVolumeUserAndGroupQuotaOu
 
 func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOpenZfsVolumeUserAndGroupQuotaOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaOutput {
 	return o
-}
-
-func (o OpenZfsVolumeUserAndGroupQuotaOutput) ToOutput(ctx context.Context) pulumix.Output[OpenZfsVolumeUserAndGroupQuota] {
-	return pulumix.Output[OpenZfsVolumeUserAndGroupQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the user or group. Valid values between `0` and `2147483647`
@@ -6129,12 +5246,6 @@ func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) ToOpenZfsVolumeUserAndGroupQu
 
 func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) ToOpenZfsVolumeUserAndGroupQuotaArrayOutputWithContext(ctx context.Context) OpenZfsVolumeUserAndGroupQuotaArrayOutput {
 	return o
-}
-
-func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OpenZfsVolumeUserAndGroupQuota] {
-	return pulumix.Output[[]OpenZfsVolumeUserAndGroupQuota]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OpenZfsVolumeUserAndGroupQuotaArrayOutput) Index(i pulumi.IntInput) OpenZfsVolumeUserAndGroupQuotaOutput {
@@ -6184,12 +5295,6 @@ func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogC
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemAuditLogConfigurationOutput)
 }
 
-func (i WindowsFileSystemAuditLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[WindowsFileSystemAuditLogConfiguration]{
-		OutputState: i.ToWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput {
 	return i.ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6231,12 +5336,6 @@ func (i *windowsFileSystemAuditLogConfigurationPtrType) ToWindowsFileSystemAudit
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemAuditLogConfigurationPtrOutput)
 }
 
-func (i *windowsFileSystemAuditLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[*WindowsFileSystemAuditLogConfiguration]{
-		OutputState: i.ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFileSystemAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemAuditLogConfigurationOutput) ElementType() reflect.Type {
@@ -6259,12 +5358,6 @@ func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystemAuditLogConfiguration) *WindowsFileSystemAuditLogConfiguration {
 		return &v
 	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
-}
-
-func (o WindowsFileSystemAuditLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[WindowsFileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -6294,12 +5387,6 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToWindowsFileSystemAudi
 
 func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
 	return o
-}
-
-func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[*WindowsFileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFileSystemAuditLogConfigurationPtrOutput) Elem() WindowsFileSystemAuditLogConfigurationOutput {
@@ -6379,12 +5466,6 @@ func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsC
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemDiskIopsConfigurationOutput)
 }
 
-func (i WindowsFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[WindowsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput {
 	return i.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6426,12 +5507,6 @@ func (i *windowsFileSystemDiskIopsConfigurationPtrType) ToWindowsFileSystemDiskI
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (i *windowsFileSystemDiskIopsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*WindowsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -6456,12 +5531,6 @@ func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIop
 	}).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o WindowsFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[WindowsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The total number of SSD IOPS provisioned for the file system.
 func (o WindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
@@ -6484,12 +5553,6 @@ func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToWindowsFileSystemDisk
 
 func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput {
 	return o
-}
-
-func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*WindowsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Elem() WindowsFileSystemDiskIopsConfigurationOutput {
@@ -6575,12 +5638,6 @@ func (i WindowsFileSystemSelfManagedActiveDirectoryArgs) ToWindowsFileSystemSelf
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemSelfManagedActiveDirectoryOutput)
 }
 
-func (i WindowsFileSystemSelfManagedActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemSelfManagedActiveDirectory] {
-	return pulumix.Output[WindowsFileSystemSelfManagedActiveDirectory]{
-		OutputState: i.ToWindowsFileSystemSelfManagedActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WindowsFileSystemSelfManagedActiveDirectoryArgs) ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutput() WindowsFileSystemSelfManagedActiveDirectoryPtrOutput {
 	return i.ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutputWithContext(context.Background())
 }
@@ -6622,12 +5679,6 @@ func (i *windowsFileSystemSelfManagedActiveDirectoryPtrType) ToWindowsFileSystem
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput)
 }
 
-func (i *windowsFileSystemSelfManagedActiveDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemSelfManagedActiveDirectory] {
-	return pulumix.Output[*WindowsFileSystemSelfManagedActiveDirectory]{
-		OutputState: i.ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFileSystemSelfManagedActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemSelfManagedActiveDirectoryOutput) ElementType() reflect.Type {
@@ -6650,12 +5701,6 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) ToWindowsFileSystemSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystemSelfManagedActiveDirectory) *WindowsFileSystemSelfManagedActiveDirectory {
 		return &v
 	}).(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput)
-}
-
-func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemSelfManagedActiveDirectory] {
-	return pulumix.Output[WindowsFileSystemSelfManagedActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
@@ -6702,12 +5747,6 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) ToWindowsFileSyste
 
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutputWithContext(ctx context.Context) WindowsFileSystemSelfManagedActiveDirectoryPtrOutput {
 	return o
-}
-
-func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemSelfManagedActiveDirectory] {
-	return pulumix.Output[*WindowsFileSystemSelfManagedActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Elem() WindowsFileSystemSelfManagedActiveDirectoryOutput {
@@ -6817,12 +5856,6 @@ func (i GetOntapFileSystemDiskIopsConfigurationArgs) ToGetOntapFileSystemDiskIop
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemDiskIopsConfigurationOutput)
 }
 
-func (i GetOntapFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[GetOntapFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToGetOntapFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapFileSystemDiskIopsConfigurationArrayInput is an input type that accepts GetOntapFileSystemDiskIopsConfigurationArray and GetOntapFileSystemDiskIopsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetOntapFileSystemDiskIopsConfigurationArrayInput` via:
 //
@@ -6848,12 +5881,6 @@ func (i GetOntapFileSystemDiskIopsConfigurationArray) ToGetOntapFileSystemDiskIo
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemDiskIopsConfigurationArrayOutput)
 }
 
-func (i GetOntapFileSystemDiskIopsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[[]GetOntapFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToGetOntapFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetOntapFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -6866,12 +5893,6 @@ func (o GetOntapFileSystemDiskIopsConfigurationOutput) ToGetOntapFileSystemDiskI
 
 func (o GetOntapFileSystemDiskIopsConfigurationOutput) ToGetOntapFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) GetOntapFileSystemDiskIopsConfigurationOutput {
 	return o
-}
-
-func (o GetOntapFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[GetOntapFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The total number of SSD IOPS provisioned for the file system.
@@ -6896,12 +5917,6 @@ func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) ToGetOntapFileSystem
 
 func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) ToGetOntapFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx context.Context) GetOntapFileSystemDiskIopsConfigurationArrayOutput {
 	return o
-}
-
-func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[[]GetOntapFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) Index(i pulumi.IntInput) GetOntapFileSystemDiskIopsConfigurationOutput {
@@ -6947,12 +5962,6 @@ func (i GetOntapFileSystemEndpointArgs) ToGetOntapFileSystemEndpointOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointOutput)
 }
 
-func (i GetOntapFileSystemEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpoint] {
-	return pulumix.Output[GetOntapFileSystemEndpoint]{
-		OutputState: i.ToGetOntapFileSystemEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapFileSystemEndpointArrayInput is an input type that accepts GetOntapFileSystemEndpointArray and GetOntapFileSystemEndpointArrayOutput values.
 // You can construct a concrete instance of `GetOntapFileSystemEndpointArrayInput` via:
 //
@@ -6978,12 +5987,6 @@ func (i GetOntapFileSystemEndpointArray) ToGetOntapFileSystemEndpointArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointArrayOutput)
 }
 
-func (i GetOntapFileSystemEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpoint] {
-	return pulumix.Output[[]GetOntapFileSystemEndpoint]{
-		OutputState: i.ToGetOntapFileSystemEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapFileSystemEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetOntapFileSystemEndpointOutput) ElementType() reflect.Type {
@@ -6996,12 +5999,6 @@ func (o GetOntapFileSystemEndpointOutput) ToGetOntapFileSystemEndpointOutput() G
 
 func (o GetOntapFileSystemEndpointOutput) ToGetOntapFileSystemEndpointOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpoint] {
-	return pulumix.Output[GetOntapFileSystemEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
@@ -7026,12 +6023,6 @@ func (o GetOntapFileSystemEndpointArrayOutput) ToGetOntapFileSystemEndpointArray
 
 func (o GetOntapFileSystemEndpointArrayOutput) ToGetOntapFileSystemEndpointArrayOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointArrayOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpoint] {
-	return pulumix.Output[[]GetOntapFileSystemEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) GetOntapFileSystemEndpointOutput {
@@ -7075,12 +6066,6 @@ func (i GetOntapFileSystemEndpointInterclusterArgs) ToGetOntapFileSystemEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointInterclusterOutput)
 }
 
-func (i GetOntapFileSystemEndpointInterclusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[GetOntapFileSystemEndpointIntercluster]{
-		OutputState: i.ToGetOntapFileSystemEndpointInterclusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapFileSystemEndpointInterclusterArrayInput is an input type that accepts GetOntapFileSystemEndpointInterclusterArray and GetOntapFileSystemEndpointInterclusterArrayOutput values.
 // You can construct a concrete instance of `GetOntapFileSystemEndpointInterclusterArrayInput` via:
 //
@@ -7106,12 +6091,6 @@ func (i GetOntapFileSystemEndpointInterclusterArray) ToGetOntapFileSystemEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-func (i GetOntapFileSystemEndpointInterclusterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[[]GetOntapFileSystemEndpointIntercluster]{
-		OutputState: i.ToGetOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapFileSystemEndpointInterclusterOutput struct{ *pulumi.OutputState }
 
 func (GetOntapFileSystemEndpointInterclusterOutput) ElementType() reflect.Type {
@@ -7124,12 +6103,6 @@ func (o GetOntapFileSystemEndpointInterclusterOutput) ToGetOntapFileSystemEndpoi
 
 func (o GetOntapFileSystemEndpointInterclusterOutput) ToGetOntapFileSystemEndpointInterclusterOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointInterclusterOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointInterclusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[GetOntapFileSystemEndpointIntercluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
@@ -7153,12 +6126,6 @@ func (o GetOntapFileSystemEndpointInterclusterArrayOutput) ToGetOntapFileSystemE
 
 func (o GetOntapFileSystemEndpointInterclusterArrayOutput) ToGetOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointInterclusterArrayOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointInterclusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpointIntercluster] {
-	return pulumix.Output[[]GetOntapFileSystemEndpointIntercluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInput) GetOntapFileSystemEndpointInterclusterOutput {
@@ -7202,12 +6169,6 @@ func (i GetOntapFileSystemEndpointManagementArgs) ToGetOntapFileSystemEndpointMa
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointManagementOutput)
 }
 
-func (i GetOntapFileSystemEndpointManagementArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpointManagement] {
-	return pulumix.Output[GetOntapFileSystemEndpointManagement]{
-		OutputState: i.ToGetOntapFileSystemEndpointManagementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapFileSystemEndpointManagementArrayInput is an input type that accepts GetOntapFileSystemEndpointManagementArray and GetOntapFileSystemEndpointManagementArrayOutput values.
 // You can construct a concrete instance of `GetOntapFileSystemEndpointManagementArrayInput` via:
 //
@@ -7233,12 +6194,6 @@ func (i GetOntapFileSystemEndpointManagementArray) ToGetOntapFileSystemEndpointM
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapFileSystemEndpointManagementArrayOutput)
 }
 
-func (i GetOntapFileSystemEndpointManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpointManagement] {
-	return pulumix.Output[[]GetOntapFileSystemEndpointManagement]{
-		OutputState: i.ToGetOntapFileSystemEndpointManagementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapFileSystemEndpointManagementOutput struct{ *pulumi.OutputState }
 
 func (GetOntapFileSystemEndpointManagementOutput) ElementType() reflect.Type {
@@ -7251,12 +6206,6 @@ func (o GetOntapFileSystemEndpointManagementOutput) ToGetOntapFileSystemEndpoint
 
 func (o GetOntapFileSystemEndpointManagementOutput) ToGetOntapFileSystemEndpointManagementOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointManagementOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapFileSystemEndpointManagement] {
-	return pulumix.Output[GetOntapFileSystemEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
@@ -7280,12 +6229,6 @@ func (o GetOntapFileSystemEndpointManagementArrayOutput) ToGetOntapFileSystemEnd
 
 func (o GetOntapFileSystemEndpointManagementArrayOutput) ToGetOntapFileSystemEndpointManagementArrayOutputWithContext(ctx context.Context) GetOntapFileSystemEndpointManagementArrayOutput {
 	return o
-}
-
-func (o GetOntapFileSystemEndpointManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapFileSystemEndpointManagement] {
-	return pulumix.Output[[]GetOntapFileSystemEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) GetOntapFileSystemEndpointManagementOutput {
@@ -7329,12 +6272,6 @@ func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToGetOnta
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
 }
 
-func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayInput is an input type that accepts GetOntapStorageVirtualMachineActiveDirectoryConfigurationArray and GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayInput` via:
 //
@@ -7360,12 +6297,6 @@ func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationArray) ToGetOnt
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -7378,12 +6309,6 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToGetOn
 
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The NetBIOS name of the AD computer object to which the SVM is joined.
@@ -7409,12 +6334,6 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput) To
 
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput) ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
@@ -7472,12 +6391,6 @@ func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
 }
 
-func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayInput is an input type that accepts GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArray and GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayInput` via:
 //
@@ -7503,12 +6416,6 @@ func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -7521,12 +6428,6 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToGetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
@@ -7578,12 +6479,6 @@ func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActi
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
 		return vs[0].([]GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration)[vs[1].(int)]
@@ -7633,12 +6528,6 @@ func (i GetOntapStorageVirtualMachineEndpointArgs) ToGetOntapStorageVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpoint]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineEndpointArrayInput is an input type that accepts GetOntapStorageVirtualMachineEndpointArray and GetOntapStorageVirtualMachineEndpointArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineEndpointArrayInput` via:
 //
@@ -7664,12 +6553,6 @@ func (i GetOntapStorageVirtualMachineEndpointArray) ToGetOntapStorageVirtualMach
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpoint]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineEndpointOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineEndpointOutput) ElementType() reflect.Type {
@@ -7682,12 +6565,6 @@ func (o GetOntapStorageVirtualMachineEndpointOutput) ToGetOntapStorageVirtualMac
 
 func (o GetOntapStorageVirtualMachineEndpointOutput) ToGetOntapStorageVirtualMachineEndpointOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointOutput) Iscsis() GetOntapStorageVirtualMachineEndpointIscsiArrayOutput {
@@ -7729,12 +6606,6 @@ func (o GetOntapStorageVirtualMachineEndpointArrayOutput) ToGetOntapStorageVirtu
 	return o
 }
 
-func (o GetOntapStorageVirtualMachineEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpoint] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetOntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOntapStorageVirtualMachineEndpoint {
 		return vs[0].([]GetOntapStorageVirtualMachineEndpoint)[vs[1].(int)]
@@ -7774,12 +6645,6 @@ func (i GetOntapStorageVirtualMachineEndpointIscsiArgs) ToGetOntapStorageVirtual
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointIscsiOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointIscsiArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineEndpointIscsiArrayInput is an input type that accepts GetOntapStorageVirtualMachineEndpointIscsiArray and GetOntapStorageVirtualMachineEndpointIscsiArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineEndpointIscsiArrayInput` via:
 //
@@ -7805,12 +6670,6 @@ func (i GetOntapStorageVirtualMachineEndpointIscsiArray) ToGetOntapStorageVirtua
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointIscsiArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineEndpointIscsiOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineEndpointIscsiOutput) ElementType() reflect.Type {
@@ -7823,12 +6682,6 @@ func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) ToGetOntapStorageVirtu
 
 func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) ToGetOntapStorageVirtualMachineEndpointIscsiOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointIscsiOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointIscsiOutput) DnsName() pulumi.StringOutput {
@@ -7851,12 +6704,6 @@ func (o GetOntapStorageVirtualMachineEndpointIscsiArrayOutput) ToGetOntapStorage
 
 func (o GetOntapStorageVirtualMachineEndpointIscsiArrayOutput) ToGetOntapStorageVirtualMachineEndpointIscsiArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointIscsiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointIscsi] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointIscsi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointIscsiArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineEndpointIscsiOutput {
@@ -7898,12 +6745,6 @@ func (i GetOntapStorageVirtualMachineEndpointManagementArgs) ToGetOntapStorageVi
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointManagementOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointManagementArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointManagement]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineEndpointManagementArrayInput is an input type that accepts GetOntapStorageVirtualMachineEndpointManagementArray and GetOntapStorageVirtualMachineEndpointManagementArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineEndpointManagementArrayInput` via:
 //
@@ -7929,12 +6770,6 @@ func (i GetOntapStorageVirtualMachineEndpointManagementArray) ToGetOntapStorageV
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointManagementArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointManagementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointManagement]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineEndpointManagementOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineEndpointManagementOutput) ElementType() reflect.Type {
@@ -7947,12 +6782,6 @@ func (o GetOntapStorageVirtualMachineEndpointManagementOutput) ToGetOntapStorage
 
 func (o GetOntapStorageVirtualMachineEndpointManagementOutput) ToGetOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointManagementOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointManagementOutput) DnsName() pulumi.StringOutput {
@@ -7975,12 +6804,6 @@ func (o GetOntapStorageVirtualMachineEndpointManagementArrayOutput) ToGetOntapSt
 
 func (o GetOntapStorageVirtualMachineEndpointManagementArrayOutput) ToGetOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointManagementArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointManagementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointManagement] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointManagementArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineEndpointManagementOutput {
@@ -8022,12 +6845,6 @@ func (i GetOntapStorageVirtualMachineEndpointNfArgs) ToGetOntapStorageVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointNfOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointNfArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointNf]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineEndpointNfArrayInput is an input type that accepts GetOntapStorageVirtualMachineEndpointNfArray and GetOntapStorageVirtualMachineEndpointNfArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineEndpointNfArrayInput` via:
 //
@@ -8053,12 +6870,6 @@ func (i GetOntapStorageVirtualMachineEndpointNfArray) ToGetOntapStorageVirtualMa
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointNfArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointNfArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointNf]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineEndpointNfOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineEndpointNfOutput) ElementType() reflect.Type {
@@ -8071,12 +6882,6 @@ func (o GetOntapStorageVirtualMachineEndpointNfOutput) ToGetOntapStorageVirtualM
 
 func (o GetOntapStorageVirtualMachineEndpointNfOutput) ToGetOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointNfOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointNfOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointNfOutput) DnsName() pulumi.StringOutput {
@@ -8099,12 +6904,6 @@ func (o GetOntapStorageVirtualMachineEndpointNfArrayOutput) ToGetOntapStorageVir
 
 func (o GetOntapStorageVirtualMachineEndpointNfArrayOutput) ToGetOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointNfArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointNfArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointNf] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointNf]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointNfArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineEndpointNfOutput {
@@ -8146,12 +6945,6 @@ func (i GetOntapStorageVirtualMachineEndpointSmbArgs) ToGetOntapStorageVirtualMa
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointSmbOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointSmbArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointSmb]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineEndpointSmbArrayInput is an input type that accepts GetOntapStorageVirtualMachineEndpointSmbArray and GetOntapStorageVirtualMachineEndpointSmbArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineEndpointSmbArrayInput` via:
 //
@@ -8177,12 +6970,6 @@ func (i GetOntapStorageVirtualMachineEndpointSmbArray) ToGetOntapStorageVirtualM
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineEndpointSmbArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineEndpointSmbArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointSmb]{
-		OutputState: i.ToGetOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineEndpointSmbOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineEndpointSmbOutput) ElementType() reflect.Type {
@@ -8195,12 +6982,6 @@ func (o GetOntapStorageVirtualMachineEndpointSmbOutput) ToGetOntapStorageVirtual
 
 func (o GetOntapStorageVirtualMachineEndpointSmbOutput) ToGetOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointSmbOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointSmbOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[GetOntapStorageVirtualMachineEndpointSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointSmbOutput) DnsName() pulumi.StringOutput {
@@ -8223,12 +7004,6 @@ func (o GetOntapStorageVirtualMachineEndpointSmbArrayOutput) ToGetOntapStorageVi
 
 func (o GetOntapStorageVirtualMachineEndpointSmbArrayOutput) ToGetOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineEndpointSmbArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineEndpointSmbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineEndpointSmb] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineEndpointSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineEndpointSmbOutput {
@@ -8274,12 +7049,6 @@ func (i GetOntapStorageVirtualMachineFilterArgs) ToGetOntapStorageVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineFilterOutput)
 }
 
-func (i GetOntapStorageVirtualMachineFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineFilter] {
-	return pulumix.Output[GetOntapStorageVirtualMachineFilter]{
-		OutputState: i.ToGetOntapStorageVirtualMachineFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineFilterArrayInput is an input type that accepts GetOntapStorageVirtualMachineFilterArray and GetOntapStorageVirtualMachineFilterArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineFilterArrayInput` via:
 //
@@ -8305,12 +7074,6 @@ func (i GetOntapStorageVirtualMachineFilterArray) ToGetOntapStorageVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineFilterArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineFilter] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineFilter]{
-		OutputState: i.ToGetOntapStorageVirtualMachineFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineFilterOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineFilterOutput) ElementType() reflect.Type {
@@ -8323,12 +7086,6 @@ func (o GetOntapStorageVirtualMachineFilterOutput) ToGetOntapStorageVirtualMachi
 
 func (o GetOntapStorageVirtualMachineFilterOutput) ToGetOntapStorageVirtualMachineFilterOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineFilterOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineFilter] {
-	return pulumix.Output[GetOntapStorageVirtualMachineFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
@@ -8353,12 +7110,6 @@ func (o GetOntapStorageVirtualMachineFilterArrayOutput) ToGetOntapStorageVirtual
 
 func (o GetOntapStorageVirtualMachineFilterArrayOutput) ToGetOntapStorageVirtualMachineFilterArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineFilterArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineFilter] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineFilterArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineFilterOutput {
@@ -8400,12 +7151,6 @@ func (i GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs) ToGetOntapSt
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput)
 }
 
-func (i GetOntapStorageVirtualMachineLifecycleTransitionReasonArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineLifecycleTransitionReason] {
-	return pulumix.Output[GetOntapStorageVirtualMachineLifecycleTransitionReason]{
-		OutputState: i.ToGetOntapStorageVirtualMachineLifecycleTransitionReasonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayInput is an input type that accepts GetOntapStorageVirtualMachineLifecycleTransitionReasonArray and GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayInput` via:
 //
@@ -8431,12 +7176,6 @@ func (i GetOntapStorageVirtualMachineLifecycleTransitionReasonArray) ToGetOntapS
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachineLifecycleTransitionReasonArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineLifecycleTransitionReason] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineLifecycleTransitionReason]{
-		OutputState: i.ToGetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ElementType() reflect.Type {
@@ -8449,12 +7188,6 @@ func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ToGetOntap
 
 func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ToGetOntapStorageVirtualMachineLifecycleTransitionReasonOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachineLifecycleTransitionReason] {
-	return pulumix.Output[GetOntapStorageVirtualMachineLifecycleTransitionReason]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A detailed message.
@@ -8474,12 +7207,6 @@ func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput) ToGet
 
 func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput) ToGetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachineLifecycleTransitionReason] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachineLifecycleTransitionReason]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachineLifecycleTransitionReasonArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachineLifecycleTransitionReasonOutput {
@@ -8525,12 +7252,6 @@ func (i GetOntapStorageVirtualMachinesFilterArgs) ToGetOntapStorageVirtualMachin
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachinesFilterOutput)
 }
 
-func (i GetOntapStorageVirtualMachinesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachinesFilter] {
-	return pulumix.Output[GetOntapStorageVirtualMachinesFilter]{
-		OutputState: i.ToGetOntapStorageVirtualMachinesFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOntapStorageVirtualMachinesFilterArrayInput is an input type that accepts GetOntapStorageVirtualMachinesFilterArray and GetOntapStorageVirtualMachinesFilterArrayOutput values.
 // You can construct a concrete instance of `GetOntapStorageVirtualMachinesFilterArrayInput` via:
 //
@@ -8556,12 +7277,6 @@ func (i GetOntapStorageVirtualMachinesFilterArray) ToGetOntapStorageVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(GetOntapStorageVirtualMachinesFilterArrayOutput)
 }
 
-func (i GetOntapStorageVirtualMachinesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachinesFilter] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachinesFilter]{
-		OutputState: i.ToGetOntapStorageVirtualMachinesFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOntapStorageVirtualMachinesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetOntapStorageVirtualMachinesFilterOutput) ElementType() reflect.Type {
@@ -8574,12 +7289,6 @@ func (o GetOntapStorageVirtualMachinesFilterOutput) ToGetOntapStorageVirtualMach
 
 func (o GetOntapStorageVirtualMachinesFilterOutput) ToGetOntapStorageVirtualMachinesFilterOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachinesFilterOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachinesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetOntapStorageVirtualMachinesFilter] {
-	return pulumix.Output[GetOntapStorageVirtualMachinesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
@@ -8604,12 +7313,6 @@ func (o GetOntapStorageVirtualMachinesFilterArrayOutput) ToGetOntapStorageVirtua
 
 func (o GetOntapStorageVirtualMachinesFilterArrayOutput) ToGetOntapStorageVirtualMachinesFilterArrayOutputWithContext(ctx context.Context) GetOntapStorageVirtualMachinesFilterArrayOutput {
 	return o
-}
-
-func (o GetOntapStorageVirtualMachinesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOntapStorageVirtualMachinesFilter] {
-	return pulumix.Output[[]GetOntapStorageVirtualMachinesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOntapStorageVirtualMachinesFilterArrayOutput) Index(i pulumi.IntInput) GetOntapStorageVirtualMachinesFilterOutput {
@@ -8653,12 +7356,6 @@ func (i GetOpenZfsSnapshotFilterArgs) ToGetOpenZfsSnapshotFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetOpenZfsSnapshotFilterOutput)
 }
 
-func (i GetOpenZfsSnapshotFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetOpenZfsSnapshotFilter] {
-	return pulumix.Output[GetOpenZfsSnapshotFilter]{
-		OutputState: i.ToGetOpenZfsSnapshotFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetOpenZfsSnapshotFilterArrayInput is an input type that accepts GetOpenZfsSnapshotFilterArray and GetOpenZfsSnapshotFilterArrayOutput values.
 // You can construct a concrete instance of `GetOpenZfsSnapshotFilterArrayInput` via:
 //
@@ -8684,12 +7381,6 @@ func (i GetOpenZfsSnapshotFilterArray) ToGetOpenZfsSnapshotFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetOpenZfsSnapshotFilterArrayOutput)
 }
 
-func (i GetOpenZfsSnapshotFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOpenZfsSnapshotFilter] {
-	return pulumix.Output[[]GetOpenZfsSnapshotFilter]{
-		OutputState: i.ToGetOpenZfsSnapshotFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetOpenZfsSnapshotFilterOutput struct{ *pulumi.OutputState }
 
 func (GetOpenZfsSnapshotFilterOutput) ElementType() reflect.Type {
@@ -8702,12 +7393,6 @@ func (o GetOpenZfsSnapshotFilterOutput) ToGetOpenZfsSnapshotFilterOutput() GetOp
 
 func (o GetOpenZfsSnapshotFilterOutput) ToGetOpenZfsSnapshotFilterOutputWithContext(ctx context.Context) GetOpenZfsSnapshotFilterOutput {
 	return o
-}
-
-func (o GetOpenZfsSnapshotFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetOpenZfsSnapshotFilter] {
-	return pulumix.Output[GetOpenZfsSnapshotFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the snapshot.
@@ -8731,12 +7416,6 @@ func (o GetOpenZfsSnapshotFilterArrayOutput) ToGetOpenZfsSnapshotFilterArrayOutp
 
 func (o GetOpenZfsSnapshotFilterArrayOutput) ToGetOpenZfsSnapshotFilterArrayOutputWithContext(ctx context.Context) GetOpenZfsSnapshotFilterArrayOutput {
 	return o
-}
-
-func (o GetOpenZfsSnapshotFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOpenZfsSnapshotFilter] {
-	return pulumix.Output[[]GetOpenZfsSnapshotFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetOpenZfsSnapshotFilterArrayOutput) Index(i pulumi.IntInput) GetOpenZfsSnapshotFilterOutput {
@@ -8780,12 +7459,6 @@ func (i GetWindowsFileSystemAuditLogConfigurationArgs) ToGetWindowsFileSystemAud
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemAuditLogConfigurationOutput)
 }
 
-func (i GetWindowsFileSystemAuditLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[GetWindowsFileSystemAuditLogConfiguration]{
-		OutputState: i.ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWindowsFileSystemAuditLogConfigurationArrayInput is an input type that accepts GetWindowsFileSystemAuditLogConfigurationArray and GetWindowsFileSystemAuditLogConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFileSystemAuditLogConfigurationArrayInput` via:
 //
@@ -8811,12 +7484,6 @@ func (i GetWindowsFileSystemAuditLogConfigurationArray) ToGetWindowsFileSystemAu
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemAuditLogConfigurationArrayOutput)
 }
 
-func (i GetWindowsFileSystemAuditLogConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[[]GetWindowsFileSystemAuditLogConfiguration]{
-		OutputState: i.ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWindowsFileSystemAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFileSystemAuditLogConfigurationOutput) ElementType() reflect.Type {
@@ -8829,12 +7496,6 @@ func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToGetWindowsFileSystemA
 
 func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToGetWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationOutput {
 	return o
-}
-
-func (o GetWindowsFileSystemAuditLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[GetWindowsFileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringOutput {
@@ -8861,12 +7522,6 @@ func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) ToGetWindowsFileSy
 
 func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) ToGetWindowsFileSystemAuditLogConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemAuditLogConfigurationArrayOutput {
 	return o
-}
-
-func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemAuditLogConfiguration] {
-	return pulumix.Output[[]GetWindowsFileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) Index(i pulumi.IntInput) GetWindowsFileSystemAuditLogConfigurationOutput {
@@ -8908,12 +7563,6 @@ func (i GetWindowsFileSystemDiskIopsConfigurationArgs) ToGetWindowsFileSystemDis
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemDiskIopsConfigurationOutput)
 }
 
-func (i GetWindowsFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWindowsFileSystemDiskIopsConfigurationArrayInput is an input type that accepts GetWindowsFileSystemDiskIopsConfigurationArray and GetWindowsFileSystemDiskIopsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetWindowsFileSystemDiskIopsConfigurationArrayInput` via:
 //
@@ -8939,12 +7588,6 @@ func (i GetWindowsFileSystemDiskIopsConfigurationArray) ToGetWindowsFileSystemDi
 	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemDiskIopsConfigurationArrayOutput)
 }
 
-func (i GetWindowsFileSystemDiskIopsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration]{
-		OutputState: i.ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWindowsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetWindowsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -8957,12 +7600,6 @@ func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToGetWindowsFileSystemD
 
 func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationOutput {
 	return o
-}
-
-func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntOutput {
@@ -8985,12 +7622,6 @@ func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToGetWindowsFileSy
 
 func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
 	return o
-}
-
-func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration] {
-	return pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) Index(i pulumi.IntInput) GetWindowsFileSystemDiskIopsConfigurationOutput {

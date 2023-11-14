@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SSM resource data sync.
@@ -215,12 +214,6 @@ func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
 }
 
-func (i *ResourceDataSync) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSync] {
-	return pulumix.Output[*ResourceDataSync]{
-		OutputState: i.ToResourceDataSyncOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceDataSyncArrayInput is an input type that accepts ResourceDataSyncArray and ResourceDataSyncArrayOutput values.
 // You can construct a concrete instance of `ResourceDataSyncArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutput() ResourceDataSyncA
 
 func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutputWithContext(ctx context.Context) ResourceDataSyncArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncArrayOutput)
-}
-
-func (i ResourceDataSyncArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDataSync] {
-	return pulumix.Output[[]*ResourceDataSync]{
-		OutputState: i.ToResourceDataSyncArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceDataSyncMapInput is an input type that accepts ResourceDataSyncMap and ResourceDataSyncMapOutput values.
@@ -277,12 +264,6 @@ func (i ResourceDataSyncMap) ToResourceDataSyncMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncMapOutput)
 }
 
-func (i ResourceDataSyncMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDataSync] {
-	return pulumix.Output[map[string]*ResourceDataSync]{
-		OutputState: i.ToResourceDataSyncMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDataSyncOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutpu
 
 func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
 	return o
-}
-
-func (o ResourceDataSyncOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSync] {
-	return pulumix.Output[*ResourceDataSync]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name for the configuration.
@@ -327,12 +302,6 @@ func (o ResourceDataSyncArrayOutput) ToResourceDataSyncArrayOutputWithContext(ct
 	return o
 }
 
-func (o ResourceDataSyncArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceDataSync] {
-	return pulumix.Output[[]*ResourceDataSync]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDataSyncArrayOutput) Index(i pulumi.IntInput) ResourceDataSyncOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceDataSync {
 		return vs[0].([]*ResourceDataSync)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutput() ResourceDataSyn
 
 func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutputWithContext(ctx context.Context) ResourceDataSyncMapOutput {
 	return o
-}
-
-func (o ResourceDataSyncMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceDataSync] {
-	return pulumix.Output[map[string]*ResourceDataSync]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDataSyncMapOutput) MapIndex(k pulumi.StringInput) ResourceDataSyncOutput {
