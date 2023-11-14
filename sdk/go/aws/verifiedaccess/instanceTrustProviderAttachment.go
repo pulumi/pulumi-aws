@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing a Verified Access Instance Trust Provider Attachment.
@@ -166,12 +165,6 @@ func (i *InstanceTrustProviderAttachment) ToInstanceTrustProviderAttachmentOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTrustProviderAttachmentOutput)
 }
 
-func (i *InstanceTrustProviderAttachment) ToOutput(ctx context.Context) pulumix.Output[*InstanceTrustProviderAttachment] {
-	return pulumix.Output[*InstanceTrustProviderAttachment]{
-		OutputState: i.ToInstanceTrustProviderAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceTrustProviderAttachmentArrayInput is an input type that accepts InstanceTrustProviderAttachmentArray and InstanceTrustProviderAttachmentArrayOutput values.
 // You can construct a concrete instance of `InstanceTrustProviderAttachmentArrayInput` via:
 //
@@ -195,12 +188,6 @@ func (i InstanceTrustProviderAttachmentArray) ToInstanceTrustProviderAttachmentA
 
 func (i InstanceTrustProviderAttachmentArray) ToInstanceTrustProviderAttachmentArrayOutputWithContext(ctx context.Context) InstanceTrustProviderAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTrustProviderAttachmentArrayOutput)
-}
-
-func (i InstanceTrustProviderAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceTrustProviderAttachment] {
-	return pulumix.Output[[]*InstanceTrustProviderAttachment]{
-		OutputState: i.ToInstanceTrustProviderAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceTrustProviderAttachmentMapInput is an input type that accepts InstanceTrustProviderAttachmentMap and InstanceTrustProviderAttachmentMapOutput values.
@@ -228,12 +215,6 @@ func (i InstanceTrustProviderAttachmentMap) ToInstanceTrustProviderAttachmentMap
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTrustProviderAttachmentMapOutput)
 }
 
-func (i InstanceTrustProviderAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceTrustProviderAttachment] {
-	return pulumix.Output[map[string]*InstanceTrustProviderAttachment]{
-		OutputState: i.ToInstanceTrustProviderAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceTrustProviderAttachmentOutput struct{ *pulumi.OutputState }
 
 func (InstanceTrustProviderAttachmentOutput) ElementType() reflect.Type {
@@ -246,12 +227,6 @@ func (o InstanceTrustProviderAttachmentOutput) ToInstanceTrustProviderAttachment
 
 func (o InstanceTrustProviderAttachmentOutput) ToInstanceTrustProviderAttachmentOutputWithContext(ctx context.Context) InstanceTrustProviderAttachmentOutput {
 	return o
-}
-
-func (o InstanceTrustProviderAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceTrustProviderAttachment] {
-	return pulumix.Output[*InstanceTrustProviderAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Verified Access instance to attach the Trust Provider to.
@@ -278,12 +253,6 @@ func (o InstanceTrustProviderAttachmentArrayOutput) ToInstanceTrustProviderAttac
 	return o
 }
 
-func (o InstanceTrustProviderAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceTrustProviderAttachment] {
-	return pulumix.Output[[]*InstanceTrustProviderAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceTrustProviderAttachmentArrayOutput) Index(i pulumi.IntInput) InstanceTrustProviderAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceTrustProviderAttachment {
 		return vs[0].([]*InstanceTrustProviderAttachment)[vs[1].(int)]
@@ -302,12 +271,6 @@ func (o InstanceTrustProviderAttachmentMapOutput) ToInstanceTrustProviderAttachm
 
 func (o InstanceTrustProviderAttachmentMapOutput) ToInstanceTrustProviderAttachmentMapOutputWithContext(ctx context.Context) InstanceTrustProviderAttachmentMapOutput {
 	return o
-}
-
-func (o InstanceTrustProviderAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceTrustProviderAttachment] {
-	return pulumix.Output[map[string]*InstanceTrustProviderAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceTrustProviderAttachmentMapOutput) MapIndex(k pulumi.StringInput) InstanceTrustProviderAttachmentOutput {

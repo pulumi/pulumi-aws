@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a load balancer policy to an ELB Listener.
@@ -276,12 +275,6 @@ func (i *ListenerPolicy) ToListenerPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyOutput)
 }
 
-func (i *ListenerPolicy) ToOutput(ctx context.Context) pulumix.Output[*ListenerPolicy] {
-	return pulumix.Output[*ListenerPolicy]{
-		OutputState: i.ToListenerPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerPolicyArrayInput is an input type that accepts ListenerPolicyArray and ListenerPolicyArrayOutput values.
 // You can construct a concrete instance of `ListenerPolicyArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i ListenerPolicyArray) ToListenerPolicyArrayOutput() ListenerPolicyArrayOu
 
 func (i ListenerPolicyArray) ToListenerPolicyArrayOutputWithContext(ctx context.Context) ListenerPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyArrayOutput)
-}
-
-func (i ListenerPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerPolicy] {
-	return pulumix.Output[[]*ListenerPolicy]{
-		OutputState: i.ToListenerPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ListenerPolicyMapInput is an input type that accepts ListenerPolicyMap and ListenerPolicyMapOutput values.
@@ -338,12 +325,6 @@ func (i ListenerPolicyMap) ToListenerPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyMapOutput)
 }
 
-func (i ListenerPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerPolicy] {
-	return pulumix.Output[map[string]*ListenerPolicy]{
-		OutputState: i.ToListenerPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o ListenerPolicyOutput) ToListenerPolicyOutput() ListenerPolicyOutput {
 
 func (o ListenerPolicyOutput) ToListenerPolicyOutputWithContext(ctx context.Context) ListenerPolicyOutput {
 	return o
-}
-
-func (o ListenerPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerPolicy] {
-	return pulumix.Output[*ListenerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The load balancer to attach the policy to.
@@ -398,12 +373,6 @@ func (o ListenerPolicyArrayOutput) ToListenerPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ListenerPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerPolicy] {
-	return pulumix.Output[[]*ListenerPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerPolicyArrayOutput) Index(i pulumi.IntInput) ListenerPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ListenerPolicy {
 		return vs[0].([]*ListenerPolicy)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutput() ListenerPolicyMapOu
 
 func (o ListenerPolicyMapOutput) ToListenerPolicyMapOutputWithContext(ctx context.Context) ListenerPolicyMapOutput {
 	return o
-}
-
-func (o ListenerPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerPolicy] {
-	return pulumix.Output[map[string]*ListenerPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerPolicyMapOutput) MapIndex(k pulumi.StringInput) ListenerPolicyOutput {

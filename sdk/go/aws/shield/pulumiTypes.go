@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomat
 
 func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseTimeoutsOutput)
-}
-
-func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLayerAutomaticResponseTimeouts] {
-	return pulumix.Output[ApplicationLayerAutomaticResponseTimeouts]{
-		OutputState: i.ToApplicationLayerAutomaticResponseTimeoutsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ApplicationLayerAutomaticResponseTimeoutsArgs) ToApplicationLayerAutomaticResponseTimeoutsPtrOutput() ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
@@ -96,12 +89,6 @@ func (i *applicationLayerAutomaticResponseTimeoutsPtrType) ToApplicationLayerAut
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLayerAutomaticResponseTimeoutsPtrOutput)
 }
 
-func (i *applicationLayerAutomaticResponseTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts] {
-	return pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts]{
-		OutputState: i.ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationLayerAutomaticResponseTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLayerAutomaticResponseTimeoutsOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToApplicationLayerAutom
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLayerAutomaticResponseTimeouts) *ApplicationLayerAutomaticResponseTimeouts {
 		return &v
 	}).(ApplicationLayerAutomaticResponseTimeoutsPtrOutput)
-}
-
-func (o ApplicationLayerAutomaticResponseTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLayerAutomaticResponseTimeouts] {
-	return pulumix.Output[ApplicationLayerAutomaticResponseTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLayerAutomaticResponseTimeoutsOutput) Create() pulumi.StringPtrOutput {
@@ -156,12 +137,6 @@ func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToApplicationLayerAu
 
 func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToApplicationLayerAutomaticResponseTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationLayerAutomaticResponseTimeoutsPtrOutput {
 	return o
-}
-
-func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts] {
-	return pulumix.Output[*ApplicationLayerAutomaticResponseTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationLayerAutomaticResponseTimeoutsPtrOutput) Elem() ApplicationLayerAutomaticResponseTimeoutsOutput {
@@ -236,12 +211,6 @@ func (i DrtAccessLogBucketAssociationTimeoutsArgs) ToDrtAccessLogBucketAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessLogBucketAssociationTimeoutsOutput)
 }
 
-func (i DrtAccessLogBucketAssociationTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[DrtAccessLogBucketAssociationTimeouts] {
-	return pulumix.Output[DrtAccessLogBucketAssociationTimeouts]{
-		OutputState: i.ToDrtAccessLogBucketAssociationTimeoutsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DrtAccessLogBucketAssociationTimeoutsArgs) ToDrtAccessLogBucketAssociationTimeoutsPtrOutput() DrtAccessLogBucketAssociationTimeoutsPtrOutput {
 	return i.ToDrtAccessLogBucketAssociationTimeoutsPtrOutputWithContext(context.Background())
 }
@@ -283,12 +252,6 @@ func (i *drtAccessLogBucketAssociationTimeoutsPtrType) ToDrtAccessLogBucketAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessLogBucketAssociationTimeoutsPtrOutput)
 }
 
-func (i *drtAccessLogBucketAssociationTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessLogBucketAssociationTimeouts] {
-	return pulumix.Output[*DrtAccessLogBucketAssociationTimeouts]{
-		OutputState: i.ToDrtAccessLogBucketAssociationTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DrtAccessLogBucketAssociationTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (DrtAccessLogBucketAssociationTimeoutsOutput) ElementType() reflect.Type {
@@ -311,12 +274,6 @@ func (o DrtAccessLogBucketAssociationTimeoutsOutput) ToDrtAccessLogBucketAssocia
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DrtAccessLogBucketAssociationTimeouts) *DrtAccessLogBucketAssociationTimeouts {
 		return &v
 	}).(DrtAccessLogBucketAssociationTimeoutsPtrOutput)
-}
-
-func (o DrtAccessLogBucketAssociationTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[DrtAccessLogBucketAssociationTimeouts] {
-	return pulumix.Output[DrtAccessLogBucketAssociationTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessLogBucketAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
@@ -343,12 +300,6 @@ func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) ToDrtAccessLogBucketAsso
 
 func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) ToDrtAccessLogBucketAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DrtAccessLogBucketAssociationTimeoutsPtrOutput {
 	return o
-}
-
-func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessLogBucketAssociationTimeouts] {
-	return pulumix.Output[*DrtAccessLogBucketAssociationTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessLogBucketAssociationTimeoutsPtrOutput) Elem() DrtAccessLogBucketAssociationTimeoutsOutput {
@@ -423,12 +374,6 @@ func (i DrtAccessRoleArnAssociationTimeoutsArgs) ToDrtAccessRoleArnAssociationTi
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessRoleArnAssociationTimeoutsOutput)
 }
 
-func (i DrtAccessRoleArnAssociationTimeoutsArgs) ToOutput(ctx context.Context) pulumix.Output[DrtAccessRoleArnAssociationTimeouts] {
-	return pulumix.Output[DrtAccessRoleArnAssociationTimeouts]{
-		OutputState: i.ToDrtAccessRoleArnAssociationTimeoutsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DrtAccessRoleArnAssociationTimeoutsArgs) ToDrtAccessRoleArnAssociationTimeoutsPtrOutput() DrtAccessRoleArnAssociationTimeoutsPtrOutput {
 	return i.ToDrtAccessRoleArnAssociationTimeoutsPtrOutputWithContext(context.Background())
 }
@@ -470,12 +415,6 @@ func (i *drtAccessRoleArnAssociationTimeoutsPtrType) ToDrtAccessRoleArnAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(DrtAccessRoleArnAssociationTimeoutsPtrOutput)
 }
 
-func (i *drtAccessRoleArnAssociationTimeoutsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessRoleArnAssociationTimeouts] {
-	return pulumix.Output[*DrtAccessRoleArnAssociationTimeouts]{
-		OutputState: i.ToDrtAccessRoleArnAssociationTimeoutsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DrtAccessRoleArnAssociationTimeoutsOutput struct{ *pulumi.OutputState }
 
 func (DrtAccessRoleArnAssociationTimeoutsOutput) ElementType() reflect.Type {
@@ -498,12 +437,6 @@ func (o DrtAccessRoleArnAssociationTimeoutsOutput) ToDrtAccessRoleArnAssociation
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DrtAccessRoleArnAssociationTimeouts) *DrtAccessRoleArnAssociationTimeouts {
 		return &v
 	}).(DrtAccessRoleArnAssociationTimeoutsPtrOutput)
-}
-
-func (o DrtAccessRoleArnAssociationTimeoutsOutput) ToOutput(ctx context.Context) pulumix.Output[DrtAccessRoleArnAssociationTimeouts] {
-	return pulumix.Output[DrtAccessRoleArnAssociationTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessRoleArnAssociationTimeoutsOutput) Create() pulumi.StringPtrOutput {
@@ -530,12 +463,6 @@ func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) ToDrtAccessRoleArnAssociat
 
 func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) ToDrtAccessRoleArnAssociationTimeoutsPtrOutputWithContext(ctx context.Context) DrtAccessRoleArnAssociationTimeoutsPtrOutput {
 	return o
-}
-
-func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DrtAccessRoleArnAssociationTimeouts] {
-	return pulumix.Output[*DrtAccessRoleArnAssociationTimeouts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DrtAccessRoleArnAssociationTimeoutsPtrOutput) Elem() DrtAccessRoleArnAssociationTimeoutsOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a VPC Endpoint connection notification resource.
@@ -239,12 +238,6 @@ func (i *VpcEndpointConnectionNotification) ToVpcEndpointConnectionNotificationO
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionNotificationOutput)
 }
 
-func (i *VpcEndpointConnectionNotification) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionNotification] {
-	return pulumix.Output[*VpcEndpointConnectionNotification]{
-		OutputState: i.ToVpcEndpointConnectionNotificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcEndpointConnectionNotificationArrayInput is an input type that accepts VpcEndpointConnectionNotificationArray and VpcEndpointConnectionNotificationArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointConnectionNotificationArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i VpcEndpointConnectionNotificationArray) ToVpcEndpointConnectionNotificat
 
 func (i VpcEndpointConnectionNotificationArray) ToVpcEndpointConnectionNotificationArrayOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionNotificationArrayOutput)
-}
-
-func (i VpcEndpointConnectionNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointConnectionNotification] {
-	return pulumix.Output[[]*VpcEndpointConnectionNotification]{
-		OutputState: i.ToVpcEndpointConnectionNotificationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcEndpointConnectionNotificationMapInput is an input type that accepts VpcEndpointConnectionNotificationMap and VpcEndpointConnectionNotificationMapOutput values.
@@ -301,12 +288,6 @@ func (i VpcEndpointConnectionNotificationMap) ToVpcEndpointConnectionNotificatio
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionNotificationMapOutput)
 }
 
-func (i VpcEndpointConnectionNotificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointConnectionNotification] {
-	return pulumix.Output[map[string]*VpcEndpointConnectionNotification]{
-		OutputState: i.ToVpcEndpointConnectionNotificationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcEndpointConnectionNotificationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionNotificationOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotifica
 
 func (o VpcEndpointConnectionNotificationOutput) ToVpcEndpointConnectionNotificationOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationOutput {
 	return o
-}
-
-func (o VpcEndpointConnectionNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionNotification] {
-	return pulumix.Output[*VpcEndpointConnectionNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
@@ -373,12 +348,6 @@ func (o VpcEndpointConnectionNotificationArrayOutput) ToVpcEndpointConnectionNot
 	return o
 }
 
-func (o VpcEndpointConnectionNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointConnectionNotification] {
-	return pulumix.Output[[]*VpcEndpointConnectionNotification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcEndpointConnectionNotificationArrayOutput) Index(i pulumi.IntInput) VpcEndpointConnectionNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointConnectionNotification {
 		return vs[0].([]*VpcEndpointConnectionNotification)[vs[1].(int)]
@@ -397,12 +366,6 @@ func (o VpcEndpointConnectionNotificationMapOutput) ToVpcEndpointConnectionNotif
 
 func (o VpcEndpointConnectionNotificationMapOutput) ToVpcEndpointConnectionNotificationMapOutputWithContext(ctx context.Context) VpcEndpointConnectionNotificationMapOutput {
 	return o
-}
-
-func (o VpcEndpointConnectionNotificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointConnectionNotification] {
-	return pulumix.Output[map[string]*VpcEndpointConnectionNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcEndpointConnectionNotificationMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointConnectionNotificationOutput {

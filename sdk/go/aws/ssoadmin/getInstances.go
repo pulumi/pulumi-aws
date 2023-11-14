@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -57,12 +56,6 @@ func (o GetInstancesResultOutput) ToGetInstancesResultOutput() GetInstancesResul
 
 func (o GetInstancesResultOutput) ToGetInstancesResultOutputWithContext(ctx context.Context) GetInstancesResultOutput {
 	return o
-}
-
-func (o GetInstancesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesResult] {
-	return pulumix.Output[GetInstancesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of Amazon Resource Names (ARNs) of the SSO Instances.

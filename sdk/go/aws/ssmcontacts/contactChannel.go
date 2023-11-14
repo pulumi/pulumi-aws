@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SSM Contacts Contact Channel.
@@ -226,12 +225,6 @@ func (i *ContactChannel) ToContactChannelOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelOutput)
 }
 
-func (i *ContactChannel) ToOutput(ctx context.Context) pulumix.Output[*ContactChannel] {
-	return pulumix.Output[*ContactChannel]{
-		OutputState: i.ToContactChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContactChannelArrayInput is an input type that accepts ContactChannelArray and ContactChannelArrayOutput values.
 // You can construct a concrete instance of `ContactChannelArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i ContactChannelArray) ToContactChannelArrayOutput() ContactChannelArrayOu
 
 func (i ContactChannelArray) ToContactChannelArrayOutputWithContext(ctx context.Context) ContactChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelArrayOutput)
-}
-
-func (i ContactChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContactChannel] {
-	return pulumix.Output[[]*ContactChannel]{
-		OutputState: i.ToContactChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContactChannelMapInput is an input type that accepts ContactChannelMap and ContactChannelMapOutput values.
@@ -288,12 +275,6 @@ func (i ContactChannelMap) ToContactChannelMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelMapOutput)
 }
 
-func (i ContactChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactChannel] {
-	return pulumix.Output[map[string]*ContactChannel]{
-		OutputState: i.ToContactChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactChannelOutput struct{ *pulumi.OutputState }
 
 func (ContactChannelOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o ContactChannelOutput) ToContactChannelOutput() ContactChannelOutput {
 
 func (o ContactChannelOutput) ToContactChannelOutputWithContext(ctx context.Context) ContactChannelOutput {
 	return o
-}
-
-func (o ContactChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactChannel] {
-	return pulumix.Output[*ContactChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
@@ -358,12 +333,6 @@ func (o ContactChannelArrayOutput) ToContactChannelArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ContactChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContactChannel] {
-	return pulumix.Output[[]*ContactChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContactChannelArrayOutput) Index(i pulumi.IntInput) ContactChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContactChannel {
 		return vs[0].([]*ContactChannel)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o ContactChannelMapOutput) ToContactChannelMapOutput() ContactChannelMapOu
 
 func (o ContactChannelMapOutput) ToContactChannelMapOutputWithContext(ctx context.Context) ContactChannelMapOutput {
 	return o
-}
-
-func (o ContactChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactChannel] {
-	return pulumix.Output[map[string]*ContactChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactChannelMapOutput) MapIndex(k pulumi.StringInput) ContactChannelOutput {

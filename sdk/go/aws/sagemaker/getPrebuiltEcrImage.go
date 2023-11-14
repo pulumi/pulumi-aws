@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about prebuilt Amazon SageMaker Docker images.
@@ -122,12 +121,6 @@ func (o GetPrebuiltEcrImageResultOutput) ToGetPrebuiltEcrImageResultOutput() Get
 
 func (o GetPrebuiltEcrImageResultOutput) ToGetPrebuiltEcrImageResultOutputWithContext(ctx context.Context) GetPrebuiltEcrImageResultOutput {
 	return o
-}
-
-func (o GetPrebuiltEcrImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrebuiltEcrImageResult] {
-	return pulumix.Output[GetPrebuiltEcrImageResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrebuiltEcrImageResultOutput) DnsSuffix() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -57,12 +56,6 @@ func (i ResourceSetResourceArgs) ToResourceSetResourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceOutput)
 }
 
-func (i ResourceSetResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResource] {
-	return pulumix.Output[ResourceSetResource]{
-		OutputState: i.ToResourceSetResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceSetResourceArrayInput is an input type that accepts ResourceSetResourceArray and ResourceSetResourceArrayOutput values.
 // You can construct a concrete instance of `ResourceSetResourceArrayInput` via:
 //
@@ -88,12 +81,6 @@ func (i ResourceSetResourceArray) ToResourceSetResourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceArrayOutput)
 }
 
-func (i ResourceSetResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceSetResource] {
-	return pulumix.Output[[]ResourceSetResource]{
-		OutputState: i.ToResourceSetResourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceSetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceOutput) ElementType() reflect.Type {
@@ -106,12 +93,6 @@ func (o ResourceSetResourceOutput) ToResourceSetResourceOutput() ResourceSetReso
 
 func (o ResourceSetResourceOutput) ToResourceSetResourceOutputWithContext(ctx context.Context) ResourceSetResourceOutput {
 	return o
-}
-
-func (o ResourceSetResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResource] {
-	return pulumix.Output[ResourceSetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceOutput) ComponentId() pulumi.StringPtrOutput {
@@ -145,12 +126,6 @@ func (o ResourceSetResourceArrayOutput) ToResourceSetResourceArrayOutput() Resou
 
 func (o ResourceSetResourceArrayOutput) ToResourceSetResourceArrayOutputWithContext(ctx context.Context) ResourceSetResourceArrayOutput {
 	return o
-}
-
-func (o ResourceSetResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceSetResource] {
-	return pulumix.Output[[]ResourceSetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceArrayOutput) Index(i pulumi.IntInput) ResourceSetResourceOutput {
@@ -208,12 +183,6 @@ func (i ResourceSetResourceDnsTargetResourceArgs) ToResourceSetResourceDnsTarget
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceOutput)
 }
 
-func (i ResourceSetResourceDnsTargetResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceSetResourceDnsTargetResourceArgs) ToResourceSetResourceDnsTargetResourcePtrOutput() ResourceSetResourceDnsTargetResourcePtrOutput {
 	return i.ToResourceSetResourceDnsTargetResourcePtrOutputWithContext(context.Background())
 }
@@ -255,12 +224,6 @@ func (i *resourceSetResourceDnsTargetResourcePtrType) ToResourceSetResourceDnsTa
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourcePtrOutput)
 }
 
-func (i *resourceSetResourceDnsTargetResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceSetResourceDnsTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceDnsTargetResourceOutput) ElementType() reflect.Type {
@@ -283,12 +246,6 @@ func (o ResourceSetResourceDnsTargetResourceOutput) ToResourceSetResourceDnsTarg
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetResourceDnsTargetResource) *ResourceSetResourceDnsTargetResource {
 		return &v
 	}).(ResourceSetResourceDnsTargetResourcePtrOutput)
-}
-
-func (o ResourceSetResourceDnsTargetResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // DNS Name that acts as the ingress point to a portion of application.
@@ -330,12 +287,6 @@ func (o ResourceSetResourceDnsTargetResourcePtrOutput) ToResourceSetResourceDnsT
 
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) ToResourceSetResourceDnsTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetResourceDnsTargetResourcePtrOutput {
 	return o
-}
-
-func (o ResourceSetResourceDnsTargetResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceDnsTargetResourcePtrOutput) Elem() ResourceSetResourceDnsTargetResourceOutput {
@@ -435,12 +386,6 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceArgs) ToResourceSetRes
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourceOutput)
 }
 
-func (i ResourceSetResourceDnsTargetResourceTargetResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceSetResourceDnsTargetResourceTargetResourceArgs) ToResourceSetResourceDnsTargetResourceTargetResourcePtrOutput() ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput {
 	return i.ToResourceSetResourceDnsTargetResourceTargetResourcePtrOutputWithContext(context.Background())
 }
@@ -482,12 +427,6 @@ func (i *resourceSetResourceDnsTargetResourceTargetResourcePtrType) ToResourceSe
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput)
 }
 
-func (i *resourceSetResourceDnsTargetResourceTargetResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceSetResourceDnsTargetResourceTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceDnsTargetResourceTargetResourceOutput) ElementType() reflect.Type {
@@ -510,12 +449,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceOutput) ToResourceSetR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetResourceDnsTargetResourceTargetResource) *ResourceSetResourceDnsTargetResourceTargetResource {
 		return &v
 	}).(ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput)
-}
-
-func (o ResourceSetResourceDnsTargetResourceTargetResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
@@ -544,12 +477,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) ToResourceS
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) ToResourceSetResourceDnsTargetResourceTargetResourcePtrOutputWithContext(ctx context.Context) ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput {
 	return o
-}
-
-func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourcePtrOutput) Elem() ResourceSetResourceDnsTargetResourceTargetResourceOutput {
@@ -615,12 +542,6 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs) ToRes
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput)
 }
 
-func (i ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceNlbResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceNlbResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs) ToResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput() ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput {
 	return i.ToResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutputWithContext(context.Background())
 }
@@ -662,12 +583,6 @@ func (i *resourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput)
 }
 
-func (i *resourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceNlbResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceNlbResource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) ElementType() reflect.Type {
@@ -692,12 +607,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) ToR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput)
 }
 
-func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceNlbResource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceNlbResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // NLB resource ARN.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceNlbResource) *string { return v.Arn }).(pulumi.StringPtrOutput)
@@ -715,12 +624,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) 
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) ToResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutputWithContext(ctx context.Context) ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput {
 	return o
-}
-
-func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceNlbResource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceNlbResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrOutput) Elem() ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceOutput {
@@ -780,12 +683,6 @@ func (i ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs) ToRes
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput)
 }
 
-func (i ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceR53Resource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceR53Resource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs) ToResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput() ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput {
 	return i.ToResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutputWithContext(context.Background())
 }
@@ -827,12 +724,6 @@ func (i *resourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput)
 }
 
-func (i *resourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceR53Resource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceR53Resource]{
-		OutputState: i.ToResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) ElementType() reflect.Type {
@@ -857,12 +748,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) ToR
 	}).(ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput)
 }
 
-func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceR53Resource] {
-	return pulumix.Output[ResourceSetResourceDnsTargetResourceTargetResourceR53Resource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // DNS Name that acts as the ingress point to a portion of application.
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResourceDnsTargetResourceTargetResourceR53Resource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
@@ -885,12 +770,6 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) ToResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutputWithContext(ctx context.Context) ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput {
 	return o
-}
-
-func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceR53Resource] {
-	return pulumix.Output[*ResourceSetResourceDnsTargetResourceTargetResourceR53Resource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) Elem() ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceOutput {

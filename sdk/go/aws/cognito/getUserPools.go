@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of cognito user pools.
@@ -117,12 +116,6 @@ func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutput() GetUserPoolsResul
 
 func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutputWithContext(ctx context.Context) GetUserPoolsResultOutput {
 	return o
-}
-
-func (o GetUserPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPoolsResult] {
-	return pulumix.Output[GetUserPoolsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of cognito user pool Amazon Resource Names (ARNs).

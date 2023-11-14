@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Usage Plan Key.
@@ -196,12 +195,6 @@ func (i *UsagePlanKey) ToUsagePlanKeyOutputWithContext(ctx context.Context) Usag
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyOutput)
 }
 
-func (i *UsagePlanKey) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKey] {
-	return pulumix.Output[*UsagePlanKey]{
-		OutputState: i.ToUsagePlanKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UsagePlanKeyArrayInput is an input type that accepts UsagePlanKeyArray and UsagePlanKeyArrayOutput values.
 // You can construct a concrete instance of `UsagePlanKeyArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i UsagePlanKeyArray) ToUsagePlanKeyArrayOutput() UsagePlanKeyArrayOutput {
 
 func (i UsagePlanKeyArray) ToUsagePlanKeyArrayOutputWithContext(ctx context.Context) UsagePlanKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyArrayOutput)
-}
-
-func (i UsagePlanKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*UsagePlanKey] {
-	return pulumix.Output[[]*UsagePlanKey]{
-		OutputState: i.ToUsagePlanKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UsagePlanKeyMapInput is an input type that accepts UsagePlanKeyMap and UsagePlanKeyMapOutput values.
@@ -258,12 +245,6 @@ func (i UsagePlanKeyMap) ToUsagePlanKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyMapOutput)
 }
 
-func (i UsagePlanKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsagePlanKey] {
-	return pulumix.Output[map[string]*UsagePlanKey]{
-		OutputState: i.ToUsagePlanKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UsagePlanKeyOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyOutput() UsagePlanKeyOutput {
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyOutputWithContext(ctx context.Context) UsagePlanKeyOutput {
 	return o
-}
-
-func (o UsagePlanKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*UsagePlanKey] {
-	return pulumix.Output[*UsagePlanKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier of the API key resource.
@@ -323,12 +298,6 @@ func (o UsagePlanKeyArrayOutput) ToUsagePlanKeyArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o UsagePlanKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UsagePlanKey] {
-	return pulumix.Output[[]*UsagePlanKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UsagePlanKeyArrayOutput) Index(i pulumi.IntInput) UsagePlanKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UsagePlanKey {
 		return vs[0].([]*UsagePlanKey)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o UsagePlanKeyMapOutput) ToUsagePlanKeyMapOutput() UsagePlanKeyMapOutput {
 
 func (o UsagePlanKeyMapOutput) ToUsagePlanKeyMapOutputWithContext(ctx context.Context) UsagePlanKeyMapOutput {
 	return o
-}
-
-func (o UsagePlanKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UsagePlanKey] {
-	return pulumix.Output[map[string]*UsagePlanKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UsagePlanKeyMapOutput) MapIndex(k pulumi.StringInput) UsagePlanKeyOutput {

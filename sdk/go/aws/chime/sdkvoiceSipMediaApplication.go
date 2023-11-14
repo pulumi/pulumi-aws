@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
@@ -206,12 +205,6 @@ func (i *SdkvoiceSipMediaApplication) ToSdkvoiceSipMediaApplicationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationOutput)
 }
 
-func (i *SdkvoiceSipMediaApplication) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[*SdkvoiceSipMediaApplication]{
-		OutputState: i.ToSdkvoiceSipMediaApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SdkvoiceSipMediaApplicationArrayInput is an input type that accepts SdkvoiceSipMediaApplicationArray and SdkvoiceSipMediaApplicationArrayOutput values.
 // You can construct a concrete instance of `SdkvoiceSipMediaApplicationArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i SdkvoiceSipMediaApplicationArray) ToSdkvoiceSipMediaApplicationArrayOutp
 
 func (i SdkvoiceSipMediaApplicationArray) ToSdkvoiceSipMediaApplicationArrayOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationArrayOutput)
-}
-
-func (i SdkvoiceSipMediaApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[[]*SdkvoiceSipMediaApplication]{
-		OutputState: i.ToSdkvoiceSipMediaApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SdkvoiceSipMediaApplicationMapInput is an input type that accepts SdkvoiceSipMediaApplicationMap and SdkvoiceSipMediaApplicationMapOutput values.
@@ -268,12 +255,6 @@ func (i SdkvoiceSipMediaApplicationMap) ToSdkvoiceSipMediaApplicationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationMapOutput)
 }
 
-func (i SdkvoiceSipMediaApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[map[string]*SdkvoiceSipMediaApplication]{
-		OutputState: i.ToSdkvoiceSipMediaApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SdkvoiceSipMediaApplicationOutput struct{ *pulumi.OutputState }
 
 func (SdkvoiceSipMediaApplicationOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o SdkvoiceSipMediaApplicationOutput) ToSdkvoiceSipMediaApplicationOutput()
 
 func (o SdkvoiceSipMediaApplicationOutput) ToSdkvoiceSipMediaApplicationOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationOutput {
 	return o
-}
-
-func (o SdkvoiceSipMediaApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[*SdkvoiceSipMediaApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
@@ -342,12 +317,6 @@ func (o SdkvoiceSipMediaApplicationArrayOutput) ToSdkvoiceSipMediaApplicationArr
 	return o
 }
 
-func (o SdkvoiceSipMediaApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[[]*SdkvoiceSipMediaApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SdkvoiceSipMediaApplicationArrayOutput) Index(i pulumi.IntInput) SdkvoiceSipMediaApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SdkvoiceSipMediaApplication {
 		return vs[0].([]*SdkvoiceSipMediaApplication)[vs[1].(int)]
@@ -366,12 +335,6 @@ func (o SdkvoiceSipMediaApplicationMapOutput) ToSdkvoiceSipMediaApplicationMapOu
 
 func (o SdkvoiceSipMediaApplicationMapOutput) ToSdkvoiceSipMediaApplicationMapOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationMapOutput {
 	return o
-}
-
-func (o SdkvoiceSipMediaApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceSipMediaApplication] {
-	return pulumix.Output[map[string]*SdkvoiceSipMediaApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SdkvoiceSipMediaApplicationMapOutput) MapIndex(k pulumi.StringInput) SdkvoiceSipMediaApplicationOutput {

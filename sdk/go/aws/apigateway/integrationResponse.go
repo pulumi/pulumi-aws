@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an HTTP Method Integration Response for an API Gateway Resource.
@@ -285,12 +284,6 @@ func (i *IntegrationResponse) ToIntegrationResponseOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseOutput)
 }
 
-func (i *IntegrationResponse) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
-	return pulumix.Output[*IntegrationResponse]{
-		OutputState: i.ToIntegrationResponseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationResponseArrayInput is an input type that accepts IntegrationResponseArray and IntegrationResponseArrayOutput values.
 // You can construct a concrete instance of `IntegrationResponseArrayInput` via:
 //
@@ -314,12 +307,6 @@ func (i IntegrationResponseArray) ToIntegrationResponseArrayOutput() Integration
 
 func (i IntegrationResponseArray) ToIntegrationResponseArrayOutputWithContext(ctx context.Context) IntegrationResponseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseArrayOutput)
-}
-
-func (i IntegrationResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResponse] {
-	return pulumix.Output[[]*IntegrationResponse]{
-		OutputState: i.ToIntegrationResponseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationResponseMapInput is an input type that accepts IntegrationResponseMap and IntegrationResponseMapOutput values.
@@ -347,12 +334,6 @@ func (i IntegrationResponseMap) ToIntegrationResponseMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseMapOutput)
 }
 
-func (i IntegrationResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResponse] {
-	return pulumix.Output[map[string]*IntegrationResponse]{
-		OutputState: i.ToIntegrationResponseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseOutput) ElementType() reflect.Type {
@@ -365,12 +346,6 @@ func (o IntegrationResponseOutput) ToIntegrationResponseOutput() IntegrationResp
 
 func (o IntegrationResponseOutput) ToIntegrationResponseOutputWithContext(ctx context.Context) IntegrationResponseOutput {
 	return o
-}
-
-func (o IntegrationResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationResponse] {
-	return pulumix.Output[*IntegrationResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 // How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
@@ -429,12 +404,6 @@ func (o IntegrationResponseArrayOutput) ToIntegrationResponseArrayOutputWithCont
 	return o
 }
 
-func (o IntegrationResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationResponse] {
-	return pulumix.Output[[]*IntegrationResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationResponseArrayOutput) Index(i pulumi.IntInput) IntegrationResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationResponse {
 		return vs[0].([]*IntegrationResponse)[vs[1].(int)]
@@ -453,12 +422,6 @@ func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutput() Integrati
 
 func (o IntegrationResponseMapOutput) ToIntegrationResponseMapOutputWithContext(ctx context.Context) IntegrationResponseMapOutput {
 	return o
-}
-
-func (o IntegrationResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationResponse] {
-	return pulumix.Output[map[string]*IntegrationResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationResponseMapOutput) MapIndex(k pulumi.StringInput) IntegrationResponseOutput {

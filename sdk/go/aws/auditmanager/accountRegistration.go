@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing AWS Audit Manager Account Registration.
@@ -183,12 +182,6 @@ func (i *AccountRegistration) ToAccountRegistrationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccountRegistrationOutput)
 }
 
-func (i *AccountRegistration) ToOutput(ctx context.Context) pulumix.Output[*AccountRegistration] {
-	return pulumix.Output[*AccountRegistration]{
-		OutputState: i.ToAccountRegistrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountRegistrationArrayInput is an input type that accepts AccountRegistrationArray and AccountRegistrationArrayOutput values.
 // You can construct a concrete instance of `AccountRegistrationArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i AccountRegistrationArray) ToAccountRegistrationArrayOutput() AccountRegi
 
 func (i AccountRegistrationArray) ToAccountRegistrationArrayOutputWithContext(ctx context.Context) AccountRegistrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountRegistrationArrayOutput)
-}
-
-func (i AccountRegistrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountRegistration] {
-	return pulumix.Output[[]*AccountRegistration]{
-		OutputState: i.ToAccountRegistrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountRegistrationMapInput is an input type that accepts AccountRegistrationMap and AccountRegistrationMapOutput values.
@@ -245,12 +232,6 @@ func (i AccountRegistrationMap) ToAccountRegistrationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountRegistrationMapOutput)
 }
 
-func (i AccountRegistrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountRegistration] {
-	return pulumix.Output[map[string]*AccountRegistration]{
-		OutputState: i.ToAccountRegistrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountRegistrationOutput struct{ *pulumi.OutputState }
 
 func (AccountRegistrationOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o AccountRegistrationOutput) ToAccountRegistrationOutput() AccountRegistra
 
 func (o AccountRegistrationOutput) ToAccountRegistrationOutputWithContext(ctx context.Context) AccountRegistrationOutput {
 	return o
-}
-
-func (o AccountRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountRegistration] {
-	return pulumix.Output[*AccountRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier for the delegated administrator account.
@@ -305,12 +280,6 @@ func (o AccountRegistrationArrayOutput) ToAccountRegistrationArrayOutputWithCont
 	return o
 }
 
-func (o AccountRegistrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountRegistration] {
-	return pulumix.Output[[]*AccountRegistration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountRegistrationArrayOutput) Index(i pulumi.IntInput) AccountRegistrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountRegistration {
 		return vs[0].([]*AccountRegistration)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o AccountRegistrationMapOutput) ToAccountRegistrationMapOutput() AccountRe
 
 func (o AccountRegistrationMapOutput) ToAccountRegistrationMapOutputWithContext(ctx context.Context) AccountRegistrationMapOutput {
 	return o
-}
-
-func (o AccountRegistrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountRegistration] {
-	return pulumix.Output[map[string]*AccountRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountRegistrationMapOutput) MapIndex(k pulumi.StringInput) AccountRegistrationOutput {

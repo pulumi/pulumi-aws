@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppStream image builder.
@@ -313,12 +312,6 @@ func (i *ImageBuilder) ToImageBuilderOutputWithContext(ctx context.Context) Imag
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderOutput)
 }
 
-func (i *ImageBuilder) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
-	return pulumix.Output[*ImageBuilder]{
-		OutputState: i.ToImageBuilderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageBuilderArrayInput is an input type that accepts ImageBuilderArray and ImageBuilderArrayOutput values.
 // You can construct a concrete instance of `ImageBuilderArrayInput` via:
 //
@@ -342,12 +335,6 @@ func (i ImageBuilderArray) ToImageBuilderArrayOutput() ImageBuilderArrayOutput {
 
 func (i ImageBuilderArray) ToImageBuilderArrayOutputWithContext(ctx context.Context) ImageBuilderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderArrayOutput)
-}
-
-func (i ImageBuilderArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBuilder] {
-	return pulumix.Output[[]*ImageBuilder]{
-		OutputState: i.ToImageBuilderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ImageBuilderMapInput is an input type that accepts ImageBuilderMap and ImageBuilderMapOutput values.
@@ -375,12 +362,6 @@ func (i ImageBuilderMap) ToImageBuilderMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderMapOutput)
 }
 
-func (i ImageBuilderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBuilder] {
-	return pulumix.Output[map[string]*ImageBuilder]{
-		OutputState: i.ToImageBuilderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ImageBuilderOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderOutput) ElementType() reflect.Type {
@@ -393,12 +374,6 @@ func (o ImageBuilderOutput) ToImageBuilderOutput() ImageBuilderOutput {
 
 func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context) ImageBuilderOutput {
 	return o
-}
-
-func (o ImageBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilder] {
-	return pulumix.Output[*ImageBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
@@ -504,12 +479,6 @@ func (o ImageBuilderArrayOutput) ToImageBuilderArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ImageBuilderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImageBuilder] {
-	return pulumix.Output[[]*ImageBuilder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageBuilderArrayOutput) Index(i pulumi.IntInput) ImageBuilderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImageBuilder {
 		return vs[0].([]*ImageBuilder)[vs[1].(int)]
@@ -528,12 +497,6 @@ func (o ImageBuilderMapOutput) ToImageBuilderMapOutput() ImageBuilderMapOutput {
 
 func (o ImageBuilderMapOutput) ToImageBuilderMapOutputWithContext(ctx context.Context) ImageBuilderMapOutput {
 	return o
-}
-
-func (o ImageBuilderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImageBuilder] {
-	return pulumix.Output[map[string]*ImageBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageBuilderMapOutput) MapIndex(k pulumi.StringInput) ImageBuilderOutput {

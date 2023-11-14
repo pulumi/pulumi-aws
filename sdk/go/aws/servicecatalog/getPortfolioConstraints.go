@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information on Service Catalog Portfolio Constraints.
@@ -117,12 +116,6 @@ func (o GetPortfolioConstraintsResultOutput) ToGetPortfolioConstraintsResultOutp
 
 func (o GetPortfolioConstraintsResultOutput) ToGetPortfolioConstraintsResultOutputWithContext(ctx context.Context) GetPortfolioConstraintsResultOutput {
 	return o
-}
-
-func (o GetPortfolioConstraintsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPortfolioConstraintsResult] {
-	return pulumix.Output[GetPortfolioConstraintsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPortfolioConstraintsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

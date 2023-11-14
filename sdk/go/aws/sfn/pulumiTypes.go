@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AliasRoutingConfigurationArgs) ToAliasRoutingConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationOutput)
 }
 
-func (i AliasRoutingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingConfiguration] {
-	return pulumix.Output[AliasRoutingConfiguration]{
-		OutputState: i.ToAliasRoutingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AliasRoutingConfigurationArrayInput is an input type that accepts AliasRoutingConfigurationArray and AliasRoutingConfigurationArrayOutput values.
 // You can construct a concrete instance of `AliasRoutingConfigurationArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AliasRoutingConfigurationArray) ToAliasRoutingConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingConfigurationArrayOutput)
 }
 
-func (i AliasRoutingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]AliasRoutingConfiguration] {
-	return pulumix.Output[[]AliasRoutingConfiguration]{
-		OutputState: i.ToAliasRoutingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingConfigurationOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutput() Ali
 
 func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationOutputWithContext(ctx context.Context) AliasRoutingConfigurationOutput {
 	return o
-}
-
-func (o AliasRoutingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingConfiguration] {
-	return pulumix.Output[AliasRoutingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the state machine version.
@@ -130,12 +111,6 @@ func (o AliasRoutingConfigurationArrayOutput) ToAliasRoutingConfigurationArrayOu
 
 func (o AliasRoutingConfigurationArrayOutput) ToAliasRoutingConfigurationArrayOutputWithContext(ctx context.Context) AliasRoutingConfigurationArrayOutput {
 	return o
-}
-
-func (o AliasRoutingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AliasRoutingConfiguration] {
-	return pulumix.Output[[]AliasRoutingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) AliasRoutingConfigurationOutput {
@@ -185,12 +160,6 @@ func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationOutput)
 }
 
-func (i StateMachineLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
-	return pulumix.Output[StateMachineLoggingConfiguration]{
-		OutputState: i.ToStateMachineLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfigurationPtrOutput() StateMachineLoggingConfigurationPtrOutput {
 	return i.ToStateMachineLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -232,12 +201,6 @@ func (i *stateMachineLoggingConfigurationPtrType) ToStateMachineLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationPtrOutput)
 }
 
-func (i *stateMachineLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
-	return pulumix.Output[*StateMachineLoggingConfiguration]{
-		OutputState: i.ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StateMachineLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -260,12 +223,6 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineLoggingConfiguration) *StateMachineLoggingConfiguration {
 		return &v
 	}).(StateMachineLoggingConfigurationPtrOutput)
-}
-
-func (o StateMachineLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
-	return pulumix.Output[StateMachineLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -295,12 +252,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigur
 
 func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationPtrOutput {
 	return o
-}
-
-func (o StateMachineLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
-	return pulumix.Output[*StateMachineLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingConfigurationOutput {
@@ -376,12 +327,6 @@ func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationOutput)
 }
 
-func (i StateMachineTracingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
-	return pulumix.Output[StateMachineTracingConfiguration]{
-		OutputState: i.ToStateMachineTracingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfigurationPtrOutput() StateMachineTracingConfigurationPtrOutput {
 	return i.ToStateMachineTracingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -423,12 +368,6 @@ func (i *stateMachineTracingConfigurationPtrType) ToStateMachineTracingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationPtrOutput)
 }
 
-func (i *stateMachineTracingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
-	return pulumix.Output[*StateMachineTracingConfiguration]{
-		OutputState: i.ToStateMachineTracingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StateMachineTracingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTracingConfigurationOutput) ElementType() reflect.Type {
@@ -453,12 +392,6 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
-func (o StateMachineTracingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
-	return pulumix.Output[StateMachineTracingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -476,12 +409,6 @@ func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigur
 
 func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineTracingConfigurationPtrOutput {
 	return o
-}
-
-func (o StateMachineTracingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
-	return pulumix.Output[*StateMachineTracingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingConfigurationOutput {
@@ -537,12 +464,6 @@ func (i GetAliasRoutingConfigurationArgs) ToGetAliasRoutingConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetAliasRoutingConfigurationOutput)
 }
 
-func (i GetAliasRoutingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAliasRoutingConfiguration] {
-	return pulumix.Output[GetAliasRoutingConfiguration]{
-		OutputState: i.ToGetAliasRoutingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAliasRoutingConfigurationArrayInput is an input type that accepts GetAliasRoutingConfigurationArray and GetAliasRoutingConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetAliasRoutingConfigurationArrayInput` via:
 //
@@ -568,12 +489,6 @@ func (i GetAliasRoutingConfigurationArray) ToGetAliasRoutingConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAliasRoutingConfigurationArrayOutput)
 }
 
-func (i GetAliasRoutingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAliasRoutingConfiguration] {
-	return pulumix.Output[[]GetAliasRoutingConfiguration]{
-		OutputState: i.ToGetAliasRoutingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAliasRoutingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetAliasRoutingConfigurationOutput) ElementType() reflect.Type {
@@ -586,12 +501,6 @@ func (o GetAliasRoutingConfigurationOutput) ToGetAliasRoutingConfigurationOutput
 
 func (o GetAliasRoutingConfigurationOutput) ToGetAliasRoutingConfigurationOutputWithContext(ctx context.Context) GetAliasRoutingConfigurationOutput {
 	return o
-}
-
-func (o GetAliasRoutingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAliasRoutingConfiguration] {
-	return pulumix.Output[GetAliasRoutingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAliasRoutingConfigurationOutput) StateMachineVersionArn() pulumi.StringOutput {
@@ -614,12 +523,6 @@ func (o GetAliasRoutingConfigurationArrayOutput) ToGetAliasRoutingConfigurationA
 
 func (o GetAliasRoutingConfigurationArrayOutput) ToGetAliasRoutingConfigurationArrayOutputWithContext(ctx context.Context) GetAliasRoutingConfigurationArrayOutput {
 	return o
-}
-
-func (o GetAliasRoutingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAliasRoutingConfiguration] {
-	return pulumix.Output[[]GetAliasRoutingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAliasRoutingConfigurationArrayOutput) Index(i pulumi.IntInput) GetAliasRoutingConfigurationOutput {

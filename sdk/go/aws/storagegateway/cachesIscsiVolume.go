@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway cached iSCSI volume.
@@ -352,12 +351,6 @@ func (i *CachesIscsiVolume) ToCachesIscsiVolumeOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumeOutput)
 }
 
-func (i *CachesIscsiVolume) ToOutput(ctx context.Context) pulumix.Output[*CachesIscsiVolume] {
-	return pulumix.Output[*CachesIscsiVolume]{
-		OutputState: i.ToCachesIscsiVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CachesIscsiVolumeArrayInput is an input type that accepts CachesIscsiVolumeArray and CachesIscsiVolumeArrayOutput values.
 // You can construct a concrete instance of `CachesIscsiVolumeArrayInput` via:
 //
@@ -381,12 +374,6 @@ func (i CachesIscsiVolumeArray) ToCachesIscsiVolumeArrayOutput() CachesIscsiVolu
 
 func (i CachesIscsiVolumeArray) ToCachesIscsiVolumeArrayOutputWithContext(ctx context.Context) CachesIscsiVolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumeArrayOutput)
-}
-
-func (i CachesIscsiVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*CachesIscsiVolume] {
-	return pulumix.Output[[]*CachesIscsiVolume]{
-		OutputState: i.ToCachesIscsiVolumeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CachesIscsiVolumeMapInput is an input type that accepts CachesIscsiVolumeMap and CachesIscsiVolumeMapOutput values.
@@ -414,12 +401,6 @@ func (i CachesIscsiVolumeMap) ToCachesIscsiVolumeMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CachesIscsiVolumeMapOutput)
 }
 
-func (i CachesIscsiVolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachesIscsiVolume] {
-	return pulumix.Output[map[string]*CachesIscsiVolume]{
-		OutputState: i.ToCachesIscsiVolumeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CachesIscsiVolumeOutput struct{ *pulumi.OutputState }
 
 func (CachesIscsiVolumeOutput) ElementType() reflect.Type {
@@ -432,12 +413,6 @@ func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutput() CachesIscsiVolumeOu
 
 func (o CachesIscsiVolumeOutput) ToCachesIscsiVolumeOutputWithContext(ctx context.Context) CachesIscsiVolumeOutput {
 	return o
-}
-
-func (o CachesIscsiVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*CachesIscsiVolume] {
-	return pulumix.Output[*CachesIscsiVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -541,12 +516,6 @@ func (o CachesIscsiVolumeArrayOutput) ToCachesIscsiVolumeArrayOutputWithContext(
 	return o
 }
 
-func (o CachesIscsiVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CachesIscsiVolume] {
-	return pulumix.Output[[]*CachesIscsiVolume]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CachesIscsiVolumeArrayOutput) Index(i pulumi.IntInput) CachesIscsiVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CachesIscsiVolume {
 		return vs[0].([]*CachesIscsiVolume)[vs[1].(int)]
@@ -565,12 +534,6 @@ func (o CachesIscsiVolumeMapOutput) ToCachesIscsiVolumeMapOutput() CachesIscsiVo
 
 func (o CachesIscsiVolumeMapOutput) ToCachesIscsiVolumeMapOutputWithContext(ctx context.Context) CachesIscsiVolumeMapOutput {
 	return o
-}
-
-func (o CachesIscsiVolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachesIscsiVolume] {
-	return pulumix.Output[map[string]*CachesIscsiVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CachesIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) CachesIscsiVolumeOutput {

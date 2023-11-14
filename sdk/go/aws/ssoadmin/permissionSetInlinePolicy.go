@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
@@ -140,12 +139,6 @@ func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyOutput)
 }
 
-func (i *PermissionSetInlinePolicy) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetInlinePolicy] {
-	return pulumix.Output[*PermissionSetInlinePolicy]{
-		OutputState: i.ToPermissionSetInlinePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PermissionSetInlinePolicyArrayInput is an input type that accepts PermissionSetInlinePolicyArray and PermissionSetInlinePolicyArrayOutput values.
 // You can construct a concrete instance of `PermissionSetInlinePolicyArrayInput` via:
 //
@@ -169,12 +162,6 @@ func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutput()
 
 func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutputWithContext(ctx context.Context) PermissionSetInlinePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyArrayOutput)
-}
-
-func (i PermissionSetInlinePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionSetInlinePolicy] {
-	return pulumix.Output[[]*PermissionSetInlinePolicy]{
-		OutputState: i.ToPermissionSetInlinePolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PermissionSetInlinePolicyMapInput is an input type that accepts PermissionSetInlinePolicyMap and PermissionSetInlinePolicyMapOutput values.
@@ -202,12 +189,6 @@ func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyMapOutput)
 }
 
-func (i PermissionSetInlinePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionSetInlinePolicy] {
-	return pulumix.Output[map[string]*PermissionSetInlinePolicy]{
-		OutputState: i.ToPermissionSetInlinePolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionSetInlinePolicyOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyOutput) ElementType() reflect.Type {
@@ -220,12 +201,6 @@ func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyOutput() Per
 
 func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyOutputWithContext(ctx context.Context) PermissionSetInlinePolicyOutput {
 	return o
-}
-
-func (o PermissionSetInlinePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionSetInlinePolicy] {
-	return pulumix.Output[*PermissionSetInlinePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IAM inline policy to attach to a Permission Set.
@@ -257,12 +232,6 @@ func (o PermissionSetInlinePolicyArrayOutput) ToPermissionSetInlinePolicyArrayOu
 	return o
 }
 
-func (o PermissionSetInlinePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PermissionSetInlinePolicy] {
-	return pulumix.Output[[]*PermissionSetInlinePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionSetInlinePolicyArrayOutput) Index(i pulumi.IntInput) PermissionSetInlinePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionSetInlinePolicy {
 		return vs[0].([]*PermissionSetInlinePolicy)[vs[1].(int)]
@@ -281,12 +250,6 @@ func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutput
 
 func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutputWithContext(ctx context.Context) PermissionSetInlinePolicyMapOutput {
 	return o
-}
-
-func (o PermissionSetInlinePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PermissionSetInlinePolicy] {
-	return pulumix.Output[map[string]*PermissionSetInlinePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionSetInlinePolicyMapOutput) MapIndex(k pulumi.StringInput) PermissionSetInlinePolicyOutput {

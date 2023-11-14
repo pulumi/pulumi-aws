@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
@@ -300,12 +299,6 @@ func (i *EmailIdentity) ToEmailIdentityOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityOutput)
 }
 
-func (i *EmailIdentity) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentity] {
-	return pulumix.Output[*EmailIdentity]{
-		OutputState: i.ToEmailIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailIdentityArrayInput is an input type that accepts EmailIdentityArray and EmailIdentityArrayOutput values.
 // You can construct a concrete instance of `EmailIdentityArrayInput` via:
 //
@@ -329,12 +322,6 @@ func (i EmailIdentityArray) ToEmailIdentityArrayOutput() EmailIdentityArrayOutpu
 
 func (i EmailIdentityArray) ToEmailIdentityArrayOutputWithContext(ctx context.Context) EmailIdentityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityArrayOutput)
-}
-
-func (i EmailIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentity] {
-	return pulumix.Output[[]*EmailIdentity]{
-		OutputState: i.ToEmailIdentityArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailIdentityMapInput is an input type that accepts EmailIdentityMap and EmailIdentityMapOutput values.
@@ -362,12 +349,6 @@ func (i EmailIdentityMap) ToEmailIdentityMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMapOutput)
 }
 
-func (i EmailIdentityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentity] {
-	return pulumix.Output[map[string]*EmailIdentity]{
-		OutputState: i.ToEmailIdentityMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailIdentityOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityOutput) ElementType() reflect.Type {
@@ -380,12 +361,6 @@ func (o EmailIdentityOutput) ToEmailIdentityOutput() EmailIdentityOutput {
 
 func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Context) EmailIdentityOutput {
 	return o
-}
-
-func (o EmailIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentity] {
-	return pulumix.Output[*EmailIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Email Identity.
@@ -446,12 +421,6 @@ func (o EmailIdentityArrayOutput) ToEmailIdentityArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o EmailIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentity] {
-	return pulumix.Output[[]*EmailIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailIdentityArrayOutput) Index(i pulumi.IntInput) EmailIdentityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailIdentity {
 		return vs[0].([]*EmailIdentity)[vs[1].(int)]
@@ -470,12 +439,6 @@ func (o EmailIdentityMapOutput) ToEmailIdentityMapOutput() EmailIdentityMapOutpu
 
 func (o EmailIdentityMapOutput) ToEmailIdentityMapOutputWithContext(ctx context.Context) EmailIdentityMapOutput {
 	return o
-}
-
-func (o EmailIdentityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentity] {
-	return pulumix.Output[map[string]*EmailIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailIdentityMapOutput) MapIndex(k pulumi.StringInput) EmailIdentityOutput {

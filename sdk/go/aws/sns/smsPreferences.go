@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a way to set SNS SMS preferences.
@@ -171,12 +170,6 @@ func (i *SmsPreferences) ToSmsPreferencesOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesOutput)
 }
 
-func (i *SmsPreferences) ToOutput(ctx context.Context) pulumix.Output[*SmsPreferences] {
-	return pulumix.Output[*SmsPreferences]{
-		OutputState: i.ToSmsPreferencesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SmsPreferencesArrayInput is an input type that accepts SmsPreferencesArray and SmsPreferencesArrayOutput values.
 // You can construct a concrete instance of `SmsPreferencesArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i SmsPreferencesArray) ToSmsPreferencesArrayOutput() SmsPreferencesArrayOu
 
 func (i SmsPreferencesArray) ToSmsPreferencesArrayOutputWithContext(ctx context.Context) SmsPreferencesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesArrayOutput)
-}
-
-func (i SmsPreferencesArray) ToOutput(ctx context.Context) pulumix.Output[[]*SmsPreferences] {
-	return pulumix.Output[[]*SmsPreferences]{
-		OutputState: i.ToSmsPreferencesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SmsPreferencesMapInput is an input type that accepts SmsPreferencesMap and SmsPreferencesMapOutput values.
@@ -233,12 +220,6 @@ func (i SmsPreferencesMap) ToSmsPreferencesMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesMapOutput)
 }
 
-func (i SmsPreferencesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmsPreferences] {
-	return pulumix.Output[map[string]*SmsPreferences]{
-		OutputState: i.ToSmsPreferencesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SmsPreferencesOutput struct{ *pulumi.OutputState }
 
 func (SmsPreferencesOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o SmsPreferencesOutput) ToSmsPreferencesOutput() SmsPreferencesOutput {
 
 func (o SmsPreferencesOutput) ToSmsPreferencesOutputWithContext(ctx context.Context) SmsPreferencesOutput {
 	return o
-}
-
-func (o SmsPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[*SmsPreferences] {
-	return pulumix.Output[*SmsPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string, such as your business brand, that is displayed as the sender on the receiving device.
@@ -303,12 +278,6 @@ func (o SmsPreferencesArrayOutput) ToSmsPreferencesArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o SmsPreferencesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SmsPreferences] {
-	return pulumix.Output[[]*SmsPreferences]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SmsPreferencesArrayOutput) Index(i pulumi.IntInput) SmsPreferencesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SmsPreferences {
 		return vs[0].([]*SmsPreferences)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o SmsPreferencesMapOutput) ToSmsPreferencesMapOutput() SmsPreferencesMapOu
 
 func (o SmsPreferencesMapOutput) ToSmsPreferencesMapOutputWithContext(ctx context.Context) SmsPreferencesMapOutput {
 	return o
-}
-
-func (o SmsPreferencesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SmsPreferences] {
-	return pulumix.Output[map[string]*SmsPreferences]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SmsPreferencesMapOutput) MapIndex(k pulumi.StringInput) SmsPreferencesOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the IP ranges of various AWS products and services. For more information about the contents of this data source and required JSON syntax if referencing a custom URL, see the [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html).
@@ -161,12 +160,6 @@ func (o GetIpRangesResultOutput) ToGetIpRangesResultOutput() GetIpRangesResultOu
 
 func (o GetIpRangesResultOutput) ToGetIpRangesResultOutputWithContext(ctx context.Context) GetIpRangesResultOutput {
 	return o
-}
-
-func (o GetIpRangesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpRangesResult] {
-	return pulumix.Output[GetIpRangesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Lexically ordered list of CIDR blocks.

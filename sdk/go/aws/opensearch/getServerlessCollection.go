@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS OpenSearch Serverless Collection.
@@ -120,12 +119,6 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 
 func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResultOutputWithContext(ctx context.Context) LookupServerlessCollectionResultOutput {
 	return o
-}
-
-func (o LookupServerlessCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessCollectionResult] {
-	return pulumix.Output[LookupServerlessCollectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the collection.

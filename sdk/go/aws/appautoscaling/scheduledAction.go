@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Application AutoScaling ScheduledAction resource.
@@ -285,12 +284,6 @@ func (i *ScheduledAction) ToScheduledActionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionOutput)
 }
 
-func (i *ScheduledAction) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
-	return pulumix.Output[*ScheduledAction]{
-		OutputState: i.ToScheduledActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledActionArrayInput is an input type that accepts ScheduledActionArray and ScheduledActionArrayOutput values.
 // You can construct a concrete instance of `ScheduledActionArrayInput` via:
 //
@@ -314,12 +307,6 @@ func (i ScheduledActionArray) ToScheduledActionArrayOutput() ScheduledActionArra
 
 func (i ScheduledActionArray) ToScheduledActionArrayOutputWithContext(ctx context.Context) ScheduledActionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionArrayOutput)
-}
-
-func (i ScheduledActionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledAction] {
-	return pulumix.Output[[]*ScheduledAction]{
-		OutputState: i.ToScheduledActionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScheduledActionMapInput is an input type that accepts ScheduledActionMap and ScheduledActionMapOutput values.
@@ -347,12 +334,6 @@ func (i ScheduledActionMap) ToScheduledActionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionMapOutput)
 }
 
-func (i ScheduledActionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledAction] {
-	return pulumix.Output[map[string]*ScheduledAction]{
-		OutputState: i.ToScheduledActionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
@@ -365,12 +346,6 @@ func (o ScheduledActionOutput) ToScheduledActionOutput() ScheduledActionOutput {
 
 func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Context) ScheduledActionOutput {
 	return o
-}
-
-func (o ScheduledActionOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAction] {
-	return pulumix.Output[*ScheduledAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the scheduled action.
@@ -437,12 +412,6 @@ func (o ScheduledActionArrayOutput) ToScheduledActionArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ScheduledActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledAction] {
-	return pulumix.Output[[]*ScheduledAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledActionArrayOutput) Index(i pulumi.IntInput) ScheduledActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledAction {
 		return vs[0].([]*ScheduledAction)[vs[1].(int)]
@@ -461,12 +430,6 @@ func (o ScheduledActionMapOutput) ToScheduledActionMapOutput() ScheduledActionMa
 
 func (o ScheduledActionMapOutput) ToScheduledActionMapOutputWithContext(ctx context.Context) ScheduledActionMapOutput {
 	return o
-}
-
-func (o ScheduledActionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledAction] {
-	return pulumix.Output[map[string]*ScheduledAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledActionMapOutput) MapIndex(k pulumi.StringInput) ScheduledActionOutput {

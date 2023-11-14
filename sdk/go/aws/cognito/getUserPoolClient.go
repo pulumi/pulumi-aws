@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool Client resource.
@@ -144,12 +143,6 @@ func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutput() L
 
 func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutputWithContext(ctx context.Context) LookupUserPoolClientResultOutput {
 	return o
-}
-
-func (o LookupUserPoolClientResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolClientResult] {
-	return pulumix.Output[LookupUserPoolClientResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.

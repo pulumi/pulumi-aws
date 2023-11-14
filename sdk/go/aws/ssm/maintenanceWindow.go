@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Maintenance Window resource
@@ -273,12 +272,6 @@ func (i *MaintenanceWindow) ToMaintenanceWindowOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput)
 }
 
-func (i *MaintenanceWindow) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindow] {
-	return pulumix.Output[*MaintenanceWindow]{
-		OutputState: i.ToMaintenanceWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceWindowArrayInput is an input type that accepts MaintenanceWindowArray and MaintenanceWindowArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i MaintenanceWindowArray) ToMaintenanceWindowArrayOutput() MaintenanceWind
 
 func (i MaintenanceWindowArray) ToMaintenanceWindowArrayOutputWithContext(ctx context.Context) MaintenanceWindowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowArrayOutput)
-}
-
-func (i MaintenanceWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaintenanceWindow] {
-	return pulumix.Output[[]*MaintenanceWindow]{
-		OutputState: i.ToMaintenanceWindowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MaintenanceWindowMapInput is an input type that accepts MaintenanceWindowMap and MaintenanceWindowMapOutput values.
@@ -335,12 +322,6 @@ func (i MaintenanceWindowMap) ToMaintenanceWindowMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowMapOutput)
 }
 
-func (i MaintenanceWindowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaintenanceWindow] {
-	return pulumix.Output[map[string]*MaintenanceWindow]{
-		OutputState: i.ToMaintenanceWindowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutput() MaintenanceWindowOu
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
 	return o
-}
-
-func (o MaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindow] {
-	return pulumix.Output[*MaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
@@ -442,12 +417,6 @@ func (o MaintenanceWindowArrayOutput) ToMaintenanceWindowArrayOutputWithContext(
 	return o
 }
 
-func (o MaintenanceWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaintenanceWindow] {
-	return pulumix.Output[[]*MaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MaintenanceWindowArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaintenanceWindow {
 		return vs[0].([]*MaintenanceWindow)[vs[1].(int)]
@@ -466,12 +435,6 @@ func (o MaintenanceWindowMapOutput) ToMaintenanceWindowMapOutput() MaintenanceWi
 
 func (o MaintenanceWindowMapOutput) ToMaintenanceWindowMapOutputWithContext(ctx context.Context) MaintenanceWindowMapOutput {
 	return o
-}
-
-func (o MaintenanceWindowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaintenanceWindow] {
-	return pulumix.Output[map[string]*MaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowMapOutput) MapIndex(k pulumi.StringInput) MaintenanceWindowOutput {

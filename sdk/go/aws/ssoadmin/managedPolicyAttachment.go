@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
@@ -145,12 +144,6 @@ func (i *ManagedPolicyAttachment) ToManagedPolicyAttachmentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentOutput)
 }
 
-func (i *ManagedPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicyAttachment] {
-	return pulumix.Output[*ManagedPolicyAttachment]{
-		OutputState: i.ToManagedPolicyAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedPolicyAttachmentArrayInput is an input type that accepts ManagedPolicyAttachmentArray and ManagedPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `ManagedPolicyAttachmentArrayInput` via:
 //
@@ -174,12 +167,6 @@ func (i ManagedPolicyAttachmentArray) ToManagedPolicyAttachmentArrayOutput() Man
 
 func (i ManagedPolicyAttachmentArray) ToManagedPolicyAttachmentArrayOutputWithContext(ctx context.Context) ManagedPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentArrayOutput)
-}
-
-func (i ManagedPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPolicyAttachment] {
-	return pulumix.Output[[]*ManagedPolicyAttachment]{
-		OutputState: i.ToManagedPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedPolicyAttachmentMapInput is an input type that accepts ManagedPolicyAttachmentMap and ManagedPolicyAttachmentMapOutput values.
@@ -207,12 +194,6 @@ func (i ManagedPolicyAttachmentMap) ToManagedPolicyAttachmentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPolicyAttachmentMapOutput)
 }
 
-func (i ManagedPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPolicyAttachment] {
-	return pulumix.Output[map[string]*ManagedPolicyAttachment]{
-		OutputState: i.ToManagedPolicyAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -225,12 +206,6 @@ func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentOutput() Managed
 
 func (o ManagedPolicyAttachmentOutput) ToManagedPolicyAttachmentOutputWithContext(ctx context.Context) ManagedPolicyAttachmentOutput {
 	return o
-}
-
-func (o ManagedPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicyAttachment] {
-	return pulumix.Output[*ManagedPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
@@ -267,12 +242,6 @@ func (o ManagedPolicyAttachmentArrayOutput) ToManagedPolicyAttachmentArrayOutput
 	return o
 }
 
-func (o ManagedPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPolicyAttachment] {
-	return pulumix.Output[[]*ManagedPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) ManagedPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPolicyAttachment {
 		return vs[0].([]*ManagedPolicyAttachment)[vs[1].(int)]
@@ -291,12 +260,6 @@ func (o ManagedPolicyAttachmentMapOutput) ToManagedPolicyAttachmentMapOutput() M
 
 func (o ManagedPolicyAttachmentMapOutput) ToManagedPolicyAttachmentMapOutputWithContext(ctx context.Context) ManagedPolicyAttachmentMapOutput {
 	return o
-}
-
-func (o ManagedPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPolicyAttachment] {
-	return pulumix.Output[map[string]*ManagedPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) ManagedPolicyAttachmentOutput {

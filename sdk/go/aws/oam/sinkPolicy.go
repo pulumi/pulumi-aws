@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
@@ -201,12 +200,6 @@ func (i *SinkPolicy) ToSinkPolicyOutputWithContext(ctx context.Context) SinkPoli
 	return pulumi.ToOutputWithContext(ctx, i).(SinkPolicyOutput)
 }
 
-func (i *SinkPolicy) ToOutput(ctx context.Context) pulumix.Output[*SinkPolicy] {
-	return pulumix.Output[*SinkPolicy]{
-		OutputState: i.ToSinkPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SinkPolicyArrayInput is an input type that accepts SinkPolicyArray and SinkPolicyArrayOutput values.
 // You can construct a concrete instance of `SinkPolicyArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i SinkPolicyArray) ToSinkPolicyArrayOutput() SinkPolicyArrayOutput {
 
 func (i SinkPolicyArray) ToSinkPolicyArrayOutputWithContext(ctx context.Context) SinkPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkPolicyArrayOutput)
-}
-
-func (i SinkPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SinkPolicy] {
-	return pulumix.Output[[]*SinkPolicy]{
-		OutputState: i.ToSinkPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SinkPolicyMapInput is an input type that accepts SinkPolicyMap and SinkPolicyMapOutput values.
@@ -263,12 +250,6 @@ func (i SinkPolicyMap) ToSinkPolicyMapOutputWithContext(ctx context.Context) Sin
 	return pulumi.ToOutputWithContext(ctx, i).(SinkPolicyMapOutput)
 }
 
-func (i SinkPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SinkPolicy] {
-	return pulumix.Output[map[string]*SinkPolicy]{
-		OutputState: i.ToSinkPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SinkPolicyOutput struct{ *pulumi.OutputState }
 
 func (SinkPolicyOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o SinkPolicyOutput) ToSinkPolicyOutput() SinkPolicyOutput {
 
 func (o SinkPolicyOutput) ToSinkPolicyOutputWithContext(ctx context.Context) SinkPolicyOutput {
 	return o
-}
-
-func (o SinkPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SinkPolicy] {
-	return pulumix.Output[*SinkPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Sink.
@@ -323,12 +298,6 @@ func (o SinkPolicyArrayOutput) ToSinkPolicyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SinkPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SinkPolicy] {
-	return pulumix.Output[[]*SinkPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SinkPolicyArrayOutput) Index(i pulumi.IntInput) SinkPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SinkPolicy {
 		return vs[0].([]*SinkPolicy)[vs[1].(int)]
@@ -347,12 +316,6 @@ func (o SinkPolicyMapOutput) ToSinkPolicyMapOutput() SinkPolicyMapOutput {
 
 func (o SinkPolicyMapOutput) ToSinkPolicyMapOutputWithContext(ctx context.Context) SinkPolicyMapOutput {
 	return o
-}
-
-func (o SinkPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SinkPolicy] {
-	return pulumix.Output[map[string]*SinkPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SinkPolicyMapOutput) MapIndex(k pulumi.StringInput) SinkPolicyOutput {

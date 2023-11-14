@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific CodeCommit Approval Rule Template.
@@ -112,12 +111,6 @@ func (o LookupApprovalRuleTemplateResultOutput) ToLookupApprovalRuleTemplateResu
 
 func (o LookupApprovalRuleTemplateResultOutput) ToLookupApprovalRuleTemplateResultOutputWithContext(ctx context.Context) LookupApprovalRuleTemplateResultOutput {
 	return o
-}
-
-func (o LookupApprovalRuleTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApprovalRuleTemplateResult] {
-	return pulumix.Output[LookupApprovalRuleTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the approval rule template.

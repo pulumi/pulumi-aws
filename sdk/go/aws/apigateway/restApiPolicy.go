@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway REST API Policy.
@@ -191,12 +190,6 @@ func (i *RestApiPolicy) ToRestApiPolicyOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyOutput)
 }
 
-func (i *RestApiPolicy) ToOutput(ctx context.Context) pulumix.Output[*RestApiPolicy] {
-	return pulumix.Output[*RestApiPolicy]{
-		OutputState: i.ToRestApiPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RestApiPolicyArrayInput is an input type that accepts RestApiPolicyArray and RestApiPolicyArrayOutput values.
 // You can construct a concrete instance of `RestApiPolicyArrayInput` via:
 //
@@ -220,12 +213,6 @@ func (i RestApiPolicyArray) ToRestApiPolicyArrayOutput() RestApiPolicyArrayOutpu
 
 func (i RestApiPolicyArray) ToRestApiPolicyArrayOutputWithContext(ctx context.Context) RestApiPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyArrayOutput)
-}
-
-func (i RestApiPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*RestApiPolicy] {
-	return pulumix.Output[[]*RestApiPolicy]{
-		OutputState: i.ToRestApiPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RestApiPolicyMapInput is an input type that accepts RestApiPolicyMap and RestApiPolicyMapOutput values.
@@ -253,12 +240,6 @@ func (i RestApiPolicyMap) ToRestApiPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyMapOutput)
 }
 
-func (i RestApiPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApiPolicy] {
-	return pulumix.Output[map[string]*RestApiPolicy]{
-		OutputState: i.ToRestApiPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RestApiPolicyOutput struct{ *pulumi.OutputState }
 
 func (RestApiPolicyOutput) ElementType() reflect.Type {
@@ -271,12 +252,6 @@ func (o RestApiPolicyOutput) ToRestApiPolicyOutput() RestApiPolicyOutput {
 
 func (o RestApiPolicyOutput) ToRestApiPolicyOutputWithContext(ctx context.Context) RestApiPolicyOutput {
 	return o
-}
-
-func (o RestApiPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RestApiPolicy] {
-	return pulumix.Output[*RestApiPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // JSON formatted policy document that controls access to the API Gateway.
@@ -303,12 +278,6 @@ func (o RestApiPolicyArrayOutput) ToRestApiPolicyArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o RestApiPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RestApiPolicy] {
-	return pulumix.Output[[]*RestApiPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RestApiPolicyArrayOutput) Index(i pulumi.IntInput) RestApiPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RestApiPolicy {
 		return vs[0].([]*RestApiPolicy)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o RestApiPolicyMapOutput) ToRestApiPolicyMapOutput() RestApiPolicyMapOutpu
 
 func (o RestApiPolicyMapOutput) ToRestApiPolicyMapOutputWithContext(ctx context.Context) RestApiPolicyMapOutput {
 	return o
-}
-
-func (o RestApiPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApiPolicy] {
-	return pulumix.Output[map[string]*RestApiPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RestApiPolicyMapOutput) MapIndex(k pulumi.StringInput) RestApiPolicyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
@@ -157,12 +156,6 @@ func (i *Graph) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphOutput)
 }
 
-func (i *Graph) ToOutput(ctx context.Context) pulumix.Output[*Graph] {
-	return pulumix.Output[*Graph]{
-		OutputState: i.ToGraphOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GraphArrayInput is an input type that accepts GraphArray and GraphArrayOutput values.
 // You can construct a concrete instance of `GraphArrayInput` via:
 //
@@ -186,12 +179,6 @@ func (i GraphArray) ToGraphArrayOutput() GraphArrayOutput {
 
 func (i GraphArray) ToGraphArrayOutputWithContext(ctx context.Context) GraphArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphArrayOutput)
-}
-
-func (i GraphArray) ToOutput(ctx context.Context) pulumix.Output[[]*Graph] {
-	return pulumix.Output[[]*Graph]{
-		OutputState: i.ToGraphArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GraphMapInput is an input type that accepts GraphMap and GraphMapOutput values.
@@ -219,12 +206,6 @@ func (i GraphMap) ToGraphMapOutputWithContext(ctx context.Context) GraphMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GraphMapOutput)
 }
 
-func (i GraphMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Graph] {
-	return pulumix.Output[map[string]*Graph]{
-		OutputState: i.ToGraphMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GraphOutput struct{ *pulumi.OutputState }
 
 func (GraphOutput) ElementType() reflect.Type {
@@ -237,12 +218,6 @@ func (o GraphOutput) ToGraphOutput() GraphOutput {
 
 func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
-}
-
-func (o GraphOutput) ToOutput(ctx context.Context) pulumix.Output[*Graph] {
-	return pulumix.Output[*Graph]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
@@ -279,12 +254,6 @@ func (o GraphArrayOutput) ToGraphArrayOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-func (o GraphArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Graph] {
-	return pulumix.Output[[]*Graph]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GraphArrayOutput) Index(i pulumi.IntInput) GraphOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Graph {
 		return vs[0].([]*Graph)[vs[1].(int)]
@@ -303,12 +272,6 @@ func (o GraphMapOutput) ToGraphMapOutput() GraphMapOutput {
 
 func (o GraphMapOutput) ToGraphMapOutputWithContext(ctx context.Context) GraphMapOutput {
 	return o
-}
-
-func (o GraphMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Graph] {
-	return pulumix.Output[map[string]*Graph]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GraphMapOutput) MapIndex(k pulumi.StringInput) GraphOutput {

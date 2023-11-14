@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -416,12 +415,6 @@ func (i *GlobalReplicationGroup) ToGlobalReplicationGroupOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupOutput)
 }
 
-func (i *GlobalReplicationGroup) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroup] {
-	return pulumix.Output[*GlobalReplicationGroup]{
-		OutputState: i.ToGlobalReplicationGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalReplicationGroupArrayInput is an input type that accepts GlobalReplicationGroupArray and GlobalReplicationGroupArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupArrayInput` via:
 //
@@ -445,12 +438,6 @@ func (i GlobalReplicationGroupArray) ToGlobalReplicationGroupArrayOutput() Globa
 
 func (i GlobalReplicationGroupArray) ToGlobalReplicationGroupArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupArrayOutput)
-}
-
-func (i GlobalReplicationGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalReplicationGroup] {
-	return pulumix.Output[[]*GlobalReplicationGroup]{
-		OutputState: i.ToGlobalReplicationGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalReplicationGroupMapInput is an input type that accepts GlobalReplicationGroupMap and GlobalReplicationGroupMapOutput values.
@@ -478,12 +465,6 @@ func (i GlobalReplicationGroupMap) ToGlobalReplicationGroupMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMapOutput)
 }
 
-func (i GlobalReplicationGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalReplicationGroup] {
-	return pulumix.Output[map[string]*GlobalReplicationGroup]{
-		OutputState: i.ToGlobalReplicationGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupOutput) ElementType() reflect.Type {
@@ -496,12 +477,6 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutput() GlobalRep
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupOutputWithContext(ctx context.Context) GlobalReplicationGroupOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroup] {
-	return pulumix.Output[*GlobalReplicationGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the ElastiCache Global Replication Group.
@@ -620,12 +595,6 @@ func (o GlobalReplicationGroupArrayOutput) ToGlobalReplicationGroupArrayOutputWi
 	return o
 }
 
-func (o GlobalReplicationGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalReplicationGroup] {
-	return pulumix.Output[[]*GlobalReplicationGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalReplicationGroupArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalReplicationGroup {
 		return vs[0].([]*GlobalReplicationGroup)[vs[1].(int)]
@@ -644,12 +613,6 @@ func (o GlobalReplicationGroupMapOutput) ToGlobalReplicationGroupMapOutput() Glo
 
 func (o GlobalReplicationGroupMapOutput) ToGlobalReplicationGroupMapOutputWithContext(ctx context.Context) GlobalReplicationGroupMapOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalReplicationGroup] {
-	return pulumix.Output[map[string]*GlobalReplicationGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalReplicationGroupMapOutput) MapIndex(k pulumi.StringInput) GlobalReplicationGroupOutput {

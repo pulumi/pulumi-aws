@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a trust relationship between two Active Directory Directories.
@@ -382,12 +381,6 @@ func (i *Trust) ToTrustOutputWithContext(ctx context.Context) TrustOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustOutput)
 }
 
-func (i *Trust) ToOutput(ctx context.Context) pulumix.Output[*Trust] {
-	return pulumix.Output[*Trust]{
-		OutputState: i.ToTrustOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrustArrayInput is an input type that accepts TrustArray and TrustArrayOutput values.
 // You can construct a concrete instance of `TrustArrayInput` via:
 //
@@ -411,12 +404,6 @@ func (i TrustArray) ToTrustArrayOutput() TrustArrayOutput {
 
 func (i TrustArray) ToTrustArrayOutputWithContext(ctx context.Context) TrustArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustArrayOutput)
-}
-
-func (i TrustArray) ToOutput(ctx context.Context) pulumix.Output[[]*Trust] {
-	return pulumix.Output[[]*Trust]{
-		OutputState: i.ToTrustArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrustMapInput is an input type that accepts TrustMap and TrustMapOutput values.
@@ -444,12 +431,6 @@ func (i TrustMap) ToTrustMapOutputWithContext(ctx context.Context) TrustMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TrustMapOutput)
 }
 
-func (i TrustMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trust] {
-	return pulumix.Output[map[string]*Trust]{
-		OutputState: i.ToTrustMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustOutput struct{ *pulumi.OutputState }
 
 func (TrustOutput) ElementType() reflect.Type {
@@ -462,12 +443,6 @@ func (o TrustOutput) ToTrustOutput() TrustOutput {
 
 func (o TrustOutput) ToTrustOutputWithContext(ctx context.Context) TrustOutput {
 	return o
-}
-
-func (o TrustOutput) ToOutput(ctx context.Context) pulumix.Output[*Trust] {
-	return pulumix.Output[*Trust]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set of IPv4 addresses for the DNS server associated with the remote Directory.
@@ -559,12 +534,6 @@ func (o TrustArrayOutput) ToTrustArrayOutputWithContext(ctx context.Context) Tru
 	return o
 }
 
-func (o TrustArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Trust] {
-	return pulumix.Output[[]*Trust]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustArrayOutput) Index(i pulumi.IntInput) TrustOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Trust {
 		return vs[0].([]*Trust)[vs[1].(int)]
@@ -583,12 +552,6 @@ func (o TrustMapOutput) ToTrustMapOutput() TrustMapOutput {
 
 func (o TrustMapOutput) ToTrustMapOutputWithContext(ctx context.Context) TrustMapOutput {
 	return o
-}
-
-func (o TrustMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Trust] {
-	return pulumix.Output[map[string]*Trust]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustMapOutput) MapIndex(k pulumi.StringInput) TrustOutput {

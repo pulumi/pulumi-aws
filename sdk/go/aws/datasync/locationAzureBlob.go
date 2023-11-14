@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
@@ -247,12 +246,6 @@ func (i *LocationAzureBlob) ToLocationAzureBlobOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobOutput)
 }
 
-func (i *LocationAzureBlob) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlob] {
-	return pulumix.Output[*LocationAzureBlob]{
-		OutputState: i.ToLocationAzureBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocationAzureBlobArrayInput is an input type that accepts LocationAzureBlobArray and LocationAzureBlobArrayOutput values.
 // You can construct a concrete instance of `LocationAzureBlobArrayInput` via:
 //
@@ -276,12 +269,6 @@ func (i LocationAzureBlobArray) ToLocationAzureBlobArrayOutput() LocationAzureBl
 
 func (i LocationAzureBlobArray) ToLocationAzureBlobArrayOutputWithContext(ctx context.Context) LocationAzureBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobArrayOutput)
-}
-
-func (i LocationAzureBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationAzureBlob] {
-	return pulumix.Output[[]*LocationAzureBlob]{
-		OutputState: i.ToLocationAzureBlobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocationAzureBlobMapInput is an input type that accepts LocationAzureBlobMap and LocationAzureBlobMapOutput values.
@@ -309,12 +296,6 @@ func (i LocationAzureBlobMap) ToLocationAzureBlobMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobMapOutput)
 }
 
-func (i LocationAzureBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationAzureBlob] {
-	return pulumix.Output[map[string]*LocationAzureBlob]{
-		OutputState: i.ToLocationAzureBlobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationAzureBlobOutput struct{ *pulumi.OutputState }
 
 func (LocationAzureBlobOutput) ElementType() reflect.Type {
@@ -327,12 +308,6 @@ func (o LocationAzureBlobOutput) ToLocationAzureBlobOutput() LocationAzureBlobOu
 
 func (o LocationAzureBlobOutput) ToLocationAzureBlobOutputWithContext(ctx context.Context) LocationAzureBlobOutput {
 	return o
-}
-
-func (o LocationAzureBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlob] {
-	return pulumix.Output[*LocationAzureBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
@@ -405,12 +380,6 @@ func (o LocationAzureBlobArrayOutput) ToLocationAzureBlobArrayOutputWithContext(
 	return o
 }
 
-func (o LocationAzureBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationAzureBlob] {
-	return pulumix.Output[[]*LocationAzureBlob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationAzureBlobArrayOutput) Index(i pulumi.IntInput) LocationAzureBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationAzureBlob {
 		return vs[0].([]*LocationAzureBlob)[vs[1].(int)]
@@ -429,12 +398,6 @@ func (o LocationAzureBlobMapOutput) ToLocationAzureBlobMapOutput() LocationAzure
 
 func (o LocationAzureBlobMapOutput) ToLocationAzureBlobMapOutputWithContext(ctx context.Context) LocationAzureBlobMapOutput {
 	return o
-}
-
-func (o LocationAzureBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationAzureBlob] {
-	return pulumix.Output[map[string]*LocationAzureBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationAzureBlobMapOutput) MapIndex(k pulumi.StringInput) LocationAzureBlobOutput {
