@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppConfig Hosted Configuration Version resource.
@@ -298,12 +297,6 @@ func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionOutput)
 }
 
-func (i *HostedConfigurationVersion) ToOutput(ctx context.Context) pulumix.Output[*HostedConfigurationVersion] {
-	return pulumix.Output[*HostedConfigurationVersion]{
-		OutputState: i.ToHostedConfigurationVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HostedConfigurationVersionArrayInput is an input type that accepts HostedConfigurationVersionArray and HostedConfigurationVersionArrayOutput values.
 // You can construct a concrete instance of `HostedConfigurationVersionArrayInput` via:
 //
@@ -327,12 +320,6 @@ func (i HostedConfigurationVersionArray) ToHostedConfigurationVersionArrayOutput
 
 func (i HostedConfigurationVersionArray) ToHostedConfigurationVersionArrayOutputWithContext(ctx context.Context) HostedConfigurationVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionArrayOutput)
-}
-
-func (i HostedConfigurationVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedConfigurationVersion] {
-	return pulumix.Output[[]*HostedConfigurationVersion]{
-		OutputState: i.ToHostedConfigurationVersionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HostedConfigurationVersionMapInput is an input type that accepts HostedConfigurationVersionMap and HostedConfigurationVersionMapOutput values.
@@ -360,12 +347,6 @@ func (i HostedConfigurationVersionMap) ToHostedConfigurationVersionMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionMapOutput)
 }
 
-func (i HostedConfigurationVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedConfigurationVersion] {
-	return pulumix.Output[map[string]*HostedConfigurationVersion]{
-		OutputState: i.ToHostedConfigurationVersionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HostedConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (HostedConfigurationVersionOutput) ElementType() reflect.Type {
@@ -378,12 +359,6 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutput() H
 
 func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWithContext(ctx context.Context) HostedConfigurationVersionOutput {
 	return o
-}
-
-func (o HostedConfigurationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedConfigurationVersion] {
-	return pulumix.Output[*HostedConfigurationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Application ID.
@@ -435,12 +410,6 @@ func (o HostedConfigurationVersionArrayOutput) ToHostedConfigurationVersionArray
 	return o
 }
 
-func (o HostedConfigurationVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedConfigurationVersion] {
-	return pulumix.Output[[]*HostedConfigurationVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HostedConfigurationVersionArrayOutput) Index(i pulumi.IntInput) HostedConfigurationVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedConfigurationVersion {
 		return vs[0].([]*HostedConfigurationVersion)[vs[1].(int)]
@@ -459,12 +428,6 @@ func (o HostedConfigurationVersionMapOutput) ToHostedConfigurationVersionMapOutp
 
 func (o HostedConfigurationVersionMapOutput) ToHostedConfigurationVersionMapOutputWithContext(ctx context.Context) HostedConfigurationVersionMapOutput {
 	return o
-}
-
-func (o HostedConfigurationVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedConfigurationVersion] {
-	return pulumix.Output[map[string]*HostedConfigurationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedConfigurationVersionMapOutput) MapIndex(k pulumi.StringInput) HostedConfigurationVersionOutput {

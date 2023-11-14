@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IoT role alias.
@@ -140,12 +139,6 @@ func (i *RoleAlias) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasO
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasOutput)
 }
 
-func (i *RoleAlias) ToOutput(ctx context.Context) pulumix.Output[*RoleAlias] {
-	return pulumix.Output[*RoleAlias]{
-		OutputState: i.ToRoleAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleAliasArrayInput is an input type that accepts RoleAliasArray and RoleAliasArrayOutput values.
 // You can construct a concrete instance of `RoleAliasArrayInput` via:
 //
@@ -169,12 +162,6 @@ func (i RoleAliasArray) ToRoleAliasArrayOutput() RoleAliasArrayOutput {
 
 func (i RoleAliasArray) ToRoleAliasArrayOutputWithContext(ctx context.Context) RoleAliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasArrayOutput)
-}
-
-func (i RoleAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAlias] {
-	return pulumix.Output[[]*RoleAlias]{
-		OutputState: i.ToRoleAliasArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoleAliasMapInput is an input type that accepts RoleAliasMap and RoleAliasMapOutput values.
@@ -202,12 +189,6 @@ func (i RoleAliasMap) ToRoleAliasMapOutputWithContext(ctx context.Context) RoleA
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasMapOutput)
 }
 
-func (i RoleAliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAlias] {
-	return pulumix.Output[map[string]*RoleAlias]{
-		OutputState: i.ToRoleAliasMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleAliasOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasOutput) ElementType() reflect.Type {
@@ -220,12 +201,6 @@ func (o RoleAliasOutput) ToRoleAliasOutput() RoleAliasOutput {
 
 func (o RoleAliasOutput) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasOutput {
 	return o
-}
-
-func (o RoleAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleAlias] {
-	return pulumix.Output[*RoleAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the role alias.
@@ -262,12 +237,6 @@ func (o RoleAliasArrayOutput) ToRoleAliasArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RoleAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAlias] {
-	return pulumix.Output[[]*RoleAlias]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoleAliasArrayOutput) Index(i pulumi.IntInput) RoleAliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleAlias {
 		return vs[0].([]*RoleAlias)[vs[1].(int)]
@@ -286,12 +255,6 @@ func (o RoleAliasMapOutput) ToRoleAliasMapOutput() RoleAliasMapOutput {
 
 func (o RoleAliasMapOutput) ToRoleAliasMapOutputWithContext(ctx context.Context) RoleAliasMapOutput {
 	return o
-}
-
-func (o RoleAliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAlias] {
-	return pulumix.Output[map[string]*RoleAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleAliasMapOutput) MapIndex(k pulumi.StringInput) RoleAliasOutput {

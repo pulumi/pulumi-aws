@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enable Termination settings to control outbound calling from your SIP infrastructure.
@@ -208,12 +207,6 @@ func (i *VoiceConnectorTermination) ToVoiceConnectorTerminationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationOutput)
 }
 
-func (i *VoiceConnectorTermination) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorTermination] {
-	return pulumix.Output[*VoiceConnectorTermination]{
-		OutputState: i.ToVoiceConnectorTerminationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VoiceConnectorTerminationArrayInput is an input type that accepts VoiceConnectorTerminationArray and VoiceConnectorTerminationArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorTerminationArrayInput` via:
 //
@@ -237,12 +230,6 @@ func (i VoiceConnectorTerminationArray) ToVoiceConnectorTerminationArrayOutput()
 
 func (i VoiceConnectorTerminationArray) ToVoiceConnectorTerminationArrayOutputWithContext(ctx context.Context) VoiceConnectorTerminationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationArrayOutput)
-}
-
-func (i VoiceConnectorTerminationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorTermination] {
-	return pulumix.Output[[]*VoiceConnectorTermination]{
-		OutputState: i.ToVoiceConnectorTerminationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VoiceConnectorTerminationMapInput is an input type that accepts VoiceConnectorTerminationMap and VoiceConnectorTerminationMapOutput values.
@@ -270,12 +257,6 @@ func (i VoiceConnectorTerminationMap) ToVoiceConnectorTerminationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationMapOutput)
 }
 
-func (i VoiceConnectorTerminationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorTermination] {
-	return pulumix.Output[map[string]*VoiceConnectorTermination]{
-		OutputState: i.ToVoiceConnectorTerminationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VoiceConnectorTerminationOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationOutput) ElementType() reflect.Type {
@@ -288,12 +269,6 @@ func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationOutput() Voi
 
 func (o VoiceConnectorTerminationOutput) ToVoiceConnectorTerminationOutputWithContext(ctx context.Context) VoiceConnectorTerminationOutput {
 	return o
-}
-
-func (o VoiceConnectorTerminationOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorTermination] {
-	return pulumix.Output[*VoiceConnectorTermination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
@@ -340,12 +315,6 @@ func (o VoiceConnectorTerminationArrayOutput) ToVoiceConnectorTerminationArrayOu
 	return o
 }
 
-func (o VoiceConnectorTerminationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorTermination] {
-	return pulumix.Output[[]*VoiceConnectorTermination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VoiceConnectorTerminationArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorTermination {
 		return vs[0].([]*VoiceConnectorTermination)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o VoiceConnectorTerminationMapOutput) ToVoiceConnectorTerminationMapOutput
 
 func (o VoiceConnectorTerminationMapOutput) ToVoiceConnectorTerminationMapOutputWithContext(ctx context.Context) VoiceConnectorTerminationMapOutput {
 	return o
-}
-
-func (o VoiceConnectorTerminationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorTermination] {
-	return pulumix.Output[map[string]*VoiceConnectorTermination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VoiceConnectorTerminationMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorTerminationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsOutput() E
 
 func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointLoadBalancerOptionsOutput)
-}
-
-func (i EndpointLoadBalancerOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointLoadBalancerOptions] {
-	return pulumix.Output[EndpointLoadBalancerOptions]{
-		OutputState: i.ToEndpointLoadBalancerOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i EndpointLoadBalancerOptionsArgs) ToEndpointLoadBalancerOptionsPtrOutput() EndpointLoadBalancerOptionsPtrOutput {
@@ -98,12 +91,6 @@ func (i *endpointLoadBalancerOptionsPtrType) ToEndpointLoadBalancerOptionsPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointLoadBalancerOptionsPtrOutput)
 }
 
-func (i *endpointLoadBalancerOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointLoadBalancerOptions] {
-	return pulumix.Output[*EndpointLoadBalancerOptions]{
-		OutputState: i.ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointLoadBalancerOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointLoadBalancerOptionsOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o EndpointLoadBalancerOptionsOutput) ToEndpointLoadBalancerOptionsPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointLoadBalancerOptions) *EndpointLoadBalancerOptions {
 		return &v
 	}).(EndpointLoadBalancerOptionsPtrOutput)
-}
-
-func (o EndpointLoadBalancerOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointLoadBalancerOptions] {
-	return pulumix.Output[EndpointLoadBalancerOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointLoadBalancerOptionsOutput) LoadBalancerArn() pulumi.StringPtrOutput {
@@ -162,12 +143,6 @@ func (o EndpointLoadBalancerOptionsPtrOutput) ToEndpointLoadBalancerOptionsPtrOu
 
 func (o EndpointLoadBalancerOptionsPtrOutput) ToEndpointLoadBalancerOptionsPtrOutputWithContext(ctx context.Context) EndpointLoadBalancerOptionsPtrOutput {
 	return o
-}
-
-func (o EndpointLoadBalancerOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointLoadBalancerOptions] {
-	return pulumix.Output[*EndpointLoadBalancerOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointLoadBalancerOptionsPtrOutput) Elem() EndpointLoadBalancerOptionsOutput {
@@ -251,12 +226,6 @@ func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsOu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOptionsOutput)
 }
 
-func (i EndpointNetworkInterfaceOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterfaceOptions] {
-	return pulumix.Output[EndpointNetworkInterfaceOptions]{
-		OutputState: i.ToEndpointNetworkInterfaceOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointNetworkInterfaceOptionsArgs) ToEndpointNetworkInterfaceOptionsPtrOutput() EndpointNetworkInterfaceOptionsPtrOutput {
 	return i.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(context.Background())
 }
@@ -298,12 +267,6 @@ func (i *endpointNetworkInterfaceOptionsPtrType) ToEndpointNetworkInterfaceOptio
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOptionsPtrOutput)
 }
 
-func (i *endpointNetworkInterfaceOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointNetworkInterfaceOptions] {
-	return pulumix.Output[*EndpointNetworkInterfaceOptions]{
-		OutputState: i.ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointNetworkInterfaceOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointNetworkInterfaceOptionsOutput) ElementType() reflect.Type {
@@ -326,12 +289,6 @@ func (o EndpointNetworkInterfaceOptionsOutput) ToEndpointNetworkInterfaceOptions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointNetworkInterfaceOptions) *EndpointNetworkInterfaceOptions {
 		return &v
 	}).(EndpointNetworkInterfaceOptionsPtrOutput)
-}
-
-func (o EndpointNetworkInterfaceOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterfaceOptions] {
-	return pulumix.Output[EndpointNetworkInterfaceOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNetworkInterfaceOptionsOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
@@ -358,12 +315,6 @@ func (o EndpointNetworkInterfaceOptionsPtrOutput) ToEndpointNetworkInterfaceOpti
 
 func (o EndpointNetworkInterfaceOptionsPtrOutput) ToEndpointNetworkInterfaceOptionsPtrOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOptionsPtrOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointNetworkInterfaceOptions] {
-	return pulumix.Output[*EndpointNetworkInterfaceOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNetworkInterfaceOptionsPtrOutput) Elem() EndpointNetworkInterfaceOptionsOutput {
@@ -436,12 +387,6 @@ func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSseSpecificationOutput)
 }
 
-func (i EndpointSseSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointSseSpecification] {
-	return pulumix.Output[EndpointSseSpecification]{
-		OutputState: i.ToEndpointSseSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointSseSpecificationArgs) ToEndpointSseSpecificationPtrOutput() EndpointSseSpecificationPtrOutput {
 	return i.ToEndpointSseSpecificationPtrOutputWithContext(context.Background())
 }
@@ -483,12 +428,6 @@ func (i *endpointSseSpecificationPtrType) ToEndpointSseSpecificationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSseSpecificationPtrOutput)
 }
 
-func (i *endpointSseSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointSseSpecification] {
-	return pulumix.Output[*EndpointSseSpecification]{
-		OutputState: i.ToEndpointSseSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointSseSpecificationOutput struct{ *pulumi.OutputState }
 
 func (EndpointSseSpecificationOutput) ElementType() reflect.Type {
@@ -513,12 +452,6 @@ func (o EndpointSseSpecificationOutput) ToEndpointSseSpecificationPtrOutputWithC
 	}).(EndpointSseSpecificationPtrOutput)
 }
 
-func (o EndpointSseSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointSseSpecification] {
-	return pulumix.Output[EndpointSseSpecification]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointSseSpecificationOutput) CustomerManagedKeyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointSseSpecification) *bool { return v.CustomerManagedKeyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -539,12 +472,6 @@ func (o EndpointSseSpecificationPtrOutput) ToEndpointSseSpecificationPtrOutput()
 
 func (o EndpointSseSpecificationPtrOutput) ToEndpointSseSpecificationPtrOutputWithContext(ctx context.Context) EndpointSseSpecificationPtrOutput {
 	return o
-}
-
-func (o EndpointSseSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointSseSpecification] {
-	return pulumix.Output[*EndpointSseSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointSseSpecificationPtrOutput) Elem() EndpointSseSpecificationOutput {
@@ -624,12 +551,6 @@ func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsOutput)
 }
 
-func (i InstanceLoggingConfigurationAccessLogsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogs] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogs]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceLoggingConfigurationAccessLogsArgs) ToInstanceLoggingConfigurationAccessLogsPtrOutput() InstanceLoggingConfigurationAccessLogsPtrOutput {
 	return i.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(context.Background())
 }
@@ -671,12 +592,6 @@ func (i *instanceLoggingConfigurationAccessLogsPtrType) ToInstanceLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsPtrOutput)
 }
 
-func (i *instanceLoggingConfigurationAccessLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogs] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogs]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceLoggingConfigurationAccessLogsOutput struct{ *pulumi.OutputState }
 
 func (InstanceLoggingConfigurationAccessLogsOutput) ElementType() reflect.Type {
@@ -699,12 +614,6 @@ func (o InstanceLoggingConfigurationAccessLogsOutput) ToInstanceLoggingConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogs) *InstanceLoggingConfigurationAccessLogs {
 		return &v
 	}).(InstanceLoggingConfigurationAccessLogsPtrOutput)
-}
-
-func (o InstanceLoggingConfigurationAccessLogsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogs] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
@@ -748,12 +657,6 @@ func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToInstanceLoggingConfig
 
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsPtrOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationAccessLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogs] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLoggingConfigurationAccessLogsPtrOutput) Elem() InstanceLoggingConfigurationAccessLogsOutput {
@@ -853,12 +756,6 @@ func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLogg
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput)
 }
 
-func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput() InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(context.Background())
 }
@@ -900,12 +797,6 @@ func (i *instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ToInstance
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-func (i *instanceLoggingConfigurationAccessLogsCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -930,12 +821,6 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToInstanceLo
 	}).(InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput)
 }
 
-func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether logging is enabled.
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -958,12 +843,6 @@ func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToInstanc
 
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToInstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsCloudwatchLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLoggingConfigurationAccessLogsCloudwatchLogsPtrOutput) Elem() InstanceLoggingConfigurationAccessLogsCloudwatchLogsOutput {
@@ -1033,12 +912,6 @@ func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput)
 }
 
-func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput() InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(context.Background())
 }
@@ -1080,12 +953,6 @@ func (i *instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ToIns
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-func (i *instanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput struct{ *pulumi.OutputState }
 
 func (InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ElementType() reflect.Type {
@@ -1110,12 +977,6 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToInsta
 	}).(InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput)
 }
 
-func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the delivery stream.
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLoggingConfigurationAccessLogsKinesisDataFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
@@ -1138,12 +999,6 @@ func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToIn
 
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToInstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsKinesisDataFirehose]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLoggingConfigurationAccessLogsKinesisDataFirehosePtrOutput) Elem() InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseOutput {
@@ -1221,12 +1076,6 @@ func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsS3Output)
 }
 
-func (i InstanceLoggingConfigurationAccessLogsS3Args) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsS3] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsS3]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceLoggingConfigurationAccessLogsS3Args) ToInstanceLoggingConfigurationAccessLogsS3PtrOutput() InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return i.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(context.Background())
 }
@@ -1268,12 +1117,6 @@ func (i *instanceLoggingConfigurationAccessLogsS3PtrType) ToInstanceLoggingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
 }
 
-func (i *instanceLoggingConfigurationAccessLogsS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3]{
-		OutputState: i.ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceLoggingConfigurationAccessLogsS3Output struct{ *pulumi.OutputState }
 
 func (InstanceLoggingConfigurationAccessLogsS3Output) ElementType() reflect.Type {
@@ -1296,12 +1139,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3Output) ToInstanceLoggingConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLoggingConfigurationAccessLogsS3) *InstanceLoggingConfigurationAccessLogsS3 {
 		return &v
 	}).(InstanceLoggingConfigurationAccessLogsS3PtrOutput)
-}
-
-func (o InstanceLoggingConfigurationAccessLogsS3Output) ToOutput(ctx context.Context) pulumix.Output[InstanceLoggingConfigurationAccessLogsS3] {
-	return pulumix.Output[InstanceLoggingConfigurationAccessLogsS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of S3 bucket.
@@ -1336,12 +1173,6 @@ func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToInstanceLoggingConf
 
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToInstanceLoggingConfigurationAccessLogsS3PtrOutputWithContext(ctx context.Context) InstanceLoggingConfigurationAccessLogsS3PtrOutput {
 	return o
-}
-
-func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3] {
-	return pulumix.Output[*InstanceLoggingConfigurationAccessLogsS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLoggingConfigurationAccessLogsS3PtrOutput) Elem() InstanceLoggingConfigurationAccessLogsS3Output {
@@ -1443,12 +1274,6 @@ func (i InstanceVerifiedAccessTrustProviderArgs) ToInstanceVerifiedAccessTrustPr
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceVerifiedAccessTrustProviderOutput)
 }
 
-func (i InstanceVerifiedAccessTrustProviderArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceVerifiedAccessTrustProvider] {
-	return pulumix.Output[InstanceVerifiedAccessTrustProvider]{
-		OutputState: i.ToInstanceVerifiedAccessTrustProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceVerifiedAccessTrustProviderArrayInput is an input type that accepts InstanceVerifiedAccessTrustProviderArray and InstanceVerifiedAccessTrustProviderArrayOutput values.
 // You can construct a concrete instance of `InstanceVerifiedAccessTrustProviderArrayInput` via:
 //
@@ -1474,12 +1299,6 @@ func (i InstanceVerifiedAccessTrustProviderArray) ToInstanceVerifiedAccessTrustP
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceVerifiedAccessTrustProviderArrayOutput)
 }
 
-func (i InstanceVerifiedAccessTrustProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceVerifiedAccessTrustProvider] {
-	return pulumix.Output[[]InstanceVerifiedAccessTrustProvider]{
-		OutputState: i.ToInstanceVerifiedAccessTrustProviderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceVerifiedAccessTrustProviderOutput struct{ *pulumi.OutputState }
 
 func (InstanceVerifiedAccessTrustProviderOutput) ElementType() reflect.Type {
@@ -1492,12 +1311,6 @@ func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrust
 
 func (o InstanceVerifiedAccessTrustProviderOutput) ToInstanceVerifiedAccessTrustProviderOutputWithContext(ctx context.Context) InstanceVerifiedAccessTrustProviderOutput {
 	return o
-}
-
-func (o InstanceVerifiedAccessTrustProviderOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceVerifiedAccessTrustProvider] {
-	return pulumix.Output[InstanceVerifiedAccessTrustProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for the AWS Verified Access Instance.
@@ -1539,12 +1352,6 @@ func (o InstanceVerifiedAccessTrustProviderArrayOutput) ToInstanceVerifiedAccess
 	return o
 }
 
-func (o InstanceVerifiedAccessTrustProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceVerifiedAccessTrustProvider] {
-	return pulumix.Output[[]InstanceVerifiedAccessTrustProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceVerifiedAccessTrustProviderArrayOutput) Index(i pulumi.IntInput) InstanceVerifiedAccessTrustProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceVerifiedAccessTrustProvider {
 		return vs[0].([]InstanceVerifiedAccessTrustProvider)[vs[1].(int)]
@@ -1580,12 +1387,6 @@ func (i TrustProviderDeviceOptionsArgs) ToTrustProviderDeviceOptionsOutput() Tru
 
 func (i TrustProviderDeviceOptionsArgs) ToTrustProviderDeviceOptionsOutputWithContext(ctx context.Context) TrustProviderDeviceOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderDeviceOptionsOutput)
-}
-
-func (i TrustProviderDeviceOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TrustProviderDeviceOptions] {
-	return pulumix.Output[TrustProviderDeviceOptions]{
-		OutputState: i.ToTrustProviderDeviceOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TrustProviderDeviceOptionsArgs) ToTrustProviderDeviceOptionsPtrOutput() TrustProviderDeviceOptionsPtrOutput {
@@ -1629,12 +1430,6 @@ func (i *trustProviderDeviceOptionsPtrType) ToTrustProviderDeviceOptionsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderDeviceOptionsPtrOutput)
 }
 
-func (i *trustProviderDeviceOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TrustProviderDeviceOptions] {
-	return pulumix.Output[*TrustProviderDeviceOptions]{
-		OutputState: i.ToTrustProviderDeviceOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustProviderDeviceOptionsOutput struct{ *pulumi.OutputState }
 
 func (TrustProviderDeviceOptionsOutput) ElementType() reflect.Type {
@@ -1659,12 +1454,6 @@ func (o TrustProviderDeviceOptionsOutput) ToTrustProviderDeviceOptionsPtrOutputW
 	}).(TrustProviderDeviceOptionsPtrOutput)
 }
 
-func (o TrustProviderDeviceOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TrustProviderDeviceOptions] {
-	return pulumix.Output[TrustProviderDeviceOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustProviderDeviceOptionsOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrustProviderDeviceOptions) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -1681,12 +1470,6 @@ func (o TrustProviderDeviceOptionsPtrOutput) ToTrustProviderDeviceOptionsPtrOutp
 
 func (o TrustProviderDeviceOptionsPtrOutput) ToTrustProviderDeviceOptionsPtrOutputWithContext(ctx context.Context) TrustProviderDeviceOptionsPtrOutput {
 	return o
-}
-
-func (o TrustProviderDeviceOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustProviderDeviceOptions] {
-	return pulumix.Output[*TrustProviderDeviceOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustProviderDeviceOptionsPtrOutput) Elem() TrustProviderDeviceOptionsOutput {
@@ -1751,12 +1534,6 @@ func (i TrustProviderOidcOptionsArgs) ToTrustProviderOidcOptionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderOidcOptionsOutput)
 }
 
-func (i TrustProviderOidcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TrustProviderOidcOptions] {
-	return pulumix.Output[TrustProviderOidcOptions]{
-		OutputState: i.ToTrustProviderOidcOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TrustProviderOidcOptionsArgs) ToTrustProviderOidcOptionsPtrOutput() TrustProviderOidcOptionsPtrOutput {
 	return i.ToTrustProviderOidcOptionsPtrOutputWithContext(context.Background())
 }
@@ -1798,12 +1575,6 @@ func (i *trustProviderOidcOptionsPtrType) ToTrustProviderOidcOptionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TrustProviderOidcOptionsPtrOutput)
 }
 
-func (i *trustProviderOidcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TrustProviderOidcOptions] {
-	return pulumix.Output[*TrustProviderOidcOptions]{
-		OutputState: i.ToTrustProviderOidcOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustProviderOidcOptionsOutput struct{ *pulumi.OutputState }
 
 func (TrustProviderOidcOptionsOutput) ElementType() reflect.Type {
@@ -1826,12 +1597,6 @@ func (o TrustProviderOidcOptionsOutput) ToTrustProviderOidcOptionsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustProviderOidcOptions) *TrustProviderOidcOptions {
 		return &v
 	}).(TrustProviderOidcOptionsPtrOutput)
-}
-
-func (o TrustProviderOidcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TrustProviderOidcOptions] {
-	return pulumix.Output[TrustProviderOidcOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustProviderOidcOptionsOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
@@ -1874,12 +1639,6 @@ func (o TrustProviderOidcOptionsPtrOutput) ToTrustProviderOidcOptionsPtrOutput()
 
 func (o TrustProviderOidcOptionsPtrOutput) ToTrustProviderOidcOptionsPtrOutputWithContext(ctx context.Context) TrustProviderOidcOptionsPtrOutput {
 	return o
-}
-
-func (o TrustProviderOidcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustProviderOidcOptions] {
-	return pulumix.Output[*TrustProviderOidcOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustProviderOidcOptionsPtrOutput) Elem() TrustProviderOidcOptionsOutput {

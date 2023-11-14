@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS ECS (Elastic Container) Task Execution. This data source calls the [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API, allowing execution of one-time tasks that don't fit a standard resource lifecycle. See the feature request issue for additional context.
@@ -162,12 +161,6 @@ func (o GetTaskExecutionResultOutput) ToGetTaskExecutionResultOutput() GetTaskEx
 
 func (o GetTaskExecutionResultOutput) ToGetTaskExecutionResultOutputWithContext(ctx context.Context) GetTaskExecutionResultOutput {
 	return o
-}
-
-func (o GetTaskExecutionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTaskExecutionResult] {
-	return pulumix.Output[GetTaskExecutionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTaskExecutionResultOutput) CapacityProviderStrategies() GetTaskExecutionCapacityProviderStrategyArrayOutput {

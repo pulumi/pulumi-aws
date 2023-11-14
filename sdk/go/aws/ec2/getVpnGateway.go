@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPN Gateway data source provides details about
@@ -144,12 +143,6 @@ func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpn
 
 func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
 	return o
-}
-
-func (o LookupVpnGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpnGatewayResult] {
-	return pulumix.Output[LookupVpnGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupVpnGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {

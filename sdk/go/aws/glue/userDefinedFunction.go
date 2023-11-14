@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue User Defined Function Resource.
@@ -234,12 +233,6 @@ func (i *UserDefinedFunction) ToUserDefinedFunctionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionOutput)
 }
 
-func (i *UserDefinedFunction) ToOutput(ctx context.Context) pulumix.Output[*UserDefinedFunction] {
-	return pulumix.Output[*UserDefinedFunction]{
-		OutputState: i.ToUserDefinedFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserDefinedFunctionArrayInput is an input type that accepts UserDefinedFunctionArray and UserDefinedFunctionArrayOutput values.
 // You can construct a concrete instance of `UserDefinedFunctionArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutput() UserDefined
 
 func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutputWithContext(ctx context.Context) UserDefinedFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionArrayOutput)
-}
-
-func (i UserDefinedFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserDefinedFunction] {
-	return pulumix.Output[[]*UserDefinedFunction]{
-		OutputState: i.ToUserDefinedFunctionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserDefinedFunctionMapInput is an input type that accepts UserDefinedFunctionMap and UserDefinedFunctionMapOutput values.
@@ -296,12 +283,6 @@ func (i UserDefinedFunctionMap) ToUserDefinedFunctionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionMapOutput)
 }
 
-func (i UserDefinedFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserDefinedFunction] {
-	return pulumix.Output[map[string]*UserDefinedFunction]{
-		OutputState: i.ToUserDefinedFunctionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserDefinedFunctionOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedFunctionOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutput() UserDefinedFunc
 
 func (o UserDefinedFunctionOutput) ToUserDefinedFunctionOutputWithContext(ctx context.Context) UserDefinedFunctionOutput {
 	return o
-}
-
-func (o UserDefinedFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*UserDefinedFunction] {
-	return pulumix.Output[*UserDefinedFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Glue User Defined Function.
@@ -381,12 +356,6 @@ func (o UserDefinedFunctionArrayOutput) ToUserDefinedFunctionArrayOutputWithCont
 	return o
 }
 
-func (o UserDefinedFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserDefinedFunction] {
-	return pulumix.Output[[]*UserDefinedFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserDefinedFunctionArrayOutput) Index(i pulumi.IntInput) UserDefinedFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserDefinedFunction {
 		return vs[0].([]*UserDefinedFunction)[vs[1].(int)]
@@ -405,12 +374,6 @@ func (o UserDefinedFunctionMapOutput) ToUserDefinedFunctionMapOutput() UserDefin
 
 func (o UserDefinedFunctionMapOutput) ToUserDefinedFunctionMapOutputWithContext(ctx context.Context) UserDefinedFunctionMapOutput {
 	return o
-}
-
-func (o UserDefinedFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserDefinedFunction] {
-	return pulumix.Output[map[string]*UserDefinedFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserDefinedFunctionMapOutput) MapIndex(k pulumi.StringInput) UserDefinedFunctionOutput {

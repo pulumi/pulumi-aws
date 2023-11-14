@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
@@ -175,12 +174,6 @@ func (i *OrganizationConfigurationFeature) ToOrganizationConfigurationFeatureOut
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationFeatureOutput)
 }
 
-func (i *OrganizationConfigurationFeature) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationFeature] {
-	return pulumix.Output[*OrganizationConfigurationFeature]{
-		OutputState: i.ToOrganizationConfigurationFeatureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationConfigurationFeatureArrayInput is an input type that accepts OrganizationConfigurationFeatureArray and OrganizationConfigurationFeatureArrayOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationFeatureArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i OrganizationConfigurationFeatureArray) ToOrganizationConfigurationFeatur
 
 func (i OrganizationConfigurationFeatureArray) ToOrganizationConfigurationFeatureArrayOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationFeatureArrayOutput)
-}
-
-func (i OrganizationConfigurationFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfigurationFeature] {
-	return pulumix.Output[[]*OrganizationConfigurationFeature]{
-		OutputState: i.ToOrganizationConfigurationFeatureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrganizationConfigurationFeatureMapInput is an input type that accepts OrganizationConfigurationFeatureMap and OrganizationConfigurationFeatureMapOutput values.
@@ -237,12 +224,6 @@ func (i OrganizationConfigurationFeatureMap) ToOrganizationConfigurationFeatureM
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationFeatureMapOutput)
 }
 
-func (i OrganizationConfigurationFeatureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfigurationFeature] {
-	return pulumix.Output[map[string]*OrganizationConfigurationFeature]{
-		OutputState: i.ToOrganizationConfigurationFeatureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrganizationConfigurationFeatureOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationFeatureOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o OrganizationConfigurationFeatureOutput) ToOrganizationConfigurationFeatu
 
 func (o OrganizationConfigurationFeatureOutput) ToOrganizationConfigurationFeatureOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureOutput {
 	return o
-}
-
-func (o OrganizationConfigurationFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfigurationFeature] {
-	return pulumix.Output[*OrganizationConfigurationFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The additional information that will be configured for the organization See below.
@@ -299,12 +274,6 @@ func (o OrganizationConfigurationFeatureArrayOutput) ToOrganizationConfiguration
 	return o
 }
 
-func (o OrganizationConfigurationFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfigurationFeature] {
-	return pulumix.Output[[]*OrganizationConfigurationFeature]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationConfigurationFeatureArrayOutput) Index(i pulumi.IntInput) OrganizationConfigurationFeatureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationConfigurationFeature {
 		return vs[0].([]*OrganizationConfigurationFeature)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o OrganizationConfigurationFeatureMapOutput) ToOrganizationConfigurationFe
 
 func (o OrganizationConfigurationFeatureMapOutput) ToOrganizationConfigurationFeatureMapOutputWithContext(ctx context.Context) OrganizationConfigurationFeatureMapOutput {
 	return o
-}
-
-func (o OrganizationConfigurationFeatureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfigurationFeature] {
-	return pulumix.Output[map[string]*OrganizationConfigurationFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationConfigurationFeatureMapOutput) MapIndex(k pulumi.StringInput) OrganizationConfigurationFeatureOutput {

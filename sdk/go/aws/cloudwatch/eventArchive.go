@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge event archive resource.
@@ -232,12 +231,6 @@ func (i *EventArchive) ToEventArchiveOutputWithContext(ctx context.Context) Even
 	return pulumi.ToOutputWithContext(ctx, i).(EventArchiveOutput)
 }
 
-func (i *EventArchive) ToOutput(ctx context.Context) pulumix.Output[*EventArchive] {
-	return pulumix.Output[*EventArchive]{
-		OutputState: i.ToEventArchiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventArchiveArrayInput is an input type that accepts EventArchiveArray and EventArchiveArrayOutput values.
 // You can construct a concrete instance of `EventArchiveArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i EventArchiveArray) ToEventArchiveArrayOutput() EventArchiveArrayOutput {
 
 func (i EventArchiveArray) ToEventArchiveArrayOutputWithContext(ctx context.Context) EventArchiveArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventArchiveArrayOutput)
-}
-
-func (i EventArchiveArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventArchive] {
-	return pulumix.Output[[]*EventArchive]{
-		OutputState: i.ToEventArchiveArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventArchiveMapInput is an input type that accepts EventArchiveMap and EventArchiveMapOutput values.
@@ -294,12 +281,6 @@ func (i EventArchiveMap) ToEventArchiveMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EventArchiveMapOutput)
 }
 
-func (i EventArchiveMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventArchive] {
-	return pulumix.Output[map[string]*EventArchive]{
-		OutputState: i.ToEventArchiveMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventArchiveOutput struct{ *pulumi.OutputState }
 
 func (EventArchiveOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o EventArchiveOutput) ToEventArchiveOutput() EventArchiveOutput {
 
 func (o EventArchiveOutput) ToEventArchiveOutputWithContext(ctx context.Context) EventArchiveOutput {
 	return o
-}
-
-func (o EventArchiveOutput) ToOutput(ctx context.Context) pulumix.Output[*EventArchive] {
-	return pulumix.Output[*EventArchive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the event archive.
@@ -364,12 +339,6 @@ func (o EventArchiveArrayOutput) ToEventArchiveArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o EventArchiveArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventArchive] {
-	return pulumix.Output[[]*EventArchive]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventArchiveArrayOutput) Index(i pulumi.IntInput) EventArchiveOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventArchive {
 		return vs[0].([]*EventArchive)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o EventArchiveMapOutput) ToEventArchiveMapOutput() EventArchiveMapOutput {
 
 func (o EventArchiveMapOutput) ToEventArchiveMapOutputWithContext(ctx context.Context) EventArchiveMapOutput {
 	return o
-}
-
-func (o EventArchiveMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventArchive] {
-	return pulumix.Output[map[string]*EventArchive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventArchiveMapOutput) MapIndex(k pulumi.StringInput) EventArchiveOutput {

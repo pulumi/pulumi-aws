@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SSM Contact Plan.
@@ -258,12 +257,6 @@ func (i *Plan) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanOutput)
 }
 
-func (i *Plan) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
-	return pulumix.Output[*Plan]{
-		OutputState: i.ToPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PlanArrayInput is an input type that accepts PlanArray and PlanArrayOutput values.
 // You can construct a concrete instance of `PlanArrayInput` via:
 //
@@ -287,12 +280,6 @@ func (i PlanArray) ToPlanArrayOutput() PlanArrayOutput {
 
 func (i PlanArray) ToPlanArrayOutputWithContext(ctx context.Context) PlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanArrayOutput)
-}
-
-func (i PlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*Plan] {
-	return pulumix.Output[[]*Plan]{
-		OutputState: i.ToPlanArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PlanMapInput is an input type that accepts PlanMap and PlanMapOutput values.
@@ -320,12 +307,6 @@ func (i PlanMap) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanMapOutput)
 }
 
-func (i PlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Plan] {
-	return pulumix.Output[map[string]*Plan]{
-		OutputState: i.ToPlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
@@ -338,12 +319,6 @@ func (o PlanOutput) ToPlanOutput() PlanOutput {
 
 func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 	return o
-}
-
-func (o PlanOutput) ToOutput(ctx context.Context) pulumix.Output[*Plan] {
-	return pulumix.Output[*Plan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
@@ -370,12 +345,6 @@ func (o PlanArrayOutput) ToPlanArrayOutputWithContext(ctx context.Context) PlanA
 	return o
 }
 
-func (o PlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Plan] {
-	return pulumix.Output[[]*Plan]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PlanArrayOutput) Index(i pulumi.IntInput) PlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Plan {
 		return vs[0].([]*Plan)[vs[1].(int)]
@@ -394,12 +363,6 @@ func (o PlanMapOutput) ToPlanMapOutput() PlanMapOutput {
 
 func (o PlanMapOutput) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
 	return o
-}
-
-func (o PlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Plan] {
-	return pulumix.Output[map[string]*Plan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlanMapOutput) MapIndex(k pulumi.StringInput) PlanOutput {

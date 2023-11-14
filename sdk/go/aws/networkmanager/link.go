@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a link for a site.
@@ -231,12 +230,6 @@ func (i *Link) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkOutput)
 }
 
-func (i *Link) ToOutput(ctx context.Context) pulumix.Output[*Link] {
-	return pulumix.Output[*Link]{
-		OutputState: i.ToLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkArrayInput is an input type that accepts LinkArray and LinkArrayOutput values.
 // You can construct a concrete instance of `LinkArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i LinkArray) ToLinkArrayOutput() LinkArrayOutput {
 
 func (i LinkArray) ToLinkArrayOutputWithContext(ctx context.Context) LinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkArrayOutput)
-}
-
-func (i LinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Link] {
-	return pulumix.Output[[]*Link]{
-		OutputState: i.ToLinkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkMapInput is an input type that accepts LinkMap and LinkMapOutput values.
@@ -293,12 +280,6 @@ func (i LinkMap) ToLinkMapOutputWithContext(ctx context.Context) LinkMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkMapOutput)
 }
 
-func (i LinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Link] {
-	return pulumix.Output[map[string]*Link]{
-		OutputState: i.ToLinkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkOutput struct{ *pulumi.OutputState }
 
 func (LinkOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o LinkOutput) ToLinkOutput() LinkOutput {
 
 func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
-}
-
-func (o LinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Link] {
-	return pulumix.Output[*Link]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Link Amazon Resource Name (ARN).
@@ -380,12 +355,6 @@ func (o LinkArrayOutput) ToLinkArrayOutputWithContext(ctx context.Context) LinkA
 	return o
 }
 
-func (o LinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Link] {
-	return pulumix.Output[[]*Link]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkArrayOutput) Index(i pulumi.IntInput) LinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Link {
 		return vs[0].([]*Link)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o LinkMapOutput) ToLinkMapOutput() LinkMapOutput {
 
 func (o LinkMapOutput) ToLinkMapOutputWithContext(ctx context.Context) LinkMapOutput {
 	return o
-}
-
-func (o LinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Link] {
-	return pulumix.Output[map[string]*Link]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkMapOutput) MapIndex(k pulumi.StringInput) LinkOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint GCM Channel resource.
@@ -173,12 +172,6 @@ func (i *GcmChannel) ToGcmChannelOutputWithContext(ctx context.Context) GcmChann
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelOutput)
 }
 
-func (i *GcmChannel) ToOutput(ctx context.Context) pulumix.Output[*GcmChannel] {
-	return pulumix.Output[*GcmChannel]{
-		OutputState: i.ToGcmChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GcmChannelArrayInput is an input type that accepts GcmChannelArray and GcmChannelArrayOutput values.
 // You can construct a concrete instance of `GcmChannelArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i GcmChannelArray) ToGcmChannelArrayOutput() GcmChannelArrayOutput {
 
 func (i GcmChannelArray) ToGcmChannelArrayOutputWithContext(ctx context.Context) GcmChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelArrayOutput)
-}
-
-func (i GcmChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*GcmChannel] {
-	return pulumix.Output[[]*GcmChannel]{
-		OutputState: i.ToGcmChannelArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GcmChannelMapInput is an input type that accepts GcmChannelMap and GcmChannelMapOutput values.
@@ -235,12 +222,6 @@ func (i GcmChannelMap) ToGcmChannelMapOutputWithContext(ctx context.Context) Gcm
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelMapOutput)
 }
 
-func (i GcmChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcmChannel] {
-	return pulumix.Output[map[string]*GcmChannel]{
-		OutputState: i.ToGcmChannelMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GcmChannelOutput struct{ *pulumi.OutputState }
 
 func (GcmChannelOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o GcmChannelOutput) ToGcmChannelOutput() GcmChannelOutput {
 
 func (o GcmChannelOutput) ToGcmChannelOutputWithContext(ctx context.Context) GcmChannelOutput {
 	return o
-}
-
-func (o GcmChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*GcmChannel] {
-	return pulumix.Output[*GcmChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Platform credential API key from Google.
@@ -290,12 +265,6 @@ func (o GcmChannelArrayOutput) ToGcmChannelArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GcmChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GcmChannel] {
-	return pulumix.Output[[]*GcmChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GcmChannelArrayOutput) Index(i pulumi.IntInput) GcmChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GcmChannel {
 		return vs[0].([]*GcmChannel)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o GcmChannelMapOutput) ToGcmChannelMapOutput() GcmChannelMapOutput {
 
 func (o GcmChannelMapOutput) ToGcmChannelMapOutputWithContext(ctx context.Context) GcmChannelMapOutput {
 	return o
-}
-
-func (o GcmChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GcmChannel] {
-	return pulumix.Output[map[string]*GcmChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GcmChannelMapOutput) MapIndex(k pulumi.StringInput) GcmChannelOutput {

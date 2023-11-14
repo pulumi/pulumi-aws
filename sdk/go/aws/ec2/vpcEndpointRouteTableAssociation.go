@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPC Endpoint Route Table Association
@@ -151,12 +150,6 @@ func (i *VpcEndpointRouteTableAssociation) ToVpcEndpointRouteTableAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationOutput)
 }
 
-func (i *VpcEndpointRouteTableAssociation) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[*VpcEndpointRouteTableAssociation]{
-		OutputState: i.ToVpcEndpointRouteTableAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcEndpointRouteTableAssociationArrayInput is an input type that accepts VpcEndpointRouteTableAssociationArray and VpcEndpointRouteTableAssociationArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointRouteTableAssociationArrayInput` via:
 //
@@ -180,12 +173,6 @@ func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociatio
 
 func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociationArrayOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationArrayOutput)
-}
-
-func (i VpcEndpointRouteTableAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[[]*VpcEndpointRouteTableAssociation]{
-		OutputState: i.ToVpcEndpointRouteTableAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpcEndpointRouteTableAssociationMapInput is an input type that accepts VpcEndpointRouteTableAssociationMap and VpcEndpointRouteTableAssociationMapOutput values.
@@ -213,12 +200,6 @@ func (i VpcEndpointRouteTableAssociationMap) ToVpcEndpointRouteTableAssociationM
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationMapOutput)
 }
 
-func (i VpcEndpointRouteTableAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[map[string]*VpcEndpointRouteTableAssociation]{
-		OutputState: i.ToVpcEndpointRouteTableAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcEndpointRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointRouteTableAssociationOutput) ElementType() reflect.Type {
@@ -231,12 +212,6 @@ func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociati
 
 func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociationOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationOutput {
 	return o
-}
-
-func (o VpcEndpointRouteTableAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[*VpcEndpointRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
@@ -263,12 +238,6 @@ func (o VpcEndpointRouteTableAssociationArrayOutput) ToVpcEndpointRouteTableAsso
 	return o
 }
 
-func (o VpcEndpointRouteTableAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[[]*VpcEndpointRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcEndpointRouteTableAssociationArrayOutput) Index(i pulumi.IntInput) VpcEndpointRouteTableAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointRouteTableAssociation {
 		return vs[0].([]*VpcEndpointRouteTableAssociation)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o VpcEndpointRouteTableAssociationMapOutput) ToVpcEndpointRouteTableAssoci
 
 func (o VpcEndpointRouteTableAssociationMapOutput) ToVpcEndpointRouteTableAssociationMapOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationMapOutput {
 	return o
-}
-
-func (o VpcEndpointRouteTableAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointRouteTableAssociation] {
-	return pulumix.Output[map[string]*VpcEndpointRouteTableAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcEndpointRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointRouteTableAssociationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS IoT Thing Group.
@@ -204,12 +203,6 @@ func (i *ThingGroup) ToThingGroupOutputWithContext(ctx context.Context) ThingGro
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupOutput)
 }
 
-func (i *ThingGroup) ToOutput(ctx context.Context) pulumix.Output[*ThingGroup] {
-	return pulumix.Output[*ThingGroup]{
-		OutputState: i.ToThingGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThingGroupArrayInput is an input type that accepts ThingGroupArray and ThingGroupArrayOutput values.
 // You can construct a concrete instance of `ThingGroupArrayInput` via:
 //
@@ -233,12 +226,6 @@ func (i ThingGroupArray) ToThingGroupArrayOutput() ThingGroupArrayOutput {
 
 func (i ThingGroupArray) ToThingGroupArrayOutputWithContext(ctx context.Context) ThingGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupArrayOutput)
-}
-
-func (i ThingGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThingGroup] {
-	return pulumix.Output[[]*ThingGroup]{
-		OutputState: i.ToThingGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ThingGroupMapInput is an input type that accepts ThingGroupMap and ThingGroupMapOutput values.
@@ -266,12 +253,6 @@ func (i ThingGroupMap) ToThingGroupMapOutputWithContext(ctx context.Context) Thi
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMapOutput)
 }
 
-func (i ThingGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingGroup] {
-	return pulumix.Output[map[string]*ThingGroup]{
-		OutputState: i.ToThingGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThingGroupOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupOutput) ElementType() reflect.Type {
@@ -284,12 +265,6 @@ func (o ThingGroupOutput) ToThingGroupOutput() ThingGroupOutput {
 
 func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) ThingGroupOutput {
 	return o
-}
-
-func (o ThingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingGroup] {
-	return pulumix.Output[*ThingGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Thing Group.
@@ -345,12 +320,6 @@ func (o ThingGroupArrayOutput) ToThingGroupArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ThingGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThingGroup] {
-	return pulumix.Output[[]*ThingGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThingGroupArrayOutput) Index(i pulumi.IntInput) ThingGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingGroup {
 		return vs[0].([]*ThingGroup)[vs[1].(int)]
@@ -369,12 +338,6 @@ func (o ThingGroupMapOutput) ToThingGroupMapOutput() ThingGroupMapOutput {
 
 func (o ThingGroupMapOutput) ToThingGroupMapOutputWithContext(ctx context.Context) ThingGroupMapOutput {
 	return o
-}
-
-func (o ThingGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingGroup] {
-	return pulumix.Output[map[string]*ThingGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThingGroupMapOutput) MapIndex(k pulumi.StringInput) ThingGroupOutput {

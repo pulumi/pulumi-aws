@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -203,12 +202,6 @@ func (i *AccountPublicAccessBlock) ToAccountPublicAccessBlockOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockOutput)
 }
 
-func (i *AccountPublicAccessBlock) ToOutput(ctx context.Context) pulumix.Output[*AccountPublicAccessBlock] {
-	return pulumix.Output[*AccountPublicAccessBlock]{
-		OutputState: i.ToAccountPublicAccessBlockOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountPublicAccessBlockArrayInput is an input type that accepts AccountPublicAccessBlockArray and AccountPublicAccessBlockArrayOutput values.
 // You can construct a concrete instance of `AccountPublicAccessBlockArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutput() A
 
 func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutputWithContext(ctx context.Context) AccountPublicAccessBlockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockArrayOutput)
-}
-
-func (i AccountPublicAccessBlockArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountPublicAccessBlock] {
-	return pulumix.Output[[]*AccountPublicAccessBlock]{
-		OutputState: i.ToAccountPublicAccessBlockArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountPublicAccessBlockMapInput is an input type that accepts AccountPublicAccessBlockMap and AccountPublicAccessBlockMapOutput values.
@@ -265,12 +252,6 @@ func (i AccountPublicAccessBlockMap) ToAccountPublicAccessBlockMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockMapOutput)
 }
 
-func (i AccountPublicAccessBlockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountPublicAccessBlock] {
-	return pulumix.Output[map[string]*AccountPublicAccessBlock]{
-		OutputState: i.ToAccountPublicAccessBlockMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (AccountPublicAccessBlockOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutput() Accou
 
 func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockOutputWithContext(ctx context.Context) AccountPublicAccessBlockOutput {
 	return o
-}
-
-func (o AccountPublicAccessBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPublicAccessBlock] {
-	return pulumix.Output[*AccountPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 // AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
@@ -335,12 +310,6 @@ func (o AccountPublicAccessBlockArrayOutput) ToAccountPublicAccessBlockArrayOutp
 	return o
 }
 
-func (o AccountPublicAccessBlockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountPublicAccessBlock] {
-	return pulumix.Output[[]*AccountPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) AccountPublicAccessBlockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountPublicAccessBlock {
 		return vs[0].([]*AccountPublicAccessBlock)[vs[1].(int)]
@@ -359,12 +328,6 @@ func (o AccountPublicAccessBlockMapOutput) ToAccountPublicAccessBlockMapOutput()
 
 func (o AccountPublicAccessBlockMapOutput) ToAccountPublicAccessBlockMapOutputWithContext(ctx context.Context) AccountPublicAccessBlockMapOutput {
 	return o
-}
-
-func (o AccountPublicAccessBlockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountPublicAccessBlock] {
-	return pulumix.Output[map[string]*AccountPublicAccessBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) AccountPublicAccessBlockOutput {

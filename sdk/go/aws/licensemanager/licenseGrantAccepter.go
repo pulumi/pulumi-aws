@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Accepts a License Manager grant. This allows for sharing licenses with other aws accounts.
@@ -185,12 +184,6 @@ func (i *LicenseGrantAccepter) ToLicenseGrantAccepterOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseGrantAccepterOutput)
 }
 
-func (i *LicenseGrantAccepter) ToOutput(ctx context.Context) pulumix.Output[*LicenseGrantAccepter] {
-	return pulumix.Output[*LicenseGrantAccepter]{
-		OutputState: i.ToLicenseGrantAccepterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LicenseGrantAccepterArrayInput is an input type that accepts LicenseGrantAccepterArray and LicenseGrantAccepterArrayOutput values.
 // You can construct a concrete instance of `LicenseGrantAccepterArrayInput` via:
 //
@@ -214,12 +207,6 @@ func (i LicenseGrantAccepterArray) ToLicenseGrantAccepterArrayOutput() LicenseGr
 
 func (i LicenseGrantAccepterArray) ToLicenseGrantAccepterArrayOutputWithContext(ctx context.Context) LicenseGrantAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseGrantAccepterArrayOutput)
-}
-
-func (i LicenseGrantAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseGrantAccepter] {
-	return pulumix.Output[[]*LicenseGrantAccepter]{
-		OutputState: i.ToLicenseGrantAccepterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LicenseGrantAccepterMapInput is an input type that accepts LicenseGrantAccepterMap and LicenseGrantAccepterMapOutput values.
@@ -247,12 +234,6 @@ func (i LicenseGrantAccepterMap) ToLicenseGrantAccepterMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseGrantAccepterMapOutput)
 }
 
-func (i LicenseGrantAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseGrantAccepter] {
-	return pulumix.Output[map[string]*LicenseGrantAccepter]{
-		OutputState: i.ToLicenseGrantAccepterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LicenseGrantAccepterOutput struct{ *pulumi.OutputState }
 
 func (LicenseGrantAccepterOutput) ElementType() reflect.Type {
@@ -265,12 +246,6 @@ func (o LicenseGrantAccepterOutput) ToLicenseGrantAccepterOutput() LicenseGrantA
 
 func (o LicenseGrantAccepterOutput) ToLicenseGrantAccepterOutputWithContext(ctx context.Context) LicenseGrantAccepterOutput {
 	return o
-}
-
-func (o LicenseGrantAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseGrantAccepter] {
-	return pulumix.Output[*LicenseGrantAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the allowed operations for the grant.
@@ -332,12 +307,6 @@ func (o LicenseGrantAccepterArrayOutput) ToLicenseGrantAccepterArrayOutputWithCo
 	return o
 }
 
-func (o LicenseGrantAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseGrantAccepter] {
-	return pulumix.Output[[]*LicenseGrantAccepter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LicenseGrantAccepterArrayOutput) Index(i pulumi.IntInput) LicenseGrantAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicenseGrantAccepter {
 		return vs[0].([]*LicenseGrantAccepter)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o LicenseGrantAccepterMapOutput) ToLicenseGrantAccepterMapOutput() License
 
 func (o LicenseGrantAccepterMapOutput) ToLicenseGrantAccepterMapOutputWithContext(ctx context.Context) LicenseGrantAccepterMapOutput {
 	return o
-}
-
-func (o LicenseGrantAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseGrantAccepter] {
-	return pulumix.Output[map[string]*LicenseGrantAccepter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LicenseGrantAccepterMapOutput) MapIndex(k pulumi.StringInput) LicenseGrantAccepterOutput {

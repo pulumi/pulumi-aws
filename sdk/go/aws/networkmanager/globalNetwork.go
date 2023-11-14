@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a global network resource.
@@ -165,12 +164,6 @@ func (i *GlobalNetwork) ToGlobalNetworkOutputWithContext(ctx context.Context) Gl
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkOutput)
 }
 
-func (i *GlobalNetwork) ToOutput(ctx context.Context) pulumix.Output[*GlobalNetwork] {
-	return pulumix.Output[*GlobalNetwork]{
-		OutputState: i.ToGlobalNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalNetworkArrayInput is an input type that accepts GlobalNetworkArray and GlobalNetworkArrayOutput values.
 // You can construct a concrete instance of `GlobalNetworkArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i GlobalNetworkArray) ToGlobalNetworkArrayOutput() GlobalNetworkArrayOutpu
 
 func (i GlobalNetworkArray) ToGlobalNetworkArrayOutputWithContext(ctx context.Context) GlobalNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkArrayOutput)
-}
-
-func (i GlobalNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalNetwork] {
-	return pulumix.Output[[]*GlobalNetwork]{
-		OutputState: i.ToGlobalNetworkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalNetworkMapInput is an input type that accepts GlobalNetworkMap and GlobalNetworkMapOutput values.
@@ -227,12 +214,6 @@ func (i GlobalNetworkMap) ToGlobalNetworkMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkMapOutput)
 }
 
-func (i GlobalNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalNetwork] {
-	return pulumix.Output[map[string]*GlobalNetwork]{
-		OutputState: i.ToGlobalNetworkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalNetworkOutput struct{ *pulumi.OutputState }
 
 func (GlobalNetworkOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o GlobalNetworkOutput) ToGlobalNetworkOutput() GlobalNetworkOutput {
 
 func (o GlobalNetworkOutput) ToGlobalNetworkOutputWithContext(ctx context.Context) GlobalNetworkOutput {
 	return o
-}
-
-func (o GlobalNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalNetwork] {
-	return pulumix.Output[*GlobalNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Global Network Amazon Resource Name (ARN)
@@ -289,12 +264,6 @@ func (o GlobalNetworkArrayOutput) ToGlobalNetworkArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o GlobalNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalNetwork] {
-	return pulumix.Output[[]*GlobalNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalNetworkArrayOutput) Index(i pulumi.IntInput) GlobalNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalNetwork {
 		return vs[0].([]*GlobalNetwork)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o GlobalNetworkMapOutput) ToGlobalNetworkMapOutput() GlobalNetworkMapOutpu
 
 func (o GlobalNetworkMapOutput) ToGlobalNetworkMapOutputWithContext(ctx context.Context) GlobalNetworkMapOutput {
 	return o
-}
-
-func (o GlobalNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalNetwork] {
-	return pulumix.Output[map[string]*GlobalNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalNetworkMapOutput) MapIndex(k pulumi.StringInput) GlobalNetworkOutput {

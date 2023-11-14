@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -122,12 +121,6 @@ func (o GetIpamPreviewNextCidrResultOutput) ToGetIpamPreviewNextCidrResultOutput
 
 func (o GetIpamPreviewNextCidrResultOutput) ToGetIpamPreviewNextCidrResultOutputWithContext(ctx context.Context) GetIpamPreviewNextCidrResultOutput {
 	return o
-}
-
-func (o GetIpamPreviewNextCidrResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpamPreviewNextCidrResult] {
-	return pulumix.Output[GetIpamPreviewNextCidrResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Previewed CIDR from the pool.

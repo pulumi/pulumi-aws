@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about EC2 Instance Type Offerings.
@@ -124,12 +123,6 @@ func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOu
 
 func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsResultOutput {
 	return o
-}
-
-func (o GetInstanceTypeOfferingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingsResult] {
-	return pulumix.Output[GetInstanceTypeOfferingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetInstanceTypeOfferingsResultOutput) Filters() GetInstanceTypeOfferingsFilterArrayOutput {

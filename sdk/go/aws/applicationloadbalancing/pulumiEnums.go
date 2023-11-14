@@ -78,12 +78,6 @@ func (o IpAddressTypeOutput) ToIpAddressTypePtrOutputWithContext(ctx context.Con
 	}).(IpAddressTypePtrOutput)
 }
 
-func (o IpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IpAddressType] {
-	return pulumix.Output[IpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutput() IpAddressTypePtrOutpu
 
 func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
 	return o
-}
-
-func (o IpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpAddressType] {
-	return pulumix.Output[*IpAddressType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAddressTypePtrOutput) Elem() IpAddressTypeOutput {
@@ -260,12 +248,6 @@ func (o LoadBalancerTypeOutput) ToLoadBalancerTypePtrOutputWithContext(ctx conte
 	}).(LoadBalancerTypePtrOutput)
 }
 
-func (o LoadBalancerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerType] {
-	return pulumix.Output[LoadBalancerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTyp
 
 func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
 	return o
-}
-
-func (o LoadBalancerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerType] {
-	return pulumix.Output[*LoadBalancerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {

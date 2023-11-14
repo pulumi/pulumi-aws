@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a single-Region or multi-Region primary KMS key that uses external key material.
@@ -258,12 +257,6 @@ func (i *ExternalKey) ToExternalKeyOutputWithContext(ctx context.Context) Extern
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyOutput)
 }
 
-func (i *ExternalKey) ToOutput(ctx context.Context) pulumix.Output[*ExternalKey] {
-	return pulumix.Output[*ExternalKey]{
-		OutputState: i.ToExternalKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExternalKeyArrayInput is an input type that accepts ExternalKeyArray and ExternalKeyArrayOutput values.
 // You can construct a concrete instance of `ExternalKeyArrayInput` via:
 //
@@ -287,12 +280,6 @@ func (i ExternalKeyArray) ToExternalKeyArrayOutput() ExternalKeyArrayOutput {
 
 func (i ExternalKeyArray) ToExternalKeyArrayOutputWithContext(ctx context.Context) ExternalKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyArrayOutput)
-}
-
-func (i ExternalKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalKey] {
-	return pulumix.Output[[]*ExternalKey]{
-		OutputState: i.ToExternalKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExternalKeyMapInput is an input type that accepts ExternalKeyMap and ExternalKeyMapOutput values.
@@ -320,12 +307,6 @@ func (i ExternalKeyMap) ToExternalKeyMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyMapOutput)
 }
 
-func (i ExternalKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalKey] {
-	return pulumix.Output[map[string]*ExternalKey]{
-		OutputState: i.ToExternalKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExternalKeyOutput struct{ *pulumi.OutputState }
 
 func (ExternalKeyOutput) ElementType() reflect.Type {
@@ -338,12 +319,6 @@ func (o ExternalKeyOutput) ToExternalKeyOutput() ExternalKeyOutput {
 
 func (o ExternalKeyOutput) ToExternalKeyOutputWithContext(ctx context.Context) ExternalKeyOutput {
 	return o
-}
-
-func (o ExternalKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ExternalKey] {
-	return pulumix.Output[*ExternalKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the key.
@@ -432,12 +407,6 @@ func (o ExternalKeyArrayOutput) ToExternalKeyArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ExternalKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExternalKey] {
-	return pulumix.Output[[]*ExternalKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExternalKeyArrayOutput) Index(i pulumi.IntInput) ExternalKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExternalKey {
 		return vs[0].([]*ExternalKey)[vs[1].(int)]
@@ -456,12 +425,6 @@ func (o ExternalKeyMapOutput) ToExternalKeyMapOutput() ExternalKeyMapOutput {
 
 func (o ExternalKeyMapOutput) ToExternalKeyMapOutputWithContext(ctx context.Context) ExternalKeyMapOutput {
 	return o
-}
-
-func (o ExternalKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExternalKey] {
-	return pulumix.Output[map[string]*ExternalKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExternalKeyMapOutput) MapIndex(k pulumi.StringInput) ExternalKeyOutput {

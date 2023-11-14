@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM policy attached to a group.
@@ -205,12 +204,6 @@ func (i *GroupPolicy) ToGroupPolicyOutputWithContext(ctx context.Context) GroupP
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyOutput)
 }
 
-func (i *GroupPolicy) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicy] {
-	return pulumix.Output[*GroupPolicy]{
-		OutputState: i.ToGroupPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupPolicyArrayInput is an input type that accepts GroupPolicyArray and GroupPolicyArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i GroupPolicyArray) ToGroupPolicyArrayOutput() GroupPolicyArrayOutput {
 
 func (i GroupPolicyArray) ToGroupPolicyArrayOutputWithContext(ctx context.Context) GroupPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyArrayOutput)
-}
-
-func (i GroupPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicy] {
-	return pulumix.Output[[]*GroupPolicy]{
-		OutputState: i.ToGroupPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupPolicyMapInput is an input type that accepts GroupPolicyMap and GroupPolicyMapOutput values.
@@ -267,12 +254,6 @@ func (i GroupPolicyMap) ToGroupPolicyMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyMapOutput)
 }
 
-func (i GroupPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicy] {
-	return pulumix.Output[map[string]*GroupPolicy]{
-		OutputState: i.ToGroupPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupPolicyOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o GroupPolicyOutput) ToGroupPolicyOutput() GroupPolicyOutput {
 
 func (o GroupPolicyOutput) ToGroupPolicyOutputWithContext(ctx context.Context) GroupPolicyOutput {
 	return o
-}
-
-func (o GroupPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicy] {
-	return pulumix.Output[*GroupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IAM group to attach to the policy.
@@ -329,12 +304,6 @@ func (o GroupPolicyArrayOutput) ToGroupPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o GroupPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicy] {
-	return pulumix.Output[[]*GroupPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupPolicyArrayOutput) Index(i pulumi.IntInput) GroupPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupPolicy {
 		return vs[0].([]*GroupPolicy)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o GroupPolicyMapOutput) ToGroupPolicyMapOutput() GroupPolicyMapOutput {
 
 func (o GroupPolicyMapOutput) ToGroupPolicyMapOutputWithContext(ctx context.Context) GroupPolicyMapOutput {
 	return o
-}
-
-func (o GroupPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicy] {
-	return pulumix.Output[map[string]*GroupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupPolicyMapOutput) MapIndex(k pulumi.StringInput) GroupPolicyOutput {

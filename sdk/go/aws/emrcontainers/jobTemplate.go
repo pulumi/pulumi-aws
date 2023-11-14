@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EMR Containers (EMR on EKS) Job Template.
@@ -198,12 +197,6 @@ func (i *JobTemplate) ToJobTemplateOutputWithContext(ctx context.Context) JobTem
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateOutput)
 }
 
-func (i *JobTemplate) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
-	return pulumix.Output[*JobTemplate]{
-		OutputState: i.ToJobTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobTemplateArrayInput is an input type that accepts JobTemplateArray and JobTemplateArrayOutput values.
 // You can construct a concrete instance of `JobTemplateArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i JobTemplateArray) ToJobTemplateArrayOutput() JobTemplateArrayOutput {
 
 func (i JobTemplateArray) ToJobTemplateArrayOutputWithContext(ctx context.Context) JobTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateArrayOutput)
-}
-
-func (i JobTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobTemplate] {
-	return pulumix.Output[[]*JobTemplate]{
-		OutputState: i.ToJobTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JobTemplateMapInput is an input type that accepts JobTemplateMap and JobTemplateMapOutput values.
@@ -260,12 +247,6 @@ func (i JobTemplateMap) ToJobTemplateMapOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateMapOutput)
 }
 
-func (i JobTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobTemplate] {
-	return pulumix.Output[map[string]*JobTemplate]{
-		OutputState: i.ToJobTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o JobTemplateOutput) ToJobTemplateOutput() JobTemplateOutput {
 
 func (o JobTemplateOutput) ToJobTemplateOutputWithContext(ctx context.Context) JobTemplateOutput {
 	return o
-}
-
-func (o JobTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplate] {
-	return pulumix.Output[*JobTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the job template.
@@ -332,12 +307,6 @@ func (o JobTemplateArrayOutput) ToJobTemplateArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o JobTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobTemplate] {
-	return pulumix.Output[[]*JobTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobTemplateArrayOutput) Index(i pulumi.IntInput) JobTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobTemplate {
 		return vs[0].([]*JobTemplate)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o JobTemplateMapOutput) ToJobTemplateMapOutput() JobTemplateMapOutput {
 
 func (o JobTemplateMapOutput) ToJobTemplateMapOutputWithContext(ctx context.Context) JobTemplateMapOutput {
 	return o
-}
-
-func (o JobTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobTemplate] {
-	return pulumix.Output[map[string]*JobTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateMapOutput) MapIndex(k pulumi.StringInput) JobTemplateOutput {

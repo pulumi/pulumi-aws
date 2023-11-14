@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
@@ -641,12 +640,6 @@ func (i *CoreNetworkPolicyAttachment) ToCoreNetworkPolicyAttachmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkPolicyAttachmentOutput)
 }
 
-func (i *CoreNetworkPolicyAttachment) ToOutput(ctx context.Context) pulumix.Output[*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[*CoreNetworkPolicyAttachment]{
-		OutputState: i.ToCoreNetworkPolicyAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CoreNetworkPolicyAttachmentArrayInput is an input type that accepts CoreNetworkPolicyAttachmentArray and CoreNetworkPolicyAttachmentArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkPolicyAttachmentArrayInput` via:
 //
@@ -670,12 +663,6 @@ func (i CoreNetworkPolicyAttachmentArray) ToCoreNetworkPolicyAttachmentArrayOutp
 
 func (i CoreNetworkPolicyAttachmentArray) ToCoreNetworkPolicyAttachmentArrayOutputWithContext(ctx context.Context) CoreNetworkPolicyAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkPolicyAttachmentArrayOutput)
-}
-
-func (i CoreNetworkPolicyAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[[]*CoreNetworkPolicyAttachment]{
-		OutputState: i.ToCoreNetworkPolicyAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CoreNetworkPolicyAttachmentMapInput is an input type that accepts CoreNetworkPolicyAttachmentMap and CoreNetworkPolicyAttachmentMapOutput values.
@@ -703,12 +690,6 @@ func (i CoreNetworkPolicyAttachmentMap) ToCoreNetworkPolicyAttachmentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkPolicyAttachmentMapOutput)
 }
 
-func (i CoreNetworkPolicyAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[map[string]*CoreNetworkPolicyAttachment]{
-		OutputState: i.ToCoreNetworkPolicyAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreNetworkPolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (CoreNetworkPolicyAttachmentOutput) ElementType() reflect.Type {
@@ -721,12 +702,6 @@ func (o CoreNetworkPolicyAttachmentOutput) ToCoreNetworkPolicyAttachmentOutput()
 
 func (o CoreNetworkPolicyAttachmentOutput) ToCoreNetworkPolicyAttachmentOutputWithContext(ctx context.Context) CoreNetworkPolicyAttachmentOutput {
 	return o
-}
-
-func (o CoreNetworkPolicyAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[*CoreNetworkPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the core network that a policy will be attached to and made `LIVE`.
@@ -758,12 +733,6 @@ func (o CoreNetworkPolicyAttachmentArrayOutput) ToCoreNetworkPolicyAttachmentArr
 	return o
 }
 
-func (o CoreNetworkPolicyAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[[]*CoreNetworkPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CoreNetworkPolicyAttachmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkPolicyAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CoreNetworkPolicyAttachment {
 		return vs[0].([]*CoreNetworkPolicyAttachment)[vs[1].(int)]
@@ -782,12 +751,6 @@ func (o CoreNetworkPolicyAttachmentMapOutput) ToCoreNetworkPolicyAttachmentMapOu
 
 func (o CoreNetworkPolicyAttachmentMapOutput) ToCoreNetworkPolicyAttachmentMapOutputWithContext(ctx context.Context) CoreNetworkPolicyAttachmentMapOutput {
 	return o
-}
-
-func (o CoreNetworkPolicyAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CoreNetworkPolicyAttachment] {
-	return pulumix.Output[map[string]*CoreNetworkPolicyAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreNetworkPolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) CoreNetworkPolicyAttachmentOutput {

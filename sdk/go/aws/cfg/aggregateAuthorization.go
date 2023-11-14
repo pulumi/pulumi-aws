@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Config Aggregate Authorization
@@ -183,12 +182,6 @@ func (i *AggregateAuthorization) ToAggregateAuthorizationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationOutput)
 }
 
-func (i *AggregateAuthorization) ToOutput(ctx context.Context) pulumix.Output[*AggregateAuthorization] {
-	return pulumix.Output[*AggregateAuthorization]{
-		OutputState: i.ToAggregateAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AggregateAuthorizationArrayInput is an input type that accepts AggregateAuthorizationArray and AggregateAuthorizationArrayOutput values.
 // You can construct a concrete instance of `AggregateAuthorizationArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i AggregateAuthorizationArray) ToAggregateAuthorizationArrayOutput() Aggre
 
 func (i AggregateAuthorizationArray) ToAggregateAuthorizationArrayOutputWithContext(ctx context.Context) AggregateAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationArrayOutput)
-}
-
-func (i AggregateAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*AggregateAuthorization] {
-	return pulumix.Output[[]*AggregateAuthorization]{
-		OutputState: i.ToAggregateAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AggregateAuthorizationMapInput is an input type that accepts AggregateAuthorizationMap and AggregateAuthorizationMapOutput values.
@@ -245,12 +232,6 @@ func (i AggregateAuthorizationMap) ToAggregateAuthorizationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationMapOutput)
 }
 
-func (i AggregateAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AggregateAuthorization] {
-	return pulumix.Output[map[string]*AggregateAuthorization]{
-		OutputState: i.ToAggregateAuthorizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AggregateAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutput() Aggregate
 
 func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutputWithContext(ctx context.Context) AggregateAuthorizationOutput {
 	return o
-}
-
-func (o AggregateAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*AggregateAuthorization] {
-	return pulumix.Output[*AggregateAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account ID
@@ -312,12 +287,6 @@ func (o AggregateAuthorizationArrayOutput) ToAggregateAuthorizationArrayOutputWi
 	return o
 }
 
-func (o AggregateAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AggregateAuthorization] {
-	return pulumix.Output[[]*AggregateAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AggregateAuthorizationArrayOutput) Index(i pulumi.IntInput) AggregateAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AggregateAuthorization {
 		return vs[0].([]*AggregateAuthorization)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o AggregateAuthorizationMapOutput) ToAggregateAuthorizationMapOutput() Agg
 
 func (o AggregateAuthorizationMapOutput) ToAggregateAuthorizationMapOutputWithContext(ctx context.Context) AggregateAuthorizationMapOutput {
 	return o
-}
-
-func (o AggregateAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AggregateAuthorization] {
-	return pulumix.Output[map[string]*AggregateAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AggregateAuthorizationMapOutput) MapIndex(k pulumi.StringInput) AggregateAuthorizationOutput {

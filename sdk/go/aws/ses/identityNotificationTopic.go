@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing SES Identity Notification Topics
@@ -173,12 +172,6 @@ func (i *IdentityNotificationTopic) ToIdentityNotificationTopicOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicOutput)
 }
 
-func (i *IdentityNotificationTopic) ToOutput(ctx context.Context) pulumix.Output[*IdentityNotificationTopic] {
-	return pulumix.Output[*IdentityNotificationTopic]{
-		OutputState: i.ToIdentityNotificationTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityNotificationTopicArrayInput is an input type that accepts IdentityNotificationTopicArray and IdentityNotificationTopicArrayOutput values.
 // You can construct a concrete instance of `IdentityNotificationTopicArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i IdentityNotificationTopicArray) ToIdentityNotificationTopicArrayOutput()
 
 func (i IdentityNotificationTopicArray) ToIdentityNotificationTopicArrayOutputWithContext(ctx context.Context) IdentityNotificationTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicArrayOutput)
-}
-
-func (i IdentityNotificationTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityNotificationTopic] {
-	return pulumix.Output[[]*IdentityNotificationTopic]{
-		OutputState: i.ToIdentityNotificationTopicArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityNotificationTopicMapInput is an input type that accepts IdentityNotificationTopicMap and IdentityNotificationTopicMapOutput values.
@@ -235,12 +222,6 @@ func (i IdentityNotificationTopicMap) ToIdentityNotificationTopicMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicMapOutput)
 }
 
-func (i IdentityNotificationTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityNotificationTopic] {
-	return pulumix.Output[map[string]*IdentityNotificationTopic]{
-		OutputState: i.ToIdentityNotificationTopicMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityNotificationTopicOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicOutput() Ide
 
 func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicOutputWithContext(ctx context.Context) IdentityNotificationTopicOutput {
 	return o
-}
-
-func (o IdentityNotificationTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityNotificationTopic] {
-	return pulumix.Output[*IdentityNotificationTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
@@ -295,12 +270,6 @@ func (o IdentityNotificationTopicArrayOutput) ToIdentityNotificationTopicArrayOu
 	return o
 }
 
-func (o IdentityNotificationTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityNotificationTopic] {
-	return pulumix.Output[[]*IdentityNotificationTopic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityNotificationTopicArrayOutput) Index(i pulumi.IntInput) IdentityNotificationTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityNotificationTopic {
 		return vs[0].([]*IdentityNotificationTopic)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o IdentityNotificationTopicMapOutput) ToIdentityNotificationTopicMapOutput
 
 func (o IdentityNotificationTopicMapOutput) ToIdentityNotificationTopicMapOutputWithContext(ctx context.Context) IdentityNotificationTopicMapOutput {
 	return o
-}
-
-func (o IdentityNotificationTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityNotificationTopic] {
-	return pulumix.Output[map[string]*IdentityNotificationTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityNotificationTopicMapOutput) MapIndex(k pulumi.StringInput) IdentityNotificationTopicOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the signing certificate for a Cognito IdP user pool.
@@ -100,12 +99,6 @@ func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertifica
 
 func (o GetUserPoolSigningCertificateResultOutput) ToGetUserPoolSigningCertificateResultOutputWithContext(ctx context.Context) GetUserPoolSigningCertificateResultOutput {
 	return o
-}
-
-func (o GetUserPoolSigningCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPoolSigningCertificateResult] {
-	return pulumix.Output[GetUserPoolSigningCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Certificate string

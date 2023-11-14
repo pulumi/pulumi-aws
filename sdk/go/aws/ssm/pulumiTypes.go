@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i AssociationOutputLocationArgs) ToAssociationOutputLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutputLocationOutput)
 }
 
-func (i AssociationOutputLocationArgs) ToOutput(ctx context.Context) pulumix.Output[AssociationOutputLocation] {
-	return pulumix.Output[AssociationOutputLocation]{
-		OutputState: i.ToAssociationOutputLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssociationOutputLocationArgs) ToAssociationOutputLocationPtrOutput() AssociationOutputLocationPtrOutput {
 	return i.ToAssociationOutputLocationPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *associationOutputLocationPtrType) ToAssociationOutputLocationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutputLocationPtrOutput)
 }
 
-func (i *associationOutputLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssociationOutputLocation] {
-	return pulumix.Output[*AssociationOutputLocation]{
-		OutputState: i.ToAssociationOutputLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssociationOutputLocationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutputLocationOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o AssociationOutputLocationOutput) ToAssociationOutputLocationPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationOutputLocation) *AssociationOutputLocation {
 		return &v
 	}).(AssociationOutputLocationPtrOutput)
-}
-
-func (o AssociationOutputLocationOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationOutputLocation] {
-	return pulumix.Output[AssociationOutputLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The S3 bucket name.
@@ -171,12 +152,6 @@ func (o AssociationOutputLocationPtrOutput) ToAssociationOutputLocationPtrOutput
 
 func (o AssociationOutputLocationPtrOutput) ToAssociationOutputLocationPtrOutputWithContext(ctx context.Context) AssociationOutputLocationPtrOutput {
 	return o
-}
-
-func (o AssociationOutputLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssociationOutputLocation] {
-	return pulumix.Output[*AssociationOutputLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssociationOutputLocationPtrOutput) Elem() AssociationOutputLocationOutput {
@@ -258,12 +233,6 @@ func (i AssociationTargetArgs) ToAssociationTargetOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationTargetOutput)
 }
 
-func (i AssociationTargetArgs) ToOutput(ctx context.Context) pulumix.Output[AssociationTarget] {
-	return pulumix.Output[AssociationTarget]{
-		OutputState: i.ToAssociationTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssociationTargetArrayInput is an input type that accepts AssociationTargetArray and AssociationTargetArrayOutput values.
 // You can construct a concrete instance of `AssociationTargetArrayInput` via:
 //
@@ -289,12 +258,6 @@ func (i AssociationTargetArray) ToAssociationTargetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationTargetArrayOutput)
 }
 
-func (i AssociationTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]AssociationTarget] {
-	return pulumix.Output[[]AssociationTarget]{
-		OutputState: i.ToAssociationTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssociationTargetOutput struct{ *pulumi.OutputState }
 
 func (AssociationTargetOutput) ElementType() reflect.Type {
@@ -307,12 +270,6 @@ func (o AssociationTargetOutput) ToAssociationTargetOutput() AssociationTargetOu
 
 func (o AssociationTargetOutput) ToAssociationTargetOutputWithContext(ctx context.Context) AssociationTargetOutput {
 	return o
-}
-
-func (o AssociationTargetOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationTarget] {
-	return pulumix.Output[AssociationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Either `InstanceIds` or `tag:Tag Name` to specify an EC2 tag.
@@ -337,12 +294,6 @@ func (o AssociationTargetArrayOutput) ToAssociationTargetArrayOutput() Associati
 
 func (o AssociationTargetArrayOutput) ToAssociationTargetArrayOutputWithContext(ctx context.Context) AssociationTargetArrayOutput {
 	return o
-}
-
-func (o AssociationTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssociationTarget] {
-	return pulumix.Output[[]AssociationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTargetOutput {
@@ -392,12 +343,6 @@ func (i DocumentAttachmentsSourceArgs) ToDocumentAttachmentsSourceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceOutput)
 }
 
-func (i DocumentAttachmentsSourceArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentAttachmentsSource] {
-	return pulumix.Output[DocumentAttachmentsSource]{
-		OutputState: i.ToDocumentAttachmentsSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentAttachmentsSourceArrayInput is an input type that accepts DocumentAttachmentsSourceArray and DocumentAttachmentsSourceArrayOutput values.
 // You can construct a concrete instance of `DocumentAttachmentsSourceArrayInput` via:
 //
@@ -423,12 +368,6 @@ func (i DocumentAttachmentsSourceArray) ToDocumentAttachmentsSourceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceArrayOutput)
 }
 
-func (i DocumentAttachmentsSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]DocumentAttachmentsSource] {
-	return pulumix.Output[[]DocumentAttachmentsSource]{
-		OutputState: i.ToDocumentAttachmentsSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentAttachmentsSourceOutput struct{ *pulumi.OutputState }
 
 func (DocumentAttachmentsSourceOutput) ElementType() reflect.Type {
@@ -441,12 +380,6 @@ func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutput() Doc
 
 func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutputWithContext(ctx context.Context) DocumentAttachmentsSourceOutput {
 	return o
-}
-
-func (o DocumentAttachmentsSourceOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentAttachmentsSource] {
-	return pulumix.Output[DocumentAttachmentsSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key describing the location of an attachment to a document. Valid key types include: `SourceUrl` and `S3FileUrl`
@@ -476,12 +409,6 @@ func (o DocumentAttachmentsSourceArrayOutput) ToDocumentAttachmentsSourceArrayOu
 
 func (o DocumentAttachmentsSourceArrayOutput) ToDocumentAttachmentsSourceArrayOutputWithContext(ctx context.Context) DocumentAttachmentsSourceArrayOutput {
 	return o
-}
-
-func (o DocumentAttachmentsSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DocumentAttachmentsSource] {
-	return pulumix.Output[[]DocumentAttachmentsSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentAttachmentsSourceOutput {
@@ -531,12 +458,6 @@ func (i DocumentParameterArgs) ToDocumentParameterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentParameterOutput)
 }
 
-func (i DocumentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[DocumentParameter] {
-	return pulumix.Output[DocumentParameter]{
-		OutputState: i.ToDocumentParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DocumentParameterArrayInput is an input type that accepts DocumentParameterArray and DocumentParameterArrayOutput values.
 // You can construct a concrete instance of `DocumentParameterArrayInput` via:
 //
@@ -562,12 +483,6 @@ func (i DocumentParameterArray) ToDocumentParameterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentParameterArrayOutput)
 }
 
-func (i DocumentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]DocumentParameter] {
-	return pulumix.Output[[]DocumentParameter]{
-		OutputState: i.ToDocumentParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentParameterOutput struct{ *pulumi.OutputState }
 
 func (DocumentParameterOutput) ElementType() reflect.Type {
@@ -580,12 +495,6 @@ func (o DocumentParameterOutput) ToDocumentParameterOutput() DocumentParameterOu
 
 func (o DocumentParameterOutput) ToDocumentParameterOutputWithContext(ctx context.Context) DocumentParameterOutput {
 	return o
-}
-
-func (o DocumentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentParameter] {
-	return pulumix.Output[DocumentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentParameterOutput) DefaultValue() pulumi.StringPtrOutput {
@@ -618,12 +527,6 @@ func (o DocumentParameterArrayOutput) ToDocumentParameterArrayOutput() DocumentP
 
 func (o DocumentParameterArrayOutput) ToDocumentParameterArrayOutputWithContext(ctx context.Context) DocumentParameterArrayOutput {
 	return o
-}
-
-func (o DocumentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DocumentParameter] {
-	return pulumix.Output[[]DocumentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentParameterArrayOutput) Index(i pulumi.IntInput) DocumentParameterOutput {
@@ -665,12 +568,6 @@ func (i MaintenanceWindowTargetTargetArgs) ToMaintenanceWindowTargetTargetOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetOutput)
 }
 
-func (i MaintenanceWindowTargetTargetArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTargetTarget] {
-	return pulumix.Output[MaintenanceWindowTargetTarget]{
-		OutputState: i.ToMaintenanceWindowTargetTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceWindowTargetTargetArrayInput is an input type that accepts MaintenanceWindowTargetTargetArray and MaintenanceWindowTargetTargetArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTargetTargetArrayInput` via:
 //
@@ -696,12 +593,6 @@ func (i MaintenanceWindowTargetTargetArray) ToMaintenanceWindowTargetTargetArray
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetArrayOutput)
 }
 
-func (i MaintenanceWindowTargetTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTargetTarget] {
-	return pulumix.Output[[]MaintenanceWindowTargetTarget]{
-		OutputState: i.ToMaintenanceWindowTargetTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTargetTargetOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTargetTargetOutput) ElementType() reflect.Type {
@@ -714,12 +605,6 @@ func (o MaintenanceWindowTargetTargetOutput) ToMaintenanceWindowTargetTargetOutp
 
 func (o MaintenanceWindowTargetTargetOutput) ToMaintenanceWindowTargetTargetOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetOutput {
 	return o
-}
-
-func (o MaintenanceWindowTargetTargetOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTargetTarget] {
-	return pulumix.Output[MaintenanceWindowTargetTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTargetTargetOutput) Key() pulumi.StringOutput {
@@ -742,12 +627,6 @@ func (o MaintenanceWindowTargetTargetArrayOutput) ToMaintenanceWindowTargetTarge
 
 func (o MaintenanceWindowTargetTargetArrayOutput) ToMaintenanceWindowTargetTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetArrayOutput {
 	return o
-}
-
-func (o MaintenanceWindowTargetTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTargetTarget] {
-	return pulumix.Output[[]MaintenanceWindowTargetTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTargetTargetArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTargetTargetOutput {
@@ -791,12 +670,6 @@ func (i MaintenanceWindowTaskTargetArgs) ToMaintenanceWindowTaskTargetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetOutput)
 }
 
-func (i MaintenanceWindowTaskTargetArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTarget] {
-	return pulumix.Output[MaintenanceWindowTaskTarget]{
-		OutputState: i.ToMaintenanceWindowTaskTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceWindowTaskTargetArrayInput is an input type that accepts MaintenanceWindowTaskTargetArray and MaintenanceWindowTaskTargetArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTaskTargetArrayInput` via:
 //
@@ -822,12 +695,6 @@ func (i MaintenanceWindowTaskTargetArray) ToMaintenanceWindowTaskTargetArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTargetArrayOutput)
 }
 
-func (i MaintenanceWindowTaskTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTarget] {
-	return pulumix.Output[[]MaintenanceWindowTaskTarget]{
-		OutputState: i.ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTargetOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTargetOutput) ElementType() reflect.Type {
@@ -840,12 +707,6 @@ func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutput()
 
 func (o MaintenanceWindowTaskTargetOutput) ToMaintenanceWindowTaskTargetOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTargetOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTarget] {
-	return pulumix.Output[MaintenanceWindowTaskTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTargetOutput) Key() pulumi.StringOutput {
@@ -869,12 +730,6 @@ func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArr
 
 func (o MaintenanceWindowTaskTargetArrayOutput) ToMaintenanceWindowTaskTargetArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTargetArrayOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTarget] {
-	return pulumix.Output[[]MaintenanceWindowTaskTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTargetArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTargetOutput {
@@ -928,12 +783,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTa
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(context.Background())
 }
@@ -975,12 +824,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToMaintenanceWind
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersOutput) ElementType() reflect.Type {
@@ -1003,12 +846,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindow
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskTaskInvocationParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The parameters for an AUTOMATION task type. Documented below.
@@ -1051,12 +888,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWin
 
 func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersOutput {
@@ -1146,12 +977,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutputWithContext(context.Background())
 }
@@ -1193,12 +1018,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersAutomationParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersAutomationParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ElementType() reflect.Type {
@@ -1221,12 +1040,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) *MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The version of an Automation document to use during task execution.
@@ -1255,12 +1068,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutp
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersAutomationParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersAutomationParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
@@ -1330,12 +1137,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray and MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayInput` via:
 //
@@ -1361,12 +1162,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter] {
-	return pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput) ElementType() reflect.Type {
@@ -1379,12 +1174,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParamet
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The parameter name.
@@ -1413,12 +1202,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParamet
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter] {
-	return pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterOutput {
@@ -1468,12 +1251,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToMai
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersLambdaParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersLambdaParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutputWithContext(context.Background())
 }
@@ -1515,12 +1292,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersLambdaParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersLambdaParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ElementType() reflect.Type {
@@ -1543,12 +1314,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) *MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersLambdaParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersLambdaParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Pass client-specific information to the Lambda function that you are invoking.
@@ -1578,12 +1343,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) 
 
 func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersLambdaParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersLambdaParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
@@ -1699,12 +1458,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutputWithContext(context.Background())
 }
@@ -1746,12 +1499,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ElementType() reflect.Type {
@@ -1774,12 +1521,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration options for sending command output to CloudWatch Logs. Documented below.
@@ -1869,12 +1610,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
@@ -2034,12 +1769,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(context.Background())
 }
@@ -2081,12 +1810,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudw
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ElementType() reflect.Type {
@@ -2109,12 +1832,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
@@ -2143,12 +1860,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
@@ -2222,12 +1933,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutputWithContext(context.Background())
 }
@@ -2269,12 +1974,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotifi
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ElementType() reflect.Type {
@@ -2297,12 +1996,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput)
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
@@ -2338,12 +2031,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
@@ -2423,12 +2110,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput is an input type that accepts MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray and MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput` via:
 //
@@ -2454,12 +2135,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter] {
-	return pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput) ElementType() reflect.Type {
@@ -2472,12 +2147,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The parameter name.
@@ -2506,12 +2175,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParamet
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter] {
-	return pulumix.Output[[]MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterOutput {
@@ -2557,12 +2220,6 @@ func (i MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput)
 }
 
-func (i MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput {
 	return i.ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutputWithContext(context.Background())
 }
@@ -2604,12 +2261,6 @@ func (i *maintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtr
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput)
 }
 
-func (i *maintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters]{
-		OutputState: i.ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ElementType() reflect.Type {
@@ -2634,12 +2285,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutp
 	}).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput)
 }
 
-func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ToOutput(ctx context.Context) pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters] {
-	return pulumix.Output[MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The inputs for the STEP_FUNCTION task.
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) Input() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *string { return v.Input }).(pulumi.StringPtrOutput)
@@ -2662,12 +2307,6 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrO
 
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput {
 	return o
-}
-
-func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters] {
-	return pulumix.Output[*MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
@@ -2773,12 +2412,6 @@ func (i PatchBaselineApprovalRuleArgs) ToPatchBaselineApprovalRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRuleOutput)
 }
 
-func (i PatchBaselineApprovalRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineApprovalRule] {
-	return pulumix.Output[PatchBaselineApprovalRule]{
-		OutputState: i.ToPatchBaselineApprovalRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchBaselineApprovalRuleArrayInput is an input type that accepts PatchBaselineApprovalRuleArray and PatchBaselineApprovalRuleArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineApprovalRuleArrayInput` via:
 //
@@ -2804,12 +2437,6 @@ func (i PatchBaselineApprovalRuleArray) ToPatchBaselineApprovalRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRuleArrayOutput)
 }
 
-func (i PatchBaselineApprovalRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineApprovalRule] {
-	return pulumix.Output[[]PatchBaselineApprovalRule]{
-		OutputState: i.ToPatchBaselineApprovalRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchBaselineApprovalRuleOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineApprovalRuleOutput) ElementType() reflect.Type {
@@ -2822,12 +2449,6 @@ func (o PatchBaselineApprovalRuleOutput) ToPatchBaselineApprovalRuleOutput() Pat
 
 func (o PatchBaselineApprovalRuleOutput) ToPatchBaselineApprovalRuleOutputWithContext(ctx context.Context) PatchBaselineApprovalRuleOutput {
 	return o
-}
-
-func (o PatchBaselineApprovalRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineApprovalRule] {
-	return pulumix.Output[PatchBaselineApprovalRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
@@ -2881,12 +2502,6 @@ func (o PatchBaselineApprovalRuleArrayOutput) ToPatchBaselineApprovalRuleArrayOu
 	return o
 }
 
-func (o PatchBaselineApprovalRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineApprovalRule] {
-	return pulumix.Output[[]PatchBaselineApprovalRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PatchBaselineApprovalRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineApprovalRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PatchBaselineApprovalRule {
 		return vs[0].([]PatchBaselineApprovalRule)[vs[1].(int)]
@@ -2926,12 +2541,6 @@ func (i PatchBaselineApprovalRulePatchFilterArgs) ToPatchBaselineApprovalRulePat
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRulePatchFilterOutput)
 }
 
-func (i PatchBaselineApprovalRulePatchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[PatchBaselineApprovalRulePatchFilter]{
-		OutputState: i.ToPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchBaselineApprovalRulePatchFilterArrayInput is an input type that accepts PatchBaselineApprovalRulePatchFilterArray and PatchBaselineApprovalRulePatchFilterArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineApprovalRulePatchFilterArrayInput` via:
 //
@@ -2957,12 +2566,6 @@ func (i PatchBaselineApprovalRulePatchFilterArray) ToPatchBaselineApprovalRulePa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineApprovalRulePatchFilterArrayOutput)
 }
 
-func (i PatchBaselineApprovalRulePatchFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[[]PatchBaselineApprovalRulePatchFilter]{
-		OutputState: i.ToPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchBaselineApprovalRulePatchFilterOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineApprovalRulePatchFilterOutput) ElementType() reflect.Type {
@@ -2975,12 +2578,6 @@ func (o PatchBaselineApprovalRulePatchFilterOutput) ToPatchBaselineApprovalRuleP
 
 func (o PatchBaselineApprovalRulePatchFilterOutput) ToPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx context.Context) PatchBaselineApprovalRulePatchFilterOutput {
 	return o
-}
-
-func (o PatchBaselineApprovalRulePatchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[PatchBaselineApprovalRulePatchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineApprovalRulePatchFilterOutput) Key() pulumi.StringOutput {
@@ -3003,12 +2600,6 @@ func (o PatchBaselineApprovalRulePatchFilterArrayOutput) ToPatchBaselineApproval
 
 func (o PatchBaselineApprovalRulePatchFilterArrayOutput) ToPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx context.Context) PatchBaselineApprovalRulePatchFilterArrayOutput {
 	return o
-}
-
-func (o PatchBaselineApprovalRulePatchFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[[]PatchBaselineApprovalRulePatchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineApprovalRulePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBaselineApprovalRulePatchFilterOutput {
@@ -3050,12 +2641,6 @@ func (i PatchBaselineGlobalFilterArgs) ToPatchBaselineGlobalFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineGlobalFilterOutput)
 }
 
-func (i PatchBaselineGlobalFilterArgs) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineGlobalFilter] {
-	return pulumix.Output[PatchBaselineGlobalFilter]{
-		OutputState: i.ToPatchBaselineGlobalFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchBaselineGlobalFilterArrayInput is an input type that accepts PatchBaselineGlobalFilterArray and PatchBaselineGlobalFilterArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineGlobalFilterArrayInput` via:
 //
@@ -3081,12 +2666,6 @@ func (i PatchBaselineGlobalFilterArray) ToPatchBaselineGlobalFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineGlobalFilterArrayOutput)
 }
 
-func (i PatchBaselineGlobalFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineGlobalFilter] {
-	return pulumix.Output[[]PatchBaselineGlobalFilter]{
-		OutputState: i.ToPatchBaselineGlobalFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchBaselineGlobalFilterOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineGlobalFilterOutput) ElementType() reflect.Type {
@@ -3099,12 +2678,6 @@ func (o PatchBaselineGlobalFilterOutput) ToPatchBaselineGlobalFilterOutput() Pat
 
 func (o PatchBaselineGlobalFilterOutput) ToPatchBaselineGlobalFilterOutputWithContext(ctx context.Context) PatchBaselineGlobalFilterOutput {
 	return o
-}
-
-func (o PatchBaselineGlobalFilterOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineGlobalFilter] {
-	return pulumix.Output[PatchBaselineGlobalFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineGlobalFilterOutput) Key() pulumi.StringOutput {
@@ -3127,12 +2700,6 @@ func (o PatchBaselineGlobalFilterArrayOutput) ToPatchBaselineGlobalFilterArrayOu
 
 func (o PatchBaselineGlobalFilterArrayOutput) ToPatchBaselineGlobalFilterArrayOutputWithContext(ctx context.Context) PatchBaselineGlobalFilterArrayOutput {
 	return o
-}
-
-func (o PatchBaselineGlobalFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineGlobalFilter] {
-	return pulumix.Output[[]PatchBaselineGlobalFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineGlobalFilterArrayOutput) Index(i pulumi.IntInput) PatchBaselineGlobalFilterOutput {
@@ -3186,12 +2753,6 @@ func (i PatchBaselineSourceArgs) ToPatchBaselineSourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineSourceOutput)
 }
 
-func (i PatchBaselineSourceArgs) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineSource] {
-	return pulumix.Output[PatchBaselineSource]{
-		OutputState: i.ToPatchBaselineSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PatchBaselineSourceArrayInput is an input type that accepts PatchBaselineSourceArray and PatchBaselineSourceArrayOutput values.
 // You can construct a concrete instance of `PatchBaselineSourceArrayInput` via:
 //
@@ -3217,12 +2778,6 @@ func (i PatchBaselineSourceArray) ToPatchBaselineSourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PatchBaselineSourceArrayOutput)
 }
 
-func (i PatchBaselineSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineSource] {
-	return pulumix.Output[[]PatchBaselineSource]{
-		OutputState: i.ToPatchBaselineSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PatchBaselineSourceOutput struct{ *pulumi.OutputState }
 
 func (PatchBaselineSourceOutput) ElementType() reflect.Type {
@@ -3235,12 +2790,6 @@ func (o PatchBaselineSourceOutput) ToPatchBaselineSourceOutput() PatchBaselineSo
 
 func (o PatchBaselineSourceOutput) ToPatchBaselineSourceOutputWithContext(ctx context.Context) PatchBaselineSourceOutput {
 	return o
-}
-
-func (o PatchBaselineSourceOutput) ToOutput(ctx context.Context) pulumix.Output[PatchBaselineSource] {
-	return pulumix.Output[PatchBaselineSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the yum repo configuration.
@@ -3272,12 +2821,6 @@ func (o PatchBaselineSourceArrayOutput) ToPatchBaselineSourceArrayOutput() Patch
 
 func (o PatchBaselineSourceArrayOutput) ToPatchBaselineSourceArrayOutputWithContext(ctx context.Context) PatchBaselineSourceArrayOutput {
 	return o
-}
-
-func (o PatchBaselineSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PatchBaselineSource] {
-	return pulumix.Output[[]PatchBaselineSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) PatchBaselineSourceOutput {
@@ -3335,12 +2878,6 @@ func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationOutput)
 }
 
-func (i ResourceDataSyncS3DestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDataSyncS3Destination] {
-	return pulumix.Output[ResourceDataSyncS3Destination]{
-		OutputState: i.ToResourceDataSyncS3DestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput {
 	return i.ToResourceDataSyncS3DestinationPtrOutputWithContext(context.Background())
 }
@@ -3382,12 +2919,6 @@ func (i *resourceDataSyncS3DestinationPtrType) ToResourceDataSyncS3DestinationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
-func (i *resourceDataSyncS3DestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSyncS3Destination] {
-	return pulumix.Output[*ResourceDataSyncS3Destination]{
-		OutputState: i.ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDataSyncS3DestinationOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncS3DestinationOutput) ElementType() reflect.Type {
@@ -3410,12 +2941,6 @@ func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSyncS3Destination) *ResourceDataSyncS3Destination {
 		return &v
 	}).(ResourceDataSyncS3DestinationPtrOutput)
-}
-
-func (o ResourceDataSyncS3DestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDataSyncS3Destination] {
-	return pulumix.Output[ResourceDataSyncS3Destination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of S3 bucket where the aggregated data is stored.
@@ -3455,12 +2980,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) ToResourceDataSyncS3DestinationP
 
 func (o ResourceDataSyncS3DestinationPtrOutput) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
 	return o
-}
-
-func (o ResourceDataSyncS3DestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDataSyncS3Destination] {
-	return pulumix.Output[*ResourceDataSyncS3Destination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDataSyncS3DestinationPtrOutput) Elem() ResourceDataSyncS3DestinationOutput {
@@ -3560,12 +3079,6 @@ func (i GetInstancesFilterArgs) ToGetInstancesFilterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstancesFilterOutput)
 }
 
-func (i GetInstancesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetInstancesFilter] {
-	return pulumix.Output[GetInstancesFilter]{
-		OutputState: i.ToGetInstancesFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetInstancesFilterArrayInput is an input type that accepts GetInstancesFilterArray and GetInstancesFilterArrayOutput values.
 // You can construct a concrete instance of `GetInstancesFilterArrayInput` via:
 //
@@ -3591,12 +3104,6 @@ func (i GetInstancesFilterArray) ToGetInstancesFilterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetInstancesFilterArrayOutput)
 }
 
-func (i GetInstancesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInstancesFilter] {
-	return pulumix.Output[[]GetInstancesFilter]{
-		OutputState: i.ToGetInstancesFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetInstancesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetInstancesFilterOutput) ElementType() reflect.Type {
@@ -3609,12 +3116,6 @@ func (o GetInstancesFilterOutput) ToGetInstancesFilterOutput() GetInstancesFilte
 
 func (o GetInstancesFilterOutput) ToGetInstancesFilterOutputWithContext(ctx context.Context) GetInstancesFilterOutput {
 	return o
-}
-
-func (o GetInstancesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstancesFilter] {
-	return pulumix.Output[GetInstancesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
@@ -3639,12 +3140,6 @@ func (o GetInstancesFilterArrayOutput) ToGetInstancesFilterArrayOutput() GetInst
 
 func (o GetInstancesFilterArrayOutput) ToGetInstancesFilterArrayOutputWithContext(ctx context.Context) GetInstancesFilterArrayOutput {
 	return o
-}
-
-func (o GetInstancesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInstancesFilter] {
-	return pulumix.Output[[]GetInstancesFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilterOutput {
@@ -3690,12 +3185,6 @@ func (i GetMaintenanceWindowsFilterArgs) ToGetMaintenanceWindowsFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetMaintenanceWindowsFilterOutput)
 }
 
-func (i GetMaintenanceWindowsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetMaintenanceWindowsFilter] {
-	return pulumix.Output[GetMaintenanceWindowsFilter]{
-		OutputState: i.ToGetMaintenanceWindowsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMaintenanceWindowsFilterArrayInput is an input type that accepts GetMaintenanceWindowsFilterArray and GetMaintenanceWindowsFilterArrayOutput values.
 // You can construct a concrete instance of `GetMaintenanceWindowsFilterArrayInput` via:
 //
@@ -3721,12 +3210,6 @@ func (i GetMaintenanceWindowsFilterArray) ToGetMaintenanceWindowsFilterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetMaintenanceWindowsFilterArrayOutput)
 }
 
-func (i GetMaintenanceWindowsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMaintenanceWindowsFilter] {
-	return pulumix.Output[[]GetMaintenanceWindowsFilter]{
-		OutputState: i.ToGetMaintenanceWindowsFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMaintenanceWindowsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetMaintenanceWindowsFilterOutput) ElementType() reflect.Type {
@@ -3739,12 +3222,6 @@ func (o GetMaintenanceWindowsFilterOutput) ToGetMaintenanceWindowsFilterOutput()
 
 func (o GetMaintenanceWindowsFilterOutput) ToGetMaintenanceWindowsFilterOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterOutput {
 	return o
-}
-
-func (o GetMaintenanceWindowsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetMaintenanceWindowsFilter] {
-	return pulumix.Output[GetMaintenanceWindowsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
@@ -3769,12 +3246,6 @@ func (o GetMaintenanceWindowsFilterArrayOutput) ToGetMaintenanceWindowsFilterArr
 
 func (o GetMaintenanceWindowsFilterArrayOutput) ToGetMaintenanceWindowsFilterArrayOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterArrayOutput {
 	return o
-}
-
-func (o GetMaintenanceWindowsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMaintenanceWindowsFilter] {
-	return pulumix.Output[[]GetMaintenanceWindowsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMaintenanceWindowsFilterArrayOutput) Index(i pulumi.IntInput) GetMaintenanceWindowsFilterOutput {
@@ -3832,12 +3303,6 @@ func (i GetPatchBaselineApprovalRuleArgs) ToGetPatchBaselineApprovalRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRuleOutput)
 }
 
-func (i GetPatchBaselineApprovalRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineApprovalRule] {
-	return pulumix.Output[GetPatchBaselineApprovalRule]{
-		OutputState: i.ToGetPatchBaselineApprovalRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPatchBaselineApprovalRuleArrayInput is an input type that accepts GetPatchBaselineApprovalRuleArray and GetPatchBaselineApprovalRuleArrayOutput values.
 // You can construct a concrete instance of `GetPatchBaselineApprovalRuleArrayInput` via:
 //
@@ -3863,12 +3328,6 @@ func (i GetPatchBaselineApprovalRuleArray) ToGetPatchBaselineApprovalRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRuleArrayOutput)
 }
 
-func (i GetPatchBaselineApprovalRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineApprovalRule] {
-	return pulumix.Output[[]GetPatchBaselineApprovalRule]{
-		OutputState: i.ToGetPatchBaselineApprovalRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPatchBaselineApprovalRuleOutput struct{ *pulumi.OutputState }
 
 func (GetPatchBaselineApprovalRuleOutput) ElementType() reflect.Type {
@@ -3881,12 +3340,6 @@ func (o GetPatchBaselineApprovalRuleOutput) ToGetPatchBaselineApprovalRuleOutput
 
 func (o GetPatchBaselineApprovalRuleOutput) ToGetPatchBaselineApprovalRuleOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleOutput {
 	return o
-}
-
-func (o GetPatchBaselineApprovalRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineApprovalRule] {
-	return pulumix.Output[GetPatchBaselineApprovalRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
@@ -3926,12 +3379,6 @@ func (o GetPatchBaselineApprovalRuleArrayOutput) ToGetPatchBaselineApprovalRuleA
 
 func (o GetPatchBaselineApprovalRuleArrayOutput) ToGetPatchBaselineApprovalRuleArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleArrayOutput {
 	return o
-}
-
-func (o GetPatchBaselineApprovalRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineApprovalRule] {
-	return pulumix.Output[[]GetPatchBaselineApprovalRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPatchBaselineApprovalRuleArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineApprovalRuleOutput {
@@ -3977,12 +3424,6 @@ func (i GetPatchBaselineApprovalRulePatchFilterArgs) ToGetPatchBaselineApprovalR
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRulePatchFilterOutput)
 }
 
-func (i GetPatchBaselineApprovalRulePatchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[GetPatchBaselineApprovalRulePatchFilter]{
-		OutputState: i.ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPatchBaselineApprovalRulePatchFilterArrayInput is an input type that accepts GetPatchBaselineApprovalRulePatchFilterArray and GetPatchBaselineApprovalRulePatchFilterArrayOutput values.
 // You can construct a concrete instance of `GetPatchBaselineApprovalRulePatchFilterArrayInput` via:
 //
@@ -4008,12 +3449,6 @@ func (i GetPatchBaselineApprovalRulePatchFilterArray) ToGetPatchBaselineApproval
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRulePatchFilterArrayOutput)
 }
 
-func (i GetPatchBaselineApprovalRulePatchFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[[]GetPatchBaselineApprovalRulePatchFilter]{
-		OutputState: i.ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPatchBaselineApprovalRulePatchFilterOutput struct{ *pulumi.OutputState }
 
 func (GetPatchBaselineApprovalRulePatchFilterOutput) ElementType() reflect.Type {
@@ -4026,12 +3461,6 @@ func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToGetPatchBaselineApprova
 
 func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterOutput {
 	return o
-}
-
-func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[GetPatchBaselineApprovalRulePatchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key for the filter.
@@ -4056,12 +3485,6 @@ func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) ToGetPatchBaselineAp
 
 func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterArrayOutput {
 	return o
-}
-
-func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineApprovalRulePatchFilter] {
-	return pulumix.Output[[]GetPatchBaselineApprovalRulePatchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineApprovalRulePatchFilterOutput {
@@ -4107,12 +3530,6 @@ func (i GetPatchBaselineGlobalFilterArgs) ToGetPatchBaselineGlobalFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineGlobalFilterOutput)
 }
 
-func (i GetPatchBaselineGlobalFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineGlobalFilter] {
-	return pulumix.Output[GetPatchBaselineGlobalFilter]{
-		OutputState: i.ToGetPatchBaselineGlobalFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPatchBaselineGlobalFilterArrayInput is an input type that accepts GetPatchBaselineGlobalFilterArray and GetPatchBaselineGlobalFilterArrayOutput values.
 // You can construct a concrete instance of `GetPatchBaselineGlobalFilterArrayInput` via:
 //
@@ -4138,12 +3555,6 @@ func (i GetPatchBaselineGlobalFilterArray) ToGetPatchBaselineGlobalFilterArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineGlobalFilterArrayOutput)
 }
 
-func (i GetPatchBaselineGlobalFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineGlobalFilter] {
-	return pulumix.Output[[]GetPatchBaselineGlobalFilter]{
-		OutputState: i.ToGetPatchBaselineGlobalFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPatchBaselineGlobalFilterOutput struct{ *pulumi.OutputState }
 
 func (GetPatchBaselineGlobalFilterOutput) ElementType() reflect.Type {
@@ -4156,12 +3567,6 @@ func (o GetPatchBaselineGlobalFilterOutput) ToGetPatchBaselineGlobalFilterOutput
 
 func (o GetPatchBaselineGlobalFilterOutput) ToGetPatchBaselineGlobalFilterOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterOutput {
 	return o
-}
-
-func (o GetPatchBaselineGlobalFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineGlobalFilter] {
-	return pulumix.Output[GetPatchBaselineGlobalFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key for the filter.
@@ -4186,12 +3591,6 @@ func (o GetPatchBaselineGlobalFilterArrayOutput) ToGetPatchBaselineGlobalFilterA
 
 func (o GetPatchBaselineGlobalFilterArrayOutput) ToGetPatchBaselineGlobalFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterArrayOutput {
 	return o
-}
-
-func (o GetPatchBaselineGlobalFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineGlobalFilter] {
-	return pulumix.Output[[]GetPatchBaselineGlobalFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPatchBaselineGlobalFilterArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineGlobalFilterOutput {
@@ -4241,12 +3640,6 @@ func (i GetPatchBaselineSourceArgs) ToGetPatchBaselineSourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineSourceOutput)
 }
 
-func (i GetPatchBaselineSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineSource] {
-	return pulumix.Output[GetPatchBaselineSource]{
-		OutputState: i.ToGetPatchBaselineSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPatchBaselineSourceArrayInput is an input type that accepts GetPatchBaselineSourceArray and GetPatchBaselineSourceArrayOutput values.
 // You can construct a concrete instance of `GetPatchBaselineSourceArrayInput` via:
 //
@@ -4272,12 +3665,6 @@ func (i GetPatchBaselineSourceArray) ToGetPatchBaselineSourceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineSourceArrayOutput)
 }
 
-func (i GetPatchBaselineSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineSource] {
-	return pulumix.Output[[]GetPatchBaselineSource]{
-		OutputState: i.ToGetPatchBaselineSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPatchBaselineSourceOutput struct{ *pulumi.OutputState }
 
 func (GetPatchBaselineSourceOutput) ElementType() reflect.Type {
@@ -4290,12 +3677,6 @@ func (o GetPatchBaselineSourceOutput) ToGetPatchBaselineSourceOutput() GetPatchB
 
 func (o GetPatchBaselineSourceOutput) ToGetPatchBaselineSourceOutputWithContext(ctx context.Context) GetPatchBaselineSourceOutput {
 	return o
-}
-
-func (o GetPatchBaselineSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetPatchBaselineSource] {
-	return pulumix.Output[GetPatchBaselineSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the yum repo configuration.
@@ -4325,12 +3706,6 @@ func (o GetPatchBaselineSourceArrayOutput) ToGetPatchBaselineSourceArrayOutput()
 
 func (o GetPatchBaselineSourceArrayOutput) ToGetPatchBaselineSourceArrayOutputWithContext(ctx context.Context) GetPatchBaselineSourceArrayOutput {
 	return o
-}
-
-func (o GetPatchBaselineSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPatchBaselineSource] {
-	return pulumix.Output[[]GetPatchBaselineSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineSourceOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Instance Connect Endpoint.
@@ -230,12 +229,6 @@ func (i *InstanceConnectEndpoint) ToInstanceConnectEndpointOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointOutput)
 }
 
-func (i *InstanceConnectEndpoint) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpoint] {
-	return pulumix.Output[*InstanceConnectEndpoint]{
-		OutputState: i.ToInstanceConnectEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceConnectEndpointArrayInput is an input type that accepts InstanceConnectEndpointArray and InstanceConnectEndpointArrayOutput values.
 // You can construct a concrete instance of `InstanceConnectEndpointArrayInput` via:
 //
@@ -259,12 +252,6 @@ func (i InstanceConnectEndpointArray) ToInstanceConnectEndpointArrayOutput() Ins
 
 func (i InstanceConnectEndpointArray) ToInstanceConnectEndpointArrayOutputWithContext(ctx context.Context) InstanceConnectEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointArrayOutput)
-}
-
-func (i InstanceConnectEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceConnectEndpoint] {
-	return pulumix.Output[[]*InstanceConnectEndpoint]{
-		OutputState: i.ToInstanceConnectEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceConnectEndpointMapInput is an input type that accepts InstanceConnectEndpointMap and InstanceConnectEndpointMapOutput values.
@@ -292,12 +279,6 @@ func (i InstanceConnectEndpointMap) ToInstanceConnectEndpointMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointMapOutput)
 }
 
-func (i InstanceConnectEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceConnectEndpoint] {
-	return pulumix.Output[map[string]*InstanceConnectEndpoint]{
-		OutputState: i.ToInstanceConnectEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceConnectEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceConnectEndpointOutput) ElementType() reflect.Type {
@@ -310,12 +291,6 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutput() Instanc
 
 func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContext(ctx context.Context) InstanceConnectEndpointOutput {
 	return o
-}
-
-func (o InstanceConnectEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpoint] {
-	return pulumix.Output[*InstanceConnectEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
@@ -398,12 +373,6 @@ func (o InstanceConnectEndpointArrayOutput) ToInstanceConnectEndpointArrayOutput
 	return o
 }
 
-func (o InstanceConnectEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceConnectEndpoint] {
-	return pulumix.Output[[]*InstanceConnectEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceConnectEndpointArrayOutput) Index(i pulumi.IntInput) InstanceConnectEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceConnectEndpoint {
 		return vs[0].([]*InstanceConnectEndpoint)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o InstanceConnectEndpointMapOutput) ToInstanceConnectEndpointMapOutput() I
 
 func (o InstanceConnectEndpointMapOutput) ToInstanceConnectEndpointMapOutputWithContext(ctx context.Context) InstanceConnectEndpointMapOutput {
 	return o
-}
-
-func (o InstanceConnectEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceConnectEndpoint] {
-	return pulumix.Output[map[string]*InstanceConnectEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceConnectEndpointMapOutput) MapIndex(k pulumi.StringInput) InstanceConnectEndpointOutput {

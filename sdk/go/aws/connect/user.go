@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect User resource. For more information see
@@ -437,12 +436,6 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-func (i *User) ToOutput(ctx context.Context) pulumix.Output[*User] {
-	return pulumix.Output[*User]{
-		OutputState: i.ToUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserArrayInput is an input type that accepts UserArray and UserArrayOutput values.
 // You can construct a concrete instance of `UserArrayInput` via:
 //
@@ -466,12 +459,6 @@ func (i UserArray) ToUserArrayOutput() UserArrayOutput {
 
 func (i UserArray) ToUserArrayOutputWithContext(ctx context.Context) UserArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserArrayOutput)
-}
-
-func (i UserArray) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
-	return pulumix.Output[[]*User]{
-		OutputState: i.ToUserArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserMapInput is an input type that accepts UserMap and UserMapOutput values.
@@ -499,12 +486,6 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
-func (i UserMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
-	return pulumix.Output[map[string]*User]{
-		OutputState: i.ToUserMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
@@ -517,12 +498,6 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
-}
-
-func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
-	return pulumix.Output[*User]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the user.
@@ -607,12 +582,6 @@ func (o UserArrayOutput) ToUserArrayOutputWithContext(ctx context.Context) UserA
 	return o
 }
 
-func (o UserArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*User] {
-	return pulumix.Output[[]*User]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserArrayOutput) Index(i pulumi.IntInput) UserOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *User {
 		return vs[0].([]*User)[vs[1].(int)]
@@ -631,12 +600,6 @@ func (o UserMapOutput) ToUserMapOutput() UserMapOutput {
 
 func (o UserMapOutput) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return o
-}
-
-func (o UserMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*User] {
-	return pulumix.Output[map[string]*User]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserMapOutput) MapIndex(k pulumi.StringInput) UserOutput {

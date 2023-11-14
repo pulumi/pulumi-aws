@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
@@ -222,12 +221,6 @@ func (i *CustomerGateway) ToCustomerGatewayOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayOutput)
 }
 
-func (i *CustomerGateway) ToOutput(ctx context.Context) pulumix.Output[*CustomerGateway] {
-	return pulumix.Output[*CustomerGateway]{
-		OutputState: i.ToCustomerGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomerGatewayArrayInput is an input type that accepts CustomerGatewayArray and CustomerGatewayArrayOutput values.
 // You can construct a concrete instance of `CustomerGatewayArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i CustomerGatewayArray) ToCustomerGatewayArrayOutput() CustomerGatewayArra
 
 func (i CustomerGatewayArray) ToCustomerGatewayArrayOutputWithContext(ctx context.Context) CustomerGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayArrayOutput)
-}
-
-func (i CustomerGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerGateway] {
-	return pulumix.Output[[]*CustomerGateway]{
-		OutputState: i.ToCustomerGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomerGatewayMapInput is an input type that accepts CustomerGatewayMap and CustomerGatewayMapOutput values.
@@ -284,12 +271,6 @@ func (i CustomerGatewayMap) ToCustomerGatewayMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayMapOutput)
 }
 
-func (i CustomerGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerGateway] {
-	return pulumix.Output[map[string]*CustomerGateway]{
-		OutputState: i.ToCustomerGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomerGatewayOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o CustomerGatewayOutput) ToCustomerGatewayOutput() CustomerGatewayOutput {
 
 func (o CustomerGatewayOutput) ToCustomerGatewayOutputWithContext(ctx context.Context) CustomerGatewayOutput {
 	return o
-}
-
-func (o CustomerGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerGateway] {
-	return pulumix.Output[*CustomerGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the customer gateway.
@@ -367,12 +342,6 @@ func (o CustomerGatewayArrayOutput) ToCustomerGatewayArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o CustomerGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerGateway] {
-	return pulumix.Output[[]*CustomerGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomerGatewayArrayOutput) Index(i pulumi.IntInput) CustomerGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomerGateway {
 		return vs[0].([]*CustomerGateway)[vs[1].(int)]
@@ -391,12 +360,6 @@ func (o CustomerGatewayMapOutput) ToCustomerGatewayMapOutput() CustomerGatewayMa
 
 func (o CustomerGatewayMapOutput) ToCustomerGatewayMapOutputWithContext(ctx context.Context) CustomerGatewayMapOutput {
 	return o
-}
-
-func (o CustomerGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerGateway] {
-	return pulumix.Output[map[string]*CustomerGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomerGatewayMapOutput) MapIndex(k pulumi.StringInput) CustomerGatewayOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Container Registry Pull Through Cache Rule.
@@ -160,12 +159,6 @@ func (i *PullThroughCacheRule) ToPullThroughCacheRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRuleOutput)
 }
 
-func (i *PullThroughCacheRule) ToOutput(ctx context.Context) pulumix.Output[*PullThroughCacheRule] {
-	return pulumix.Output[*PullThroughCacheRule]{
-		OutputState: i.ToPullThroughCacheRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PullThroughCacheRuleArrayInput is an input type that accepts PullThroughCacheRuleArray and PullThroughCacheRuleArrayOutput values.
 // You can construct a concrete instance of `PullThroughCacheRuleArrayInput` via:
 //
@@ -189,12 +182,6 @@ func (i PullThroughCacheRuleArray) ToPullThroughCacheRuleArrayOutput() PullThrou
 
 func (i PullThroughCacheRuleArray) ToPullThroughCacheRuleArrayOutputWithContext(ctx context.Context) PullThroughCacheRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRuleArrayOutput)
-}
-
-func (i PullThroughCacheRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*PullThroughCacheRule] {
-	return pulumix.Output[[]*PullThroughCacheRule]{
-		OutputState: i.ToPullThroughCacheRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PullThroughCacheRuleMapInput is an input type that accepts PullThroughCacheRuleMap and PullThroughCacheRuleMapOutput values.
@@ -222,12 +209,6 @@ func (i PullThroughCacheRuleMap) ToPullThroughCacheRuleMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PullThroughCacheRuleMapOutput)
 }
 
-func (i PullThroughCacheRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PullThroughCacheRule] {
-	return pulumix.Output[map[string]*PullThroughCacheRule]{
-		OutputState: i.ToPullThroughCacheRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PullThroughCacheRuleOutput struct{ *pulumi.OutputState }
 
 func (PullThroughCacheRuleOutput) ElementType() reflect.Type {
@@ -240,12 +221,6 @@ func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutput() PullThroughCa
 
 func (o PullThroughCacheRuleOutput) ToPullThroughCacheRuleOutputWithContext(ctx context.Context) PullThroughCacheRuleOutput {
 	return o
-}
-
-func (o PullThroughCacheRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*PullThroughCacheRule] {
-	return pulumix.Output[*PullThroughCacheRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The repository name prefix to use when caching images from the source registry.
@@ -277,12 +252,6 @@ func (o PullThroughCacheRuleArrayOutput) ToPullThroughCacheRuleArrayOutputWithCo
 	return o
 }
 
-func (o PullThroughCacheRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PullThroughCacheRule] {
-	return pulumix.Output[[]*PullThroughCacheRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PullThroughCacheRuleArrayOutput) Index(i pulumi.IntInput) PullThroughCacheRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PullThroughCacheRule {
 		return vs[0].([]*PullThroughCacheRule)[vs[1].(int)]
@@ -301,12 +270,6 @@ func (o PullThroughCacheRuleMapOutput) ToPullThroughCacheRuleMapOutput() PullThr
 
 func (o PullThroughCacheRuleMapOutput) ToPullThroughCacheRuleMapOutputWithContext(ctx context.Context) PullThroughCacheRuleMapOutput {
 	return o
-}
-
-func (o PullThroughCacheRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PullThroughCacheRule] {
-	return pulumix.Output[map[string]*PullThroughCacheRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PullThroughCacheRuleMapOutput) MapIndex(k pulumi.StringInput) PullThroughCacheRuleOutput {

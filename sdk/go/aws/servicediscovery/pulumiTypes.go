@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ServiceDnsConfigArgs) ToServiceDnsConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigOutput)
 }
 
-func (i ServiceDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfig] {
-	return pulumix.Output[ServiceDnsConfig]{
-		OutputState: i.ToServiceDnsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceDnsConfigArgs) ToServiceDnsConfigPtrOutput() ServiceDnsConfigPtrOutput {
 	return i.ToServiceDnsConfigPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *serviceDnsConfigPtrType) ToServiceDnsConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigPtrOutput)
 }
 
-func (i *serviceDnsConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsConfig] {
-	return pulumix.Output[*ServiceDnsConfig]{
-		OutputState: i.ToServiceDnsConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsConfigOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ServiceDnsConfigOutput) ToServiceDnsConfigPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDnsConfig) *ServiceDnsConfig {
 		return &v
 	}).(ServiceDnsConfigPtrOutput)
-}
-
-func (o ServiceDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfig] {
-	return pulumix.Output[ServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array that contains one DnsRecord object for each resource record set.
@@ -165,12 +146,6 @@ func (o ServiceDnsConfigPtrOutput) ToServiceDnsConfigPtrOutput() ServiceDnsConfi
 
 func (o ServiceDnsConfigPtrOutput) ToServiceDnsConfigPtrOutputWithContext(ctx context.Context) ServiceDnsConfigPtrOutput {
 	return o
-}
-
-func (o ServiceDnsConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDnsConfig] {
-	return pulumix.Output[*ServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsConfigPtrOutput) Elem() ServiceDnsConfigOutput {
@@ -250,12 +225,6 @@ func (i ServiceDnsConfigDnsRecordArgs) ToServiceDnsConfigDnsRecordOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigDnsRecordOutput)
 }
 
-func (i ServiceDnsConfigDnsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfigDnsRecord] {
-	return pulumix.Output[ServiceDnsConfigDnsRecord]{
-		OutputState: i.ToServiceDnsConfigDnsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceDnsConfigDnsRecordArrayInput is an input type that accepts ServiceDnsConfigDnsRecordArray and ServiceDnsConfigDnsRecordArrayOutput values.
 // You can construct a concrete instance of `ServiceDnsConfigDnsRecordArrayInput` via:
 //
@@ -281,12 +250,6 @@ func (i ServiceDnsConfigDnsRecordArray) ToServiceDnsConfigDnsRecordArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDnsConfigDnsRecordArrayOutput)
 }
 
-func (i ServiceDnsConfigDnsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsConfigDnsRecord] {
-	return pulumix.Output[[]ServiceDnsConfigDnsRecord]{
-		OutputState: i.ToServiceDnsConfigDnsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceDnsConfigDnsRecordOutput struct{ *pulumi.OutputState }
 
 func (ServiceDnsConfigDnsRecordOutput) ElementType() reflect.Type {
@@ -299,12 +262,6 @@ func (o ServiceDnsConfigDnsRecordOutput) ToServiceDnsConfigDnsRecordOutput() Ser
 
 func (o ServiceDnsConfigDnsRecordOutput) ToServiceDnsConfigDnsRecordOutputWithContext(ctx context.Context) ServiceDnsConfigDnsRecordOutput {
 	return o
-}
-
-func (o ServiceDnsConfigDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDnsConfigDnsRecord] {
-	return pulumix.Output[ServiceDnsConfigDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
@@ -329,12 +286,6 @@ func (o ServiceDnsConfigDnsRecordArrayOutput) ToServiceDnsConfigDnsRecordArrayOu
 
 func (o ServiceDnsConfigDnsRecordArrayOutput) ToServiceDnsConfigDnsRecordArrayOutputWithContext(ctx context.Context) ServiceDnsConfigDnsRecordArrayOutput {
 	return o
-}
-
-func (o ServiceDnsConfigDnsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceDnsConfigDnsRecord] {
-	return pulumix.Output[[]ServiceDnsConfigDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDnsConfigDnsRecordArrayOutput) Index(i pulumi.IntInput) ServiceDnsConfigDnsRecordOutput {
@@ -384,12 +335,6 @@ func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigOutput)
 }
 
-func (i ServiceHealthCheckConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfig] {
-	return pulumix.Output[ServiceHealthCheckConfig]{
-		OutputState: i.ToServiceHealthCheckConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceHealthCheckConfigArgs) ToServiceHealthCheckConfigPtrOutput() ServiceHealthCheckConfigPtrOutput {
 	return i.ToServiceHealthCheckConfigPtrOutputWithContext(context.Background())
 }
@@ -431,12 +376,6 @@ func (i *serviceHealthCheckConfigPtrType) ToServiceHealthCheckConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigPtrOutput)
 }
 
-func (i *serviceHealthCheckConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfig] {
-	return pulumix.Output[*ServiceHealthCheckConfig]{
-		OutputState: i.ToServiceHealthCheckConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceHealthCheckConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceHealthCheckConfigOutput) ElementType() reflect.Type {
@@ -459,12 +398,6 @@ func (o ServiceHealthCheckConfigOutput) ToServiceHealthCheckConfigPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHealthCheckConfig) *ServiceHealthCheckConfig {
 		return &v
 	}).(ServiceHealthCheckConfigPtrOutput)
-}
-
-func (o ServiceHealthCheckConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfig] {
-	return pulumix.Output[ServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive health checks. Maximum value of 10.
@@ -494,12 +427,6 @@ func (o ServiceHealthCheckConfigPtrOutput) ToServiceHealthCheckConfigPtrOutput()
 
 func (o ServiceHealthCheckConfigPtrOutput) ToServiceHealthCheckConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigPtrOutput {
 	return o
-}
-
-func (o ServiceHealthCheckConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfig] {
-	return pulumix.Output[*ServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceHealthCheckConfigPtrOutput) Elem() ServiceHealthCheckConfigOutput {
@@ -575,12 +502,6 @@ func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckCustomConfigOutput)
 }
 
-func (i ServiceHealthCheckCustomConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[ServiceHealthCheckCustomConfig]{
-		OutputState: i.ToServiceHealthCheckCustomConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceHealthCheckCustomConfigArgs) ToServiceHealthCheckCustomConfigPtrOutput() ServiceHealthCheckCustomConfigPtrOutput {
 	return i.ToServiceHealthCheckCustomConfigPtrOutputWithContext(context.Background())
 }
@@ -622,12 +543,6 @@ func (i *serviceHealthCheckCustomConfigPtrType) ToServiceHealthCheckCustomConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
-func (i *serviceHealthCheckCustomConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[*ServiceHealthCheckCustomConfig]{
-		OutputState: i.ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceHealthCheckCustomConfigOutput struct{ *pulumi.OutputState }
 
 func (ServiceHealthCheckCustomConfigOutput) ElementType() reflect.Type {
@@ -652,12 +567,6 @@ func (o ServiceHealthCheckCustomConfigOutput) ToServiceHealthCheckCustomConfigPt
 	}).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
-func (o ServiceHealthCheckCustomConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[ServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
 func (o ServiceHealthCheckCustomConfigOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckCustomConfig) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
@@ -675,12 +584,6 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) ToServiceHealthCheckCustomConfi
 
 func (o ServiceHealthCheckCustomConfigPtrOutput) ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckCustomConfigPtrOutput {
 	return o
-}
-
-func (o ServiceHealthCheckCustomConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckCustomConfig] {
-	return pulumix.Output[*ServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceHealthCheckCustomConfigPtrOutput) Elem() ServiceHealthCheckCustomConfigOutput {
@@ -744,12 +647,6 @@ func (i GetServiceDnsConfigArgs) ToGetServiceDnsConfigOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigOutput)
 }
 
-func (i GetServiceDnsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsConfig] {
-	return pulumix.Output[GetServiceDnsConfig]{
-		OutputState: i.ToGetServiceDnsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceDnsConfigArrayInput is an input type that accepts GetServiceDnsConfigArray and GetServiceDnsConfigArrayOutput values.
 // You can construct a concrete instance of `GetServiceDnsConfigArrayInput` via:
 //
@@ -775,12 +672,6 @@ func (i GetServiceDnsConfigArray) ToGetServiceDnsConfigArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigArrayOutput)
 }
 
-func (i GetServiceDnsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsConfig] {
-	return pulumix.Output[[]GetServiceDnsConfig]{
-		OutputState: i.ToGetServiceDnsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceDnsConfigOutput struct{ *pulumi.OutputState }
 
 func (GetServiceDnsConfigOutput) ElementType() reflect.Type {
@@ -793,12 +684,6 @@ func (o GetServiceDnsConfigOutput) ToGetServiceDnsConfigOutput() GetServiceDnsCo
 
 func (o GetServiceDnsConfigOutput) ToGetServiceDnsConfigOutputWithContext(ctx context.Context) GetServiceDnsConfigOutput {
 	return o
-}
-
-func (o GetServiceDnsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsConfig] {
-	return pulumix.Output[GetServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array that contains one DnsRecord object for each resource record set.
@@ -828,12 +713,6 @@ func (o GetServiceDnsConfigArrayOutput) ToGetServiceDnsConfigArrayOutput() GetSe
 
 func (o GetServiceDnsConfigArrayOutput) ToGetServiceDnsConfigArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigArrayOutput {
 	return o
-}
-
-func (o GetServiceDnsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsConfig] {
-	return pulumix.Output[[]GetServiceDnsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceDnsConfigArrayOutput) Index(i pulumi.IntInput) GetServiceDnsConfigOutput {
@@ -879,12 +758,6 @@ func (i GetServiceDnsConfigDnsRecordArgs) ToGetServiceDnsConfigDnsRecordOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigDnsRecordOutput)
 }
 
-func (i GetServiceDnsConfigDnsRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsConfigDnsRecord] {
-	return pulumix.Output[GetServiceDnsConfigDnsRecord]{
-		OutputState: i.ToGetServiceDnsConfigDnsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceDnsConfigDnsRecordArrayInput is an input type that accepts GetServiceDnsConfigDnsRecordArray and GetServiceDnsConfigDnsRecordArrayOutput values.
 // You can construct a concrete instance of `GetServiceDnsConfigDnsRecordArrayInput` via:
 //
@@ -910,12 +783,6 @@ func (i GetServiceDnsConfigDnsRecordArray) ToGetServiceDnsConfigDnsRecordArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigDnsRecordArrayOutput)
 }
 
-func (i GetServiceDnsConfigDnsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsConfigDnsRecord] {
-	return pulumix.Output[[]GetServiceDnsConfigDnsRecord]{
-		OutputState: i.ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceDnsConfigDnsRecordOutput struct{ *pulumi.OutputState }
 
 func (GetServiceDnsConfigDnsRecordOutput) ElementType() reflect.Type {
@@ -928,12 +795,6 @@ func (o GetServiceDnsConfigDnsRecordOutput) ToGetServiceDnsConfigDnsRecordOutput
 
 func (o GetServiceDnsConfigDnsRecordOutput) ToGetServiceDnsConfigDnsRecordOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordOutput {
 	return o
-}
-
-func (o GetServiceDnsConfigDnsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceDnsConfigDnsRecord] {
-	return pulumix.Output[GetServiceDnsConfigDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
@@ -958,12 +819,6 @@ func (o GetServiceDnsConfigDnsRecordArrayOutput) ToGetServiceDnsConfigDnsRecordA
 
 func (o GetServiceDnsConfigDnsRecordArrayOutput) ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordArrayOutput {
 	return o
-}
-
-func (o GetServiceDnsConfigDnsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceDnsConfigDnsRecord] {
-	return pulumix.Output[[]GetServiceDnsConfigDnsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceDnsConfigDnsRecordArrayOutput) Index(i pulumi.IntInput) GetServiceDnsConfigDnsRecordOutput {
@@ -1013,12 +868,6 @@ func (i GetServiceHealthCheckConfigArgs) ToGetServiceHealthCheckConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckConfigOutput)
 }
 
-func (i GetServiceHealthCheckConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHealthCheckConfig] {
-	return pulumix.Output[GetServiceHealthCheckConfig]{
-		OutputState: i.ToGetServiceHealthCheckConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceHealthCheckConfigArrayInput is an input type that accepts GetServiceHealthCheckConfigArray and GetServiceHealthCheckConfigArrayOutput values.
 // You can construct a concrete instance of `GetServiceHealthCheckConfigArrayInput` via:
 //
@@ -1044,12 +893,6 @@ func (i GetServiceHealthCheckConfigArray) ToGetServiceHealthCheckConfigArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckConfigArrayOutput)
 }
 
-func (i GetServiceHealthCheckConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHealthCheckConfig] {
-	return pulumix.Output[[]GetServiceHealthCheckConfig]{
-		OutputState: i.ToGetServiceHealthCheckConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceHealthCheckConfigOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHealthCheckConfigOutput) ElementType() reflect.Type {
@@ -1062,12 +905,6 @@ func (o GetServiceHealthCheckConfigOutput) ToGetServiceHealthCheckConfigOutput()
 
 func (o GetServiceHealthCheckConfigOutput) ToGetServiceHealthCheckConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigOutput {
 	return o
-}
-
-func (o GetServiceHealthCheckConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHealthCheckConfig] {
-	return pulumix.Output[GetServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
@@ -1097,12 +934,6 @@ func (o GetServiceHealthCheckConfigArrayOutput) ToGetServiceHealthCheckConfigArr
 
 func (o GetServiceHealthCheckConfigArrayOutput) ToGetServiceHealthCheckConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigArrayOutput {
 	return o
-}
-
-func (o GetServiceHealthCheckConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHealthCheckConfig] {
-	return pulumix.Output[[]GetServiceHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceHealthCheckConfigArrayOutput) Index(i pulumi.IntInput) GetServiceHealthCheckConfigOutput {
@@ -1144,12 +975,6 @@ func (i GetServiceHealthCheckCustomConfigArgs) ToGetServiceHealthCheckCustomConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckCustomConfigOutput)
 }
 
-func (i GetServiceHealthCheckCustomConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceHealthCheckCustomConfig] {
-	return pulumix.Output[GetServiceHealthCheckCustomConfig]{
-		OutputState: i.ToGetServiceHealthCheckCustomConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceHealthCheckCustomConfigArrayInput is an input type that accepts GetServiceHealthCheckCustomConfigArray and GetServiceHealthCheckCustomConfigArrayOutput values.
 // You can construct a concrete instance of `GetServiceHealthCheckCustomConfigArrayInput` via:
 //
@@ -1175,12 +1000,6 @@ func (i GetServiceHealthCheckCustomConfigArray) ToGetServiceHealthCheckCustomCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckCustomConfigArrayOutput)
 }
 
-func (i GetServiceHealthCheckCustomConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHealthCheckCustomConfig] {
-	return pulumix.Output[[]GetServiceHealthCheckCustomConfig]{
-		OutputState: i.ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceHealthCheckCustomConfigOutput struct{ *pulumi.OutputState }
 
 func (GetServiceHealthCheckCustomConfigOutput) ElementType() reflect.Type {
@@ -1193,12 +1012,6 @@ func (o GetServiceHealthCheckCustomConfigOutput) ToGetServiceHealthCheckCustomCo
 
 func (o GetServiceHealthCheckCustomConfigOutput) ToGetServiceHealthCheckCustomConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigOutput {
 	return o
-}
-
-func (o GetServiceHealthCheckCustomConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceHealthCheckCustomConfig] {
-	return pulumix.Output[GetServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
@@ -1218,12 +1031,6 @@ func (o GetServiceHealthCheckCustomConfigArrayOutput) ToGetServiceHealthCheckCus
 
 func (o GetServiceHealthCheckCustomConfigArrayOutput) ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigArrayOutput {
 	return o
-}
-
-func (o GetServiceHealthCheckCustomConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceHealthCheckCustomConfig] {
-	return pulumix.Output[[]GetServiceHealthCheckCustomConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceHealthCheckCustomConfigArrayOutput) Index(i pulumi.IntInput) GetServiceHealthCheckCustomConfigOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route53 Resolver rule.
@@ -274,12 +273,6 @@ func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) Reso
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleOutput)
 }
 
-func (i *ResolverRule) ToOutput(ctx context.Context) pulumix.Output[*ResolverRule] {
-	return pulumix.Output[*ResolverRule]{
-		OutputState: i.ToResolverRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverRuleArrayInput is an input type that accepts ResolverRuleArray and ResolverRuleArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleArrayInput` via:
 //
@@ -303,12 +296,6 @@ func (i ResolverRuleArray) ToResolverRuleArrayOutput() ResolverRuleArrayOutput {
 
 func (i ResolverRuleArray) ToResolverRuleArrayOutputWithContext(ctx context.Context) ResolverRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleArrayOutput)
-}
-
-func (i ResolverRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverRule] {
-	return pulumix.Output[[]*ResolverRule]{
-		OutputState: i.ToResolverRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverRuleMapInput is an input type that accepts ResolverRuleMap and ResolverRuleMapOutput values.
@@ -336,12 +323,6 @@ func (i ResolverRuleMap) ToResolverRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleMapOutput)
 }
 
-func (i ResolverRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverRule] {
-	return pulumix.Output[map[string]*ResolverRule]{
-		OutputState: i.ToResolverRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
@@ -354,12 +335,6 @@ func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {
 
 func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
 	return o
-}
-
-func (o ResolverRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRule] {
-	return pulumix.Output[*ResolverRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN (Amazon Resource Name) for the resolver rule.
@@ -431,12 +406,6 @@ func (o ResolverRuleArrayOutput) ToResolverRuleArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ResolverRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverRule] {
-	return pulumix.Output[[]*ResolverRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverRuleArrayOutput) Index(i pulumi.IntInput) ResolverRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverRule {
 		return vs[0].([]*ResolverRule)[vs[1].(int)]
@@ -455,12 +424,6 @@ func (o ResolverRuleMapOutput) ToResolverRuleMapOutput() ResolverRuleMapOutput {
 
 func (o ResolverRuleMapOutput) ToResolverRuleMapOutputWithContext(ctx context.Context) ResolverRuleMapOutput {
 	return o
-}
-
-func (o ResolverRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverRule] {
-	return pulumix.Output[map[string]*ResolverRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverRuleMapOutput) MapIndex(k pulumi.StringInput) ResolverRuleOutput {

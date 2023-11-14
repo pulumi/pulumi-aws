@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This setting defines how a user interacts with or uses a service or a feature of a service.
@@ -163,12 +162,6 @@ func (i *ServiceSetting) ToServiceSettingOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSettingOutput)
 }
 
-func (i *ServiceSetting) ToOutput(ctx context.Context) pulumix.Output[*ServiceSetting] {
-	return pulumix.Output[*ServiceSetting]{
-		OutputState: i.ToServiceSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceSettingArrayInput is an input type that accepts ServiceSettingArray and ServiceSettingArrayOutput values.
 // You can construct a concrete instance of `ServiceSettingArrayInput` via:
 //
@@ -192,12 +185,6 @@ func (i ServiceSettingArray) ToServiceSettingArrayOutput() ServiceSettingArrayOu
 
 func (i ServiceSettingArray) ToServiceSettingArrayOutputWithContext(ctx context.Context) ServiceSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSettingArrayOutput)
-}
-
-func (i ServiceSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceSetting] {
-	return pulumix.Output[[]*ServiceSetting]{
-		OutputState: i.ToServiceSettingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceSettingMapInput is an input type that accepts ServiceSettingMap and ServiceSettingMapOutput values.
@@ -225,12 +212,6 @@ func (i ServiceSettingMap) ToServiceSettingMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSettingMapOutput)
 }
 
-func (i ServiceSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceSetting] {
-	return pulumix.Output[map[string]*ServiceSetting]{
-		OutputState: i.ToServiceSettingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceSettingOutput struct{ *pulumi.OutputState }
 
 func (ServiceSettingOutput) ElementType() reflect.Type {
@@ -243,12 +224,6 @@ func (o ServiceSettingOutput) ToServiceSettingOutput() ServiceSettingOutput {
 
 func (o ServiceSettingOutput) ToServiceSettingOutputWithContext(ctx context.Context) ServiceSettingOutput {
 	return o
-}
-
-func (o ServiceSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSetting] {
-	return pulumix.Output[*ServiceSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the service setting.
@@ -285,12 +260,6 @@ func (o ServiceSettingArrayOutput) ToServiceSettingArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ServiceSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceSetting] {
-	return pulumix.Output[[]*ServiceSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSettingArrayOutput) Index(i pulumi.IntInput) ServiceSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceSetting {
 		return vs[0].([]*ServiceSetting)[vs[1].(int)]
@@ -309,12 +278,6 @@ func (o ServiceSettingMapOutput) ToServiceSettingMapOutput() ServiceSettingMapOu
 
 func (o ServiceSettingMapOutput) ToServiceSettingMapOutputWithContext(ctx context.Context) ServiceSettingMapOutput {
 	return o
-}
-
-func (o ServiceSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceSetting] {
-	return pulumix.Output[map[string]*ServiceSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceSettingMapOutput) MapIndex(k pulumi.StringInput) ServiceSettingOutput {

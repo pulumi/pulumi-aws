@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
@@ -109,12 +108,6 @@ func (o GetLocationResultOutput) ToGetLocationResultOutput() GetLocationResultOu
 
 func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx context.Context) GetLocationResultOutput {
 	return o
-}
-
-func (o GetLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocationResult] {
-	return pulumix.Output[GetLocationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The available MAC Security (MACsec) port speeds for the location.

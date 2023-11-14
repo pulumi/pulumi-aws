@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Launch Template.
@@ -179,12 +178,6 @@ func (o LookupLaunchTemplateResultOutput) ToLookupLaunchTemplateResultOutput() L
 
 func (o LookupLaunchTemplateResultOutput) ToLookupLaunchTemplateResultOutputWithContext(ctx context.Context) LookupLaunchTemplateResultOutput {
 	return o
-}
-
-func (o LookupLaunchTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchTemplateResult] {
-	return pulumix.Output[LookupLaunchTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLaunchTemplateResultOutput) Arn() pulumi.StringOutput {

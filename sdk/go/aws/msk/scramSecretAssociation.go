@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
@@ -238,12 +237,6 @@ func (i *ScramSecretAssociation) ToScramSecretAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationOutput)
 }
 
-func (i *ScramSecretAssociation) ToOutput(ctx context.Context) pulumix.Output[*ScramSecretAssociation] {
-	return pulumix.Output[*ScramSecretAssociation]{
-		OutputState: i.ToScramSecretAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScramSecretAssociationArrayInput is an input type that accepts ScramSecretAssociationArray and ScramSecretAssociationArrayOutput values.
 // You can construct a concrete instance of `ScramSecretAssociationArrayInput` via:
 //
@@ -267,12 +260,6 @@ func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutput() Scram
 
 func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutputWithContext(ctx context.Context) ScramSecretAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationArrayOutput)
-}
-
-func (i ScramSecretAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScramSecretAssociation] {
-	return pulumix.Output[[]*ScramSecretAssociation]{
-		OutputState: i.ToScramSecretAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScramSecretAssociationMapInput is an input type that accepts ScramSecretAssociationMap and ScramSecretAssociationMapOutput values.
@@ -300,12 +287,6 @@ func (i ScramSecretAssociationMap) ToScramSecretAssociationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ScramSecretAssociationMapOutput)
 }
 
-func (i ScramSecretAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScramSecretAssociation] {
-	return pulumix.Output[map[string]*ScramSecretAssociation]{
-		OutputState: i.ToScramSecretAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScramSecretAssociationOutput struct{ *pulumi.OutputState }
 
 func (ScramSecretAssociationOutput) ElementType() reflect.Type {
@@ -318,12 +299,6 @@ func (o ScramSecretAssociationOutput) ToScramSecretAssociationOutput() ScramSecr
 
 func (o ScramSecretAssociationOutput) ToScramSecretAssociationOutputWithContext(ctx context.Context) ScramSecretAssociationOutput {
 	return o
-}
-
-func (o ScramSecretAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ScramSecretAssociation] {
-	return pulumix.Output[*ScramSecretAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the MSK cluster.
@@ -350,12 +325,6 @@ func (o ScramSecretAssociationArrayOutput) ToScramSecretAssociationArrayOutputWi
 	return o
 }
 
-func (o ScramSecretAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScramSecretAssociation] {
-	return pulumix.Output[[]*ScramSecretAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScramSecretAssociationArrayOutput) Index(i pulumi.IntInput) ScramSecretAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScramSecretAssociation {
 		return vs[0].([]*ScramSecretAssociation)[vs[1].(int)]
@@ -374,12 +343,6 @@ func (o ScramSecretAssociationMapOutput) ToScramSecretAssociationMapOutput() Scr
 
 func (o ScramSecretAssociationMapOutput) ToScramSecretAssociationMapOutputWithContext(ctx context.Context) ScramSecretAssociationMapOutput {
 	return o
-}
-
-func (o ScramSecretAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScramSecretAssociation] {
-	return pulumix.Output[map[string]*ScramSecretAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScramSecretAssociationMapOutput) MapIndex(k pulumi.StringInput) ScramSecretAssociationOutput {

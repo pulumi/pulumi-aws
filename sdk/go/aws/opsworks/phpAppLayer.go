@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks PHP application layer resource.
@@ -364,12 +363,6 @@ func (i *PhpAppLayer) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpApp
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerOutput)
 }
 
-func (i *PhpAppLayer) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayer] {
-	return pulumix.Output[*PhpAppLayer]{
-		OutputState: i.ToPhpAppLayerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PhpAppLayerArrayInput is an input type that accepts PhpAppLayerArray and PhpAppLayerArrayOutput values.
 // You can construct a concrete instance of `PhpAppLayerArrayInput` via:
 //
@@ -393,12 +386,6 @@ func (i PhpAppLayerArray) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
 
 func (i PhpAppLayerArray) ToPhpAppLayerArrayOutputWithContext(ctx context.Context) PhpAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerArrayOutput)
-}
-
-func (i PhpAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*PhpAppLayer] {
-	return pulumix.Output[[]*PhpAppLayer]{
-		OutputState: i.ToPhpAppLayerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PhpAppLayerMapInput is an input type that accepts PhpAppLayerMap and PhpAppLayerMapOutput values.
@@ -426,12 +413,6 @@ func (i PhpAppLayerMap) ToPhpAppLayerMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerMapOutput)
 }
 
-func (i PhpAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhpAppLayer] {
-	return pulumix.Output[map[string]*PhpAppLayer]{
-		OutputState: i.ToPhpAppLayerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PhpAppLayerOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerOutput) ElementType() reflect.Type {
@@ -444,12 +425,6 @@ func (o PhpAppLayerOutput) ToPhpAppLayerOutput() PhpAppLayerOutput {
 
 func (o PhpAppLayerOutput) ToPhpAppLayerOutputWithContext(ctx context.Context) PhpAppLayerOutput {
 	return o
-}
-
-func (o PhpAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*PhpAppLayer] {
-	return pulumix.Output[*PhpAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -590,12 +565,6 @@ func (o PhpAppLayerArrayOutput) ToPhpAppLayerArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o PhpAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PhpAppLayer] {
-	return pulumix.Output[[]*PhpAppLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PhpAppLayerArrayOutput) Index(i pulumi.IntInput) PhpAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PhpAppLayer {
 		return vs[0].([]*PhpAppLayer)[vs[1].(int)]
@@ -614,12 +583,6 @@ func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {
 
 func (o PhpAppLayerMapOutput) ToPhpAppLayerMapOutputWithContext(ctx context.Context) PhpAppLayerMapOutput {
 	return o
-}
-
-func (o PhpAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PhpAppLayer] {
-	return pulumix.Output[map[string]*PhpAppLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PhpAppLayerMapOutput) MapIndex(k pulumi.StringInput) PhpAppLayerOutput {

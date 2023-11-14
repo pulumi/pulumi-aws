@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cloud9 EC2 Development Environment.
@@ -366,12 +365,6 @@ func (i *EnvironmentEC2) ToEnvironmentEC2OutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2Output)
 }
 
-func (i *EnvironmentEC2) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEC2] {
-	return pulumix.Output[*EnvironmentEC2]{
-		OutputState: i.ToEnvironmentEC2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentEC2ArrayInput is an input type that accepts EnvironmentEC2Array and EnvironmentEC2ArrayOutput values.
 // You can construct a concrete instance of `EnvironmentEC2ArrayInput` via:
 //
@@ -395,12 +388,6 @@ func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOu
 
 func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutputWithContext(ctx context.Context) EnvironmentEC2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2ArrayOutput)
-}
-
-func (i EnvironmentEC2Array) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentEC2] {
-	return pulumix.Output[[]*EnvironmentEC2]{
-		OutputState: i.ToEnvironmentEC2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EnvironmentEC2MapInput is an input type that accepts EnvironmentEC2Map and EnvironmentEC2MapOutput values.
@@ -428,12 +415,6 @@ func (i EnvironmentEC2Map) ToEnvironmentEC2MapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentEC2MapOutput)
 }
 
-func (i EnvironmentEC2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentEC2] {
-	return pulumix.Output[map[string]*EnvironmentEC2]{
-		OutputState: i.ToEnvironmentEC2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentEC2Output struct{ *pulumi.OutputState }
 
 func (EnvironmentEC2Output) ElementType() reflect.Type {
@@ -446,12 +427,6 @@ func (o EnvironmentEC2Output) ToEnvironmentEC2Output() EnvironmentEC2Output {
 
 func (o EnvironmentEC2Output) ToEnvironmentEC2OutputWithContext(ctx context.Context) EnvironmentEC2Output {
 	return o
-}
-
-func (o EnvironmentEC2Output) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEC2] {
-	return pulumix.Output[*EnvironmentEC2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the environment.
@@ -538,12 +513,6 @@ func (o EnvironmentEC2ArrayOutput) ToEnvironmentEC2ArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o EnvironmentEC2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentEC2] {
-	return pulumix.Output[[]*EnvironmentEC2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentEC2ArrayOutput) Index(i pulumi.IntInput) EnvironmentEC2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentEC2 {
 		return vs[0].([]*EnvironmentEC2)[vs[1].(int)]
@@ -562,12 +531,6 @@ func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutput() EnvironmentEC2MapOu
 
 func (o EnvironmentEC2MapOutput) ToEnvironmentEC2MapOutputWithContext(ctx context.Context) EnvironmentEC2MapOutput {
 	return o
-}
-
-func (o EnvironmentEC2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentEC2] {
-	return pulumix.Output[map[string]*EnvironmentEC2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentEC2MapOutput) MapIndex(k pulumi.StringInput) EnvironmentEC2Output {

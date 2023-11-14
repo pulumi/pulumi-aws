@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DynamoDB contributor insights resource
@@ -147,12 +146,6 @@ func (i *ContributorInsights) ToContributorInsightsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ContributorInsightsOutput)
 }
 
-func (i *ContributorInsights) ToOutput(ctx context.Context) pulumix.Output[*ContributorInsights] {
-	return pulumix.Output[*ContributorInsights]{
-		OutputState: i.ToContributorInsightsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContributorInsightsArrayInput is an input type that accepts ContributorInsightsArray and ContributorInsightsArrayOutput values.
 // You can construct a concrete instance of `ContributorInsightsArrayInput` via:
 //
@@ -176,12 +169,6 @@ func (i ContributorInsightsArray) ToContributorInsightsArrayOutput() Contributor
 
 func (i ContributorInsightsArray) ToContributorInsightsArrayOutputWithContext(ctx context.Context) ContributorInsightsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContributorInsightsArrayOutput)
-}
-
-func (i ContributorInsightsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContributorInsights] {
-	return pulumix.Output[[]*ContributorInsights]{
-		OutputState: i.ToContributorInsightsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ContributorInsightsMapInput is an input type that accepts ContributorInsightsMap and ContributorInsightsMapOutput values.
@@ -209,12 +196,6 @@ func (i ContributorInsightsMap) ToContributorInsightsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ContributorInsightsMapOutput)
 }
 
-func (i ContributorInsightsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContributorInsights] {
-	return pulumix.Output[map[string]*ContributorInsights]{
-		OutputState: i.ToContributorInsightsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContributorInsightsOutput struct{ *pulumi.OutputState }
 
 func (ContributorInsightsOutput) ElementType() reflect.Type {
@@ -227,12 +208,6 @@ func (o ContributorInsightsOutput) ToContributorInsightsOutput() ContributorInsi
 
 func (o ContributorInsightsOutput) ToContributorInsightsOutputWithContext(ctx context.Context) ContributorInsightsOutput {
 	return o
-}
-
-func (o ContributorInsightsOutput) ToOutput(ctx context.Context) pulumix.Output[*ContributorInsights] {
-	return pulumix.Output[*ContributorInsights]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The global secondary index name
@@ -259,12 +234,6 @@ func (o ContributorInsightsArrayOutput) ToContributorInsightsArrayOutputWithCont
 	return o
 }
 
-func (o ContributorInsightsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContributorInsights] {
-	return pulumix.Output[[]*ContributorInsights]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContributorInsightsArrayOutput) Index(i pulumi.IntInput) ContributorInsightsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContributorInsights {
 		return vs[0].([]*ContributorInsights)[vs[1].(int)]
@@ -283,12 +252,6 @@ func (o ContributorInsightsMapOutput) ToContributorInsightsMapOutput() Contribut
 
 func (o ContributorInsightsMapOutput) ToContributorInsightsMapOutputWithContext(ctx context.Context) ContributorInsightsMapOutput {
 	return o
-}
-
-func (o ContributorInsightsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContributorInsights] {
-	return pulumix.Output[map[string]*ContributorInsights]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContributorInsightsMapOutput) MapIndex(k pulumi.StringInput) ContributorInsightsOutput {

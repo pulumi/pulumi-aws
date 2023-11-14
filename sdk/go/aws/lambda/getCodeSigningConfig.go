@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
@@ -112,12 +111,6 @@ func (o LookupCodeSigningConfigResultOutput) ToLookupCodeSigningConfigResultOutp
 
 func (o LookupCodeSigningConfigResultOutput) ToLookupCodeSigningConfigResultOutputWithContext(ctx context.Context) LookupCodeSigningConfigResultOutput {
 	return o
-}
-
-func (o LookupCodeSigningConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCodeSigningConfigResult] {
-	return pulumix.Output[LookupCodeSigningConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of allowed publishers as signing profiles for this code signing configuration.

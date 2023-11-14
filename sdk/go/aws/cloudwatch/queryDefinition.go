@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Logs query definition resource.
@@ -167,12 +166,6 @@ func (i *QueryDefinition) ToQueryDefinitionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionOutput)
 }
 
-func (i *QueryDefinition) ToOutput(ctx context.Context) pulumix.Output[*QueryDefinition] {
-	return pulumix.Output[*QueryDefinition]{
-		OutputState: i.ToQueryDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // QueryDefinitionArrayInput is an input type that accepts QueryDefinitionArray and QueryDefinitionArrayOutput values.
 // You can construct a concrete instance of `QueryDefinitionArrayInput` via:
 //
@@ -196,12 +189,6 @@ func (i QueryDefinitionArray) ToQueryDefinitionArrayOutput() QueryDefinitionArra
 
 func (i QueryDefinitionArray) ToQueryDefinitionArrayOutputWithContext(ctx context.Context) QueryDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionArrayOutput)
-}
-
-func (i QueryDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*QueryDefinition] {
-	return pulumix.Output[[]*QueryDefinition]{
-		OutputState: i.ToQueryDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // QueryDefinitionMapInput is an input type that accepts QueryDefinitionMap and QueryDefinitionMapOutput values.
@@ -229,12 +216,6 @@ func (i QueryDefinitionMap) ToQueryDefinitionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionMapOutput)
 }
 
-func (i QueryDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryDefinition] {
-	return pulumix.Output[map[string]*QueryDefinition]{
-		OutputState: i.ToQueryDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QueryDefinitionOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionOutput) ElementType() reflect.Type {
@@ -247,12 +228,6 @@ func (o QueryDefinitionOutput) ToQueryDefinitionOutput() QueryDefinitionOutput {
 
 func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Context) QueryDefinitionOutput {
 	return o
-}
-
-func (o QueryDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*QueryDefinition] {
-	return pulumix.Output[*QueryDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specific log groups to use with the query.
@@ -289,12 +264,6 @@ func (o QueryDefinitionArrayOutput) ToQueryDefinitionArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o QueryDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QueryDefinition] {
-	return pulumix.Output[[]*QueryDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o QueryDefinitionArrayOutput) Index(i pulumi.IntInput) QueryDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QueryDefinition {
 		return vs[0].([]*QueryDefinition)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o QueryDefinitionMapOutput) ToQueryDefinitionMapOutput() QueryDefinitionMa
 
 func (o QueryDefinitionMapOutput) ToQueryDefinitionMapOutputWithContext(ctx context.Context) QueryDefinitionMapOutput {
 	return o
-}
-
-func (o QueryDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QueryDefinition] {
-	return pulumix.Output[map[string]*QueryDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o QueryDefinitionMapOutput) MapIndex(k pulumi.StringInput) QueryDefinitionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
@@ -249,12 +248,6 @@ func (i *NetworkInsightsPath) ToNetworkInsightsPathOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathOutput)
 }
 
-func (i *NetworkInsightsPath) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPath] {
-	return pulumix.Output[*NetworkInsightsPath]{
-		OutputState: i.ToNetworkInsightsPathOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkInsightsPathArrayInput is an input type that accepts NetworkInsightsPathArray and NetworkInsightsPathArrayOutput values.
 // You can construct a concrete instance of `NetworkInsightsPathArrayInput` via:
 //
@@ -278,12 +271,6 @@ func (i NetworkInsightsPathArray) ToNetworkInsightsPathArrayOutput() NetworkInsi
 
 func (i NetworkInsightsPathArray) ToNetworkInsightsPathArrayOutputWithContext(ctx context.Context) NetworkInsightsPathArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathArrayOutput)
-}
-
-func (i NetworkInsightsPathArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInsightsPath] {
-	return pulumix.Output[[]*NetworkInsightsPath]{
-		OutputState: i.ToNetworkInsightsPathArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkInsightsPathMapInput is an input type that accepts NetworkInsightsPathMap and NetworkInsightsPathMapOutput values.
@@ -311,12 +298,6 @@ func (i NetworkInsightsPathMap) ToNetworkInsightsPathMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsPathMapOutput)
 }
 
-func (i NetworkInsightsPathMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInsightsPath] {
-	return pulumix.Output[map[string]*NetworkInsightsPath]{
-		OutputState: i.ToNetworkInsightsPathMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInsightsPathOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsPathOutput) ElementType() reflect.Type {
@@ -329,12 +310,6 @@ func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutput() NetworkInsights
 
 func (o NetworkInsightsPathOutput) ToNetworkInsightsPathOutputWithContext(ctx context.Context) NetworkInsightsPathOutput {
 	return o
-}
-
-func (o NetworkInsightsPathOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsPath] {
-	return pulumix.Output[*NetworkInsightsPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN of the Network Insights Path.
@@ -410,12 +385,6 @@ func (o NetworkInsightsPathArrayOutput) ToNetworkInsightsPathArrayOutputWithCont
 	return o
 }
 
-func (o NetworkInsightsPathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInsightsPath] {
-	return pulumix.Output[[]*NetworkInsightsPath]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkInsightsPathArrayOutput) Index(i pulumi.IntInput) NetworkInsightsPathOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInsightsPath {
 		return vs[0].([]*NetworkInsightsPath)[vs[1].(int)]
@@ -434,12 +403,6 @@ func (o NetworkInsightsPathMapOutput) ToNetworkInsightsPathMapOutput() NetworkIn
 
 func (o NetworkInsightsPathMapOutput) ToNetworkInsightsPathMapOutputWithContext(ctx context.Context) NetworkInsightsPathMapOutput {
 	return o
-}
-
-func (o NetworkInsightsPathMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInsightsPath] {
-	return pulumix.Output[map[string]*NetworkInsightsPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInsightsPathMapOutput) MapIndex(k pulumi.StringInput) NetworkInsightsPathOutput {

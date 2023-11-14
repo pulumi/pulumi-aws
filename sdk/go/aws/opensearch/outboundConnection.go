@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Opensearch Outbound Connection.
@@ -220,12 +219,6 @@ func (i *OutboundConnection) ToOutboundConnectionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionOutput)
 }
 
-func (i *OutboundConnection) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnection] {
-	return pulumix.Output[*OutboundConnection]{
-		OutputState: i.ToOutboundConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutboundConnectionArrayInput is an input type that accepts OutboundConnectionArray and OutboundConnectionArrayOutput values.
 // You can construct a concrete instance of `OutboundConnectionArrayInput` via:
 //
@@ -249,12 +242,6 @@ func (i OutboundConnectionArray) ToOutboundConnectionArrayOutput() OutboundConne
 
 func (i OutboundConnectionArray) ToOutboundConnectionArrayOutputWithContext(ctx context.Context) OutboundConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionArrayOutput)
-}
-
-func (i OutboundConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundConnection] {
-	return pulumix.Output[[]*OutboundConnection]{
-		OutputState: i.ToOutboundConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OutboundConnectionMapInput is an input type that accepts OutboundConnectionMap and OutboundConnectionMapOutput values.
@@ -282,12 +269,6 @@ func (i OutboundConnectionMap) ToOutboundConnectionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundConnectionMapOutput)
 }
 
-func (i OutboundConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundConnection] {
-	return pulumix.Output[map[string]*OutboundConnection]{
-		OutputState: i.ToOutboundConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutboundConnectionOutput struct{ *pulumi.OutputState }
 
 func (OutboundConnectionOutput) ElementType() reflect.Type {
@@ -300,12 +281,6 @@ func (o OutboundConnectionOutput) ToOutboundConnectionOutput() OutboundConnectio
 
 func (o OutboundConnectionOutput) ToOutboundConnectionOutputWithContext(ctx context.Context) OutboundConnectionOutput {
 	return o
-}
-
-func (o OutboundConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*OutboundConnection] {
-	return pulumix.Output[*OutboundConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Accepts the connection.
@@ -359,12 +334,6 @@ func (o OutboundConnectionArrayOutput) ToOutboundConnectionArrayOutputWithContex
 	return o
 }
 
-func (o OutboundConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutboundConnection] {
-	return pulumix.Output[[]*OutboundConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OutboundConnectionArrayOutput) Index(i pulumi.IntInput) OutboundConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutboundConnection {
 		return vs[0].([]*OutboundConnection)[vs[1].(int)]
@@ -383,12 +352,6 @@ func (o OutboundConnectionMapOutput) ToOutboundConnectionMapOutput() OutboundCon
 
 func (o OutboundConnectionMapOutput) ToOutboundConnectionMapOutputWithContext(ctx context.Context) OutboundConnectionMapOutput {
 	return o
-}
-
-func (o OutboundConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutboundConnection] {
-	return pulumix.Output[map[string]*OutboundConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutboundConnectionMapOutput) MapIndex(k pulumi.StringInput) OutboundConnectionOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationArgs) ToCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
 }
 
-func (i CertificateAuthorityCertificateAuthorityConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCertificateAuthorityConfiguration] {
-	return pulumix.Output[CertificateAuthorityCertificateAuthorityConfiguration]{
-		OutputState: i.ToCertificateAuthorityCertificateAuthorityConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityCertificateAuthorityConfigurationArgs) ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationPtrOutput {
 	return i.ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *certificateAuthorityCertificateAuthorityConfigurationPtrType) ToCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityCertificateAuthorityConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificateAuthorityConfiguration] {
-	return pulumix.Output[*CertificateAuthorityCertificateAuthorityConfiguration]{
-		OutputState: i.ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityCertificateAuthorityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateAuthorityConfigurationOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToCertifica
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCertificateAuthorityConfiguration) *CertificateAuthorityCertificateAuthorityConfiguration {
 		return &v
 	}).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
-}
-
-func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCertificateAuthorityConfiguration] {
-	return pulumix.Output[CertificateAuthorityCertificateAuthorityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
@@ -167,12 +148,6 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ToCertif
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificateAuthorityConfiguration] {
-	return pulumix.Output[*CertificateAuthorityCertificateAuthorityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationOutput {
@@ -296,12 +271,6 @@ func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCert
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
 }
 
-func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCertificateAuthorityConfigurationSubject] {
-	return pulumix.Output[CertificateAuthorityCertificateAuthorityConfigurationSubject]{
-		OutputState: i.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput() CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
 	return i.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(context.Background())
 }
@@ -343,12 +312,6 @@ func (i *certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
 }
 
-func (i *certificateAuthorityCertificateAuthorityConfigurationSubjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificateAuthorityConfigurationSubject] {
-	return pulumix.Output[*CertificateAuthorityCertificateAuthorityConfigurationSubject]{
-		OutputState: i.ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ElementType() reflect.Type {
@@ -371,12 +334,6 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCertificateAuthorityConfigurationSubject) *CertificateAuthorityCertificateAuthorityConfigurationSubject {
 		return &v
 	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
-}
-
-func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCertificateAuthorityConfigurationSubject] {
-	return pulumix.Output[CertificateAuthorityCertificateAuthorityConfigurationSubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
@@ -462,12 +419,6 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) T
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCertificateAuthorityConfigurationSubject] {
-	return pulumix.Output[*CertificateAuthorityCertificateAuthorityConfigurationSubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
@@ -649,12 +600,6 @@ func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityR
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOutput)
 }
 
-func (i CertificateAuthorityRevocationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityRevocationConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationPtrOutput {
 	return i.ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -696,12 +641,6 @@ func (i *certificateAuthorityRevocationConfigurationPtrType) ToCertificateAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityRevocationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityRevocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationOutput) ElementType() reflect.Type {
@@ -724,12 +663,6 @@ func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfiguration {
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
-}
-
-func (o CertificateAuthorityRevocationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
@@ -759,12 +692,6 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAutho
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOutput {
@@ -847,12 +774,6 @@ func (i CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
-func (i CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationCrlConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
 	return i.ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(context.Background())
 }
@@ -894,12 +815,6 @@ func (i *certificateAuthorityRevocationConfigurationCrlConfigurationPtrType) ToC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityRevocationConfigurationCrlConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ElementType() reflect.Type {
@@ -922,12 +837,6 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToCer
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfigurationCrlConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
-}
-
-func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
@@ -967,12 +876,6 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) To
 
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
@@ -1072,12 +975,6 @@ func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCert
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
 }
 
-func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
 	return i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1119,12 +1016,6 @@ func (i *certificateAuthorityRevocationConfigurationOcspConfigurationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityRevocationConfigurationOcspConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityRevocationConfigurationOcspConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ElementType() reflect.Type {
@@ -1149,12 +1040,6 @@ func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToCe
 	}).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
 }
 
-func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1177,12 +1062,6 @@ func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) T
 
 func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
@@ -1252,12 +1131,6 @@ func (i CertificateValidityArgs) ToCertificateValidityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityOutput)
 }
 
-func (i CertificateValidityArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateValidity] {
-	return pulumix.Output[CertificateValidity]{
-		OutputState: i.ToCertificateValidityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateValidityArgs) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
 	return i.ToCertificateValidityPtrOutputWithContext(context.Background())
 }
@@ -1299,12 +1172,6 @@ func (i *certificateValidityPtrType) ToCertificateValidityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityPtrOutput)
 }
 
-func (i *certificateValidityPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidity] {
-	return pulumix.Output[*CertificateValidity]{
-		OutputState: i.ToCertificateValidityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateValidityOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidityOutput) ElementType() reflect.Type {
@@ -1329,12 +1196,6 @@ func (o CertificateValidityOutput) ToCertificateValidityPtrOutputWithContext(ctx
 	}).(CertificateValidityPtrOutput)
 }
 
-func (o CertificateValidityOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateValidity] {
-	return pulumix.Output[CertificateValidity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
 func (o CertificateValidityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidity) string { return v.Type }).(pulumi.StringOutput)
@@ -1357,12 +1218,6 @@ func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutput() Certifica
 
 func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
 	return o
-}
-
-func (o CertificateValidityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidity] {
-	return pulumix.Output[*CertificateValidity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateValidityPtrOutput) Elem() CertificateValidityOutput {
@@ -1428,12 +1283,6 @@ func (i GetCertificateAuthorityRevocationConfigurationArgs) ToGetCertificateAuth
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateAuthorityRevocationConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArray and GetCertificateAuthorityRevocationConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationArrayInput` via:
 //
@@ -1459,12 +1308,6 @@ func (i GetCertificateAuthorityRevocationConfigurationArray) ToGetCertificateAut
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationArrayOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateAuthorityRevocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationOutput) ElementType() reflect.Type {
@@ -1477,12 +1320,6 @@ func (o GetCertificateAuthorityRevocationConfigurationOutput) ToGetCertificateAu
 
 func (o GetCertificateAuthorityRevocationConfigurationOutput) ToGetCertificateAuthorityRevocationConfigurationOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationOutput) CrlConfigurations() GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput {
@@ -1509,12 +1346,6 @@ func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) ToGetCertific
 
 func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) ToGetCertificateAuthorityRevocationConfigurationArrayOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationArrayOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationOutput {
@@ -1562,12 +1393,6 @@ func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToGe
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationCrlConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray and GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput` via:
 //
@@ -1593,12 +1418,6 @@ func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ElementType() reflect.Type {
@@ -1611,12 +1430,6 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) To
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToGetCertificateAuthorityRevocationConfigurationCrlConfigurationOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringOutput {
@@ -1651,12 +1464,6 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput) ToGetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationCrlConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
@@ -1698,12 +1505,6 @@ func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray and GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput` via:
 //
@@ -1729,12 +1530,6 @@ func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput)
 }
 
-func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: i.ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ElementType() reflect.Type {
@@ -1747,12 +1542,6 @@ func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) T
 
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[GetCertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
@@ -1777,12 +1566,6 @@ func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutp
 
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
 	return o
-}
-
-func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration] {
-	return pulumix.Output[[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
